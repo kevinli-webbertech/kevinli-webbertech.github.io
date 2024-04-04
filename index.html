@@ -15,6 +15,8 @@
   height: 300px; /* Should be removed. Only for demonstration */
 }
 
+
+
 /* Clear floats after the columns */
 .row:after {
   content: "";
@@ -35,12 +37,12 @@
 	
 	
 <div class="row">
-  <div class="column" style="background-color:rgb(222, 221, 218);">
+  <div class="column" id= "left_sidebar" style="background-color:rgb(222, 221, 218);">
     <h2>Kevin's Blog</h2>
     <p></p>
   </div>
 
-  <div class="column" style="background-color:rgb(222, 221, 218);">
+  <div class="column" id= "content" style="background-color:rgb(222, 221, 218);">
     <h2>Market Indicator</h2>
     <p>This is for research use</p>
     <!-- TradingView Widget BEGIN -->
@@ -184,6 +186,7 @@
 <!-- TradingView Widget END -->
 	
   </div> <!-- Right column -->
+  <div class="row" id="footer"> Copyright@Webbertech.com</div>
 </div>
 
 
