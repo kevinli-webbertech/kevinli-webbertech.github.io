@@ -1,12 +1,55 @@
 <html>
-	<body>
-		<!-- TradingView Widget BEGIN -->
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+</style>
+</head>
+
+<body>
+	
+	
+<div class="row">
+  <div class="column" style="background-color:rgb(222, 221, 218);">
+    <h2>Kevin's Blog</h2>
+    <p></p>
+  </div>
+
+  <div class="column" style="background-color:rgb(222, 221, 218);">
+    <h2>Market Indicator</h2>
+    <p>This is for research use</p>
+    <!-- TradingView Widget BEGIN -->
 <div class="tradingview-widget-container">
   <div class="tradingview-widget-container__widget"></div>
   <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
   <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
   {
-  "colorTheme": "light",
+  "colorTheme": "Flight",
   "dateRange": "12M",
   "showChart": true,
   "locale": "en",
@@ -136,9 +179,13 @@
     }
   ]
 }
-  </script>
+</script>
 </div>
 <!-- TradingView Widget END -->
-	</body>
 	
+  </div> <!-- Right column -->
+</div>
+
+
+</body>
 </html>
