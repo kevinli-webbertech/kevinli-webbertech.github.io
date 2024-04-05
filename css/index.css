@@ -56,17 +56,9 @@
   clear: both;
 }
 
-.grid-container {
+.grid-flow {
   display: grid;
-  row-gap: 0px;
-  grid-template-columns: auto auto auto;
-  /*background-color: #2196F3;*/
-  padding: 10px;
-}
-
-.grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  font-size: 30px;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
 }

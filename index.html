@@ -32,30 +32,28 @@
   </div>
 
   <div class="column right">
-	  <div class="content">
+	  <div class="content grid-container">
 	    <h2>Market Indicator</h2>
 
-		<section class="" id="">
-		<div class="" id="indices">
-	    <p>Major indices and indicators</p>
-	        <!-- TradingView Widget BEGIN -->
-			<div class="tradingview-widget-container">
-			  <div class="tradingview-widget-container__widget"></div>
-			  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
-			  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
-			     <script type="application/json" src="indices.json" />	
-			  </script>
+		<section class="grid-flow" id="stocks">
+			<div id="indices">
+			<p>Major indices and indicators</p>
+				<!-- TradingView Widget BEGIN -->
+				<div class="tradingview-widget-container">
+				<div class="tradingview-widget-container__widget"></div>
+				<div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+				<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+					<script type="application/json" src="indices.json" />	
+				</script>
+				</div>
+				<!-- TradingView Widget END -->	
 			</div>
-			<!-- TradingView Widget END -->
-			
-		</div>
-		<div class="">
-			test1
-		</div>
-		<div class="">
-			test2
-		</div>
-	    
+			<div id="etf">
+				test1
+			</div>
+			<div class="">
+				something else
+			</div>
 	    </section>
 
 		<section id="consumption">
