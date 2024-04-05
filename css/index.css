@@ -14,12 +14,15 @@
 
 .left {
   width: 25%;
+  /*position: fixed;*/
 }
 
 .right {
   width: 75%;
   background-color: #e9f2f9;
   overflow: scroll;  
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .content {
