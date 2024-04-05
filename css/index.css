@@ -1,12 +1,15 @@
 * {
   box-sizing: border-box;
+  font-family: "Oswald",sans-serif;
 }
 
 /* Create two unequal columns that floats next to each other */
 .column {
   float: left;
   padding: 10px;
-  height: 650px; /* Should be removed. Only for demonstration */
+  min-height: 850px;
+  height: auto;
+  overflow: hidden;
 }
 
 .left {
@@ -15,14 +18,22 @@
 
 .right {
   width: 75%;
+  background-color: #e9f2f9;
+  overflow: scroll;  
 }
 
 .content {
 	background-color: #fff;
+  margin-right: 50px;
+  margin-left: 50px;
 }
 
 .tradingview-widget-container {
 	padding-left: 50px;
+}
+
+.footer {
+  align-content: center;
 }
 
 
