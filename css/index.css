@@ -3,6 +3,13 @@
   font-family: "Oswald",sans-serif;
 }
 
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
 /* Create two unequal columns that floats next to each other */
 .column {
   float: left;
@@ -13,12 +20,12 @@
 }
 
 .left {
-  width: 25%;
+  width: 20%;
   /*position: fixed;*/
 }
 
 .right {
-  width: 75%;
+  width: 80%;
   background-color: #e9f2f9;
   overflow: scroll;  
   overflow-x: hidden;
@@ -36,7 +43,8 @@
 }
 
 .footer {
-  align-content: center;
+  margin: auto auto;
+  text-align: center;
 }
 
 
@@ -47,9 +55,17 @@
   clear: both;
 }
 
-/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-  }
+.grid-container {
+  display: grid;
+  row-gap: 0px;
+  grid-template-columns: auto auto auto;
+  /*background-color: #2196F3;*/
+  padding: 10px;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
 }
