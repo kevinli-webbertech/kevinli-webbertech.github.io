@@ -35,28 +35,44 @@
 	  <div class="content grid-container">
 	    <h2>Market Indicator</h2>
 
-		<section class="grid-flow" id="stocks">
+		<section class="grid-flow" id="market_data">
 			<div id="indices">
-			<p>Major indices and indicators</p>
-				<!-- TradingView Widget BEGIN -->
-				<div class="tradingview-widget-container">
-				<div class="tradingview-widget-container__widget"></div>
-				<div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
-				<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
-					<script type="application/json" src="indices.json" />	
-				</script>
-				</div>
+				<p>Major indices and indicators</p>
+					<!-- TradingView Widget BEGIN -->
+					<div class="tradingview-widget-container">
+						<div class="tradingview-widget-container__widget"></div>
+						<div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+						
+						<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+							<script type="application/json" src="js/indices.json" />	
+						</script>
+				    </div>
 				<!-- TradingView Widget END -->	
-			</div>
-			<div id="etf">
-				test1
-			</div>
-			<div class="">
-				something else
-			</div>
+		    </div>
+			<div id="market_data">
+				<p>Market Data</p>
+					<div class="tradingview-widget-container">
+						<div class="tradingview-widget-container__widget"></div>
+						<div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>			
+						<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
+							<script type="application/json" src="js/market_data.json" />	
+						</script>
+					</div>
+			</div>			
 	    </section>
-
-		<section id="consumption">
+		<!--
+		<section class="grid-flow" id="stock_data">
+			<div id="stocks">
+				<div class="tradingview-widget-container">
+					<div class="tradingview-widget-container__widget"></div>
+					<div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+					<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
+						<script type="application/json" src="js/stocks_data.json" />	
+					</script>
+				</div>
+			</div>	
+		</section>-->
+		<section class="grid-flow" id="consumption">
 			<div id="job_data">
 				<h2>Job Markets</h2>
 				<pre>

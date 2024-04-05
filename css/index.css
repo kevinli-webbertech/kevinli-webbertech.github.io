@@ -60,5 +60,11 @@
   display: grid;
   grid-auto-flow: row;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  /*grid-template-rows: repeat(2, 1fr);*/
+  justify-content: center;
+  /*align-items: center;*/
+}
+
+.grid-item {
+  text-align: center;
 }
