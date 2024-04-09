@@ -73,3 +73,7 @@
 .grid-item {
   text-align: center;
 }
+
+section #description {
+  padding-left: 50px;
+}

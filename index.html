@@ -33,7 +33,7 @@
 
   <div class="column right">
 	  <div class="content grid-container">
-	    <h2>Market Indicator</h2>
+	    <h2>Macro Eco Indicator</h2>
 
 		<section class="grid-flow" id="market_data">
 			<div id="indices">
@@ -269,45 +269,111 @@
 				</div> <!--end of chart--->	
 			</div>
 
-			<div id="description">
+			<div id="">
 				https://fred.stlouisfed.org/series/PSAVERT#0"
 			</div>
 		</section>	
+		
+		<section class="grid-flow">	
 			<div id="housing_sales">
 				<h2>Housing Sales</h2>
-				<pre>
-					https://en.macromicro.me/collections/16106/20Charts_344136/81571/Housing-Market
-					US new home sales(SAAR, YoY)
-					US existing home sales (SAAR, YoY)
-					US median sales price of new homes
-					US median sales price of existing homes
-					US S&P/CS 20-city composite home price index
+				<!-- TradingView Widget BEGIN -->
 
-				</pre>
-			</div>
+					<div class="tradingview-widget-container">
+						<div class="tradingview-widget-container__widget"></div>
+						<div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+						<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
+						{
+						 "symbols": [
+							["FRED:HSN1F|1D"],
+							["ECONOMICS:USEHS|1D"],
+							["FRED:MSPNHSUS|1D"],
+							["FRED:HOSMEDUSM052N|1D"],
+							["ECONOMICS:USBP|1D"],
+							["FRED:SPCS20RSA|1D"]
+						  ],
+						"chartOnly": false,
+						"width": 650,
+						"height": 400,
+						"locale": "en",
+						"colorTheme": "light",
+						"autosize": false,
+						"showVolume": false,
+						"showMA": false,
+						"hideDateRanges": false,
+						"hideMarketStatus": false,
+						"hideSymbolLogo": false,
+						"scalePosition": "right",
+						"scaleMode": "Normal",
+						"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+						"fontSize": "10",
+						"noTimeScale": false,
+						"valuesTracking": "1",
+						"changeMode": "price-and-percent",
+						"chartType": "area",
+						"maLineColor": "#2962FF",
+						"maLineWidth": 1,
+						"maLength": 9,
+						"lineWidth": 2,
+						"lineType": 0,
+						"dateRanges": [
+						"1d|1",
+						"1m|30",
+						"3m|60",
+						"12m|1D",
+						"60m|1W",
+						"all|1M"
+						]
+					}
+						</script>
+					</div> <!--end of chart--->	
 			
+			</div>
+
+			<div id="">
+				https://en.macromicro.me/collections/16106/20Charts_344136/81571/Housing-Market
+			    <ol>
+					<li>US new home sales</li>
+					<li>US existing home sales</li>
+					<li>US median sales price of new homes</li>
+					<li>US median sales price of existing homes</li>
+					<li>United States Building Permits</li>
+					<li>US S&P/CS 20-city composite home price index</li>
+			    </ol>
+			</div>
+		</section>
+		<section class="grid-flow">	
+		
 			<div id="car_sales">
 				<h2>Car Sales</h2>
-                 <pre>
-					https://en.macromicro.me/collections/16106/20Charts_344136/82473/Vehicle-Sales
-					1/ total vehicle sales (SAAR, L)
-					2/ manheim used vehicle value index
-					3/ total vehicle sales (SAAR, YoY, R)
-				  </pre>		
+             	
 			</div>
-
+			<div>
+				https://en.macromicro.me/collections/16106/20Charts_344136/82473/Vehicle-Sales
+				<ol>
+				   <li>total vehicle sales (SAAR, L)</li>
+				   <li>manheim used vehicle value index</li>
+				   <li>total vehicle sales (SAAR, YoY, R)</li>
+				</ol>
+			</div>
+		</section>
+		<section class="grid-flow">	
+			
 			<div id="retails">
 				<h2>Retails</h2>
-				<pre>
+			
+			</div>
+			<div>
 				https://en.macromicro.me/collections/16106/20Charts_344136/80948/Retail-Sales
-				1/ redbook same -- store retail sales index(YoY)
-				2/ US retail sales (YoY)
-				3/ Non-store retail sales (YoY)
-				</prep>
+				<ol>
+					<li> redbook same -- store retail sales index(YoY) </li>
+					<li> US retail sales (YoY) </li>
+					<li> Non-store retail sales (YoY) </li>
+				</ol>
 			</div>
 			</section>
 
-			<section id="supply">
+		<section class="grid-flow" id="supply">
 				<div id="housing_supply">
 					<h2>Housing Supply</h2>
 					<pre>https://en.macromicro.me/collections/16106/20Charts_344136/82616/Housing-Supply
@@ -320,7 +386,8 @@
 						https://en.macromicro.me/collections/16106/20Charts_344136/81572/PMI-Durable-Goods
 					</prep>
 				</div>
-
+		</section>
+	    <section class="grid-flow" >
 				<div id="WEI-GDP-Growth">
 					<h2>WEI-GDP-Growth</h2>
 					<pre>
@@ -349,10 +416,9 @@
 						https://en.macromicro.me/collections/16106/20Charts_344136/80654/Inflation-Monetary-Policy-Expectation
 					</prep>
 				</div>
-			</section>
+		</section>
 		
-
-			<section id="us_rates">
+		<section class="grid-flow" id="us_rates">
 				<div id="interest_rates">
 					<h2>US Rates</h2>
 					<pre>
@@ -366,8 +432,7 @@
 						https://en.macromicro.me/collections/16106/20Charts_344136/82929/Credit-Spread-VIX-and-SP500
 					</pre>
 				</div>
-
-			</section>
+		</section>
 	  </div> <!--end of content div-->
 	 
   </div> <!-- Right column -->
