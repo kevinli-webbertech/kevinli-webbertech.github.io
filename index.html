@@ -74,78 +74,82 @@
 		</section>-->
 
 		<section class="grid-flow" id="stock_symbols">
-			<!-- TradingView Widget BEGIN -->
-			<div class="tradingview-widget-container">
-				<div class="tradingview-widget-container__widget"></div>
-				<div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
-				<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
-				{
-				"symbols": [
-				[
-					"Apple",
-					"AAPL|1D"
-				],
-				[
-					"Google",
-					"GOOGL|1D"
-				],
-				[
-					"Microsoft",
-					"MSFT|1D"
-				],
-				[
-					"NASDAQ:TSLA|1D"
-				],
-				[
-					"NASDAQ:NVDA|1D"
-				],
-				[
-					"NASDAQ:META|1D"
-				],
-				[
-					"NYSE:PLTR|1D"
-				], 
-				[
-					"ECONOMICS:USNFP|1D"
-	  			]],
-				
-				"chartOnly": false,
-				"width": 550,
-				"height": 400,
-				"locale": "en",
-				"colorTheme": "light",
-				"autosize": false,
-				"showVolume": false,
-				"showMA": false,
-				"hideDateRanges": false,
-				"hideMarketStatus": false,
-				"hideSymbolLogo": false,
-				"scalePosition": "right",
-				"scaleMode": "Normal",
-				"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-				"fontSize": "10",
-				"noTimeScale": false,
-				"valuesTracking": "1",
-				"changeMode": "price-and-percent",
-				"chartType": "area",
-				"maLineColor": "#2962FF",
-				"maLineWidth": 1,
-				"maLength": 9,
-				"lineWidth": 2,
-				"lineType": 0,
-				"dateRanges": [
-				"1d|1",
-				"1m|30",
-				"3m|60",
-				"12m|1D",
-				"60m|1W",
-				"all|1M"
-				]
-			}
-				</script>
+			<div id="stocks">
+				<p>Stock Tracking</p>
+					<!-- TradingView Widget BEGIN -->
+					<div class="tradingview-widget-container">
+						<div class="tradingview-widget-container__widget"></div>
+						<div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+						<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
+						{
+						"symbols": [
+						[
+							"Apple",
+							"AAPL|1D"
+						],
+						[
+							"Google",
+							"GOOGL|1D"
+						],
+						[
+							"Microsoft",
+							"MSFT|1D"
+						],
+						[
+							"NASDAQ:TSLA|1D"
+						],
+						[
+							"NASDAQ:NVDA|1D"
+						],
+						[
+							"NASDAQ:META|1D"
+						],
+						[
+							"NYSE:PLTR|1D"
+						], 
+						[
+							"ECONOMICS:USNFP|1D"
+						]],
+						
+						"chartOnly": false,
+						"width": 550,
+						"height": 400,
+						"locale": "en",
+						"colorTheme": "light",
+						"autosize": false,
+						"showVolume": false,
+						"showMA": false,
+						"hideDateRanges": false,
+						"hideMarketStatus": false,
+						"hideSymbolLogo": false,
+						"scalePosition": "right",
+						"scaleMode": "Normal",
+						"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+						"fontSize": "10",
+						"noTimeScale": false,
+						"valuesTracking": "1",
+						"changeMode": "price-and-percent",
+						"chartType": "area",
+						"maLineColor": "#2962FF",
+						"maLineWidth": 1,
+						"maLength": 9,
+						"lineWidth": 2,
+						"lineType": 0,
+						"dateRanges": [
+						"1d|1",
+						"1m|30",
+						"3m|60",
+						"12m|1D",
+						"60m|1W",
+						"all|1M"
+						]
+					}
+						</script>
+					</div>
+				<!-- TradingView Widget END -->
 			</div>
-  <!-- TradingView Widget END -->
 		</section>
+
 		<section class="grid-flow" id="consumption">
 			<div id="job_data">
 				<h2>Job Markets</h2>
@@ -206,17 +210,69 @@
 			}
 				</script>
 			</div>
-			
+			</div>
+		</section>
+		<section class="grid-flow">	
 			<div id="personal_finance">
 				<h2>Personal Finance</h2>
-				<pre>
-					https://en.macromicro.me/collections/16106/20Charts_344136/81563/US-Personal-Financial-Condition
-					1/ personal income
-					2/ personal saving
-					3/Personal consumption expenditure (PCE) SAAR, YoY
-				</pre>
+				<!-- TradingView Widget BEGIN -->
+				<div class="tradingview-widget-container">
+					<div class="tradingview-widget-container__widget"></div>
+					<div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+					<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
+					{
+					 "symbols": [
+						[
+							"ECONOMICS:USCS|1D"
+						  ],
+						[ 
+							"FRED:PSAVERT|1D"
+						  ],
+						[
+							"ECONOMICS:USPI|1D"
+						]
+					],
+					"chartOnly": false,
+					"width": 550,
+					"height": 400,
+					"locale": "en",
+					"colorTheme": "light",
+					"autosize": false,
+					"showVolume": false,
+					"showMA": false,
+					"hideDateRanges": false,
+					"hideMarketStatus": false,
+					"hideSymbolLogo": false,
+					"scalePosition": "right",
+					"scaleMode": "Normal",
+					"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+					"fontSize": "10",
+					"noTimeScale": false,
+					"valuesTracking": "1",
+					"changeMode": "price-and-percent",
+					"chartType": "area",
+					"maLineColor": "#2962FF",
+					"maLineWidth": 1,
+					"maLength": 9,
+					"lineWidth": 2,
+					"lineType": 0,
+					"dateRanges": [
+					"1d|1",
+					"1m|30",
+					"3m|60",
+					"12m|1D",
+					"60m|1W",
+					"all|1M"
+					]
+				}
+					</script>
+				</div> <!--end of chart--->	
 			</div>
-			
+
+			<div id="description">
+				https://fred.stlouisfed.org/series/PSAVERT#0"
+			</div>
+		</section>	
 			<div id="housing_sales">
 				<h2>Housing Sales</h2>
 				<pre>
