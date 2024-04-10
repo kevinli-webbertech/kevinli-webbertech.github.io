@@ -34,9 +34,10 @@
 }
 
 .content {
-	background-color: #fff;
+  background-color: #fff;
   margin-right: 50px;
   margin-left: 50px;
+  margin-top:50px;
 }
 
 .tradingview-widget-container {
@@ -70,10 +71,37 @@
   /*align-items: center;*/
 }
 
+/* not being used 
 .grid-item {
   text-align: center;
 }
 
 section #description {
   padding-left: 50px;
+} */
+
+#nav_menu  ul{
+  position: fixed;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: e9f2f9;
+}
+
+#nav_menu li {
+  float: left;
+}
+
+#nav_menu li a {
+  display: block;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+#nav_menu li a:hover {
+  background-color: rgb(222, 221, 218);
 }
