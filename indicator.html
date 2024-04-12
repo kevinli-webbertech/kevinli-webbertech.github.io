@@ -40,14 +40,14 @@
   </div>
 
   <div class="column right">
-      <div id="nav_menu">
+      <nav id="nav_menu">
 	    <ul>     	
 			<li><a href="index.html">Home</a></li>
 	  		<li><a href="about_me.html">About Me</a></li>
 	  		<li><a href="indicator.html" onclick="load_indicator_menu()">Eco Indicator</a></li>
 	    	<li><a href="/blog/index.html">Blog</a></li>
 	    </ul>
-	  </div>
+	  </nav>
   
 	  <div class="content grid-container">
 			<section class="grid-flow" id="market_data">
@@ -59,7 +59,137 @@
 						<div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
 						
 						<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
-							<script type="application/json" src="js/indices.json" />	
+							{
+							  "colorTheme": "Flight",
+							  "dateRange": "12M",
+							  "showChart": true,
+							  "locale": "en",
+							  "largeChartUrl": "",
+							  "isTransparent": false,
+							  "showSymbolLogo": true,
+							  "showFloatingTooltip": false,
+							  "width": "400",
+							  "height": "550",
+							  "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
+							  "plotLineColorFalling": "rgba(41, 98, 255, 1)",
+							  "gridLineColor": "rgba(240, 243, 250, 0)",
+							  "scaleFontColor": "rgba(106, 109, 120, 1)",
+							  "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
+							  "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
+							  "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
+							  "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
+							  "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
+							  "tabs": [
+							    {
+							      "title": "Indices",
+							      "symbols": [
+							        {
+							          "s": "FOREXCOM:SPXUSD",
+							          "d": "S&P 500 Index"
+							        },
+							        {
+							          "s": "FOREXCOM:DJI",
+							          "d": "Dow Jones Industrial Average Index"
+							        },
+							        {
+							          "s": "OANDA:NAS100USD",
+							          "d": "Nasdqa100"
+							        },
+							        {
+							          "s": "INDEX:MADZ",
+							          "d": "Russell 3000 52 week HI-LO"
+							        }
+							      ],
+							      "originalTitle": "Indices"
+							    },
+							    {
+							      "title": "Futures",
+							      "symbols": [
+							        {
+							          "s": "CME_MINI:ES1!",
+							          "d": "S&P 500"
+							        },
+							        {
+							          "s": "CME:6E1!",
+							          "d": "Euro"
+							        },
+							        {
+							          "s": "COMEX:GC1!",
+							          "d": "Gold"
+							        },
+							        {
+							          "s": "NYMEX:CL1!",
+							          "d": "WTI Crude Oil"
+							        },
+							        {
+							          "s": "NYMEX:NG1!",
+							          "d": "Gas"
+							        },
+							        {
+							          "s": "CBOT:ZC1!",
+							          "d": "Corn"
+							        }
+							      ],
+							      "originalTitle": "Futures"
+							    },
+							    {
+							      "title": "Bonds",
+							      "symbols": [
+							        {
+							          "s": "CBOT:ZB1!",
+							          "d": "T-Bond"
+							        },
+							        {
+							          "s": "CBOT:UB1!",
+							          "d": "Ultra T-Bond"
+							        },
+							        {
+							          "s": "EUREX:FGBL1!",
+							          "d": "Euro Bund"
+							        },
+							        {
+							          "s": "EUREX:FBTP1!",
+							          "d": "Euro BTP"
+							        },
+							        {
+							          "s": "EUREX:FGBM1!",
+							          "d": "Euro BOBL"
+							        }
+							      ],
+							      "originalTitle": "Bonds"
+							    },
+							    {
+							      "title": "Forex",
+							      "symbols": [
+							        {
+							          "s": "FX:EURUSD",
+							          "d": "EUR to USD"
+							        },
+							        {
+							          "s": "FX:GBPUSD",
+							          "d": "GBP to USD"
+							        },
+							        {
+							          "s": "FX:USDJPY",
+							          "d": "USD to JPY"
+							        },
+							        {
+							          "s": "FX:USDCHF",
+							          "d": "USD to CHF"
+							        },
+							        {
+							          "s": "FX:AUDUSD",
+							          "d": "AUD to USD"
+							        },
+							        {
+							          "s": "FX:USDCAD",
+							          "d": "USD to CAD"
+							        }
+							      ],
+							      "originalTitle": "Forex"
+							    }
+							  ]
+							}
 						</script>
 				    </div>
 				<!-- TradingView Widget END -->	
@@ -70,7 +200,150 @@
 						<div class="tradingview-widget-container__widget"></div>
 						<div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>			
 						<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
-							<script type="application/json" src="js/market_data.json" />	
+							 {
+							  "width": 900,
+							  "height": 550,
+							  "symbolsGroups": [
+							    {
+							      "name": "Indices",
+							      "originalName": "Indices",
+							      "symbols": [
+							        {
+							          "name": "FOREXCOM:SPXUSD",
+							          "displayName": "S&P 500 Index"
+							        },
+							        {
+							          "name": "FOREXCOM:NSXUSD",
+							          "displayName": "US 100 Cash CFD"
+							        },
+							        {
+							          "name": "FOREXCOM:DJI",
+							          "displayName": "Dow Jones Industrial Average Index"
+							        },
+							        {
+							          "name": "INDEX:NKY",
+							          "displayName": "Nikkei 225"
+							        },
+							        {
+							          "name": "INDEX:DEU40",
+							          "displayName": "DAX Index"
+							        },
+							        {
+							          "name": "FOREXCOM:UKXGBP",
+							          "displayName": "FTSE 100 Index"
+							        }
+							      ]
+							    },
+							    {
+							      "name": "Futures",
+							      "originalName": "Futures",
+							      "symbols": [
+							        {
+							          "name": "CME_MINI:ES1!",
+							          "displayName": "S&P 500"
+							        },
+							        {
+							          "name": "CME:6E1!",
+							          "displayName": "Euro"
+							        },
+							        {
+							          "name": "COMEX:GC1!",
+							          "displayName": "Gold"
+							        },
+							        {
+							          "name": "NYMEX:CL1!",
+							          "displayName": "WTI Crude Oil"
+							        },
+							        {
+							          "name": "NYMEX:NG1!",
+							          "displayName": "Gas"
+							        },
+							        {
+							          "name": "CBOT:ZC1!",
+							          "displayName": "Corn"
+							        }
+							      ]
+							    },
+							    {
+							      "name": "Bonds",
+							      "originalName": "Bonds",
+							      "symbols": [
+							        {
+							          "name": "CBOT:ZB1!",
+							          "displayName": "T-Bond"
+							        },
+							        {
+							          "name": "CBOT:UB1!",
+							          "displayName": "Ultra T-Bond"
+							        },
+							        {
+							          "name": "EUREX:FGBL1!",
+							          "displayName": "Euro Bund"
+							        },
+							        {
+							          "name": "EUREX:FBTP1!",
+							          "displayName": "Euro BTP"
+							        },
+							        {
+							          "name": "EUREX:FGBM1!",
+							          "displayName": "Euro BOBL"
+							        }
+							      ]
+							    },
+							    {
+							      "name": "Forex",
+							      "originalName": "Forex",
+							      "symbols": [
+							        {
+							          "name": "FX:EURUSD",
+							          "displayName": "EUR to USD"
+							        },
+							        {
+							          "name": "FX:GBPUSD",
+							          "displayName": "GBP to USD"
+							        },
+							        {
+							          "name": "FX:USDJPY",
+							          "displayName": "USD to JPY"
+							        },
+							        {
+							          "name": "FX:USDCHF",
+							          "displayName": "USD to CHF"
+							        },
+							        {
+							          "name": "FX:AUDUSD",
+							          "displayName": "AUD to USD"
+							        },
+							        {
+							          "name": "FX:USDCAD",
+							          "displayName": "USD to CAD"
+							        }
+							      ]
+							    },
+							    {
+							      "name": "Stocks",
+							      "symbols": [
+							        {
+							          "name": "NASDAQ:TSLA"
+							        },
+							        {
+							          "name": "NASDAQ:NVDA"
+							        },
+							        {
+							          "name": "NASDAQ:AAPL"
+							        },
+							        {
+							          "name": "NASDAQ:AMD"
+							        }
+							      ]
+							    }
+							  ],
+							  "showSymbolLogo": true,
+							  "isTransparent": false,
+							  "colorTheme": "light",
+							  "locale": "en",
+							  "backgroundColor": "#ffffff"
+							}
 						</script>
 					</div>
 			</div>			
@@ -85,66 +358,66 @@
 						<div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
 						<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
 						{
-						"symbols": [
-						[
-							"Apple",
-							"AAPL|1D"
-						],
-						[
-							"Google",
-							"GOOGL|1D"
-						],
-						[
-							"Microsoft",
-							"MSFT|1D"
-						],
-						[
-							"NASDAQ:TSLA|1D"
-						],
-						[
-							"NASDAQ:NVDA|1D"
-						],
-						[
-							"NASDAQ:META|1D"
-						],
-						[
-							"NYSE:PLTR|1D"
-						]
-						],
-						
-						"chartOnly": false,
-						"width": 550,
-						"height": 400,
-						"locale": "en",
-						"colorTheme": "light",
-						"autosize": false,
-						"showVolume": false,
-						"showMA": false,
-						"hideDateRanges": false,
-						"hideMarketStatus": false,
-						"hideSymbolLogo": false,
-						"scalePosition": "right",
-						"scaleMode": "Normal",
-						"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-						"fontSize": "10",
-						"noTimeScale": false,
-						"valuesTracking": "1",
-						"changeMode": "price-and-percent",
-						"chartType": "area",
-						"maLineColor": "#2962FF",
-						"maLineWidth": 1,
-						"maLength": 9,
-						"lineWidth": 2,
-						"lineType": 0,
-						"dateRanges": [
-						"1d|1",
-						"1m|30",
-						"3m|60",
-						"12m|1D",
-						"60m|1W",
-						"all|1M"
-						]
-					}
+							"symbols": [
+							[
+								"Apple",
+								"AAPL|1D"
+							],
+							[
+								"Google",
+								"GOOGL|1D"
+							],
+							[
+								"Microsoft",
+								"MSFT|1D"
+							],
+							[
+								"NASDAQ:TSLA|1D"
+							],
+							[
+								"NASDAQ:NVDA|1D"
+							],
+							[
+								"NASDAQ:META|1D"
+							],
+							[
+								"NYSE:PLTR|1D"
+							]
+							],
+							
+							"chartOnly": false,
+							"width": 550,
+							"height": 400,
+							"locale": "en",
+							"colorTheme": "light",
+							"autosize": false,
+							"showVolume": false,
+							"showMA": false,
+							"hideDateRanges": false,
+							"hideMarketStatus": false,
+							"hideSymbolLogo": false,
+							"scalePosition": "right",
+							"scaleMode": "Normal",
+							"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+							"fontSize": "10",
+							"noTimeScale": false,
+							"valuesTracking": "1",
+							"changeMode": "price-and-percent",
+							"chartType": "area",
+							"maLineColor": "#2962FF",
+							"maLineWidth": 1,
+							"maLength": 9,
+							"lineWidth": 2,
+							"lineType": 0,
+							"dateRanges": [
+							"1d|1",
+							"1m|30",
+							"3m|60",
+							"12m|1D",
+							"60m|1W",
+							"all|1M"
+							]
+						}
 						</script>
 					</div>
 				<!-- TradingView Widget END -->
@@ -160,64 +433,11 @@
 				<div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
 				<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
 				{
-				"symbols": [
-					["ECONOMICS:USNFP|1D"],
-					["ECONOMICS:USIJC|1D"],
-					["ECONOMICS:USCJC|1D"],
-					[ "FRED:ICSA|1D"]
-				],
-				"chartOnly": false,
-				"width": 550,
-				"height": 400,
-				"locale": "en",
-				"colorTheme": "light",
-				"autosize": false,
-				"showVolume": false,
-				"showMA": false,
-				"hideDateRanges": false,
-				"hideMarketStatus": false,
-				"hideSymbolLogo": false,
-				"scalePosition": "right",
-				"scaleMode": "Normal",
-				"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-				"fontSize": "10",
-				"noTimeScale": false,
-				"valuesTracking": "1",
-				"changeMode": "price-and-percent",
-				"chartType": "area",
-				"maLineColor": "#2962FF",
-				"maLineWidth": 1,
-				"maLength": 9,
-				"lineWidth": 2,
-				"lineType": 0,
-				"dateRanges": [
-				"1d|1",
-				"1m|30",
-				"3m|60",
-				"12m|1D",
-				"60m|1W",
-				"all|1M"
-				]
-			}
-				</script>
-			</div>
-			</div>
-		</section>
-		
-		<section class="grid-flow">	
-			<div id="personal_finance">
-				<h2>Personal Finance</h2>
-				<!-- TradingView Widget BEGIN -->
-				<div class="tradingview-widget-container">
-					<div class="tradingview-widget-container__widget"></div>
-					<div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
-					<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
-					{
-					 "symbols": [
-						["ECONOMICS:USCS|1D"],
-						["FRED:PSAVERT|1D"],
-						["ECONOMICS:USPI|1D"],
-						["ECONOMICS:USDPI|1D"]
+					"symbols": [
+						["ECONOMICS:USNFP|1D"],
+						["ECONOMICS:USIJC|1D"],
+						["ECONOMICS:USCJC|1D"],
+						[ "FRED:ICSA|1D"]
 					],
 					"chartOnly": false,
 					"width": 550,
@@ -251,7 +471,60 @@
 					"60m|1W",
 					"all|1M"
 					]
-				}
+			   }
+				</script>
+			</div>
+			</div>
+		</section>
+		
+		<section class="grid-flow">	
+			<div id="personal_finance">
+				<h2>Personal Finance</h2>
+				<!-- TradingView Widget BEGIN -->
+				<div class="tradingview-widget-container">
+					<div class="tradingview-widget-container__widget"></div>
+					<div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+					<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
+					{
+						 "symbols": [
+							["ECONOMICS:USCS|1D"],
+							["FRED:PSAVERT|1D"],
+							["ECONOMICS:USPI|1D"],
+							["ECONOMICS:USDPI|1D"]
+						],
+						"chartOnly": false,
+						"width": 550,
+						"height": 400,
+						"locale": "en",
+						"colorTheme": "light",
+						"autosize": false,
+						"showVolume": false,
+						"showMA": false,
+						"hideDateRanges": false,
+						"hideMarketStatus": false,
+						"hideSymbolLogo": false,
+						"scalePosition": "right",
+						"scaleMode": "Normal",
+						"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+						"fontSize": "10",
+						"noTimeScale": false,
+						"valuesTracking": "1",
+						"changeMode": "price-and-percent",
+						"chartType": "area",
+						"maLineColor": "#2962FF",
+						"maLineWidth": 1,
+						"maLength": 9,
+						"lineWidth": 2,
+						"lineType": 0,
+						"dateRanges": [
+						"1d|1",
+						"1m|30",
+						"3m|60",
+						"12m|1D",
+						"60m|1W",
+						"all|1M"
+						]
+					}
 					</script>
 				</div> <!--end of chart-->
 				
@@ -271,11 +544,196 @@
 						<div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
 						<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
 						{
+							 "symbols": [
+								["FRED:HSN1F|1D"],
+								["ECONOMICS:USEHS|1D"],
+								["FRED:MSPNHSUS|1D"],
+								["FRED:HOSMEDUSM052N|1D"],
+								["ECONOMICS:USBP|1D"],
+								["FRED:SPCS20RSA|1D"]
+							  ],
+							"chartOnly": false,
+							"width": 650,
+							"height": 400,
+							"locale": "en",
+							"colorTheme": "light",
+							"autosize": false,
+							"showVolume": false,
+							"showMA": false,
+							"hideDateRanges": false,
+							"hideMarketStatus": false,
+							"hideSymbolLogo": false,
+							"scalePosition": "right",
+							"scaleMode": "Normal",
+							"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+							"fontSize": "10",
+							"noTimeScale": false,
+							"valuesTracking": "1",
+							"changeMode": "price-and-percent",
+							"chartType": "area",
+							"maLineColor": "#2962FF",
+							"maLineWidth": 1,
+							"maLength": 9,
+							"lineWidth": 2,
+							"lineType": 0,
+							"dateRanges": [
+							"1d|1",
+							"1m|30",
+							"3m|60",
+							"12m|1D",
+							"60m|1W",
+							"all|1M"
+							]
+						}
+						</script>
+					</div> <!--end of chart-->	
+				<div id="">
+					https://en.macromicro.me/collections/16106/20Charts_344136/81571/Housing-Market
+				    <ul>
+						<li>US new home sales</li>
+						<li>US existing home sales</li>
+						<li>US median sales price of new homes</li>
+						<li>US median sales price of existing homes</li>
+						<li>United States Building Permits</li>
+						<li>US S&P/CS 20-city composite home price index</li>
+				    </ul>
+				</div>
+			</div>
+		</section>
+		
+		<section class="grid-flow">	
+			<div id="car_sales">
+				<h2>Car Sales</h2>
+             	<!-- TradingView Widget BEGIN -->
+				 <div class="tradingview-widget-container">
+					<div class="tradingview-widget-container__widget"></div>
+					<div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+					<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
+					{
 						 "symbols": [
-							["FRED:HSN1F|1D"],
-							["ECONOMICS:USEHS|1D"],
-							["FRED:MSPNHSUS|1D"],
-							["FRED:HOSMEDUSM052N|1D"],
+							["FRED:TOTALSA|1D"],
+						    ["FRED:CUSR0000SETA02|1D"]
+						  ],
+						"chartOnly": false,
+						"width": 650,
+						"height": 400,
+						"locale": "en",
+						"colorTheme": "light",
+						"autosize": false,
+						"showVolume": false,
+						"showMA": false,
+						"hideDateRanges": false,
+						"hideMarketStatus": false,
+						"hideSymbolLogo": false,
+						"scalePosition": "right",
+						"scaleMode": "Normal",
+						"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+						"fontSize": "10",
+						"noTimeScale": false,
+						"valuesTracking": "1",
+						"changeMode": "price-and-percent",
+						"chartType": "area",
+						"maLineColor": "#2962FF",
+						"maLineWidth": 1,
+						"maLength": 9,
+						"lineWidth": 2,
+						"lineType": 0,
+						"dateRanges": [
+						"1d|1",
+						"1m|30",
+						"3m|60",
+						"12m|1D",
+						"60m|1W",
+						"all|1M"
+						]
+					}
+					</script>
+				</div> <!--end of chart-->
+				<div>
+				https://en.macromicro.me/collections/16106/20Charts_344136/82473/Vehicle-Sales
+				<ul>
+				   <li>total vehicle sales</li>
+				   <li>manheim used vehicle value index</li>
+				   <li><a href="//fred.stlouisfed.org/series/TOTALSA">fred data</a></li>
+				</ul>
+			</div>
+			</div>
+			
+		</section>
+
+		<section class="grid-flow">	
+			<div id="retails">
+				<h2>Retails</h2>
+			     <!-- TradingView Widget BEGIN -->
+				 <div class="tradingview-widget-container">
+					<div class="tradingview-widget-container__widget"></div>
+					<div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+					<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
+					{
+						 "symbols": [
+							["ECONOMICS:USRI|1D"],
+							["ECONOMICS:USRSYY|1D"],
+							["FRED:ECOMSA|1D"]
+						  ],
+						"chartOnly": false,
+						"width": 650,
+						"height": 400,
+						"locale": "en",
+						"colorTheme": "light",
+						"autosize": false,
+						"showVolume": false,
+						"showMA": false,
+						"hideDateRanges": false,
+						"hideMarketStatus": false,
+						"hideSymbolLogo": false,
+						"scalePosition": "right",
+						"scaleMode": "Normal",
+						"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+						"fontSize": "10",
+						"noTimeScale": false,
+						"valuesTracking": "1",
+						"changeMode": "price-and-percent",
+						"chartType": "area",
+						"maLineColor": "#2962FF",
+						"maLineWidth": 1,
+						"maLength": 9,
+						"lineWidth": 2,
+						"lineType": 0,
+						"dateRanges": [
+						"1d|1",
+						"1m|30",
+						"3m|60",
+						"12m|1D",
+						"60m|1W",
+						"all|1M"
+						]
+					}
+					</script>
+				</div> <!--end of chart-->	
+				<div>
+					https://en.macromicro.me/collections/16106/20Charts_344136/80948/Retail-Sales
+					<ul>
+						<li><a href="https://tradingeconomics.com/united-states/redbook-index">redbook same-store retail sales index(YoY)</a> </li>
+						<li><a href="https://www.tradingview.com/symbols/ECONOMICS-USRSYY/"> United States Retail Sales YoY</a></li>
+						<li><a href="https://fred.stlouisfed.org/series/RSNSR">FRED Advance Retail Sales: Nonstore Retailers</a></li>
+						<li><a href="https://fred.stlouisfed.org/series/ECOMSA">FRED E-Commerce Retail Sales</a></li>
+					</ul>
+				</div>
+			</div>
+			</section>
+
+		<section class="grid-flow">
+			<div id="housing_supply">
+				<h2>Housing Supply</h2>
+				<!-- TradingView Widget BEGIN -->
+				<div class="tradingview-widget-container">
+					<div class="tradingview-widget-container__widget"></div>
+					<div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+					<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
+						{
+						 "symbols": [
+							["ECONOMICS:USHST|1D"],
+							["FRED:ACTLISCOUUS|1D"],
 							["ECONOMICS:USBP|1D"],
 							["FRED:SPCS20RSA|1D"]
 						  ],
@@ -312,191 +770,6 @@
 						"all|1M"
 						]
 					}
-						</script>
-					</div> <!--end of chart-->	
-				<div id="">
-					https://en.macromicro.me/collections/16106/20Charts_344136/81571/Housing-Market
-				    <ul>
-						<li>US new home sales</li>
-						<li>US existing home sales</li>
-						<li>US median sales price of new homes</li>
-						<li>US median sales price of existing homes</li>
-						<li>United States Building Permits</li>
-						<li>US S&P/CS 20-city composite home price index</li>
-				    </ul>
-				</div>
-			</div>
-		</section>
-		
-		<section class="grid-flow">	
-			<div id="car_sales">
-				<h2>Car Sales</h2>
-             	<!-- TradingView Widget BEGIN -->
-				 <div class="tradingview-widget-container">
-					<div class="tradingview-widget-container__widget"></div>
-					<div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
-					<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
-					{
-					 "symbols": [
-						["FRED:TOTALSA|1D"],
-					    ["FRED:CUSR0000SETA02|1D"]
-					  ],
-					"chartOnly": false,
-					"width": 650,
-					"height": 400,
-					"locale": "en",
-					"colorTheme": "light",
-					"autosize": false,
-					"showVolume": false,
-					"showMA": false,
-					"hideDateRanges": false,
-					"hideMarketStatus": false,
-					"hideSymbolLogo": false,
-					"scalePosition": "right",
-					"scaleMode": "Normal",
-					"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-					"fontSize": "10",
-					"noTimeScale": false,
-					"valuesTracking": "1",
-					"changeMode": "price-and-percent",
-					"chartType": "area",
-					"maLineColor": "#2962FF",
-					"maLineWidth": 1,
-					"maLength": 9,
-					"lineWidth": 2,
-					"lineType": 0,
-					"dateRanges": [
-					"1d|1",
-					"1m|30",
-					"3m|60",
-					"12m|1D",
-					"60m|1W",
-					"all|1M"
-					]
-				}
-					</script>
-				</div> <!--end of chart-->
-				<div>
-				https://en.macromicro.me/collections/16106/20Charts_344136/82473/Vehicle-Sales
-				<ul>
-				   <li>total vehicle sales</li>
-				   <li>manheim used vehicle value index</li>
-				   <li><a href="//fred.stlouisfed.org/series/TOTALSA">fred data</a></li>
-				</ul>
-			</div>
-			</div>
-			
-		</section>
-
-		<section class="grid-flow">	
-			<div id="retails">
-				<h2>Retails</h2>
-			     <!-- TradingView Widget BEGIN -->
-				 <div class="tradingview-widget-container">
-					<div class="tradingview-widget-container__widget"></div>
-					<div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
-					<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
-					{
-					 "symbols": [
-						["ECONOMICS:USRI|1D"],
-						["ECONOMICS:USRSYY|1D"],
-						["FRED:ECOMSA|1D"]
-					  ],
-					"chartOnly": false,
-					"width": 650,
-					"height": 400,
-					"locale": "en",
-					"colorTheme": "light",
-					"autosize": false,
-					"showVolume": false,
-					"showMA": false,
-					"hideDateRanges": false,
-					"hideMarketStatus": false,
-					"hideSymbolLogo": false,
-					"scalePosition": "right",
-					"scaleMode": "Normal",
-					"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-					"fontSize": "10",
-					"noTimeScale": false,
-					"valuesTracking": "1",
-					"changeMode": "price-and-percent",
-					"chartType": "area",
-					"maLineColor": "#2962FF",
-					"maLineWidth": 1,
-					"maLength": 9,
-					"lineWidth": 2,
-					"lineType": 0,
-					"dateRanges": [
-					"1d|1",
-					"1m|30",
-					"3m|60",
-					"12m|1D",
-					"60m|1W",
-					"all|1M"
-					]
-				}
-					</script>
-				</div> <!--end of chart-->	
-				<div>
-					https://en.macromicro.me/collections/16106/20Charts_344136/80948/Retail-Sales
-					<ul>
-						<li><a href="https://tradingeconomics.com/united-states/redbook-index">redbook same-store retail sales index(YoY)</a> </li>
-						<li><a href="https://www.tradingview.com/symbols/ECONOMICS-USRSYY/"> United States Retail Sales YoY</a></li>
-						<li><a href="https://fred.stlouisfed.org/series/RSNSR">FRED Advance Retail Sales: Nonstore Retailers</a></li>
-						<li><a href="https://fred.stlouisfed.org/series/ECOMSA">FRED E-Commerce Retail Sales</a></li>
-					</ul>
-				</div>
-			</div>
-			</section>
-
-		<section class="grid-flow">
-			<div id="housing_supply">
-				<h2>Housing Supply</h2>
-				<!-- TradingView Widget BEGIN -->
-				<div class="tradingview-widget-container">
-					<div class="tradingview-widget-container__widget"></div>
-					<div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
-					<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
-					{
-					 "symbols": [
-						["ECONOMICS:USHST|1D"],
-						["FRED:ACTLISCOUUS|1D"],
-						["ECONOMICS:USBP|1D"],
-						["FRED:SPCS20RSA|1D"]
-					  ],
-					"chartOnly": false,
-					"width": 650,
-					"height": 400,
-					"locale": "en",
-					"colorTheme": "light",
-					"autosize": false,
-					"showVolume": false,
-					"showMA": false,
-					"hideDateRanges": false,
-					"hideMarketStatus": false,
-					"hideSymbolLogo": false,
-					"scalePosition": "right",
-					"scaleMode": "Normal",
-					"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-					"fontSize": "10",
-					"noTimeScale": false,
-					"valuesTracking": "1",
-					"changeMode": "price-and-percent",
-					"chartType": "area",
-					"maLineColor": "#2962FF",
-					"maLineWidth": 1,
-					"maLength": 9,
-					"lineWidth": 2,
-					"lineType": 0,
-					"dateRanges": [
-					"1d|1",
-					"1m|30",
-					"3m|60",
-					"12m|1D",
-					"60m|1W",
-					"all|1M"
-					]
-				}
 					</script>
 				</div> <!--end of chart-->	
 				<div>
@@ -520,44 +793,44 @@
 					<div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
 					<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
 					{
-					 "symbols": [
-						["ECONOMICS:USDGO|1D"],
-						["ECONOMICS:USBCOI|1D"],
-						["ECONOMICS:USNMPMI|1D"]
-					  ],
-					"chartOnly": false,
-					"width": 650,
-					"height": 400,
-					"locale": "en",
-					"colorTheme": "light",
-					"autosize": false,
-					"showVolume": false,
-					"showMA": false,
-					"hideDateRanges": false,
-					"hideMarketStatus": false,
-					"hideSymbolLogo": false,
-					"scalePosition": "right",
-					"scaleMode": "Normal",
-					"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-					"fontSize": "10",
-					"noTimeScale": false,
-					"valuesTracking": "1",
-					"changeMode": "price-and-percent",
-					"chartType": "area",
-					"maLineColor": "#2962FF",
-					"maLineWidth": 1,
-					"maLength": 9,
-					"lineWidth": 2,
-					"lineType": 0,
-					"dateRanges": [
-					"1d|1",
-					"1m|30",
-					"3m|60",
-					"12m|1D",
-					"60m|1W",
-					"all|1M"
-					]
-				}
+						 "symbols": [
+							["ECONOMICS:USDGO|1D"],
+							["ECONOMICS:USBCOI|1D"],
+							["ECONOMICS:USNMPMI|1D"]
+						  ],
+						"chartOnly": false,
+						"width": 650,
+						"height": 400,
+						"locale": "en",
+						"colorTheme": "light",
+						"autosize": false,
+						"showVolume": false,
+						"showMA": false,
+						"hideDateRanges": false,
+						"hideMarketStatus": false,
+						"hideSymbolLogo": false,
+						"scalePosition": "right",
+						"scaleMode": "Normal",
+						"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+						"fontSize": "10",
+						"noTimeScale": false,
+						"valuesTracking": "1",
+						"changeMode": "price-and-percent",
+						"chartType": "area",
+						"maLineColor": "#2962FF",
+						"maLineWidth": 1,
+						"maLength": 9,
+						"lineWidth": 2,
+						"lineType": 0,
+						"dateRanges": [
+						"1d|1",
+						"1m|30",
+						"3m|60",
+						"12m|1D",
+						"60m|1W",
+						"all|1M"
+						]
+					}
 					</script>
 				</div> <!--end of chart-->	
 						<div>
@@ -581,42 +854,42 @@
 					<div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
 					<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
 					{
-					 "symbols": [
-						["ECONOMICS:USWEI|1D"],
-						["ECONOMICS:USGDPYY|1D"]
-					  ],
-					"chartOnly": false,
-					"width": 650,
-					"height": 400,
-					"locale": "en",
-					"colorTheme": "light",
-					"autosize": false,
-					"showVolume": false,
-					"showMA": false,
-					"hideDateRanges": false,
-					"hideMarketStatus": false,
-					"hideSymbolLogo": false,
-					"scalePosition": "right",
-					"scaleMode": "Normal",
-					"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-					"fontSize": "10",
-					"noTimeScale": false,
-					"valuesTracking": "1",
-					"changeMode": "price-and-percent",
-					"chartType": "area",
-					"maLineColor": "#2962FF",
-					"maLineWidth": 1,
-					"maLength": 9,
-					"lineWidth": 2,
-					"lineType": 0,
-					"dateRanges": [
-					"1d|1",
-					"1m|30",
-					"3m|60",
-					"12m|1D",
-					"60m|1W",
-					"all|1M"
-					]
+						 "symbols": [
+							["ECONOMICS:USWEI|1D"],
+							["ECONOMICS:USGDPYY|1D"]
+						  ],
+						"chartOnly": false,
+						"width": 650,
+						"height": 400,
+						"locale": "en",
+						"colorTheme": "light",
+						"autosize": false,
+						"showVolume": false,
+						"showMA": false,
+						"hideDateRanges": false,
+						"hideMarketStatus": false,
+						"hideSymbolLogo": false,
+						"scalePosition": "right",
+						"scaleMode": "Normal",
+						"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+						"fontSize": "10",
+						"noTimeScale": false,
+						"valuesTracking": "1",
+						"changeMode": "price-and-percent",
+						"chartType": "area",
+						"maLineColor": "#2962FF",
+						"maLineWidth": 1,
+						"maLength": 9,
+						"lineWidth": 2,
+						"lineType": 0,
+						"dateRanges": [
+						"1d|1",
+						"1m|30",
+						"3m|60",
+						"12m|1D",
+						"60m|1W",
+						"all|1M"
+						]
 				    }
 					</script>
 			    </div>
@@ -640,42 +913,42 @@
 					<div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
 					<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
 					{
-					 "symbols": [
-						["ECONOMICS:USPPIYY|1D"],
-						["ECONOMICS:USBCOI|1D"]
-					  ],
-					"chartOnly": false,
-					"width": 650,
-					"height": 400,
-					"locale": "en",
-					"colorTheme": "light",
-					"autosize": false,
-					"showVolume": false,
-					"showMA": false,
-					"hideDateRanges": false,
-					"hideMarketStatus": false,
-					"hideSymbolLogo": false,
-					"scalePosition": "right",
-					"scaleMode": "Normal",
-					"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-					"fontSize": "10",
-					"noTimeScale": false,
-					"valuesTracking": "1",
-					"changeMode": "price-and-percent",
-					"chartType": "area",
-					"maLineColor": "#2962FF",
-					"maLineWidth": 1,
-					"maLength": 9,
-					"lineWidth": 2,
-					"lineType": 0,
-					"dateRanges": [
-					"1d|1",
-					"1m|30",
-					"3m|60",
-					"12m|1D",
-					"60m|1W",
-					"all|1M"
-					]
+						 "symbols": [
+							["ECONOMICS:USPPIYY|1D"],
+							["ECONOMICS:USBCOI|1D"]
+						  ],
+						"chartOnly": false,
+						"width": 650,
+						"height": 400,
+						"locale": "en",
+						"colorTheme": "light",
+						"autosize": false,
+						"showVolume": false,
+						"showMA": false,
+						"hideDateRanges": false,
+						"hideMarketStatus": false,
+						"hideSymbolLogo": false,
+						"scalePosition": "right",
+						"scaleMode": "Normal",
+						"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+						"fontSize": "10",
+						"noTimeScale": false,
+						"valuesTracking": "1",
+						"changeMode": "price-and-percent",
+						"chartType": "area",
+						"maLineColor": "#2962FF",
+						"maLineWidth": 1,
+						"maLength": 9,
+						"lineWidth": 2,
+						"lineType": 0,
+						"dateRanges": [
+						"1d|1",
+						"1m|30",
+						"3m|60",
+						"12m|1D",
+						"60m|1W",
+						"all|1M"
+						]
 				    }
 					</script>
 			    </div>
@@ -698,44 +971,44 @@
 					<div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
 					<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
 					{
-					 "symbols": [
-					    ["TVC:USOIL|1D"],
-						["ECONOMICS:USCPI|1D"],
-						["ECONOMICS:USCCPI|1D"],
-						["ECONOMICS:USCPCEPIAC|1D"]
-					  ],
-					"chartOnly": false,
-					"width": 650,
-					"height": 400,
-					"locale": "en",
-					"colorTheme": "light",
-					"autosize": false,
-					"showVolume": false,
-					"showMA": false,
-					"hideDateRanges": false,
-					"hideMarketStatus": false,
-					"hideSymbolLogo": false,
-					"scalePosition": "right",
-					"scaleMode": "Normal",
-					"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-					"fontSize": "10",
-					"noTimeScale": false,
-					"valuesTracking": "1",
-					"changeMode": "price-and-percent",
-					"chartType": "area",
-					"maLineColor": "#2962FF",
-					"maLineWidth": 1,
-					"maLength": 9,
-					"lineWidth": 2,
-					"lineType": 0,
-					"dateRanges": [
-					"1d|1",
-					"1m|30",
-					"3m|60",
-					"12m|1D",
-					"60m|1W",
-					"all|1M"
-					]
+						 "symbols": [
+						    ["TVC:USOIL|1D"],
+							["ECONOMICS:USCPI|1D"],
+							["ECONOMICS:USCCPI|1D"],
+							["ECONOMICS:USCPCEPIAC|1D"]
+						  ],
+						"chartOnly": false,
+						"width": 650,
+						"height": 400,
+						"locale": "en",
+						"colorTheme": "light",
+						"autosize": false,
+						"showVolume": false,
+						"showMA": false,
+						"hideDateRanges": false,
+						"hideMarketStatus": false,
+						"hideSymbolLogo": false,
+						"scalePosition": "right",
+						"scaleMode": "Normal",
+						"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+						"fontSize": "10",
+						"noTimeScale": false,
+						"valuesTracking": "1",
+						"changeMode": "price-and-percent",
+						"chartType": "area",
+						"maLineColor": "#2962FF",
+						"maLineWidth": 1,
+						"maLength": 9,
+						"lineWidth": 2,
+						"lineType": 0,
+						"dateRanges": [
+						"1d|1",
+						"1m|30",
+						"3m|60",
+						"12m|1D",
+						"60m|1W",
+						"all|1M"
+						]
 				    }
 					</script>
 			    </div>
@@ -762,42 +1035,42 @@
 					<div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
 					<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
 					{
-					 "symbols": [
-						["FRED:FEDFUNDS|1D"],
-						["TVC:US10Y|1D"]
-					  ],
-					"chartOnly": false,
-					"width": 650,
-					"height": 400,
-					"locale": "en",
-					"colorTheme": "light",
-					"autosize": false,
-					"showVolume": false,
-					"showMA": false,
-					"hideDateRanges": false,
-					"hideMarketStatus": false,
-					"hideSymbolLogo": false,
-					"scalePosition": "right",
-					"scaleMode": "Normal",
-					"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-					"fontSize": "10",
-					"noTimeScale": false,
-					"valuesTracking": "1",
-					"changeMode": "price-and-percent",
-					"chartType": "area",
-					"maLineColor": "#2962FF",
-					"maLineWidth": 1,
-					"maLength": 9,
-					"lineWidth": 2,
-					"lineType": 0,
-					"dateRanges": [
-					"1d|1",
-					"1m|30",
-					"3m|60",
-					"12m|1D",
-					"60m|1W",
-					"all|1M"
-					]
+						 "symbols": [
+							["FRED:FEDFUNDS|1D"],
+							["TVC:US10Y|1D"]
+						  ],
+						"chartOnly": false,
+						"width": 650,
+						"height": 400,
+						"locale": "en",
+						"colorTheme": "light",
+						"autosize": false,
+						"showVolume": false,
+						"showMA": false,
+						"hideDateRanges": false,
+						"hideMarketStatus": false,
+						"hideSymbolLogo": false,
+						"scalePosition": "right",
+						"scaleMode": "Normal",
+						"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+						"fontSize": "10",
+						"noTimeScale": false,
+						"valuesTracking": "1",
+						"changeMode": "price-and-percent",
+						"chartType": "area",
+						"maLineColor": "#2962FF",
+						"maLineWidth": 1,
+						"maLength": 9,
+						"lineWidth": 2,
+						"lineType": 0,
+						"dateRanges": [
+						"1d|1",
+						"1m|30",
+						"3m|60",
+						"12m|1D",
+						"60m|1W",
+						"all|1M"
+						]
 				    }
 					</script>
 			    </div>
@@ -822,48 +1095,48 @@
 					<div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
 					<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
 					{
-					 "symbols": [
-						["FRED:FEDFUNDS|1D"],
-						["TVC:US10Y|1D"],
-						["ECONOMICS:USINTR|1D"],
-						["ECONOMICS:USIRYY|1D"],
-						["ECONOMICS:USUR|1D"],
-						["ECONOMICS:USBOT|1D"],
-						["ECONOMICS:USGDG|1D"],
-						["ECONOMICS:USGDPYY|1D"]
-					  ],
-					"chartOnly": false,
-					"width": 650,
-					"height": 400,
-					"locale": "en",
-					"colorTheme": "light",
-					"autosize": false,
-					"showVolume": false,
-					"showMA": false,
-					"hideDateRanges": false,
-					"hideMarketStatus": false,
-					"hideSymbolLogo": false,
-					"scalePosition": "right",
-					"scaleMode": "Normal",
-					"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-					"fontSize": "10",
-					"noTimeScale": false,
-					"valuesTracking": "1",
-					"changeMode": "price-and-percent",
-					"chartType": "area",
-					"maLineColor": "#2962FF",
-					"maLineWidth": 1,
-					"maLength": 9,
-					"lineWidth": 2,
-					"lineType": 0,
-					"dateRanges": [
-					"1d|1",
-					"1m|30",
-					"3m|60",
-					"12m|1D",
-					"60m|1W",
-					"all|1M"
-					]
+						 "symbols": [
+							["FRED:FEDFUNDS|1D"],
+							["TVC:US10Y|1D"],
+							["ECONOMICS:USINTR|1D"],
+							["ECONOMICS:USIRYY|1D"],
+							["ECONOMICS:USUR|1D"],
+							["ECONOMICS:USBOT|1D"],
+							["ECONOMICS:USGDG|1D"],
+							["ECONOMICS:USGDPYY|1D"]
+						  ],
+						"chartOnly": false,
+						"width": 650,
+						"height": 400,
+						"locale": "en",
+						"colorTheme": "light",
+						"autosize": false,
+						"showVolume": false,
+						"showMA": false,
+						"hideDateRanges": false,
+						"hideMarketStatus": false,
+						"hideSymbolLogo": false,
+						"scalePosition": "right",
+						"scaleMode": "Normal",
+						"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+						"fontSize": "10",
+						"noTimeScale": false,
+						"valuesTracking": "1",
+						"changeMode": "price-and-percent",
+						"chartType": "area",
+						"maLineColor": "#2962FF",
+						"maLineWidth": 1,
+						"maLength": 9,
+						"lineWidth": 2,
+						"lineType": 0,
+						"dateRanges": [
+						"1d|1",
+						"1m|30",
+						"3m|60",
+						"12m|1D",
+						"60m|1W",
+						"all|1M"
+						]
 				    }
 					</script>
 			    </div>
@@ -889,41 +1162,41 @@
 					<div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
 					<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
 					{
-					 "symbols": [
-						["TVC:VIX|1D"]
-					  ],
-					"chartOnly": false,
-					"width": 650,
-					"height": 400,
-					"locale": "en",
-					"colorTheme": "light",
-					"autosize": false,
-					"showVolume": false,
-					"showMA": false,
-					"hideDateRanges": false,
-					"hideMarketStatus": false,
-					"hideSymbolLogo": false,
-					"scalePosition": "right",
-					"scaleMode": "Normal",
-					"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-					"fontSize": "10",
-					"noTimeScale": false,
-					"valuesTracking": "1",
-					"changeMode": "price-and-percent",
-					"chartType": "area",
-					"maLineColor": "#2962FF",
-					"maLineWidth": 1,
-					"maLength": 9,
-					"lineWidth": 2,
-					"lineType": 0,
-					"dateRanges": [
-					"1d|1",
-					"1m|30",
-					"3m|60",
-					"12m|1D",
-					"60m|1W",
-					"all|1M"
-					]
+						 "symbols": [
+							["TVC:VIX|1D"]
+						  ],
+						"chartOnly": false,
+						"width": 650,
+						"height": 400,
+						"locale": "en",
+						"colorTheme": "light",
+						"autosize": false,
+						"showVolume": false,
+						"showMA": false,
+						"hideDateRanges": false,
+						"hideMarketStatus": false,
+						"hideSymbolLogo": false,
+						"scalePosition": "right",
+						"scaleMode": "Normal",
+						"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+						"fontSize": "10",
+						"noTimeScale": false,
+						"valuesTracking": "1",
+						"changeMode": "price-and-percent",
+						"chartType": "area",
+						"maLineColor": "#2962FF",
+						"maLineWidth": 1,
+						"maLength": 9,
+						"lineWidth": 2,
+						"lineType": 0,
+						"dateRanges": [
+						"1d|1",
+						"1m|30",
+						"3m|60",
+						"12m|1D",
+						"60m|1W",
+						"all|1M"
+						]
 				    }
 					</script>
 			    </div>
