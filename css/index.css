@@ -20,14 +20,14 @@
 
 .left {
   float: left;
-  width: 20%;
+  width: 15%;
   position: fixed;
   background-color: #fff;
 }
 
 .right {
   float:right;
-  width: 80%;
+  width: 85%;
   background-color: #e9f2f9;
   overflow: scroll;  
   overflow-x: hidden;
@@ -36,9 +36,9 @@
 
 .content {
   background-color: #fff;
-  margin-right: 50px;
-  margin-left: 50px;
-  margin-top:50px;
+  margin-right: 100px;
+  margin-left: 100px;
+  margin-top: 80px;
 }
 
 .tradingview-widget-container {
