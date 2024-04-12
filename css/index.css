@@ -67,6 +67,7 @@
   /*grid-template-rows: repeat(2, 1fr);*/
   justify-content: center;
   /*align-items: center;*/
+  margin-left:50px;
 }
 
 /* not being used 
@@ -111,7 +112,12 @@ section #description {
 }
 
 .rcorners {
+  border: 2px solid rgb(222, 221, 218);
   border-radius: 25px;
-  padding: 20px;
+  padding: 5px;
 
+}
+
+.one_column {
+	margin-left: 50px;
 }
