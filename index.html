@@ -18,11 +18,31 @@
   <div class="column left" id= "left_sidebar">
     <h2>Kevin's Blog</h2>
     
-    <div id="indicator">
+    <div id="sidebar">
 		<ul>
 			<li><a href="https://fred.stlouisfed.org/docs/api/fred/">FRED API</a></li>
 			<li><a href="#job_data">FRED Data</a></li>
 		</ul>
+	</div>
+	
+	<div id="news">
+		<!-- TradingView Widget BEGIN -->
+		<div class="tradingview-widget-container">
+		  <div class="tradingview-widget-container__widget"></div>
+		  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
+			  {
+			  "feedMode": "all_symbols",
+			  "isTransparent": false,
+			  "largeChartUrl": "https://www.tradingview.com/widget-docs/widgets/news/top-stories/",
+			  "displayMode": "regular",
+			  "width": "250",
+			  "height": "550",
+			  "colorTheme": "light",
+			  "locale": "en"
+			}
+  		 </script>
+	</div>
+		<!-- TradingView Widget END -->
 	</div>
     <p></p>
   </div>
@@ -45,7 +65,7 @@
 		  <h2> US Economy Overview </h2>
 			<section class="grid-flow" id="us_eco">
 				<!-- TradingView Widget BEGIN -->
-				<div class="tradingview-widget-container">
+				<div class="tradingview-widget-container rcorners">
 				  <div class="tradingview-widget-container__widget"></div>
 				  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
 				  {
@@ -64,7 +84,7 @@
 				<!-- TradingView Widget END -->
 				
 				<!-- TradingView Widget BEGIN -->
-				<div class="tradingview-widget-container">
+				<div class="tradingview-widget-container rcorners">
 				  <div class="tradingview-widget-container__widget"></div>
 				  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
 				  {
@@ -83,7 +103,7 @@
 				<!-- TradingView Widget END -->
 				
 				<!-- TradingView Widget BEGIN -->
-				<div class="tradingview-widget-container">
+				<div class="tradingview-widget-container rcorners">
 				  <div class="tradingview-widget-container__widget"></div>
 				  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
 				  {
@@ -102,7 +122,7 @@
 				<!-- TradingView Widget END -->
 				
 				<!-- TradingView Widget BEGIN -->
-				<div class="tradingview-widget-container">
+				<div class="tradingview-widget-container rcorners">
 				  <div class="tradingview-widget-container__widget"></div>
 				  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
 				  {
@@ -121,7 +141,7 @@
 				<!-- TradingView Widget END -->
 				
 				<!-- TradingView Widget BEGIN -->
-				<div class="tradingview-widget-container">
+				<div class="tradingview-widget-container rcorners">
 				  <div class="tradingview-widget-container__widget"></div>
 				  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
 				  {
@@ -140,7 +160,7 @@
 				<!-- TradingView Widget END -->
 				
 				<!-- TradingView Widget BEGIN -->
-				<div class="tradingview-widget-container">
+				<div class="tradingview-widget-container rcorners">
 				  <div class="tradingview-widget-container__widget"></div>
 				  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
 				  {
@@ -194,7 +214,6 @@
 				<!-- TradingView Widget BEGIN -->
 			    <div class="tradingview-widget-container">
 			      <div class="tradingview-widget-container__widget"></div>
-			      <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
 			      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
 			      {
 			      "width": 1300,
@@ -216,7 +235,13 @@
 
 </div> <!--end of row-->
 <div class="row">
-	<footer class="footer" id=""> Copyright@Webbertech.com</footer>
+	<footer class="footer" id=""> 
+		Copyright@Webbertech.com
+		<p>Disclaimer: All the charts and data are coming from internet. Copyright belongs to their original source.
+		   The information on this website is only used for my personal research not commercial.	
+		</p>
+		
+	</footer>
 </div>
 </body>
 </html>

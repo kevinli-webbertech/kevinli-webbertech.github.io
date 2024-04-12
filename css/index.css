@@ -1,5 +1,4 @@
 * {
-  box-sizing: border-box;
   font-family: "Oswald",sans-serif;
 }
 
@@ -41,9 +40,6 @@
   margin-top: 80px;
 }
 
-.tradingview-widget-container {
-	padding-left: 50px;
-}
 
 .footer {
   margin: auto auto;
@@ -106,4 +102,16 @@ section #description {
 /* Change the link color to #111 (black) on hover */
 #nav_menu li a:hover {
   background-color: rgb(222, 221, 218);
+}
+
+.footer {
+	 margin-top: 10px;
+	 width: 800px; 
+	 word-wrap: break-word;
+}
+
+.rcorners {
+  border-radius: 25px;
+  padding: 20px;
+
 }
