@@ -55,7 +55,7 @@
 }
 
 .content p {
-	float:left;
+  /*float:left;*/
   margin-left: 50px;
   position: relative;
 }
@@ -121,3 +121,8 @@ section #description {
 .one_column {
 	margin-left: 50px;
 }
+
+.text_indent ul li {
+	 text-indent: 50px;
+}
+ 
