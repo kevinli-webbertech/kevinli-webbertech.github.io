@@ -1,27 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head><title>Kevin Li</title>
-		<link rel="stylesheet" href="css/index.css">
-	</head>
-	<body>
-		<div class="column">
-	    <nav id="nav_menu">
+<html>
+
+<head>
+	<title>Blog</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/index.css">
+	<script type="text/javascript">
+	function load_indicator_menu() {
+		document.getElementById("indicator").style.visibility="hidden";
+		//alert("testing");
+	}
+	</script>
+</head>
+
+<body>
+ <div class="row">
+  <div class="column left" id= "left_sidebar">
+    <h2>Kevin's Blog</h2>
+    
+    <div id="sidebar">
+		<ul>
+			<li><a href="blog/mac_docker_issues.md">Mac docker issue</a></li>
+			<li><a href="blog/windows_docker_issues.md">Windows docker issue</a></li>
+			<li><a href="blog/elasticsearch.md">ElasticSearch</a></li>
+		</ul>
+	</div>
+	
+	<div id="news">
+		
+  </div>
+
+  <div class="column right">
+       <nav id="nav_menu">
 		    <ul> 
 		    	<li><a href="index.html">Home</a></li>  		
 		  		<li><a href="indicator.html" onclick="load_indicator_menu()">indicator</a></li>
 		    	<li><a href="philosophy.html">philosophy</a></li>
-		    	<li><a href="about_me.html">About Me</a></li>
+		    	<li><a href="blog.html">blog</a></li>
+		    	<li><a href="about_me.html">about me</a></li>
 		    </ul>
 	   </nav>
-	   <div class="right content grid-container">
-			<section class="grid-flow" id="index_page">
-		<p>I like pets, traveling, swimming, hunting, fishing, gardening, teaching and education on computer stuffs and healthcare...etc. 	
-		   My other interests you can find it in my website otherwise if I did not specify here.</p>
-		
-		</section>
+ 
+  	
+	  <!-- https://www.tradingview.com/markets/world-economy/ 
+			         https://www.tradingview.com/markets/world-economy/countries/united-states/?category=txs
+	  -->
+	  <div class="content grid-container">
+		 
+	
 	  </div> <!--end of content div-->
-	 </div> <!--end of column -->
-	 <div class="row">
+	 
+  </div> <!-- Right column -->
+
+</div> <!--end of row-->
+<div class="row">
 	<footer class="footer" id=""> 
 		Copyright@Webbertech.com
 		<p>Disclaimer: All the charts and data are coming from internet. Copyright belongs to their original source.
@@ -30,5 +62,5 @@
 		
 	</footer>
 </div>
-	</body>
+</body>
 </html>
