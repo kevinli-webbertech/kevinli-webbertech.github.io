@@ -124,6 +124,16 @@ sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
 
 `$ sudo apt-get install elasticsearch`
 
+Once installation is started you will see the following,
+
+![alt text](images/elasticsearch/es4.png)
+
+Once the installation is done, type
+
+`sudo service elasticsearch start`
+
+![alt text](images/elasticsearch/es5.png)
+
 # Configuration
 
 `sudo vim /etc/elasticsearch/elasticsearch.yml`
