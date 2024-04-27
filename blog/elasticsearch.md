@@ -56,6 +56,28 @@ export ELASTIC_PASSWORD="your_password"
 
 To test the service is running, try the following,
 
+```
+xiaofengli@xiaofenglx:~/Downloads/elasticsearch-8.13.2/config/certs$ curl --cacert ./http_ca.crt -u elastic:FNddzNCMb+JBbhVQX5Q8  https://localhost:9200 
+{
+  "name" : "xiaofenglx",
+  "cluster_name" : "elasticsearch",
+  "cluster_uuid" : "zQ0Hmm9yQuKiyjznOUh5Hw",
+  "version" : {
+    "number" : "8.13.2",
+    "build_flavor" : "default",
+    "build_type" : "tar",
+    "build_hash" : "16cc90cd2d08a3147ce02b07e50894bc060a4cbf",
+    "build_date" : "2024-04-05T14:45:26.420424304Z",
+    "build_snapshot" : false,
+    "lucene_version" : "9.10.0",
+    "minimum_wire_compatibility_version" : "7.17.0",
+    "minimum_index_compatibility_version" : "7.0.0"
+  },
+  "tagline" : "You Know, for Search"
+}
+
+```
+
 ![alt text](images/elasticsearch/es2.png)
 
 To add new node, open another terminal and run the following,
@@ -144,9 +166,6 @@ With older version without cert and https, you would open it `http://localhost:9
 When we query the `java` process, we could easily figure out the config, log paths.
 
 ![alt text](images/elasticsearch/es3.png)
-
-
-
 
 
 ### References
