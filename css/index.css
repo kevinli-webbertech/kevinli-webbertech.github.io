@@ -54,12 +54,6 @@
   clear: both;
 }
 
-.content p {
-  /*float:left;*/
-  margin-left: 50px;
-  position: relative;
-}
-
 .grid-flow {
   display: grid;
   grid-auto-flow: row;
