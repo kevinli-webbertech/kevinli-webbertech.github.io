@@ -102,9 +102,7 @@ sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
 
 `$ sudo apt-get install elasticsearch`
 
-
 # Configuration
-
 
 `sudo vim /etc/elasticsearch/elasticsearch.yml`
 
@@ -141,9 +139,13 @@ With older version without cert and https, you would open it `http://localhost:9
 }
 ```
 
-# Installation and log path
+# Installation, config and log path
 
-![alt text](images/elasticsearch/es4.png)
+When we query the `java` process, we could easily figure out the config, log paths.
+
+![alt text](images/elasticsearch/es3.png)
+
+
 
 
 
