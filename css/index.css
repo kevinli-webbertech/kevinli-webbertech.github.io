@@ -18,9 +18,13 @@
 }
 
 .left {
-  float: left;
-  width: 15%;
-  position: fixed;
+  height: 100%; /* Set the height of the sidebar to match the viewport */
+  position: fixed; /* Fix the sidebar position */
+  top: 0; /* Position the sidebar at the top */
+  left: 0; /* Position the sidebar on the left */
+  overflow-y: auto; /* Enable vertical scrolling */
+  width: 15%; /* or 200px*/
+  padding: 20px; /* Add padding to the sidebar content */
   background-color: #fff;
 }
 
