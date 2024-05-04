@@ -282,6 +282,7 @@ apache2   8072 8080 apache2           www-data NOFD                             
 * `traceroute`	Tracks a packet’s hops to its destination
 * `nslookup`	Queries a domain’s IP address and vice versa
 * `dig`	Displays DNS information, including record types
+* `ssh`
 
 ### Examples
 
@@ -298,6 +299,7 @@ netstat
 ```
 
 ```
+ssh tunnel
 ```
 
 ## Firewall & IPtable
