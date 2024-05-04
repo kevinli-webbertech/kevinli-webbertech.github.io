@@ -22,6 +22,8 @@
   position: fixed; /* Fix the sidebar position */
   top: 0; /* Position the sidebar at the top */
   left: 0; /* Position the sidebar on the left */
+  overflow: scroll;  
+  overflow-x: hidden;
   overflow-y: auto; /* Enable vertical scrolling */
   width: 15%; /* or 200px*/
   padding: 20px; /* Add padding to the sidebar content */
@@ -80,7 +82,7 @@ section #description {
 #nav_menu  ul{
   position: fixed;
   list-style-type: none;
-  margin: 0;
+  margin-left: 50px;
   padding: 0;
   overflow: hidden;
   background-color: e9f2f9;
