@@ -96,7 +96,7 @@ will overwrite the output to fil2.txt
 
 * `apt`
 * `apt-get`	Manages Debian-based distros package libraries
-* `dpkg`      Package management
+* `dpkg`    dpkg is a medium-level tool to install, build, remove and manage Debian packages.
 
 ### apt and apt-get examples
 
@@ -166,15 +166,36 @@ Most used commands:
 ```
 
 ### dpkg examples
+```
+  install
+           The package is selected for installation.
 
+       hold
+           A package marked to be on hold is kept on the same version, that is, no automatic new
+           installs, upgrades or removals will be performed on them, unless these actions are
+           requested explicitly, or are permitted to be done automatically with the --force-hold
+           option.
+
+       deinstall
+           The package is selected for deinstallation (i.e. we want to remove all files, except
+           configuration files).
+
+       purge
+           The package is selected to be purged (i.e. we want to remove everything from system
+           directories, even configuration files).
+
+       unknown
+           The package selection is unknown.  A package that is also in a not-installed state, and
+           with an ok flag will be forgotten in the next database store.
+```
 
 ## System Information
 
 * `df`	Displays the system’s overall disk space usage
 * `du`	Checks a file or directory’s storage consumption
 * `top`	Displays running processes and the system’s resource usage
-* `vmstat`
-* `htop`	Works like top but with an interactive user interface
+* `vmstat`  Report virtual memory statistic
+* `htop`	Works like top but with an interactive user interface (not default command)
 * `ps`	Creates a snapshot of all running processes
 * `uname`	Prints information about your machine’s kernel, name, and hardware
 * `hostname`	Shows your system’s hostname
@@ -183,17 +204,21 @@ Most used commands:
 * `watch`	Runs another command continuously
 * `jobs`	Displays a shell’s running processes with their statuses
 * `kill`	Terminates a running process
-* `shutdown`	Turns off or restarts the system
 * `bg`
 * `fg`
 * `lsof`
 * `which`
 * `whomai`
 * `uptime`
+* `shutdown`	Turns off or restarts the system
+* `reboot`  Reboot
 
 ### Examples
 
 ```
+xiaofengli@xiaofenglx:~/code/codebank$ uname -a
+Linux xiaofenglx 6.5.0-28-generic #29~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Apr  4 14:39:20 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
+
 xiaofengli@xiaofenglx:~$ who
 xiaofengli tty2         2024-05-03 09:13 (tty2)
 
@@ -215,6 +240,34 @@ xiaofengli@xiaofenglx:~$ free -m
 Mem:           31934        1966       27362         242        2604       29319
 Swap:           2047           0        2047
 
+xiaofengli@xiaofenglx:~/code/codebank$ du -m
+1	./BloggerDev
+1	./.git/branches
+1	./.git/refs/heads
+1	./.git/refs/tags
+1	./.git/refs/remotes/origin
+1	./.git/refs/remotes
+1	./.git/refs
+1	./.git/info
+2	./.git/objects/97
+
+xiaofengli@xiaofenglx:~/code/codebank$ df
+Filesystem       1K-blocks       Used  Available Use% Mounted on
+tmpfs              3270052       3624    3266428   1% /run
+/dev/sda2        479079112  129910872  324758848  29% /
+tmpfs             16350244      46012   16304232   1% /dev/shm
+tmpfs                 5120          4       5116   1% /run/lock
+efivarfs               128         35         89  28% /sys/firmware/efi/efivars
+/dev/sdb1      11718752252 1749660476 9969091776  15% /mnt/ntfs
+/dev/sda1           523244       6220     517024   2% /boot/efi
+tmpfs              3270048        140    3269908   1% /run/user/1000
+
+xiaofengli@xiaofenglx:~/code/codebank$ lsof| grep -i 8080
+apache2   8072 8080 apache2           www-data  cwd   unknown                                         /proc/8072/task/8080/cwd (readlink: Permission denied)
+apache2   8072 8080 apache2           www-data  rtd   unknown                                         /proc/8072/task/8080/root (readlink: Permission denied)
+apache2   8072 8080 apache2           www-data  txt   unknown                                         /proc/8072/task/8080/exe (readlink: Permission denied)
+apache2   8072 8080 apache2           www-data NOFD                                                   /proc/8072/task/8080/fd (opendir: Permission denied)
+
 ```
 
 ## Network
@@ -229,6 +282,42 @@ Swap:           2047           0        2047
 * `traceroute`	Tracks a packet’s hops to its destination
 * `nslookup`	Queries a domain’s IP address and vice versa
 * `dig`	Displays DNS information, including record types
+
+### Examples
+
+```
+wget
+```
+
+```
+curl
+```
+
+```
+netstat
+```
+
+```
+```
+
+## Firewall & IPtable
+
+
+## File and file descriptor
+
+
+## Shell scripting
+
+### function
+
+### loop
+
+### case
+
+### redirect
+
+
+
 
 ## Ref
 
