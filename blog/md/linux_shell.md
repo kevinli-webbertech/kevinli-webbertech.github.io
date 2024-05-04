@@ -2,6 +2,8 @@
 
 ## Linux file system commands
 
+* `man`	Shows a command’s manual
+* `echo`	Prints a message as a standard output
 * `ls`	Lists a directory’s content
 * `pwd`	Shows the current working directory’s path
 * `cd`	Changes the working directory
@@ -15,12 +17,17 @@
 * `tar`	Archives files without compression in a TAR format
 * `nano`, vi, and jed	Edits a file with a text editor
 * `history`	Lists previously run commands
-* `man`	Shows a command’s manual
-* `echo`	Prints a message as a standard output
+* `date` Display system time
+* `cal`	Displays a calendar in Terminal. (not builtin, need to install `ncal`)
+* `calc` Calculator
+* `tree` folder structure
+
+# Profile, Configuration and Path
+
 * `ln`	Links files or directories
 * `alias` and `unalias`	Sets and removes an alias for a file or command
-* `date` Display system time
-* `cal`	Displays a calendar in Terminal
+* `export` export definition of system variable
+* `source` execute the system profile
 
 ## Permissions
 
@@ -39,9 +46,6 @@
 * `sort`	Reorders a file’s content
 * `cut`	Sections and prints lines from a file
 * `diff`	Compares two files’ content and their differences
-* `grep`	Searches a string within a file
-* `sed`	Finds, replaces, or deletes patterns in a file
-* `awk`	Finds and manipulates patterns in a file
 * `tee`	Prints command outputs in Terminal and a file
 * `locate`	Finds files in a system’s database
 * `find`	Outputs a file or folder’s location
@@ -82,13 +86,19 @@ OUTPUT:
 `wc -l file1.txt| tee file2.txt`
 will overwrite the output to fil2.txt
 
+# Text find, replace and regex
+
+* `sed`	Finds, replaces, or deletes patterns in a file
+* `awk`	Finds and manipulates patterns in a file
+* `grep`	Searches a string within a file
+
 ## Package and software management (debian)
 
 * `apt`
 * `apt-get`	Manages Debian-based distros package libraries
 * `dpkg`      Package management
 
-### apt and apt-get
+### apt and apt-get examples
 
 The apt command line tool provides a higher-level user interface for end users with intuitive commands, resulting behaviors, and security features. In contrast, the command apt-get is a low-level interface that communicates more closely with core Linux processes. The apt command is a more user-friendly package manager than apt-get.
 
@@ -155,11 +165,15 @@ Most used commands:
   changelog - Download and display the changelog for the given package
 ```
 
+### dpkg examples
+
+
 ## System Information
 
 * `df`	Displays the system’s overall disk space usage
 * `du`	Checks a file or directory’s storage consumption
 * `top`	Displays running processes and the system’s resource usage
+* `vmstat`
 * `htop`	Works like top but with an interactive user interface
 * `ps`	Creates a snapshot of all running processes
 * `uname`	Prints information about your machine’s kernel, name, and hardware
@@ -172,6 +186,36 @@ Most used commands:
 * `shutdown`	Turns off or restarts the system
 * `bg`
 * `fg`
+* `lsof`
+* `which`
+* `whomai`
+* `uptime`
+
+### Examples
+
+```
+xiaofengli@xiaofenglx:~$ who
+xiaofengli tty2         2024-05-03 09:13 (tty2)
+
+xiaofengli@xiaofenglx:~$ whoami
+xiaofengli
+
+xiaofengli@xiaofenglx:~$ vmstat
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 0  2      0 28084128 166644 2465256    0    0  1911    99  537 1266  7  3 12 78  0
+
+xiaofengli@xiaofenglx:~$ free
+               total        used        free      shared  buff/cache   available
+Mem:        32700488     1971364    28066992      248572     2662132    30066188
+Swap:        2097148           0     2097148
+
+xiaofengli@xiaofenglx:~$ free -m
+               total        used        free      shared  buff/cache   available
+Mem:           31934        1966       27362         242        2604       29319
+Swap:           2047           0        2047
+
+```
 
 ## Network
 
