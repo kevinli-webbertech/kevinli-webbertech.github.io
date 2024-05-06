@@ -5,27 +5,32 @@
 	<title>Tech Blog</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="css/index.css">
-	<script type="text/javascript">
-	function load_indicator_menu() {
-		document.getElementById("indicator").style.visibility="hidden";
-		//alert("testing");
-	}
-	</script>
+    <link rel="stylesheet" href="css/tree.css" />
 </head>
 
 <body>
  <div class="row">
   <div class="column left" id= "left_sidebar">
     <h2>Kevin's Blog</h2>
-    
     <div id="sidebar">
-		<ul>
-			<li><a href="blog/html/mac_docker.html">Mac docker issue</a></li>
-			<li><a href="blog/html/windows_docker_issues.html">Windows docker issue</a></li>
-			<li><a href="blog/html/visualStudioCode.html">Visual Studo Code</a></li>
-			<li><a href="blog/html/es.html">ElasticSearch</a></li>
-			<li><a href="blog/html/linux.html">Linux</a></li>
-			<li><a href="https://www.markdownguide.org/cheat-sheet/">Markdown Cheatsheet</a></li>
+		<ul id="myUL">
+			<li><span class="caret">References</span>
+               <ul class="nested">
+					<li><a href="blog/html/mac_docker.html">Mac docker issue</a></li>
+					<li><a href="blog/html/windows_docker_issues.html">Windows docker issue</a></li>
+					<li><a href="blog/html/visualStudioCode.html">Visual Studo Code</a></li>
+					<li><a href="https://www.markdownguide.org/cheat-sheet/">Markdown Cheatsheet</a></li>
+			   </ul>
+			</li>	
+		</ul>
+		<hr/>
+		<ul id="myUL">
+			<li><span class="caret">Tutorial</span>
+               <ul class="nested">
+					<li><a href="blog/html/es.html">ElasticSearch</a></li>
+					<li><a href="blog/html/linux.html">Linux</a></li>
+				</ul>
+			</li>	
 		</ul>
 	</div>
 		
@@ -80,5 +85,18 @@
 		
 	</footer>
 </div>
+
+<script>
+	var toggler = document.getElementsByClassName("caret");
+	var i;
+	
+	for (i = 0; i < toggler.length; i++) {
+	  toggler[i].addEventListener("click", function() {
+		this.parentElement.querySelector(".nested").classList.toggle("active");
+		this.classList.toggle("caret-down");
+	  });
+	}
+</script>
+
 </body>
 </html>
