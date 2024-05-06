@@ -1,7 +1,7 @@
 #!/bin/bash
 
-mdPath=./md
-htmlPath=./html
+mdPath="md"
+htmlPath="html"
 mdFileName=$1
 
 if [[ -z $1 ]];then
@@ -9,25 +9,24 @@ if [[ -z $1 ]];then
   exit 1
 fi
 
-# strip off .md
 mdFilePath=${mdPath}/${mdFileName}
-
-#sed s/file.md/$fileName/ 
-
 echo "md file path is: ${mdFilePath}"
 
-echo "generating new blog html file"
+# GET MD FILE
+mdFileName=`cut -d "/" -f 2 <<< $mdFileName`
 
-#echo htmlFileName=${htmlPath}/`echo ${mdFileName}| cut -d "." -f 1`.html
+# GET HTML FILE
+htmlFileName=`sed -E s/"md"/"html"/ <<< ${mdFileName}`
+echo "html file path is: ${htmlPath}/${htmlFileName}"
 
-#htmlFileName=`echo ${mdFilePath}| cut -d "." -f 1`
+# COPY HTML FILE
+cp ${htmlPath/}/template.html $htmlPath/${htmlFileName}
 
-htmlFileName=`echo ${mdFilePath}`
-
-echo "html file path is: ${htmlFileName}"
-#cp ${htmlPath/}/template.html $htmlPath/${htmlFileName}
-
-
+# SED TEMPLATE
+echo "debugging"
+echo ${mdFileName}  
+echo ${htmlPath}/${htmlFileName}
+sed -i s/"file.md"/"${mdFileName}"/g ${htmlPath}/${htmlFileName}
 
 #https://stackoverflow.com/questions/13210880/replace-one-substring-for-another-string-in-shell-script
 #echo `sed s/.md/.html/ $fileName`
