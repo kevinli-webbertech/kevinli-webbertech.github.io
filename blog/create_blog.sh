@@ -2,17 +2,32 @@
 
 mdPath=./md
 htmlPath=./html
-fileName=$1
+mdFileName=$1
 
 if [[ -z $1 ]];then
   echo "pleaes provide file name in .md format"
+  exit 1
 fi
 
-mdFilePath=$mdPath/$fileName
+# strip off .md
+mdFilePath=${mdPath}/${mdFileName}
+
+#sed s/file.md/$fileName/ 
+
+echo "md file path is: ${mdFilePath}"
 
 echo "generating new blog html file"
 
-#cp $htmlPath/template.html $htmlPath/$fileName.html
-#sed s/file.md/$fileName/ 
-echo ${mdFilePath}
+#echo htmlFileName=${htmlPath}/`echo ${mdFileName}| cut -d "." -f 1`.html
+
+#htmlFileName=`echo ${mdFilePath}| cut -d "." -f 1`
+
+htmlFileName=`echo ${mdFilePath}`
+
+echo "html file path is: ${htmlFileName}"
+#cp ${htmlPath/}/template.html $htmlPath/${htmlFileName}
+
+
+
+#https://stackoverflow.com/questions/13210880/replace-one-substring-for-another-string-in-shell-script
 #echo `sed s/.md/.html/ $fileName`
