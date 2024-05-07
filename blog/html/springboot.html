@@ -14,6 +14,13 @@
 <div class="column content">
     <!-- Simply set the `src` attribute to your MD file and win -->
     <zero-md src="../md/springboot_1.md"></zero-md>
+    <button onclick="saveAsPDF()">Save as PDF</button> 
+ 
+    <script> 
+      function saveAsPDF() { 
+        window.print(); 
+      } 
+    </script>
 </div>
 
 </body>
