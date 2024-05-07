@@ -1,4 +1,4 @@
-#Troubleshooting for docker running in Apple M* Chip Macs
+# Troubleshooting for docker running in Apple M* Chip Macs
 
 The target audiences of this article are Mac M*  Chip Users. M1 and M2 are Apple’s chip and it is currently having issues with docker. Please follow the steps below to fix the problems on your computer.
 
