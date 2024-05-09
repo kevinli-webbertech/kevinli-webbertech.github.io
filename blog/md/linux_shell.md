@@ -106,54 +106,56 @@ cut -b 1-3,5-7 state.txt
 [img missing]
 
 ```
+
 Special Form: Selecting bytes from beginning to end of line
 In this, 1- indicate from 1st byte to end byte of a line
 
-cut -b 1- state.txt
+`cut -b 1- state.txt`
 
 In this, -3 indicate from 1st byte to 3rd byte of a line
 
-cut -b -3 state.txt
+`cut -b -3 state.txt`
 
 Cut by Character (-c) Using cut Command
+
 -c (column): To cut by character use the -c option. This selects the characters given to the -c option. This can be a list of numbers separated comma or a range of numbers separated by hyphen(-).
 
 Tabs and backspaces are treated as a character. It is necessary to specify list of character numbers otherwise it gives error with this option.
 
 Syntax:
 
-cut -c [(k)-(n)/(k),(n)/(n)] filename
+`cut -c [(k)-(n)/(k),(n)/(n)] filename`
 
 Extract specific characters:
 
-cut -c 2,5,7 state.txt
+`cut -c 2,5,7 state.txt`
 
 Extract first seven characters:
 
-cut -c 1-7 state.txt
+`cut -c 1-7 state.txt`
 
 Above command prints starting from first character to end.
 
-cut -c -5 state.txt
+`cut -c -5 state.txt`
 
 Above command prints starting position to the fifth character. 
 
 Cut by Field (-f) Using cut Command
+
 -f (field): -c option is useful for fixed-length lines. Most unix files doesn’t have fixed-length lines. To extract the useful information you need to cut by fields rather than columns. List of the fields number specified must be separated by comma. Ranges are not described with -f option. cut uses tab as a default field delimiter but can also work with other delimiter by using -d option.
 
 
-cut -f 1 state.txt
+`cut -f 1 state.txt`
 
 If `-d` option is used then it considered space as a field separator or delimiter:
 
-cut -d " " -f 1 state.txt
+`cut -d " " -f 1 state.txt`
 
 Extract fields 1 to 4:
 Command prints field from first to fourth of each line from the file.
 
-cut -d " " -f 1-4 state.txt
+`cut -d " " -f 1-4 state.txt`
 
-```
 
 ref: https://www.geeksforgeeks.org/cut-command-linux-examples/
 
@@ -389,6 +391,11 @@ ssh tunnel
 ### case
 
 ### redirect
+
+
+# Advanced Linux Usage
+
+
 
 
 
