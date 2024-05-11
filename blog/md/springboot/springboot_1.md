@@ -1,6 +1,13 @@
-# Java Enterprise Development with Springboot - Bootstrap Starter
+# Java Enterprise Development with Springboot - Bootstrap Microservice
 
 This is a first class of Springboot MVC. We will learn a quick bootstrap way to get your microservice running.
+
+Springboot framework has been evolving into two categories,
+
+* MVC
+* WebFlux using Java Stream
+
+Our main focus right now is the MVC and we will briefly wade into WebFlux later on.
 
 ## Springboot History
 
@@ -66,15 +73,23 @@ Advantages: Servlets offer several advantages, including platform independence (
 
 Overall, Java Servlets have been a foundational technology for server-side Java web development, forming the basis for more sophisticated web frameworks and technologies like JavaServer Pages (JSP), JavaServer Faces (JSF), and Spring MVC.
 
+ref
 
-## Springboot Application
+- https://www.tutorialspoint.com/servlets/index.htm (Servlet)
+ 
+- https://www.tutorialspoint.com/jsp/index.htm (JSP)
+
+- https://www.tutorialspoint.com/jsp/jsp_standard_tag_library.htm (JSTL)
+
+
+## Springboot Application Lab 1
 
 ## What You Need
 
 - A favorite text editor or IDE, please get one of them installed
 
 1. Spring Tool Suite (STS)
-2. IntelliJ IDEA
+2. IntelliJ IDEA Community Version
 3. VSCode
 
 - Java 17 or later
@@ -165,9 +180,13 @@ There is also a CommandLineRunner method marked as a @Bean, and this runs on sta
 
 `./gradlew bootRun`
 
+["gradle run"](../../images/springboot/gradle_run.png)
+
 If you use Maven, 
 
 `./mvnw spring-boot:run`
+
+["maven run"](../../images/springboot/mvn_run.png)
 
 Output:
 
