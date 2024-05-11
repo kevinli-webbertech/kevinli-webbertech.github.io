@@ -182,7 +182,7 @@ There is also a CommandLineRunner method marked as a @Bean, and this runs on sta
 
 ![gradle run](../../images/springboot/gradle_run.png)
 
-If you use Maven, 
+If you use Maven,
 
 `./mvnw spring-boot:run`
 
@@ -274,11 +274,8 @@ public class HelloControllerIT {
 }
 ```
 
-Examples
 
-[TODO]
-
-## Starting with Spring Initializr
+## Lab 2 - Starting with Spring Initializr
 
 You can use this pre-initialized project and click Generate to download a ZIP file. This project is configured to fit the examples in this tutorial.
 
@@ -303,6 +300,16 @@ For Spring 3.0 you need Java 17 or later, regardless of whether you use Spring I
 Note: 
 If your IDE has the Spring Initializr integration, you can complete this process from your IDE.
 ```
+
+![alt text](../../images/springboot/sts_1.png)
+
+or 
+
+![alt text](../../images/springboot/sts_2.png)
+
+Then you will see this,
+
+![alt text](../../images/springboot/sts_3.png)
 
 ## Production Services (actuator)
 
