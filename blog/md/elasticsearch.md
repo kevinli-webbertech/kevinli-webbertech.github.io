@@ -52,7 +52,7 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/targz.html
 
 export ELASTIC_PASSWORD="your_password"
 ```
-![alt text](images/elasticsearch/es0.png)
+![alt text](../images/elasticsearch/es0.png)
 
 To test the service is running, try the following,
 
@@ -78,11 +78,11 @@ xiaofengli@xiaofenglx:~/Downloads/elasticsearch-8.13.2/config/certs$ curl --cace
 
 ```
 
-![alt text](images/elasticsearch/es2.png)
+![alt text](../images/elasticsearch/es2.png)
 
 To add new node, open another terminal and run the following,
 
-![alt text](images/elasticsearch/es1.png)
+![alt text](../images/elasticsearch/es1.png)
 
 * Mac installation
 
@@ -126,13 +126,13 @@ sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
 
 Once installation is started you will see the following,
 
-![alt text](images/elasticsearch/es4.png)
+![alt text](../images/elasticsearch/es4.png)
 
 Once the installation is done, type
 
 `sudo service elasticsearch start`
 
-![alt text](images/elasticsearch/es5.png)
+![alt text](../images/elasticsearch/es5.png)
 
 # Configuration
 
@@ -175,7 +175,7 @@ With older version without cert and https, you would open it `http://localhost:9
 
 When we query the `java` process, we could easily figure out the config, log paths.
 
-![alt text](images/elasticsearch/es3.png)
+![alt text](../images/elasticsearch/es3.png)
 
 
 ### References
