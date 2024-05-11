@@ -40,14 +40,14 @@ To test it with http get, try to go to your browser and hit `localhost:8080/stud
 
 4/ Write a summary of the following annotation. (25 pts)
 
-@Autowired
-@SpringBootApplication
-@Component
-@Service
-@Repository
-@Configuration
-@RequestMapping vs @GetMapping
-@Bean
-@Qualifier
-@RequestBody
+- @Autowired
+- @SpringBootApplication
+- @Component
+- @Service
+- @Repository
+- @Configuration
+- @RequestMapping vs @GetMapping
+- @Bean
+- @Qualifier
+- @RequestBody
 
