@@ -301,15 +301,15 @@ Note:
 If your IDE has the Spring Initializr integration, you can complete this process from your IDE.
 ```
 
-![alt text](../../images/springboot/sts_1.png)
+![alt text](https://kevinli-webbertech.github.io/blog/images/springboot/sts_1.png)
 
 or 
 
-![alt text](../../images/springboot/sts_2.png)
+![alt text](https://kevinli-webbertech.github.io/blog/images/springboot/sts_2.png)
 
 Then you will see this,
 
-![alt text](../../images/springboot/sts_3.png)
+![alt text](https://kevinli-webbertech.github.io/blog/images/springboot/sts_3.png)
 
 ## Production Services (actuator)
 
