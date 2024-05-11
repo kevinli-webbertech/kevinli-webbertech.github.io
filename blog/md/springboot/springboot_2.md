@@ -25,6 +25,18 @@ mysql> create user 'springuser'@'%' identified by 'ThePassword'; -- Creates the 
 mysql> grant all on db_example.* to 'springuser'@'%'; -- Gives all privileges to the new user on the newly created database
 ```
 
+* Security Changes
+
+The following command revokes all the privileges from the user associated with the Spring application:
+
+`mysql> revoke all on db_example.* from 'springuser'@'%';`
+
+Now the Spring application cannot do anything in the database.
+
+The application must have some privileges, so use the following command to grant the minimum privileges the application needs:
+
+`mysql> grant select, insert, delete, update on db_example.* to 'springuser'@'%';`
+
 * Create a resource file called `src/main/resources/application.properties`
 
 ```
@@ -50,9 +62,11 @@ You must begin with either create or update, because you do not yet have the dat
 
 The default for H2 and other embedded databases is create-drop. For other databases, such as MySQL, the default is none.
 
-Create the @Entity Model
-You need to create the entity model, as the following listing (in src/main/java/com/example/accessingdatamysql/User.java) shows:
+* Create the @Entity Model
 
+You need to create the entity model, as the following listing (in `src/main/java/com/example/accessingdatamysql/User.java`) shows:
+
+```
 package com.example.accessingdatamysql;
 
 import jakarta.persistence.Entity;
@@ -94,11 +108,16 @@ public class User {
     this.email = email;
   }
 }
-Hibernate automatically translates the entity into a table.
 
-Create the Repository
+```
+
+`Hibernate` automatically translates the entity into a table.
+
+* Create the Repository
+
 You need to create the repository that holds user records, as the following listing (in src/main/java/com/example/accessingdatamysql/UserRepository.java) shows:
 
+```
 package com.example.accessingdatamysql;
 
 import org.springframework.data.repository.CrudRepository;
@@ -111,11 +130,15 @@ import com.example.accessingdatamysql.User;
 public interface UserRepository extends CrudRepository<User, Integer> {
 
 }
+```
+
 Spring automatically implements this repository interface in a bean that has the same name (with a change in the case — it is called userRepository).
 
-Create a Controller
+* Create a Controller
+
 You need to create a controller to handle HTTP requests to your application, as the following listing (in src/main/java/com/example/accessingdatamysql/MainController.java) shows:
 
+```
 package com.example.accessingdatamysql;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -152,10 +175,15 @@ public class MainController {
     return userRepository.findAll();
   }
 }
+```
+
 The preceding example explicitly specifies POST and GET for the two endpoints. By default, @RequestMapping maps all HTTP operations.
-Create an Application Class
+
+* Create an Application Class
+
 Spring Initializr creates a simple class for the application. The following listing shows the class that Initializr created for this example (in src/main/java/com/example/accessingdatamysql/AccessingDataMysqlApplication.java):
 
+```
 package com.example.accessingdatamysql;
 
 import org.springframework.boot.SpringApplication;
@@ -169,15 +197,17 @@ public class AccessingDataMysqlApplication {
   }
 
 }
+```
+
 For this example, you need not modify the AccessingDataMysqlApplication class.
 
 @SpringBootApplication is a convenience annotation that adds all of the following:
 
-@Configuration: Tags the class as a source of bean definitions for the application context.
+- @Configuration: Tags the class as a source of bean definitions for the application context.
 
-@EnableAutoConfiguration: Tells Spring Boot to start adding beans based on classpath settings, other beans, and various property settings. For example, if spring-webmvc is on the classpath, this annotation flags the application as a web application and activates key behaviors, such as setting up a DispatcherServlet.
+- @EnableAutoConfiguration: Tells Spring Boot to start adding beans based on classpath settings, other beans, and various property settings. For example, if spring-webmvc is on the classpath, this annotation flags the application as a web application and activates key behaviors, such as setting up a DispatcherServlet.
 
-@ComponentScan: Tells Spring to look for other components, configurations, and services in the com/example package, letting it find the controllers.
+- @ComponentScan: Tells Spring to look for other components, configurations, and services in the com/example package, letting it find the controllers.
 
 The main() method uses Spring Boot’s SpringApplication.run() method to launch an application. Did you notice that there was not a single line of XML? There is no web.xml file, either. This web application is 100% pure Java and you did not have to deal with configuring any plumbing or infrastructure.
 
@@ -198,6 +228,25 @@ or you can run it with `./gradlew bootRun`
 `java -jar target/gs-accessing-data-mysql-0.1.0.jar`
 
 or you can run it with `./mvnw spring-boot:run`
+
+
+### Test the Application
+
+* `POST localhost:8080/demo/add`
+
+```
+$ curl http://localhost:8080/demo/add -d name=First -d email=someemail@someemailprovider.com
+```
+
+* `GET localhost:8080/demo/all`
+
+ Gets all data.
+
+ `$ curl http://localhost:8080/demo/all`
+ 
+ The reply should be as follows:
+
+[{"id":1,"name":"First","email":"someemail@someemailprovider.com"}]
 
 
 ## Lab 2 Accessing Data with JPA
