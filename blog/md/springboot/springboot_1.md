@@ -180,13 +180,13 @@ There is also a CommandLineRunner method marked as a @Bean, and this runs on sta
 
 `./gradlew bootRun`
 
-![gradle run](../../images/springboot/gradle_run.png)
+![gradle run](https://kevinli-webbertech.github.io/blog/images/springboot/gradle_run.png)
 
 If you use Maven,
 
 `./mvnw spring-boot:run`
 
-![maven run](../../images/springboot/mvn_run.png)
+![maven run](https://kevinli-webbertech.github.io/blog/images/springboot/mvn_run.png)
 
 Output:
 
