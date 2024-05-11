@@ -9,6 +9,8 @@
 
 ## Lab 1 Accessing data with MySQL
 
+### Build the project
+
 Download and unzip the source repository for this guide, or clone it using Git: 
 
 * git clone https://github.com/spring-guides/gs-accessing-data-mysql.git
@@ -251,6 +253,167 @@ $ curl http://localhost:8080/demo/add -d name=First -d email=someemail@someemail
 
 ## Lab 2 Accessing Data with JPA
 
+### Build the project
+
+* git clone https://github.com/spring-guides/gs-accessing-data-jpa.git
+
+* cd into gs-accessing-data-jpa/initial
+
+* Define a Simple Entity
+
+In this example, you store Customer objects, each annotated as a JPA entity. The following listing shows the Customer class (in src/main/java/com/example/accessingdatajpa/Customer.java):
+
+```
+package com.example.accessingdatajpa;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
+public class Customer {
+
+  @Id
+  @GeneratedValue(strategy=GenerationType.AUTO)
+  private Long id;
+  private String firstName;
+  private String lastName;
+
+  protected Customer() {}
+
+  public Customer(String firstName, String lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  @Override
+  public String toString() {
+    return String.format(
+        "Customer[id=%d, firstName='%s', lastName='%s']",
+        id, firstName, lastName);
+  }
+
+  public Long getId() {
+    return id;
+  }
+
+  public String getFirstName() {
+    return firstName;
+  }
+
+  public String getLastName() {
+    return lastName;
+  }
+}
+```
+
+* Create Simple Queries
+
+Spring Data JPA focuses on using JPA to store data in a relational database. Its most compelling feature is the ability to create repository implementations automatically, at runtime, from a repository interface.
+
+To see how this works, create a repository interface that works with Customer entities as the following listing (in src/main/java/com/example/accessingdatajpa/CustomerRepository.java) shows:
+
+```
+package com.example.accessingdatajpa;
+
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+
+public interface CustomerRepository extends CrudRepository<Customer, Long> {
+
+  List<Customer> findByLastName(String lastName);
+
+  Customer findById(long id);
+}
+```
+
+* Create an Application Class
+
+Spring Initializr creates a simple class for the application. The following listing shows the class that Initializr created for this example (in src/main/java/com/example/accessingdatajpa/AccessingDataJpaApplication.java):
+
+```
+package com.example.accessingdatajpa;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class AccessingDataJpaApplication {
+
+  public static void main(String[] args) {
+    SpringApplication.run(AccessingDataJpaApplication.class, args);
+  }
+
+}
+```
+
+Next add the following part into the above class,
+
+```
+@Bean
+  public CommandLineRunner demo(CustomerRepository repository) {
+    return (args) -> {
+      // save a few customers
+      repository.save(new Customer("Jack", "Bauer"));
+      repository.save(new Customer("Chloe", "O'Brian"));
+      repository.save(new Customer("Kim", "Bauer"));
+      repository.save(new Customer("David", "Palmer"));
+      repository.save(new Customer("Michelle", "Dessler"));
+
+      // fetch all customers
+      log.info("Customers found with findAll():");
+      log.info("-------------------------------");
+      repository.findAll().forEach(customer -> {
+        log.info(customer.toString());
+      });
+      log.info("");
+
+      // fetch an individual customer by ID
+      Customer customer = repository.findById(1L);
+      log.info("Customer found with findById(1L):");
+      log.info("--------------------------------");
+      log.info(customer.toString());
+      log.info("");
+
+      // fetch customers by last name
+      log.info("Customer found with findByLastName('Bauer'):");
+      log.info("--------------------------------------------");
+      repository.findByLastName("Bauer").forEach(bauer -> {
+        log.info(bauer.toString());
+      });
+      log.info("");
+    };
+  }
+```
+
+### Build an executable JAR
+
+`./mvnw clean package`
+
+### Run the executable JAR
+
+`./mvnw spring-boot:run`
+
+When you run your application, you should see output similar to the following:
+
+```
+== Customers found with findAll():
+Customer[id=1, firstName='Jack', lastName='Bauer']
+Customer[id=2, firstName='Chloe', lastName='O'Brian']
+Customer[id=3, firstName='Kim', lastName='Bauer']
+Customer[id=4, firstName='David', lastName='Palmer']
+Customer[id=5, firstName='Michelle', lastName='Dessler']
+
+== Customer found with findById(1L):
+Customer[id=1, firstName='Jack', lastName='Bauer']
+
+== Customer found with findByLastName('Bauer'):
+Customer[id=1, firstName='Jack', lastName='Bauer']
+Customer[id=3, firstName='Kim', lastName='Bauer']
+```
+
 ## Lab 3 Accessing Data with MongoDB
 
 ## Lab 4 Accessing Data in Pivotal GemFire
@@ -457,7 +620,6 @@ If you use Maven, you can run the application by using ./mvnw spring-boot:run. A
 `java -jar target/gs-accessing-data-gemfire-0.1.0.jar`
 
 You should see something like this (with other content, such as queries):
-
 
 
 ## Lab 5 Accessing Data with Neo4j
