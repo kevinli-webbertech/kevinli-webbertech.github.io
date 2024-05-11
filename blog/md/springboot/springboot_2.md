@@ -416,6 +416,175 @@ Customer[id=3, firstName='Kim', lastName='Bauer']
 
 ## Lab 3 Accessing Data with MongoDB
 
+### Build the project
+
+* git clone https://github.com/spring-guides/gs-accessing-data-mongodb.git
+ 
+* cd into gs-accessing-data-mongodb/initial
+
+* Install and Launch MongoDB
+
+`$ brew install mongodb`
+
+* Start MongoDB Server
+`$ mongod`
+
+You should see output similar to the following:
+
+`all output going to: /usr/local/var/log/mongodb/mongo.log`
+
+* Define a Simple Entity
+The following listing shows the Customer class (in src/main/java/com/example/accessingdatamongodb/Customer.java):
+
+```
+package com.example.accessingdatamongodb;
+
+import org.springframework.data.annotation.Id;
+
+
+public class Customer {
+
+  @Id
+  public String id;
+
+  public String firstName;
+  public String lastName;
+
+  public Customer() {}
+
+  public Customer(String firstName, String lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  @Override
+  public String toString() {
+    return String.format(
+        "Customer[id=%s, firstName='%s', lastName='%s']",
+        id, firstName, lastName);
+  }
+
+}
+```
+
+* Create Simple Queries
+
+To see how this works, create a repository interface that queries Customer documents, as the following listing (in src/main/java/com/example/accessingdatamongodb/CustomerRepository.java) shows:
+
+```
+package com.example.accessingdatamongodb;
+
+import java.util.List;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+public interface CustomerRepository extends MongoRepository<Customer, String> {
+
+  public Customer findByFirstName(String firstName);
+  public List<Customer> findByLastName(String lastName);
+
+}
+```
+
+* Create an Application Class
+
+Spring Initializr creates a simple class for the application. The following listing shows the class that Initializr created for this example (in src/main/java/com/example/accessingdatamongodb/AccessingDataMongodbApplication.java):
+
+```
+package com.example.accessingdatamongodb;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class AccessingDataMongodbApplication {
+
+  public static void main(String[] args) {
+    SpringApplication.run(AccessingDataMongodbApplication.class, args);
+  }
+
+}
+```
+Spring Boot automatically handles those repositories as long as they are included in the same package (or a sub-package) of your @SpringBootApplication class. For more control over the registration process, you can use the @EnableMongoRepositories annotation.
+
+By default, @EnableMongoRepositories scans the current package for any interfaces that extend one of Spring Data’s repository interfaces. You can use its basePackageClasses=MyRepository.class to safely tell Spring Data MongoDB to scan a different root package by type if your project layout has multiple projects and it does not find your repositories.
+Spring Data MongoDB uses the MongoTemplate to execute the queries behind your find* methods. You can use the template yourself for more complex queries, but this guide does not cover that. (see the Spring Data MongoDB Reference Guide)
+
+Now you need to modify the simple class that the Initializr created for you. You need to set up some data and use it to generate output. The following listing shows the finished AccessingDataMongodbApplication class (in
+
+```
+package com.example.accessingdatamongodb;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class AccessingDataMongodbApplication implements CommandLineRunner {
+
+  @Autowired
+  private CustomerRepository repository;
+
+  public static void main(String[] args) {
+    SpringApplication.run(AccessingDataMongodbApplication.class, args);
+  }
+
+  @Override
+  public void run(String... args) throws Exception {
+
+    repository.deleteAll();
+
+    // save a couple of customers
+    repository.save(new Customer("Alice", "Smith"));
+    repository.save(new Customer("Bob", "Smith"));
+
+    // fetch all customers
+    System.out.println("Customers found with findAll():");
+    System.out.println("-------------------------------");
+    for (Customer customer : repository.findAll()) {
+      System.out.println(customer);
+    }
+    System.out.println();
+
+    // fetch an individual customer
+    System.out.println("Customer found with findByFirstName('Alice'):");
+    System.out.println("--------------------------------");
+    System.out.println(repository.findByFirstName("Alice"));
+
+    System.out.println("Customers found with findByLastName('Smith'):");
+    System.out.println("--------------------------------");
+    for (Customer customer : repository.findByLastName("Smith")) {
+      System.out.println(customer);
+    }
+
+  }
+
+}
+```
+
+### Build an executable JAR
+
+`/mvnw clean package` 
+
+### Run the executable JAR
+
+`./mvnw spring-boot:run`
+
+As AccessingDataMongodbApplication implements CommandLineRunner, the run method is automatically invoked when Spring Boot starts. You should see something like the following (with other output, such as queries, as well):
+
+```
+== Customers found with findAll():
+Customer[id=51df1b0a3004cb49c50210f8, firstName='Alice', lastName='Smith']
+Customer[id=51df1b0a3004cb49c50210f9, firstName='Bob', lastName='Smith']
+
+== Customer found with findByFirstName('Alice'):
+Customer[id=51df1b0a3004cb49c50210f8, firstName='Alice', lastName='Smith']
+== Customers found with findByLastName('Smith'):
+Customer[id=51df1b0a3004cb49c50210f8, firstName='Alice', lastName='Smith']
+Customer[id=51df1b0a3004cb49c50210f9, firstName='Bob', lastName='Smith']
+```
+
 ## Lab 4 Accessing Data in Pivotal GemFire
 
 ### What You Will build
