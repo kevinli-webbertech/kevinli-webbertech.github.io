@@ -14,6 +14,7 @@ Run your project with apache tomcat server in your computer. (25 pts)
 
 2/ Configure your springboot project to connect to mysql database. Create a student table with the following data, (25 pts)
 
+```
 {
   {
     "student_id": 1,
@@ -31,6 +32,7 @@ Run your project with apache tomcat server in your computer. (25 pts)
     "age": 23
   }
 }
+```
 
 Endpoint: `/students/all`
 
