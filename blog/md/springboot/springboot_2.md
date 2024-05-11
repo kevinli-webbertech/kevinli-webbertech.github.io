@@ -1,8 +1,19 @@
 # Java Enterprise Development with Springboot - Data Access
 
-## Accessing data with MySQL
+## Outline of today's Lab
 
-## Accessing Data in Pivotal GemFire
+* Mysql Configuration
+* GemFire cache
+* MongoDB
+* Neo4j
+
+## Lab 1 Accessing data with MySQL
+
+## Lab 2 Accessing Data with JPA
+
+## Lab 3 Accessing Data with MongoDB
+
+## Lab 4 Accessing Data in Pivotal GemFire
 
 ### What You Will build
 
@@ -194,6 +205,9 @@ Now, remember how you tagged Person to be stored in a region called People by us
 
 You can run the application from the command line with Gradle or Maven. You can also build a single executable JAR file that contains all the necessary dependencies, classes, and resources and run that. Building an executable jar makes it easy to ship, version, and deploy the service as an application throughout the development lifecycle, across different environments, and so forth.
 
+
+### Run executable JAR
+
 If you use Gradle, you can run the application by using `./gradlew bootRun`. Alternatively, you can build the JAR file by using `./gradlew build` and then run the JAR file, as follows:
 
 `java -jar build/libs/gs-accessing-data-gemfire-0.1.0.jar`
@@ -204,11 +218,7 @@ If you use Maven, you can run the application by using ./mvnw spring-boot:run. A
 
 You should see something like this (with other content, such as queries):
 
-[TODO: missing]
 
-## Accessing Data with MongoDB
-
-## Accessing Data with JPA
 
 ## Accessing Data with Neo4j
 
@@ -232,10 +242,10 @@ There may be a short delay until the server is ready.
 See /usr/local/Cellar/neo4j/3.0.6/libexec/logs/neo4j.log for current status.
 ```
 
-ref:
+## Ref
 
 - https://spring.io/guides/gs/accessing-data-mysql/
+- https://spring.io/guides/gs/accessing-data-jpa/
 - https://spring.io/guides/gs/accessing-data-gemfire
 - https://spring.io/guides/gs/accessing-data-mongodb
-- https://spring.io/guides/gs/accessing-data-jpa/
 - https://spring.io/guides/gs/accessing-data-neo4j
