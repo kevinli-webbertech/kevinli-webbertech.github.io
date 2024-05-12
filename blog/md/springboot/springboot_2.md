@@ -1,4 +1,4 @@
-# Java Enterprise Development with Springboot - Data Access
+# Java Enterprise Development with Springboot - Topic 2- Data Access
 
 ## Outline of today's Lab
 
