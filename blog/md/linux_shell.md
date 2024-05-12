@@ -176,8 +176,6 @@ ref: https://www.geeksforgeeks.org/cut-command-linux-examples/
 
 The apt command line tool provides a higher-level user interface for end users with intuitive commands, resulting behaviors, and security features. In contrast, the command apt-get is a low-level interface that communicates more closely with core Linux processes. The apt command is a more user-friendly package manager than apt-get.
 
-`sudo apt-get update`: 
-
 Used in Linux-based operating systems to update the package lists for available software packages from the configured repositories.
 
 `sudo apt-get upgrade`
@@ -482,6 +480,15 @@ One problem with XDMCP is that, similarly to telnet, the authentication takes pl
 
 ### KDE
 
+KDE is an international free software community that develops free and open-source software. As a central development hub, it provides tools and resources that allow collaborative work on this kind of software. Well-known products include the Plasma Desktop, KDE Frameworks, and a range of cross-platform applications such as Amarok, digiKam, and Krita that are designed to run on Unix and Unix-like operating systems, Microsoft Windows, and Android.
+
+KDE was founded in 1996 by Matthias Ettrich, a student at the University of Tübingen.
+In the beginning Matthias Ettrich chose to use Trolltech's Qt framework for the KDE project. Other programmers quickly started developing KDE/Qt applications, and by early 1997, a few applications were being released. On 12 July 1998 the first version of the desktop environment, called KDE 1.0, was released. The original GPL licensed version of this toolkit only existed for platforms which used the X11 display server, but with the release of Qt 4, LGPL licensed versions are available for more platforms. This allowed KDE software based on Qt 4 or newer versions to theoretically be distributed to Microsoft Windows and OS X.
+
+The KDE Marketing Team announced a rebranding of the KDE project components on 24 November 2009. Motivated by the perceived shift in objectives, the rebranding focused on emphasizing both the community of software creators and the various tools supplied by the KDE, rather than just the desktop environment.
+
+What was previously known as KDE 4 was split into KDE Plasma Workspaces, KDE Applications, and KDE Platform (now KDE Frameworks) bundled as KDE Software Compilation 4. Since 2009, the name KDE no longer stands for K Desktop Environment, but for the community that produces the software.
+
 #### ref
 
 - https://en.wikipedia.org/wiki/KDE
@@ -492,6 +499,7 @@ One problem with XDMCP is that, similarly to telnet, the authentication takes pl
 
 ### xfce
 
+#### ref
 - https://www.vpsserver.com/gnome-vs-xfce-vs-kde/#:~:text=KDE%2C%20GNOME%2C%20and%20Xfce%20are,of%20the%20Unix%20operating%20system.
 
 - https://1gbits.com/blog/best-linux-desktop-environment/#:~:text=The%20most%20well%2Dknown%20Linux,be%20user%2Dfriendly%20and%20adaptable.
@@ -501,7 +509,6 @@ One problem with XDMCP is that, similarly to telnet, the authentication takes pl
 - https://cloudzy.com/blog/linux-mint-cinnamon-vs-mate-vs-xfce/#:~:text=Unlike%20Linux%20Mint%20Cinnamon%20and,but%20has%20its%20own%20libraries.
 
 - https://alternativeto.net/software/gnome/
-
 
 ## Common XDM
 
@@ -515,7 +522,21 @@ One problem with XDMCP is that, similarly to telnet, the authentication takes pl
 
 Note: `Source coming from Wikipedia`
 
-ref: https://en.wikipedia.org/wiki/X_display_manager#XDMCP
+#### ref
+- https://en.wikipedia.org/wiki/X_display_manager#XDMCP
+
+## X Server
+
+## GTK
+
+GTK (formerly GIMP ToolKit and GTK+) is a free software cross-platform widget toolkit for creating graphical user interfaces (GUIs). It is licensed under the terms of the GNU Lesser General Public License, allowing both free and proprietary software to use it. It is one of the most popular toolkits for the Wayland and X11 windowing systems.
+
+The GTK team releases new versions on a regular basis. GTK 4 and GTK 3 are maintained, while GTK 2 is end-of-life. GTK1 is independently maintained by the CinePaint project.
+
+#### ref
+- https://www.gtk.org/
+
+
 
 ## Over all Linux References and Websites
 
