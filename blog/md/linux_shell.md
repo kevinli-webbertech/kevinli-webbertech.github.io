@@ -399,19 +399,62 @@ ssh tunnel
 GNOME is used both by Fedora and Ubuntu.
 Nautilus offers a simple and integrated way of managing files and browsing the file system.
 
-Its features:
-
 - Activities overview
 - GNOME Software Center
 - GNOME Commander: a free open source graphic file manager for linux desktop.
 - GNOME Display Manager (GDM): A display manager (a graphical login manager) for the windowing systems X11 and Wayland
 - Mutter:A portmanteau of "Metacity" and "Clutter", Mutter can function as a standalone window manager for GNOME-like desktops
 
+#### Nautilus
+
+Files, also known as Nautilus, is the default file manager of the GNOME desktop. It provides a simple and integrated way of managing your files and browsing your file system.
+
+Nautilus supports all the basic functions of a file manager and more. It can search and manage your files and folders, both locally and on a network, read and write data to and from removable media, run scripts, and launch apps. It has three views: Icon Grid, Icon List, and Tree List. Its functions can be extended with plugins and scripts.
+
+More information can be found here,
+
+https://apps.gnome.org/Nautilus/#:~:text=Files%2C%20also%20known%20as%20Nautilus,a%20file%20manager%20and%20more
+
+### GDM
+
+GNOME Display Manager (GDM) is a display manager (a graphical login manager) for the windowing systems X11 and Wayland. GDM was written from scratch and does not contain any XDM or X Consortium code.
+
+The X Window System by default uses the XDM display manager. However, resolving XDM configuration issues typically involves editing a configuration file. GDM allows users to customize or troubleshoot settings without having to resort to a command line. 
+
+GDM comprises the following components:
+
+- Chooser – a program used to select a remote host as the source for a remote display on the attached display (gdm-host-chooser)
+- Greeter – the graphical login window (provided by GNOME Shell)
+- Pluggable authentication module (PAM)
+- X Display Manager Control Protocol (XDMCP)
+
+#### PAM
+
+A pluggable authentication module (PAM) is a mechanism to integrate multiple low-level authentication schemes into a high-level application programming interface (API). 
+
+PAM allows programs that rely on authentication to be written independently of the underlying authentication scheme.
+
+![pam architecture](https://kevinli-webbertech.github.io/blog/images/linux/pam.png)
+
+History,
+
+* 1995: It was first proposed by Sun Microsystems in an Open Software Foundation Request for Comments (RFC) 86.0 dated October 1995.
+
+* 1996: It was adopted as the authentication framework of the Common Desktop Environment. As a stand-alone open-source infrastructure, PAM first appeared in Red Hat Linux 3.0.4 in August 1996 in the Linux PAM project. 
+
+* X/Open Single Sign-on (XSSO) 
+Since no central standard of PAM behavior exists, there was a later attempt to standardize PAM as part of the X/Open UNIX standardization process, resulting in the X/Open Single Sign-on (XSSO) standard.
+
+* OpenPAM
+This standard was not ratified, but the standard draft has served as a reference point for later PAM implementations (for example, OpenPAM).
+
+
 #### ref
 
 - https://www.gnome.org/
 - https://apps.gnome.org/Nautilus/#:~:text=Files%2C%20also%20known%20as%20Nautilus,a%20file%20manager%20and%20more.
 - https://extensions.gnome.org/
+- https://en.wikipedia.org/wiki/Pluggable_authentication_module
 
 ### KDE
 
@@ -422,8 +465,6 @@ Its features:
 - https://kdeconnect.kde.org/
 - https://neon.kde.org/
 - https://kde.org/plasma-desktop/
-
-
 
 ### xfce
 
