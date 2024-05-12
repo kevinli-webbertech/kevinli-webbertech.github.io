@@ -1,7 +1,10 @@
-# Java Enterprise Development with Springboot - Springboot Testing
+# Java Enterprise Development with Springboot - Topic 5 -  Springboot Security
 
-# Testing web layer
+## Securing a Web Application
+
+## https://spring.io/guides/topicals/spring-security-architecture
 
 ref:
 
-https://spring.io/guides/gs/testing-web/
+- https://spring.io/guides/topicals/spring-security-architecture
+- https://spring.io/guides/gs/securing-web/

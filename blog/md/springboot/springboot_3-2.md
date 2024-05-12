@@ -1,4 +1,4 @@
-# Java Enterprise Development with Springboot - Spring Security and Angular
+# Java Enterprise Development with Springboot - Topic 3 - Spring Security and Angular
 
 ## Securing a SPA(single app application)
 
