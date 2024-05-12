@@ -531,12 +531,21 @@ Note: `Source coming from Wikipedia`
 
 GTK (formerly GIMP ToolKit and GTK+) is a free software cross-platform widget toolkit for creating graphical user interfaces (GUIs). It is licensed under the terms of the GNU Lesser General Public License, allowing both free and proprietary software to use it. It is one of the most popular toolkits for the Wayland and X11 windowing systems.
 
-The GTK team releases new versions on a regular basis. GTK 4 and GTK 3 are maintained, while GTK 2 is end-of-life. GTK1 is independently maintained by the CinePaint project.
+The GTK team releases new versions on a regular basis. GTK 4 and GTK 3 are maintained, while GTK 2 is end-of-life. GTK1 is independently maintained by the CinePaint project. GTK 4 dropped the + from the name.
+
+* GTK Drawing Kit (GDK): GDK acts as a wrapper around the low-level functions provided by the underlying windowing and graphics systems.
 
 #### ref
 - https://www.gtk.org/
+- DevConf.cz
 
+## Wayland
 
+Wayland is a communication protocol that specifies the communication between a display server and its clients, as well as a C library implementation of that protocol. A display server using the Wayland protocol is called a Wayland compositor, because it additionally performs the task of a compositing window manager.
+
+Wayland is developed by a group of volunteers initially led by Kristian Høgsberg as a free and open-source community-driven project with the aim of replacing the X Window System with a secure and simpler windowing system for Linux and other Unix-like operating systems. The project's source code is published under the terms of the MIT License, a permissive free software licence.
+
+As part of its efforts, the Wayland project also develops a reference implementation of a Wayland compositor called Weston.
 
 ## Over all Linux References and Websites
 
