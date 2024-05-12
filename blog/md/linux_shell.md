@@ -537,7 +537,6 @@ X originated as part of Project Athena at Massachusetts Institute of Technology 
 
 - https://www.x.org/releases/X11R7.6/doc/man/man1/Xserver.1.xhtml
 
-
 ## GTK
 
 GTK (formerly GIMP ToolKit and GTK+) is a free software cross-platform widget toolkit for creating graphical user interfaces (GUIs). It is licensed under the terms of the GNU Lesser General Public License, allowing both free and proprietary software to use it. It is one of the most popular toolkits for the Wayland and X11 windowing systems.
