@@ -393,14 +393,52 @@ ssh tunnel
 ### redirect
 
 
-# Advanced Linux Usage
+## Linux Desktop Environment
+
+### GNOME
+GNOME is used both by Fedora and Ubuntu.
+Nautilus offers a simple and integrated way of managing files and browsing the file system.
+
+Its features:
+
+- Activities overview
+- GNOME Software Center
+- GNOME Commander: a free open source graphic file manager for linux desktop.
+- GNOME Display Manager (GDM): A display manager (a graphical login manager) for the windowing systems X11 and Wayland
+- Mutter:A portmanteau of "Metacity" and "Clutter", Mutter can function as a standalone window manager for GNOME-like desktops
+
+#### ref
+
+- https://www.gnome.org/
+- https://apps.gnome.org/Nautilus/#:~:text=Files%2C%20also%20known%20as%20Nautilus,a%20file%20manager%20and%20more.
+- https://extensions.gnome.org/
+
+### KDE
+
+#### ref
+
+- https://en.wikipedia.org/wiki/KDE
+- https://kde.org/
+- https://kdeconnect.kde.org/
+- https://neon.kde.org/
+- https://kde.org/plasma-desktop/
 
 
 
+### xfce
+
+- https://www.vpsserver.com/gnome-vs-xfce-vs-kde/#:~:text=KDE%2C%20GNOME%2C%20and%20Xfce%20are,of%20the%20Unix%20operating%20system.
+
+- https://1gbits.com/blog/best-linux-desktop-environment/#:~:text=The%20most%20well%2Dknown%20Linux,be%20user%2Dfriendly%20and%20adaptable.
+
+- https://www.vpsserver.com/gnome-vs-xfce-vs-kde/#:~:text=Xfce%20is%20faster%20than%20KDE,quicker%20desktop%20environment%20than%20GNOME.
+
+- https://cloudzy.com/blog/linux-mint-cinnamon-vs-mate-vs-xfce/#:~:text=Unlike%20Linux%20Mint%20Cinnamon%20and,but%20has%20its%20own%20libraries.
+
+- https://alternativeto.net/software/gnome/
 
 
-
-## Ref
+## Over all Linux Referneces and Websites
 
 * https://man7.org/tlpi/index.html
 * https://www.dpkg.org/
