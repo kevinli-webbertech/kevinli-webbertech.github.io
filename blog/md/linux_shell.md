@@ -518,7 +518,7 @@ What was previously known as KDE 4 was split into KDE Plasma Workspaces, KDE App
 * LightDM, a lightweight, modular, cross-desktop, fully themeable desktop display manager by Canonical Ltd.
 * TWin, the TDE window manager
 * dtlogin (shipped with CDE)
-* xlogin display manager, a lightweight, secure and login like console display manager for X, written in C.[2][3]
+* xlogin display manager, a lightweight, secure and login like console display manager for X, written in C.
 
 Note: `Source coming from Wikipedia`
 
@@ -526,6 +526,17 @@ Note: `Source coming from Wikipedia`
 - https://en.wikipedia.org/wiki/X_display_manager#XDMCP
 
 ## X Server
+
+The X Window System (X11, or simply X) is a windowing system for bitmap displays, common on Unix-like operating systems.
+
+X originated as part of Project Athena at Massachusetts Institute of Technology (MIT) in 1984. The X protocol has been at version 11 (hence "X11") since September 1987. The X.Org Foundation leads the X project, with the current reference implementation, X.Org Server, available as free and open-source software under the MIT License and similar permissive licenses.
+
+![x server](https://kevinli-webbertech.github.io/blog/images/linux/xserver.png)
+
+#### ref
+
+- https://www.x.org/releases/X11R7.6/doc/man/man1/Xserver.1.xhtml
+
 
 ## GTK
 
