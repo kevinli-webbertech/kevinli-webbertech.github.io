@@ -448,6 +448,30 @@ Since no central standard of PAM behavior exists, there was a later attempt to s
 * OpenPAM
 This standard was not ratified, but the standard draft has served as a reference point for later PAM implementations (for example, OpenPAM).
 
+#### X Display Manager Control Protocol (XDMCP)
+
+* In X window System, the X server runs.
+
+* The X window display manager offers a graphics login manager to start a login session to ask users for username and password.
+
+* The X window display manager acts to do the same functionality as the getty and login on character-mode terminals.
+
+* The X window display manager can connect remotely, then it acts like a telnet server.
+
+* The XDM (the X Window Display Manager) originated in X11R3. 
+It only reads from Xservers file thus every time a user switched a terminal off and on, it will not know. In X11R4, with XDMCP, the X server must actively request a display manager connection from the host. An X server using XDMCP therefore no longer requires an entry in Xservers.
+
+1988: X11 Release 3 introduced display managers in October 1988 with the aim of supporting the standalone X terminals, just coming onto the market. 
+
+1989: X11R4 introduced the X Display Manager Control Protocol (XDMCP) in December 1989 to fix problems in the X11R3 implementation.
+
+* The X Display Manager Control Protocol (XDMCP) uses UDP port 177.
+And it keeps a secret key and have a hand-shake package with the X server to authenticate itself. When the session is established,
+During the session, the server can send KeepAlive packets to the display manager at intervals.  If the display manager fails to respond with an Alive packet within a certain time, the X server presumes that the display manager has ceased running, and can terminate the connection.
+
+* XDMCP security concern. 
+
+One problem with XDMCP is that, similarly to telnet, the authentication takes place unencrypted.
 
 #### ref
 
@@ -479,7 +503,21 @@ This standard was not ratified, but the standard draft has served as a reference
 - https://alternativeto.net/software/gnome/
 
 
-## Over all Linux Referneces and Websites
+## Common XDM
+
+* GDM, GNOME implemation
+* KDM, KDE implementation
+* SDDM, KDE Plasma 5 and LXQt. Successor to KDM.
+* LightDM, a lightweight, modular, cross-desktop, fully themeable desktop display manager by Canonical Ltd.
+* TWin, the TDE window manager
+* dtlogin (shipped with CDE)
+* xlogin display manager, a lightweight, secure and login like console display manager for X, written in C.[2][3]
+
+Note: `Source coming from Wikipedia`
+
+ref: https://en.wikipedia.org/wiki/X_display_manager#XDMCP
+
+## Over all Linux References and Websites
 
 * https://man7.org/tlpi/index.html
 * https://www.dpkg.org/
