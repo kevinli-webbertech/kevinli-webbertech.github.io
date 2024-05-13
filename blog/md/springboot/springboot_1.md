@@ -1,5 +1,7 @@
 # Java Enterprise Development with Springboot - Topic 1- Bootstrap Microservice
 
+## Introduction, Goal and Expectation
+
 This is a first class of Springboot MVC. We will learn a quick bootstrap way to get your microservice running.
 
 Springboot framework has been evolving into two categories,
