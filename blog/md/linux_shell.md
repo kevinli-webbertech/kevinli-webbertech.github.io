@@ -557,6 +557,15 @@ Wayland is developed by a group of volunteers initially led by Kristian Høgsber
 
 As part of its efforts, the Wayland project also develops a reference implementation of a Wayland compositor called Weston.
 
+#### ref
+
+
+### Check the XDM
+
+- Display Environment Variable: `echo $DISPLAY` and `echo $XDG_SESSION_TYPE`
+- Check process: `ps aux | grep [X]` or `ps aux | grep [w]ayland`
+- Using loginctl Command: `$ loginctl show-session $(loginctl | grep $(whoami) | awk '{print $1}') -p Type`
+
 ## Over all Linux References and Websites
 
 * https://man7.org/tlpi/index.html
