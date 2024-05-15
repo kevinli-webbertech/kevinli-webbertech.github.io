@@ -40,9 +40,9 @@ Endpoint: `/students/all`
 
 To test it with http get, try to go to your browser and hit `localhost:8080/students/all`, and it should show the above json in the web page.
 
-3/ Write a Http post method endpoint `/students/add` to add a record to your database, and prove the record is added using `http get` endpoint from step 2. (25 pts)
+3/ Write a Http post method endpoint `/students/add` to add a record to your database(Mysql), and prove the record is added using `http get` endpoint from step 2. To access to your database, you will need to read the Topic 2(Next chapter on my courseware) about the Mysql part. (25 pts)
 
-4/ Write a summary of the following annotation. (25 pts)
+4/ Write a summary of the following annotations. (25 pts)
 
 - @Autowired
 - @SpringBootApplication
