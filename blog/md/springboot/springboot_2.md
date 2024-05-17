@@ -19,6 +19,11 @@ Download and unzip the source repository for this guide, or clone it using Git:
 
 * Install mysql
 
+- https://dev.mysql.com/downloads/installer/
+
+* Login to your mysql from commandline
+![mysql login](https://kevinli-webbertech.github.io/blog/images/springboot/mysql_login.png)
+
 * Configure and start mysql
 
 ```
