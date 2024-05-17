@@ -1,5 +1,7 @@
 # Java Enterprise Development with Springboot - Topic 1- Bootstrap Microservice
 
+## Introduction, Goal and Expectation
+
 This is a first class of Springboot MVC. We will learn a quick bootstrap way to get your microservice running.
 
 Springboot framework has been evolving into two categories,
@@ -273,6 +275,44 @@ public class HelloControllerIT {
     }
 }
 ```
+
+Explanation:
+
+* Both of the two test files are both doing the same thing, but in different ways.
+
+* The source code were placed in main/java/com/example/springboot/, and tests are placed in
+   test/java/...../springboot/. When springboot runs, it sees all the .java files including source and test java files in the same level.
+
+* In each of the above test file, it will scan the source code, your real controller, and was able to 
+  read the string, thus in the assert statement, it will be able to do a `isEqualTo` comparison.
+
+
+#### Takeaway:  
+
+You can run springboot project by:
+
+* gradle
+* maven
+* eclipse STS or IntelliJ from the triangle button, or
+* `run as` java application/springboot application by right clicking the Application.java which contains the main() method, or 
+  `run as` by right clicking in the Application.java code editor itself.
+* Run by "java -jar your_executable_jar". This is the way when you write docker file and how we deploy in the production server.
+
+You can run test file by:
+
+* `mvn test`
+* gradle way in command line as well
+* right click the test file and `Run as`
+
+You can put a debugging point in the Java source code,
+
+* Debug as Java application or Springboot application
+
+Check the external libraries in your file explorer, and find out what have been included in your build.grale or pom.xml regarding the dependencies. If you see some class or annotation is missing, and you clean IntelliJ cache and it does not work.
+
+In the extreme case if you suspect that IntelliJ is cached bad stuff or messed up, you should run in commandline way to run the project, if you still see the missing symbols of clasess, then you need to check in your external libraries in your file explorer.
+
+
 
 
 ## Lab 2 - Starting with Spring Initializr
