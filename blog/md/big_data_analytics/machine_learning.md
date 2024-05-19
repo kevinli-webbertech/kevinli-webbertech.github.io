@@ -68,6 +68,9 @@ OpenAI has several competitors in the field of artificial intelligence research,
 
 These are just a few examples of companies that compete with OpenAI in the field of artificial intelligence. The AI landscape is dynamic and rapidly evolving, with new players emerging and existing players expanding their capabilities.
 
+## ML/AI Security
+
+**ModelScan**
 
 ## Ref
 
