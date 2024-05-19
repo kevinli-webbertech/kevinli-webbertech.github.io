@@ -75,3 +75,5 @@ https://www.ignorance.ai/p/openais-top-competitors
 https://www.gartner.com/reviews/market/generative-ai-apps/vendor/openai/product/openai-api/alternatives
 https://www.inven.ai/company-lists/top-19-openai-alternatives
 https://news.crunchbase.com/ai/openai-anthropic-competitor-mistral-fundraise/
+https://thebluemanakin.com/en/blog/who-are-the-key-competitors-of-openai-in-the-ai-industry/
+
