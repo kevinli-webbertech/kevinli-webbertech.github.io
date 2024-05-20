@@ -205,6 +205,7 @@ Output:
 
 - If you start Springboot in STS or IntelliJ, you could right click in the main() method file, and `Run As`, or right click the Application.java, and `Run As` Java application or Springboot application.
 
+- If you do not have gradle or maven installed, then the wrapper shell script mvnw and gradlew will grab the archive of these and install it for you.
 
 ## Add Unit Tests
 
@@ -286,7 +287,7 @@ public class HelloControllerIT {
 }
 ```
 
-Explanation:
+**Explanatio**:
 
 * Both of the two test files are both doing the same thing, but in different ways.
 

@@ -32,6 +32,10 @@ mysql> create user 'springuser'@'%' identified by 'ThePassword'; -- Creates the 
 mysql> grant all on db_example.* to 'springuser'@'%'; -- Gives all privileges to the new user on the newly created database
 ```
 
+For the above commands, you should see them like the following,
+
+![mysql login](https://kevinli-webbertech.github.io/blog/images/springboot/mysql.png)
+
 * Security Changes
 
 The following command revokes all the privileges from the user associated with the Spring application:
