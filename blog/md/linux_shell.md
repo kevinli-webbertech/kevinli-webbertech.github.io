@@ -186,9 +186,6 @@ This command is used to install the latest versions of the packages currently in
 
 This command is used to install or upgrade packages. 
 
-`sudo apt-get install [package_name]`
-
-Skipped
 
 `sudo apt-get remove [package_name]`
 
@@ -240,25 +237,25 @@ Most used commands:
 ### dpkg examples
 ```
   install
-           The package is selected for installation.
+      The package is selected for installation.
 
-       hold
-           A package marked to be on hold is kept on the same version, that is, no automatic new
-           installs, upgrades or removals will be performed on them, unless these actions are
-           requested explicitly, or are permitted to be done automatically with the --force-hold
-           option.
+  hold
+      A package marked to be on hold is kept on the same version, that is, no automatic new
+      installs, upgrades or removals will be performed on them, unless these actions are
+      requested explicitly, or are permitted to be done automatically with the --force-hold
+      option.
 
-       deinstall
-           The package is selected for deinstallation (i.e. we want to remove all files, except
-           configuration files).
+  deinstall
+      The package is selected for deinstallation (i.e. we want to remove all files, except
+      configuration files).
 
-       purge
-           The package is selected to be purged (i.e. we want to remove everything from system
-           directories, even configuration files).
+  purge
+      The package is selected to be purged (i.e. we want to remove everything from system
+      directories, even configuration files).
 
-       unknown
-           The package selection is unknown.  A package that is also in a not-installed state, and
-           with an ok flag will be forgotten in the next database store.
+  unknown
+      The package selection is unknown.  A package that is also in a not-installed state, and
+      with an ok flag will be forgotten in the next database store.
 ```
 
 ## System Information
@@ -278,12 +275,13 @@ Most used commands:
 * `kill`	Terminates a running process
 * `bg`
 * `fg`
-* `lsof`
-* `which`
-* `whomai`
-* `uptime`
+* `lsof` List All Open Files 
+* `which` Find file location which is on the path
+* `whomai` Currently logged-in user
+* `uptime` Time system has been up since last reboot
 * `shutdown`	Turns off or restarts the system
 * `reboot`  Reboot
+
 
 ### Examples
 
@@ -333,13 +331,78 @@ efivarfs               128         35         89  28% /sys/firmware/efi/efivars
 /dev/sdb1      11718752252 1749660476 9969091776  15% /mnt/ntfs
 /dev/sda1           523244       6220     517024   2% /boot/efi
 tmpfs              3270048        140    3269908   1% /run/user/1000
+```
 
+#### `lsof usage`
+
+FD – stands for a File descriptor and may see some of the values as:
+
+* cwd current working directory
+* rtd root directory
+* txt program text (code and data)
+* mem memory-mapped file
+
+Also in FD column numbers like 1u is actual file descriptor and followed by u,r,w of its mode as:
+
+`r` for read access.
+`w` for write access.
+`u` for read and write access.
+`TYPE` – of files and it’s identification.
+
+`DIR` – Directory
+`REG` – Regular file
+`CHR` – Character special file.
+`FIFO` – First In First Out
+
+
+```
 xiaofengli@xiaofenglx:~/code/codebank$ lsof| grep -i 8080
 apache2   8072 8080 apache2           www-data  cwd   unknown                                         /proc/8072/task/8080/cwd (readlink: Permission denied)
 apache2   8072 8080 apache2           www-data  rtd   unknown                                         /proc/8072/task/8080/root (readlink: Permission denied)
 apache2   8072 8080 apache2           www-data  txt   unknown                                         /proc/8072/task/8080/exe (readlink: Permission denied)
 apache2   8072 8080 apache2           www-data NOFD                                                   /proc/8072/task/8080/fd (opendir: Permission denied)
 
+```
+
+List User Specific Opened Files
+
+`lsof -u xiaofengli`
+
+Find Processes Running on Specific Port
+`lsof -i TCP:22`
+
+List Only IPv4 & IPv6 Open Files
+
+`lsof -i 4`
+
+`lsof -i 6`
+
+List Open Files of TCP Port Ranges 1-1024
+
+` lsof -i TCP:1-1024`
+
+Exclude User with ‘^’ Character
+
+`lsof -i -u^root`
+
+Find Out who’s Looking What Files and Commands?
+
+`lsof -i -u xiaofenglx`
+
+List all Network Connections
+
+The following command with option ‘-i’ shows the list of all network connections ‘LISTENING & ESTABLISHED’.
+
+`lsof -i`
+
+Search by PID
+
+`lsof -p 1`
+
+Kill all Activity of Particular User
+
+```
+kill -9 `lsof -t -u tecmint`
 ```
 
 ## Network
@@ -358,29 +421,97 @@ apache2   8072 8080 apache2           www-data NOFD                             
 
 ### Examples
 
-```
-wget
-```
+Get all the links recursively. 
+
+`wget -r https://docs.python.org/3/tutorial/index.html`
+
+`curl` to send http post.
 
 ```
-curl
+curl --location '192.168.1.186:9200/school*/_search' \
+--header 'Content-Type: application/json' \
+--data '{
+   "query":{
+       "match" : {
+         "rating":"4.5"
+      }
+   }
+}'
 ```
 
+`curl` to do http get.
 ```
-netstat
+curl --location --request GET '192.168.1.186:9401/schools/_search' \
+--header 'Content-Type: application/json' \
+--data '{
+   "query":{
+      "match_all":{}
+   }
+}'
 ```
+
+`netstat usage`
+
+- -a To list all listening ports, using both TCP and UDP, use `netstat -a`
+- -t only tcp ports connections
+- -u only udp ports connections
+- -l To list all actively listening ports (both TCP and UDP)
+- -s To pull and view network statistics sorted by protocol
+- -p show pid
+- -r The -r option of netstat displays the IP routing table
+- -i To view send/receive stats by interface
+
+Raw network stats,
+
+`netstat --statistics --raw`
+
+
 
 ```
 ssh tunnel
 ```
 
-## Firewall & IPtable
+## System commands
 
+### `compgen`
+
+compgen -c will list all the commands you could run.
+compgen -a will list all the aliases you could run.
+compgen -b will list all the built-ins you could run.
+compgen -k will list all the keywords you could run.
+compgen -A function will list all the functions you could run.
+compgen -A function -abck will list all the above in one go.
+
+### `systemctl`
+
+`Systemd` is a system and service manager for Linux; a drop-in replacement for the init process, which is compatible with SysV and LSB init scripts, and the `systemctl` command is the primary tool to manage systemd.
+
+**Example**
+
+`# systemctl list-units --type=service`
+
+OR
+
+`# systemctl --type=service`
+
+```
+# systemctl list-units --type=service --state=active
+OR
+# systemctl --type=service --state=active
+
+```
+
+https://www.tecmint.com/list-all-running-services-under-systemd-in-linux/
+
+
+## Firewall & IPtable
+https://www.ninjaone.com/blog/how-to-configure-a-linux-firewall/#:~:text=After%20you%20configure%20a%20Linux,traffic%20based%20on%20predefined%20rules.
 
 ## File and file descriptor
 
 
 ## Shell scripting
+
 
 ### function
 
