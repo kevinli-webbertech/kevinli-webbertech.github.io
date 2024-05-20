@@ -180,11 +180,13 @@ There is also a CommandLineRunner method marked as a @Bean, and this runs on sta
 
 ## Run the Application
 
+If you use gradle, please do the following, 
+
 `./gradlew bootRun`
 
 ![gradle run](https://kevinli-webbertech.github.io/blog/images/springboot/gradle_run.png)
 
-If you use Maven,
+If you use Maven, please do the following,
 
 `./mvnw spring-boot:run`
 
@@ -195,6 +197,14 @@ Output:
 - You can clearly see org.springframework.boot.autoconfigure beans. 
 
 - There is also a tomcatEmbeddedServletContainerFactory.
+
+
+**Take away**
+
+- If you deploy in production, you  will be doing `java -jar your_executable.jar`
+
+- If you start springboot in STS or IntellJ, you could right click in the main() method file, and `Run As`, or right click the Application.java, and `Run As` Java application or Springboot application.
+
 
 ## Add Unit Tests
 
