@@ -471,13 +471,47 @@ Raw network stats,
 ssh tunnel
 ```
 
-## Firewall & IPtable
+## System commands
 
+### `compgen`
+
+compgen -c will list all the commands you could run.
+compgen -a will list all the aliases you could run.
+compgen -b will list all the built-ins you could run.
+compgen -k will list all the keywords you could run.
+compgen -A function will list all the functions you could run.
+compgen -A function -abck will list all the above in one go.
+
+### `systemctl`
+
+`Systemd` is a system and service manager for Linux; a drop-in replacement for the init process, which is compatible with SysV and LSB init scripts, and the `systemctl` command is the primary tool to manage systemd.
+
+**Example**
+
+`# systemctl list-units --type=service`
+
+OR
+
+`# systemctl --type=service`
+
+```
+# systemctl list-units --type=service --state=active
+OR
+# systemctl --type=service --state=active
+
+```
+
+https://www.tecmint.com/list-all-running-services-under-systemd-in-linux/
+
+
+## Firewall & IPtable
+https://www.ninjaone.com/blog/how-to-configure-a-linux-firewall/#:~:text=After%20you%20configure%20a%20Linux,traffic%20based%20on%20predefined%20rules.
 
 ## File and file descriptor
 
 
 ## Shell scripting
+
 
 ### function
 
