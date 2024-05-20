@@ -203,7 +203,7 @@ Output:
 
 - If you deploy in production, you  will be doing `java -jar your_executable.jar`
 
-- If you start springboot in STS or IntellJ, you could right click in the main() method file, and `Run As`, or right click the Application.java, and `Run As` Java application or Springboot application.
+- If you start Springboot in STS or IntellJ, you could right click in the main() method file, and `Run As`, or right click the Application.java, and `Run As` Java application or Springboot application.
 
 
 ## Add Unit Tests
