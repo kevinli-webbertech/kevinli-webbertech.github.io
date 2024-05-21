@@ -9,3 +9,20 @@
 
 `Total points: 100`
 
+- Lab 3
+
+**Screenshots**
+
+- Lab 4
+
+**Screenshots**
+
+- Lab 5
+
+**Screenshots**
+
+Submission: 
+
+- PDF is ok.
+- Name and personal info.
+- Detail oriented.
