@@ -46,17 +46,18 @@ Now the Spring application cannot do anything in the database.
 
 The application must have some privileges, so use the following command to grant the minimum privileges the application needs:
 
-`mysql> grant select, insert, delete, update on db_example.* to 'springuser'@'%';`
+`GRANT ALL PRIVILEGES ON db_example.* TO 'springuser'@'%';`
 
 * Create a resource file called `src/main/resources/application.properties`
 
 ```
-spring.jpa.hibernate.ddl-auto=update
-spring.datasource.url=jdbc:mysql://${MYSQL_HOST:localhost}:3306/db_example
+spring.jpa.generate-ddl=true
+spring.jpa.hibernate.ddl-auto=create
+spring.jpa.show-sql=true
+spring.datasource.url=jdbc:mysql://localhost:3306/db_example
 spring.datasource.username=springuser
 spring.datasource.password=ThePassword
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-spring.jpa.show-sql: true
 ```
 
 Here, spring.jpa.hibernate.ddl-auto can be none, update, create, or create-drop. See the Hibernate documentation for details.
