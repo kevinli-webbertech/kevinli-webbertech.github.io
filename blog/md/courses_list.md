@@ -47,6 +47,18 @@ DBeaver is a opensource GUI tool to connect to MySQL and it has advanced feature
 
 https://youtu.be/3v4b8mytGfY
 
+**#5 Topic: Cassandra Part I- Introduction**
+
+https://youtu.be/JhsDWNYEOEw
+
+**#6 Topic: Cassandra Installation - Part II Mac Installation using homebrew**
+
+https://youtu.be/x5b_fXANe2M
+
+**#7 Topic: Cassandra Installation Part III**
+
+https://youtu.be/SMg3Sq60rVg
+
 ## SQL Courses
 
 
