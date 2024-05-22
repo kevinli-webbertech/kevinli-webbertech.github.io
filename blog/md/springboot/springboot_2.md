@@ -57,7 +57,7 @@ spring.jpa.show-sql=true
 spring.datasource.url=jdbc:mysql://localhost:3306/db_example
 spring.datasource.username=springuser
 spring.datasource.password=ThePassword
-spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+#spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 ```
 
 Here, spring.jpa.hibernate.ddl-auto can be none, update, create, or create-drop. See the Hibernate documentation for details.
