@@ -4,8 +4,14 @@ The target audiences of this article are Mac M*  Chip Users. M1 and M2 are Apple
 
 1/ Install colima using homebrew,
 
+`brew install colima`
+
+After installation, you could check where it is installed,
+
+```
 kevins-Laptop:~ kevinli$ which colima
 /opt/homebrew/bin/colima
+```
 
 2/ Run Colima to emulate it is x64 architecture
 
