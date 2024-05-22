@@ -43,7 +43,7 @@ https://youtu.be/_5LOxnPgM6k
 
 **#4 class: Connect to MySQL from DBeaver**
 
-DBeaver is a opensource GUI tool to connect to MySQL and it has advanced features to visualize ER diagram of a lot of talbes, code generation for DDL and DML..etc.
+DBeaver is an opensource GUI tool to connect to MySQL and it has advanced features to visualize ER diagram of a lot of talbes, code generation for DDL and DML..etc.
 
 https://youtu.be/3v4b8mytGfY
 
