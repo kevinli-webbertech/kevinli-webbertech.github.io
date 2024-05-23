@@ -287,7 +287,7 @@ public class HelloControllerIT {
 }
 ```
 
-**Explanatio**:
+**Explanation**:
 
 * Both of the two test files are both doing the same thing, but in different ways.
 
