@@ -22,6 +22,13 @@ This video talks about how to configure database related attributes in the appli
 
 https://youtu.be/URhT2xrDhzE
 
+**JPA code diving**
+
+This video talks about how annotation works and how JPA works.
+
+https://youtu.be/brgtuznYBIA
+
+
 ## Advanced Database Courses
 
 **#1 class: Connect to MySQL server from commandline**
