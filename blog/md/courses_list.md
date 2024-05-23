@@ -53,24 +53,24 @@ https://youtu.be/brgtuznYBIA
 
 ## Advanced Database Courses
 
-**#1 class: Connect to MySQL server from commandline**
+**#1 Topic: Connect to MySQL server from commandline**
 This video talks about how to connect and login to MySQL server. 
 
 https://youtu.be/PffS9Sd-biQ
 
-**#2 class: Run SQL Commands in terminal**
+**#2 Topic: Run SQL Commands in terminal**
 
 This video shows you how to run sql commands in the terminal connections.
 
 https://youtu.be/MzuLEmGtDAo
 
-**#3 class: Create database and tables** 
+**#3 Topic: Create database and tables** 
 
 Create database and tables. In this tutorial we will learn a few handy commands.
 
 https://youtu.be/_5LOxnPgM6k
 
-**#4 class: Connect to MySQL from DBeaver**
+**#4 Topic: Connect to MySQL from DBeaver**
 
 DBeaver is an opensource GUI tool to connect to MySQL and it has advanced features to visualize ER diagram of a lot of talbes, code generation for DDL and DML..etc.
 
