@@ -22,6 +22,12 @@ Run Springboot project with Maven. And how to package an executable Jar with Mav
 
 https://youtu.be/KU8GiAz4Cks
 
+**Running Springboot inside IntelliJ**
+
+This video will talk about adding DevTools, Actuator and Maven dashboard. Also other dashboards and troubleshooting in the IntelliJ.
+
+https://youtu.be/0fXm_JdAVfY
+
 
 ### Class 2
 **Mysql Installation & Configuration**
