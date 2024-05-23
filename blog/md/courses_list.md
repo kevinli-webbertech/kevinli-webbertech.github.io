@@ -2,6 +2,28 @@
 
 ## Springboot courses
 
+### Class 1
+
+**Introduction**
+
+Springboot introduction, history, Servlet, JSP, JSTL and Spring framework history.
+
+https://youtu.be/2j1UbL3jp2E
+
+**Running Springboot project with Gradle**
+
+This video talks about how to run Springboot project with Gradle.
+
+https://youtu.be/hVlgJDO9Tdo
+
+**Running Springboot project with Maven**
+
+Run Springboot project with Maven. And how to package an executable Jar with Maven and run with `java -jar` with the production deployment.
+
+https://youtu.be/KU8GiAz4Cks
+
+
+### Class 2
 **Mysql Installation & Configuration**
 
 Install Mysql server in local computer for springboot to connect. During this course, we need to create a proper username and password and give this user enough permissions for the springboot service to connect to the database server using this username/password.
