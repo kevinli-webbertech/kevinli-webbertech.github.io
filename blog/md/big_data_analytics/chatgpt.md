@@ -11,7 +11,7 @@ import requests
 import json
 import os
 
-openai_api_key = "sk-proj-g8sYaOtqIZSF9cC4TFVIT3BlbkFJZIiMjeCV3wJunno4KqAO"
+openai_api_key = ""
 if openai_api_key is None:
     raise ValueError("OpenAI API key is not set in environment variables.")
 
