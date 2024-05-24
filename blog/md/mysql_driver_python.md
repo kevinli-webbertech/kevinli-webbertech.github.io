@@ -12,9 +12,9 @@ In this article we will talk about using pyCharm to solve this driver issue,
 
 When you try to address the issue, copy the following code to your IDE and then run it,
 
-```
 The following code shows the above result,
 
+```
 import mysql.connector
 
 mydb = mysql.connector.connect(user='root', password='',
@@ -39,11 +39,13 @@ If not, then you are likely to see the following issue **"module not found"** is
 
 
 `pip uninstall mysql-connector`
+
 `pip install mysql-connector`
 
 and 
 
 `pip uninstall mysql-connector-python`
+
 `pip install mysql-connector-python`
 
 **Restart your pyCharm**
