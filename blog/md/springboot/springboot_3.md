@@ -52,6 +52,7 @@ Overall, Kubernetes has become the de facto standard for container orchestration
 
 `sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64`
 
+![start minikube](https://kevinli-webbertech.github.io/blog/images/springboot/minikube.png)
 
 
 ## Ref
