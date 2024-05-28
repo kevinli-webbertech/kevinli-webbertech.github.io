@@ -54,6 +54,87 @@ Overall, Kubernetes has become the de facto standard for container orchestration
 
 ![start minikube](https://kevinli-webbertech.github.io/blog/images/springboot/minikube.png)
 
+* Run minikube
+
+![start minikube](https://kevinli-webbertech.github.io/blog/images/springboot/minikube_dashboard.png)
+
+Check dashboard
+
+![start minikube](https://kevinli-webbertech.github.io/blog/images/springboot/minikube_dashboard_ui.png)
+
+* Verify the pods/cluster information with `kubectl`
+
+![start minikube](https://kevinli-webbertech.github.io/blog/images/springboot/kubectl.png)
+
+
+* Check cluster info with `kubectl`
+
+
+` kubectl cluster-info`
+
+Then you will see the following,
+
+![cluster info](image.png)
+
+## Operate your cluster
+
+Run the following command,
+
+```
+$ kubectl cluster-info
+Kubernetes master is running at https://127.0.0.1:46253
+KubeDNS is running at https://127.0.0.1:46253/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+```
+
+## Deploy Springboot project
+
+* Build your project
+
+First, we create a Spring Boot application. If you have one you prefer to use already in github, you could clone it in the terminal (git and java are installed already). Alternatively, you can create an application from scratch by using start.spring.io:
+
+```
+curl https://start.spring.io/starter.tgz -d dependencies=webflux,actuator | tar -xzvf -```
+
+You can then build the application:
+
+`./mvnw install`
+
+Then you can see the result of the build. If the build was successful, you should see a JAR file similar to the following:
+
+```
+ls -l target/*.jar
+-rw-r--r-- 1 root root 19463334 Nov 15 11:54 target/demo-0.0.1-SNAPSHOT.jar
+```
+
+The JAR is executable:
+
+`$ java -jar target/*.jar`
+
+Then check your project,
+
+`$ curl localhost:8080/actuator`
+
+* Containerize the Application
+
+There are multiple options for containerizing a Spring Boot application. As long as you are already building a Spring Boot jar file, you only need to call the plugin directly. The following command uses Maven:
+
+`$ ./mvnw spring-boot:build-image`
+
+The following command uses Gradle:
+
+`$ ./gradlew bootBuildImage`
+
+You can run the container locally:
+
+`$ docker run -p 8080:8080 demo:0.0.1-SNAPSHOT`
+
+Then you can check that it works in another terminal:
+
+`$ curl localhost:8080/actuator/health`
+
+Finish by stopping the container.
 
 ## Ref
 
