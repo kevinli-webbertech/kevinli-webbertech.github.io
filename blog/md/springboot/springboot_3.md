@@ -136,6 +136,17 @@ Then you can check that it works in another terminal:
 
 Finish by stopping the container.
 
+* Push your image to docker, Nexus or JFrog
+
+Note: Docker, Nexus or JFrog where the image repositories.
+
+You `cannot` push the image unless you authenticate with Dockerhub (docker login), but there is already an image there that should work. If you were authenticated, you could:
+
+```
+$ docker tag demo:0.0.1-SNAPSHOT springguides/demo
+$ docker push springguides/demo
+```
+
 ## Ref
 
 - https://spring.io/guides/gs/spring-boot-kubernetes
