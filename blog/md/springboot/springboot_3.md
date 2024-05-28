@@ -95,7 +95,8 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 First, we create a Spring Boot application. If you have one you prefer to use already in github, you could clone it in the terminal (git and java are installed already). Alternatively, you can create an application from scratch by using start.spring.io:
 
 ```
-curl https://start.spring.io/starter.tgz -d dependencies=webflux,actuator | tar -xzvf -```
+curl https://start.spring.io/starter.tgz -d dependencies=webflux,actuator | tar -xzvf -
+```
 
 You can then build the application:
 

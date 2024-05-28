@@ -599,7 +599,7 @@ Customer[id=51df1b0a3004cb49c50210f8, firstName='Alice', lastName='Smith']
 Customer[id=51df1b0a3004cb49c50210f9, firstName='Bob', lastName='Smith']
 ```
 
-## Lab 4 Accessing Data in Pivotal GemFire
+## Lab 4 Accessing Data in Pivotal GemFire (issues)
 
 ### What You Will build
 
@@ -791,7 +791,6 @@ Now, remember how you tagged Person to be stored in a region called People by us
 
 You can run the application from the command line with Gradle or Maven. You can also build a single executable JAR file that contains all the necessary dependencies, classes, and resources and run that. Building an executable jar makes it easy to ship, version, and deploy the service as an application throughout the development lifecycle, across different environments, and so forth.
 
-
 ### Run executable JAR
 
 If you use Gradle, you can run the application by using `./gradlew bootRun`. Alternatively, you can build the JAR file by using `./gradlew build` and then run the JAR file, as follows:
@@ -805,7 +804,9 @@ If you use Maven, you can run the application by using ./mvnw spring-boot:run. A
 You should see something like this (with other content, such as queries):
 
 
-## Lab 5 Accessing Data with Neo4j
+## Lab 5 Accessing Data with Neo4j 
+
+Note: Some issue with this (dependencies)
 
 ### BUild the project
 
