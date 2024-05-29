@@ -74,7 +74,7 @@ Check dashboard
 
 Then you will see the following,
 
-![cluster info](image.png)
+![cluster info](https://kevinli-webbertech.github.io/blog/images/springboot/cluster_info.png)
 
 ## Operate your cluster
 
@@ -88,25 +88,28 @@ KubeDNS is running at https://127.0.0.1:46253/api/v1/namespaces/kube-system/serv
 To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 ```
 
-## Deploy Springboot project
+## Deploy Springboot Project in Docker
 
 * Build your project
 
-First, we create a Spring Boot application. If you have one you prefer to use already in github, you could clone it in the terminal (git and java are installed already). Alternatively, you can create an application from scratch by using start.spring.io:
+First, we create a Spring Boot application. Let us use our first example of the first class,
 
 ```
-curl https://start.spring.io/starter.tgz -d dependencies=webflux,actuator | tar -xzvf -
+
+`git clone https://github.com/spring-guides/gs-spring-boot.git`
+
+`cd into gs-spring-boot/complete`
 ```
 
 You can then build the application:
 
-`./mvnw install`
+`./mvnw clean install`
 
 Then you can see the result of the build. If the build was successful, you should see a JAR file similar to the following:
 
 ```
 ls -l target/*.jar
--rw-r--r-- 1 root root 19463334 Nov 15 11:54 target/demo-0.0.1-SNAPSHOT.jar
+-rw-r--r-- 1 root root 19463334 Nov 15 11:54 target/spring-boot-complete-0.0.1-SNAPSHOT.jar
 ```
 
 The JAR is executable:
@@ -127,9 +130,15 @@ The following command uses Gradle:
 
 `$ ./gradlew bootBuildImage`
 
+Here I use maven,
+
+![build_docker_image](https://kevinli-webbertech.github.io/blog/images/springboot/build_docker_image.png)
+
 You can run the container locally:
 
-`$ docker run -p 8080:8080 demo:0.0.1-SNAPSHOT`
+`$ docker run -p 8080:8080 spring-boot-complete-0.0.1-SNAPSHOT`
+
+
 
 Then you can check that it works in another terminal:
 
