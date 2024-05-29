@@ -155,7 +155,7 @@ You should see the following,
 
 * Push your image to docker, Nexus or JFrog
 
-Note: Docker, Nexus or JFrog where the image repositories.
+Note: Docker, Nexus, JFrog or Amazon ECR are the popular image repositories. Different companies use different solutions. As a student, you can use docker for now,
 
 You `cannot` push the image unless you authenticate with Dockerhub (docker login), but there is already an image there that should work. If you were authenticated, you could:
 
