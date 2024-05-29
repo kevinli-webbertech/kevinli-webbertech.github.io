@@ -159,6 +159,62 @@ Command prints field from first to fourth of each line from the file.
 
 ref: https://www.geeksforgeeks.org/cut-command-linux-examples/
 
+#### sort examples
+
+Sure, here's a simple example of using the `sort` command in Linux:
+
+Let's say you have a file called `names.txt` with the following content:
+
+```
+John
+Alice
+Bob
+Zoe
+```
+
+To sort the names alphabetically, you can use the `sort` command like this:
+
+```bash
+sort names.txt
+```
+
+This will output:
+
+```
+Alice
+Bob
+John
+Zoe
+```
+
+By default, `sort` sorts lines of text in ascending order, which means alphabetically for strings. If you want to sort in descending order, you can use the `-r` option:
+
+```
+sort -r names.txt
+```
+
+This will output:
+
+```
+Zoe
+John
+Bob
+Alice
+```
+
+You can also use `sort` to sort the output of a command. For example, if you have a list of numbers stored in a file called `numbers.txt`, you can sort them like this:
+
+```
+cat numbers.txt | sort -n
+```
+
+This will sort the numbers numerically in ascending order. If you want to sort them in descending order, you can use:
+
+```
+cat numbers.txt | sort -n -r
+```
+
+These are just a few examples of how you can use the `sort` command in Linux to sort text data. There are many more options available, so you may want to refer to the `sort` manual (`man sort`) for more information.
 
 ## Text find, replace and regex
 
