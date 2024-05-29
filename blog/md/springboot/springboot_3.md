@@ -160,8 +160,8 @@ Note: Docker, Nexus or JFrog where the image repositories.
 You `cannot` push the image unless you authenticate with Dockerhub (docker login), but there is already an image there that should work. If you were authenticated, you could:
 
 ```
-$ docker tag demo:0.0.1-SNAPSHOT springguides/demo
-$ docker push springguides/demo
+$ docker tag spring-boot-complete:0.0.1-SNAPSHOT spring-boot-complete-0.0.1-SNAPSHOT
+$ docker push spring-boot-complete:0.0.1-SNAPSHOT
 ```
 
 ## Ref
