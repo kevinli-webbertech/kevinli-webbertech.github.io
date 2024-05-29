@@ -1,15 +1,19 @@
 # Homework 3
 
 * Install docker on your computer (Screenshot)
-  Register a docker account, and please prove you can docker login.
-  
+
+  1/ Register a docker account, and please prove you can docker login.
+  2/ Try to build a docker image and push to the docker.io.
+
 * Install minikube on your computer (Screenshot)
 
 * Start minikube cluster on your computer (Screenshot)
+ 
+  Start minikube dashboard on your computer (Screenshot)
 
 * Deploy Springboot project in Kubernetes (Screenshot and proofs)
 
-Please refer to this tutorial,
+Please refer to this tutorial for the kubernetes deployment,
 **https://spring.io/guides/gs/spring-boot-kubernetes**
 
 ## Submission
