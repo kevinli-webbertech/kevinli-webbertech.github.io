@@ -1,6 +1,6 @@
 # Springboot deployment with Kubernetes
 
-# Docker Container
+## Docker Container
 
 A Docker container is a lightweight, standalone, executable package that includes everything needed to run a piece of software, including the code, runtime, libraries, dependencies, and configuration files. Docker containers are based on Docker technology, which allows developers to package their applications and all of their dependencies into a single container that can run consistently across different environments.
 
@@ -42,7 +42,7 @@ Key features of Kubernetes include:
 
 Overall, Kubernetes has become the de facto standard for container orchestration in the cloud-native ecosystem, enabling organizations to build, deploy, and manage modern applications at scale.
 
-## Installation of Minicube
+## Installation of minikube
 
 * Download
 
@@ -68,7 +68,6 @@ Check dashboard
 
 
 * Check cluster info with `kubectl`
-
 
 ` kubectl cluster-info`
 
@@ -138,7 +137,9 @@ You can run the container locally:
 
 `$ docker run -p 8080:8080 spring-boot-complete-0.0.1-SNAPSHOT`
 
+It should look like below,
 
+![alt text](https://kevinli-webbertech.github.io/blog/images/springboot/run_docker_image.png)
 
 Then you can check that it works in another terminal:
 
@@ -162,4 +163,3 @@ $ docker push springguides/demo
 - https://spring.io/guides/gs/spring-boot-kubernetes
 - https://github.com/kubernetes/minikube
 - https://minikube.sigs.k8s.io/docs/start/
-
