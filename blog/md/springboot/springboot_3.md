@@ -157,7 +157,7 @@ You should see the following,
 
 Note: Docker, Nexus, JFrog or Amazon ECR are the popular image repositories. Different companies use different solutions. As a student, you can use docker for now,
 
-You **cannot** push the image unless you authenticate with Dockerhub (docker login), but there is already an image there that should work. Please register one yourself. If you were authenticated, you could do the following,
+You **cannot** push the image unless you authenticate with Dockerhub (docker login), but there is already an image there that should work. Please register one yourself on docker.io. If you were authenticated, you could do the following,
 
 ```
 $ docker tag spring-boot-complete:0.0.1-SNAPSHOT spring-boot-complete-0.0.1-SNAPSHOT
