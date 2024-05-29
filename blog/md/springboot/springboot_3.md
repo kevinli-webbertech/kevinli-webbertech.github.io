@@ -133,19 +133,25 @@ Here I use maven,
 
 ![build_docker_image](https://kevinli-webbertech.github.io/blog/images/springboot/build_docker_image.png)
 
-You can run the container locally:
+Other than what the splash screen shows you about the docker image build was done. You could also use the following docker command to check it,
+
+`docker image ls | grep spring-boot-complete`
+
+Next, you can run the container locally:
 
 `$ docker run -p 8080:8080 spring-boot-complete-0.0.1-SNAPSHOT`
 
 It should look like below,
 
-![alt text](https://kevinli-webbertech.github.io/blog/images/springboot/run_docker_image.png)
+![run_docker_image](https://kevinli-webbertech.github.io/blog/images/springboot/run_docker_image.png)
 
 Then you can check that it works in another terminal:
 
 `$ curl localhost:8080/actuator/health`
 
-Finish by stopping the container.
+You should see the following,
+
+![test_docker_image](https://kevinli-webbertech.github.io/blog/images/springboot/test_docker_image.png)
 
 * Push your image to docker, Nexus or JFrog
 
