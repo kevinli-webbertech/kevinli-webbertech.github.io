@@ -1,8 +1,8 @@
-# Java Generics Bound Example
+# Java Generics
 
 This example demonstrates the use of generics with bounded wildcards in Java. It covers unbounded wildcards, upper bounds, lower bounds, and the concept of PECS (Producer Extends, Consumer Super).
 
-## Java Code
+## Java Generics Bound
 
 ```java
 package com.webbertech.java;
