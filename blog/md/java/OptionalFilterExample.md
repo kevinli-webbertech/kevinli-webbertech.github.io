@@ -1,8 +1,6 @@
-# Java Optional Filter Example
+# Java Optional Filter
 
 This example demonstrates the use of the `Optional` class in Java, particularly the `filter` method, which allows conditional processing of the contained value.
-
-## Java Code
 
 ```java
 package com.webbertech.java;

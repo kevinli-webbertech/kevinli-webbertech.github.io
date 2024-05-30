@@ -1,8 +1,6 @@
-# Java Optional FlatMap Example
+# Java Optional FlatMap
 
 This example demonstrates the usage of `Optional` in Java, particularly focusing on the `map` and `flatMap` methods. These methods allow transforming the value contained within an `Optional` in different ways, depending on whether the transformation produces another `Optional`.
-
-## Java Code
 
 ```java
 package com.webbertech.java;

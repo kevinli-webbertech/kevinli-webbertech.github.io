@@ -1,8 +1,6 @@
-# Java Functional Interface Example
+# Java Functional Interface
 
 This example demonstrates the use of Java's `Predicate` functional interface to filter a list of integers based on different conditions.
-
-## Java Code
 
 ```java
 package com.webbertech.java;

@@ -1,8 +1,6 @@
-# Java Optional ifPresent Example
+# Java Optional ifPresent
 
 This example demonstrates the usage of the `Optional` class in Java, specifically focusing on the `ifPresent` method. The `ifPresent` method allows executing a block of code only if the `Optional` contains a non-null value.
-
-## Java Code
 
 ```java
 package com.webbertech.java;

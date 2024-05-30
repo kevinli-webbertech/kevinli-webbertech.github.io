@@ -2,7 +2,6 @@
 
 This example demonstrates the use of `LinkedHashMap` in Java. It highlights how `LinkedHashMap` maintains insertion order and handles `null` values as keys.
 
-## Java Code
 
 ```java
 package com.webbertech.java;

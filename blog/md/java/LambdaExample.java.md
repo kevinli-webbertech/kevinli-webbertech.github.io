@@ -1,8 +1,6 @@
-# Java Lambda Expression Example
+# Java Lambda Expression
 
 This example demonstrates the use of lambda expressions in Java to define operations and services in a concise and readable manner.
-
-## Java Code
 
 ```java
 package com.webbertech.java;

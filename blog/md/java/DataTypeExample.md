@@ -1,4 +1,4 @@
-# Java `DataTypeExample`
+# Java DataType
 
 The following Java program demonstrates the use of the `Character` class and the comparison of character values.
 

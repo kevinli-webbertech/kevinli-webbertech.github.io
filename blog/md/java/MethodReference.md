@@ -1,8 +1,6 @@
-# Java Method Reference Example
+# Java Method Reference
 
 This example demonstrates the use of method references in Java. Method references provide a shorthand syntax for calling methods directly and can make the code more concise and readable.
-
-## Java Code
 
 ```java
 package com.webbertech.java;
