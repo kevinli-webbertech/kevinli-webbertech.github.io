@@ -36,7 +36,6 @@ The Foundation library, written in Dart, provides basic classes and functions th
 
 ## Installation
 
-
 - Step 1 Install linux tools and commands
 
 To develop Flutter on Linux:
@@ -205,7 +204,6 @@ Doctor summary (to see all details, run flutter doctor -v):
 
 ! Doctor found issues in 2 categories.
 ```
-
 
 **ref** 
 
