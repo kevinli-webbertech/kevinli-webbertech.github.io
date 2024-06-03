@@ -167,6 +167,10 @@ $ docker tag spring-boot-complete:0.0.1-SNAPSHOT spring-boot-complete-0.0.1-SNAP
 $ docker push spring-boot-complete:0.0.1-SNAPSHOT
 ```
 
+## Deploy Docker Image to Kubernetes (Linux version)
+
+![deploy_docker_image](https://kevinli-webbertech.github.io/blog/images/springboot/k8s_deployment.png)
+
 ## Ref
 
 - https://spring.io/guides/gs/spring-boot-kubernetes
