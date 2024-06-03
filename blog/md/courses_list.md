@@ -68,6 +68,8 @@ https://youtu.be/YUYaMvw1Tuo
 
 A complete video about how to deploy your docker image in docker hub into K8s.
 
+https://youtu.be/bbI3W9RzVEE
+
 ## Advanced Database Courses
 
 **#1 Topic: Connect to MySQL server from commandline**
