@@ -62,10 +62,11 @@ https://youtu.be/brgtuznYBIA
 
 Springboot provides a way to quickly build a docker image without writing a docker file. This video will show you how to do that quickly with just one command.
 
+https://youtu.be/YUYaMvw1Tuo
+
 **Deploy springboot Docker image into Kubernetes**
 
-
-
+A complete video about how to deploy your docker image in docker hub into K8s.
 
 ## Advanced Database Courses
 
