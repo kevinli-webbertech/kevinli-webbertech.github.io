@@ -182,7 +182,7 @@ $ kubectl create service clusterip demo --tcp=8080:8080 --dry-run=client -o=yaml
 * Deploying configuration
 
 ```
-xiaofengli@xiaofenglx:~/git/springboot/gs-spring-boot/complete$ kubectl apply -f deployment.yaml
+$ kubectl apply -f deployment.yaml
 deployment.apps/demo created
 service/demo created
 ```
@@ -190,7 +190,7 @@ service/demo created
 * Testing the service is deployed
 
 ```
-xiaofengli@xiaofenglx:~/git/springboot/gs-spring-boot/complete$ kubectl get all
+$ kubectl get all
 NAME                       READY   STATUS             RESTARTS   AGE
 pod/demo-cdc44c655-9sgvx   0/1     ImagePullBackOff   0          10s
 
