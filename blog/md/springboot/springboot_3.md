@@ -172,11 +172,11 @@ $ docker push spring-boot-complete:0.0.1-SNAPSHOT
 * Creating configuration yaml file
 
 ```
-xiaofengli@xiaofenglx:~/git/springboot/gs-spring-boot/complete$ kubectl create deployment demo --image=spring-boot-complete:0.0.1-SNAPSHOT --dry-run=client -o=yaml > deployment.yaml
+$ kubectl create deployment demo --image=spring-boot-complete:0.0.1-SNAPSHOT --dry-run=client -o=yaml > deployment.yaml
 
-xiaofengli@xiaofenglx:~/git/springboot/gs-spring-boot/complete$ echo --- >> deployment.yaml
+$ echo --- >> deployment.yaml
 
-xiaofengli@xiaofenglx:~/git/springboot/gs-spring-boot/complete$ kubectl create service clusterip demo --tcp=8080:8080 --dry-run=client -o=yaml >> deployment.yaml
+$ kubectl create service clusterip demo --tcp=8080:8080 --dry-run=client -o=yaml >> deployment.yaml
 ```
 
 * Deploying configuration
