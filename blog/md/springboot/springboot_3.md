@@ -235,6 +235,10 @@ See the following for detail,
 
 ![push docker image](https://kevinli-webbertech.github.io/blog/images/springboot/push_docker_image.png)
 
+After I pushed the image, let us check the image is there,
+
+![push docker image](https://kevinli-webbertech.github.io/blog/images/springboot/dockerhub_image.png)
+
 Then change your image name in the `deployment.yaml`,
 
 ![deployment.yaml](https://kevinli-webbertech.github.io/blog/images/springboot/deployment_yaml.png)
