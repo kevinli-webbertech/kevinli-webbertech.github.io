@@ -1,4 +1,4 @@
-# Springboot deployment with Kubernetes - Topic 3 Depploy Springboot to k8s
+# Springboot deployment with Kubernetes - Topic 3 Deploy Springboot to k8s
 
 ## Docker Container
 
