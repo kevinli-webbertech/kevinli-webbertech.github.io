@@ -169,7 +169,46 @@ $ docker push spring-boot-complete:0.0.1-SNAPSHOT
 
 ## Deploy Docker Image to Kubernetes (Linux version)
 
+* Creating configuration yaml file
+
+```
+xiaofengli@xiaofenglx:~/git/springboot/gs-spring-boot/complete$ kubectl create deployment demo --image=spring-boot-complete:0.0.1-SNAPSHOT --dry-run=client -o=yaml > deployment.yaml
+
+xiaofengli@xiaofenglx:~/git/springboot/gs-spring-boot/complete$ echo --- >> deployment.yaml
+
+xiaofengli@xiaofenglx:~/git/springboot/gs-spring-boot/complete$ kubectl create service clusterip demo --tcp=8080:8080 --dry-run=client -o=yaml >> deployment.yaml
+```
+
+* Deploying configuration
+
+```
+xiaofengli@xiaofenglx:~/git/springboot/gs-spring-boot/complete$ kubectl apply -f deployment.yaml
+deployment.apps/demo created
+service/demo created
+```
+
+* Testing the service is deployed
+
+```
+xiaofengli@xiaofenglx:~/git/springboot/gs-spring-boot/complete$ kubectl get all
+NAME                       READY   STATUS             RESTARTS   AGE
+pod/demo-cdc44c655-9sgvx   0/1     ImagePullBackOff   0          10s
+
+NAME                 TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
+service/demo         ClusterIP   10.109.170.178   <none>        8080/TCP   10s
+service/kubernetes   ClusterIP   10.96.0.1        <none>        443/TCP    5d3h
+
+NAME                   READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/demo   0/1     1            0           10s
+
+NAME                             DESIRED   CURRENT   READY   AGE
+replicaset.apps/demo-cdc44c655   1         1         0       10s
+```
+
+
+
 ![deploy_docker_image](https://kevinli-webbertech.github.io/blog/images/springboot/k8s_deployment.png)
+
 
 ## Ref
 
