@@ -139,7 +139,7 @@ Other than what the splash screen shows you about the docker image build was don
 
 Next, you can run the container locally:
 
-`$ docker run -p 8080:8080 spring-boot-complete-0.0.1-SNAPSHOT`
+`$ docker run -p 8080:8080 spring-boot-complete:0.0.1-SNAPSHOT`
 
 It should look like below,
 
