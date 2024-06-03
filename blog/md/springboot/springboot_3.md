@@ -42,7 +42,10 @@ Key features of Kubernetes include:
 
 Overall, Kubernetes has become the de facto standard for container orchestration in the cloud-native ecosystem, enabling organizations to build, deploy, and manage modern applications at scale.
 
-## Installation of minikube
+## Installation of minikube (Linux version)
+
+Note: For Mac and windows installation, please refer to the bottom of this tutorial and there is a link to 
+![minikube](https://github.com/kubernetes/minikube).
 
 * Download
 
