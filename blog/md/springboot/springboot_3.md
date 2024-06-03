@@ -205,9 +205,36 @@ NAME                             DESIRED   CURRENT   READY   AGE
 replicaset.apps/demo-cdc44c655   1         1         0       10s
 ```
 
+When you see the above `ImagePullBackOff` that means your image is not running. There is something wrong with it. It must be in `run` state to work.
 
 
 ![deploy_docker_image](https://kevinli-webbertech.github.io/blog/images/springboot/k8s_deployment.png)
+
+
+Troubleshooting:
+
+- For the image in the deployment.yaml to work, it has to pull from an image container.
+- You will need to register a docker hub account, and push your docker image to the docker hub.
+
+To push to your docker hub,
+
+```
+docker tag firstimage YOUR_DOCKERHUB_NAME/firstimage
+docker push YOUR_DOCKERHUB_NAME/firstimage
+```
+
+firstimage: in my case, see the following command,
+YOUR_DOCKERHUB_NAME: your login username of docker hub
+
+```
+docker tag spring-boot-complete:0.0.1-SNAPSHOT xlics05/spring-boot-complete:0.0.1-SNAPSHOT
+
+docker push xlics05/spring-boot-complete:0.0.1-SNAPSHOT
+```
+
+Then change your image name in the `deployment.yaml`,
+
+![deployment.yaml](https://kevinli-webbertech.github.io/blog/images/springboot/deployment_yaml.png)
 
 
 ## Ref
