@@ -45,7 +45,7 @@ Overall, Kubernetes has become the de facto standard for container orchestration
 ## Installation of minikube (Linux version)
 
 Note: For Mac and windows installation, please refer to the bottom of this tutorial and there is a link to 
-![minikube](https://github.com/kubernetes/minikube).
+[minikube](https://github.com/kubernetes/minikube).
 
 * Download
 
