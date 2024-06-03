@@ -231,10 +231,22 @@ docker tag spring-boot-complete:0.0.1-SNAPSHOT xlics05/spring-boot-complete:0.0.
 
 docker push xlics05/spring-boot-complete:0.0.1-SNAPSHOT
 ```
+See the following for detail,
+
+![push docker image](https://kevinli-webbertech.github.io/blog/images/springboot/push_docker_image.png)
 
 Then change your image name in the `deployment.yaml`,
 
 ![deployment.yaml](https://kevinli-webbertech.github.io/blog/images/springboot/deployment_yaml.png)
+
+Then re-run the following two commands to deploy it and check the pods,
+
+```
+kubectl apply -f deployment.yaml
+kubectl get all
+```
+
+![check running pod](https://kevinli-webbertech.github.io/blog/images/springboot/check_running_pod.png)
 
 
 ## Ref
