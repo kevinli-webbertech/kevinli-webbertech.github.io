@@ -252,6 +252,23 @@ kubectl get all
 
 ![check running pod](https://kevinli-webbertech.github.io/blog/images/springboot/check_running_pod.png)
 
+Run the port-forwarding again,
+
+![check running pod](https://kevinli-webbertech.github.io/blog/images/springboot/port_forwarding.png)
+
+```
+$ kubectl port-forward svc/demo 8080:8080
+```
+
+Now check the webservice's accurator with `curl`, let us open another terminal window,
+and run the following command,
+
+```
+$ curl localhost:8080/actuator/health
+{"status":"UP"}
+```
+
+![check running pod](https://kevinli-webbertech.github.io/blog/images/springboot/curl_testing.png)
 
 ## Ref
 
