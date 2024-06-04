@@ -1,4 +1,4 @@
-# Java Enterprise Development with Springboot - Topic 3 - Serving Web Content with Spring MVC
+# Java Enterprise Development with Springboot - Topic 4 - Serving Web Content with Spring MVC
 
 ## Build the project
 
