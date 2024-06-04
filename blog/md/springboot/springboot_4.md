@@ -57,6 +57,17 @@ Make sure you have Thymeleaf on your classpath (artifact co-ordinates: org.sprin
 
 * Other reasonable defaults based on development instead of production.
 
+All you have to do is to put the following into your pom.xml if you use maven.
+Note, we can just focus on maven for now. Gradle is similar.
+
+```
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-devtools</artifactId>
+        <optional>true</optional>
+    </dependency>
+```
+
 ## Run the Application
 
 The following listing (from `src/main/java/com/example/servingwebcontent/ServingWebContentApplication.java`) shows the application class:
