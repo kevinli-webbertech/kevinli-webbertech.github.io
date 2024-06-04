@@ -13,7 +13,6 @@
 
 2/ Comparison with Hadoop, Limitation of Hadoop MapReduce
 
-
 ## Spark Installation
 
 Step 1: go to https://spark.apache.org/downloads.html
