@@ -521,8 +521,6 @@ Raw network stats,
 
 `netstat --statistics --raw`
 
-
-
 ```
 ssh tunnel
 ```
