@@ -4,7 +4,6 @@
 
  Text: ChatGPT
 
-
 ## Spark Architecture
 
 1/ Relationship with Haddoop (images)
