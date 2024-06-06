@@ -3,7 +3,7 @@
 ## Mac platform
 
 * iMovie for editing
-* iTunes for recording
+* Quicktime for recording
 
 ## Linux platform
 
