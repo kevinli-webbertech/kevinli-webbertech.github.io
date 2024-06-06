@@ -1,12 +1,12 @@
 # Linux Desktop Environment
 
 ## GNOME
+
 GNOME is used both by Fedora and Ubuntu.
 Nautilus offers a simple and integrated way of managing files and browsing the file system.
 
 - Activities overview
-- GNOME Software Center
-- GNOME Commander: a free open source graphic file manager for linux desktop.
+- GNOME Software Center- GNOME Commander: a free open source graphic file manager for linux desktop.
 - GNOME Display Manager (GDM): A display manager (a graphical login manager) for the windowing systems X11 and Wayland
 - Mutter:A portmanteau of "Metacity" and "Clutter", Mutter can function as a standalone window manager for GNOME-like desktops
 
@@ -20,7 +20,7 @@ More information can be found here,
 
 https://apps.gnome.org/Nautilus/#:~:text=Files%2C%20also%20known%20as%20Nautilus,a%20file%20manager%20and%20more
 
-## GDM
+### GDM
 
 GNOME Display Manager (GDM) is a display manager (a graphical login manager) for the windowing systems X11 and Wayland. GDM was written from scratch and does not contain any XDM or X Consortium code.
 
@@ -35,7 +35,7 @@ GDM comprises the following components:
 
 #### PAM
 
-A pluggable authentication module (PAM) is a mechanism to integrate multiple low-level authentication schemes into a high-level application programming interface (API). 
+A pluggable authentication module (PAM) is a mechanism to integrate multiple low-level authentication schemes into a high-level application programming interface (API).
 
 PAM allows programs that rely on authentication to be written independently of the underlying authentication scheme.
 
@@ -63,29 +63,30 @@ This standard was not ratified, but the standard draft has served as a reference
 
 * The X window display manager can connect remotely, then it acts like a telnet server.
 
-* The XDM (the X Window Display Manager) originated in X11R3. 
+* The XDM (the X Window Display Manager) originated in X11R3.
+
 It only reads from Xservers file thus every time a user switched a terminal off and on, it will not know. In X11R4, with XDMCP, the X server must actively request a display manager connection from the host. An X server using XDMCP therefore no longer requires an entry in Xservers.
 
-1988: X11 Release 3 introduced display managers in October 1988 with the aim of supporting the standalone X terminals, just coming onto the market. 
+1988: X11 Release 3 introduced display managers in October 1988 with the aim of supporting the standalone X terminals, just coming onto the market.
 
 1989: X11R4 introduced the X Display Manager Control Protocol (XDMCP) in December 1989 to fix problems in the X11R3 implementation.
 
 * The X Display Manager Control Protocol (XDMCP) uses UDP port 177.
-And it keeps a secret key and have a hand-shake package with the X server to authenticate itself. When the session is established,
-During the session, the server can send KeepAlive packets to the display manager at intervals.  If the display manager fails to respond with an Alive packet within a certain time, the X server presumes that the display manager has ceased running, and can terminate the connection.
 
-* XDMCP security concern. 
+And it keeps a secret key and have a hand-shake package with the X server to authenticate itself. When the session is established, during the session, the server can send KeepAlive packets to the display manager at intervals.  If the display manager fails to respond with an Alive packet within a certain time, the X server presumes that the display manager has ceased running, and can terminate the connection.
+
+* XDMCP security concern.
 
 One problem with XDMCP is that, similarly to telnet, the authentication takes place unencrypted.
 
-#### ref
+### ref
 
 - https://www.gnome.org/
 - https://apps.gnome.org/Nautilus/#:~:text=Files%2C%20also%20known%20as%20Nautilus,a%20file%20manager%20and%20more.
 - https://extensions.gnome.org/
 - https://en.wikipedia.org/wiki/Pluggable_authentication_module
 
-### KDE
+## KDE
 
 KDE is an international free software community that develops free and open-source software. As a central development hub, it provides tools and resources that allow collaborative work on this kind of software. Well-known products include the Plasma Desktop, KDE Frameworks, and a range of cross-platform applications such as Amarok, digiKam, and Krita that are designed to run on Unix and Unix-like operating systems, Microsoft Windows, and Android.
 
@@ -96,7 +97,7 @@ The KDE Marketing Team announced a rebranding of the KDE project components on 2
 
 What was previously known as KDE 4 was split into KDE Plasma Workspaces, KDE Applications, and KDE Platform (now KDE Frameworks) bundled as KDE Software Compilation 4. Since 2009, the name KDE no longer stands for K Desktop Environment, but for the community that produces the software.
 
-#### ref
+### ref
 
 - https://en.wikipedia.org/wiki/KDE
 - https://kde.org/
@@ -104,9 +105,9 @@ What was previously known as KDE 4 was split into KDE Plasma Workspaces, KDE App
 - https://neon.kde.org/
 - https://kde.org/plasma-desktop/
 
-### xfce
+## xfce
 
-#### ref
+### ref
 - https://www.vpsserver.com/gnome-vs-xfce-vs-kde/#:~:text=KDE%2C%20GNOME%2C%20and%20Xfce%20are,of%20the%20Unix%20operating%20system.
 
 - https://1gbits.com/blog/best-linux-desktop-environment/#:~:text=The%20most%20well%2Dknown%20Linux,be%20user%2Dfriendly%20and%20adaptable.
@@ -132,6 +133,7 @@ Note: `Source coming from Wikipedia`
 #### ref
 - https://en.wikipedia.org/wiki/X_display_manager#XDMCP
 
+
 ## X Server
 
 The X Window System (X11, or simply X) is a windowing system for bitmap displays, common on Unix-like operating systems.
@@ -140,9 +142,10 @@ X originated as part of Project Athena at Massachusetts Institute of Technology 
 
 ![x server](https://kevinli-webbertech.github.io/blog/images/linux/xserver.png)
 
-#### ref
+### ref
 
 - https://www.x.org/releases/X11R7.6/doc/man/man1/Xserver.1.xhtml
+
 
 ## GTK
 
@@ -152,7 +155,8 @@ The GTK team releases new versions on a regular basis. GTK 4 and GTK 3 are maint
 
 * GTK Drawing Kit (GDK): GDK acts as a wrapper around the low-level functions provided by the underlying windowing and graphics systems.
 
-#### ref
+### ref
+
 - https://www.gtk.org/
 - DevConf.cz
 
@@ -164,7 +168,7 @@ Wayland is developed by a group of volunteers initially led by Kristian Høgsber
 
 As part of its efforts, the Wayland project also develops a reference implementation of a Wayland compositor called Weston.
 
-#### ref
+### ref
 
 
 ### Check the XDM
