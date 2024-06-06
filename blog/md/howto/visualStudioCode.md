@@ -7,4 +7,3 @@ code> Setting > search `theme`
 ## markdown review
 
 shortcut: ctrl-shift-v
-
