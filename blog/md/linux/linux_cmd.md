@@ -22,6 +22,8 @@
 * `calc` Calculator
 * `tree` folder structure
 
+## VIM shortcuts [TODO]
+
 ## Profile, Configuration and Path
 
 * `ln` Links files or directories
@@ -59,7 +61,9 @@
 #### more examples
 
 `more -n 5 file.txt`: show the first 5 lines
+
 `more +20 file.txt`: show starting from the 20th line
+
 `more -f file.txt`: This option enables the continuous display of the contents of a file.
 
 #### tee examples
@@ -330,8 +334,8 @@ Most used commands:
 * `watch` Runs another command continuously
 * `jobs` Displays a shell’s running processes with their statuses
 * `kill` Terminates a running process
-* `bg`
-* `fg`
+* `bg` ??
+* `fg` ??
 * `lsof` List All Open Files
 * `which` Find file location which is on the path
 * `whomai` Currently logged-in user
@@ -474,11 +478,18 @@ kill -9 `lsof -t -u tecmint`
 * `dig` Displays DNS information, including record types
 * `ssh`
 
-### Examples
+### Examples of weget
 
 Get all the links recursively.
 
 `wget -r https://docs.python.org/3/tutorial/index.html`
+
+### Examples of curl
+
+-X, ??
+-L, ??
+-d, ??
+-o, ??
 
 `curl` to send http post.
 
@@ -506,7 +517,7 @@ curl --location --request GET '192.168.1.186:9401/schools/_search' \
 }'
 ```
 
-`netstat usage`
+#### netstat usage
 
 * -a To list all listening ports, using both TCP and UDP, use `netstat -a`
 * -t only tcp ports connections
