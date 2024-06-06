@@ -2,54 +2,57 @@
 
 ## Linux file system commands
 
-* `man`	Shows a command’s manual
-* `echo`	Prints a message as a standard output
-* `ls`	Lists a directory’s content
-* `pwd`	Shows the current working directory’s path
-* `cd`	Changes the working directory
-* `mkdir`	Creates a new directory
-* `rm`	Deletes a file
-* `cp`	Copies files and directories, including their content
-* `mv`	Moves or renames files and directories
-* `touch`	Creates a new empty file
-* `file`	Checks a file’s type
-* `zip` and unzip	Creates and extracts a ZIP archive
-* `tar`	Archives files without compression in a TAR format
-* `nano`, vi, and jed	Edits a file with a text editor
-* `history`	Lists previously run commands
+* `man` Shows a command’s manual
+* `echo` Prints a message as a standard output
+* `ls` Lists a directory’s content
+* `pwd` Shows the current working directory’s path
+* `cd` Changes the working directory
+* `mkdir` Creates a new directory
+* `rm` Deletes a file
+* `cp` Copies files and directories, including their content
+* `mv` Moves or renames files and directories
+* `touch` Creates a new empty file
+* `file` Checks a file’s type
+* `zip` and unzip Creates and extracts a ZIP archive
+* `tar` Archives files without compression in a TAR format
+* `nano`, vi, and jed Edits a file with a text editor
+* `history` Lists previously run commands
 * `date` Display system time
-* `cal`	Displays a calendar in Terminal. (not builtin, need to install `ncal`)
+* `cal` Displays a calendar in Terminal. (not builtin, need to install `ncal`)
 * `calc` Calculator
 * `tree` folder structure
 
-# Profile, Configuration and Path
+## Profile, Configuration and Path
 
-* `ln`	Links files or directories
-* `alias` and `unalias`	Sets and removes an alias for a file or command
+* `ln` Links files or directories
+* `alias` and `unalias` Sets and removes an alias for a file or command
 * `export` export definition of system variable
 * `source` execute the system profile
 
 ## Permissions
 
-* `sudo`	Runs a command as a superuser
-* `su`	Runs programs in the current shell as another user
-* `chmod`	Modifies a file’s read, write, and execute permissions
-* `chown`	Changes a file, directory, or symbolic link’s ownership
-* `useradd` and `userdel`	Creates and removes a user account
+* `sudo` Runs a command as a superuser
+* `su` Runs programs in the current shell as another user
+* `chmod` Modifies a file’s read, write, and execute permissions
+* `chown` Changes a file, directory, or symbolic link’s ownership
+* `useradd` and `userdel` Creates and removes a user account
 
 ## Files Operations
-* `cat`	Lists, combines, and writes a file’s content as a standard output
+
+* `cat` Lists, combines, and writes a file’s content as a standard output
 * `less` Read file
 * `more`  Read file
-* `head`	Displays a file’s first ten lines
-* `tail`	Prints a file’s last ten lines
-* `sort`	Reorders a file’s content
-* `cut`	Sections and prints lines from a file
-* `diff`	Compares two files’ content and their differences
-* `tee`	Prints command outputs in Terminal and a file
-* `locate`	Finds files in a system’s database
-* `find`	Outputs a file or folder’s location
-* `wc`    counting utility
+* `head` Displays a file’s first ten lines
+* `tail` Prints a file’s last ten lines
+* `sort` Reorders a file’s content
+* `cut` Sections and prints lines from a file
+* `diff` Compares two files’ content and their differences
+* `tee` Prints command outputs in Terminal and a file
+* `locate` Finds files in a system’s database
+* `find` Outputs a file or folder’s location
+* `wc`   counting utility
+* `tr` ??
+* `rev` ??
 
 ### Examples and usages
 
@@ -138,12 +141,11 @@ Above command prints starting from first character to end.
 
 `cut -c -5 state.txt`
 
-Above command prints starting position to the fifth character. 
+Above command prints starting position to the fifth character.
 
 Cut by Field (-f) Using cut Command
 
 -f (field): -c option is useful for fixed-length lines. Most unix files doesn’t have fixed-length lines. To extract the useful information you need to cut by fields rather than columns. List of the fields number specified must be separated by comma. Ranges are not described with -f option. cut uses tab as a default field delimiter but can also work with other delimiter by using -d option.
-
 
 `cut -f 1 state.txt`
 
@@ -156,8 +158,7 @@ Command prints field from first to fourth of each line from the file.
 
 `cut -d " " -f 1-4 state.txt`
 
-
-ref: https://www.geeksforgeeks.org/cut-command-linux-examples/
+ref: <https://www.geeksforgeeks.org/cut-command-linux-examples/>
 
 #### sort examples
 
@@ -218,14 +219,14 @@ These are just a few examples of how you can use the `sort` command in Linux to 
 
 ## Text find, replace and regex
 
-* `sed`	Finds, replaces, or deletes patterns in a file
-* `awk`	Finds and manipulates patterns in a file
-* `grep`	Searches a string within a file
+* `sed` Finds, replaces, or deletes patterns in a file
+* `awk` Finds and manipulates patterns in a file
+* `grep` Searches a string within a file
 
 ## Package and software management (debian)
 
 * `apt`
-* `apt-get`	Manages Debian-based distros package libraries
+* `apt-get` Manages Debian-based distros package libraries
 * `dpkg`    dpkg is a medium-level tool to install, build, remove and manage Debian packages.
 
 ### apt and apt-get examples
@@ -240,8 +241,7 @@ This command is used to install the latest versions of the packages currently in
 
 `sudo apt-get install [package_name]`
 
-This command is used to install or upgrade packages. 
-
+This command is used to install or upgrade packages.
 
 `sudo apt-get remove [package_name]`
 
@@ -291,6 +291,7 @@ Most used commands:
 ```
 
 ### dpkg examples
+
 ```
   install
       The package is selected for installation.
@@ -316,28 +317,27 @@ Most used commands:
 
 ## System Information
 
-* `df`	Displays the system’s overall disk space usage
-* `du`	Checks a file or directory’s storage consumption
-* `top`	Displays running processes and the system’s resource usage
+* `df` Displays the system’s overall disk space usage
+* `du` Checks a file or directory’s storage consumption
+* `top` Displays running processes and the system’s resource usage
 * `vmstat`  Report virtual memory statistic
-* `htop`	Works like top but with an interactive user interface (not default command)
-* `ps`	Creates a snapshot of all running processes
-* `uname`	Prints information about your machine’s kernel, name, and hardware
-* `hostname`	Shows your system’s hostname
-* `time`	Calculates commands’ execution time
-* `systemctl`	Manages system services
-* `watch`	Runs another command continuously
-* `jobs`	Displays a shell’s running processes with their statuses
-* `kill`	Terminates a running process
+* `htop` Works like top but with an interactive user interface (not default command)
+* `ps` Creates a snapshot of all running processes
+* `uname` Prints information about your machine’s kernel, name, and hardware
+* `hostname` Shows your system’s hostname
+* `time` Calculates commands’ execution time
+* `systemctl` Manages system services
+* `watch` Runs another command continuously
+* `jobs` Displays a shell’s running processes with their statuses
+* `kill` Terminates a running process
 * `bg`
 * `fg`
-* `lsof` List All Open Files 
+* `lsof` List All Open Files
 * `which` Find file location which is on the path
 * `whomai` Currently logged-in user
 * `uptime` Time system has been up since last reboot
-* `shutdown`	Turns off or restarts the system
+* `shutdown` Turns off or restarts the system
 * `reboot`  Reboot
-
 
 ### Examples
 
@@ -367,15 +367,15 @@ Mem:           31934        1966       27362         242        2604       29319
 Swap:           2047           0        2047
 
 xiaofengli@xiaofenglx:~/code/codebank$ du -m
-1	./BloggerDev
-1	./.git/branches
-1	./.git/refs/heads
-1	./.git/refs/tags
-1	./.git/refs/remotes/origin
-1	./.git/refs/remotes
-1	./.git/refs
-1	./.git/info
-2	./.git/objects/97
+1 ./BloggerDev
+1 ./.git/branches
+1 ./.git/refs/heads
+1 ./.git/refs/tags
+1 ./.git/refs/remotes/origin
+1 ./.git/refs/remotes
+1 ./.git/refs
+1 ./.git/info
+2 ./.git/objects/97
 
 xiaofengli@xiaofenglx:~/code/codebank$ df
 Filesystem       1K-blocks       Used  Available Use% Mounted on
@@ -410,7 +410,6 @@ Also in FD column numbers like 1u is actual file descriptor and followed by u,r,
 `CHR` – Character special file.
 `FIFO` – First In First Out
 
-
 ```
 xiaofengli@xiaofenglx:~/code/codebank$ lsof| grep -i 8080
 apache2   8072 8080 apache2           www-data  cwd   unknown                                         /proc/8072/task/8080/cwd (readlink: Permission denied)
@@ -435,7 +434,7 @@ List Only IPv4 & IPv6 Open Files
 
 List Open Files of TCP Port Ranges 1-1024
 
-` lsof -i TCP:1-1024`
+`lsof -i TCP:1-1024`
 
 Exclude User with ‘^’ Character
 
@@ -463,21 +462,21 @@ kill -9 `lsof -t -u tecmint`
 
 ## Network
 
-* `ping`	Checks the system’s network connectivity
-* `wget`	Downloads files from a URL
-* `curl`	Transmits data between servers using URLs
-* `scp`	Securely copies files or directories to another system
-* `rsync`	Synchronizes content between directories or machines
-* `lfconfig`	Displays the system’s network interfaces and their configurations
-* `netstat`	Shows the system’s network information, like routing and sockets
-* `traceroute`	Tracks a packet’s hops to its destination
-* `nslookup`	Queries a domain’s IP address and vice versa
-* `dig`	Displays DNS information, including record types
+* `ping` Checks the system’s network connectivity
+* `wget` Downloads files from a URL
+* `curl` Transmits data between servers using URLs
+* `scp` Securely copies files or directories to another system
+* `rsync` Synchronizes content between directories or machines
+* `lfconfig` Displays the system’s network interfaces and their configurations
+* `netstat` Shows the system’s network information, like routing and sockets
+* `traceroute` Tracks a packet’s hops to its destination
+* `nslookup` Queries a domain’s IP address and vice versa
+* `dig` Displays DNS information, including record types
 * `ssh`
 
 ### Examples
 
-Get all the links recursively. 
+Get all the links recursively.
 
 `wget -r https://docs.python.org/3/tutorial/index.html`
 
@@ -496,6 +495,7 @@ curl --location '192.168.1.186:9200/school*/_search' \
 ```
 
 `curl` to do http get.
+
 ```
 curl --location --request GET '192.168.1.186:9401/schools/_search' \
 --header 'Content-Type: application/json' \
@@ -508,14 +508,14 @@ curl --location --request GET '192.168.1.186:9401/schools/_search' \
 
 `netstat usage`
 
-- -a To list all listening ports, using both TCP and UDP, use `netstat -a`
-- -t only tcp ports connections
-- -u only udp ports connections
-- -l To list all actively listening ports (both TCP and UDP)
-- -s To pull and view network statistics sorted by protocol
-- -p show pid
-- -r The -r option of netstat displays the IP routing table
-- -i To view send/receive stats by interface
+* -a To list all listening ports, using both TCP and UDP, use `netstat -a`
+* -t only tcp ports connections
+* -u only udp ports connections
+* -l To list all actively listening ports (both TCP and UDP)
+* -s To pull and view network statistics sorted by protocol
+* -p show pid
+* -r The -r option of netstat displays the IP routing table
+* -i To view send/receive stats by interface
 
 Raw network stats,
 
@@ -555,25 +555,22 @@ OR
 
 ```
 
-https://www.tecmint.com/list-all-running-services-under-systemd-in-linux/
-
+<https://www.tecmint.com/list-all-running-services-under-systemd-in-linux/>
 
 ## Firewall & IPtable
-https://www.ninjaone.com/blog/how-to-configure-a-linux-firewall/#:~:text=After%20you%20configure%20a%20Linux,traffic%20based%20on%20predefined%20rules.
+
+<https://www.ninjaone.com/blog/how-to-configure-a-linux-firewall/#:~:text=After%20you%20configure%20a%20Linux,traffic%20based%20on%20predefined%20rules>.
 
 ## File and file descriptor
 
-
 ## Over all Linux References and Websites
 
-* https://man7.org/tlpi/index.html
-* https://www.dpkg.org/
-* https://manpages.ubuntu.com/manpages/trusty/man1/dpkg.1.html
-* https://tldp.org/
-* https://github.com/tLDP
-* https://www.linuxdoc.org/
-* https://www.linux.com/training-tutorials/linux-documentation-project/
-* https://linux.die.net/man/7/ldp
-* https://docs.kernel.org/
-
-
+* <https://man7.org/tlpi/index.html>
+* <https://www.dpkg.org/>
+* <https://manpages.ubuntu.com/manpages/trusty/man1/dpkg.1.html>
+* <https://tldp.org/>
+* <https://github.com/tLDP>
+* <https://www.linuxdoc.org/>
+* <https://www.linux.com/training-tutorials/linux-documentation-project/>
+* <https://linux.die.net/man/7/ldp>
+* <https://docs.kernel.org/>
