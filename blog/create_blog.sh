@@ -22,13 +22,13 @@ htmlFileName=`sed -E s/"md"/"html"/ <<< ${mdFile}`
 echo "html file path is: ${htmlPath}/${htmlFileName}"
 
 # COPY HTML FILE
-cp ${htmlPath/}/template.html $htmlPath/${htmlFileName}
+cp ${htmlPath}/template.html $htmlPath/${htmlFileName}
 
 # SED TEMPLATE
 echo "debugging"
 echo ${mdFileName}  
 echo ${htmlPath}/${htmlFileName}
-sed -i s/"file.md"/"${mdFileName}"/g ${htmlPath}/${htmlFileName}
+#sed -i s/"file.md"/"${mdFileName}"/g ${htmlPath}/${htmlFileName}
 
 #https://stackoverflow.com/questions/13210880/replace-one-substring-for-another-string-in-shell-script
 #echo `sed s/.md/.html/ $fileName`

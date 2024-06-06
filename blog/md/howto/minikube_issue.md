@@ -1,6 +1,10 @@
 # Minikube start issue in Mac M Chip
 
-Use home brew to install minikube and colima
+* Use home brew to install minikube and colima
+
+* Make sure your docker desktop is closed entirely.
+
+* Run `minikube start` if you run into any errors, then do the following.
 
 ```
 $ minikube stop
