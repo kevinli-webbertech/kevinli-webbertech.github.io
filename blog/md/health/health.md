@@ -307,7 +307,7 @@ Balance with LDL: While having high HDL levels is generally beneficial, it's ess
 Chronic Diseases: Low HDL levels are often associated with metabolic syndrome, type 2 diabetes, and other chronic conditions.
 In summary, HDL plays a crucial role in maintaining cardiovascular health by removing excess cholesterol from the bloodstream and preventing the buildup of plaque in the arteries. Maintaining healthy HDL levels through lifestyle choices and, if necessary, medication, can help reduce the risk of cardiovascular diseases.
 
-# Protein Powder
+## Protein Powder
 
 蛋白粉是一种常见的膳食补充剂，主要用于补充蛋白质，促进肌肉生长和恢复。它对运动员、健身爱好者以及那些可能无法通过饮食获得足够蛋白质的人特别有用。以下是关于蛋白粉摄入的详细信息：
 
