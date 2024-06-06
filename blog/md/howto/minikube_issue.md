@@ -8,7 +8,7 @@
 
 ```
 $ minikube stop
-$ minikube delete
+$ minikube delete --all --purge
 $ rm -rf ~/.minikube/
 $ colima start --arch x86_64 --memory 4
 $ minikube start
