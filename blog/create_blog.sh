@@ -12,11 +12,13 @@ fi
 mdFilePath=${mdPath}/${mdFileName}
 echo "md file path is: ${mdFilePath}"
 
+echo "mdFileName: ${mdFileName}"
+
 # GET MD FILE
-mdFileName=`cut -d "/" -f 2 <<< $mdFileName`
+mdFile=`echo ${mdFileName} |rev | cut -d '/' -f 1|rev`
 
 # GET HTML FILE
-htmlFileName=`sed -E s/"md"/"html"/ <<< ${mdFileName}`
+htmlFileName=`sed -E s/"md"/"html"/ <<< ${mdFile}`
 echo "html file path is: ${htmlPath}/${htmlFileName}"
 
 # COPY HTML FILE
