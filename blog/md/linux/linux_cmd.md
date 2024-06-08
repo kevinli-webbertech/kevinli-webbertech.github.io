@@ -337,6 +337,9 @@ Most used commands:
 * `kill` Terminates a running process
 * `bg` ??
 * `fg` ??
+* `pidof` ??
+* `nice` ??
+* `renice` ??	
 * `lsof` List All Open Files
 * `which` Find file location which is on the path
 * `whomai` Currently logged-in user
