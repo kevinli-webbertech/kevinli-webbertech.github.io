@@ -17,7 +17,7 @@ fi
 
 check exit code,
 
-`echo $?` 
+`echo $?`
 
 ## loop
 

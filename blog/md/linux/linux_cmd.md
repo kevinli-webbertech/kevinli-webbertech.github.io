@@ -22,7 +22,6 @@
 * `calc` Calculator
 * `tree` folder structure
 
-
 ## Profile, Configuration and Path
 
 * `ln` Links files or directories
@@ -55,9 +54,8 @@
 * `tr` ??
 * `rev` ??
 
-### Examples and usages
 
-#### more examples
+### more examples
 
 `more -n 5 file.txt`: show the first 5 lines
 
@@ -65,7 +63,7 @@
 
 `more -f file.txt`: This option enables the continuous display of the contents of a file.
 
-#### tee examples
+### tee examples
 
 `wc -l file1.txt|tee -a file2.txt`
 
@@ -92,7 +90,7 @@ OUTPUT:
 `wc -l file1.txt| tee file2.txt`
 will overwrite the output to fil2.txt
 
-#### cut examples
+### cut examples
 
 ```
 touch words.txt
@@ -163,7 +161,7 @@ Command prints field from first to fourth of each line from the file.
 
 ref: <https://www.geeksforgeeks.org/cut-command-linux-examples/>
 
-#### sort examples
+### sort examples
 
 Sure, here's a simple example of using the `sort` command in Linux:
 
@@ -225,6 +223,11 @@ These are just a few examples of how you can use the `sort` command in Linux to 
 * `sed` Finds, replaces, or deletes patterns in a file
 * `awk` Finds and manipulates patterns in a file
 * `grep` Searches a string within a file
+
+## Search
+
+* `find`
+* `locate`
 
 ## Package and software management (debian)
 
@@ -329,7 +332,6 @@ Most used commands:
 * `uname` Prints information about your machine’s kernel, name, and hardware
 * `hostname` Shows your system’s hostname
 * `time` Calculates commands’ execution time
-* `systemctl` Manages system services
 * `watch` Runs another command continuously
 * `jobs` Displays a shell’s running processes with their statuses
 * `kill` Terminates a running process
@@ -338,11 +340,14 @@ Most used commands:
 * `lsof` List All Open Files
 * `which` Find file location which is on the path
 * `whomai` Currently logged-in user
+* `whois` ??
+* `id` ??
 * `uptime` Time system has been up since last reboot
 * `shutdown` Turns off or restarts the system
 * `reboot`  Reboot
+* `systemctl` Manages system services
 
-### Examples
+### examples
 
 ```
 xiaofengli@xiaofenglx:~/code/codebank$ uname -a
@@ -392,7 +397,7 @@ efivarfs               128         35         89  28% /sys/firmware/efi/efivars
 tmpfs              3270048        140    3269908   1% /run/user/1000
 ```
 
-#### `lsof usage`
+### lsof examples
 
 FD – stands for a File descriptor and may see some of the values as:
 
@@ -477,18 +482,18 @@ kill -9 `lsof -t -u tecmint`
 * `dig` Displays DNS information, including record types
 * `ssh`
 
-### Examples of weget
+### wget examples
 
 Get all the links recursively.
 
 `wget -r https://docs.python.org/3/tutorial/index.html`
 
-### Examples of curl
+### curl examples
 
--X, ??
--L, ??
--d, ??
--o, ??
+`-X`, equivalent to --method??
+`-L`, same as --location
+`-d`, same as --data
+`-o`, --output??
 
 `curl` to send http post.
 
@@ -516,7 +521,7 @@ curl --location --request GET '192.168.1.186:9401/schools/_search' \
 }'
 ```
 
-#### netstat usage
+### netstat examples
 
 * -a To list all listening ports, using both TCP and UDP, use `netstat -a`
 * -t only tcp ports connections
@@ -571,9 +576,17 @@ OR
 
 <https://www.ninjaone.com/blog/how-to-configure-a-linux-firewall/#:~:text=After%20you%20configure%20a%20Linux,traffic%20based%20on%20predefined%20rules>.
 
-## File and file descriptor
+## File and file descriptor [TODO]
 
-## Over all Linux References and Websites
+## Pipe
+
+`[command1] | [command 2]`
+
+## Redirection
+
+The redirect operator >, <, >>, 2>
+
+## Ref
 
 * <https://man7.org/tlpi/index.html>
 * <https://www.dpkg.org/>
