@@ -343,12 +343,33 @@ Most used commands:
 * `lsof` List All Open Files
 * `which` Find file location which is on the path
 * `whomai` Currently logged-in user
-* `whois` ??
 * `id` ??
 * `uptime` Time system has been up since last reboot
 * `shutdown` Turns off or restarts the system
 * `reboot`  Reboot
 * `systemctl` Manages system services
+
+[TODO]
+
+```
+# Display PCI devices
+lspci -tv
+
+# Display USB devices
+lsusb -tv
+
+# Display DMI/SMBIOS (hardware info) from the BIOS
+dmidecode
+
+# Show info about disk sda
+hdparm -i /dev/sda
+
+# Perform a read speed test on disk sda
+hdparm -tT /dev/sda
+
+# Test for unreadable blocks on disk sda
+badblocks -s /dev/sda
+```
 
 ### examples
 
