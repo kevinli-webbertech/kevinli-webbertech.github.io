@@ -1,6 +1,10 @@
 # Shell Scripting Ref
 
+## variable
+
 ## function
+
+## if
 
 **if** and **exit**
 
@@ -32,6 +36,7 @@ done
 ```
 
 ## case
+
 
 ## Ref
 
