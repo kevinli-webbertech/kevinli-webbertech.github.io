@@ -37,6 +37,28 @@
 * `chown` Changes a file, directory, or symbolic link’s ownership
 * `useradd` and `userdel` Creates and removes a user account
 
+```
+chmod permission file	Change permissions of a file or directory. Permissions may be of the form [u/g/o/a][+/-/=][r/w/x] (see examples below) or a three-digit octal number.
+chown user2 file	Change the owner of a file to user2.
+chgrp group2 file	Change the group of a file to group2.
+```
+
+**Numeric Representation**
+
+The table below compares Linux file permissions in octal form and in the format [u/g/o/a][+/-/=][r/w/x].
+
+```
+OCTAL	PERMISSION(S)	EQUIVALENT TO APPLICATION OF
+0	No permissions	-rwx
+1	Execute permission only	=x
+2	Write permission only	=w
+3	Write and execute permissions only: 2 + 1 = 3	=wx
+4	Read permission only	=r
+5	Read and execute permissions only: 4 + 1 = 5	=rx
+6	Read and write permissions only: 4 + 2 = 6	=rw
+7	All permissions: 4 + 2 + 1 = 7	=rwx
+```
+
 ## Files Operations
 
 * `cat` Lists, combines, and writes a file’s content as a standard output
@@ -224,10 +246,73 @@ These are just a few examples of how you can use the `sort` command in Linux to 
 * `awk` Finds and manipulates patterns in a file
 * `grep` Searches a string within a file
 
+```
+grep patt /path/to/src	Search for a text pattern patt in X. Commonly used with pipe e.g., ps aux | grep python3 filters out the processes containing python3 from all running processes of all users.
+grep -r patt /path/to/src	Search recursively (the target directory /path/to/src and its subdirectories) for a text pattern patt.
+grep -v patt X	Return lines in X not matching the specified patt.
+grep -l patt X	Write to standard output the names of files containing patt.
+grep -i patt X	Perform case-insensitive matching on X. Ignore the case of patt.
+find	Find files.
+find /path/to/src -name "*.sh"	Find all files in /path/to/src matching the pattern "*.sh" in the file name.
+find /home -size +100M	Find all files in the /home directory larger than 100MB.
+locate name	Find files and directories by name.
+sort X	Arrange lines of text in X alphabetically or numerically.
+```
+
 ## Search
 
 * `find`
 * `locate`
+
+## Compression
+
+```
+COMMAND	DESCRIPTION
+tar	Manipulate archives with .tar extension.
+tar -v	Get verbose output while manipulating TAR archives. May combine this option with others, e.g., tar -tvf.
+tar -cf archive.tar Y	Create a TAR archive named archive.tar containing Y.
+tar -xf archive.tar	Extract the TAR archive named archive.tar.
+tar -tf archive.tar	List contents of the TAR archive named archive.tar.
+tar -czf archive.tar.gz Y	Create a gzip-compressed TAR archive named archive.tar.gz containing Y.
+tar -xzf archive.tar.gz	Extract the gzip-compressed TAR archive named archive.tar.gz.
+tar -cjf archiave.tar.bz2 Y	Create a bzip2-compressed TAR archive named archive.tar.bz2 containing Y.
+tar -xjf archive.tar.bz2	Extract the bzip2-compressed TAR archive named archive.tar.bz2.
+gzip	Manipulate archives with .gz extension.
+gzip Y	Create a gzip archive named Y.gz containing Y.
+gzip -l Y.gz	List contents of gzip archive Y.gz.
+gzip -d Y.gz
+gunzip Y.gz	Extract Y.gz and recover the original file Y.
+bzip2	Manipulate archives with .bz2 extension.
+bzip2 Y	Create a bzip2 archive named Y.bz2 containing Y.
+bzip2 -d Y.gz
+bunzip2 Y.gz	Extract Y.bz2 and recover the original file Y.
+zip -r Z.zip Y	Zip Y to the ZIP archive Z.zip.
+unzip Z.zip	Unzip Z.zip to the current directory.
+unzip Z.zip	List contents of Z.zip.
+```
+
+## File transfer
+
+```
+ssh user@access	Connect to access as user.
+ssh access	Connect to access as your local username.
+ssh -p port user@access	Connect to access as user using port.
+scp [user1@]host1:[path1] [user2@]host2:[path2]	Login to hostN as userN via secure copy protocol for N=1,2.
+
+Example usage:
+scp alice@pi:/home/source bob@arduino:/destination
+
+path1 and path2 may be local or remote, but ensure they’re absolute rather than relative paths, e.g., /var/www/*.html, /usr/bin.
+
+If user1 and user2 are not specified, scp will use your local username.
+scp -P port [user1@]host1:[path1] [user2@]host2:[path2] 	Connect to hostN as userN using port for N=1,2.
+scp -r [user1@]host1:[path1] [user2@]host2:[path2]	Recursively copy all files and directories from path1 to path2.
+sftp [user@]access	Login to access as user via secure file transfer protocol. If user is not specified, your local username will be used.
+sftp access	Connect to access as your local username.
+sftp -P port user@access	Connect to access as user using port.
+rsync -a [path1] [path2]	Synchronize [path1] to [path2], preserving symbolic links, attributes, permissions, ownerships, and other settings.
+rsync -avz host1:[path1] [path2]	Synchronize [path1] on the remote host host1 to the local path [path2], preserving symbolic links, attributes, permissions, ownerships, and other settings. It also compresses the data involved during the transfer.
+```
 
 ## Package and software management (debian)
 
@@ -352,6 +437,45 @@ Most used commands:
 [TODO]
 
 ```
+COMMAND	DESCRIPTION
+uname	Show the Linux system information.
+uname -a	Detailed Linux system information
+uname -r	Kernel release information, such as kernel version
+uptime	Show how long the system is running and load information.
+su
+sudo	Superuser; use this before a command that requires root access e.g., su shutdown
+cal	Show calendar where the current date is highlighted.
+date	Show the current date and time of the machine.
+halt	Stop the system immediately.
+shutdown	Shut down the system.
+reboot	Restart the system.
+last reboot	Show reboot history.
+man COMMAND	Shows the manual for a given COMMAND. To exit the manual, press “q”.
+hostname	Show system host name
+hostname -I	Display IP address of host
+cat /etc/*-release	Show the version of the Linux distribution installed. For example, if you’re using Red Hat Linux, you may replace * with redhat.
+```
+
+**Hardware**
+These commands provide details about the hardware supporting your Linux machine.
+
+```
+COMMAND	DESCRIPTION
+dmesg	Display messages in kernel ring buffer (data structure that records messages related to the operation of the program running the operating system)
+cat /proc/cpuinfo 	Display information about the central processing unit (CPU)
+cat /proc/meminfo	Display memory information
+lspci -tv	Displays information about each Peripheral Component Interconnect (PCI) device on your system.
+The option -t outputs the information as a tree diagram, and -v is for verbose output.
+lsusb -tv	Display information about Universal Serial Bus (USB) devices and the devices connected to them.
+The option -t outputs the information as a tree diagram, and -v is for verbose output.
+dmidecode	Display system hardware components, serial numbers, and BIOS version
+hdparm -i /dev/sda	Display information about the disk sda
+hdparm -tT /dev/sda	Perform a read speed test on the disk sda 
+badblocks -s /dev/sda	Test for unreadable blocks on the disk sda
+```
+
+
+```
 # Display PCI devices
 lspci -tv
 
@@ -369,6 +493,23 @@ hdparm -tT /dev/sda
 
 # Test for unreadable blocks on disk sda
 badblocks -s /dev/sda
+```
+
+**Disk Usage**
+These commands provide storage details regarding your Linux machine.
+
+```
+COMMAND	DESCRIPTION
+df	Display free disk space.
+du	Show file/folder sizes on disk.
+du -ah	Disk usage in human readable format (KB, MB etc.)
+du -sh	Total disk usage of the current directory
+du -h	Free and used space on mounted filesystems
+du -i	Free and used inodes on mounted filesystems
+fdisk -l	List disk partitions, sizes, and types
+free -h	Display free and used memory in human readable units.
+free -m	Display free and used memory in MB.
+free -g	Display free and used memory in GB.
 ```
 
 ### examples
@@ -608,7 +749,33 @@ OR
 
 ## Redirection
 
-The redirect operator >, <, >>, 2>
+The redirect operator >, <, >>, 2>.
+
+```
+COMMAND	DESCRIPTION
+echo TEXT	Display a line of TEXT or the contents of a variable.
+echo -e TEXT	Also interprets escape characters in TEXT, e.g., \n → new line, \b → backslash, \t → tab.
+echo -n TEXT	Omits trailing newline of TEXT.
+cmd1 | cmd2	| is the pipe character; feeds the output of the command cmd1 and sends it to the command cmd2, e.g., ps aux | grep python3.
+cmd > file	Redirect output of a command cmd to a file file. Overwrites pre-existing content of file.
+cmd >& file	Redirect output of cmd to file. Overwrites pre-existing content of file. Suppresses the output of cmd.
+cmd > /dev/null	Suppress the output of cmd.
+cmd >> file	Append output of cmd to file.
+cmd < file	Read input of cmd from file.
+cmd << delim	Read input of cmd from the standard input with the delimiter character delim to tell the system where to terminate the input. Example for counting the number of lines of ad-hoc input:
+wc -l << EOF
+> I like
+> apples
+> and
+> oranges.
+> EOF      
+ 4
+Hence there are only 4 lines in the standard input delimited by EOF.
+cmd <<< string	Input a text string to cmd.
+cmd 2> foo	Redirect error messages of cmd to foo.
+cmd 2>> foo	Append error messages of cmd to foo.
+cmd &> file	Redirect output and error messages of cmd to file.
+```
 
 ## Ref
 

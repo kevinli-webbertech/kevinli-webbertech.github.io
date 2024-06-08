@@ -35,3 +35,4 @@ done
 
 ## Ref
 
+- https://devhints.io/bash
