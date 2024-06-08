@@ -3,8 +3,6 @@
 This example demonstrates the use of method references in Java. Method references provide a shorthand syntax for calling methods directly and can make the code more concise and readable.
 
 ```java
-package com.webbertech.java;
-
 import java.util.Arrays;
 import java.util.List;
 

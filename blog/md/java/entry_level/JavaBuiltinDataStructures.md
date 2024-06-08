@@ -1,10 +1,48 @@
-# TreeMap
+# Builtin Data Structures
 
-This example demonstrates the differences between `HashMap` and `TreeMap` in Java, focusing on their ordering properties.
+## Java LinkedHashMap Example
 
-## Introduction
+This example demonstrates the use of `LinkedHashMap` in Java. It highlights how `LinkedHashMap` maintains insertion order and handles `null` values as keys.
 
-`HashMap` and `TreeMap` are both implementations of the `Map` interface in Java. However, they have different characteristics in terms of ordering and performance.
+
+```java
+package com.webbertech.java;
+
+import java.util.*;
+
+/*
+ * 1/ LinkedHashMap keeps the order
+ * 2/ Accepted the null, and one null as key
+ * */
+
+public class LinkedHashMapExample {
+
+    public LinkedHashMapExample() {
+        // TODO Auto-generated constructor stub
+    }
+
+    public static void main(String args[]) {
+
+        LinkedHashMap<Integer, String> hm = new LinkedHashMap<Integer, String>();
+
+        hm.put(100, "Amit");
+        hm.put(100, "Amitxxxx");
+        hm.put(101, "Vijay");
+        hm.put(102, "Rahul");
+        hm.put(null, "Rahul");
+        hm.put(null, "Rahulxxx");
+
+        for (Map.Entry m : hm.entrySet()) {
+            System.out.println(m.getKey() + " " + m.getValue());
+        }
+        System.out.println(hm.size());
+    }
+}
+```
+
+## TreeMap
+
+This example demonstrates the differences between `HashMap` and `TreeMap` in Java, focusing on their ordering properties. `HashMap` and `TreeMap` are both implementations of the `Map` interface in Java. However, they have different characteristics in terms of ordering and performance.
 
 ### HashMap
 
@@ -25,13 +63,11 @@ This example demonstrates the differences between `HashMap` and `TreeMap` in Jav
 The `TreeMapExample` class demonstrates the usage of `HashMap` and `TreeMap`, showcasing their differences in ordering:
 
 ```java
-package com.webbertech.java;
-
 import java.util.HashMap;
 import java.util.Map.Entry;
 import java.util.TreeMap;
 
-public class TreeMapExample {
+public class TreeMapExample1 {
     public static void main(String args[]) {
         // Creating HashMap
         HashMap<Integer, String> hm = new HashMap<Integer, String>();
@@ -110,3 +146,4 @@ class Dog implements Comparable<Dog> {
         return o.size - this.size;
     }
 }
+```

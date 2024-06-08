@@ -3,8 +3,6 @@
 This example demonstrates the use of Java's `Predicate` functional interface to filter a list of integers based on different conditions.
 
 ```java
-package com.webbertech.java;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
