@@ -22,7 +22,7 @@ Big data Problem:
 
 Spark addresses it through its Stack!
 
-![ApachSparkStack](https://kevinli-webbertech.github.io/blog/images/big_data/spark/ApacheSparkStack.png)
+![Apach Spark Stack](https://kevinli-webbertech.github.io/blog/images/big_data/spark/ApacheSparkStack.png)
 
 
 
