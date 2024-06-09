@@ -13,25 +13,25 @@ Some background of “gnome-todo”. It is an opensource task management system.
 The following image is a `list view` of all the lists. We can have many lists.
 A list is like a story in Jira system.
 
-![list view of lists](../../images/springboot/mid_term/list_view.png)
+![list view of lists](https://kevinli-webbertech.github.io/blog/html/images/springboot/mid_term/list_view.png)
 
 The following image is a `thumbnail view` of all the lists.
 
-![thumnail view of lists](../../images/springboot/mid_term/thumbnail.png)
+![thumnail view of lists](https://kevinli-webbertech.github.io/blog/html/images/springboot/mid_term/thumbnail.png)
 
 A list is a set of tasks. When we open a list called "big_data_analysis_course"
 
-![list](../../images/springboot/mid_term/list.png)
+![list](https://kevinli-webbertech.github.io/blog/html/images/images/springboot/mid_term/list.png)
 
 * The concept of task
 
 When we click into in each task, we can see the following,
 
-![task](../../images/springboot/mid_term/task.png)
+![task](https://kevinli-webbertech.github.io/blog/html/images/images/springboot/mid_term/task.png)
 
 The `today` and `tomorrow` are shortcut, and it is convinient for user, but in database we normally just allow user to store a daytime stamp (a database data type),
 
-![daytime](../../images/springboot/mid_term/daytimeType.png)
+![daytime](https://kevinli-webbertech.github.io/blog/html/images/images/springboot/mid_term/daytimeType.png)
 
 * Mark task completed
 
