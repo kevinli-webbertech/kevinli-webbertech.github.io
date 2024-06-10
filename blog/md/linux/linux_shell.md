@@ -40,6 +40,23 @@ set -euo pipefail
 IFS=$'\n\t'
 ```
 
+## Options
+
+`set -o noclobber`  # Avoid overlay files (echo "hi" > foo)
+`set -o errexit`    # Used to exit upon error, avoiding cascading errors
+`set -o pipefail`   # Unveils hidden failures
+`set -o nounset`    # Exposes unset variables
+
+*Glob options*
+
+`shopt -s nullglob`    # Non-matching globs are removed  ('*.foo' => '')
+`shopt -s failglob`    # Non-matching globs throw errors
+`shopt -s nocaseglob`  # Case insensitive globs
+`shopt -s dotglob`     # Wildcards match dotfiles ("*.sh" => ".foo.sh")
+`shopt -s globstar`    # Allow ** for recursive matches ('lib/**/*.rb' => 'lib/a/b/c.rb')
+
+Set GLOBIGNORE as a colon-separated list of patterns to be removed from glob matches.
+
 # Conditional Execution
 
 ```
@@ -209,14 +226,6 @@ check exit code,
 
 `echo $?`
 
-```bash
-if [[ -z "$string" ]]; then
-  echo "String is empty"
-elif [[ -n "$string" ]]; then
-  echo "String is not empty"
-fi
-```
-
 ## Conditional Testing
 
 Note: stay with double bracket
@@ -251,6 +260,41 @@ Note: stay with double bracket
 `[[ FILE1 -nt FILE2 ]]` 1 is more recent than 2
 `[[ FILE1 -ot FILE2 ]]` 2 is more recent than 1
 `[[ FILE1 -ef FILE2 ]]` Same files
+
+**Examples**
+
+
+```bash
+if [[ -z "$string" ]]; then
+  echo "String is empty"
+elif [[ -n "$string" ]]; then
+  echo "String is not empty"
+fi
+
+# Combinations
+if [[ X && Y ]]; then
+  ...
+fi
+
+# Equal
+if [[ "$A" == "$B" ]]
+
+# Regex
+if [[ "A" =~ . ]]
+
+if (( $a < $b )); then
+   echo "$a is smaller than $b"
+fi
+
+if [[ -e "file.txt" ]]; then
+  echo "file exists"
+fi
+
+```
+
+## Arrays
+
+## Dictionaries
 
 ## Ref
 
