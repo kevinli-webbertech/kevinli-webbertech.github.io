@@ -1,5 +1,14 @@
-# tesseract Tutorial
+# Tesseract Tutorial
 
+OCR can help us do two things.
+
+1/ Convert Image to Text
+
+and what is more, 
+
+2/ Convert PDF to Image.
+
+Thus, it will ease our development and research time.
 There are two approches, one is with pytesseract and second is with openCV.
 
 ## OCR Code
