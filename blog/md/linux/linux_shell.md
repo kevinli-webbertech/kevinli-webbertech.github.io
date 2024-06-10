@@ -19,7 +19,7 @@ cp -$options $wildcard /tmp
 
 ## String Quotes
 
-```
+```bash
 String quotes
 name="John"
 echo "Hi $name"  #=> Hi John
@@ -28,14 +28,14 @@ echo 'Hi $name'  #=> Hi $name
 
 ## Shell execution
 
-```
+```bash
 echo "I'm in $(pwd)"
 echo "I'm in `pwd`"  # obsolescent
 ```
 
 ## Strict mode
 
-```
+```bash
 set -euo pipefail
 IFS=$'\n\t'
 ```
@@ -59,14 +59,14 @@ Set GLOBIGNORE as a colon-separated list of patterns to be removed from glob mat
 
 # Conditional Execution
 
-```
+```bash
 git commit && git push
 git commit || echo "Commit failed"
 ```
 
 ## Brace Expansion
 
-```
+```bash
 echo {A,B}.js
 {A,B} Same as A B
 {A,B}.js Same as A.js B.js
