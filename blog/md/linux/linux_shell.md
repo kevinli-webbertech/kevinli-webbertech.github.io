@@ -292,9 +292,99 @@ fi
 
 ```
 
+## String slicing
+
 ## Arrays
 
+### Defining arrays
+
+```bash
+Fruits=('Apple' 'Banana' 'Orange')
+Fruits[0]="Apple"
+Fruits[1]="Banana"
+Fruits[2]="Orange"
+```
+
+### Array operations
+
+```bash
+Operations
+Fruits=("${Fruits[@]}" "Watermelon")    # Push
+Fruits+=('Watermelon')                  # Also Push
+Fruits=( "${Fruits[@]/Ap*/}" )          # Remove by regex match
+unset Fruits[2]                         # Remove one item
+Fruits=("${Fruits[@]}")                 # Duplicate
+Fruits=("${Fruits[@]}" "${Veggies[@]}") # Concatenate
+lines=(`cat "logfile"`)                 # Read from file
+```
+
+### Array indexing
+
+Working with arrays
+
+```bash
+echo "${Fruits[0]}"           # Element #0
+echo "${Fruits[-1]}"          # Last element
+echo "${Fruits[@]}"           # All elements, space-separated
+echo "${#Fruits[@]}"          # Number of elements
+echo "${#Fruits}"             # String length of the 1st element
+echo "${#Fruits[3]}"          # String length of the Nth element
+echo "${Fruits[@]:3:2}"       # Range (from position 3, length 2)
+echo "${!Fruits[@]}"          # Keys of all elements, space-separated
+```
+
+Iteration
+
+```bash
+for i in "${arrayName[@]}"; do
+  echo "$i"
+done
+```
+
 ## Dictionaries
+
+It is an associative array. Just the key is a string.
+
+### Definition
+
+```bash
+declare -A sounds
+sounds[dog]="bark"
+sounds[cow]="moo"
+sounds[bird]="tweet"
+sounds[wolf]="howl"
+```
+
+### Indexing
+
+Working with dictionaries
+
+```bash
+echo "${sounds[dog]}" # Dog's sound
+echo "${sounds[@]}"   # All values
+echo "${!sounds[@]}"  # All keys
+echo "${#sounds[@]}"  # Number of elements
+unset sounds[dog]     # Delete dog
+```
+
+### Iteration
+
+* Iterate over values
+
+```bash
+for val in "${sounds[@]}"; do
+  echo "$val"
+done
+```
+
+* Iterate over keys
+
+```bash
+for key in "${!sounds[@]}"; do
+  echo "$key"
+done
+```
+
 
 ## Ref
 
