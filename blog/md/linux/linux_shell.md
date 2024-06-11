@@ -385,7 +385,6 @@ for key in "${!sounds[@]}"; do
 done
 ```
 
-
 ## Ref
 
-- <https://devhints.io/bash>
+- https://devhints.io/bash
