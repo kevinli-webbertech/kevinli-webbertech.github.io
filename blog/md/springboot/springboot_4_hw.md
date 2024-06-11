@@ -1,5 +1,7 @@
 # Homework 4
 
+Reproduce our web development project taught in class.
+
 ## Submission
 
 * zip your code in upload. It has to be .zip format, no windows WinRAR or tar ball.

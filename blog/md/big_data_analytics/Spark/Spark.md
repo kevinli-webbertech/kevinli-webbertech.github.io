@@ -4,7 +4,6 @@
 
  Text: ChatGPT
 
-
 ## Spark Architecture
 
 1/ Relationship with Haddoop (images)
@@ -12,7 +11,6 @@
 ![maven run]https://kevinli-webbertech.github.io/blog/images/big_data/spark/mvn_run.png)
 
 2/ Comparison with Hadoop, Limitation of Hadoop MapReduce
-
 
 ## Spark Installation
 
