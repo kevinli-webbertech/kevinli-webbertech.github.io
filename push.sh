@@ -4,7 +4,7 @@ project_root=$(pwd)
 echo $project_root
 cd $project_root
 git pull --no-ff --no-edit
-git add *
+git add -A .
 git commit -m "updating code"
 git push
 
