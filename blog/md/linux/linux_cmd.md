@@ -1,26 +1,57 @@
 # Linux Ref
 
-## Linux file system commands
+## Directories
 
-* `man` Shows a command’s manual
-* `echo` Prints a message as a standard output
 * `ls` Lists a directory’s content
 * `pwd` Shows the current working directory’s path
 * `cd` Changes the working directory
 * `mkdir` Creates a new directory
-* `rm` Deletes a file
+* `rmdir` Deletes directories
+
+## Files
+
+* `touch` Creates a new empty file
+* `rm` Deletes a file or directories
 * `cp` Copies files and directories, including their content
 * `mv` Moves or renames files and directories
-* `touch` Creates a new empty file
 * `file` Checks a file’s type
-* `zip` and unzip Creates and extracts a ZIP archive
+* `tree` folder structure [not built-in]
+
+## Compression [TODO]
+
+* `zip` and `unzip` Creates and extracts a ZIP archive
 * `tar` Archives files without compression in a TAR format
+* `gzip` Manipulate archives with .gz extension.s
+* `bzip` and `bunzip2` Manipulate archives with .bz2 extension.
+
+### Examples
+
+`tar -v` Get verbose output while manipulating TAR archives. May combine this option with others, e.g., tar -tvf.
+`tar -cf archive.tar` Create a TAR archive named archive.tar containing Y.
+`tar -xf archive.tar` Extract the TAR archive named archive.tar.
+`tar -tf archive.tar` List contents of the TAR archive named archive.tar.
+`tar -czf archive.tar.gz` Create a gzip-compressed TAR archive named archive.tar.gz containing Y.
+`tar -xzf archive.tar.gz` Extract the gzip-compressed TAR archive named archive.tar.gz.
+`tar -cjf archiave.tar.bz2` Create a bzip2-compressed TAR archive named archive.tar.bz2 containing Y.
+`tar -xjf archive.tar.bz2` Extract the bzip2-compressed TAR archive named archive.tar.bz2.
+`gzip Y` Create a gzip archive named Y.gz containing Y.
+`gzip -l Y.gz` List contents of gzip archive Y.gz.
+`gzip -d Y.gz`
+`gunzip Y.gz` Extract Y.gz and recover the original file Y.
+`bzip2 Y` Create a bzip2 archive named Y.bz2 containing Y.
+`bzip2 -d Y.gz`
+`bunzip2 Y.gz` Extract Y.bz2 and recover the original file Y.
+`zip -r Z.zip` Zip to the ZIP archive Z.zip.
+`unzip Z.zip` Unzip Z.zip to the current directory.
+`unzip Z.zip` List contents of Z.zip.
+
+## Editor
+
 * `nano`, vi, and jed Edits a file with a text editor
 * `history` Lists previously run commands
 * `date` Display system time
 * `cal` Displays a calendar in Terminal. (not builtin, need to install `ncal`)
 * `calc` Calculator
-* `tree` folder structure
 
 ## Profile, Configuration and Path
 
@@ -28,6 +59,8 @@
 * `alias` and `unalias` Sets and removes an alias for a file or command
 * `export` export definition of system variable
 * `source` execute the system profile
+* `set` ??
+* `unset` ??
 
 ## Permissions
 
@@ -37,11 +70,18 @@
 * `chown` Changes a file, directory, or symbolic link’s ownership
 * `useradd` and `userdel` Creates and removes a user account
 
+### Examples
+
+`chmod permission file` Change permissions of a file or directory. 
+
+```bash
+Permissions may be of the form [u/g/o/a][+/-/=][r/w/x] (see examples below) 
+or a three-digit octal number.
 ```
-chmod permission file	Change permissions of a file or directory. Permissions may be of the form [u/g/o/a][+/-/=][r/w/x] (see examples below) or a three-digit octal number.
-chown user2 file	Change the owner of a file to user2.
-chgrp group2 file	Change the group of a file to group2.
-```
+
+`chown user2 file` Change the owner of a file to user2.
+`chgrp group2 file` Change the group of a file to group2.
+
 
 **Numeric Representation**
 
@@ -59,8 +99,10 @@ OCTAL	PERMISSION(S)	EQUIVALENT TO APPLICATION OF
 7	All permissions: 4 + 2 + 1 = 7	=rwx
 ```
 
-## Files Operations
+## System Operations [TODO]
 
+* `man` Shows a command’s manual
+* `echo` Prints a message as a standard output
 * `cat` Lists, combines, and writes a file’s content as a standard output
 * `less` Read file
 * `more`  Read file
@@ -75,7 +117,6 @@ OCTAL	PERMISSION(S)	EQUIVALENT TO APPLICATION OF
 * `wc`   counting utility
 * `tr` ??
 * `rev` ??
-
 
 ### more examples
 
@@ -246,7 +287,7 @@ These are just a few examples of how you can use the `sort` command in Linux to 
 * `awk` Finds and manipulates patterns in a file
 * `grep` Searches a string within a file
 
-```
+```bash
 grep patt /path/to/src	Search for a text pattern patt in X. Commonly used with pipe e.g., ps aux | grep python3 filters out the processes containing python3 from all running processes of all users.
 grep -r patt /path/to/src	Search recursively (the target directory /path/to/src and its subdirectories) for a text pattern patt.
 grep -v patt X	Return lines in X not matching the specified patt.
@@ -264,36 +305,10 @@ sort X	Arrange lines of text in X alphabetically or numerically.
 * `find`
 * `locate`
 
-## Compression
-
-```
-COMMAND	DESCRIPTION
-tar	Manipulate archives with .tar extension.
-tar -v	Get verbose output while manipulating TAR archives. May combine this option with others, e.g., tar -tvf.
-tar -cf archive.tar Y	Create a TAR archive named archive.tar containing Y.
-tar -xf archive.tar	Extract the TAR archive named archive.tar.
-tar -tf archive.tar	List contents of the TAR archive named archive.tar.
-tar -czf archive.tar.gz Y	Create a gzip-compressed TAR archive named archive.tar.gz containing Y.
-tar -xzf archive.tar.gz	Extract the gzip-compressed TAR archive named archive.tar.gz.
-tar -cjf archiave.tar.bz2 Y	Create a bzip2-compressed TAR archive named archive.tar.bz2 containing Y.
-tar -xjf archive.tar.bz2	Extract the bzip2-compressed TAR archive named archive.tar.bz2.
-gzip	Manipulate archives with .gz extension.
-gzip Y	Create a gzip archive named Y.gz containing Y.
-gzip -l Y.gz	List contents of gzip archive Y.gz.
-gzip -d Y.gz
-gunzip Y.gz	Extract Y.gz and recover the original file Y.
-bzip2	Manipulate archives with .bz2 extension.
-bzip2 Y	Create a bzip2 archive named Y.bz2 containing Y.
-bzip2 -d Y.gz
-bunzip2 Y.gz	Extract Y.bz2 and recover the original file Y.
-zip -r Z.zip Y	Zip Y to the ZIP archive Z.zip.
-unzip Z.zip	Unzip Z.zip to the current directory.
-unzip Z.zip	List contents of Z.zip.
-```
 
 ## File transfer
 
-```
+```bash
 ssh user@access	Connect to access as user.
 ssh access	Connect to access as your local username.
 ssh -p port user@access	Connect to access as user using port.
@@ -456,52 +471,63 @@ hostname -I	Display IP address of host
 cat /etc/*-release	Show the version of the Linux distribution installed. For example, if you’re using Red Hat Linux, you may replace * with redhat.
 ```
 
-**Hardware**
+## Hardware
+
 These commands provide details about the hardware supporting your Linux machine.
 
-```
-COMMAND	DESCRIPTION
-dmesg	Display messages in kernel ring buffer (data structure that records messages related to the operation of the program running the operating system)
-cat /proc/cpuinfo 	Display information about the central processing unit (CPU)
-cat /proc/meminfo	Display memory information
-lspci -tv	Displays information about each Peripheral Component Interconnect (PCI) device on your system.
-The option -t outputs the information as a tree diagram, and -v is for verbose output.
-lsusb -tv	Display information about Universal Serial Bus (USB) devices and the devices connected to them.
-The option -t outputs the information as a tree diagram, and -v is for verbose output.
-dmidecode	Display system hardware components, serial numbers, and BIOS version
-hdparm -i /dev/sda	Display information about the disk sda
-hdparm -tT /dev/sda	Perform a read speed test on the disk sda 
-badblocks -s /dev/sda	Test for unreadable blocks on the disk sda
-```
+`dmesg` Display messages in kernel ring buffer (data structure that records messages related to the operation of the program running the operating system)
+
+`cat /proc/cpuinfo` Display information about the central processing unit (CPU)
+
+`cat /proc/meminfo` Display memory information
+
+`lspci -tv` Displays information about each Peripheral Component Interconnect (PCI) device on your system.
+            The option -t outputs the information as a tree diagram, and -v is for verbose output.
+
+`lsusb -tv` Display information about Universal Serial Bus (USB) devices and the devices connected to them.
+            The option -t outputs the information as a tree diagram, and -v is for verbose output.
+
+`dmidecode` Display system hardware components, serial numbers, and BIOS version
+
+`hdparm -i /dev/sda`    Display information about the disk sda
+
+`hdparm -tT /dev/sda`   Perform a read speed test on the disk sda
+
+`badblocks -s /dev/sda` Test for unreadable blocks on the disk sda
 
 
-```
-# Display PCI devices
+### Display PCI devices
+
 lspci -tv
 
-# Display USB devices
+### Display USB devices
+
 lsusb -tv
 
-# Display DMI/SMBIOS (hardware info) from the BIOS
+### Display DMI/SMBIOS (hardware info) from the BIOS
+
 dmidecode
 
-# Show info about disk sda
+### Show info about disk sda
+
 hdparm -i /dev/sda
 
-# Perform a read speed test on disk sda
+### Perform a read speed test on disk sda
+
 hdparm -tT /dev/sda
 
-# Test for unreadable blocks on disk sda
-badblocks -s /dev/sda
-```
+### Test for unreadable blocks on disk sda
 
-**Disk Usage**
+badblocks -s /dev/sda
+
+## Disk Usage
+
 These commands provide storage details regarding your Linux machine.
 
-```
-COMMAND	DESCRIPTION
-df	Display free disk space.
-du	Show file/folder sizes on disk.
+`df` Display free disk space.
+`du` Show file/folder sizes on disk.
+
+```bash
 du -ah	Disk usage in human readable format (KB, MB etc.)
 du -sh	Total disk usage of the current directory
 du -h	Free and used space on mounted filesystems
@@ -514,7 +540,7 @@ free -g	Display free and used memory in GB.
 
 ### examples
 
-```
+```bash
 xiaofengli@xiaofenglx:~/code/codebank$ uname -a
 Linux xiaofenglx 6.5.0-28-generic #29~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Apr  4 14:39:20 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
 
@@ -562,7 +588,7 @@ efivarfs               128         35         89  28% /sys/firmware/efi/efivars
 tmpfs              3270048        140    3269908   1% /run/user/1000
 ```
 
-### lsof examples
+#### lsof examples
 
 FD – stands for a File descriptor and may see some of the values as:
 
@@ -638,14 +664,14 @@ kill -9 `lsof -t -u tecmint`
 * `ping` Checks the system’s network connectivity
 * `wget` Downloads files from a URL
 * `curl` Transmits data between servers using URLs
-* `scp` Securely copies files or directories to another system
-* `rsync` Synchronizes content between directories or machines
 * `lfconfig` Displays the system’s network interfaces and their configurations
 * `netstat` Shows the system’s network information, like routing and sockets
 * `traceroute` Tracks a packet’s hops to its destination
 * `nslookup` Queries a domain’s IP address and vice versa
 * `dig` Displays DNS information, including record types
 * `ssh`
+* `scp` Securely copies files or directories to another system
+* `rsync` Synchronizes content between directories or machines
 
 ### wget examples
 
@@ -707,16 +733,21 @@ ssh tunnel
 
 ## System commands
 
-### `compgen`
+### compgen
 
-compgen -c will list all the commands you could run.
-compgen -a will list all the aliases you could run.
-compgen -b will list all the built-ins you could run.
-compgen -k will list all the keywords you could run.
-compgen -A function will list all the functions you could run.
-compgen -A function -abck will list all the above in one go.
+`compgen -c` will list all the commands you could run.
 
-### `systemctl`
+`compgen` -a will list all the aliases you could run.
+
+`compgen` -b will list all the built-ins you could run.
+
+`compgen` -k will list all the keywords you could run.
+
+`compgen` -A function will list all the functions you could run.
+
+`compgen` -A function -abck will list all the above in one go.
+
+### systemctl
 
 `Systemd` is a system and service manager for Linux; a drop-in replacement for the init process, which is compatible with SysV and LSB init scripts, and the `systemctl` command is the primary tool to manage systemd.
 
@@ -788,3 +819,4 @@ cmd &> file	Redirect output and error messages of cmd to file.
 * <https://www.linux.com/training-tutorials/linux-documentation-project/>
 * <https://linux.die.net/man/7/ldp>
 * <https://docs.kernel.org/>
+* https://devhints.io/bash
