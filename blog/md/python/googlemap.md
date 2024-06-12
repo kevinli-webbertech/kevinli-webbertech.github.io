@@ -147,6 +147,7 @@ for college, distance in distances.items():
 
 
 Save and Run the Script: Save the script and run it using Python:
+![Local Image](results.png)
 
 **Conclusion**
 By following these steps, you can easily generate a Google Maps API key and use it in your Python projects. This enables you to integrate powerful mapping and geolocation features into your applications.
