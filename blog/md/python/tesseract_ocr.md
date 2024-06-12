@@ -116,39 +116,96 @@ Which is better?
 
 
 
-**Conclusion:**
+**Tesseract OCR Tutorial: Comparing Two Approaches for Text Extraction**
 
-Both scripts serve different purposes, so which one is "better" depends on your specific needs. Here’s a comparison to help you decide which one to use:
+Optical Character Recognition (OCR) is a technology that can convert different types of documents, such as scanned paper documents, PDF files, or images captured by a digital camera, into editable and searchable data. In this tutorial, we will explore two approaches to OCR using Tesseract: one with Pytesseract and another with OpenCV. Each method has its strengths and weaknesses, and the best choice depends on your specific needs.
 
-**PDF to Text Conversion Script**
-Purpose:
+**Introduction to Tesseract OCR**
+Tesseract is an open-source OCR engine that can recognize and convert printed text into digital text. It's widely used for various applications, from digitizing printed documents to enabling text-based searches in images.
 
-Converts PDF files to images and then extracts text from those images using Tesseract OCR.
-Use Case:
+**Approach 1: Using Pytesseract to Convert PDFs to Text**
+The first approach involves converting PDF files to images and then extracting text from those images using Pytesseract. This method is particularly useful for handling multi-page PDFs where each page needs to be processed individually.
 
-Suitable for extracting text from PDF files that contain scanned images or non-selectable text.
-Useful for multi-page PDFs where each page needs to be processed individually.
+**Code Example**
+
+import os
+import pytesseract as tess
+from PIL import Image
+from pdf2image import convert_from_path
+
+def read_pdf(file_name):
+    pages = []
+    try:
+        images = convert_from_path(file_name)
+        for i, image in enumerate(images):
+            filename = "page_" + str(i) + "_" + os.path.basename(file_name) + ".jpeg"
+            image.save(filename, "JPEG")
+            text = tess.image_to_string(Image.open(filename))
+            pages.append(text)
+    except Exception as e:
+        print(str(e))
+    output_file_name = os.path.splitext(file_name)[0] + ".txt"
+    with open(output_file_name, "w") as f:
+        f.write("\n".join(pages))
+    return output_file_name
+
+pdf_file = "sample.pdf"
+print(read_pdf(pdf_file))
+
+**Pros and Cons**
 Pros:
-
-Handles multi-page PDF documents efficiently.
-Can deal with scanned documents where text is embedded as images.
+Handles Multi-Page PDFs: Efficiently processes multi-page PDF documents.
+Suitable for Scanned Documents: Can extract text from scanned PDFs where text is embedded as images.
 Cons:
+Temporary Image Files: Requires handling multiple temporary image files.
+Slower Processing: Conversion of each PDF page to an image can be time-consuming.
 
-Requires handling multiple image files temporarily.
-Might be slower due to the conversion of each PDF page to an image.
+**Approach 2: Using OpenCV for Image Preprocessing and Text Extraction**
+The second approach involves reading an image file, preprocessing it (e.g., converting to grayscale, applying thresholding or blurring), and then extracting text using Pytesseract. This method is ideal for individual image files where preprocessing can significantly improve OCR accuracy.
 
-**Image Preprocessing and Text Extraction Script**
-Purpose:
+**Code Example**
 
-Reads an image file, preprocesses it (e.g., converts to grayscale, applies thresholding or blurring), and then extracts text using Tesseract OCR.
-Use Case:
+import cv2
+import os, argparse
+import pytesseract
+from PIL import Image
 
-Suitable for extracting text from individual image files.
-Useful for improving OCR accuracy on noisy or low-quality images through preprocessing.
+ap = argparse.ArgumentParser()
+ap.add_argument("-i", "--image", required=True, help="Path to the image folder")
+ap.add_argument("-p", "--pre_processor", default="thresh", help="the preprocessor usage")
+args = vars(ap.parse_args())
+
+images = cv2.imread(args["image"])
+gray = cv2.cvtColor(images, cv2.COLOR_BGR2GRAY)
+
+if args["pre_processor"] == "thresh":
+    cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)[1]
+if args["pre_processor"] == "blur":
+    cv2.medianBlur(gray, 3)
+
+filename = "{}.jpg".format(os.getpid())
+cv2.imwrite(filename, gray)
+text = pytesseract.image_to_string(Image.open(filename))
+os.remove(filename)
+print(text)
+
+cv2.imshow("Image Input", images)
+cv2.imshow("Output In Grayscale", gray)
+cv2.waitKey(0)
+
+**Pros and Cons**
 Pros:
-
-Allows for customizable preprocessing steps to improve OCR accuracy.
-Faster for single image processing as there’s no need to convert multiple pages.
+Customizable Preprocessing: Allows for customizable preprocessing steps to improve OCR accuracy.
+Faster for Single Images: Processes individual images faster as there is no need to convert multiple pages.
 Cons:
+Not Suitable for Multi-Page PDFs: Needs each page converted to an image first, not efficient for multi-page documents.
+Conclusion: Which Approach is Better?
 
-Not suitable for multi-page PDFs directly (needs each page converted to an image first).
+**Choosing the best approach depends on your specific requirements:**
+
+Use Pytesseract for PDFs: If you need to handle multi-page PDF documents, especially scanned ones, the Pytesseract approach is more suitable. It efficiently processes each page and extracts text.
+
+Use OpenCV for Images: If you're dealing with individual images and need to improve OCR accuracy through preprocessing, the OpenCV approach is better. It allows for customizable preprocessing steps like thresholding and blurring.
+
+Both methods leverage Tesseract's powerful OCR capabilities, but their use cases differ. By understanding the strengths and limitations of each approach, you can select the best one for your project.
+
