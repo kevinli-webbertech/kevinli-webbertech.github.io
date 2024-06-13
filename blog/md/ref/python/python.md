@@ -12,7 +12,7 @@ This is compatible with v3.
 
 2/ For multiline, use triple quotes
 
-```
+```python
 >>> str = """A multiline string
 starts and ends with
 a triple quotation mark."""
@@ -23,26 +23,28 @@ a triple quotation mark."""
 3/ print() function will print \n a return.
 
 * comments
+
 use `#` for single line or multiple line
 
 ### Keywords modules
 
 In python session, there is a keyword module,
 
-```
+```python
 >>> import keyword
 >>> keyword.kwlist
 ['and', 'as', 'assert', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'exec', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'not', 'or', 'pass', 'print', 'raise', 'return', 'try', 'while', 'with', 'yield']
 ```
-q
-```
+
+
+```python
 >>> keyword.iskeyword('true')
 False
 >>> >>> keyword.iskeyword('is')
 True
 ```
 
-### Deep dive to get system information
+### Get System Information
 
 `print(help("modules"))`: print buildin module.
 
@@ -59,7 +61,7 @@ You can type the following to get more info, such as `True`, `collections`, `bui
 Or in the python session you can do the same thing,
 
 
-```
+```python
 >>> help('symbols')
 >>> help(print)
 >>> help(globals)
@@ -69,19 +71,17 @@ Or in the python session you can do the same thing,
 
 Then `quit` to quit the help session.
 
-
 ### Identifier
+
 * a-z, A-Z, 0-9, _, can be mix-used to create identifier except that 0-9 can not be the first letter.
 
 * special chars['.', '!', '@', '#', '$', '%'] can not be used to create identifier.
 
-* keyword module provides function to test keyword\
-
-
+* keyword module provides function to test keyword
 
 or check if it is an identifier,
 
-```
+```python
 >>> 'techbeamers'.isidentifier()
 True
 >>> '1techbeamers'.isidentifier()
@@ -90,7 +90,6 @@ False
 False
 >>> 'techbemaers_com'.isidentifier()
 True
-
 ```
 
 * Class name should start with capital letter, other var should start with lowercase.
@@ -100,7 +99,6 @@ True
 ### Variable
 
 For each variable, it is an object that holds the value, you can see the reference by doing the following. If you reassign, then the old one goes to garbage collector.
-
 
 ```
 >>> test=10
@@ -121,7 +119,7 @@ For each variable, it is an object that holds the value, you can see the referen
 
 * Check object type by using type() function
 
-```
+```python
 >>> test = 10
 >>> type(test)
 <class 'int'>
@@ -135,6 +133,7 @@ For each variable, it is an object that holds the value, you can see the referen
 ```
 
 ### Operator
+
 Most operators are similar to other languages, for different ones, they are listed here,
 
 * `+`, string concates, eg: `"hello"+ "world"`
@@ -142,19 +141,18 @@ Most operators are similar to other languages, for different ones, they are list
 * `*`, string repetition, eg: `"hello"*3`
 * `[]`, slicing, similar to Wolfram language, [:n], [n:], [n:m], m can be negative.
 * `in`, `not in`,  existing or not existing, 
- 
 
 eg:
 
-```
-# example
+```python
+
 var1 = 'Python'
 print ('n' in var1)
  True
 ```
 
-```
-# example
+``` python
+
 var1 = 'Python'
 print ('N' not in var1)
  True
@@ -214,14 +212,14 @@ rhs can be static value or expression or an existing variable.
 
 * when rhs is an existing variable, then both will point to the same reference.
 
-```
+```python
 >>> eval( "2.5+2.5" )
 5.0
 ```
 
 * multiline statement will use \ char.
 
-```
+```python
 # Initializing a list using the multi-line statement
 >>> my_list = [1, \
 ... 2, 3\
@@ -235,7 +233,7 @@ rhs can be static value or expression or an existing variable.
 * implicit line continuation
 (),{},[], without completion, python assume it is multilines.
 
-```
+```python
 >>> result = (10 + 100
 ... * 5 - 5
 ... / 100 + 10
@@ -253,7 +251,7 @@ rhs can be static value or expression or an existing variable.
 * indentation
 PEP 8 suggests 4 spaces, and google suggest 2.
 
-```
+```python
 def demo_routine(num):
   print('I am a demo function')
   if num % 2 == 0:
@@ -268,10 +266,10 @@ if demo_routine(num) is True:
     print(num, 'is an even number')
 else:
     print(num, 'is an odd number')
-    
 ```
 
 ### Data types
+
 * boolean
 * numbers
 * strings
@@ -350,8 +348,6 @@ complex(num1, num2) constructor will create complex number,
 61
 ```
 
-
-
 ```
 >>> import sys
 >>> sys.float_info
@@ -359,7 +355,6 @@ sys.float_info(max=1.7976931348623157e+308, max_exp=1024, max_10_exp=308, min=2.
 >>> sys.float_info.dig
 15
 ``` 
-
 <b>String</b>
 Tripple quotation mark can wrap around multiline strings.
 
@@ -397,7 +392,7 @@ You can substring using slicing. (skipped, similar to Mathematica using square b
 
 byte object is 8 bits, so it is from 0-255. 
 
-TODO 
+TODO
 
 https://www.techbeamers.com/python-data-types-learn-basic-advanced/
 
@@ -416,32 +411,32 @@ https://www.techbeamers.com/python-data-types-learn-basic-advanced/
 * Support slicing, using square bracket.
 * Tuples do differ a bit from the list as they are immutable.
 
-eg: 
+eg:
 
 `# How does repetition work with tuples
 sample_tuple = ('Python 3',)*3
 print(sample_tuple)
 `
 
-<b> Sets </b>
+**Sets**
+
 * Use {}, unorder and immutable.
 * Set is optimized for checking if it contains an element or not, faster than list.
 
 Two ways to create set, one is to use set() function, 
 and the other is to use {},
 
-```
+```python
 >>> sample_set = set("Python data types")
 >>> type(sample_set)
 <class 'set'>
 >>> sample_set
 {'e', 'y', 't', 'o', ' ', 'd', 's', 'P', 'p', 'n', 'h', 'a'}
-
 ```
 
 another way,
 
-```
+```python
 >>> another_set = {'red', 'green', 'black'}
 >>> type(another_set)
 <class 'set'>
@@ -450,11 +445,11 @@ another way,
 
 ```
 
-Frozen set
+**Frozen set**
 
 Frozen set is immutable,
 
-```
+```Python
 >>> sample_set = {"red", "green"}
 >>> sample_set
 {'green', 'red'}
@@ -470,14 +465,13 @@ Traceback (most recent call last):
 AttributeError: 'frozenset' object has no attribute 'add'
 ```
 
-<b>dictionaries</b>
+**dictionaries**
 
 * Python syntax for creating dictionaries use braces {} where each item appears as a pair of keys and values. The key and value can be of any Python data types.
 
-* Mutable
+**Mutable**
 
-```
-
+```python
 >>> sample_dict = {'key':'value', 'jan':31, 'feb':28, 'mar':31}
 >>> type(sample_dict)
 <class 'dict'>
@@ -488,7 +482,7 @@ AttributeError: 'frozenset' object has no attribute 'add'
 
 Reference it value with key,
 
-```
+```python
 >>> sample_dict['jan']
 31
 >>> sample_dict['feb']
@@ -501,7 +495,7 @@ Dictionary methods,
 * values() â€“ It isolates the values from a dictionary.
 * items() â€“ It returns the items in a list style of (key, value) pairs.
 
-```
+```python
 >>> sample_dict.keys()
 dict_keys(['mar', 'key', 'jan', 'feb'])
 >>> sample_dict.values()
@@ -512,7 +506,7 @@ dict_items([('mar', 31), ('key', 'value'), ('jan', 31), ('feb', 28)])
 
 Modify dictionaries
 
-```
+```python
 >>> sample_dict['feb'] = 29
 >>> sample_dict
 {'mar': 31, 'key': 'value', 'jan': 31, 'feb': 29}
@@ -524,12 +518,12 @@ Modify dictionaries
 {'apr': 30, 'mar': 31, 'jan': 31, 'feb': 29}
 ```
 
+### ref
+- https://www.techbeamers.com/python-format-string-list-dict/
 
-https://www.techbeamers.com/python-format-string-list-dict/
+- https://www.techbeamers.com/python-operators-tutorial-beginners/
 
-https://www.techbeamers.com/python-operators-tutorial-beginners/
-
-https://www.techbeamers.com/python-operator-precedence-associativity/
+- https://www.techbeamers.com/python-operator-precedence-associativity/
 
 ## if/else
 
@@ -561,10 +555,9 @@ If Else in one line - Syntax
 
 `value_on_true if condition else value_on_false`
 
-
 Example,
 
-```
+```python
 >>> num = 2
 >>> 'Even' if num%2 == 0 else 'Odd'
 'Even'
@@ -583,7 +576,7 @@ Example,
 
 <b>if/elif/else </b>
 
-```
+```python
 while True:
     response = input("Which Python data type is an ordered sequence? ").lower()
     print("You entered:", response)
@@ -602,7 +595,7 @@ while True:
 
 <b> nested if example </b>
 
-```
+```python
 x = 10
 y = 20
 z = 30
@@ -628,7 +621,7 @@ print("Stop")
 
 <b>Using Not Operator With Python If Else</b>
 
-```
+```python
 a = 10
 b = 20
 if not a > b :
@@ -1542,7 +1535,7 @@ Single or double-quoted string. \1 matches whatever the 1st group matched. \2 ma
 
 ?i means the same as the re.I option is for global, but ?i can be applied to subexpr or string before it.
 
-```
+```python
 ## apply options works the same as the $
 print("testing ?i");
 line = "ruby"
@@ -1556,7 +1549,7 @@ else:
 
 ?! to negate some symbol after it.
 
-```
+```python
 print("testing ?!");
 line = "Python"
 matchObj = re.match(r'Python(?!!)', line, re.M)
@@ -1569,7 +1562,7 @@ else:
 
 ?= means followed by something,
 
-```
+```python
 print("testing ?=");
 line = "Python!"
 matchObj = re.match(r'Python(?=!)', line, re.M)
@@ -1590,7 +1583,7 @@ Python had two libs that support XML,
 
 `DOM example`: SAX example is skipped, please check example code with this tutorial.
 
-```
+```python
 #!/usr/bin/python
 
 from xml.dom.minidom import parse
@@ -1835,7 +1828,6 @@ how list and enumerate works,
 [(1, 'Spring'), (2, 'Summer'), (3, 'Fall'), (4, 'Winter')]
 ```
 
-
 `bytearray([source[, encoding[, errors]]])`: source can be string, integer, object, or iterable.
 
 `bytes([source[, encoding[, errors]]])`: Return a new â€œbytesâ€� object, which is an immutable sequence of integers in the range 0 <= x < 256.
@@ -1881,5 +1873,5 @@ format(), all(), any()
 
 ## Ref
 
-https://www.tutorialspoint.com/python
-https://www.techbeamers.com/python-generator/
+- https://www.tutorialspoint.com/python
+- https://www.techbeamers.com/python-generator/
