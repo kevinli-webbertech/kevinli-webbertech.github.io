@@ -11,7 +11,7 @@ if [[ -z $1 ]];then
 fi
 
 getHtmlDir() {
-  
+  return
 }
 
 getAllMarkdownfiles() {
@@ -22,6 +22,8 @@ getAllMarkdownfiles() {
 getMDWithoutHtml() {
   mdFiles=$(getAllMarkdownfiles)
   for file in $mdFiles; do
+      echo "==="
+      echo $file
       htmlPath=$(getHTMLFilePath $file)
       echo "****"
       echo $htmlPath
@@ -31,13 +33,14 @@ getMDWithoutHtml() {
 
 getHTMLFilePath() {
   mdFilePath=$1
-  echo -e "$mdFilePath\n"
+  echo "xxxx"
+  echo -e "mdFilePath: $mdFilePath\n"
   # GET MD FILE
   mdFile=`echo ${mdFilePath} |rev | cut -d '/' -f 1|rev`
 
   # GET HTML FILE
-  htmlFileName=`sed -E s/"md"/"html"/ <<< ${mdFile}`
-  echo -e "html file path is: ${htmlPath}/${htmlFileName}\n"
+  htmlFileName=`sed -e s/"md"/"html"/ <<< ${mdFile}`
+  echo -e "htmlFilePath is: ${htmlPath}/${htmlFileName}\n"
 }
 
   # COPY HTML FILE
