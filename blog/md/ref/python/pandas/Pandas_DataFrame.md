@@ -268,7 +268,7 @@ df = pd.read_excel('filename.xlsx')  # Reads an Excel file into a DataFrame.
 Here's a practical example to demonstrate some common operations on a DataFrame:
 
 ```python
-# Importing Pandas
+# Importing pandas
 import pandas as pd
 
 # Creating a DataFrame

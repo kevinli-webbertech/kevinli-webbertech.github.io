@@ -2,7 +2,7 @@
 
 ## variable
 
-```
+```bash
 name="John"
 echo $name  # see below
 echo "$name"
@@ -11,7 +11,7 @@ echo "${name}!"
 
 Generally quote your variables unless they contain wildcards to expand or command fragments.
 
-```
+```bash
 wildcard="*.txt"
 options="iv"
 cp -$options $wildcard /tmp
@@ -66,17 +66,15 @@ git commit || echo "Commit failed"
 
 ## Brace Expansion
 
-```bash
-echo {A,B}.js
-{A,B} Same as A B
-{A,B}.js Same as A.js B.js
-{1..5} Same as 1 2 3 4 5
-{{1..3},{7..9}} Same as 1 2 3 7 8 9
-```
+`echo {A,B}.js`
+`{A,B}` Same as A B
+`{A,B}.js` Same as A.js B.js
+`{1..5}` Same as 1 2 3 4 5
+`{{1..3},{7..9}}` Same as 1 2 3 7 8 9
 
 *example*
 
-```
+```bash
 xiaofengli@xiaofenglx:~$ echo {1..5}
 1 2 3 4 5
 xiaofengli@xiaofenglx:~$ echo {{1..5},{6..9}}
@@ -87,7 +85,7 @@ xiaofengli@xiaofenglx:~$ echo {{1..5},{6..9}}
 
 **for in loop**
 
-```
+```bash
 for i in /etc/rc.*; do
   echo "$i"
 done
@@ -95,7 +93,7 @@ done
 
 **for in with range**
 
-```
+```bash
 for i in {1..5}; do
     echo "Welcome $i"
 done
@@ -103,7 +101,7 @@ done
 
 **for in with step**
 
-```
+```bash
 for i in {5..50..5}; do
     echo "Welcome $i"
 done
@@ -231,34 +229,59 @@ check exit code,
 Note: stay with double bracket
 
 `[[ -z STRING ]]` Empty string
+
 `[[ -n STRING ]]` Not empty string
+
 `[[ STRING == STRING ]]` Equal
+
 `[[ STRING != STRING ]]` Not Equal
+
 `[[ NUM -eq NUM ]]` Equal
+
 `[[ NUM -ne NUM ]]` Not equal
+
 `[[ NUM -lt NUM ]]` Less than
+
 `[[ NUM -le NUM ]]` Less than or equal
+
 `[[ NUM -gt NUM ]]` Greater than
+
 `[[ NUM -ge NUM ]]` Greater than or equal
+
 `[[ STRING =~ STRING ]]` Regexp
+
 `(( NUM < NUM ))` Numeric conditions
+
 `[[ -o noclobber ]]` If OPTIONNAME is enabled
+
 `[[ ! EXPR ]]` Not
+
 `[[ X && Y ]]` And
+
 `[[ X || Y ]]` Or
 
 ## File Testing
 
 `[[ -e FILE ]]` Exists
+
 `[[ -r FILE ]]` Readable
+
 `[[ -h FILE ]]` Symlink
+
 `[[ -d FILE ]]` Directory
+
 `[[ -w FILE ]]` Writable
+
 `[[ -s FILE ]]` Size is > 0 bytes
+
 `[[ -f FILE ]]` File
+
 `[[ -x FILE ]]` Executable
+
 `[[ FILE1 -nt FILE2 ]]` 1 is more recent than 2
+
 `[[ FILE1 -ot FILE2 ]]` 2 is more recent than 1
+
 `[[ FILE1 -ef FILE2 ]]` Same files
 
 **Examples**
