@@ -1,5 +1,10 @@
 # Shell Scripting Ref
 
+---
+title: Blogging Like a Hacker
+date: 06/13/2024
+---
+
 ## variable
 
 ```bash
