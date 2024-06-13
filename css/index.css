@@ -32,7 +32,7 @@
 
 .right {
   float:right;
-  width: auto;
+  width: 80%;
   background-color: #e9f2f9;
   overflow: scroll;  
   overflow-x: hidden;
