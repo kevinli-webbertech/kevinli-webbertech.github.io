@@ -71,7 +71,6 @@ git commit || echo "Commit failed"
 
 ## Brace Expansion
 {% raw %}
-
 ```
 echo {A,B}.js
 {A,B}` Same as A B
@@ -85,12 +84,14 @@ echo {A,B}.js
 
 *example*
 
+{% raw %}
 ```bash
 xiaofengli@xiaofenglx:~$ echo {1..5}
 1 2 3 4 5
 xiaofengli@xiaofenglx:~$ echo {{1..5},{6..9}}
 1 2 3 4 5 6 7 8 9
 ```
+{% endraw %}
 
 ## Loop
 
