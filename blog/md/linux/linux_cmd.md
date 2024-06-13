@@ -36,10 +36,10 @@
 `tar -xjf archive.tar.bz2` Extract the bzip2-compressed TAR archive named archive.tar.bz2.
 `gzip Y` Create a gzip archive named Y.gz containing Y.
 `gzip -l Y.gz` List contents of gzip archive Y.gz.
-`gzip -d Y.gz`
+`gzip -d Y.gz` Decompress the gzip archive Y.gz.
 `gunzip Y.gz` Extract Y.gz and recover the original file Y.
 `bzip2 Y` Create a bzip2 archive named Y.bz2 containing Y.
-`bzip2 -d Y.gz`
+`bzip2 -d Y.gz`  Decompress the bzip2 archive Y.bz2.
 `bunzip2 Y.gz` Extract Y.bz2 and recover the original file Y.
 `zip -r Z.zip` Zip to the ZIP archive Z.zip.
 `unzip Z.zip` Unzip Z.zip to the current directory.
@@ -59,8 +59,8 @@
 * `alias` and `unalias` Sets and removes an alias for a file or command
 * `export` export definition of system variable
 * `source` execute the system profile
-* `set` ??
-* `unset` ??
+* `set` Modifies shell settings and environment variables.
+* `unset` Removes definitions of shell variables and functions.
 
 ## Permissions
 
@@ -302,8 +302,12 @@ sort X	Arrange lines of text in X alphabetically or numerically.
 
 ## Search
 
-* `find`
-* `locate`
+* `find` is used to search for files and directories in a directory hierarchy based on various criteria like name, type, size, and modification time.
+Example: find /path/to/search -name "filename.txt"
+
+* `locate` command searches for files in a prebuilt database. It is faster than find because it searches through a database instead of the actual filesystem.
+Example: locate filename.txt
+
 
 
 ## File transfer
@@ -331,7 +335,7 @@ rsync -avz host1:[path1] [path2]	Synchronize [path1] on the remote host host1 to
 
 ## Package and software management (debian)
 
-* `apt`
+* `apt`  A command-line utility for handling package management in Debian-based distributions.
 * `apt-get` Manages Debian-based distros package libraries
 * `dpkg`    dpkg is a medium-level tool to install, build, remove and manage Debian packages.
 
@@ -375,51 +379,51 @@ It also gives details (version, architecture and repository source) about packag
 
 To get more options, check with -h,
 
-```
+
 Most used commands:
-  update - Retrieve new lists of packages
-  upgrade - Perform an upgrade
-  install - Install new packages (pkg is libc6 not libc6.deb)
-  reinstall - Reinstall packages (pkg is libc6 not libc6.deb)
-  remove - Remove packages
-  purge - Remove packages and config files
-  autoremove - Remove automatically all unused packages
-  dist-upgrade - Distribution upgrade, see apt-get(8)
-  dselect-upgrade - Follow dselect selections
-  build-dep - Configure build-dependencies for source packages
-  satisfy - Satisfy dependency strings
-  clean - Erase downloaded archive files
-  autoclean - Erase old downloaded archive files
-  check - Verify that there are no broken dependencies
-  source - Download source archives
-  download - Download the binary package into the current directory
-  changelog - Download and display the changelog for the given package
-```
+  `update` - Retrieve new lists of packages
+  `upgrade` - Perform an upgrade
+  `install` - Install new packages (pkg is libc6 not libc6.deb)
+  `reinstall` - Reinstall packages (pkg is libc6 not libc6.deb)
+  `remove` - Remove packages
+  `purge` - Remove packages and config files
+  `autoremove` - Remove automatically all unused packages
+  `dist-upgrade` - Distribution upgrade, see apt-get(8)
+  `dselect-upgrade` - Follow dselect selections
+  `build-dep` - Configure build-dependencies for source packages
+  `satisfy` - Satisfy dependency strings
+  `clean` - Erase downloaded archive files
+  `autoclean` - Erase old downloaded archive files
+  `check` - Verify that there are no broken dependencies
+  `source` - Download source archives
+  `download` - Download the binary package into the current directory
+  `changelog` - Download and display the changelog for the given package
+
 
 ### dpkg examples
 
-```
-  install
+
+  `install`
       The package is selected for installation.
 
-  hold
+  `hold`
       A package marked to be on hold is kept on the same version, that is, no automatic new
       installs, upgrades or removals will be performed on them, unless these actions are
       requested explicitly, or are permitted to be done automatically with the --force-hold
       option.
 
-  deinstall
+  `deinstall`
       The package is selected for deinstallation (i.e. we want to remove all files, except
       configuration files).
 
-  purge
+  `purge`
       The package is selected to be purged (i.e. we want to remove everything from system
       directories, even configuration files).
 
-  unknown
+  `unknown`
       The package selection is unknown.  A package that is also in a not-installed state, and
       with an ok flag will be forgotten in the next database store.
-```
+
 
 ## System Information
 
@@ -435,15 +439,15 @@ Most used commands:
 * `watch` Runs another command continuously
 * `jobs` Displays a shell’s running processes with their statuses
 * `kill` Terminates a running process
-* `bg` ??
-* `fg` ??
-* `pidof` ??
-* `nice` ??
-* `renice` ??	
+* `bg` Resumes a suspended job in the background.
+* `fg` Brings a background job to the foreground
+* `pidof` Finds the process ID of a running program.
+* `nice` Runs a command with a modified scheduling priority.
+* `renice`  Changes the priority of a running process.
 * `lsof` List All Open Files
 * `which` Find file location which is on the path
 * `whomai` Currently logged-in user
-* `id` ??
+* `id` Displays user and group information.
 * `uptime` Time system has been up since last reboot
 * `shutdown` Turns off or restarts the system
 * `reboot`  Reboot
@@ -451,25 +455,25 @@ Most used commands:
 
 [TODO]
 
-```
-COMMAND	DESCRIPTION
-uname	Show the Linux system information.
-uname -a	Detailed Linux system information
-uname -r	Kernel release information, such as kernel version
-uptime	Show how long the system is running and load information.
-su
-sudo	Superuser; use this before a command that requires root access e.g., su shutdown
-cal	Show calendar where the current date is highlighted.
-date	Show the current date and time of the machine.
-halt	Stop the system immediately.
-shutdown	Shut down the system.
-reboot	Restart the system.
-last reboot	Show reboot history.
-man COMMAND	Shows the manual for a given COMMAND. To exit the manual, press “q”.
-hostname	Show system host name
-hostname -I	Display IP address of host
-cat /etc/*-release	Show the version of the Linux distribution installed. For example, if you’re using Red Hat Linux, you may replace * with redhat.
-```
+
+COMMAND	  DESCRIPTION
+`uname`	    Show the Linux system information.
+`uname -a`	Detailed Linux system information
+`uname -r`	Kernel release information, such as kernel version
+`uptime`	Show how long the system is running and load information.
+`su`        Switches the current user to another user.
+`sudo`	    Superuser; use this before a command that requires root access e.g., su shutdown
+`cal`	    Show calendar where the current date is highlighted.
+`date`	    Show the current date and time of the machine.
+`halt`	    Stop the system immediately.
+`shutdown`	Shut down the system.
+`reboot`	Restart the system.
+`last reboot`	Show reboot history.
+`man`       COMMAND	Shows the manual for a given COMMAND. To exit the manual, press “q”.
+`hostname`	Show system host name
+`hostname -I`	Display IP address of host
+`cat /etc/*-release` Show the version of the Linux distribution installed. For example, if you’re using Red Hat Linux, you may replace * with redhat.
+
 
 ## Hardware
 
@@ -669,7 +673,7 @@ kill -9 `lsof -t -u tecmint`
 * `traceroute` Tracks a packet’s hops to its destination
 * `nslookup` Queries a domain’s IP address and vice versa
 * `dig` Displays DNS information, including record types
-* `ssh`
+* `ssh` Secure Shell; used to log into a remote machine and execute commands
 * `scp` Securely copies files or directories to another system
 * `rsync` Synchronizes content between directories or machines
 
@@ -772,41 +776,94 @@ OR
 
 <https://www.ninjaone.com/blog/how-to-configure-a-linux-firewall/#:~:text=After%20you%20configure%20a%20Linux,traffic%20based%20on%20predefined%20rules>.
 
-## File and file descriptor [TODO]
+
+## File Commands
+`touch`: Creates an empty file or updates the timestamp of an existing file.
+Example: touch myfile.txt
+`cat`: Concatenates and displays file content.
+Example: cat myfile.txt
+`cp`: Copies files or directories.
+Example : cp sourcefile.txt destinationfile.txt
+`mv`: Moves or renames files or directories.
+Example : mv oldname.txt newname.txt
+`rm`: Removes files or directories.
+Example: rm myfile.txt
+`ln`: Creates hard and symbolic links.
+Example: ln -s targetfile.txt linkname.txt  # symbolic link
+`chmod`: Changes file permissions.
+Example : chmod 755 myfile.txt
+`chown`: Changes file owner and group.
+Example : chown user:group myfile.txt
+`file`: Determines the file type.
+Example: file myfile.txt
+`stat`: Displays file or file system status.
+Example: stat myfile.txt
+
+## File descriptor Commands
+
+`ls -l /proc/$$/fd`: Lists open file descriptors for the current shell process.
+Example: ls -l /proc/$$/fd
+`lsof`: Lists open files and the processes that opened them.
+Example : lsof | grep myfile.txt
+`exec`: Opens a file descriptor and associates it with a command.
+Example:
+exec 3>outputfile.txt  # Open file descriptor 3 for writing
+echo "Hello, World!" >&3  # Write to file descriptor 3
+exec 3>&-  # Close file descriptor 3
+`>/dev/null`: Redirects output to null device (discards output).
+Example: command > /dev/null 2>&1  # Discards both standard output and standard error
+`read`: Reads input from a file descriptor.
+Example:
+exec 3<myfile.txt  # Open file descriptor 3 for reading
+read -u 3 line  # Read a line from file descriptor 3
+echo $line  # Output the line read
+exec 3<&-  # Close file descriptor 3
+`strace`: Traces system calls and signals (including file descriptor operations).
+Example: strace -e trace=file ls
+
 
 ## Pipe
-
+The pipe (|) in Linux allows you to chain multiple commands together, sending the output of one command as input to another command.
 `[command1] | [command 2]`
+Basic Example:
+`ps aux | grep python3 `: This command lists all running processes (ps aux) and pipes (|) the output to grep python3, which filters out lines containing python3.
+`ls -l | wc -l` : This command lists all files in the current directory (ls -l) and pipes (|) the output to wc -l, which counts the number of lines, effectively giving the count of files in the directory.
+`cat file.txt | sort` : This command reads the contents of file.txt (cat file.txt) and pipes (|) the output to sort, which sorts the lines alphabetically.
+`
 
 ## Redirection
 
 The redirect operator >, <, >>, 2>.
 
-```
-COMMAND	DESCRIPTION
-echo TEXT	Display a line of TEXT or the contents of a variable.
-echo -e TEXT	Also interprets escape characters in TEXT, e.g., \n → new line, \b → backslash, \t → tab.
-echo -n TEXT	Omits trailing newline of TEXT.
-cmd1 | cmd2	| is the pipe character; feeds the output of the command cmd1 and sends it to the command cmd2, e.g., ps aux | grep python3.
-cmd > file	Redirect output of a command cmd to a file file. Overwrites pre-existing content of file.
-cmd >& file	Redirect output of cmd to file. Overwrites pre-existing content of file. Suppresses the output of cmd.
-cmd > /dev/null	Suppress the output of cmd.
-cmd >> file	Append output of cmd to file.
-cmd < file	Read input of cmd from file.
-cmd << delim	Read input of cmd from the standard input with the delimiter character delim to tell the system where to terminate the input. Example for counting the number of lines of ad-hoc input:
+
+COMMAND              DESCRIPTION
+`echo TEXT`          Display a line of TEXT or the contents of a variable.
+`echo -e TEXT`       Also interprets escape characters in TEXT, e.g., \n → new line, \b → backslash, \t → tab.
+`echo -n TEXT`       Omits trailing newline of TEXT.
+`cmd1 | cmd2`        | is the pipe character; feeds the output of cmd1 and sends it to cmd2, e.g., ps aux | grep python3.
+`cmd > file`         Redirect output of cmd to a file file. Overwrites pre-existing content of file.
+`cmd >& file`        Redirect output of cmd to file. Overwrites pre-existing content of file. Suppresses the output of cmd.
+`cmd > /dev/null`    Suppress the output of cmd.
+`cmd >> file`        Append output of cmd to file.
+`cmd < file`         Read input of cmd from file.
+`cmd << delim`       Read input of cmd from the standard input with the delimiter character delim to tell the system where to terminate the input. Example for counting the number of lines of ad-hoc input:
+```bash
 wc -l << EOF
-> I like
-> apples
-> and
-> oranges.
-> EOF      
- 4
-Hence there are only 4 lines in the standard input delimited by EOF.
-cmd <<< string	Input a text string to cmd.
-cmd 2> foo	Redirect error messages of cmd to foo.
-cmd 2>> foo	Append error messages of cmd to foo.
-cmd &> file	Redirect output and error messages of cmd to file.
+I like
+apples
+and
+oranges.
+EOF
 ```
+Hence there are only 4 lines in the standard input delimited by EOF.
+
+`cmd <<< string` Input a text string to cmd.
+`cmd 2> foo`     Redirect error messages of cmd to foo.
+`cmd 2>> foo`    Append error messages of cmd to foo.
+`cmd &> file`    Redirect output and error messages of cmd to file.
+`cmd &>> file`   Append output and error messages of cmd to file.
+
+
 
 ## Ref
 
