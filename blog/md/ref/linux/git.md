@@ -210,6 +210,10 @@ If you want to join someone's project, that project owner has to add your github
 
 Generate a public key and save it to the github ssh to allow the server to know your machine information. [TODO]
 
+## Trigger github.io to rebuild
+
+`git commit -m 'rebuild pages' --allow-empty`
+`git push origin <branch_name>`
 
 ## Ref
 
