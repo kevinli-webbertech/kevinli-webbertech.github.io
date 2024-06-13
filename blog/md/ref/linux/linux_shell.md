@@ -66,13 +66,11 @@ git commit || echo "Commit failed"
 
 ## Brace Expansion
 
-```bash
-echo {A,B}.js
-{A,B} Same as A B
-{A,B}.js Same as A.js B.js
-{1..5} Same as 1 2 3 4 5
-{{1..3},{7..9}} Same as 1 2 3 7 8 9
-```
+`echo {A,B}.js`
+`{A,B}` Same as A B
+`{A,B}.js` Same as A.js B.js
+`{1..5}` Same as 1 2 3 4 5
+`{{1..3},{7..9}}` Same as 1 2 3 7 8 9
 
 *example*
 
