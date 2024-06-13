@@ -115,8 +115,8 @@ OCTAL	PERMISSION(S)	EQUIVALENT TO APPLICATION OF
 * `locate` Finds files in a system’s database
 * `find` Outputs a file or folder’s location
 * `wc`   counting utility
-* `tr` ??
-* `rev` ??
+* `tr`  is used to translate, squeeze, and delete characters from the standard input and write the result to the standard output.
+* `rev` is used to reverse the order of characters in every line of a file or from standard input.
 
 ### more examples
 
