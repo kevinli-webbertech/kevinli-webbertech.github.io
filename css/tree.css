@@ -1,6 +1,7 @@
 /* Remove default bullets */
 ul, #myUL {
     list-style-type: none;
+    padding-inline-start: 20px !important;
   }
   
   /* Remove margins and padding from the parent ul */
