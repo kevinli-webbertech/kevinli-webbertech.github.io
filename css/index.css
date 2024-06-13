@@ -25,7 +25,7 @@
   overflow: scroll;  
   overflow-x: hidden;
   overflow-y: auto; /* Enable vertical scrolling */
-  width: 15%; /* or 200px*/
+  width: 20%; /* or 200px*/
   padding: 20px; /* Add padding to the sidebar content */
   background-color: #fff;
 }
