@@ -912,6 +912,8 @@ Example: strace -e trace=file ls
 ## Pipe
 The pipe (|) in Linux allows you to chain multiple commands together, sending the output of one command as input to another command.
 
+## Pipe
+The pipe (|) in Linux allows you to chain multiple commands together, sending the output of one command as input to another command.
 `[command1] | [command 2]`
 Basic Example:
 
