@@ -17,7 +17,7 @@
 * `file` Checks a file’s type
 * `tree` folder structure [not built-in]
 
-## Compression [TODO]
+## Compression 
 
 * `zip` and `unzip` Creates and extracts a ZIP archive
 * `tar` Archives files without compression in a TAR format
@@ -27,22 +27,39 @@
 ### Examples
 
 `tar -v` Get verbose output while manipulating TAR archives. May combine this option with others, e.g., tar -tvf.
+
 `tar -cf archive.tar` Create a TAR archive named archive.tar containing Y.
+
 `tar -xf archive.tar` Extract the TAR archive named archive.tar.
+
 `tar -tf archive.tar` List contents of the TAR archive named archive.tar.
+
 `tar -czf archive.tar.gz` Create a gzip-compressed TAR archive named archive.tar.gz containing Y.
+
 `tar -xzf archive.tar.gz` Extract the gzip-compressed TAR archive named archive.tar.gz.
+
 `tar -cjf archiave.tar.bz2` Create a bzip2-compressed TAR archive named archive.tar.bz2 containing Y.
+
 `tar -xjf archive.tar.bz2` Extract the bzip2-compressed TAR archive named archive.tar.bz2.
+
 `gzip Y` Create a gzip archive named Y.gz containing Y.
+
 `gzip -l Y.gz` List contents of gzip archive Y.gz.
+
 `gzip -d Y.gz` Decompress the gzip archive Y.gz.
+
 `gunzip Y.gz` Extract Y.gz and recover the original file Y.
+
 `bzip2 Y` Create a bzip2 archive named Y.bz2 containing Y.
+
 `bzip2 -d Y.gz`  Decompress the bzip2 archive Y.bz2.
+
 `bunzip2 Y.gz` Extract Y.bz2 and recover the original file Y.
+
 `zip -r Z.zip` Zip to the ZIP archive Z.zip.
+
 `unzip Z.zip` Unzip Z.zip to the current directory.
+
 `unzip Z.zip` List contents of Z.zip.
 
 ## Editor
@@ -52,6 +69,8 @@
 * `date` Display system time
 * `cal` Displays a calendar in Terminal. (not builtin, need to install `ncal`)
 * `calc` Calculator
+* `vi` or `vm` Powerful text editor.
+* `jed` Lightweight text editor.
 
 ## Profile, Configuration and Path
 
@@ -99,7 +118,7 @@ OCTAL	PERMISSION(S)	EQUIVALENT TO APPLICATION OF
 7	All permissions: 4 + 2 + 1 = 7	=rwx
 ```
 
-## System Operations [TODO]
+## System Operations
 
 * `man` Shows a command’s manual
 * `echo` Prints a message as a standard output
@@ -382,21 +401,37 @@ To get more options, check with -h,
 
 Most used commands:
   `update` - Retrieve new lists of packages
+
   `upgrade` - Perform an upgrade
+
   `install` - Install new packages (pkg is libc6 not libc6.deb)
+
   `reinstall` - Reinstall packages (pkg is libc6 not libc6.deb)
+
   `remove` - Remove packages
+
   `purge` - Remove packages and config files
+
   `autoremove` - Remove automatically all unused packages
+
   `dist-upgrade` - Distribution upgrade, see apt-get(8)
+
   `dselect-upgrade` - Follow dselect selections
+
   `build-dep` - Configure build-dependencies for source packages
+
   `satisfy` - Satisfy dependency strings
+
   `clean` - Erase downloaded archive files
+
   `autoclean` - Erase old downloaded archive files
+
   `check` - Verify that there are no broken dependencies
+
   `source` - Download source archives
+
   `download` - Download the binary package into the current directory
+
   `changelog` - Download and display the changelog for the given package
 
 
@@ -453,25 +488,41 @@ Most used commands:
 * `reboot`  Reboot
 * `systemctl` Manages system services
 
-[TODO]
+
 
 
 COMMAND	  DESCRIPTION
+
 `uname`	    Show the Linux system information.
+
 `uname -a`	Detailed Linux system information
+
 `uname -r`	Kernel release information, such as kernel version
+
 `uptime`	Show how long the system is running and load information.
+
 `su`        Switches the current user to another user.
+
 `sudo`	    Superuser; use this before a command that requires root access e.g., su shutdown
+
 `cal`	    Show calendar where the current date is highlighted.
+
 `date`	    Show the current date and time of the machine.
+
 `halt`	    Stop the system immediately.
+
 `shutdown`	Shut down the system.
+
 `reboot`	Restart the system.
+
 `last reboot`	Show reboot history.
+
 `man`       COMMAND	Shows the manual for a given COMMAND. To exit the manual, press “q”.
+
 `hostname`	Show system host name
+
 `hostname -I`	Display IP address of host
+
 `cat /etc/*-release` Show the version of the Linux distribution installed. For example, if you’re using Red Hat Linux, you may replace * with redhat.
 
 
@@ -779,55 +830,97 @@ OR
 
 ## File Commands
 `touch`: Creates an empty file or updates the timestamp of an existing file.
+
 Example: touch myfile.txt
+
 `cat`: Concatenates and displays file content.
+
 Example: cat myfile.txt
+
 `cp`: Copies files or directories.
+
 Example : cp sourcefile.txt destinationfile.txt
+
 `mv`: Moves or renames files or directories.
+
 Example : mv oldname.txt newname.txt
+
 `rm`: Removes files or directories.
+
 Example: rm myfile.txt
+
 `ln`: Creates hard and symbolic links.
+
 Example: ln -s targetfile.txt linkname.txt  # symbolic link
+
 `chmod`: Changes file permissions.
+
 Example : chmod 755 myfile.txt
+
 `chown`: Changes file owner and group.
+
 Example : chown user:group myfile.txt
+
 `file`: Determines the file type.
+
 Example: file myfile.txt
+
 `stat`: Displays file or file system status.
+
 Example: stat myfile.txt
 
 ## File descriptor Commands
 
 `ls -l /proc/$$/fd`: Lists open file descriptors for the current shell process.
+
 Example: ls -l /proc/$$/fd
+
 `lsof`: Lists open files and the processes that opened them.
+
 Example : lsof | grep myfile.txt
+
 `exec`: Opens a file descriptor and associates it with a command.
 Example:
+
 exec 3>outputfile.txt  # Open file descriptor 3 for writing
+
 echo "Hello, World!" >&3  # Write to file descriptor 3
+
 exec 3>&-  # Close file descriptor 3
+
 `>/dev/null`: Redirects output to null device (discards output).
+
 Example: command > /dev/null 2>&1  # Discards both standard output and standard error
+
 `read`: Reads input from a file descriptor.
+
 Example:
+
 exec 3<myfile.txt  # Open file descriptor 3 for reading
+
 read -u 3 line  # Read a line from file descriptor 3
+
 echo $line  # Output the line read
+
 exec 3<&-  # Close file descriptor 3
+
 `strace`: Traces system calls and signals (including file descriptor operations).
+
 Example: strace -e trace=file ls
 
 
 ## Pipe
 The pipe (|) in Linux allows you to chain multiple commands together, sending the output of one command as input to another command.
+
+## Pipe
+The pipe (|) in Linux allows you to chain multiple commands together, sending the output of one command as input to another command.
 `[command1] | [command 2]`
 Basic Example:
+
 `ps aux | grep python3 `: This command lists all running processes (ps aux) and pipes (|) the output to grep python3, which filters out lines containing python3.
+
 `ls -l | wc -l` : This command lists all files in the current directory (ls -l) and pipes (|) the output to wc -l, which counts the number of lines, effectively giving the count of files in the directory.
+
 `cat file.txt | sort` : This command reads the contents of file.txt (cat file.txt) and pipes (|) the output to sort, which sorts the lines alphabetically.
 `
 
@@ -837,15 +930,25 @@ The redirect operator >, <, >>, 2>.
 
 
 COMMAND              DESCRIPTION
+
 `echo TEXT`          Display a line of TEXT or the contents of a variable.
+
 `echo -e TEXT`       Also interprets escape characters in TEXT, e.g., \n → new line, \b → backslash, \t → tab.
+
 `echo -n TEXT`       Omits trailing newline of TEXT.
+
 `cmd1 | cmd2`        | is the pipe character; feeds the output of cmd1 and sends it to cmd2, e.g., ps aux | grep python3.
+
 `cmd > file`         Redirect output of cmd to a file file. Overwrites pre-existing content of file.
+
 `cmd >& file`        Redirect output of cmd to file. Overwrites pre-existing content of file. Suppresses the output of cmd.
+
 `cmd > /dev/null`    Suppress the output of cmd.
+
 `cmd >> file`        Append output of cmd to file.
+
 `cmd < file`         Read input of cmd from file.
+
 `cmd << delim`       Read input of cmd from the standard input with the delimiter character delim to tell the system where to terminate the input. Example for counting the number of lines of ad-hoc input:
 ```bash
 wc -l << EOF
@@ -858,12 +961,61 @@ EOF
 Hence there are only 4 lines in the standard input delimited by EOF.
 
 `cmd <<< string` Input a text string to cmd.
+
 `cmd 2> foo`     Redirect error messages of cmd to foo.
+
 `cmd 2>> foo`    Append error messages of cmd to foo.
+
 `cmd &> file`    Redirect output and error messages of cmd to file.
+
 `cmd &>> file`   Append output and error messages of cmd to file.
 
 
+## Text Processing and Manipulation
+
+* `tr`  Translate or delete characters from standard input.
+
+Example: 
+
+echo "hello world" | tr 'a-z' 'A-Z'              Translate lowercase to uppercase
+
+echo "hello 123 world" | tr -d '0-9'             Delete specific characters
+
+
+* `sed`  Stream Editor. Perform text transformations on an input stream.
+
+Example: 
+
+sed 's/old/new/' file.txt                       Substitute (replace) text
+
+sed '/pattern/i\new line of text' file.txt       Insert text before a line
+
+* `awk`  Pattern scanning and text processing language.
+
+Example: 
+
+awk '{print $1, $3}' file.txt                   Print specific columns
+
+awk '{sum += $1} END {print sum}' file.txt       Sum the values of a column
+
+
+* `rev`  Reverse the order of characters in each line of a file.
+
+Example: 
+
+echo "hello" | rev                              Reverse a single line
+
+rev file.txt                                    Reverse the content of a file:
+
+## File Viewing
+
+* `more` View the contents of a file one screen at a time.
+
+Example: 
+
+more file.txt                                   View a file
+
+more -10 file.txt                        Display first 10 lines of a file
 
 ## Ref
 
