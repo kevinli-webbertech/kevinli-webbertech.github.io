@@ -25,14 +25,14 @@
   overflow: scroll;  
   overflow-x: hidden;
   overflow-y: auto; /* Enable vertical scrolling */
-  width: 15%; /* or 200px*/
+  width: 20%; /* or 200px*/
   padding: 20px; /* Add padding to the sidebar content */
   background-color: #fff;
 }
 
 .right {
   float:right;
-  width: 85%;
+  width: 80%;
   background-color: #e9f2f9;
   overflow: scroll;  
   overflow-x: hidden;
@@ -82,7 +82,7 @@ section #description {
 #nav_menu  ul{
   position: fixed;
   list-style-type: none;
-  margin-left: 50px;
+  margin-left: 100px;
   padding: 0;
   overflow: hidden;
   background-color: e9f2f9;
