@@ -62,9 +62,14 @@ Now, there are no getter and setters!!
 The answer is: No, because this is not the final Java file. It would have the preprocessor, similar to C's macro, so the final expanded Java file would have everything.
 This is again another nice feature to allow you to ease your rapid development.
 
-## Test our code
+### Test our code
 
 You should start Springboot project and re check that everything should work as usual. For the conciseness, I will not show the screenshots here.
+
+### Ref
+
+https://projectlombok.org/features/Builder
+
 
 ## Part II Jackson
 
