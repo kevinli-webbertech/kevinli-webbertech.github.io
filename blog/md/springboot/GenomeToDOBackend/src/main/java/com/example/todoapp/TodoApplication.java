@@ -22,8 +22,10 @@ public class TodoApplication {
 	public CommandLineRunner demo(TaskRepository repository) {
 		return (args) -> {
 			// save a few customers
-			repository.save(new Task().setCompleted(1).setTitle("testme").setNote("check...").setDueDay(LocalDateTime.now()).setPriority(Priority.LOW));
-			repository.save(new Task().setCompleted(1).setTitle("testme2").setNote("check...").setDueDay(LocalDateTime.now()).setPriority(Priority.LOW));
+			repository.save(new Task().setCompleted(1).setTitle("testme").setNote("check...")
+					.setDueDay(LocalDateTime.now()).setPriority(Priority.LOW));
+			repository.save(new Task().setCompleted(1).setTitle("testme2").setNote("check...")
+					.setDueDay(LocalDateTime.now()).setPriority(Priority.LOW));
 		};
 	}
 }
