@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
+@Getter and @Setter
 public class Task implements Serializable {
 
     @Id

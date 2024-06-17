@@ -23,9 +23,15 @@ A plugin that adds first-class support for Project Lombok
 
 https://plugins.jetbrains.com/plugin/6317-lombok
 
-* Install the plugin.
+* Install the plugin by downloading the zip.
 
 ![lombok_installation.jpg](https://kevinli-webbertech.github.io/blog/images/springboot/#6/lombok_installation.png)
+
+or
+
+* Install online (Recommended)
+
+![lombok_installation.jpg](https://kevinli-webbertech.github.io/blog/images/springboot/#6/lombok_install_online.png)
 
 You need to Enable Annotation Processing on IntelliJ IDEA,
 
