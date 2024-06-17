@@ -136,28 +136,56 @@ public class Customer {
 
 ## JPARepository Usage
 
-In this project, I am going to show you a project that is based on the above project but I tuned it a little bit to show you
-the code you should base on for your midterm project.
+In this project, I am going to show you a bit modification basedon the above project with which you could work on your midterm project.
 
-Of course there are many ways to achieve the midterm project. There are many database connection libraries and
-connection technologies to achieve the goal that you could write some queries.
-JPARepository is one of them. Here in the following explanation, I will show you using 
-`JPARepository` to write a native query so you could take advantage of writing native sql query and to use the 
-default builtin queries as well.
+In reality there are many ways to achieve the midterm project. There are many database connection libraries and technologies to achieve the goal so that you could write some queries. JPARepository is one of them the popular ones. Here in the following explanation, I will show you using `JPARepository` to write a native query so you could take advantage of writing native sql query and to use the default builtin queries as well.
 
-![Springboot_project_layout.jpg](../../images/springboot/#5/Springboot_project_layout.jpg)
+### Step 1 set up the datasource
+
+Please pay attention to the last one that I added and see if it works for you.
+
+![Springboot_project_layout.jpg](..%2F..%2Fimages%2Fspringboot%2F%235%2FSpringboot_project_layout.jpg)
+
+Also we could notice here, I try to create a few packages to make our code look cleaner.
+This segragation is normally used for database projects where we keep SQL/DB access code into an OO class, thus upper level class just use it without knowing the details of the code. This is an important concept when we do mix programming. Believe or not, SQL in Java it is still a mix-programming paradigm and we want to keep it as clean as possible.
+
+### Step 2 Method chaining pattern
+
+I use a little software design pattern here, and the usage of the method chaining pattern is a modern feature, and it can be further reduced by using Lombok and other builder annoation which we could cover in the future.
 
 ![chain_pattern.jpg](..%2F..%2Fimages%2Fspringboot%2F%235%2Fchain_pattern.jpg)
 
+### Step 3 Write some native query in the repository class
+
+Note that we are using JPARepository interface which is a built-in feature of Spring Data project.
+
 ![JPA_query.jpg](..%2F..%2Fimages%2Fspringboot%2F%235%2FJPA_query.jpg)
+
+### Step 4 Service layer
+
+We use service layer to segragate the business logic to make it clean.
 
 ![JPA_service.jpg](..%2F..%2Fimages%2Fspringboot%2F%235%2FJPA_service.jpg)
 
+### Step 5 Using some mapping
+
+These usage and annotations are related to the joins (foreign keys) in the relational databases. In early days, there is an opensource project called Hibernate, and Spring Data incoporate its feature and tries to simply its usage and reduce its installation and configuration.
+
 ![JPA_Join1.jpg](..%2F..%2Fimages%2Fspringboot%2F%235%2FJPA_Join1.jpg)
+
+If I have two classes (vertically they present two database tables), then you could see the usage in each to join the objects on Java level when you make calls to them.
 
 ![JPA_join2.jpg](..%2F..%2Fimages%2Fspringboot%2F%235%2FJPA_join2.jpg)
 
+### Step 6 Initialize some data in our database
+
+Now you can see how we actually create objects and call the related service-level class to save the data to the database without writing some messy SQL code.
+
 ![initialize_some_data.jpg](..%2F..%2Fimages%2Fspringboot%2F%235%2Finitialize_some_data.jpg)
+
+
+### Step 7 Checking the data initalized
 
 ![check_data_initalization.jpg](..%2F..%2Fimages%2Fspringboot%2F%235%2Fcheck_data_initalization.jpg)
 
+Up to here, you should be able to fullfil other endpoints development by exploring your options.
