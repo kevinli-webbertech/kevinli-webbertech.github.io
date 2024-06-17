@@ -1,10 +1,10 @@
 package com.example.todoapp.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -13,15 +13,19 @@ import java.time.LocalDateTime;
 @Setter
 @Builder
 @EqualsAndHashCode
+@NoArgsConstructor
+@AllArgsConstructor
 public class Task implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonProperty("id")
     private Integer tId;
 
     @Column(nullable = false)
     private String title;
 
+    @JsonIgnore
     @Column(columnDefinition = "TEXT")
     private String note;
 

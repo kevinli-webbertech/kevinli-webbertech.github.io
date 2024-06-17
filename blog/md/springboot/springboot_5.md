@@ -143,7 +143,7 @@ In reality there are many ways to achieve the midterm project. There are many da
 
 Please pay attention to the last one that I added and see if it works for you.
 
-![Springboot_project_layout.jpg](https://kevinli-webbertech.github.io/blog/images/springboot/#5/Springboot_project_layout.jpg)
+![Springboot_project_layout.jpg](https://kevinli-webbertech.github.io/blog/images/springboot/Springboot_project_layout.jpg)
 
 Also we could notice here, I try to create a few packages to make our code look cleaner.
 This segragation is normally used for database projects where we keep SQL/DB access code into an OO class, thus upper level class just use it without knowing the details of the code. This is an important concept when we do mix programming. Believe or not, SQL in Java it is still a mix-programming paradigm and we want to keep it as clean as possible.

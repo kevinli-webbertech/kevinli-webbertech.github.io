@@ -3,6 +3,7 @@
 ## Today's Takeway
 
 * Lombok
+* Jackson
 * JDBCTemplate
 
 ## Part I Lombok
@@ -65,7 +66,35 @@ This is again another nice feature to allow you to ease your rapid development.
 
 You should start Springboot project and re check that everything should work as usual. For the conciseness, I will not show the screenshots here.
 
-## Part II JDBCTemplate
+## Part II Jackson
+
+These are the general purpose annotations for Jackson Data Processor, used on value and handler types. The only annotations not included are ones that require dependency to the Databind package. This package and annotions are helping you to control the keys to show in your final resultant json.
+
+In your pom.xml,
+
+```
+<properties>
+  ...
+  <!-- Use the latest version whenever possible. -->
+  <jackson.version>2.17.1</jackson.version>
+  ...
+</properties>
+
+<dependencies>
+  ...
+  <dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>${jackson.version}</version>
+  </dependency>
+  ...
+</dependencies>
+```
+
+Note that the variable definition in the maven config file in pom.xml. If you include a lot of libraires, and some of these variables can also be inherited by other sub projects.
+
+
+## Part III JDBCTemplate
 
 Let us checkout spring io's example, and learn it a little bit,
 
