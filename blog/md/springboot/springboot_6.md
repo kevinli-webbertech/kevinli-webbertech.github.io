@@ -25,13 +25,13 @@ https://plugins.jetbrains.com/plugin/6317-lombok
 
 * Install the plugin by downloading the zip.
 
-![lombok_installation.jpg](https://kevinli-webbertech.github.io/blog/images/springboot/#6/lombok_installation.png)
+![lombok_installation.jpg](https://kevinli-webbertech.github.io/blog/images/springboot/lombok_installation.png)
 
 or
 
 * Install online (Recommended)
 
-![lombok_installation.jpg](https://kevinli-webbertech.github.io/blog/images/springboot/#6/lombok_install_online.png)
+![lombok_installation.jpg](https://kevinli-webbertech.github.io/blog/images/springboot/lombok_install_online.png)
 
 You need to Enable Annotation Processing on IntelliJ IDEA,
 
@@ -41,15 +41,15 @@ You need to Enable Annotation Processing on IntelliJ IDEA,
 
 Now let us add these annotations and imports,
 
-![lombok usage1](https://kevinli-webbertech.github.io/blog/images/springboot/#6/lombok1.jpg)
+![lombok usage1](https://kevinli-webbertech.github.io/blog/images/springboot/lombok1.jpg)
 
 Another one,
 
-![lombok usage2](https://kevinli-webbertech.github.io/blog/images/springboot/#6/lombok2.jpg)
+![lombok usage2](https://kevinli-webbertech.github.io/blog/images/springboot/lombok2.jpg)
 
 Now, there are no getter and setters!!
 
-![no setter and getter](https://kevinli-webbertech.github.io/blog/images/springboot/#6/No_Getter_Setter.jpg)
+![no setter and getter](https://kevinli-webbertech.github.io/blog/images/springboot/No_Getter_Setter.jpg)
 
 **Does this violate our rules of Java programming?**
 
