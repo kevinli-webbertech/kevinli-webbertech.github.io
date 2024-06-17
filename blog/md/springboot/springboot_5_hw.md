@@ -10,4 +10,3 @@
 ## Requirements
 
 `Total points: 100`
-

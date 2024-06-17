@@ -6,7 +6,6 @@
 
 ## Securing a Web Application
 
-
 ### Ref
 
 - https://spring.io/guides/topicals/spring-security-architecture
