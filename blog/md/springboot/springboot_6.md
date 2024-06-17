@@ -93,6 +93,11 @@ In your pom.xml,
 
 Note that the variable definition in the maven config file in pom.xml. If you include a lot of libraires, and some of these variables can also be inherited by other sub projects.
 
+With the Task/TaskList project we had in last class, we could modify the files, and include jackson annotations,
+
+![jackson_annotation](https://kevinli-webbertech.github.io/blog/images/springboot/jackson_annotation.jpg)
+
+![lombok_builder](https://kevinli-webbertech.github.io/blog/images/springboot/lombok_builder.jpg)
 
 ## Part III JDBCTemplate
 
