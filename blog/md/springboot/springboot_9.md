@@ -1,13 +1,13 @@
-# Java Enterprise Development with Springboot - Topic 3 - Spring Security and Angular
+# Java Enterprise Development with Springboot - Topic 10 - Spring Security
+
+## Spring Security Architecture
 
 ## Securing a SPA(single app application)
 
-ref:
 ## Securing a Web Application
 
-## https://spring.io/guides/topicals/spring-security-architecture
 
-ref:
+### Ref
 
 - https://spring.io/guides/topicals/spring-security-architecture
 - https://spring.io/guides/gs/securing-web/
