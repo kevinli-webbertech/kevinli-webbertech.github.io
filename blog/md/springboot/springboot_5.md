@@ -1,4 +1,4 @@
-# Java Enterprise Development with Springboot - Topic 5 - More on Spring Data, JPA, JPQL and Lombok
+# Java Enterprise Development with Springboot - Topic 5 - More on Spring Data, JPA, JPQL
 
 ## Part I Warm up with a previous JPA data project
 
@@ -8,7 +8,6 @@ and we will extend it a little bit to the following topics that we would like to
 
 * JPA's CrudRepository and JPARepository
 * JPQL
-* Lombak
 
 ### Get Springboot configured with MySQL
 
@@ -144,7 +143,7 @@ In reality there are many ways to achieve the midterm project. There are many da
 
 Please pay attention to the last one that I added and see if it works for you.
 
-![Springboot_project_layout.jpg](..%2F..%2Fimages%2Fspringboot%2F%235%2FSpringboot_project_layout.jpg)
+![Springboot_project_layout.jpg](https://kevinli-webbertech.github.io/blog/images/springboot/Springboot_project_layout.jpg)
 
 Also we could notice here, I try to create a few packages to make our code look cleaner.
 This segragation is normally used for database projects where we keep SQL/DB access code into an OO class, thus upper level class just use it without knowing the details of the code. This is an important concept when we do mix programming. Believe or not, SQL in Java it is still a mix-programming paradigm and we want to keep it as clean as possible.
@@ -153,39 +152,39 @@ This segragation is normally used for database projects where we keep SQL/DB acc
 
 I use a little software design pattern here, and the usage of the method chaining pattern is a modern feature, and it can be further reduced by using Lombok and other builder annoation which we could cover in the future.
 
-![chain_pattern.jpg](..%2F..%2Fimages%2Fspringboot%2F%235%2Fchain_pattern.jpg)
+![chain_pattern.jpg](https://kevinli-webbertech.github.io/blog/images/springboot/chain_pattern.jpg)
 
 ### Step 3 Write some native query in the repository class
 
 Note that we are using JPARepository interface which is a built-in feature of Spring Data project.
 
-![JPA_query.jpg](..%2F..%2Fimages%2Fspringboot%2F%235%2FJPA_query.jpg)
+![JPA_query.jpg](https://kevinli-webbertech.github.io/blog/images/springboot/JPA_query.jpg)
 
 ### Step 4 Service layer
 
 We use service layer to segragate the business logic to make it clean.
 
-![JPA_service.jpg](..%2F..%2Fimages%2Fspringboot%2F%235%2FJPA_service.jpg)
+![JPA_service.jpg](https://kevinli-webbertech.github.io/blog/images/springboot/JPA_service.jpg)
 
 ### Step 5 Using some mapping
 
 These usage and annotations are related to the joins (foreign keys) in the relational databases. In early days, there is an opensource project called Hibernate, and Spring Data incoporate its feature and tries to simply its usage and reduce its installation and configuration.
 
-![JPA_Join1.jpg](..%2F..%2Fimages%2Fspringboot%2F%235%2FJPA_Join1.jpg)
+![JPA_Join1.jpg](https://kevinli-webbertech.github.io/blog/images/springboot/JPA_Join1.jpg)
 
 If I have two classes (vertically they present two database tables), then you could see the usage in each to join the objects on Java level when you make calls to them.
 
-![JPA_join2.jpg](..%2F..%2Fimages%2Fspringboot%2F%235%2FJPA_join2.jpg)
+![JPA_join2.jpg](https://kevinli-webbertech.github.io/blog/images/springboot/JPA_join2.jpg)
 
 ### Step 6 Initialize some data in our database
 
 Now you can see how we actually create objects and call the related service-level class to save the data to the database without writing some messy SQL code.
 
-![initialize_some_data.jpg](..%2F..%2Fimages%2Fspringboot%2F%235%2Finitialize_some_data.jpg)
+![initialize_some_data.jpg](https://kevinli-webbertech.github.io/blog/images/springboot/initialize_some_data.jpg)
 
 
 ### Step 7 Checking the data initalized
 
-![check_data_initalization.jpg](..%2F..%2Fimages%2Fspringboot%2F%235%2Fcheck_data_initalization.jpg)
+![check_data_initalization.jpg](https://kevinli-webbertech.github.io/blog/images/springboot/check_data_initalization.jpg)
 
 Up to here, you should be able to fullfil other endpoints development by exploring your options.
