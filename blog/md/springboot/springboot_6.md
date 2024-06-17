@@ -26,3 +26,7 @@ https://plugins.jetbrains.com/plugin/6317-lombok
 * Install the plugin.
 
 ![lombok_installation.jpg](https://kevinli-webbertech.github.io/blog/images/springboot/#6/lombok_installation.png)
+
+You need to Enable Annotation Processing on IntelliJ IDEA,
+
+`> Settings > Build, Execution, Deployment > Compiler > Annotation Processors`
