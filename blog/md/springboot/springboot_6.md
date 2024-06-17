@@ -2,9 +2,9 @@
 
 ## What is Lombok
 
-```
-IntelliJ Lombok plugin
+IntelliJ Lombok plugin for code generation.
 
+```java
 A plugin that adds first-class support for Project Lombok
 
 @Getter and @Setter
@@ -36,3 +36,11 @@ or
 You need to Enable Annotation Processing on IntelliJ IDEA,
 
 `> Settings > Build, Execution, Deployment > Compiler > Annotation Processors`
+
+## Update our code
+
+![lombok usage1](https://kevinli-webbertech.github.io/blog/images/springboot/#6/lombok1.jpg)
+
+![lombok usage2](https://kevinli-webbertech.github.io/blog/images/springboot/#6/lombok2.jpg)
+
+![no setter and getter](https://kevinli-webbertech.github.io/blog/images/springboot/#6/No_Getter_Setter.jpg)

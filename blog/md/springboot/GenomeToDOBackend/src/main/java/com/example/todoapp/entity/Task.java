@@ -1,11 +1,18 @@
 package com.example.todoapp.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
-@Getter and @Setter
+@Getter
+@Setter
+@Builder
+@EqualsAndHashCode
 public class Task implements Serializable {
 
     @Id
@@ -30,69 +37,4 @@ public class Task implements Serializable {
     @ManyToOne
     @JoinColumn(name = "list_id")
     private TaskList taskList;
-
-    // Getters and Setters
-    public Integer getTId() {
-        return tId;
-    }
-
-    public Task setTId(Integer tId) {
-        this.tId = tId;
-        return this;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public Task setTitle(String title) {
-        this.title = title;
-        return this;
-    }
-
-    public String getNote() {
-        return note;
-    }
-
-    public Task setNote(String note) {
-        this.note = note;
-        return this;
-    }
-
-    public LocalDateTime getDueDay() {
-        return dueDay;
-    }
-
-    // for all the setters
-    public Task setDueDay(LocalDateTime dueDay) {
-        this.dueDay = dueDay;
-        return this;
-    }
-
-    public TaskList getTaskList() {
-        return taskList;
-    }
-
-    public void setTaskList(TaskList taskList) {
-        this.taskList = taskList;
-    }
-
-    public Priority getPriority() {
-        return priority;
-    }
-
-
-    public Task setPriority(Priority priority) {
-        this.priority = priority;
-        return this;
-    }
-
-    public Integer getCompleted() {
-        return completed;
-    }
-
-    public Task setCompleted(Integer completed) {
-        this.completed = completed;
-        return this;
-    }
 }
