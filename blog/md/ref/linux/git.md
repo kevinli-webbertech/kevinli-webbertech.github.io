@@ -188,7 +188,7 @@ Save a file with desired paterns as .gitignore with either direct string
 
 system wide ignore patern for all local repositories
 
-**REWRITE HISTORY** [TODO more examples]
+**REWRITE HISTORY** 
 
 Rewriting branches, updating commits and clearing history
 
@@ -200,15 +200,84 @@ apply any commits of current branch ahead of specified one
 
 clear staging area, rewrite working tree from specified commit
 
-## Github Access [TODO examples and screenshots]
+`git revert [commit]`
+
+Create a new commit that undoes the changes made in the specified commit.
+
+`git rebase -i [commit]`
+
+Interactively rebase the current branch onto [commit].
+
+`git reset --soft [commit]`
+
+Move the HEAD pointer to [commit], staging all changes.
+
+`git reset --hard [commit]`
+
+Move the HEAD pointer to [commit], discarding all changes in the working directory.
+
+`git commit --amend -m "[new message]"`
+
+Change the commit message of the most recent commit.
+
+**Optimizing and managing commit history**
+
+`git merge --ff-only [branch]`
+
+Perform a fast-forward merge, failing if not possible.
+
+`git rebase -i [commit]`
+
+Squash commits into one.
+
+`git clone --depth 1 [url]`
+
+Perform a shallow clone with a history truncated to the latest commit.
+
+
+**Authentication and configuration with tokens**
+
+`git config --global credential.helper store`
+
+Save your credentials to a file.
+
+`git config --global user.name "your-username"`
+
+Set your GitHub username.
+
+`git remote set-url origin https://<token>@github.com/username/repo.git`
+
+Set the remote URL with the access token for authentication.
+
+## Github Access 
 
 * Use token to access a project
 
 If you want to join someone's project, that project owner has to add your github id as collaborator. Then in the project setting, the project owner will generate a token. For example, a `classic token` and send it to the collaborator. The collaborator will use the above way to set password. The id is your github username, and password is the token.
 
+`git config --global credential.helper store`
+
+Set your credentials to be stored.
+
+`git remote set-url origin https://<token>@github.com/username/repo.git`
+
+Use the token as the password when prompted.
+
 * Use SSH
 
-Generate a public key and save it to the github ssh to allow the server to know your machine information. [TODO]
+Generate a public key and save it to the github ssh to allow the server to know your machine information. 
+
+`ssh-keygen -t rsa -b 4096 -C "your_email@example.com"`
+
+Generate a new SSH key.
+
+`ssh-add ~/.ssh/id_rsa`
+
+Add your SSH key to the SSH agent.
+
+`cat ~/.ssh/id_rsa.pub`
+
+Copy your SSH public key and add it to your GitHub account.
 
 ## Trigger github.io to rebuild
 
