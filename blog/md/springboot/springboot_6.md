@@ -97,6 +97,8 @@ With the Task/TaskList project we had in last class, we could modify the files, 
 
 ![jackson_annotation](https://kevinli-webbertech.github.io/blog/images/springboot/jackson_annotation.jpg)
 
+The builder syntax was builtin, and you do not have to implement the `return this` to chain the method. The `@Builder` annotation will do the job for you when it code generating the setters.
+
 ![lombok_builder](https://kevinli-webbertech.github.io/blog/images/springboot/lombok_builder.jpg)
 
 ## Part III JDBCTemplate
