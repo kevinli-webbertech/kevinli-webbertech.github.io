@@ -39,8 +39,19 @@ You need to Enable Annotation Processing on IntelliJ IDEA,
 
 ## Update our code
 
+Now let us add these annotations and imports,
+
 ![lombok usage1](https://kevinli-webbertech.github.io/blog/images/springboot/#6/lombok1.jpg)
+
+Another one,
 
 ![lombok usage2](https://kevinli-webbertech.github.io/blog/images/springboot/#6/lombok2.jpg)
 
+Now, there are no getter and setters!!
+
 ![no setter and getter](https://kevinli-webbertech.github.io/blog/images/springboot/#6/No_Getter_Setter.jpg)
+
+**Does this violate our rules of Java programming?**
+
+The answer is: No, because this is not the final Java file. It would have the preprocessor, similar to C's macro, so the final expanded Java file would have everything.
+This is again another nice feature to allow you to ease your rapid development.
