@@ -131,9 +131,10 @@ public class Customer {
 	private Long id;
 	private String firstName;
 	private String lastName;
+}
 ```
 
-## JPARepository Usage
+## JpaRepository Usage
 
 In this project, I am going to show you a bit modification basedon the above project with which you could work on your midterm project.
 

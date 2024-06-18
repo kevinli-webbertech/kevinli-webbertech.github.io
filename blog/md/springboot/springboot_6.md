@@ -71,7 +71,7 @@ You should start Springboot project and re check that everything should work as 
 https://projectlombok.org/features/Builder
 
 
-## Part II Jackson
+## Part II Jackson fasterxml
 
 These are the general purpose annotations for Jackson Data Processor, used on value and handler types. The only annotations not included are ones that require dependency to the Databind package. This package and annotions are helping you to control the keys to show in your final resultant json.
 
