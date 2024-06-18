@@ -37,7 +37,7 @@ or
 
 * Install online (Recommended)
 
-![lombok_installation.jpg](https://kevinli-webbertech.github.io/blog/images/springboot/lombok_install_online.png)
+![lombok_installation.jpg](https://kevinli-webbertech.github.io/blog/images/springboot/lombok_installation.jpg)
 
 You need to Enable Annotation Processing on IntelliJ IDEA,
 

@@ -1,4 +1,4 @@
-# Java Enterprise Development with Springboot - Topic 10 - Spring Security
+# Java Enterprise Development with Springboot - Topic 9 - Spring Security
 
 ## Spring Security Architecture
 

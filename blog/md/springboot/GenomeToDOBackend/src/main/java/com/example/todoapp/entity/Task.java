@@ -4,15 +4,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
-@Getter
-@Setter
+@Data
 @Builder
-@EqualsAndHashCode
+//@EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
 public class Task implements Serializable {
@@ -29,8 +27,10 @@ public class Task implements Serializable {
     @Column(columnDefinition = "TEXT")
     private String note;
 
+    @JsonProperty("DueDay")
     private LocalDateTime dueDay;
 
+    @JsonIgnore
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Priority priority;
