@@ -539,6 +539,7 @@ public class InputValidationExample {
 }
 ```
 
+
 ### JVM Ecosystem and Community
 
 - **OpenJDK**: The reference implementation of the Java Platform, Standard Edition.
