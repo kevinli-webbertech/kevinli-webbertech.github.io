@@ -890,7 +890,6 @@ echo "hello" | rev                              Reverse a single line
 
 rev file.txt                                    Reverse the content of a file:
 
-
 ## File Viewing
 
 * `more` View the contents of a file one screen at a time.
