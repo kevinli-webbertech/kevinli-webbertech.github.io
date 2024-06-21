@@ -72,6 +72,10 @@
 * `vi` or `vm` Powerful text editor.
 * `jed` Lightweight text editor.
 
+Note:
+
+Please see `vim` cheatsheet seperately.
+
 ## Profile, Configuration and Path
 
 * `ln` Links files or directories
@@ -80,6 +84,10 @@
 * `source` execute the system profile
 * `set` Modifies shell settings and environment variables.
 * `unset` Removes definitions of shell variables and functions.
+
+### Examples [TODO]
+
+```TODO```
 
 ## Permissions
 
@@ -106,7 +114,7 @@ or a three-digit octal number.
 
 The table below compares Linux file permissions in octal form and in the format [u/g/o/a][+/-/=][r/w/x].
 
-```
+```bash
 OCTAL	PERMISSION(S)	EQUIVALENT TO APPLICATION OF
 0	No permissions	-rwx
 1	Execute permission only	=x
@@ -306,30 +314,40 @@ These are just a few examples of how you can use the `sort` command in Linux to 
 * `awk` Finds and manipulates patterns in a file
 * `grep` Searches a string within a file
 
+### Examples
+
 ```bash
 grep patt /path/to/src	Search for a text pattern patt in X. Commonly used with pipe e.g., ps aux | grep python3 filters out the processes containing python3 from all running processes of all users.
 grep -r patt /path/to/src	Search recursively (the target directory /path/to/src and its subdirectories) for a text pattern patt.
 grep -v patt X	Return lines in X not matching the specified patt.
 grep -l patt X	Write to standard output the names of files containing patt.
 grep -i patt X	Perform case-insensitive matching on X. Ignore the case of patt.
-find	Find files.
-find /path/to/src -name "*.sh"	Find all files in /path/to/src matching the pattern "*.sh" in the file name.
-find /home -size +100M	Find all files in the /home directory larger than 100MB.
-locate name	Find files and directories by name.
 sort X	Arrange lines of text in X alphabetically or numerically.
 ```
 
 ## Search
 
-* `find` is used to search for files and directories in a directory hierarchy based on various criteria like name, type, size, and modification time.
-Example: find /path/to/search -name "filename.txt"
+* `find` used to search for files and directories in a directory hierarchy based on various criteria like name, type, size, and modification time.
 
 * `locate` command searches for files in a prebuilt database. It is faster than find because it searches through a database instead of the actual filesystem.
-Example: locate filename.txt
 
+### Examples
 
+```bash
+find Find files.
+find /path/to/src -name "*.sh"	Find all files in /path/to/src matching the pattern "*.sh" in the file name.
+find /home -size +100M	Find all files in the /home directory larger than 100MB.
+locate name	Find files and directories by name.
+```
 
-## File transfer
+## File transfer [TODO]
+
+* `ssh` Secure Shell; used to log into a remote machine and execute commands
+* `scp` Securely copies files or directories to another system
+* `rsync` Synchronizes content between directories or machines
+* sftp [TODO]
+
+### Examples
 
 ```bash
 ssh user@access	Connect to access as user.
@@ -343,122 +361,14 @@ scp alice@pi:/home/source bob@arduino:/destination
 path1 and path2 may be local or remote, but ensure they’re absolute rather than relative paths, e.g., /var/www/*.html, /usr/bin.
 
 If user1 and user2 are not specified, scp will use your local username.
-scp -P port [user1@]host1:[path1] [user2@]host2:[path2] 	Connect to hostN as userN using port for N=1,2.
-scp -r [user1@]host1:[path1] [user2@]host2:[path2]	Recursively copy all files and directories from path1 to path2.
-sftp [user@]access	Login to access as user via secure file transfer protocol. If user is not specified, your local username will be used.
+scp -P port [user1@]host1:[path1] [user2@]host2:[path2] Connect to hostN as userN using port for N=1,2.
+scp -r [user1@]host1:[path1] [user2@]host2:[path2] Recursively copy all files and directories from path1 to path2.
+sftp [user@]access Login to access as user via secure file transfer protocol. If user is not specified, your local username will be used.
 sftp access	Connect to access as your local username.
-sftp -P port user@access	Connect to access as user using port.
-rsync -a [path1] [path2]	Synchronize [path1] to [path2], preserving symbolic links, attributes, permissions, ownerships, and other settings.
-rsync -avz host1:[path1] [path2]	Synchronize [path1] on the remote host host1 to the local path [path2], preserving symbolic links, attributes, permissions, ownerships, and other settings. It also compresses the data involved during the transfer.
+sftp -P port user@access Connect to access as user using port.
+rsync -a [path1] [path2] Synchronize [path1] to [path2], preserving symbolic links, attributes, permissions, ownerships, and other settings.
+rsync -avz host1:[path1] [path2] Synchronize [path1] on the remote host host1 to the local path [path2], preserving symbolic links, attributes, permissions, ownerships, and other settings. It also compresses the data involved during the transfer.
 ```
-
-## Package and software management (debian)
-
-* `apt`  A command-line utility for handling package management in Debian-based distributions.
-* `apt-get` Manages Debian-based distros package libraries
-* `dpkg`    dpkg is a medium-level tool to install, build, remove and manage Debian packages.
-
-### apt and apt-get examples
-
-The apt command line tool provides a higher-level user interface for end users with intuitive commands, resulting behaviors, and security features. In contrast, the command apt-get is a low-level interface that communicates more closely with core Linux processes. The apt command is a more user-friendly package manager than apt-get.
-
-Used in Linux-based operating systems to update the package lists for available software packages from the configured repositories.
-
-`sudo apt-get upgrade`
-
-This command is used to install the latest versions of the packages currently installed on the user’s system from the sources enumerated in /etc/apt/sources.list. The installed packages which have new packages available are retrieved and installed. You need to perform an update before the upgrade so that apt-get knows that new versions of packages are available.
-
-`sudo apt-get install [package_name]`
-
-This command is used to install or upgrade packages.
-
-`sudo apt-get remove [package_name]`
-
-Remove software but does not remove configuration files
-
-`sudo apt-get purge [package_name]`
-
-Remove software and remove configuration files
-
-`sudo apt-get check`
-
-This command is used to update the package cache and check for broken dependencies.
-
-`sudo apt-get clean`
-
-This command is used to keep our system clean and tidy. It removes all the cached package files that were downloaded due to the downloading of recent packages using `apt-get`.
-
-`sudo apt-get autoremove`
-
-Sometimes the packages which are automatically installed to satisfy the dependencies of other packages, are no longer needed then the autoremove command is used to remove this kind of packages.
-
-`sudo apt-get list`
-
-It also gives details (version, architecture and repository source) about package but only if package is available or installed in our system. `sudo apt-get list firefox`
-
-To get more options, check with -h,
-
-
-Most used commands:
-  `update` - Retrieve new lists of packages
-
-  `upgrade` - Perform an upgrade
-
-  `install` - Install new packages (pkg is libc6 not libc6.deb)
-
-  `reinstall` - Reinstall packages (pkg is libc6 not libc6.deb)
-
-  `remove` - Remove packages
-
-  `purge` - Remove packages and config files
-
-  `autoremove` - Remove automatically all unused packages
-
-  `dist-upgrade` - Distribution upgrade, see apt-get(8)
-
-  `dselect-upgrade` - Follow dselect selections
-
-  `build-dep` - Configure build-dependencies for source packages
-
-  `satisfy` - Satisfy dependency strings
-
-  `clean` - Erase downloaded archive files
-
-  `autoclean` - Erase old downloaded archive files
-
-  `check` - Verify that there are no broken dependencies
-
-  `source` - Download source archives
-
-  `download` - Download the binary package into the current directory
-
-  `changelog` - Download and display the changelog for the given package
-
-
-### dpkg examples
-
-
-  `install`
-      The package is selected for installation.
-
-  `hold`
-      A package marked to be on hold is kept on the same version, that is, no automatic new
-      installs, upgrades or removals will be performed on them, unless these actions are
-      requested explicitly, or are permitted to be done automatically with the --force-hold
-      option.
-
-  `deinstall`
-      The package is selected for deinstallation (i.e. we want to remove all files, except
-      configuration files).
-
-  `purge`
-      The package is selected to be purged (i.e. we want to remove everything from system
-      directories, even configuration files).
-
-  `unknown`
-      The package selection is unknown.  A package that is also in a not-installed state, and
-      with an ok flag will be forgotten in the next database store.
-
 
 ## System Information
 
@@ -487,44 +397,23 @@ Most used commands:
 * `shutdown` Turns off or restarts the system
 * `reboot`  Reboot
 * `systemctl` Manages system services
+* `halt` Stop the system immediately.
+* `su` Switches the current user to another user.
+* `sudo` Superuser; use this before a command that requires root access e.g., su shutdown
+* `last reboot` Show reboot history.
 
 
-
-
+```bash
 COMMAND	  DESCRIPTION
-
-`uname`	    Show the Linux system information.
 
 `uname -a`	Detailed Linux system information
 
 `uname -r`	Kernel release information, such as kernel version
 
-`uptime`	Show how long the system is running and load information.
-
-`su`        Switches the current user to another user.
-
-`sudo`	    Superuser; use this before a command that requires root access e.g., su shutdown
-
-`cal`	    Show calendar where the current date is highlighted.
-
-`date`	    Show the current date and time of the machine.
-
-`halt`	    Stop the system immediately.
-
-`shutdown`	Shut down the system.
-
-`reboot`	Restart the system.
-
-`last reboot`	Show reboot history.
-
-`man`       COMMAND	Shows the manual for a given COMMAND. To exit the manual, press “q”.
-
-`hostname`	Show system host name
-
 `hostname -I`	Display IP address of host
 
 `cat /etc/*-release` Show the version of the Linux distribution installed. For example, if you’re using Red Hat Linux, you may replace * with redhat.
-
+```
 
 ## Hardware
 
@@ -593,7 +482,7 @@ free -m	Display free and used memory in MB.
 free -g	Display free and used memory in GB.
 ```
 
-### examples
+### Examples
 
 ```bash
 xiaofengli@xiaofenglx:~/code/codebank$ uname -a
@@ -724,9 +613,6 @@ kill -9 `lsof -t -u tecmint`
 * `traceroute` Tracks a packet’s hops to its destination
 * `nslookup` Queries a domain’s IP address and vice versa
 * `dig` Displays DNS information, including record types
-* `ssh` Secure Shell; used to log into a remote machine and execute commands
-* `scp` Securely copies files or directories to another system
-* `rsync` Synchronizes content between directories or machines
 
 ### wget examples
 
@@ -911,9 +797,6 @@ Example: strace -e trace=file ls
 
 ## Pipe
 The pipe (|) in Linux allows you to chain multiple commands together, sending the output of one command as input to another command.
-
-## Pipe
-The pipe (|) in Linux allows you to chain multiple commands together, sending the output of one command as input to another command.
 `[command1] | [command 2]`
 Basic Example:
 
@@ -1007,6 +890,7 @@ echo "hello" | rev                              Reverse a single line
 
 rev file.txt                                    Reverse the content of a file:
 
+
 ## File Viewing
 
 * `more` View the contents of a file one screen at a time.
@@ -1016,6 +900,114 @@ Example:
 more file.txt                                   View a file
 
 more -10 file.txt                        Display first 10 lines of a file
+
+## Package and software management (debian)
+
+* `apt`  A command-line utility for handling package management in Debian-based distributions.
+* `apt-get` Manages Debian-based distros package libraries
+* `dpkg`    dpkg is a medium-level tool to install, build, remove and manage Debian packages.
+
+### apt and apt-get examples
+
+The apt command line tool provides a higher-level user interface for end users with intuitive commands, resulting behaviors, and security features. In contrast, the command apt-get is a low-level interface that communicates more closely with core Linux processes. The apt command is a more user-friendly package manager than apt-get.
+
+Used in Linux-based operating systems to update the package lists for available software packages from the configured repositories.
+
+`sudo apt-get upgrade`
+
+This command is used to install the latest versions of the packages currently installed on the user’s system from the sources enumerated in /etc/apt/sources.list. The installed packages which have new packages available are retrieved and installed. You need to perform an update before the upgrade so that apt-get knows that new versions of packages are available.
+
+`sudo apt-get install [package_name]`
+
+This command is used to install or upgrade packages.
+
+`sudo apt-get remove [package_name]`
+
+Remove software but does not remove configuration files
+
+`sudo apt-get purge [package_name]`
+
+Remove software and remove configuration files
+
+`sudo apt-get check`
+
+This command is used to update the package cache and check for broken dependencies.
+
+`sudo apt-get clean`
+
+This command is used to keep our system clean and tidy. It removes all the cached package files that were downloaded due to the downloading of recent packages using `apt-get`.
+
+`sudo apt-get autoremove`
+
+Sometimes the packages which are automatically installed to satisfy the dependencies of other packages, are no longer needed then the autoremove command is used to remove this kind of packages.
+
+`sudo apt-get list`
+
+It also gives details (version, architecture and repository source) about package but only if package is available or installed in our system. `sudo apt-get list firefox`
+
+To get more options, check with -h,
+
+
+Most used commands:
+  `update` - Retrieve new lists of packages
+
+  `upgrade` - Perform an upgrade
+
+  `install` - Install new packages (pkg is libc6 not libc6.deb)
+
+  `reinstall` - Reinstall packages (pkg is libc6 not libc6.deb)
+
+  `remove` - Remove packages
+
+  `purge` - Remove packages and config files
+
+  `autoremove` - Remove automatically all unused packages
+
+  `dist-upgrade` - Distribution upgrade, see apt-get(8)
+
+  `dselect-upgrade` - Follow dselect selections
+
+  `build-dep` - Configure build-dependencies for source packages
+
+  `satisfy` - Satisfy dependency strings
+
+  `clean` - Erase downloaded archive files
+
+  `autoclean` - Erase old downloaded archive files
+
+  `check` - Verify that there are no broken dependencies
+
+  `source` - Download source archives
+
+  `download` - Download the binary package into the current directory
+
+  `changelog` - Download and display the changelog for the given package
+
+
+### dpkg examples
+
+
+  `install`
+      The package is selected for installation.
+
+  `hold`
+      A package marked to be on hold is kept on the same version, that is, no automatic new
+      installs, upgrades or removals will be performed on them, unless these actions are
+      requested explicitly, or are permitted to be done automatically with the --force-hold
+      option.
+
+  `deinstall`
+      The package is selected for deinstallation (i.e. we want to remove all files, except
+      configuration files).
+
+  `purge`
+      The package is selected to be purged (i.e. we want to remove everything from system
+      directories, even configuration files).
+
+  `unknown`
+      The package selection is unknown.  A package that is also in a not-installed state, and
+      with an ok flag will be forgotten in the next database store.
+
 
 ## Ref
 
