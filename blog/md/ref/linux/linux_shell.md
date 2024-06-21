@@ -1,7 +1,8 @@
-# Shell Scripting Ref
+# Shell Scripting Cheatsheet
 
 ---
-title: Blogging Like a Hacker
+title: Shell Scripting Cheatsheeet
+
 date: 06/13/2024
 ---
 
