@@ -1,5 +1,23 @@
 # Linux Ref
 
+## help commands
+
+* `compgen`
+
+`compgen -c` will list all the commands you could run.
+
+`compgen` -a will list all the aliases you could run.
+
+`compgen` -b will list all the built-ins you could run.
+
+`compgen` -k will list all the keywords you could run.
+
+`compgen` -A function will list all the functions you could run.
+
+`compgen` -A function -abck will list all the above in one go.
+
+* `man` Shows a command’s manual
+
 ## Directories
 
 * `ls` Lists a directory’s content
@@ -126,9 +144,8 @@ OCTAL	PERMISSION(S)	EQUIVALENT TO APPLICATION OF
 7	All permissions: 4 + 2 + 1 = 7	=rwx
 ```
 
-## System Operations
+## Files Operations
 
-* `man` Shows a command’s manual
 * `echo` Prints a message as a standard output
 * `cat` Lists, combines, and writes a file’s content as a standard output
 * `less` Read file
@@ -139,11 +156,11 @@ OCTAL	PERMISSION(S)	EQUIVALENT TO APPLICATION OF
 * `cut` Sections and prints lines from a file
 * `diff` Compares two files’ content and their differences
 * `tee` Prints command outputs in Terminal and a file
-* `locate` Finds files in a system’s database
-* `find` Outputs a file or folder’s location
 * `wc`   counting utility
 * `tr`  is used to translate, squeeze, and delete characters from the standard input and write the result to the standard output.
 * `rev` is used to reverse the order of characters in every line of a file or from standard input.
+* `sed`  Stream Editor. Perform text transformations on an input stream.
+* `awk`  Pattern scanning and text processing language.
 
 ### more examples
 
@@ -306,7 +323,30 @@ This will sort the numbers numerically in ascending order. If you want to sort t
 cat numbers.txt | sort -n -r
 ```
 
-These are just a few examples of how you can use the `sort` command in Linux to sort text data. There are many more options available, so you may want to refer to the `sort` manual (`man sort`) for more information.
+### sed examples 
+
+sed 's/old/new/' file.txt                       Substitute (replace) text
+sed '/pattern/i\new line of text' file.txt       Insert text before a line
+
+### tr Example: 
+
+echo "hello world" | tr 'a-z' 'A-Z'              Translate lowercase to uppercase
+
+echo "hello 123 world" | tr -d '0-9'             Delete specific characters
+
+### awk Example: 
+
+awk '{print $1, $3}' file.txt                   Print specific columns
+
+awk '{sum += $1} END {print sum}' file.txt       Sum the values of a column
+
+rev Example: 
+
+echo "hello" | rev                              Reverse a single line
+
+rev file.txt                                    Reverse the content of a file
+```
+
 
 ## Text find, replace and regex
 
@@ -419,57 +459,53 @@ COMMAND	  DESCRIPTION
 
 These commands provide details about the hardware supporting your Linux machine.
 
-`dmesg` Display messages in kernel ring buffer (data structure that records messages related to the operation of the program running the operating system)
+* `dmesg` Display messages in kernel ring buffer (data structure that records messages related to the operation of the program running the operating system)
+* `/proc/cpuinfo` CPU information
+* `/proc/meminfo`  Memory information 
+* `dmidecode` Display system hardware components, serial numbers, and BIOS version
+* `hdparm`  Display information about the disk
+* `badblocks` Test for unreadable blocks
 
-`cat /proc/cpuinfo` Display information about the central processing unit (CPU)
+### cpu, memory info examples
 
-`cat /proc/meminfo` Display memory information
+`cat /proc/cpuinfo`
+
+`cat /proc/meminfo` 
+
+### Display PCI devices examples
 
 `lspci -tv` Displays information about each Peripheral Component Interconnect (PCI) device on your system.
             The option -t outputs the information as a tree diagram, and -v is for verbose output.
 
-`lsusb -tv` Display information about Universal Serial Bus (USB) devices and the devices connected to them.
+### Display USB devices examples
+
+`lsusb -tv`  Display information about Universal Serial Bus (USB) devices and the devices connected to them.
             The option -t outputs the information as a tree diagram, and -v is for verbose output.
 
-`dmidecode` Display system hardware components, serial numbers, and BIOS version
+### Display DMI/SMBIOS (hardware info) from the BIOS examples
 
-`hdparm -i /dev/sda`    Display information about the disk sda
+`dmidecode`
 
-`hdparm -tT /dev/sda`   Perform a read speed test on the disk sda
+### Show info about disk sda examples
 
-`badblocks -s /dev/sda` Test for unreadable blocks on the disk sda
+`hdparm -i /dev/sda`
 
+### Perform a read speed test on disk sda examples
 
-### Display PCI devices
+`hdparm -tT /dev/sd`a
 
-lspci -tv
+### Test for unreadable blocks on disk sda examples
 
-### Display USB devices
-
-lsusb -tv
-
-### Display DMI/SMBIOS (hardware info) from the BIOS
-
-dmidecode
-
-### Show info about disk sda
-
-hdparm -i /dev/sda
-
-### Perform a read speed test on disk sda
-
-hdparm -tT /dev/sda
-
-### Test for unreadable blocks on disk sda
-
-badblocks -s /dev/sda
+`badblocks -s /dev/sda`
 
 ## Disk Usage
 
 These commands provide storage details regarding your Linux machine.
 
-`df` Display free disk space.
-`du` Show file/folder sizes on disk.
+* `df` Display free disk space.
+* `du` Show file/folder sizes on disk.
+
+**usage and options**
 
 ```bash
 du -ah	Disk usage in human readable format (KB, MB etc.)
@@ -672,21 +708,6 @@ Raw network stats,
 ssh tunnel
 ```
 
-## System commands
-
-### compgen
-
-`compgen -c` will list all the commands you could run.
-
-`compgen` -a will list all the aliases you could run.
-
-`compgen` -b will list all the built-ins you could run.
-
-`compgen` -k will list all the keywords you could run.
-
-`compgen` -A function will list all the functions you could run.
-
-`compgen` -A function -abck will list all the above in one go.
 
 ### systemctl
 
@@ -715,25 +736,7 @@ OR
 
 
 ## File Commands
-`touch`: Creates an empty file or updates the timestamp of an existing file.
 
-Example: touch myfile.txt
-
-`cat`: Concatenates and displays file content.
-
-Example: cat myfile.txt
-
-`cp`: Copies files or directories.
-
-Example : cp sourcefile.txt destinationfile.txt
-
-`mv`: Moves or renames files or directories.
-
-Example : mv oldname.txt newname.txt
-
-`rm`: Removes files or directories.
-
-Example: rm myfile.txt
 
 `ln`: Creates hard and symbolic links.
 
@@ -854,51 +857,12 @@ Hence there are only 4 lines in the standard input delimited by EOF.
 `cmd &>> file`   Append output and error messages of cmd to file.
 
 
-## Text Processing and Manipulation
-
-* `tr`  Translate or delete characters from standard input.
-
-Example: 
-
-echo "hello world" | tr 'a-z' 'A-Z'              Translate lowercase to uppercase
-
-echo "hello 123 world" | tr -d '0-9'             Delete specific characters
 
 
-* `sed`  Stream Editor. Perform text transformations on an input stream.
-
-Example: 
-
-sed 's/old/new/' file.txt                       Substitute (replace) text
-
-sed '/pattern/i\new line of text' file.txt       Insert text before a line
-
-* `awk`  Pattern scanning and text processing language.
-
-Example: 
-
-awk '{print $1, $3}' file.txt                   Print specific columns
-
-awk '{sum += $1} END {print sum}' file.txt       Sum the values of a column
 
 
-* `rev`  Reverse the order of characters in each line of a file.
 
-Example: 
 
-echo "hello" | rev                              Reverse a single line
-
-rev file.txt                                    Reverse the content of a file:
-
-## File Viewing
-
-* `more` View the contents of a file one screen at a time.
-
-Example: 
-
-more file.txt                                   View a file
-
-more -10 file.txt                        Display first 10 lines of a file
 
 ## Package and software management (debian)
 
