@@ -1,3 +1,55 @@
+# Login to MySQL
+
+- Normal login to root of MySQL
+
+`mysql -u root -p`
+
+Then, enter your root password
+
+***Note:*** If you forget the password for the MySQL root user, you can reset it using the following steps:
+
+1. Stop the MySQL server: if the MySQL server is running, stop it using one of the following methods:
+
+`sudo service mysql stop` : For systems using systemd
+
+or
+
+`sudo /user/local/mysql/support-files/mysql.server stop` : For systems using init.d
+
+2. Start MySQL in Safe Mode: Start MySQL in safe mode with priviledge bypass. This allows you to connect to the MySQL server without password.
+
+`sudo mysqlId_safe --skip-grant-tables &`
+
+3. Connect to MySQL: Open a new terminal window and connect to MySQL without providing a password:
+
+`mysql -u root`
+
+4. Update Root Password: Once connected to MySQL, use the following SQL query to update the root password.
+
+`ALTER USER 'root'@'localhost' IDENTIFIED BY 'new_password'; `
+
+***Note:*** Replace new_password with your own password.
+
+5. Flush Privileges: After updating the password, flush the privileges to ensure that the changes take effect.
+
+`FLUSH PRIVILEGES;`
+
+6. Exit MySQL
+
+`exit;`
+
+7. Stop MySQL Safe Mode: Stop the server started in safe mode by using one of the following command:
+
+`sudo service mysql stop` : For systems using systemd
+
+or
+
+`sudo /user/local/mysql/support-files/mysql.server stop` : For systems using init.d
+
+8. Start MySQL: Start the MySQL server as normal then enter the new password you just reset
+
+---
+
 # The MySQL CREATE DATABASE Statement
 The CREATE DATABASE statement is used to create a new SQL database.
 
@@ -10,6 +62,29 @@ Syntax
 The following SQL statement creates a database called "testDB":
 
 `CREATE DATABASE testDB;`
+
+### CREATE Username and Password for the Database
+
+After creating the database, the next step is to create a MySQL User:
+
+`CREATE USER 'myUser'@'localhost' IDENTIFIED BY 'myPassword';`
+
+***Note:*** Replace myUser with your own username
+
+***Note:*** Replace myPassword with you own password
+
+### Grant Privileges
+
+`GRANT ALL PRIVILEGES ON databasename.* TO 'myUSER'@'localhost';`
+
+***Note:*** Replace databasename with your own database name that you created
+
+***Note:*** Replace myUser with you own username
+
+### Flush Privileges
+
+`FLUSH PRIVILEGES;`
+
 
 Once a database is created, you can check it in the list of databases with the following SQL command:
 

@@ -1,5 +1,23 @@
 # Linux Ref
 
+## help commands
+
+* `compgen`
+
+`compgen -c` will list all the commands you could run.
+
+`compgen` -a will list all the aliases you could run.
+
+`compgen` -b will list all the built-ins you could run.
+
+`compgen` -k will list all the keywords you could run.
+
+`compgen` -A function will list all the functions you could run.
+
+`compgen` -A function -abck will list all the above in one go.
+
+* `man` Shows a command’s manual
+
 ## Directories
 
 * `ls` Lists a directory’s content
@@ -17,7 +35,7 @@
 * `file` Checks a file’s type
 * `tree` folder structure [not built-in]
 
-## Compression [TODO]
+## Compression 
 
 * `zip` and `unzip` Creates and extracts a ZIP archive
 * `tar` Archives files without compression in a TAR format
@@ -27,22 +45,39 @@
 ### Examples
 
 `tar -v` Get verbose output while manipulating TAR archives. May combine this option with others, e.g., tar -tvf.
+
 `tar -cf archive.tar` Create a TAR archive named archive.tar containing Y.
+
 `tar -xf archive.tar` Extract the TAR archive named archive.tar.
+
 `tar -tf archive.tar` List contents of the TAR archive named archive.tar.
+
 `tar -czf archive.tar.gz` Create a gzip-compressed TAR archive named archive.tar.gz containing Y.
+
 `tar -xzf archive.tar.gz` Extract the gzip-compressed TAR archive named archive.tar.gz.
+
 `tar -cjf archiave.tar.bz2` Create a bzip2-compressed TAR archive named archive.tar.bz2 containing Y.
+
 `tar -xjf archive.tar.bz2` Extract the bzip2-compressed TAR archive named archive.tar.bz2.
+
 `gzip Y` Create a gzip archive named Y.gz containing Y.
+
 `gzip -l Y.gz` List contents of gzip archive Y.gz.
+
 `gzip -d Y.gz` Decompress the gzip archive Y.gz.
+
 `gunzip Y.gz` Extract Y.gz and recover the original file Y.
+
 `bzip2 Y` Create a bzip2 archive named Y.bz2 containing Y.
+
 `bzip2 -d Y.gz`  Decompress the bzip2 archive Y.bz2.
+
 `bunzip2 Y.gz` Extract Y.bz2 and recover the original file Y.
+
 `zip -r Z.zip` Zip to the ZIP archive Z.zip.
+
 `unzip Z.zip` Unzip Z.zip to the current directory.
+
 `unzip Z.zip` List contents of Z.zip.
 
 ## Editor
@@ -52,6 +87,12 @@
 * `date` Display system time
 * `cal` Displays a calendar in Terminal. (not builtin, need to install `ncal`)
 * `calc` Calculator
+* `vi` or `vm` Powerful text editor.
+* `jed` Lightweight text editor.
+
+Note:
+
+Please see `vim` cheatsheet seperately.
 
 ## Profile, Configuration and Path
 
@@ -61,6 +102,10 @@
 * `source` execute the system profile
 * `set` Modifies shell settings and environment variables.
 * `unset` Removes definitions of shell variables and functions.
+
+### Examples [TODO]
+
+```TODO```
 
 ## Permissions
 
@@ -87,7 +132,7 @@ or a three-digit octal number.
 
 The table below compares Linux file permissions in octal form and in the format [u/g/o/a][+/-/=][r/w/x].
 
-```
+```bash
 OCTAL	PERMISSION(S)	EQUIVALENT TO APPLICATION OF
 0	No permissions	-rwx
 1	Execute permission only	=x
@@ -99,9 +144,8 @@ OCTAL	PERMISSION(S)	EQUIVALENT TO APPLICATION OF
 7	All permissions: 4 + 2 + 1 = 7	=rwx
 ```
 
-## System Operations [TODO]
+## Files Operations
 
-* `man` Shows a command’s manual
 * `echo` Prints a message as a standard output
 * `cat` Lists, combines, and writes a file’s content as a standard output
 * `less` Read file
@@ -112,11 +156,11 @@ OCTAL	PERMISSION(S)	EQUIVALENT TO APPLICATION OF
 * `cut` Sections and prints lines from a file
 * `diff` Compares two files’ content and their differences
 * `tee` Prints command outputs in Terminal and a file
-* `locate` Finds files in a system’s database
-* `find` Outputs a file or folder’s location
 * `wc`   counting utility
 * `tr`  is used to translate, squeeze, and delete characters from the standard input and write the result to the standard output.
 * `rev` is used to reverse the order of characters in every line of a file or from standard input.
+* `sed`  Stream Editor. Perform text transformations on an input stream.
+* `awk`  Pattern scanning and text processing language.
 
 ### more examples
 
@@ -279,7 +323,30 @@ This will sort the numbers numerically in ascending order. If you want to sort t
 cat numbers.txt | sort -n -r
 ```
 
-These are just a few examples of how you can use the `sort` command in Linux to sort text data. There are many more options available, so you may want to refer to the `sort` manual (`man sort`) for more information.
+### sed examples 
+
+sed 's/old/new/' file.txt                       Substitute (replace) text
+sed '/pattern/i\new line of text' file.txt       Insert text before a line
+
+### tr Example: 
+
+echo "hello world" | tr 'a-z' 'A-Z'              Translate lowercase to uppercase
+
+echo "hello 123 world" | tr -d '0-9'             Delete specific characters
+
+### awk Example: 
+
+awk '{print $1, $3}' file.txt                   Print specific columns
+
+awk '{sum += $1} END {print sum}' file.txt       Sum the values of a column
+
+rev Example: 
+
+echo "hello" | rev                              Reverse a single line
+
+rev file.txt                                    Reverse the content of a file
+```
+
 
 ## Text find, replace and regex
 
@@ -287,30 +354,40 @@ These are just a few examples of how you can use the `sort` command in Linux to 
 * `awk` Finds and manipulates patterns in a file
 * `grep` Searches a string within a file
 
+### Examples
+
 ```bash
 grep patt /path/to/src	Search for a text pattern patt in X. Commonly used with pipe e.g., ps aux | grep python3 filters out the processes containing python3 from all running processes of all users.
 grep -r patt /path/to/src	Search recursively (the target directory /path/to/src and its subdirectories) for a text pattern patt.
 grep -v patt X	Return lines in X not matching the specified patt.
 grep -l patt X	Write to standard output the names of files containing patt.
 grep -i patt X	Perform case-insensitive matching on X. Ignore the case of patt.
-find	Find files.
-find /path/to/src -name "*.sh"	Find all files in /path/to/src matching the pattern "*.sh" in the file name.
-find /home -size +100M	Find all files in the /home directory larger than 100MB.
-locate name	Find files and directories by name.
 sort X	Arrange lines of text in X alphabetically or numerically.
 ```
 
 ## Search
 
-* `find` is used to search for files and directories in a directory hierarchy based on various criteria like name, type, size, and modification time.
-Example: find /path/to/search -name "filename.txt"
+* `find` used to search for files and directories in a directory hierarchy based on various criteria like name, type, size, and modification time.
 
 * `locate` command searches for files in a prebuilt database. It is faster than find because it searches through a database instead of the actual filesystem.
-Example: locate filename.txt
 
+### Examples
 
+```bash
+find Find files.
+find /path/to/src -name "*.sh"	Find all files in /path/to/src matching the pattern "*.sh" in the file name.
+find /home -size +100M	Find all files in the /home directory larger than 100MB.
+locate name	Find files and directories by name.
+```
 
 ## File transfer
+
+* `ssh` Secure Shell; used to log into a remote machine and execute commands
+* `scp` Securely copies files or directories to another system
+* `rsync` Synchronizes content between directories or machines
+* sftp secured ftp
+
+### Examples
 
 ```bash
 ssh user@access	Connect to access as user.
@@ -324,106 +401,14 @@ scp alice@pi:/home/source bob@arduino:/destination
 path1 and path2 may be local or remote, but ensure they’re absolute rather than relative paths, e.g., /var/www/*.html, /usr/bin.
 
 If user1 and user2 are not specified, scp will use your local username.
-scp -P port [user1@]host1:[path1] [user2@]host2:[path2] 	Connect to hostN as userN using port for N=1,2.
-scp -r [user1@]host1:[path1] [user2@]host2:[path2]	Recursively copy all files and directories from path1 to path2.
-sftp [user@]access	Login to access as user via secure file transfer protocol. If user is not specified, your local username will be used.
+scp -P port [user1@]host1:[path1] [user2@]host2:[path2] Connect to hostN as userN using port for N=1,2.
+scp -r [user1@]host1:[path1] [user2@]host2:[path2] Recursively copy all files and directories from path1 to path2.
+sftp [user@]access Login to access as user via secure file transfer protocol. If user is not specified, your local username will be used.
 sftp access	Connect to access as your local username.
-sftp -P port user@access	Connect to access as user using port.
-rsync -a [path1] [path2]	Synchronize [path1] to [path2], preserving symbolic links, attributes, permissions, ownerships, and other settings.
-rsync -avz host1:[path1] [path2]	Synchronize [path1] on the remote host host1 to the local path [path2], preserving symbolic links, attributes, permissions, ownerships, and other settings. It also compresses the data involved during the transfer.
+sftp -P port user@access Connect to access as user using port.
+rsync -a [path1] [path2] Synchronize [path1] to [path2], preserving symbolic links, attributes, permissions, ownerships, and other settings.
+rsync -avz host1:[path1] [path2] Synchronize [path1] on the remote host host1 to the local path [path2], preserving symbolic links, attributes, permissions, ownerships, and other settings. It also compresses the data involved during the transfer.
 ```
-
-## Package and software management (debian)
-
-* `apt`  A command-line utility for handling package management in Debian-based distributions.
-* `apt-get` Manages Debian-based distros package libraries
-* `dpkg`    dpkg is a medium-level tool to install, build, remove and manage Debian packages.
-
-### apt and apt-get examples
-
-The apt command line tool provides a higher-level user interface for end users with intuitive commands, resulting behaviors, and security features. In contrast, the command apt-get is a low-level interface that communicates more closely with core Linux processes. The apt command is a more user-friendly package manager than apt-get.
-
-Used in Linux-based operating systems to update the package lists for available software packages from the configured repositories.
-
-`sudo apt-get upgrade`
-
-This command is used to install the latest versions of the packages currently installed on the user’s system from the sources enumerated in /etc/apt/sources.list. The installed packages which have new packages available are retrieved and installed. You need to perform an update before the upgrade so that apt-get knows that new versions of packages are available.
-
-`sudo apt-get install [package_name]`
-
-This command is used to install or upgrade packages.
-
-`sudo apt-get remove [package_name]`
-
-Remove software but does not remove configuration files
-
-`sudo apt-get purge [package_name]`
-
-Remove software and remove configuration files
-
-`sudo apt-get check`
-
-This command is used to update the package cache and check for broken dependencies.
-
-`sudo apt-get clean`
-
-This command is used to keep our system clean and tidy. It removes all the cached package files that were downloaded due to the downloading of recent packages using `apt-get`.
-
-`sudo apt-get autoremove`
-
-Sometimes the packages which are automatically installed to satisfy the dependencies of other packages, are no longer needed then the autoremove command is used to remove this kind of packages.
-
-`sudo apt-get list`
-
-It also gives details (version, architecture and repository source) about package but only if package is available or installed in our system. `sudo apt-get list firefox`
-
-To get more options, check with -h,
-
-
-Most used commands:
-  `update` - Retrieve new lists of packages
-  `upgrade` - Perform an upgrade
-  `install` - Install new packages (pkg is libc6 not libc6.deb)
-  `reinstall` - Reinstall packages (pkg is libc6 not libc6.deb)
-  `remove` - Remove packages
-  `purge` - Remove packages and config files
-  `autoremove` - Remove automatically all unused packages
-  `dist-upgrade` - Distribution upgrade, see apt-get(8)
-  `dselect-upgrade` - Follow dselect selections
-  `build-dep` - Configure build-dependencies for source packages
-  `satisfy` - Satisfy dependency strings
-  `clean` - Erase downloaded archive files
-  `autoclean` - Erase old downloaded archive files
-  `check` - Verify that there are no broken dependencies
-  `source` - Download source archives
-  `download` - Download the binary package into the current directory
-  `changelog` - Download and display the changelog for the given package
-
-
-### dpkg examples
-
-
-  `install`
-      The package is selected for installation.
-
-  `hold`
-      A package marked to be on hold is kept on the same version, that is, no automatic new
-      installs, upgrades or removals will be performed on them, unless these actions are
-      requested explicitly, or are permitted to be done automatically with the --force-hold
-      option.
-
-  `deinstall`
-      The package is selected for deinstallation (i.e. we want to remove all files, except
-      configuration files).
-
-  `purge`
-      The package is selected to be purged (i.e. we want to remove everything from system
-      directories, even configuration files).
-
-  `unknown`
-      The package selection is unknown.  A package that is also in a not-installed state, and
-      with an ok flag will be forgotten in the next database store.
-
 
 ## System Information
 
@@ -452,84 +437,75 @@ Most used commands:
 * `shutdown` Turns off or restarts the system
 * `reboot`  Reboot
 * `systemctl` Manages system services
+* `halt` Stop the system immediately.
+* `su` Switches the current user to another user.
+* `sudo` Superuser; use this before a command that requires root access e.g., su shutdown
+* `last reboot` Show reboot history.
 
-[TODO]
 
-
+```bash
 COMMAND	  DESCRIPTION
-`uname`	    Show the Linux system information.
-`uname -a`	Detailed Linux system information
-`uname -r`	Kernel release information, such as kernel version
-`uptime`	Show how long the system is running and load information.
-`su`        Switches the current user to another user.
-`sudo`	    Superuser; use this before a command that requires root access e.g., su shutdown
-`cal`	    Show calendar where the current date is highlighted.
-`date`	    Show the current date and time of the machine.
-`halt`	    Stop the system immediately.
-`shutdown`	Shut down the system.
-`reboot`	Restart the system.
-`last reboot`	Show reboot history.
-`man`       COMMAND	Shows the manual for a given COMMAND. To exit the manual, press “q”.
-`hostname`	Show system host name
-`hostname -I`	Display IP address of host
-`cat /etc/*-release` Show the version of the Linux distribution installed. For example, if you’re using Red Hat Linux, you may replace * with redhat.
 
+`uname -a`	Detailed Linux system information
+
+`uname -r`	Kernel release information, such as kernel version
+
+`hostname -I`	Display IP address of host
+
+`cat /etc/*-release` Show the version of the Linux distribution installed. For example, if you’re using Red Hat Linux, you may replace * with redhat.
+```
 
 ## Hardware
 
 These commands provide details about the hardware supporting your Linux machine.
 
-`dmesg` Display messages in kernel ring buffer (data structure that records messages related to the operation of the program running the operating system)
+* `dmesg` Display messages in kernel ring buffer (data structure that records messages related to the operation of the program running the operating system)
+* `/proc/cpuinfo` CPU information
+* `/proc/meminfo`  Memory information 
+* `dmidecode` Display system hardware components, serial numbers, and BIOS version
+* `hdparm`  Display information about the disk
+* `badblocks` Test for unreadable blocks
 
-`cat /proc/cpuinfo` Display information about the central processing unit (CPU)
+### cpu, memory info examples
 
-`cat /proc/meminfo` Display memory information
+`cat /proc/cpuinfo`
+
+`cat /proc/meminfo` 
+
+### Display PCI devices examples
 
 `lspci -tv` Displays information about each Peripheral Component Interconnect (PCI) device on your system.
             The option -t outputs the information as a tree diagram, and -v is for verbose output.
 
-`lsusb -tv` Display information about Universal Serial Bus (USB) devices and the devices connected to them.
+### Display USB devices examples
+
+`lsusb -tv`  Display information about Universal Serial Bus (USB) devices and the devices connected to them.
             The option -t outputs the information as a tree diagram, and -v is for verbose output.
 
-`dmidecode` Display system hardware components, serial numbers, and BIOS version
+### Display DMI/SMBIOS (hardware info) from the BIOS examples
 
-`hdparm -i /dev/sda`    Display information about the disk sda
+`dmidecode`
 
-`hdparm -tT /dev/sda`   Perform a read speed test on the disk sda
+### Show info about disk sda examples
 
-`badblocks -s /dev/sda` Test for unreadable blocks on the disk sda
+`hdparm -i /dev/sda`
 
+### Perform a read speed test on disk sda examples
 
-### Display PCI devices
+`hdparm -tT /dev/sd`a
 
-lspci -tv
+### Test for unreadable blocks on disk sda examples
 
-### Display USB devices
-
-lsusb -tv
-
-### Display DMI/SMBIOS (hardware info) from the BIOS
-
-dmidecode
-
-### Show info about disk sda
-
-hdparm -i /dev/sda
-
-### Perform a read speed test on disk sda
-
-hdparm -tT /dev/sda
-
-### Test for unreadable blocks on disk sda
-
-badblocks -s /dev/sda
+`badblocks -s /dev/sda`
 
 ## Disk Usage
 
 These commands provide storage details regarding your Linux machine.
 
-`df` Display free disk space.
-`du` Show file/folder sizes on disk.
+* `df` Display free disk space.
+* `du` Show file/folder sizes on disk.
+
+**usage and options**
 
 ```bash
 du -ah	Disk usage in human readable format (KB, MB etc.)
@@ -542,7 +518,7 @@ free -m	Display free and used memory in MB.
 free -g	Display free and used memory in GB.
 ```
 
-### examples
+### Examples
 
 ```bash
 xiaofengli@xiaofenglx:~/code/codebank$ uname -a
@@ -673,9 +649,6 @@ kill -9 `lsof -t -u tecmint`
 * `traceroute` Tracks a packet’s hops to its destination
 * `nslookup` Queries a domain’s IP address and vice versa
 * `dig` Displays DNS information, including record types
-* `ssh` Secure Shell; used to log into a remote machine and execute commands
-* `scp` Securely copies files or directories to another system
-* `rsync` Synchronizes content between directories or machines
 
 ### wget examples
 
@@ -735,23 +708,9 @@ Raw network stats,
 ssh tunnel
 ```
 
-## System commands
+## systemctl
 
-### compgen
-
-`compgen -c` will list all the commands you could run.
-
-`compgen` -a will list all the aliases you could run.
-
-`compgen` -b will list all the built-ins you could run.
-
-`compgen` -k will list all the keywords you could run.
-
-`compgen` -A function will list all the functions you could run.
-
-`compgen` -A function -abck will list all the above in one go.
-
-### systemctl
+* `systemctl`
 
 `Systemd` is a system and service manager for Linux; a drop-in replacement for the init process, which is compatible with SysV and LSB init scripts, and the `systemctl` command is the primary tool to manage systemd.
 
@@ -778,47 +737,65 @@ OR
 
 
 ## File Commands
-`touch`: Creates an empty file or updates the timestamp of an existing file.
-Example: touch myfile.txt
-`cat`: Concatenates and displays file content.
-Example: cat myfile.txt
-`cp`: Copies files or directories.
-Example : cp sourcefile.txt destinationfile.txt
-`mv`: Moves or renames files or directories.
-Example : mv oldname.txt newname.txt
-`rm`: Removes files or directories.
-Example: rm myfile.txt
+
+
 `ln`: Creates hard and symbolic links.
+
 Example: ln -s targetfile.txt linkname.txt  # symbolic link
+
 `chmod`: Changes file permissions.
+
 Example : chmod 755 myfile.txt
+
 `chown`: Changes file owner and group.
+
 Example : chown user:group myfile.txt
+
 `file`: Determines the file type.
+
 Example: file myfile.txt
+
 `stat`: Displays file or file system status.
+
 Example: stat myfile.txt
 
 ## File descriptor Commands
 
 `ls -l /proc/$$/fd`: Lists open file descriptors for the current shell process.
+
 Example: ls -l /proc/$$/fd
+
 `lsof`: Lists open files and the processes that opened them.
+
 Example : lsof | grep myfile.txt
+
 `exec`: Opens a file descriptor and associates it with a command.
 Example:
+
 exec 3>outputfile.txt  # Open file descriptor 3 for writing
+
 echo "Hello, World!" >&3  # Write to file descriptor 3
+
 exec 3>&-  # Close file descriptor 3
+
 `>/dev/null`: Redirects output to null device (discards output).
+
 Example: command > /dev/null 2>&1  # Discards both standard output and standard error
+
 `read`: Reads input from a file descriptor.
+
 Example:
+
 exec 3<myfile.txt  # Open file descriptor 3 for reading
+
 read -u 3 line  # Read a line from file descriptor 3
+
 echo $line  # Output the line read
+
 exec 3<&-  # Close file descriptor 3
+
 `strace`: Traces system calls and signals (including file descriptor operations).
+
 Example: strace -e trace=file ls
 
 
@@ -826,8 +803,11 @@ Example: strace -e trace=file ls
 The pipe (|) in Linux allows you to chain multiple commands together, sending the output of one command as input to another command.
 `[command1] | [command 2]`
 Basic Example:
+
 `ps aux | grep python3 `: This command lists all running processes (ps aux) and pipes (|) the output to grep python3, which filters out lines containing python3.
+
 `ls -l | wc -l` : This command lists all files in the current directory (ls -l) and pipes (|) the output to wc -l, which counts the number of lines, effectively giving the count of files in the directory.
+
 `cat file.txt | sort` : This command reads the contents of file.txt (cat file.txt) and pipes (|) the output to sort, which sorts the lines alphabetically.
 `
 
@@ -837,15 +817,25 @@ The redirect operator >, <, >>, 2>.
 
 
 COMMAND              DESCRIPTION
+
 `echo TEXT`          Display a line of TEXT or the contents of a variable.
+
 `echo -e TEXT`       Also interprets escape characters in TEXT, e.g., \n → new line, \b → backslash, \t → tab.
+
 `echo -n TEXT`       Omits trailing newline of TEXT.
+
 `cmd1 | cmd2`        | is the pipe character; feeds the output of cmd1 and sends it to cmd2, e.g., ps aux | grep python3.
+
 `cmd > file`         Redirect output of cmd to a file file. Overwrites pre-existing content of file.
+
 `cmd >& file`        Redirect output of cmd to file. Overwrites pre-existing content of file. Suppresses the output of cmd.
+
 `cmd > /dev/null`    Suppress the output of cmd.
+
 `cmd >> file`        Append output of cmd to file.
+
 `cmd < file`         Read input of cmd from file.
+
 `cmd << delim`       Read input of cmd from the standard input with the delimiter character delim to tell the system where to terminate the input. Example for counting the number of lines of ad-hoc input:
 ```bash
 wc -l << EOF
@@ -858,11 +848,129 @@ EOF
 Hence there are only 4 lines in the standard input delimited by EOF.
 
 `cmd <<< string` Input a text string to cmd.
+
 `cmd 2> foo`     Redirect error messages of cmd to foo.
+
 `cmd 2>> foo`    Append error messages of cmd to foo.
+
 `cmd &> file`    Redirect output and error messages of cmd to file.
+
 `cmd &>> file`   Append output and error messages of cmd to file.
 
+
+
+
+
+
+
+
+
+## Package and software management (debian)
+
+* `apt`  A command-line utility for handling package management in Debian-based distributions.
+* `apt-get` Manages Debian-based distros package libraries
+* `dpkg`    dpkg is a medium-level tool to install, build, remove and manage Debian packages.
+
+### apt and apt-get examples
+
+The apt command line tool provides a higher-level user interface for end users with intuitive commands, resulting behaviors, and security features. In contrast, the command apt-get is a low-level interface that communicates more closely with core Linux processes. The apt command is a more user-friendly package manager than apt-get.
+
+Used in Linux-based operating systems to update the package lists for available software packages from the configured repositories.
+
+`sudo apt-get upgrade`
+
+This command is used to install the latest versions of the packages currently installed on the user’s system from the sources enumerated in /etc/apt/sources.list. The installed packages which have new packages available are retrieved and installed. You need to perform an update before the upgrade so that apt-get knows that new versions of packages are available.
+
+`sudo apt-get install [package_name]`
+
+This command is used to install or upgrade packages.
+
+`sudo apt-get remove [package_name]`
+
+Remove software but does not remove configuration files
+
+`sudo apt-get purge [package_name]`
+
+Remove software and remove configuration files
+
+`sudo apt-get check`
+
+This command is used to update the package cache and check for broken dependencies.
+
+`sudo apt-get clean`
+
+This command is used to keep our system clean and tidy. It removes all the cached package files that were downloaded due to the downloading of recent packages using `apt-get`.
+
+`sudo apt-get autoremove`
+
+Sometimes the packages which are automatically installed to satisfy the dependencies of other packages, are no longer needed then the autoremove command is used to remove this kind of packages.
+
+`sudo apt-get list`
+
+It also gives details (version, architecture and repository source) about package but only if package is available or installed in our system. `sudo apt-get list firefox`
+
+To get more options, check with -h,
+
+
+Most used commands:
+  `update` - Retrieve new lists of packages
+
+  `upgrade` - Perform an upgrade
+
+  `install` - Install new packages (pkg is libc6 not libc6.deb)
+
+  `reinstall` - Reinstall packages (pkg is libc6 not libc6.deb)
+
+  `remove` - Remove packages
+
+  `purge` - Remove packages and config files
+
+  `autoremove` - Remove automatically all unused packages
+
+  `dist-upgrade` - Distribution upgrade, see apt-get(8)
+
+  `dselect-upgrade` - Follow dselect selections
+
+  `build-dep` - Configure build-dependencies for source packages
+
+  `satisfy` - Satisfy dependency strings
+
+  `clean` - Erase downloaded archive files
+
+  `autoclean` - Erase old downloaded archive files
+
+  `check` - Verify that there are no broken dependencies
+
+  `source` - Download source archives
+
+  `download` - Download the binary package into the current directory
+
+  `changelog` - Download and display the changelog for the given package
+
+
+### dpkg examples
+
+
+  `install`
+      The package is selected for installation.
+
+  `hold`
+      A package marked to be on hold is kept on the same version, that is, no automatic new
+      installs, upgrades or removals will be performed on them, unless these actions are
+      requested explicitly, or are permitted to be done automatically with the --force-hold
+      option.
+
+  `deinstall`
+      The package is selected for deinstallation (i.e. we want to remove all files, except
+      configuration files).
+
+  `purge`
+      The package is selected to be purged (i.e. we want to remove everything from system
+      directories, even configuration files).
+
+  `unknown`
+      The package selection is unknown.  A package that is also in a not-installed state, and
+      with an ok flag will be forgotten in the next database store.
 
 
 ## Ref
