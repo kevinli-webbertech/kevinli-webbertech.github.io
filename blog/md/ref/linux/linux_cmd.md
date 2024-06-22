@@ -380,12 +380,12 @@ find /home -size +100M	Find all files in the /home directory larger than 100MB.
 locate name	Find files and directories by name.
 ```
 
-## File transfer [TODO]
+## File transfer
 
 * `ssh` Secure Shell; used to log into a remote machine and execute commands
 * `scp` Securely copies files or directories to another system
 * `rsync` Synchronizes content between directories or machines
-* sftp [TODO]
+* sftp secured ftp
 
 ### Examples
 
@@ -708,8 +708,9 @@ Raw network stats,
 ssh tunnel
 ```
 
+## systemctl
 
-### systemctl
+* `systemctl`
 
 `Systemd` is a system and service manager for Linux; a drop-in replacement for the init process, which is compatible with SysV and LSB init scripts, and the `systemctl` command is the primary tool to manage systemd.
 
