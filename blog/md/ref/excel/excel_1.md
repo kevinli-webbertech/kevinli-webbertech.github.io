@@ -105,7 +105,6 @@ pak: Add-in that provides tools for statistical analysis.
 
 3.  What-If Analysis: Tools like Goal Seek, Scenario Manager, and Data Tables for forecasting and scenario planning.
 
-
 **Data Management**
 
 1. Sorting and Filtering: Organize and view data based on specific criteria.
@@ -114,21 +113,24 @@ pak: Add-in that provides tools for statistical analysis.
 
 3.  Data Validation: Restrict the type of data that can be entered into a cell.
 
-
 **Collaboration and Sharing**
 
 1. Comments and Notes: Add annotations to cells.
+
 2. Shared Workbooks: Multiple users can work on the same workbook simultaneously.
+
 3. Cloud Integration: Integration with OneDrive and SharePoint for easy sharing and collaboration.
 
 **Automation**
 
 1. Macros: Record and execute repetitive tasks.
+
 2. VBA (Visual Basic for Applications): Write custom scripts to automate tasks and enhance functionality.
 
 **Importing and Exporting Data**
 
 1. External Data Sources: Import data from databases, web pages, and other sources.
+
 2. File Formats: Export data to various formats such as CSV, PDF, and more.
 
 **Tips for Effective Use**
