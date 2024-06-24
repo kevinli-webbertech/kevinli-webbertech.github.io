@@ -55,11 +55,32 @@ def create_html_files(mdFiles):
             f.write(new_text)
         # replace string .md file in the htmlfile
 
+def get_current_dir():
+    return os.path.dirname(os.path.realpath(__file__))
 
+def mv_image_files():
+    os.chdir(get_md_path())
+    types = ('*.png', '*.jpg') # the tuple of file types
+    files_grabbed = []
+    for files in types:
+        files_grabbed.extend(glob.glob(files))
+    print(files_grabbed)
+
+    for imgFile in files_grabbed:
+        target_image_file = os.path.join(get_current_dir(),get_html_path(), imgFile)
+        src_img_file = os.path.join(get_current_dir(),get_md_path(), imgFile)
+        # keep this logging
+        print("======================")
+        print(src_img_file)
+        print(target_image_file)
+        print()
+        shutil.move(src_img_file, target_image_file)
+    
 def main():
     check_arg()
     check_html_directory()
     create_html_files(get_all_markdown_files(get_md_path()))
+    mv_image_files()
 
 if __name__ == "__main__":
     main()
