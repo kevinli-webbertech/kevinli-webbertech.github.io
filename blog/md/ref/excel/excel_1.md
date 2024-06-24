@@ -165,19 +165,25 @@ Excel is a versatile tool that can be adapted for simple to complex tasks across
 
 ## Excel Basics
 
-![view](view.png)
+![view](https://kevinli-webbertech.github.io/blog/images/ref/excel/view.png)
 
-1. Ribbon: Each menu listed in the ribbon at the top of the spreadsheet contains its own set of tools. The key tools in the *File menu* are Save, Print, Open and New. The *Home menu* contains font and cell formatting options and the data sorting and filtering tool. The Insert menu allows you to insert charts, tables, images, links, and other objects into your spreadsheets. *Page Layout* has margin, orientation and other display tools. Use the *Formulas menu* to set up functions and formulas. The Data menu sorts, filters, and further explores the data in your spreadsheets. Use the *Review menu* to add comments, set protections, and spell check. The *View menu* will freeze panes, zoom in and out, and toggle between windows.
+1. Ribbon
 
-2. Formula Bar: The Formula Bar displays any formula or function set up for the selected 
-cell. To set up a formula, select a cell and type the formula directly into the formula bar, or use the Formulas ribbon to choose a function or formula for the cell.
+Each menu listed in the ribbon at the top of the spreadsheet contains its own set of tools. The key tools in the *File menu* are Save, Print, Open and New. The *Home menu* contains font and cell formatting options and the data sorting and filtering tool. The Insert menu allows you to insert charts, tables, images, links, and other objects into your spreadsheets. *Page Layout* has margin, orientation and other display tools. Use the *Formulas menu* to set up functions and formulas. The Data menu sorts, filters, and further explores the data in your spreadsheets. Use the *Review menu* to add comments, set protections, and spell check. The *View menu* will freeze panes, zoom in and out, and toggle between windows.
 
-3. Active Cell: This box indicates which cell is the active cell. To jump to another cell, type the column and row number of the cell directly in this box, or click on the desired cell.
+2. Formula Bar
 
-4. Worksheets: You will always begin with three worksheets, which you can toggle 
-between at the bottom left. The file as a whole is called a workbook. You may only need one worksheet, or you may need more than three. Click on the button to the right of Sheet 3 to add another worksheet. To rename a worksheet, right click on its name, then click rename.
+The Formula Bar displays any formula or function set up for the selected cell. To set up a formula, select a cell and type the formula directly into the formula bar, or use the Formulas ribbon to choose a function or formula for the cell.
 
-![interface](interface.png)
+3. Active Cell
+
+This box indicates which cell is the active cell. To jump to another cell, type the column and row number of the cell directly in this box, or click on the desired cell.
+
+4. Worksheets
+
+You will always begin with three worksheets, which you can toggle between at the bottom left. The file as a whole is called a workbook. You may only need one worksheet, or you may need more than three. Click on the button to the right of Sheet 3 to add another worksheet. To rename a worksheet, right click on its name, then click rename.
+
+![interface](https://kevinli-webbertech.github.io/blog/images/ref/excel/interface.png)
 
 ### Feature walkabout
 
