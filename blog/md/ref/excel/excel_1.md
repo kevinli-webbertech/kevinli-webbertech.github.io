@@ -1,4 +1,4 @@
-# Microsoft Office Excel
+# Microsoft Office Excel - Basics
 
 ## What is Spreadsheet and Microsoft Excel
 
@@ -165,7 +165,7 @@ Excel is a versatile tool that can be adapted for simple to complex tasks across
 
 ## Excel Basics
 
-![interface](interface.png)
+![view](view.png)
 
 1. Ribbon: Each menu listed in the ribbon at the top of the spreadsheet contains its own set of tools. The key tools in the *File menu* are Save, Print, Open and New. The *Home menu* contains font and cell formatting options and the data sorting and filtering tool. The Insert menu allows you to insert charts, tables, images, links, and other objects into your spreadsheets. *Page Layout* has margin, orientation and other display tools. Use the *Formulas menu* to set up functions and formulas. The Data menu sorts, filters, and further explores the data in your spreadsheets. Use the *Review menu* to add comments, set protections, and spell check. The *View menu* will freeze panes, zoom in and out, and toggle between windows.
 
@@ -176,6 +176,10 @@ cell. To set up a formula, select a cell and type the formula directly into the 
 
 4. Worksheets: You will always begin with three worksheets, which you can toggle 
 between at the bottom left. The file as a whole is called a workbook. You may only need one worksheet, or you may need more than three. Click on the button to the right of Sheet 3 to add another worksheet. To rename a worksheet, right click on its name, then click rename.
+
+![interface](interface.png)
+
+### Feature walkabout
 
 ![create](https://kevinli-webbertech.github.io/blog/images/ref/excel/create.png)
 
