@@ -74,15 +74,19 @@ Microsoft Office is a suite of productivity applications developed by Microsoft.
 
 ### Evolution of Office Applications
 
-- **Collaboration:** Enhanced with tools like SharePoint, OneDrive, and Microsoft Teams for real-time collaboration and communication.
-- **AI and Automation:** Integration of AI features like Editor in Word, Ideas in Excel, and Designer in PowerPoint to help users create content more efficiently.
-- **Cross-Platform Availability:** Office applications are available on various platforms, including Windows, macOS, iOS, and Android.
+-**Collaboration:** Enhanced with tools like SharePoint, OneDrive, and Microsoft Teams for real-time collaboration and communication.
+
+-**AI and Automation:** Integration of AI features like Editor in Word, Ideas in Excel, and Designer in PowerPoint to help users create content more efficiently.
+
+-**Cross-Platform Availability:** Office applications are available on various platforms, including Windows, macOS, iOS, and Android.
 
 ### Future Directions
 
-- **AI and Machine Learning:** Continued integration of AI to provide smarter assistance and automation.
-- **Cloud Integration:** Deeper integration with cloud services for enhanced collaboration and accessibility.
-- **Enhanced Security:** Ongoing improvements in security features to protect user data and privacy.
+-**AI and Machine Learning:** Continued integration of AI to provide smarter assistance and automation.
+
+-**Cloud Integration:** Deeper integration with cloud services for enhanced collaboration and accessibility.
+
+-**Enhanced Security:** Ongoing improvements in security features to protect user data and privacy.
 
 Microsoft Office has continuously adapted to meet the needs of its users, incorporating new technologies and trends to remain a leader in productivity software.
 
