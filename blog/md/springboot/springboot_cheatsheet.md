@@ -1,7 +1,6 @@
 # Springboot Cheatsheet
 
 ## Annotations
-
 - @Autowired
 - @SpringBootApplication
 - @Component
@@ -12,12 +11,27 @@
 - @Bean
 - @Qualifier
 - @RequestBody
-- @ReqestParam
+- @RequestParam
 - @PathVariable
 - @RequestBody
 
 ## Json libraries with Springboot
 
-## Test
+## Testing
+- @SpringBootTest
 
-## 
+## Java Reactive and WebFlux
+
+## Spring lifecycle
+
+## Filter and interception
+
+## Monitoring
+
+## Security
+- JWT
+- OAuth
+- OIDC
+
+
+
