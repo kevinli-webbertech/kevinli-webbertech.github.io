@@ -1,56 +1,43 @@
-# Google MAP API
+# Google Maps API
 
-## Get a google map API key from google
+## Get a Google Maps API Key
 
-## Check distance python example
+1. **Visit the GCP Console:**
+   - Go to the [Google Cloud Platform Console](https://console.cloud.google.com/).
 
+2. **Create a New Project:**
+   - Click on the project dropdown at the top of the page.
+   - Click on the “New Project” button.
+   - Enter a project name and select your billing account.
+   - Click “Create”.
 
-**Step 1: Visit the GCP Console: Go to the Google Cloud Platform Console.**
+   ![New Project](https://kevinli-webbertech.github.io/blog/images/googlemap/new_project.png)
 
-Create a New Project:
+3. **Enable the Google Maps APIs:**
+   - Navigate to “APIs & Services” > “Library”.
+   - Search for “Maps”.
+   - Enable the following APIs:
+     - Maps JavaScript API
+     - Geocoding API
+     - Directions API
 
-Click on the project dropdown at the top of the page.
-Click on the “New Project” button.
-Enter a project name and select your billing account.
-Click “Create.”
-![Local Image](new_project.png)
+   ![Enable APIs](https://kevinli-webbertech.github.io/blog/images/googlemap/enable_apis.png)
+   ![Enable APIs 2](https://kevinli-webbertech.github.io/blog/images/googlemap/enable_apis2.png)
 
-**Step 2: Enable the Google Maps APIs**
-Navigate to the APIs & Services Dashboard:
+4. **Generate the API Key:**
+   - Navigate to “Credentials” in the left sidebar of the APIs & Services dashboard.
+   - Click on the “Create Credentials” button and select “API Key”.
+   - Restrict the API Key to the APIs enabled in Step 3 and restrict its usage to your IP addresses or HTTP referrers.
+   - Copy the API Key displayed on the screen.
 
-From the GCP Console, click on the menu icon in the top left corner.
-Navigate to “APIs & Services” > “Library.”
-Enable APIs:
+   ![API Key](https://kevinli-webbertech.github.io/blog/images/googlemap/api_key.png)
+   ![API Key 2](https://kevinli-webbertech.github.io/blog/images/googlemap/api_key2.png)
 
-In the API Library, search for “Maps.”
-Enable the following APIs by clicking on them and then clicking the “Enable” button:
-Maps JavaScript API
-Geocoding API
-Directions API
+## Check Distance Python Example
 
-![Local Image](enable_apis.png)
+### Step 4: Write the Python Script
 
-![Local Image](enable_apis2.png)
-
-**Step 3: Generate the API Key**
-Navigate to Credentials:
-
-In the APIs & Services dashboard, click on “Credentials” in the left sidebar.
-Create Credentials:
-
-Click on the “Create Credentials” button.
-Select “API Key.”
-Restrict the API Key (Recommended):
-
-Click on the “Edit” icon next to your newly created API key.
-Under “API restrictions,” select the APIs you enabled in Step 2.
-Under “Application restrictions,” restrict the key to your IP addresses or HTTP referrers to prevent unauthorized use.
-Copy the API Key: Your API key will be displayed on the screen. Copy this key, as you will need it for your Python script.
-
-![Local Image](api_key.png)
-![Local Image](api_key2.png)
-
-**Step 4: Write the Python Script**
+```python
 import googlemaps
 from datetime import datetime
 
@@ -104,7 +91,6 @@ colleges = [
     "William Paterson University"
 ]
 
-
 # Address to calculate distances from
 origin = "22 Sherwood Lane, NJ, 07980"
 
@@ -120,22 +106,28 @@ if not validated_origin:
 else:
     print(f"Validated Origin Address: {validated_origin}")
 
-# Calculate distances
+# Calculate Distances
 distances = {}
+
 for college in colleges:
     validated_college = validate_address(college)
+    
     if not validated_college:
         print(f"College address '{college}' could not be validated.")
         continue
+    
     try:
         directions_result = gmaps.directions(validated_origin, validated_college, mode="driving")
+        
         if directions_result:
             distance = directions_result[0]['legs'][0]['distance']['text']
             distances[college] = distance
         else:
             print(f"No directions found for {college}")
+    
     except googlemaps.exceptions.ApiError as e:
         print(f"API error for {college}: {e}")
+    
     except Exception as e:
         print(f"Error for {college}: {e}")
 
@@ -144,10 +136,3 @@ for college, distance in distances.items():
     print(f"{college}: {distance}")
 
 
-
-
-Save and Run the Script: Save the script and run it using Python:
-![Local Image](results.png)
-
-**Conclusion**
-By following these steps, you can easily generate a Google Maps API key and use it in your Python projects. This enables you to integrate powerful mapping and geolocation features into your applications.
