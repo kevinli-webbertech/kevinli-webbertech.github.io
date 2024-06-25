@@ -1036,7 +1036,7 @@ Teens (between 12 and 20):
 	Teen Carol is 13 years old.
 ```
 
-## Ref
+## REF
 
 - https://spring.io/guides/gs/accessing-data-mysql/
 - https://spring.io/guides/gs/accessing-data-jpa/

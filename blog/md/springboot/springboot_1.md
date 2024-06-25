@@ -435,4 +435,6 @@ The various guides demonstrate this dual support through the spring-boot-gradle-
 - Jetty
 - Tomcat
 
-ref: https://spring.io/guides/gs/spring-boot
+### REF
+
+- https://spring.io/guides/gs/spring-boot

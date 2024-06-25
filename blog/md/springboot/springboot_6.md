@@ -217,6 +217,6 @@ If you use Maven, you can run the application by using `./mvnw spring-boot:run`.
 Finally, test your code.
 
 
-### Ref
+### REF
 
 https://spring.io/guides/gs/relational-data-access

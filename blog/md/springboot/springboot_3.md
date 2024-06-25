@@ -270,7 +270,7 @@ $ curl localhost:8080/actuator/health
 
 ![check running pod](https://kevinli-webbertech.github.io/blog/images/springboot/curl_testing.png)
 
-## Ref
+## REF
 
 - https://spring.io/guides/gs/spring-boot-kubernetes
 - https://github.com/kubernetes/minikube
