@@ -123,6 +123,162 @@ you're typically setting up a whole web application context and mocking the HTTP
 So, although a fake DispatcherServlet is up and running, simulating how your MVC stack will function, 
 there are no real network connections made.
 
+## Mockito Testing
+
+Mocking test is a big part of software development aside from Integration test as it is at low cost.
+
+### Mockito.mock() and @Mock
+
+@Mock annotation is a shorthand for the Mockito.mock() method.
+
+If we are writing data repository or service level mocking testing, we could checkout the following example,
+
+```java
+@Test
+public void repositoryMock() {
+    UserRepository localMockRepository = Mockito.mock(UserRepository.class);
+    Mockito.when(localMockRepository.count()).thenReturn(111L);
+    long userCount = localMockRepository.count();
+    Assert.assertEquals(111L, userCount);
+    Mockito.verify(localMockRepository).count();
+}
+```
+
+
+
+```java
+@RunWith(MockitoJUnitRunner.class)
+public class MockAnnotationUnitTest {
+
+    @Mock
+    UserRepository mockRepository;
+    
+    @Test
+    public void givenCountMethodMocked_WhenCountInvoked_ThenMockValueReturned() {
+        Mockito.when(mockRepository.count()).thenReturn(123L);
+
+        long userCount = mockRepository.count();
+
+        Assert.assertEquals(123L, userCount);
+        Mockito.verify(mockRepository).count();
+    }
+}
+```
+
+here are more examples, you can write something like the following,
+
+```java
+package com.journaldev.mockito.mock;
+import java.util.List;
+import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class MockitoMockMethodExample {
+	@SuppressWarnings("unchecked")
+	@Test
+	public void test() {
+		// using Mockito.mock() method
+		List<String> mockList = mock(List.class);
+		when(mockList.size()).thenReturn(5);
+		assertTrue(mockList.size()==5);
+	}
+}
+```
+
+and with annotation, you can do this,
+
+```java
+package com.journaldev.mockito.mock;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
+public class MockitoMockAnnotationExample {
+
+	@Mock
+	List<String> mockList;
+	
+	@BeforeEach
+	public void setup() {
+		//if we don't call below, we will get NullPointerException
+		MockitoAnnotations.initMocks(this);
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Test
+	public void test() {
+		when(mockList.get(0)).thenReturn("JournalDev");
+		assertEquals("JournalDev", mockList.get(0));
+	}
+
+}
+```
+
+### Mockito @InjectMocks Annotation
+
+```java
+package com.journaldev.mockito.mock;
+import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
+public class MockitoInjectMockAnnotationExample {
+
+	@Mock
+	List<String> mockList;
+	
+	//@InjectMock creates an instance of the class and 
+	//injects the mocks that are marked with the annotations @Mock into it.
+	@InjectMocks
+	Fruits mockFruits;
+	
+	@BeforeEach
+	public void setup() {
+		//if we don't call below, we will get NullPointerException
+		MockitoAnnotations.initMocks(this);
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Test
+	public void test() {
+		when(mockList.get(0)).thenReturn("Apple");
+		when(mockList.size()).thenReturn(1);
+		assertEquals("Apple", mockList.get(0));
+		assertEquals(1, mockList.size());
+		
+		//mockFruits names is using mockList, below asserts confirm it
+		assertEquals("Apple", mockFruits.getNames().get(0));
+		assertEquals(1, mockFruits.getNames().size());	
+		
+		mockList.add(1, "Mango");
+		//below will print null because mockList.get(1) is not stubbed
+		System.out.println(mockList.get(1));
+	}
+}
+
+class Fruits{
+private List<String> names;
+	public List<String> getNames() {
+		return names;
+	}
+
+	public void setNames(List<String> names) {
+		this.names = names;
+	}
+}
+```
+
 ### REF
 
 - https://spring.io/guides/gs/testing-web/
+- https://www.digitalocean.com/community/tutorials/mockito-mock-examples
