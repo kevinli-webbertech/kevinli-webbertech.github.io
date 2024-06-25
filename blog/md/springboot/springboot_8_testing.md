@@ -116,7 +116,7 @@ public class HelloControllerTest {
 }
 ```
 
-So the difference between the `TestRestTemplate` initialized with a custom ClientHttpRequestFactory. 
+So the difference between the `TestRestTemplate` and `MockMvc` is that TestRestTemplate initializes with a custom ClientHttpRequestFactory. 
 Implementations usually create ClientHttpRequest objects that open actual TCP/HTTP(s) connections. 
 Whereas you can provide a mock implementation where you can do whatever you want MockMvc, 
 you're typically setting up a whole web application context and mocking the HTTP requests and responses. 
