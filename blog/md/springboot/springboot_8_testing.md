@@ -86,6 +86,43 @@ class HttpRequestTest {
 }
 ```
 
+Let us recall in the first class when we see a test file like the following,
+
+```java
+import static org.hamcrest.Matchers.equalTo;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+
+@SpringBootTest
+@AutoConfigureMockMvc
+public class HelloControllerTest {
+
+	@Autowired
+	private MockMvc mvc;
+
+	@Test
+	public void getHello() throws Exception {
+		mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk())
+				.andExpect(content().string(equalTo("HelloWorld")));
+	}
+}
+```
+
+So the difference between the `TestRestTemplate` initialized with a custom ClientHttpRequestFactory. 
+Implementations usually create ClientHttpRequest objects that open actual TCP/HTTP(s) connections. 
+Whereas you can provide a mock implementation where you can do whatever you want MockMvc, 
+you're typically setting up a whole web application context and mocking the HTTP requests and responses. 
+So, although a fake DispatcherServlet is up and running, simulating how your MVC stack will function, 
+there are no real network connections made.
+
 ### REF
 
 - https://spring.io/guides/gs/testing-web/
