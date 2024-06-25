@@ -50,7 +50,7 @@ The application must have some privileges, so use the following command to grant
 
 * Create a resource file called `src/main/resources/application.properties`
 
-```
+```java
 spring.jpa.generate-ddl=true
 spring.jpa.hibernate.ddl-auto=create
 spring.jpa.show-sql=true
@@ -78,7 +78,7 @@ The default for H2 and other embedded databases is create-drop. For other databa
 
 You need to create the entity model, as the following listing (in `src/main/java/com/example/accessingdatamysql/User.java`) shows:
 
-```
+```java
 package com.example.accessingdatamysql;
 
 import jakarta.persistence.Entity;
@@ -129,7 +129,7 @@ public class User {
 
 You need to create the repository that holds user records, as the following listing (in src/main/java/com/example/accessingdatamysql/UserRepository.java) shows:
 
-```
+```java
 package com.example.accessingdatamysql;
 
 import org.springframework.data.repository.CrudRepository;
@@ -150,7 +150,7 @@ Spring automatically implements this repository interface in a bean that has the
 
 You need to create a controller to handle HTTP requests to your application, as the following listing (in src/main/java/com/example/accessingdatamysql/MainController.java) shows:
 
-```
+```java
 package com.example.accessingdatamysql;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -195,7 +195,7 @@ The preceding example explicitly specifies POST and GET for the two endpoints. B
 
 Spring Initializr creates a simple class for the application. The following listing shows the class that Initializr created for this example (in src/main/java/com/example/accessingdatamysql/AccessingDataMysqlApplication.java):
 
-```
+```java
 package com.example.accessingdatamysql;
 
 import org.springframework.boot.SpringApplication;
@@ -246,7 +246,7 @@ or you can run it with `./mvnw spring-boot:run`
 
 * `POST localhost:8080/demo/add`
 
-```
+```shell
 $ curl http://localhost:8080/demo/add -d name=First -d email=someemail@someemailprovider.com
 ```
 
@@ -273,7 +273,7 @@ $ curl http://localhost:8080/demo/add -d name=First -d email=someemail@someemail
 
 In this example, you store Customer objects, each annotated as a JPA entity. The following listing shows the Customer class (in src/main/java/com/example/accessingdatajpa/Customer.java):
 
-```
+```java
 package com.example.accessingdatajpa;
 
 import jakarta.persistence.Entity;
@@ -324,11 +324,10 @@ Spring Data JPA focuses on using JPA to store data in a relational database. Its
 
 To see how this works, create a repository interface that works with Customer entities as the following listing (in src/main/java/com/example/accessingdatajpa/CustomerRepository.java) shows:
 
-```
+```java
 package com.example.accessingdatajpa;
 
 import java.util.List;
-
 import org.springframework.data.repository.CrudRepository;
 
 public interface CustomerRepository extends CrudRepository<Customer, Long> {
@@ -343,7 +342,7 @@ public interface CustomerRepository extends CrudRepository<Customer, Long> {
 
 Spring Initializr creates a simple class for the application. The following listing shows the class that Initializr created for this example (in src/main/java/com/example/accessingdatajpa/AccessingDataJpaApplication.java):
 
-```
+```java
 package com.example.accessingdatajpa;
 
 import org.springframework.boot.SpringApplication;
@@ -365,7 +364,7 @@ public class AccessingDataJpaApplication {
 
 Next add the following part into the above class,
 
-```
+```java
 @Bean
   public CommandLineRunner demo(CustomerRepository repository) {
     return (args) -> {
@@ -450,11 +449,10 @@ You should see output similar to the following:
 * Define a Simple Entity
 The following listing shows the Customer class (in src/main/java/com/example/accessingdatamongodb/Customer.java):
 
-```
+```java
 package com.example.accessingdatamongodb;
 
 import org.springframework.data.annotation.Id;
-
 
 public class Customer {
 
@@ -485,7 +483,7 @@ public class Customer {
 
 To see how this works, create a repository interface that queries Customer documents, as the following listing (in src/main/java/com/example/accessingdatamongodb/CustomerRepository.java) shows:
 
-```
+```java
 package com.example.accessingdatamongodb;
 
 import java.util.List;
@@ -504,7 +502,7 @@ public interface CustomerRepository extends MongoRepository<Customer, String> {
 
 Spring Initializr creates a simple class for the application. The following listing shows the class that Initializr created for this example (in src/main/java/com/example/accessingdatamongodb/AccessingDataMongodbApplication.java):
 
-```
+```java
 package com.example.accessingdatamongodb;
 
 import org.springframework.boot.SpringApplication;
@@ -519,6 +517,7 @@ public class AccessingDataMongodbApplication {
 
 }
 ```
+
 Spring Boot automatically handles those repositories as long as they are included in the same package (or a sub-package) of your @SpringBootApplication class. For more control over the registration process, you can use the @EnableMongoRepositories annotation.
 
 By default, @EnableMongoRepositories scans the current package for any interfaces that extend one of Spring Data’s repository interfaces. You can use its basePackageClasses=MyRepository.class to safely tell Spring Data MongoDB to scan a different root package by type if your project layout has multiple projects and it does not find your repositories.
@@ -526,7 +525,7 @@ Spring Data MongoDB uses the MongoTemplate to execute the queries behind your fi
 
 Now you need to modify the simple class that the Initializr created for you. You need to set up some data and use it to generate output. The following listing shows the finished AccessingDataMongodbApplication class (in
 
-```
+```java
 package com.example.accessingdatamongodb;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -839,7 +838,7 @@ In this example, you store Person objects in Apache Geode (a region) by using on
 
 src/main/java/hello/Person.java
 
-```
+```java
 package hello;
 
 import java.io.Serializable;
@@ -879,7 +878,7 @@ To see how this works, create an interface that queries Person objects stored in
 
 src/main/java/hello/PersonRepository.java
 
-```
+```java
 package hello;
 
 import org.springframework.data.gemfire.repository.query.annotation.Trace;
@@ -980,9 +979,6 @@ public class Application {
 }
 ```
 
-
-  }
-}
 In the configuration, you need to add the @EnableGemfireRepositories annotation.
 
 By default, @EnableGemfireRepositories scans the current package for any interfaces that extend one of Spring Data’s repository interfaces. You can use its basePackageClasses = MyRepository.class to safely tell Spring Data for Apache Geode to scan a different root package by type for application-specific Repository extensions.
