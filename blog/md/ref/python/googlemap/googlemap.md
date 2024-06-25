@@ -92,7 +92,7 @@ colleges = [
 ]
 
 # Address to calculate distances from
-origin = "22 Sherwood Lane, NJ, 07980"
+origin = "Valley Mall Shopping Center, 977 Valley Rd, Gillette, NJ 07933"
 
 # Function to validate addresses using Geocoding API
 def validate_address(address):
