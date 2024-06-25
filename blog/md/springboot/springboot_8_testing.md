@@ -4,8 +4,8 @@
 
 ### Step 1
 
-* git clone https://github.com/spring-guides/gs-testing-web.git
-* cd into gs-testing-web/complete
+* `git clone https://github.com/spring-guides/gs-testing-web.git`
+* `cd into gs-testing-web/complete`
 
 ### Step 2
 
@@ -92,4 +92,4 @@ class HttpRequestTest {
 
 ### REF
 
-https://spring.io/guides/gs/testing-web/
+- https://spring.io/guides/gs/testing-web/
