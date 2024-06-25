@@ -125,11 +125,13 @@ there are no real network connections made.
 
 ## Mockito Testing
 
-Mocking test is a big part of software development aside from Integration test as it is at low cost.
+* Mocking test is a big part of software development aside from Integration test as it is at low cost.
+* Mockito is a testing framework we use in Springboot project
+* Mockito is normally used in testing business logic, data repository and service layers.
 
 ### Mockito.mock() and @Mock
 
-@Mock annotation is a shorthand for the Mockito.mock() method.
+`@Mock` annotation is a shorthand for the Mockito.mock() method.
 
 If we are writing data repository or service level mocking testing, we could checkout the following example,
 
@@ -143,8 +145,6 @@ public void repositoryMock() {
     Mockito.verify(localMockRepository).count();
 }
 ```
-
-
 
 ```java
 @RunWith(MockitoJUnitRunner.class)
