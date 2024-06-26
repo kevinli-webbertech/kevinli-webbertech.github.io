@@ -278,6 +278,59 @@ private List<String> names;
 }
 ```
 
+## Testing Type
+
+### A. Functionality test (Unit test)
+
+* Integration Test
+
+Firing http calls to real database server or http server.
+
+Pros: You will see the real battle.
+Cons: You have to maintain those database and servers either hardware or software, with licenses maybe and it is costly.
+
+* Mocking Test
+
+1/ We only test the logic, functions….
+2/ When we test a function, we prep some data to pass into the function, and we know what the resultant data would come out, so we do assertion on the real result vs expected result.
+
+So mocking is faking. But we hydrate on the method as a blackbox thus, we compare in and out.
+
+Pros: It is cheap in a way of maintenance, but the development of tests are nontrivial. In a lot of time, the time spent in writing tests might take longer than you write the production code.
+
+Cons: time consuming in the initial development stage, but maintenance cost might lower.
+
+This will increase the test coverages and make sure the quality assurance criteria is met.
+
+Sonarcube, Test server (commercial). It will send the test report to these servers, and the server will tell you if you can release or not.
+
+### B. Performance Test/Stress Testing (Time, hardware, Resource...etc)
+
+Loop testing, stress testing for,
+
+* CPU/Memory consumption,
+* for load balancing,
+* for network,
+* for user behavior,
+* for speed
+
+### C. Security Test (Penetration Test)
+
+* Static code analysis.
+* Penetration (https://www.nist.gov/,)
+
+- https://www.imperva.com/learn/application-security/cve-cvss-vulnerability/
+- https://nvd.nist.gov/vuln-metrics/cvss
+- CVE Numbering Authority (CNA)
+- National Vulnerability Database (NVD)
+- Vulnerability Database (VULDB)
+- Security Content Automation Protocol (SCAP).
+
+### D. AB Testing(Comparison)
+
+Pixel to pixel
+
+
 ### REF
 
 - https://spring.io/guides/gs/testing-web/
