@@ -68,7 +68,7 @@ You should start Springboot project and re check that everything should work as 
 
 ### Ref
 
-https://projectlombok.org/features/Builder
+- https://projectlombok.org/features/Builder
 
 
 ## Part II Jackson fasterxml
@@ -77,7 +77,7 @@ These are the general purpose annotations for Jackson Data Processor, used on va
 
 In your pom.xml,
 
-```
+```xml
 <properties>
   ...
   <!-- Use the latest version whenever possible. -->
@@ -110,9 +110,9 @@ The builder syntax was builtin, and you do not have to implement the `return thi
 
 Let us checkout spring io's example, and learn it a little bit,
 
-* git clone https://github.com/spring-guides/gs-relational-data-access.git
+* `git clone https://github.com/spring-guides/gs-relational-data-access.git`
 
-* load cd into gs-relational-data-access/complete into your IntelliJ
+* cd into `gs-relational-data-access/complete` and load into your IntelliJ
 
 Let us take a look at the following code,
 
@@ -210,13 +210,15 @@ Use `?` for arguments to avoid SQL injection attacks by instructing JDBC to bind
 
 ### Build an executable JAR
 
-If you use Maven, you can run the application by using `./mvnw spring-boot:run`. Alternatively, you can build the JAR file with `./mvnw clean package` and then run the JAR file, as follows:
+If you use Maven, you can run the application by using `./mvnw spring-boot:run`. 
+Alternatively, you can build the JAR file with `./mvnw clean package` and,
+then run the JAR file, as follows:
 
 `java -jar target/gs-relational-data-access-0.1.0.jar`
 
 Finally, test your code.
 
 
-### Ref
+### REF
 
 https://spring.io/guides/gs/relational-data-access

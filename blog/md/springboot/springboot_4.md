@@ -117,6 +117,6 @@ you need to create the following file (which you can find in `src/main/resources
 
 When you restart the application, you will see the HTML at http://localhost:8080/.
 
-## Ref
+## REF
 
-https://spring.io/guides/gs/serving-web-content/
+- https://spring.io/guides/gs/serving-web-content/

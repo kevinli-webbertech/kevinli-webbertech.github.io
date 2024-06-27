@@ -111,7 +111,7 @@ ref
 
 Now you can create a web controller for a simple web application, as the following listing (from src/main/java/com/example/springboot/HelloController.java) shows:
 
-```
+```java
 package com.example.springboot;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -120,20 +120,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
 
-	@GetMapping("/")
-	public String index() {
-		return "Greetings from Spring Boot!";
-	}
-
+    @GetMapping("/")
+    public String index() {
+        return "Greetings from Spring Boot!";
+    }
+}
 ```
 
 ## Create an Application class
 
-```
+```java
 package com.example.springboot;
 
 import java.util.Arrays;
-
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -142,7 +141,6 @@ import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class Application {
-
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
@@ -150,7 +148,6 @@ public class Application {
 	@Bean
 	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
 		return args -> {
-
 			System.out.println("Let's inspect the beans provided by Spring Boot:");
 
 			String[] beanNames = ctx.getBeanDefinitionNames();
@@ -158,7 +155,6 @@ public class Application {
 			for (String beanName : beanNames) {
 				System.out.println(beanName);
 			}
-
 		};
 	}
 
@@ -215,7 +211,7 @@ If you use Gradle, add the following dependency to your build.gradle file:
 
 If you use Maven, add the following to your pom.xml file:
 
-```
+```xml
 <dependency>
 	<groupId>org.springframework.boot</groupId>
 	<artifactId>spring-boot-starter-test</artifactId>
@@ -225,15 +221,13 @@ If you use Maven, add the following to your pom.xml file:
 
 Write a simple test file like the following `src/test/java/com/example/springboot/HelloControllerTest.java`
 
-```
+```java
 package com.example.springboot;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 import org.junit.jupiter.api.Test;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -261,16 +255,14 @@ MockMvc comes from Spring Test and lets you, through a set of convenient builder
 
 As well as mocking the HTTP request cycle, you can also use Spring Boot to write a simple full-stack integration test. For example, instead of (or as well as) the mock test shown earlier, we could create the following test (from src/test/java/com/example/springboot/HelloControllerIT.java):
 
-```
+```java
 package com.example.springboot;
 
 import org.junit.jupiter.api.Test;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.ResponseEntity;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -324,8 +316,6 @@ Check the external libraries in your file explorer, and find out what have been 
 In the extreme case if you suspect that IntelliJ is cached bad stuff or messed up, you should run in commandline way to run the project, if you still see the missing symbols of clasess, then you need to check in your external libraries in your file explorer.
 
 
-
-
 ## Lab 2 - Starting with Spring Initializr
 
 You can use this pre-initialized project and click Generate to download a ZIP file. This project is configured to fit the examples in this tutorial.
@@ -372,7 +362,7 @@ If you use Gradle, add the following dependency to your build.gradle file:
 
 If you use Maven, add the following dependency to your pom.xml file:
 
-```
+```xml
 <dependency>
 	<groupId>org.springframework.boot</groupId>
 	<artifactId>spring-boot-starter-actuator</artifactId>
@@ -410,10 +400,7 @@ The actuator exposes the following:
 
 - actuator
 
-```
-
 There is also an /actuator/shutdown endpoint, but, by default, it is visible only through JMX. To enable it as an HTTP endpoint, add management.endpoint.shutdown.enabled=true to your application.properties file and expose it with management.endpoints.web.exposure.include=health,info,shutdown. However, you probably should not enable the shutdown endpoint for a publicly available application.
-```
 
 You can check the health of the application by running the following command:
 
@@ -435,4 +422,6 @@ The various guides demonstrate this dual support through the spring-boot-gradle-
 - Jetty
 - Tomcat
 
-ref: https://spring.io/guides/gs/spring-boot
+### REF
+
+- https://spring.io/guides/gs/spring-boot

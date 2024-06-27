@@ -423,4 +423,4 @@ done
 
 ## Ref
 
-- https://devhints.io/bash
+-https://devhints.io/bash

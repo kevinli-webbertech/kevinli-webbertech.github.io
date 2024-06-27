@@ -972,7 +972,6 @@ Most used commands:
       The package selection is unknown.  A package that is also in a not-installed state, and
       with an ok flag will be forgotten in the next database store.
 
-
 ## Ref
 
 * <https://man7.org/tlpi/index.html>
