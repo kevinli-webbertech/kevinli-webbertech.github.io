@@ -182,4 +182,3 @@ There are two types of pathnames in Linux:
 
 Understanding and troubleshooting filesystem errors is crucial for maintaining system health. Common commands and logs to inspect include `dmesg`, `journalctl`, and specific filesystem repair tools like `e2fsck` for ext filesystems.
 
-___
