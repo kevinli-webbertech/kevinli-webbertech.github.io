@@ -36,18 +36,18 @@ Spring Security’s high-level architecture within Servlet based applications is
 
 Spring provides a Filter implementation named DelegatingFilterProxy that allows bridging between the Servlet container’s lifecycle and Spring’s ApplicationContext. The Servlet container allows registering Filter instances by using its own standards, but it is not aware of Spring-defined Beans. You can register DelegatingFilterProxy through the standard Servlet container mechanisms but delegate all the work to a Spring Bean that implements Filter.
 
-![alt text](https://kevinli-webbertech.github.io/blog/images/springboot/DelegatingFilterProxy.png)
+![alt text](https://kevinli-webbertech.github.io/blog/images/springboot/DelegatingFilterProxy.png=200*200)
 
 **FilterChainProxy**
 
 Spring Security’s Servlet support is contained within FilterChainProxy. FilterChainProxy is a special Filter provided by Spring Security that allows delegating to many Filter instances through SecurityFilterChain. Since FilterChainProxy is a Bean, it is typically wrapped in a DelegatingFilterProxy.
 
 
-![alt text](https://kevinli-webbertech.github.io/blog/images/springboot/FilterChainProxy.png)
+![alt text](https://kevinli-webbertech.github.io/blog/images/springboot/FilterChainProxy.png=200*200)
 
 **SecurityFilterChain**
 
-![alt text](https://kevinli-webbertech.github.io/blog/images/springboot/SecurityFilterChain.png)
+![alt text](https://kevinli-webbertech.github.io/blog/images/springboot/SecurityFilterChain.png=200*200)
 
 SecurityFilterChain is used by FilterChainProxy to determine which Spring Security Filter instances should be invoked for the current request.
 
@@ -58,7 +58,7 @@ Second, since FilterChainProxy is central to Spring Security usage, it can perfo
 
 In addition, it provides more flexibility in determining when a SecurityFilterChain should be invoked. In a Servlet container, Filter instances are invoked based upon the URL alone. However, FilterChainProxy can determine invocation based upon anything in the HttpServletRequest by using the RequestMatcher interface.
 
-![alt text](https://kevinli-webbertech.github.io/blog/images/springboot/MultipleSecurityChain.png)
+![alt text](https://kevinli-webbertech.github.io/blog/images/springboot/MultipleSecurityChain.png=200*200)
 
 ```java
 @Configuration
@@ -80,7 +80,7 @@ public class SecurityConfig {
 }
 ```
 
-![alt text](https://kevinli-webbertech.github.io/blog/images/springboot/filterOrder.png)
+![alt text](https://kevinli-webbertech.github.io/blog/images/springboot/filterOrder.png=200*200)
 
 ## Securing a Web Application
 
