@@ -51,3 +51,33 @@ You do not have to use the DATE function, or any other function, to calculate th
 ![alt text](https://kevinli-webbertech.github.io/blog/images/ref/excel/homework2-1.png)
 
 Remember to change the Format for the “Days in between” cell to the number format. Select `Format > Cells` and choose the `Number` Category.
+
+* Working with Text
+
+UPPER, LOWER, PROPER, TRIM Functions
+
+Syntax:
+    
+`UPPER(text)` Changes text to all uppercase.
+`LOWER(text)` Changes text to all lowercase.
+`PROPER(text)` Changes text to title case.
+`TRIM(text)` where text is the text value to remove the leading and trailing spaces from.
+`CONCATENATE(text1, text2)` are 1 to 30 text items to be joined into a single text item. The text items can
+be text strings, numbers, or single-cell references.
+
+![alt text](https://kevinli-webbertech.github.io/blog/images/ref/excel/homework2-2.png)
+
+![alt text](https://kevinli-webbertech.github.io/blog/images/ref/excel/homework2-3.png)
+
+- PROPER and TRIM Functions combined
+
+Functions can be combined to complete multiple tasks at once.
+
+![alt text](https://kevinli-webbertech.github.io/blog/images/ref/excel/homework2-4.png)
+
+- Concatenate example
+
+![alt text](https://kevinli-webbertech.github.io/blog/images/ref/excel/homework2-5.png)
+
+The “&” operator can be used instead of CONCATENATE to join text items.
+
