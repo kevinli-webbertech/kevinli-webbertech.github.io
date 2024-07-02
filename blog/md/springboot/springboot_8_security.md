@@ -41,7 +41,6 @@ Spring provides a Filter implementation named DelegatingFilterProxy that allows 
 
 Spring Security’s Servlet support is contained within FilterChainProxy. FilterChainProxy is a special Filter provided by Spring Security that allows delegating to many Filter instances through SecurityFilterChain. Since FilterChainProxy is a Bean, it is typically wrapped in a DelegatingFilterProxy.
 
-
 ![alt text](https://kevinli-webbertech.github.io/blog/images/springboot/FilterChainProxy.png)
 
 **SecurityFilterChain**
