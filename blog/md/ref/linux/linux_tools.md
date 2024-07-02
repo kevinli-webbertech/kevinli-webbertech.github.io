@@ -4,8 +4,7 @@ In my example, I mostly use ubuntu 22 LTS when I wrote this article.
 What have been covered in this articles are:
 
 * Samba server
-* SSH server 
-
+* SSH server
 
 ## Samba Server
 
@@ -43,6 +42,7 @@ To start a Samba server (also known as a Samba "driver") on a Linux system, you 
 sudo apt update
 sudo apt install samba
 ```
+
 ### Configuration
 
 Configure Samba:
@@ -85,7 +85,7 @@ Check the Samba configuration for any syntax errors, `testparm`.
 
 ### Access the Share
 
-From a Windows machine or another Samba client, you can access the share by navigating to 
+From a Windows machine or another Samba client, you can access the share by navigating to
 `\\hostname\shared` where hostname is the name of your Samba server.
 
 for Example, from Mac, you can do this,
@@ -94,9 +94,8 @@ for Example, from Mac, you can do this,
 
 ### Check logs
 
-If you encounter any issues, checking the Samba logs can be helpful. They are usually located in 
+If you encounter any issues, checking the Samba logs can be helpful. They are usually located in
 `/var/log/samba/`
-
 
 ## SSH Server
 
@@ -125,7 +124,6 @@ Fedora:
 
 `sudo dnf install openssh-server`
 
-
 ### Starting the SSH Service
 
 Debian/Ubuntu:
@@ -144,7 +142,7 @@ sudo systemctl enable sshd
 
 ### Configuration
 
-The main configuration file for OpenSSH is /etc/ssh/sshd_config. You can modify this file to change settings like the default port, authentication methods, and more. 
+The main configuration file for OpenSSH is /etc/ssh/sshd_config. You can modify this file to change settings like the default port, authentication methods, and more.
 
 * Change the SSH Port:
 
@@ -191,4 +189,3 @@ By default, SSH listens on port 22. You can change this to a different port for 
 * Only allowed IP can access and use firewall
 
 Use a Firewall: Ensure that only trusted IP addresses can access your SSH server. You can configure this using tools like ufw (Uncomplicated Firewall) or firewalld.
-
