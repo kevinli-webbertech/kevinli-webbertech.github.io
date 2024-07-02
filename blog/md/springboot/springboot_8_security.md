@@ -35,7 +35,7 @@ Spring Security’s high-level architecture within Servlet based applications is
 
 Spring provides a Filter implementation named DelegatingFilterProxy that allows bridging between the Servlet container’s lifecycle and Spring’s ApplicationContext. The Servlet container allows registering Filter instances by using its own standards, but it is not aware of Spring-defined Beans. You can register DelegatingFilterProxy through the standard Servlet container mechanisms but delegate all the work to a Spring Bean that implements Filter.
 
-![alt text](https://kevinli-webbertech.github.io/blog/images/springboot/DelegatingFilterProxy.png=200*200)
+![alt text](https://kevinli-webbertech.github.io/blog/images/springboot/DelegatingFilterProxy.png)
 
 **FilterChainProxy**
 
@@ -197,8 +197,6 @@ logback.xml
     </logger>
 </configuration>
 ```
-
-
 
 ## Securing a Web Application
 ## Securing a SPA(single app application)
