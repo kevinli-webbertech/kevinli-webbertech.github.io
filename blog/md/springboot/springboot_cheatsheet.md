@@ -83,7 +83,31 @@ Three things we need to understand,
 
 For example, application components (@Component, @Service, @Repository, @Controller etc.) are automatically registered as Spring Beans.
 
+### Bean scope
 
+When defining a <bean> you have the option of declaring a scope for that bean. For example, to force Spring to produce a new bean instance each time one is needed, you should declare the bean's scope attribute to be prototype. Similarly, if you want Spring to return the same bean instance each time one is needed, you should declare the bean's scope attribute to be singleton.
+
+* `1 singleton`
+
+This scopes the bean definition to a single instance per Spring IoC container (default).
+
+* `2 prototype`
+
+This scopes a single bean definition to have any number of object instances.
+
+* `3 request`
+
+This scopes a bean definition to an HTTP request. Only valid in the context of a web-aware Spring ApplicationContext.
+
+* `4 session`
+
+This scopes a bean definition to an HTTP session. Only valid in the context of a web-aware Spring ApplicationContext.
+
+* `5 global-session`
+
+This scopes a bean definition to a global HTTP session. Only valid in the context of a web-aware Spring ApplicationContext.
+
+### Bean properties
 
 All the above configuration metadata translates into a set of the following properties that make up each bean definition.
 
@@ -125,7 +149,31 @@ A callback to be called just after all necessary properties on the bean have bee
 
 A callback to be used when the container containing the bean is destroyed. It will be discussed in bean life cycle chapter.
 
+Ref:
 
+https://www.tutorialspoint.com/spring
+
+### Bean life cycle
+
+**Initialization callbacks**
+
+The `org.springframework.beans.factory.InitializingBean` interface specifies a single method −
+
+```java
+public class ExampleBean implements InitializingBean {
+   public void afterPropertiesSet() {
+      // do some initialization work
+   }
+}
+```
+
+**Destruction callbacks**
+
+public class ExampleBean implements DisposableBean {
+   public void destroy() {
+      // do some destruction work
+   }
+}
 
 ## Annotations
 
