@@ -198,8 +198,8 @@ logback.xml
 ```
 
 ## Securing a Web Application
-## Securing a SPA(single app application)
 
+## Securing a SPA(single app application)
 
 ### Ref
 
