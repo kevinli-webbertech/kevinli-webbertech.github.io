@@ -197,7 +197,10 @@ logback.xml
 </configuration>
 ```
 
-## Securing a Web Application
+## Lab: Securing a Web Application
+
+
+
 
 ## Securing a SPA(single app application)
 
