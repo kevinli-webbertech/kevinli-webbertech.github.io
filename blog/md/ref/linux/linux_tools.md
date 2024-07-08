@@ -213,5 +213,11 @@ Check where it is installed,
 ```bash
 xiaofengli@xiaofenglx:~/code/scanhub$ which apache2
 /usr/sbin/apache2
+
+xiaofengli@xiaofenglx:/etc/init.d$ ls -al apache2
+-rwxr-xr-x 1 root root 8181 Dec  4  2023 apache2
 ```
 
+Check the above startup script in `/etc/init.d` dir,
+
+![apache2](apache2.png)
