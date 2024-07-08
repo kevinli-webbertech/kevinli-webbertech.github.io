@@ -189,3 +189,29 @@ By default, SSH listens on port 22. You can change this to a different port for 
 * Only allowed IP can access and use firewall
 
 Use a Firewall: Ensure that only trusted IP addresses can access your SSH server. You can configure this using tools like ufw (Uncomplicated Firewall) or firewalld.
+
+
+## Apache2
+
+Apache2 is the http server.
+
+`sudo service apache2 restart`
+
+`sudo service apache2 reload`
+
+Also to start/stop/reload/restart apache on Ubuntu, you can use:
+
+```bash
+sudo start apache2
+sudo stop apache2
+sudo reload apache2
+sudo restart apache2
+```
+
+Check where it is installed,
+
+```bash
+xiaofengli@xiaofenglx:~/code/scanhub$ which apache2
+/usr/sbin/apache2
+```
+
