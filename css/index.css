@@ -46,12 +46,10 @@
   margin-top: 80px;
 }
 
-
 .footer {
   margin: auto auto;
   text-align: center;
 }
-
 
 /* Clear floats after the columns */
 .row:after {
@@ -69,15 +67,6 @@
   /*align-items: center;*/
   margin-left:50px;
 }
-
-/* not being used 
-.grid-item {
-  text-align: center;
-}
-
-section #description {
-  padding-left: 50px;
-} */
 
 #nav_menu  ul{
   position: fixed;

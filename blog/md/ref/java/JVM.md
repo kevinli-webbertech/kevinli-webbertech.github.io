@@ -1,21 +1,25 @@
 # JVM (Java Virtual Machine) Architecture
 
 ## What is JVM?
+
 The JVM (Java Virtual Machine) is an abstract machine that provides a runtime environment to execute Java bytecode.
 
 ## Key Points
+
 - The JVM is a specification with multiple implementations (JRE).
 - It loads, verifies, and executes Java bytecode.
 - The JVM consists of various components like class loaders, memory areas, and execution engines.
 - Understanding JVM internals helps in debugging and optimizing Java applications.
 
 ## Java Code Execution Process
-#### 1. **Class Loader**: Loads Java bytecode into runtime memory areas.
-#### 2. **Runtime Data Areas**: Memory areas where the bytecode is loaded.
-#### 3. **Execution Engine**: Executes the Java bytecode.
+
+**Class Loader**: Loads Java bytecode into runtime memory areas.
+**Runtime Data Areas**: Memory areas where the bytecode is loaded.
+**Execution Engine**: Executes the Java bytecode.
 
 ### Class Load Stages
-#### 1. **Loading**: Obtains the class and loads it into memory.
+
+**Loading**: Obtains the class and loads it into memory.
 
 ***Example of JVM ClassLoader:***
 
@@ -42,15 +46,19 @@ ClassLoader of String class: null
 
 ***Note:*** This output indicates that the `ClassLoaderExample` class is loaded by the application class loader, while the `String` class, which is part of the Java core libraries, is loaded by the bootstrap class loader.
 
-#### 2. **Verifying**: Ensures the class file is correct and safe.
-#### 3. **Preparing**: Allocates memory for class variables and sets default values.
-#### 4. **Resolving**: Converts symbolic references to direct references.
-#### 5. **Initializing**: Initializes static variables and runs static blocks.
+**Verifying**: Ensures the class file is correct and safe.
+
+**Preparing**: Allocates memory for class variables and sets default values.
+
+**Resolving**: Converts symbolic references to direct references.
+
+**Initializing**: Initializes static variables and runs static blocks.
 
 ### Runtime Data Areas
+
 Memory areas used by JVM during execution:
 
-#### 1. **Method Area**: Stores class-level data like fields and methods.
+**Method Area**: Stores class-level data like fields and methods.
 
 ### Class (Method) Area Example
 
@@ -65,7 +73,7 @@ public class MethodAreaExample {
 }
 ```
 
-#### 2. **Heap**: Stores all objects and instance variables.
+**Heap**: Stores all objects and instance variables.
 
 ***Heap Example:***
 
@@ -83,7 +91,7 @@ class MyClass {
 }
 ```
 
-#### 3. **Stack**: Stores method call frames, local variables, and partial results.
+**Stack**: Stores method call frames, local variables, and partial results.
 
 ***Stack Example 1:***
 
@@ -129,9 +137,9 @@ public class StackExample {
 }
 ```
 
+**PC (Program Counter) Register**: Holds the address of the current instruction.
 
-#### 4. **PC (Program Counter) Register**: Holds the address of the current instruction.
-#### 5. **Native Method Stack**: Supports native methods written in other languages.
+**Native Method Stack**: Supports native methods written in other languages.
 
 ***Native Method Stack Example:***
 
@@ -153,10 +161,10 @@ public class NativeMethodExample {
 
 **Note:** The above code requires a corresponding native library (`nativeLib`) and native method implementation, which would be written in C/C++.
 
+**Execution Engine**
 
-#### 7. **Execution Engine**
-    - Executes the bytecode.
-    1.  **Interpreter**: Reads and executes bytecode instructions.
+- Executes the bytecode.
+**Interpreter**: Reads and executes bytecode instructions.
 
 ***Execution Engine Example:***
 
@@ -174,7 +182,7 @@ public class ExecutionEngineExample {
 }
 ```
 
-#### 2. **Just-In-Time (JIT) Compiler**: Compiles bytecode into native code for performance.
+**Just-In-Time (JIT) Compiler**: Compiles bytecode into native code for performance.
 
 ***Example: JIT Compilation:***
 
@@ -189,19 +197,22 @@ public class JITExample {
     }
 }
 ```
+
 The JIT compiler optimizes this code by compiling the loop to native code, reducing memory access overhead.
 
 ### Garbage Collector
+
 Automatically reclaims memory by removing unreferenced objects.
 
 ### Types of Garbage Collectors
-#### 1. **Serial GC**: Single-threaded, for small applications.
-#### 2. **Parallel GC**: Multi-threaded, default in JVM.
-#### 3. **G1 GC (Garbage First)**: For large heap sizes, prioritizes garbage collection in regions with the most garbage.
 
+**Serial GC**: Single-threaded, for small applications.
 
+**Parallel GC**: Multi-threaded, default in JVM.
 
-#### 8. **Java Native Interface (JNI)**
+**G1 GC (Garbage First)**: For large heap sizes, prioritizes garbage collection in regions with the most garbage.
+
+**Java Native Interface (JNI)**
     - Allows Java code to interact with code written in other languages like C and C++.
 
 ### Java Native Interface (JNI) Example
@@ -223,17 +234,17 @@ public class JniExample {
 **Note:** This requires a native implementation of `nativeMethod` in a library named `nativeLib`.
 
 ### Common JVM Errors
-#### 1. **ClassNotFoundException**: Class loader can’t find the class.
-#### 2. **NoClassDefFoundError**: Class file found during compile time but not at runtime.
-#### 3. **OutOfMemoryError**: JVM runs out of memory.
-#### 4. **StackOverflowError**: JVM stack exceeds its limit.
+
+**ClassNotFoundException**: Class loader can’t find the class.
+**NoClassDefFoundError**: Class file found during compile time but not at runtime.
+**OutOfMemoryError**: JVM runs out of memory.
+**StackOverflowError**: JVM stack exceeds its limit.
 
 ### Conclusion
+
 Understanding the JVM's structure helps in writing efficient Java code and troubleshooting runtime issues. While many Java developers may not delve deep into the JVM internals, having this knowledge can be incredibly beneficial for optimizing and debugging Java applications.
 
 ___
-
----
 
 ## Additional Topics
 
@@ -320,13 +331,13 @@ java -XX:NewRatio=2 -XX:SurvivorRatio=8 -XX:MaxGCPauseMillis=200 -jar MyApplicat
 
 ### JVM Monitoring and Profiling
 
-1. **Java Flight Recorder (JFR)**
+**Java Flight Recorder (JFR)**
 
 ```sh
 java -XX:StartFlightRecording=duration=60s,filename=recording.jfr -jar MyApplication.jar
 ```
 
-2. **Mission Control**
+**Mission Control**
 
 ```sh
 # Start Mission Control
@@ -539,11 +550,8 @@ public class InputValidationExample {
 }
 ```
 
-
 ### JVM Ecosystem and Community
 
 - **OpenJDK**: The reference implementation of the Java Platform, Standard Edition.
 - **AdoptOpenJDK**: Provides prebuilt OpenJDK binaries for various platforms.
 - **JCP (Java Community Process)**: Allows the community to participate in the evolution of Java standards.
-
----

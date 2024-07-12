@@ -221,3 +221,40 @@ xiaofengli@xiaofenglx:/etc/init.d$ ls -al apache2
 Check the above startup script in `/etc/init.d` dir,
 
 ![apache2](apache2.png)
+
+
+## SendMail
+
+### Installation
+
+`sudo apt update && sudo apt upgrade -y `
+
+`sudo apt install -y sendmail sendmail-cf mailutils`
+
+### Configure Sendmail
+
+The main configuration file for Sendmail is /etc/mail/sendmail.cf. However, it is recommended to make changes to the .mc file (e.g., /etc/mail/sendmail.mc) and then generate the .cf file. This makes the configuration process easier and less error-prone.
+
+To configure Sendmail, open the /etc/mail/sendmail.mc file using your preferred text editor:
+
+`sudo nano /etc/mail/sendmail.mc`
+
+Ensure the following lines are present and uncommented in the file:
+
+```bash
+define(`SMART_HOST', `your.smtp.server')dnl
+define(`confAUTH_MECHANISMS', `EXTERNAL GSSAPI DIGEST-MD5 CRAM-MD5 LOGIN PLAIN')dnl
+FEATURE(`authinfo',`hash -o /etc/mail/authinfo.db')dnl
+```
+
+### Set Up Authentication (Optional)
+
+If your SMTP server requires authentication, create the /etc/mail/authinfo file with the following contents:
+
+AuthInfo:your.smtp.server "U:your_username" "P:your_password" "M:PLAIN"
+
+Replace your.smtp.server, your_username, and your_password with the appropriate values for your SMTP server.
+
+To create the authentication database, run:
+
+`sudo makemap hash /etc/mail/authinfo < /etc/mail/authinfo`
