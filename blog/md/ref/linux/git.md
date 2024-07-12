@@ -31,6 +31,48 @@ initialize an existing directory as a Git repository
 
 retrieve an entire repository from a hosted location via URL
 
+`git clone --depth <number> [url]`
+
+
+Limits the history to a specified number of commits.
+
+Example:
+
+`git clone --depth 5 [url]`
+
+This command will clone the repository with the latest 5 commits.
+
+
+
+`git clone --shallow-since=<date> [url]`
+
+allows you to clone the repository with commits after a specific date
+
+Example:
+
+`git clone --shallow-since=2021-01-01 [url]`
+
+This command will clone the repository with commits made after January 1, 2021.
+
+`git clone --shallow-exclude=<revision> [url]`
+
+excludes commits reachable from a specified revision.
+
+Example:
+
+`git clone --shallow-exclude=<commit-hash> [url]`
+
+This command will clone the repository and exclude commits reachable from the specified commit hash.
+
+`git clone --branch <branch-name> --single-branch --depth <number> [url]`
+
+allows you to clone a specific branch with a limited history
+
+Example:
+
+`git clone --branch feature-branch --single-branch --depth 3 [url]`
+
+This command will clone only the feature-branch with the latest 3 commits.
 
 **STAGE & SNAPSHOT**
 
@@ -190,11 +232,127 @@ system wide ignore patern for all local repositories
 
 **REWRITE HISTORY** 
 
-Rewriting branches, updating commits and clearing history
+**Rewriting branches, updating commits and clearing history**
 
 `git rebase [branch]`
 
-apply any commits of current branch ahead of specified one
+Reapply the commits from the current branch onto the specified branch, effectively changing the base of the current branch to the specified branch.
+
+**Example 1: Basic Rebase**
+
+Let's assume we have the following commit history:
+
+main: A---B---C
+             \
+              D---E---F feature
+
+We want to rebase the feature branch onto main to incorporate the latest changes from main:
+
+`git checkout feature`
+
+`git rebase main`
+
+After rebasing, the commit history will look like:
+
+main: A---B---C
+                 \
+                  D'---E'---F' feature
+
+
+`git rebase -i [commit]`
+
+Interactively rebase the current branch onto [commit].The -i flag stands for "interactive." It allows you to interactively rebase your commits, which means you can choose to edit, reorder, squash, or drop commits.
+
+**Example 2: Interactive Rebase (git rebase -i)**
+
+Suppose we have the following commit history on a branch:
+
+feature: A---B---C---D---E
+
+We want to squash the commits C and D together and reword the commit message of E:
+
+`git checkout feature`
+
+`git rebase -i HEAD~3`
+
+This will open an editor with the last three commits:
+
+pick C Commit message for C
+
+pick D Commit message for D
+
+pick E Commit message for E
+
+We can modify it to:
+
+pick C Commit message for C
+
+squash D Commit message for D
+
+reword E Commit message for E
+
+After saving and closing the editor, Git will prompt you to modify the commit messages. After making the necessary changes, the commit history will look like:
+
+feature: A---B---C'---E'
+
+`git rebase --continue`
+
+Continue the rebase process after resolving conflicts.
+
+**Example 3: Continue a Rebase**
+
+`git rebase main`
+
+`git add <resolved-files>`
+
+`git rebase --continue`
+
+
+`git rebase --abort`
+
+Abort the rebase and return to the original state
+
+**Example 4: Abort a Rebase**
+
+`git rebase main`
+
+`git rebase --abort`
+
+`git rebase --skip`
+
+Skip the commit that caused conflicts.
+
+**Example 4: Skip a Commit**
+
+`git rebase main`
+
+`git rebase --skip`
+
+
+
+`git rebase -onto [newbase] [upstream] [branch]`
+
+Rebase selected commits onto another base.
+
+**Example 5: Rebase with a Conflict Resolution**
+
+Imagine you have the following history:
+
+main: A---B
+             \
+              C---D feature
+
+You start a rebase and encounter a conflict:
+
+`git checkout feature`
+
+`git rebase main`
+
+**Resolve conflicts in the files**
+
+`git add <resolved-files>`
+
+`git rebase --continue`
 
 `git reset --hard [commit]`
 
@@ -203,10 +361,6 @@ clear staging area, rewrite working tree from specified commit
 `git revert [commit]`
 
 Create a new commit that undoes the changes made in the specified commit.
-
-`git rebase -i [commit]`
-
-Interactively rebase the current branch onto [commit].
 
 `git reset --soft [commit]`
 
@@ -226,9 +380,14 @@ Change the commit message of the most recent commit.
 
 Perform a fast-forward merge, failing if not possible.
 
-`git rebase -i [commit]`
+`git merge --no-ff [branch]`
 
-Squash commits into one.
+Perform a merge and always create a merge commit, even if a fast-forward is possible.
+
+`git merge --squash [branch]`
+
+Merge the changes from the specified branch, but do not create a merge commit. Instead, stage all the changes and prepare them to be committed in a single commit.
+
 
 `git clone --depth 1 [url]`
 
