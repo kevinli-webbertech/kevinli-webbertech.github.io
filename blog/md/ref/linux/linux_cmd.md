@@ -199,23 +199,18 @@ will overwrite the output to fil2.txt
 
 ### cut examples
 
-```
+```bash
 touch words.txt
 
 happy
 world
 hello John
 
-[img missing]
 List without ranges:
+
 cut -b 1,2,3 state.txt
 
-[img missing]
-
 cut -b 1-3,5-7 state.txt
-
-[img missing]
-
 ```
 
 Special Form: Selecting bytes from beginning to end of line
@@ -283,9 +278,7 @@ Zoe
 
 To sort the names alphabetically, you can use the `sort` command like this:
 
-```bash
-sort names.txt
-```
+`sort names.txt`
 
 This will output:
 
@@ -313,39 +306,34 @@ Alice
 
 You can also use `sort` to sort the output of a command. For example, if you have a list of numbers stored in a file called `numbers.txt`, you can sort them like this:
 
-```
-cat numbers.txt | sort -n
-```
+`cat numbers.txt | sort -`
 
 This will sort the numbers numerically in ascending order. If you want to sort them in descending order, you can use:
 
-```
-cat numbers.txt | sort -n -r
-```
+`cat numbers.txt | sort -n -r`
 
-### sed examples 
+### sed examples
 
-sed 's/old/new/' file.txt                       Substitute (replace) text
-sed '/pattern/i\new line of text' file.txt       Insert text before a line
+`sed 's/old/new/' file.txt`         Substitute (replace) text
+`sed '/pattern/i\new line of text' file.txt`       Insert text before a line
 
-### tr Example: 
+### tr Example
 
-echo "hello world" | tr 'a-z' 'A-Z'              Translate lowercase to uppercase
+`echo "hello world" | tr 'a-z' 'A-Z'`              Translate lowercase to uppercase
 
-echo "hello 123 world" | tr -d '0-9'             Delete specific characters
+`echo "hello 123 world" | tr -d '0-9'`             Delete specific characters
 
-### awk Example: 
+### awk Example
 
-awk '{print $1, $3}' file.txt                   Print specific columns
+`awk '{print $1, $3}' file.txt`                   Print specific columns
 
-awk '{sum += $1} END {print sum}' file.txt       Sum the values of a column
+`awk '{sum += $1} END {print sum}' file.txt`       Sum the values of a column
 
-rev Example: 
+## rev Example
 
-echo "hello" | rev                              Reverse a single line
+`echo "hello" | rev`                              Reverse a single line
 
-rev file.txt                                    Reverse the content of a file
-```
+`rev file.txt`                                    Reverse the content of a file
 
 
 ## Text find, replace and regex
@@ -442,15 +430,14 @@ rsync -avz host1:[path1] [path2] Synchronize [path1] on the remote host host1 to
 * `sudo` Superuser; use this before a command that requires root access e.g., su shutdown
 * `last reboot` Show reboot history.
 
-
 ```bash
 COMMAND	  DESCRIPTION
 
-`uname -a`	Detailed Linux system information
+`uname -a` Detailed Linux system information
 
-`uname -r`	Kernel release information, such as kernel version
+`uname -r` Kernel release information, such as kernel version
 
-`hostname -I`	Display IP address of host
+`hostname -I` Display IP address of host
 
 `cat /etc/*-release` Show the version of the Linux distribution installed. For example, if you’re using Red Hat Linux, you may replace * with redhat.
 ```
@@ -470,7 +457,7 @@ These commands provide details about the hardware supporting your Linux machine.
 
 `cat /proc/cpuinfo`
 
-`cat /proc/meminfo` 
+`cat /proc/meminfo`
 
 ### Display PCI devices examples
 
@@ -508,11 +495,11 @@ These commands provide storage details regarding your Linux machine.
 **usage and options**
 
 ```bash
-du -ah	Disk usage in human readable format (KB, MB etc.)
-du -sh	Total disk usage of the current directory
-du -h	Free and used space on mounted filesystems
-du -i	Free and used inodes on mounted filesystems
-fdisk -l	List disk partitions, sizes, and types
+du -ah Disk usage in human readable format (KB, MB etc.)
+du -sh Total disk usage of the current directory
+du -h Free and used space on mounted filesystems
+du -i Free and used inodes on mounted filesystems
+fdisk -l List disk partitions, sizes, and types
 free -h	Display free and used memory in human readable units.
 free -m	Display free and used memory in MB.
 free -g	Display free and used memory in GB.
@@ -722,12 +709,11 @@ OR
 
 `# systemctl --type=service`
 
-```
-# systemctl list-units --type=service --state=active
+`# systemctl list-units --type=service --state=active`
 OR
-# systemctl --type=service --state=active
 
-```
+`# systemctl --type=service --state=active`
+
 
 <https://www.tecmint.com/list-all-running-services-under-systemd-in-linux/>
 
@@ -735,9 +721,7 @@ OR
 
 <https://www.ninjaone.com/blog/how-to-configure-a-linux-firewall/#:~:text=After%20you%20configure%20a%20Linux,traffic%20based%20on%20predefined%20rules>.
 
-
 ## File Commands
-
 
 `ln`: Creates hard and symbolic links.
 
@@ -798,10 +782,11 @@ exec 3<&-  # Close file descriptor 3
 
 Example: strace -e trace=file ls
 
-
 ## Pipe
+
 The pipe (|) in Linux allows you to chain multiple commands together, sending the output of one command as input to another command.
 `[command1] | [command 2]`
+
 Basic Example:
 
 `ps aux | grep python3 `: This command lists all running processes (ps aux) and pipes (|) the output to grep python3, which filters out lines containing python3.
@@ -814,7 +799,6 @@ Basic Example:
 ## Redirection
 
 The redirect operator >, <, >>, 2>.
-
 
 COMMAND              DESCRIPTION
 
@@ -837,6 +821,7 @@ COMMAND              DESCRIPTION
 `cmd < file`         Read input of cmd from file.
 
 `cmd << delim`       Read input of cmd from the standard input with the delimiter character delim to tell the system where to terminate the input. Example for counting the number of lines of ad-hoc input:
+
 ```bash
 wc -l << EOF
 I like
@@ -845,6 +830,7 @@ and
 oranges.
 EOF
 ```
+
 Hence there are only 4 lines in the standard input delimited by EOF.
 
 `cmd <<< string` Input a text string to cmd.
@@ -856,14 +842,6 @@ Hence there are only 4 lines in the standard input delimited by EOF.
 `cmd &> file`    Redirect output and error messages of cmd to file.
 
 `cmd &>> file`   Append output and error messages of cmd to file.
-
-
-
-
-
-
-
-
 
 ## Package and software management (debian)
 
