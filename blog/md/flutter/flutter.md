@@ -149,5 +149,3 @@ To install, write, and compile Flutter code, you need the following requirements
       - Click on the `Device Manager` tab on the right of your Android Studio window.
       - Click on the `+` sign to choose `Create Virtual Device`.
       - Select your desired hardware and download the necessary system image.
-
-___
