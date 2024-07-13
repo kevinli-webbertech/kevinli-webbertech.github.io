@@ -16,29 +16,34 @@ To install, write, and compile Flutter code, you need the following requirements
    - Flutter supports Debian Linux 11 or later and Ubuntu Linux 20.04 LTS or later.
 
 - **Development tools on Linux**
-   1. Verify that you have the following tools installed: `bash`, `file`, `mkdir`, `rm`, `which`
-    ```shell
+
+1. Verify that you have the following tools installed: `bash`, `file`, `mkdir`, `rm`, `which`
+
+```shell
     which bash file mkdir rm which
     /bin/bash
     /usr/bin/file
     /bin/mkdir
     /bin/rm
     which: shell built-in command
-    ```
+```
 
-   2. Install the following packages: `curl`, `git`, `unzip`, `xz-utils`, `zip`, `libglu1-mesa`
-    ```shell
+2. Install the following packages: `curl`, `git`, `unzip`, `xz-utils`, `zip`, `libglu1-mesa`
+
+```shell
     sudo apt-get update -y && sudo apt-get upgrade -y;
     sudo apt-get install -y curl git unzip xz-utils zip libglu1-mesa
-    ```
+```
 
-   3. Install Git (if you do not have it)
-    ```shell
+3. Install Git (if you do not have it)
+
+```shell
     sudo apt update
     sudo apt install git
-    ```
+```
 
-   4. Install Flutter for Linux
+4. Install Flutter for Linux
+
    - [Download Flutter for Linux](https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.22.2-stable.tar.xz)
    - Extract the file to your desired location.
    - Navigate to the `bin` folder in your command terminal.
@@ -48,7 +53,8 @@ To install, write, and compile Flutter code, you need the following requirements
    - Scroll to the bottom of the file and add `export PATH="$PATH:<paste your path here>"`.
    - To verify the path, restart your command terminal and type `which flutter`; you should see the Flutter path.
 
-   5. Install Android Studio
+5. Install Android Studio
+
    - [Download Android Studio for Linux](https://developer.android.com/studio?gad_source=1&gclid=CjwKCAjwnK60BhA9EiwAmpHZwzcJ_XDHOxfhA-EcY_u9F_0i76qWNUdVy08wS5e4SdJ7o2HARry66RoCas4QAvD_BwE&gclsrc=aw.ds)
    - Extract the file to your desired location.
    - Navigate to the `bin` directory of your Android Studio in the command terminal.
@@ -67,8 +73,9 @@ To install, write, and compile Flutter code, you need the following requirements
          - `/home/usr/flutter`
       - Enter the project name and click `Create`.
 
-   6. Example Code
-    ```dart
+6. Example Code
+
+```dart
     import 'package:flutter/material.dart';
 
     void main() {
@@ -136,9 +143,9 @@ To install, write, and compile Flutter code, you need the following requirements
         );
       }
     }
-    ```
+```
 
-   - Once you are ready to test the code:
+- Once you are ready to test the code:
       - Click on the `Device Manager` tab on the right of your Android Studio window.
       - Click on the `+` sign to choose `Create Virtual Device`.
       - Select your desired hardware and download the necessary system image.

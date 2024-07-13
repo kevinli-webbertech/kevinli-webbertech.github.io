@@ -59,7 +59,7 @@ This is basically an annotation which has been introduced in Java 8. This annota
 ```java
 public final class Sample {
 
-	@Repeatable(value = TechnicalUniversities.class)
+	@Repeatable(value = Fruits.class)
 	public @interface Place {
 		String value();
 	}
