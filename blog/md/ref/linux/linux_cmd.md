@@ -103,9 +103,163 @@ Please see `vim` cheatsheet seperately.
 * `set` Modifies shell settings and environment variables.
 * `unset` Removes definitions of shell variables and functions.
 
-### Examples [TODO]
+### ln Examples
 
-```TODO```
+Creating a Hard Link
+
+`ln original.txt hard_link.txt`
+
+Creating a Symbolic Link
+
+`ln -s original.txt soft_link.txt`
+
+Differences Between Hard Links and Symbolic Links
+
+**Hard Links:**
+
+* Share the same inode.
+* Both the original file and the hard link are indistinguishable.
+* Deleting the original file does not affect the hard link.
+
+**Symbolic Links:**
+
+* Are separate files with their own inodes.
+* Act as pointers to the original file.
+* If the original file is deleted, the symbolic link becomes a broken link.
+
+### alias, unalias examples
+
+To make an alias permanent, add it to your shell's configuration file (`~/.bashrc` for Bash, `~/.zshrc` for Zsh, etc.):
+
+```bash
+alias ll='ls -l'
+alias la='ls -a'
+alias update='sudo apt-get update && sudo apt-get upgrade'
+```
+
+* Remove a Specific Alias:
+
+`unalias ll`
+
+* Remove All Aliases:
+
+`unalias -a`
+
+* Listing Aliases
+
+`alias`
+
+### set and unset examples
+
+* Display All Shell Variables and Functions
+
+`set`
+
+* Enable a Shell Option (-):
+
+Enable the -x option to print commands and their arguments as they are executed:
+
+`set -x`
+
+The set -x command is a valuable debugging tool. It prints each command and its arguments to the standard error (stderr) before executing it. This feature provides a window into the script’s behavior, helping developers understand the flow and pinpoint where things might be going wrong.
+
+The following is the difference with and without `set -x`,
+
+```bash
+xiaofengli@xiaofenglx:~/Desktop/fserver/file_server/FamilyFinance$ vi test.sh 
+xiaofengli@xiaofenglx:~/Desktop/fserver/file_server/FamilyFinance$ ./test.sh
+mv: cannot stat '*.txt': No such file or directory
+xiaofengli@xiaofenglx:~/Desktop/fserver/file_server/FamilyFinance$ vi test.sh 
+xiaofengli@xiaofenglx:~/Desktop/fserver/file_server/FamilyFinance$ ./test.sh
++ mkdir my_directory
+mkdir: cannot create directory ‘my_directory’: File exists
++ mv '*.txt' my_directory/
+mv: cannot stat '*.txt': No such file or directory
+```
+
+* Disable a Shell Option (+):
+
+`set -x` will print more information on the screen thus creates vulnerability,
+
+to solve that, we can use `+x` to stop it, and then turn it on again,
+
+`set +x`
+
+For example,
+
+```bash
+Mitigating the Risk
+To mitigate this risk, you can temporarily turn off set -x when executing commands that handle sensitive information:
+
+#!/bin/bash
+set -x
+# Some non-sensitive commands
+set +x
+password="my_secret_password"
+set -x
+# More non-sensitive commands
+```
+
+* `set -e`
+
+On the other hand, set -e tells the shell to exit the script if any command returns a non-zero exit status (an indication of failure in Unix-like systems). This command is crucial for robust error handling.
+
+For example,
+
+```bash
+#!/bin/bash
+set -e
+
+echo "Updating system..."
+sudo apt-get update
+
+echo "Installing important package..."
+sudo apt-get install -y important-package
+
+echo "Configuring system..."
+sudo cp /etc/some/config /etc/some/other/config
+
+echo "Script completed!"
+```
+
+Will output,
+
+```
+Updating system...
+script.sh: line 5: apt-get: command not found
+```
+
+* `set -u`
+
+-u will alert and complaint any unset variables that is being referenced.
+
+* Define Positional Parameters
+
+`set -- arg1 arg2 arg3`
+
+After running this command, $1 will be arg1, $2 will be arg2, and $3 will be arg3. For example,
+
+```bash
+# myvar="This is a testing"
+# set -- $myvar
+# echo $1
+# echo $2
+# echo $3
+# echo $4
+```
+
+* unset variable
+
+`unset MY_VAR`
+
+* Unset Shell Option:
+
+`set +x`
+
+* Unset Positional Parameters
+
+`unset --`
+
 
 ## Permissions
 
