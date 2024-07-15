@@ -6,7 +6,7 @@ In the next section of this class, we will directly run a dockerized hadoop imag
 
 ## Install and configure hadoop docker image
 
-**Step 1** Create a java source file
+**Step 1 Create a java source file**
 
 In intelliJ or VisualStudio Code, create a project, and in your project folder,   make the following file,
 
@@ -20,7 +20,7 @@ public class HelloWorld {
 }
 ```
 
-**Step 2** Create a docker file
+**Step 2 Create a docker file**
 
 Create a docker file  called “Dockerfile”
 
