@@ -41,7 +41,6 @@ Druid performance was measured as at least 98% faster than Hive and at least 90%
 
 ## Installation and Usage
 
-
 ### Ref
 
 - https://druid.apache.org/docs/latest/tutorials/
