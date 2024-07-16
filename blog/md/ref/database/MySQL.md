@@ -1,5 +1,5 @@
 # Login to MySQL
-
+![alt text](image.png)
 - Normal login to root of MySQL
 
 `mysql -u root -p`
@@ -178,8 +178,6 @@ CREATE TABLE TestTable AS
     SELECT customername, contactname
     FROM customers;
 ```
-
-
 
 # The MySQL DROP TABLE Statement
 
