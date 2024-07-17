@@ -418,9 +418,10 @@ public class StreamTutorial {
 }
 ```
 
-### References
+
+
+#### References
 https://stackify.com/streams-guide-java-8/
 https://openjdk.org/projects/amber/
 https://wiki.openjdk.org/display/loom/Main
 https://openjdk.org/projects/panama/
-
