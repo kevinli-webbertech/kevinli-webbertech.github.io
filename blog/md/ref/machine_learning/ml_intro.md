@@ -40,6 +40,28 @@ Description: A high-level neural networks API, written in Python and capable of 
 * Suitable for beginners.
 * Supports both convolutional networks and recurrent networks.
 
+### PyTorch
+
+Description: An open-source framework developed by Facebook's AI Research lab. It's known for its dynamic computational graph and ease of use.
+
+**Features**
+
+* Dynamic computation graph for flexibility.
+* Strong community support.
+* Preferred for research and prototyping.
+* TorchScript for transitioning from research to production.
+
+### TensorFlow
+
+Description: An open-source framework developed by Google. It is widely used for both research and production purposes.
+
+**Features**
+
+* Extensive support for deep learning and neural networks.
+* Scalability to run on CPUs, GPUs, and TPUs.
+* TensorBoard for visualization.
+* High-level APIs like Keras for ease of use.
+
 ### XGBoost
 
 Description: An optimized distributed gradient boosting library designed to be highly efficient, flexible, and portable.
@@ -117,3 +139,11 @@ Description: A deep learning framework made with expression, speed, and modulari
 [PyTorch hub](https://pytorch.org/hub/)
 
 ![PyTorch_hub](https://kevinli-webbertech.github.io/blog/images/ml/pytorch_hub.png)
+
+## Suggested Learning Trail
+
+* Scikit Learn (Pandas, Numpy ...etc)
+* Keras
+* PyTorch
+* TensorFlow
+* XGBoost and LightGBM
