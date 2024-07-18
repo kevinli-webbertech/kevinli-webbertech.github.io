@@ -1,9 +1,9 @@
-'KERAS INSTALLATION'
+# KERAS INSTALLATION
 
 -ANY KIND OF OS
 -Python--3.5 and above
 
-steps for installation
+## steps for installation
 
 1.create virtual environment
 
@@ -14,7 +14,9 @@ Linux/Mac OS
 
 go to project root directory 
  
--type the command-python3 -m venv kerasenv
+-type the command-
+
+`python3 -m venv kerasenv`
 
 “kerasenv” directory is created with bin,lib and include folders upon executing the above command.
 
@@ -38,6 +40,7 @@ Windows
 .\env\Scripts\activate
 
 3.Python libraries
+
 Numpy
 Pandas
 Scikit-learn
