@@ -2,7 +2,7 @@
 
 The importance of mathematics topics for machine learning and data science is mentioned below −
 
-![math in nn](math.png)
+![math in nn](https://kevinli-webbertech.github.io/blog/images/ml/math.png)
 
 ## Vectors
 

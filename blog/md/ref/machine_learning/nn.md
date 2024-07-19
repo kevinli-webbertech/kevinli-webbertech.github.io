@@ -2,7 +2,7 @@
 
 Artificial Intelligence is trending nowadays to a greater extent. Machine learning and deep learning constitutes artificial intelligence. The Venn diagram mentioned below explains the relationship of machine learning and deep learning.
 
-![alt text](image-1.png)
+![deep_learning](https://kevinli-webbertech.github.io/blog/images/ml/ml_deeplearning.png)
 
 ## Machine Learning
 
@@ -31,17 +31,17 @@ The main principle of neural network includes a collection of basic elements, i.
 
 The schematic representation of sample neuron is mentioned below −
 
-![alt text](image-2.png)
+![neuron](https://kevinli-webbertech.github.io/blog/images/ml/neuron.png)
 
 The output generated can be considered as the weighted sum with activation potential or bias.
 
-![alt text](image-3.png)
+![nn formula](https://kevinli-webbertech.github.io/blog/images/ml/nn_formula.png)
 
 The typical neural network architecture is described below −
 
 neural network architecture
 
-![alt text](image-4.png)
+![nn architecture](https://kevinli-webbertech.github.io/blog/images/ml/nn.png)
 
 The layers between input and output are referred to as hidden layers, and the density and type of connections between layers is the configuration. For example, a fully connected configuration has all the neurons of layer L connected to those of L+1. For a more pronounced localization, we can connect only a local neighbourhood, say nine neurons, to the next layer. Figure 1-9 illustrates two hidden layers with dense connections.
 
@@ -53,17 +53,17 @@ The various types of neural networks are as follows −
 
 Feedforward neural networks include basic units of neural network family. The movement of data in this type of neural network is from the input layer to output layer, via present hidden layers. The output of one layer serves as the input layer with restrictions on any kind of loops in the network architecture.
 
-![alt text](image-5.png)
+![feedforward nn](https://kevinli-webbertech.github.io/blog/images/ml/feedforward.png)
 
 **Recurrent Neural Networks**
 
 Recurrent Neural Networks are when the data pattern changes consequently over a period. In RNN, same layer is applied to accept the input parameters and display output parameters in specified neural network.
 
-![alt text](image-6.png)
+![recurrent1](https://kevinli-webbertech.github.io/blog/images/ml/recurrent_nn1.png)
 
 Neural networks can be constructed using the torch.nn package.
 
-![alt text](image-7.png)
+![recurrent2](https://kevinli-webbertech.github.io/blog/images/ml/recurrent_nn2.png)
 
 It is a simple feed-forward network. It takes the input, feeds it through several layers one after the other, and then finally gives the output.
 
