@@ -10,7 +10,7 @@ def help_menu():
 
 def check_arg():
     print(len(sys.argv))
-    sys.exit(0)
+    #sys.exit(0)
     if len(sys.argv)==1:
         help_menu()
         sys.exit(0)

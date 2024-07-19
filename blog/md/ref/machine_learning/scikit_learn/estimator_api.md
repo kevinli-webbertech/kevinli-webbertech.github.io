@@ -1,4 +1,4 @@
-### The Estimator API in Scikit-Learn
+### The Estimator API
 
 The Estimator API is a central feature of Scikit-Learn, designed to provide a consistent and easy-to-use interface for machine learning models. It supports a wide variety of algorithms and is used for both supervised and unsupervised learning tasks.
 

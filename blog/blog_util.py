@@ -12,6 +12,14 @@ def check_html_directory():
     htmlPath =get_html_path()
     if not os.path.exists(htmlPath):
         raise Exception(str(htmlPath) + " directory not exists, please create it before")
+    else:
+        htmlFiles=os.listdir(htmlPath)
+        # if dir exists and html exist, delete them and regenerate
+        if (len(htmlFiles)>0):
+             for file in htmlFiles:
+                if file.endswith(".html"):
+                    os.remove(os.path.join(htmlPath, file))
+       
 
 def get_all_markdown_files(inputDir):
     mdFiles=list()

@@ -1,6 +1,13 @@
-### Anomaly Detection Techniques
+# Anomaly Detection Techniques
 
-#### 1. **One-class SVM (Support Vector Machine)**
+## Takeaway
+- **One-class SVM** learns the boundaries of normal data and identifies outliers.
+- **Isolation Forests** use ensemble of decision trees to isolate anomalies based on their path lengths.
+- Both techniques are effective for anomaly detection in various domains, providing robust solutions for identifying unusual patterns in data.
+
+Understanding these anomaly detection techniques equips us with essential tools for detecting outliers and anomalies in real-world datasets, crucial for tasks such as fraud detection, network security, and quality control.
+
+## **One-class SVM (Support Vector Machine)**
 - **Definition:** One-class SVM is an unsupervised learning algorithm that learns a decision function for anomaly detection: it learns the properties of normal instances and classifies new data points as either normal or anomalies (outliers).
 - **Key Points:**
   - **Unsupervised Learning:** Only normal instances are used for training.
@@ -30,7 +37,7 @@ y_pred = svm.predict(X_test)
 print("Predicted labels (-1 for outliers, 1 for inliers):", y_pred)
 ```
 
-#### 2. **Isolation Forests**
+## **Isolation Forests**
 - **Definition:** Isolation Forests are ensemble learning methods for anomaly detection that isolate anomalies by randomly selecting a feature and then randomly selecting a split value between the maximum and minimum values of the selected feature.
 - **Key Points:**
   - **Ensemble of Decision Trees:** Each tree partitions the data recursively.
@@ -59,10 +66,3 @@ y_pred = isoforest.predict(X_test)
 
 print("Predicted labels (-1 for outliers, 1 for inliers):", y_pred)
 ```
-
-### Key Points:
-- **One-class SVM** learns the boundaries of normal data and identifies outliers.
-- **Isolation Forests** use ensemble of decision trees to isolate anomalies based on their path lengths.
-- Both techniques are effective for anomaly detection in various domains, providing robust solutions for identifying unusual patterns in data.
-
-Understanding these anomaly detection techniques equips us with essential tools for detecting outliers and anomalies in real-world datasets, crucial for tasks such as fraud detection, network security, and quality control.

@@ -1,4 +1,4 @@
-### Resources and Further Reading for scikit-learn
+### Resources and Further Reading
 
 #### 1. **Official scikit-learn Documentation**
 

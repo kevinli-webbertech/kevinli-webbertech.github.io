@@ -1,6 +1,12 @@
-### Decision Trees and Ensemble Methods
+# Decision Trees and Ensemble Methods
 
-#### 1. **Decision Trees**
+## Takeaway
+
+- **Decision Trees** provide intuitive decision-making based on feature splits.
+- **Random Forests** improve upon decision trees by combining multiple trees and randomization.
+- **Gradient Boosting** builds strong predictive models by sequentially improving upon the errors of previous models.
+
+## **Decision Trees**
 - **Definition:** Decision trees are supervised learning models used for both classification and regression tasks. They recursively split the data into subsets based on features to create a tree-like structure of decisions.
 - **Key Points:**
   - **Tree Structure:** Nodes represent features, edges represent decisions.
@@ -31,7 +37,7 @@ print("Feature Importances:", tree_clf.feature_importances_)
 print("Prediction for [5, 6]:", prediction)
 ```
 
-#### 2. **Random Forests**
+## **Random Forests**
 - **Definition:** Random forests are ensemble learning methods that construct multiple decision trees during training and output the class that is the mode of the classes (classification) or mean prediction (regression) of the individual trees.
 - **Key Points:**
   - **Ensemble of Trees:** Combines multiple decision trees to improve generalization and robustness.
@@ -62,7 +68,7 @@ print("Feature Importances:", rf_clf.feature_importances_)
 print("Prediction for [5, 6]:", prediction)
 ```
 
-#### 3. **Gradient Boosting**
+## **Gradient Boosting**
 - **Definition:** Gradient boosting is an ensemble technique where models are added sequentially, with each new model correcting errors made by the previous ones, thereby reducing the overall bias.
 - **Key Points:**
   - **Boosting Technique:** Builds trees sequentially, each focusing on improving upon the mistakes of its predecessor.
@@ -95,9 +101,3 @@ prediction = adaboost_clf.predict(x_test)
 
 print("Prediction for [5, 6]:", prediction)
 ```
-
-### Key Points:
-- **Decision Trees** provide intuitive decision-making based on feature splits.
-- **Random Forests** improve upon decision trees by combining multiple trees and randomization.
-- **Gradient Boosting** builds strong predictive models by sequentially improving upon the errors of previous models.
-

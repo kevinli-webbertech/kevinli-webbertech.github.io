@@ -1,6 +1,13 @@
-### Data Representation in Machine Learning
+# Data Representation in Machine Learning
 
-#### Loading Datasets
+## Takeaway
+
+- **Loading Datasets**: Understand how to load datasets from CSV files and scikit-learn's built-in datasets.
+- **Preprocessing Data**: Learn to scale, encode, and impute data to prepare it for machine learning models.
+- **Train-Test Split**: Split data into training and testing sets to evaluate model performance.
+
+
+## Loading Datasets
 
 **Loading Datasets from CSV Files**
 
@@ -46,7 +53,7 @@ print("Feature matrix shape:", X.shape)
 print("Target vector shape:", y.shape)
 ```
 
-#### Preprocessing Data
+## Preprocessing Data
 
 Preprocessing is a crucial step in preparing data for machine learning models. This includes tasks such as scaling, encoding categorical variables, and handling missing values.
 
@@ -102,7 +109,7 @@ X_imputed = imputer.fit_transform(X)
 print("Data after imputation:", X_imputed[:5])
 ```
 
-#### Train-Test Split
+## Train-Test Split
 
 To evaluate the performance of a machine learning model, it's important to split the data into training and testing sets. This allows for an unbiased evaluation of the model's performance on unseen data.
 
@@ -155,10 +162,3 @@ X_train, X_test, y_train, y_test = train_test_split(X_preprocessed, y, test_size
 print("Training data shape:", X_train.shape)
 print("Testing data shape:", X_test.shape)
 ```
-
-### Summary
-
-1. **Loading Datasets**: Understand how to load datasets from CSV files and scikit-learn's built-in datasets.
-2. **Preprocessing Data**: Learn to scale, encode, and impute data to prepare it for machine learning models.
-3. **Train-Test Split**: Split data into training and testing sets to evaluate model performance.
-

@@ -1,6 +1,13 @@
-### Support Vector Machines (SVM)
+# Support Vector Machines (SVM)
 
-#### 1. **Linear SVM**
+## Takeaway
+- **Linear SVM** finds optimal linear boundaries between classes.
+- **Kernel SVM** extends to non-linear boundaries using kernel functions.
+- **GridSearchCV** optimizes SVM performance by searching through specified hyperparameters.
+
+These concepts and examples provide a solid foundation for understanding SVMs and their practical applications in classification tasks, including handling linearly and non-linearly separable datasets effectively.
+
+## **Linear SVM**
 - **Definition:** Linear SVM is a supervised learning algorithm used for classification tasks where it tries to find the optimal hyperplane that best separates the classes in the feature space.
 - **Key Points:**
   - Finds the best linear separator for the data.
@@ -32,7 +39,7 @@ print("Intercept:", linear_svm.intercept_)
 print("Prediction for [5, 6]:", prediction)
 ```
 
-#### 2. **Kernel SVM**
+## **Kernel SVM**
 - **Definition:** Kernel SVM extends linear SVM by using a kernel function to map the input data into a higher-dimensional space where classes can be separated by a linear hyperplane.
 - **Key Points:**
   - Handles non-linearly separable data by transforming it into a higher-dimensional space.
@@ -62,7 +69,7 @@ print("Support Vectors:", rbf_svm.support_vectors_)
 print("Prediction for [5, 6]:", prediction)
 ```
 
-#### 3. **Hyperparameter Tuning with GridSearchCV**
+## **Hyperparameter Tuning with GridSearchCV**
 - **Definition:** GridSearchCV is a method to systematically work through multiple combinations of hyperparameters, cross-validating as it goes to determine which parameters optimize the performance of a model.
 - **Key Points:**
   - Helps in finding the best set of hyperparameters for a model.
@@ -95,10 +102,3 @@ grid_search.fit(X, y)
 print("Best Parameters:", grid_search.best_params_)
 print("Best Score:", grid_search.best_score_)
 ```
-
-### Key Points:
-- **Linear SVM** finds optimal linear boundaries between classes.
-- **Kernel SVM** extends to non-linear boundaries using kernel functions.
-- **GridSearchCV** optimizes SVM performance by searching through specified hyperparameters.
-
-These concepts and examples provide a solid foundation for understanding SVMs and their practical applications in classification tasks, including handling linearly and non-linearly separable datasets effectively.

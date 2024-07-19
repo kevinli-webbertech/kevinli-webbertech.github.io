@@ -1,6 +1,13 @@
-### Clustering Algorithms
+# Clustering Algorithms
 
-#### 1. **K-means Clustering**
+## Takeaway
+- **K-means Clustering** partitions data into \( k \) clusters based on centroids.
+- **Hierarchical Clustering** creates a tree of clusters, useful for visualizing relationships.
+- **DBSCAN** identifies clusters based on density, handling arbitrary shapes and noisy data.
+
+These clustering algorithms provide powerful tools for exploring and analyzing unlabeled data, uncovering patterns and structures that can aid in various domains of data analysis and machine learning.
+
+## **K-means Clustering**
 - **Definition:** K-means clustering is an unsupervised learning algorithm that partitions data into \( k \) clusters based on similarity of features.
 - **Key Points:**
   - **Centroid-based:** Clusters are defined by their centroids (means).
@@ -29,7 +36,7 @@ print("Cluster Labels:", cluster_labels)
 print("Centroids:", centroids)
 ```
 
-#### 2. **Hierarchical Clustering**
+## **Hierarchical Clustering**
 - **Definition:** Hierarchical clustering creates a hierarchy of clusters by either recursively merging or splitting clusters based on distance metrics.
 - **Key Points:**
   - **Agglomerative vs. Divisive:** Agglomerative starts with each point as its own cluster and merges them, while divisive starts with one cluster and splits it.
@@ -61,7 +68,7 @@ plt.ylabel('Distance')
 plt.show()
 ```
 
-#### 3. **DBSCAN (Density-Based Spatial Clustering of Applications with Noise)**
+## **DBSCAN (Density-Based Spatial Clustering of Applications with Noise)**
 - **Definition:** DBSCAN is a density-based clustering algorithm that groups together points that are closely packed together (dense regions) and marks points as outliers (noise) that lie alone in low-density regions.
 - **Key Points:**
   - **Core Points, Border Points, Noise:** Defined based on density (number of points within a specified radius \( \epsilon \)).
@@ -87,10 +94,3 @@ cluster_labels = dbscan.labels_
 
 print("Cluster Labels:", cluster_labels)
 ```
-
-### Key Points:
-- **K-means Clustering** partitions data into \( k \) clusters based on centroids.
-- **Hierarchical Clustering** creates a tree of clusters, useful for visualizing relationships.
-- **DBSCAN** identifies clusters based on density, handling arbitrary shapes and noisy data.
-
-These clustering algorithms provide powerful tools for exploring and analyzing unlabeled data, uncovering patterns and structures that can aid in various domains of data analysis and machine learning.
