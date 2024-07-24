@@ -1,82 +1,102 @@
-simple Long Short Term Memory (LSTM) based RNN to do sequence analysis
+## **Long Short Term Memory (LSTM) Based RNN for Sequence Analysis**
 
-- A sequence is a set of values where each value corresponds to a particular instance of time
+Sequence analysis is essential in natural language processing (NLP) for tasks such as sentiment analysis. Here’s a representation of the LSTM-based RNN model for sequence analysis:
 
--Sequence Analysis is used frequently in natural language processing to find the sentiment analysis of the given text.
+### **Model Architecture:**
 
-The model for the sequence analysis can be represented as below −
+- **Input Layer:**
+  - **Embedding Layer:** 128 features
 
-The core features of the model are as follows −
+- **First Layer:**
+  - **Dense Layer:** 128 units
+  - **Dropout:** 0.2 (both dropout and recurrent dropout)
 
-Input layer using Embedding layer with 128 features.
+- **Output Layer:**
+  - **Dense Layer:** 1 unit
+  - **Activation Function:** `sigmoid`
 
-First layer, Dense consists of 128 units with normal dropout and recurrent dropout set to 0.2.
+### **Model Configuration:**
 
-Output layer, Dense consists of 1 unit and ‘sigmoid’ activation function.
+- **Loss Function:** `binary_crossentropy`
+- **Optimizer:** `adam`
+- **Metrics:** `accuracy`
 
-Use binary_crossentropy as loss function.
+### **Training Parameters:**
 
-Use adam as Optimizer.
+- **Batch Size:** 32
+- **Epochs:** 15
 
-Use accuracy as metrics.
+### **Sequence Specifications:**
 
-Use 32 as batch size.
+- **Maximum Length of Words:** 80
+- **Maximum Number of Words in a Sentence:** 2000
 
-Use 15 as epochs.
+### **Model Summary:**
 
-Use 80 as the maximum length of the word.
+The model uses an Embedding layer to represent the input sequence, followed by a Dense layer with dropout for regularization, and concludes with a Dense output layer using a sigmoid activation function for binary classification. The model is compiled with `binary_crossentropy` as the loss function and `adam` as the optimizer, and it is trained with accuracy as the evaluation metric.
 
-Use 2000 as the maximum number of word in a given sentence.
+## **Step 1: Import the Modules**
 
-Step 1: Import the modules
+To begin, import the necessary modules for building and training the LSTM model:
 
-from keras.preprocessing import sequence 
-from keras.models import Sequential 
-from keras.layers import Dense, Embedding 
-from keras.layers import LSTM 
+```python
+from keras.preprocessing import sequence
+from keras.models import Sequential
+from keras.layers import Dense, Embedding
+from keras.layers import LSTM
 from keras.datasets import imdb
 
-Step 2: Load data
+## **Step 2: Load Data**
 
-(x_train, y_train), (x_test, y_test) = imdb.load_data(num_words = 2000)
+Load the IMDB dataset, which is used for sentiment analysis of movie reviews:
 
-imdb is a dataset provided by Keras. It represents a collection of movies and its reviews.
+```python
+(x_train, y_train), (x_test, y_test) = imdb.load_data(num_words=2000)
 
-num_words represent the maximum number of words in the review.
 
-Step 3: Process the data
+## **Step 3: Process the Data**
 
-x_train = sequence.pad_sequences(x_train, maxlen=80) 
+Ensure that all sequences in the dataset have the same length by padding them:
+
+```python
+x_train = sequence.pad_sequences(x_train, maxlen=80)
 x_test = sequence.pad_sequences(x_test, maxlen=80)
 
-Step 4: Create the model
+## **Step 4: Create the Model**
 
-model = Sequential() 
-model.add(Embedding(2000, 128)) 
-model.add(LSTM(128, dropout = 0.2, recurrent_dropout = 0.2)) 
-model.add(Dense(1, activation = 'sigmoid'))
+Define the Long Short Term Memory (LSTM) based Recurrent Neural Network (RNN) model:
 
-Step 5: Compile the model
+```python
+model = Sequential()
+model.add(Embedding(2000, 128))
+model.add(LSTM(128, dropout=0.2, recurrent_dropout=0.2))
+model.add(Dense(1, activation='sigmoid'))
 
-model using selected loss function, optimizer and metrics.
 
+## **Step 5: Compile the Model**
 
-model.compile(loss = 'binary_crossentropy', 
-   optimizer = 'adam', metrics = ['accuracy'])
+Compile the model using the selected loss function, optimizer, and metrics:
 
-Step 6: Train the model
-
- train the model using fit() method.
-
-model.fit(
-   x_train, y_train, 
-   batch_size = 32, 
-   epochs = 15, 
-   validation_data = (x_test, y_test)
+```python
+model.compile(
+    loss='binary_crossentropy',
+    optimizer='adam',
+    metrics=['accuracy']
 )
 
- output
+## **Step 6: Train the Model**
 
+Train the model using the `fit()` method:
+
+```python
+model.fit(
+    x_train, y_train,
+    batch_size=32,
+    epochs=15,
+    validation_data=(x_test, y_test)
+)
+
+## **Model Training Output**
 
 Epoch 1/15 2019-09-24 01:19:01.151247: I 
 tensorflow/core/platform/cpu_feature_guard.cc:142] 
@@ -115,17 +135,16 @@ TensorFlow binary was not co mpiled to use: AVX2
 25000/25000 [==============================] - 10s 390us/step
 
 
-Step 7 − Evaluate the model
+## **Step 7: Evaluate the Model**
 
-evaluate the model using test data.
+Evaluate the model using test data:
 
+```python
+score, acc = model.evaluate(x_test, y_test, batch_size=32) 
 
-score, acc = model.evaluate(x_test, y_test, batch_size = 32) 
-   
 print('Test score:', score) 
 print('Test accuracy:', acc)
 
-output
-
 Test score: 1.145306069601178 
 Test accuracy: 0.81292
+
