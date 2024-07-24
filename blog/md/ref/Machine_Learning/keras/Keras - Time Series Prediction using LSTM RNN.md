@@ -145,13 +145,6 @@ score, acc = model.evaluate(x_test, y_test, batch_size=32)
 print('Test score:', score) 
 print('Test accuracy:', acc)
 
+Test score: 1.145306069601178 
+Test accuracy: 0.81292
 
-## **Step 7: Evaluate the Model**
-
-Evaluate the model using test data:
-
-```python
-score, acc = model.evaluate(x_test, y_test, batch_size=32) 
-
-print('Test score:', score) 
-print('Test accuracy:', acc)
