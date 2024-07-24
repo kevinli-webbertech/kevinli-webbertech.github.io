@@ -65,3 +65,15 @@ Python 3.11.7
 * CMD spawn off new process
 
 * Entrypoint uses the same process
+
+## Remove dangling images in Docker
+
+`sudo docker image prune`
+
+or you can do,
+
+`sudo docker rmi $(sudo docker images -f "dangling=true" -q)`
+
+If it is not working, then try,
+
+`sudo sh -c 'docker rmi $(docker images -f "dangling=true" -q)'`
