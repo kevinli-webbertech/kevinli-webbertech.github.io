@@ -41,7 +41,7 @@ Python 3.11.7
 ## Running with container deletion unpon exit
 
 `docker run --rm -it alpine-xvfb:beta1`
-	
+
 ## Running with inline entrypoint
 
 `docker run --entrypoint bash jdk21:latest -c "ls"`
