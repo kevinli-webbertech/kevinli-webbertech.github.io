@@ -6,7 +6,7 @@
 ```bash
 pip install tensorflow
 
-
+```
 # Keras Backend Configuration
 
 Once you execute Keras, you will find the configuration file located in your home directory under `.keras/keras.json`.
@@ -41,7 +41,7 @@ If the `keras.json` file is not created automatically, you can create it manuall
 cd ~
 mkdir .keras
 vi .keras/keras.json
-
+```
 
 # Keras Configuration
 
