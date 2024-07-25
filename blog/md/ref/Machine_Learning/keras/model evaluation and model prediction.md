@@ -1,19 +1,25 @@
-Keras - Model Evaluation and Model Prediction
+## Keras - Model Evaluation and Model Prediction
 
-Model Evaluation
+### Model Evaluation
 
--process during development of the model to check whether the model is best fit for the given problem and corresponding data
--Keras model provides a function, evaluate.
-It has three main arguments
-Test data
-Test data label
-verbose - true or false
+Model evaluation is an essential step during the development of a model to assess its performance and ensure it is well-suited for the given problem and data. Keras provides a convenient function for model evaluation called `evaluate`.
 
-evaluate the model
+#### The `evaluate` Function
 
-score = model.evaluate(x_test, y_test, verbose = 0) 
+The `evaluate` function in Keras has three main arguments:
 
-print('Test loss:', score[0]) 
+- **Test data**: The input data used to evaluate the model.
+- **Test data label**: The true labels corresponding to the test data.
+- **Verbose**: A boolean argument (`True` or `False`) to control the verbosity of the output.
+
+#### Evaluating the Model
+
+To evaluate the model, use the following code:
+
+```python
+score = model.evaluate(x_test, y_test, verbose=0)
+
+print('Test loss:', score[0])
 print('Test accuracy:', score[1])
 
 output
