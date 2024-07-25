@@ -21,7 +21,7 @@ Some of the popular pre-trained models are:
 import keras
 import numpy as np
 from keras.applications import vgg16, inception_v3, resnet50, mobilenet
-
+```
 # Load the VGG16 model
 vgg_model = vgg16.VGG16(weights='imagenet')
 
