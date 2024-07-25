@@ -28,7 +28,7 @@ from keras.layers import Activation, Dense
 from keras import initializers
 from keras import regularizers
 from keras import constraints
-
+```
 # Initialize the Sequential model
 model = Sequential()
 
@@ -75,8 +75,8 @@ import numpy as np
 shape = (4, 2)
 input = np.zeros(shape)
 print(input)
-
-```plaintext
+```
+output
 [
    [0. 0.]
    [0. 0.]
@@ -101,7 +101,7 @@ print(input)
 ]
 
 >>>
-
+```
 ## Initializers
 
 In Machine Learning, weights are assigned to all input data. The Initializers module provides different functions to set these initial weights. Some of the Keras Initializer functions are as follows:
@@ -119,7 +119,7 @@ my_init = initializers.Zeros()
 model = Sequential()
 model.add(Dense(512, activation='relu', input_shape=(784,),
                 kernel_initializer=my_init))
-
+```
 ### Ones
 
 Generates 1 for all input data.
@@ -133,7 +133,7 @@ my_init = initializers.Ones()
 model = Sequential()
 model.add(Dense(512, activation='relu', input_shape=(784,),
                 kernel_initializer=my_init))
-
+```
 ### Constant
 
 Generates a constant value (say, 5) specified by the user for all input data.
@@ -149,7 +149,7 @@ model.add(Dense(512, activation='relu', input_shape=(784,),
                 kernel_initializer=my_init))
 
 where, `value` represents the constant value.
-
+```
 ### RandomNormal
 
 Generates values using a normal distribution for input data.
@@ -163,7 +163,7 @@ my_init = initializers.RandomNormal(mean=0.0,
 stddev=0.05, seed=None) 
 model.add(Dense(512, activation='relu', input_shape=(784,), 
    kernel_initializer=my_init))
-
+```
 where:
 
 - `mean` represents the mean of the random values to generate
@@ -187,7 +187,7 @@ where,
 - `minval` represents the lower bound of the random values to generate.
 - `maxval` represents the upper bound of the random values to generate.
 
-
+```
 ### TruncatedNormal
 
 Generates values using a truncated normal distribution of input data.
@@ -199,7 +199,7 @@ from keras import initializers
 
 my_init = initializers.TruncatedNormal(mean=0.0, stddev=0.05, seed=None)
 model.add(Dense(512, activation='relu', input_shape=(784,), kernel_initializer=my_init))
-
+```
 ### VarianceScaling
 
 Generates values based on the input shape and output shape of the layer along with the specified scale.
@@ -219,7 +219,7 @@ where,
 - `scale` represents the scaling factor
 - `mode` represents any one of `fan_in`, `fan_out`, or `fan_avg` values
 - `distribution` represents either `normal` or `uniform`
-
+```
 
 ### LeCun Normal
 
@@ -239,8 +239,8 @@ stddev = `sqrt(1 / fan_in)`
 
 where,
 - 'fan_in' represent the number of input units.
-
-###lecun_uniform
+```
+### lecun_uniform
 Generates value using lecun uniform distribution of input data.
 
 '''python
@@ -259,8 +259,8 @@ where,
 -fan_in represents the number of input units
 
 -fan_out represents the number of output units
-
-###glorot_normal
+```
+### glorot_normal
 Generates value using glorot normal distribution of input data.
 
 '''python
@@ -280,8 +280,8 @@ where,
 -fan_in represents the number of input units
 
 -fan_out represents the number of output units
-
-###glorot_uniform
+```
+###  glorot_uniform
 Generates value using glorot uniform distribution of input data.
 
 '''pytohn
@@ -301,7 +301,7 @@ where,
 
 -fan_out represents the number of output units
 
-###he_normal
+### he_normal
 Generates value using he normal distribution of input data.
 
 '''python
@@ -318,7 +318,7 @@ stddev = 'sqrt(2 / fan_in)'
 where,
 -fan_in represent the number of input units.
 
-###he_uniform
+### he_uniform
 
 Generates value using he uniform distribution of input data.
 '''python
@@ -335,7 +335,7 @@ limit = 'sqrt(6 / fan_in)'
 where,
 -fan_in represent the number of input units.
 
-###Orthogonal
+### Orthogonal
 Generates a random orthogonal matrix.
 '''python
 from keras.models import Sequential 
@@ -348,7 +348,7 @@ model.add(Dense(512, activation = 'relu', input_shape = (784,),
 where,
 -gain represent the multiplication factor of the matrix.
 
-###Identity
+### Identity
 -Generates identity matrix.
 '''python
 from keras.models import Sequential 
@@ -375,8 +375,8 @@ model.add(Dense(512, activation='relu', input_shape=(784,), kernel_initializer=m
 
 where,
 -kernel_constraint represent the constraint to be used in the layer.
-
-###UnitNorm
+```
+### UnitNorm
 Constrains weights to be unit norm.
 '''python
 from keras.models import Sequential 
@@ -387,7 +387,7 @@ my_constrain = constraints.UnitNorm(axis = 0)
 model = Sequential() 
 model.add(Dense(512, activation = 'relu', input_shape = (784,), 
    kernel_constraint = my_constrain))
-###MaxNorm
+### MaxNorm
 Constrains weight to norm less than or equals to the given value.
 '''python
 from keras.models import Sequential 
@@ -404,7 +404,7 @@ where,
 
 axis represent the dimension in which the constraint to be applied. e.g. in Shape (2,3,4) axis 0 denotes first dimension, 1 denotes second dimension and 2 denotes third dimension
 
-###MinMaxNorm
+### MinMaxNorm
 Constrains weights to be norm between specified minimum and maximum values.
 '''python
 from keras.models import Sequential 
@@ -420,7 +420,7 @@ where, rate represent the rate at which the weight constrain is applied.
 ### Regularizers
 In machine learning, regularizers are used in the optimization phase. It applies some penalties on the layer parameter during optimization. Keras regularization module provides below functions to set penalties on the layer. Regularization applies per-layer basis only.
 
-###L1 Regularizer
+### L1 Regularizer
 It provides L1 based regularization.
 '''python
 from keras.models import Sequential 
@@ -433,7 +433,7 @@ model.add(Dense(512, activation = 'relu', input_shape = (784,),
    kernel_regularizer = my_regularizer))
 where, kernel_regularizer represent the rate at which the weight constrain is applied.
 
-###L2 Regularizer
+### L2 Regularizer
 It provides L2 based regularization.
 '''python
 from keras.models import Sequential 
@@ -444,7 +444,7 @@ my_regularizer = regularizers.l2(0.)
 model = Sequential() 
 model.add(Dense(512, activation = 'relu', input_shape = (784,), 
    kernel_regularizer = my_regularizer))
-###L1 and L2 Regularizer
+### L1 and L2 Regularizer
 It provides both L1 and L2 based regularization.
 '''python
 from keras.models import Sequential 
@@ -465,8 +465,8 @@ In machine learning, an activation function is a special function used to determ
 result = Activation(SUMOF(input * weight) + bias)
 
 
-
-###linear
+```
+### linear
 Applies Linear function. Does nothing.
 '''python
 from keras.models import Sequential 
@@ -478,7 +478,7 @@ model.add(Dense(512, activation = 'linear', input_shape = (784,)))
 Where,
 -activation refers the activation function of the layer. It can be specified simply by the name of the function and the layer will use corresponding activators.
 
-###elu
+### elu
 Applies Exponential linear unit.
 '''python
 from keras.models import Sequential 
@@ -486,7 +486,7 @@ from keras.layers import Activation, Dense
 
 model = Sequential() 
 model.add(Dense(512, activation = 'elu', input_shape = (784,)))
-###selu
+### selu
 Applies Scaled exponential linear unit.
 '''python
 from keras.models import Sequential 
@@ -494,7 +494,7 @@ from keras.layers import Activation, Dense
 
 model = Sequential() 
 model.add(Dense(512, activation = 'selu', input_shape = (784,)))
-###relu
+### relu
 Applies Rectified Linear Unit.
 '''python
 from keras.models import Sequential 
@@ -502,7 +502,7 @@ from keras.layers import Activation, Dense
 
 model = Sequential() 
 model.add(Dense(512, activation = 'relu', input_shape = (784,)))
-###softmax
+### softmax
 Applies Softmax function.
 '''python
 from keras.models import Sequential 
@@ -510,7 +510,7 @@ from keras.layers import Activation, Dense
 
 model = Sequential() 
 model.add(Dense(512, activation = 'softmax', input_shape = (784,)))
-###softplus
+### softplus
 Applies Softplus function.
 '''python
 from keras.models import Sequential 
@@ -518,7 +518,7 @@ from keras.layers import Activation, Dense
 
 model = Sequential() 
 model.add(Dense(512, activation = 'softplus', input_shape = (784,)))
-###softsign
+### softsign
 Applies Softsign function.
 '''python
 from keras.models import Sequential 
@@ -526,14 +526,14 @@ from keras.layers import Activation, Dense
 
 model = Sequential() 
 model.add(Dense(512, activation = 'softsign', input_shape = (784,)))
-###tanh
+### tanh
 Applies Hyperbolic tangent function.
 '''python
 from keras.models import Sequential 
 from keras.layers import Activation, Dense 
 model = Sequential() 
 model.add(Dense(512, activation = 'tanh', input_shape = (784,)))
-###sigmoid
+### sigmoid
 Applies Sigmoid function.
 '''python
 from keras.models import Sequential 
@@ -541,7 +541,7 @@ from keras.layers import Activation, Dense
 
 model = Sequential() 
 model.add(Dense(512, activation = 'sigmoid', input_shape = (784,)))
-###hard_sigmoid
+### hard_sigmoid
 Applies Hard Sigmoid function.
 '''python
 from keras.models import Sequential 
@@ -549,7 +549,7 @@ from keras.layers import Activation, Dense
 
 model = Sequential() 
 model.add(Dense(512, activation = 'hard_sigmoid', input_shape = (784,)))
-###exponential
+### exponential
 Applies exponential function.
 '''python
 from keras.models import Sequential 
