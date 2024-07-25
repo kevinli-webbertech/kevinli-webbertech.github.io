@@ -57,14 +57,14 @@ Before using any loss function, you need to import the `losses` module from Kera
 
 ```python
 from keras import losses
-
+ ```
 
 ## Optimizers
 
 In machine learning, optimization is a crucial process that adjusts the model's weights to minimize the loss function and improve predictions. Optimizers play a key role in this process by determining how the weights should be updated based on the gradients of the loss function.
 
 Keras provides a variety of optimizers through its `optimizers` module. Each optimizer has different properties and is suitable for various types of problems.
-```
+
 ### Available Optimizers in Keras
 ### SGD (Stochastic Gradient Descent)
 
