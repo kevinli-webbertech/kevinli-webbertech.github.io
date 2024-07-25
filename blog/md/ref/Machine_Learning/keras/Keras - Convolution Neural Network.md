@@ -33,11 +33,11 @@ from keras.layers import Dense, Dropout, Flatten
 from keras.layers import Conv2D, MaxPooling2D
 from keras import backend as K
 import numpy as np
-
-###Step 2 − Load data
+```
+### Step 2 − Load data
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
 
-###Step 3 − Process the data
+### Step 3 − Process the data
 
 img_rows, img_cols = 28, 28
 
@@ -59,7 +59,7 @@ y_train = keras.utils.to_categorical(y_train, 10)
 y_test = keras.utils.to_categorical(y_test, 10)
 
 
-###Step 4 − Create the model
+### Step 4 − Create the model
 
 model = Sequential()
 model.add(Conv2D(32, kernel_size=(3, 3), activation='relu', input_shape=input_shape))
@@ -71,13 +71,13 @@ model.add(Dense(128, activation='relu'))
 model.add(Dropout(0.5))
 model.add(Dense(10, activation='softmax'))
 
-###Step 5 − Compile the model
+### Step 5 − Compile the model
 
 model.compile(loss=keras.losses.categorical_crossentropy,
               optimizer=keras.optimizers.Adadelta(),
               metrics=['accuracy'])
 
-###Step 6 − Train the model
+### Step 6 − Train the model
 
 model.fit(
     x_train, y_train,
@@ -124,8 +124,8 @@ score = model.evaluate(x_test, y_test, verbose=0)
 
 Test loss: 0.024936060590433316
 Test accuracy: 0.9922
-
-### Step 8: Predict
+```
+### Step8: Predict
 
 Finally, predict the digit from images as below:
 
