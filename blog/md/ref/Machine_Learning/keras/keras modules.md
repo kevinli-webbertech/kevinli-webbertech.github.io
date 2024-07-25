@@ -144,8 +144,9 @@ The `batch_dot()` function performs a batch-wise dot product between two tensors
 >>> c_batch
 <tf.Tensor 'ExpandDims:0' shape=(2, 1) dtype=float32>
 
->>> data = k.variable([[10,20,30,40],[50,60,70,80]]) 
-#variable initialized here 
+>>> data = k.variable([[10,20,30,40],[50,60,70,80]])
+ ```
+# variable initialized here 
 >>> result = k.transpose(data) 
 >>> print(result) 
 Tensor("transpose_6:0", shape = (4, 2), dtype = float32) 
@@ -167,7 +168,7 @@ If you want to access from numpy −
 >>> res = k.variable(value = data) 
 >>> print(res) 
 <tf.Variable 'Variable_7:0' shape = (2, 4) dtype = float32_ref>
-```
+
 ### `is_sparse(tensor)`
 
 The `is_sparse()` function checks whether a given tensor is sparse or not.
@@ -246,7 +247,7 @@ labels = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 one_hot_labels = to_categorical(labels)
 print(one_hot_labels)
 ```
-###output
+### output
 array([[1., 0., 0., 0., 0., 0., 0., 0., 0., 0.],
        [0., 1., 0., 0., 0., 0., 0., 0., 0., 0.],
        [0., 0., 1., 0., 0., 0., 0., 0., 0., 0.],
@@ -284,7 +285,7 @@ The `plot_model()` function creates a graphical representation of the model arch
 
 ```python
 from keras.utils import plot_model
-
+ ```
 # Assuming 'model' is a pre-defined Keras model
 plot_model(model, to_file='model_image.png', show_shapes=True, show_layer_names=True)
 
