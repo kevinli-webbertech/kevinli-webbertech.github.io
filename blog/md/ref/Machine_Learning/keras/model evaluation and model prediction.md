@@ -26,13 +26,13 @@ output
 0
 
 The test accuracy is 98.28%.
-
-Model Prediction
+ ```
+### Model Prediction
 
 Prediction is the final step and our expected outcome of the model generation.
 
 signature of the predict method
-
+ ```python
 predict(
    x, 
    batch_size = None, 
@@ -43,9 +43,9 @@ predict(
    workers = 1, 
    use_multiprocessing = False
 )
+ ```
 
-
-prediction for our MPL model
+# prediction for our MPL model
 
 pred = model.predict(x_test) 
 pred = np.argmax(pred, axis = 1)[:5] 
@@ -62,9 +62,14 @@ Line 3 gets the first five labels of the test data.
 
 Line 5 - 6 prints the prediction and actual label.
 
+# output
 The output of the above application is as follows −
 
 [7 2 1 0 4] 
 [7 2 1 0 4]
+
+
+
+
 
 
