@@ -24,7 +24,7 @@ To add a layer, simply create a layer using the Keras layer API and then pass th
 ```python
 from keras.models import Sequential
 from keras.layers import Dense
-
+```
 # Create a Sequential model
 model = Sequential()
 
@@ -285,7 +285,7 @@ config:
         use_bias: true
   name: sequential_10
   keras_version: 2.2.5
-
+```
 **'model_from_yaml()'** − Accepts yaml representation of the model and create a new model.
 '''python
 from keras.models import model_from_yaml 
@@ -295,9 +295,8 @@ new_model = model_from_yaml(yaml_string)
 Understanding the model is an important phase to properly use it for training and prediction purposes. Keras provides a simple method, `summary()`, to get detailed information about the model and its layers.
 
 #### Usage:
-
-```python
 # Summarize the model
+```python
 model.summary()
 
 
@@ -317,6 +316,7 @@ Trainable params: 2,920
 Non-trainable params: 0
 _________________________________________________________________
 >>>
+```
 ### Train and Predict the Model
 
 A Keras model provides several methods for training, evaluation, and prediction. These methods include:
@@ -343,7 +343,7 @@ While the Sequential API is useful for creating models layer-by-layer, the Funct
    ```python
    from keras.layers import Input, Dense
    from keras.models import Model
-
+    ```
    # Define the input layer
    input_layer = Input(shape=(784,))
 
