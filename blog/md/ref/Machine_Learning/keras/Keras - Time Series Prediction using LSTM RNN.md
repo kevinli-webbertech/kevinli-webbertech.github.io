@@ -141,7 +141,7 @@ TensorFlow binary was not co mpiled to use: AVX2
 Evaluate the model using test data:
 
 ```python
-score, acc = model.evaluate(x_test, y_test, batch_size=32) 
+score, acc = model.evaluate(x_test, y_test, batch_size=32)
 
 print('Test score:', score) 
 print('Test accuracy:', acc)
