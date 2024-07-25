@@ -62,6 +62,7 @@ Windows
 -Go to “kerasvenv” and give the command below
 
 .\env\Scripts\activate
+```
 
 ### Python Libraries
 
@@ -130,7 +131,7 @@ After making changes in your project, you can exit the virtual environment by us
 ```bash
 deactivate
 
-
+```
 # Anaconda Cloud
 
 We believe that you have installed Anaconda Cloud on your machine. If Anaconda is not installed, then visit the official link, [Anaconda Download](https://www.anaconda.com/download) and choose the download based on your OS.
@@ -140,29 +141,29 @@ We believe that you have installed Anaconda Cloud on your machine. If Anaconda i
 ```bash
 conda create --name PythonCPU
 
-
+```
 ## Activate Conda Environment
 
 ```bash
 activate PythonCPU
-
+```
 ## Install Spyder
 
 ```bash
 conda install spyder
-
+```
 
 ## Install Keras
 
 ```bash
 conda install -c anaconda keras
-
+```
 
 ## Launch Spyder
 
 ```bash
 spyder
-
+```
 
 ## Verify Installation
 
