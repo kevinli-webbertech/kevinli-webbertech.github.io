@@ -1,10 +1,8 @@
-## Deep Learning
+# Deep Learning
 
-Deep learning is an evolving subfield of machine learning that analyzes the input in a layer-by-layer manner.
+Deep learning is an evolving subfield of machine learning that analyzes the input in a layer-by-layer manner. Deep learning algorithms are also useful for the analysis of unstructured data.
 
-Let us go through the basics of deep learning in this chapter.
-
-### Artificial Neural Networks
+## Artificial Neural Networks
 
 Artificial Neural Networks (ANNs) are inspired by the model of the human brain. 
 
@@ -20,7 +18,7 @@ Based on this model, the first Artificial Neural Network (ANN) was invented by p
 
 A single neuron, also known as a perceptron in Artificial Neural Networks (ANNs), can be represented as below:
 
-![Perceptron Image Placeholder](#)
+![alt text](ann.png)
 
 In this representation:
 
@@ -36,7 +34,7 @@ The Multi-Layer Perceptron (MLP) is the simplest form of Artificial Neural Netwo
 - **Hidden Layers**: One or more hidden layers, each consisting of one or more neurons. These layers process various aspects of the input features and pass the processed information to the next hidden layer.
 - **Output Layer**: The output layer receives data from the last hidden layer and produces the final output result.
 
-![Multi-Layer Perceptron Image Placeholder](#)
+![alt text](Multi_Layer_Perceptron.png)
 
 ## In Summary
 
@@ -44,8 +42,6 @@ The Multi-Layer Perceptron (MLP) is the simplest form of Artificial Neural Netwo
 - **The input layer** feeds data into the hidden layers.
 - **The hidden layers** perform computations and transfer processed data.
 - **The output layer** provides the final result.
-
-
 
 ## Convolutional Neural Network (CNN)
 
@@ -69,7 +65,7 @@ The Multi-Layer Perceptron (MLP) is the simplest form of Artificial Neural Netwo
 
 - A **single Fully Connected Layer** is used to output the data (e.g., classification of the image).
 
-![Simple CNN Diagram](path_to_image) <!-- Replace with the actual path to your image -->
+![alt text](cnn.png)
 
 ## Recurrent Neural Network (RNN)
 
@@ -112,9 +108,4 @@ The Multi-Layer Perceptron (MLP) is the simplest form of Artificial Neural Netwo
 
    The above steps can be represented using the flow chart below:
 
-   [Flow Chart Placeholder]
-
-
-
-
-
+![alt text](ann_workflow.png)
