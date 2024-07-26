@@ -17,7 +17,7 @@ To use it in another docker file, write a docker file,
 ```bash
 ARG DCK_URL
 ARG IMG_DIR
-FROM ${Docker_URL}/${Image_DIR}/python3:3.0.7
+FROM ${DCK_URL}/${IMG_DIR}/python3:3.0.7
 ENTRYPOINT ["/bin/bash"]
 ```
 

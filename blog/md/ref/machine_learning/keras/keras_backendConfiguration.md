@@ -1,7 +1,8 @@
 Keras backend implementations TensorFlow and Theano in detail
 
- TensorFlow
--pip install  TensorFlow
+TensorFlow
+
+`-pip install  TensorFlow`
 
 Once we execute keras, we could see the configuration file is located at your home directory inside and go to .keras/keras.json.
 
