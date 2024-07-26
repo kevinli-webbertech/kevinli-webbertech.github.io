@@ -32,14 +32,14 @@ from keras.callbacks import EarlyStopping
 from sklearn import preprocessing 
 from sklearn.preprocessing import scale
 
-
+```
 ### **Step 2: Load Data**
 
 Load the dataset from the Boston Housing dataset provided by Keras:
 
 ```python
 (x_train, y_train), (x_test, y_test) = boston_housing.load_data()
-
+```
 
 ### **Step 3: Process the Data**
 
@@ -49,7 +49,7 @@ Scale the training data and apply standard scaling to the test data:
 x_train_scaled = preprocessing.scale(x_train) 
 scaler = preprocessing.StandardScaler().fit(x_train) 
 x_test_scaled = scaler.transform(x_test)
-
+```
 ### **Step 4: Create the Model**
 
 Define the Sequential model and add the Dense layers:
@@ -59,7 +59,7 @@ model = Sequential()
 model.add(Dense(64, kernel_initializer='normal', activation='relu', input_shape=(13,))) 
 model.add(Dense(64, activation='relu')) 
 model.add(Dense(1))
-
+```
 ### **Step 5: Compile the Model**
 
 Compile the model with MSE as the loss function and RMSprop as the optimizer:
@@ -70,6 +70,7 @@ model.compile(
    optimizer=RMSprop(), 
    metrics=['mean_absolute_error']
 )
+```
 ### **Step 6: Train the Model**
 
 Train the model using the scaled training data with the following settings:
@@ -83,7 +84,7 @@ history = model.fit(
    validation_split=0.2, 
    callbacks=[EarlyStopping(monitor='val_loss', patience=20)]
 )
-
+```
 ### **Training Output**
 
 The following output was observed during training:
@@ -120,7 +121,7 @@ score = model.evaluate(x_test_scaled, y_test, verbose = 0)
 print('Test loss:', score[0]) 
 print('Test accuracy:', score[1])
 
-
+```
 ### **Output**
 
 Test loss: 21.928471583946077 Test accuracy: 2.9599233234629914
@@ -133,7 +134,7 @@ Use the following code to make predictions and display the results:
 prediction = model.predict(x_test_scaled) 
 print(prediction.flatten())
 print(y_test)
-
+```
 ### **Output**
 ### **Model Prediction Accuracy**
 

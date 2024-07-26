@@ -32,7 +32,7 @@ model = Sequential()
 model.add(Dense(512, activation='relu', input_shape=(784,)))
 
 Sequential model exposes the Model class to create customized models. You can use the sub-classing concept to create your own complex model.
-
+```
 ### Functional API
 Functional API is basically used to create complex models.
 ## Layer
@@ -61,7 +61,7 @@ model.add(Dropout(0.2))
 model.add(Dense(512, activation='relu')) 
 model.add(Dropout(0.2)) 
 model.add(Dense(num_classes, activation='softmax'))
-
+```
 
 ## Explanation of the Neural Network Model Code
 

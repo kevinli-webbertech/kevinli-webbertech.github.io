@@ -1,96 +1,182 @@
-how to compile the model?
+## Compiling the Model
 
-The compilation is the final step in creating a model.
+Compiling a Keras model is a crucial step in preparing it for training. During the compilation step, you specify the loss function, optimizer, and metrics to be used during training and evaluation.
 
-Loss
-Loss function is used to find error or deviation in the learning process. Keras requires loss function during model compilation process.
-Keras provides quite a few loss function in the losses module and they are as follows −
+### Steps to Compile a Model
 
-mean_squared_error
-mean_absolute_error
-mean_absolute_percentage_error
-mean_squared_logarithmic_error
-squared_hinge
-hinge
-categorical_hinge
-logcosh
-huber_loss
-categorical_crossentropy
-sparse_categorical_crossentropy
-binary_crossentropy
-kullback_leibler_divergence
-poisson
-cosine_proximity
-is_categorical_crossentropy
+## Loss
 
+The loss function measures the error or deviation between the predicted values and the actual values during the learning process. It is a critical component required during model compilation in Keras. The choice of loss function depends on the type of problem being solved.
 
-All above loss function accepts two arguments −
+Keras provides a variety of loss functions in the `losses` module. Here are some of the commonly used loss functions:
 
-y_true − true labels as tensors
+### Available Loss Functions
 
-y_pred − prediction with same shape as y_true
+- **`mean_squared_error`**: Computes the mean squared error between predictions and actual values. Suitable for regression tasks.
+  
+- **`mean_absolute_error`**: Computes the mean absolute error between predictions and actual values. Suitable for regression tasks.
+  
+- **`mean_absolute_percentage_error`**: Computes the mean absolute percentage error between predictions and actual values. Useful for regression with percentage errors.
+  
+- **`mean_squared_logarithmic_error`**: Computes the mean squared logarithmic error between predictions and actual values. Suitable for regression tasks with logarithmic scaling.
+  
+- **`squared_hinge`**: Computes the squared hinge loss. Used for classification tasks with a hinge loss formulation.
+  
+- **`hinge`**: Computes the hinge loss. Commonly used for binary classification tasks.
+  
+- **`categorical_hinge`**: Computes the categorical hinge loss. Used for multi-class classification tasks.
+  
+- **`logcosh`**: Computes the logarithm of the hyperbolic cosine of the prediction error. Suitable for regression tasks.
+  
+- **`huber_loss`**: Computes the Huber loss. Useful for regression tasks that are robust to outliers.
+  
+- **`categorical_crossentropy`**: Computes the categorical crossentropy loss. Used for multi-class classification tasks with one-hot encoded labels.
+  
+- **`sparse_categorical_crossentropy`**: Computes the sparse categorical crossentropy loss. Used for multi-class classification tasks with integer labels.
+  
+- **`binary_crossentropy`**: Computes the binary crossentropy loss. Used for binary classification tasks.
+  
+- **`kullback_leibler_divergence`**: Computes the Kullback-Leibler divergence between two probability distributions. Used for measuring divergence between distributions.
+  
+- **`poisson`**: Computes the Poisson loss. Used for count-based data or Poisson regression.
+  
+- **`cosine_proximity`**: Computes the cosine proximity loss. Measures the cosine similarity between predictions and actual values.
 
-Import the losses module before using loss function as specified below −
+## Loss Functions in Keras
 
+All loss functions in Keras accept two primary arguments:
+
+- **`y_true`**: The true labels, provided as tensors.
+- **`y_pred`**: The predictions made by the model, which should have the same shape as `y_true`.
+
+These arguments are used to compute the error or deviation between the true labels and the predictions.
+
+### Importing the Losses Module
+
+Before using any loss function, you need to import the `losses` module from Keras. Here’s how you can do it:
+
+```python
 from keras import losses
+ ```
 
+## Optimizers
 
-Optimizer
-In machine learning, Optimization is an important process which optimize the input weights by comparing the prediction and the loss function. Keras provides quite a few optimizer as a module, optimizers and they are as follows:
+In machine learning, optimization is a crucial process that adjusts the model's weights to minimize the loss function and improve predictions. Optimizers play a key role in this process by determining how the weights should be updated based on the gradients of the loss function.
 
-SGD − Stochastic gradient descent optimizer.
+Keras provides a variety of optimizers through its `optimizers` module. Each optimizer has different properties and is suitable for various types of problems.
 
-keras.optimizers.SGD(learning_rate = 0.01, momentum = 0.0, nesterov = False)
-RMSprop − RMSProp optimizer.
+### Available Optimizers in Keras
+### SGD (Stochastic Gradient Descent)
 
-keras.optimizers.RMSprop(learning_rate = 0.001, rho = 0.9)
-Adagrad − Adagrad optimizer.
+The SGD optimizer performs stochastic gradient descent with optional momentum.
 
-keras.optimizers.Adagrad(learning_rate = 0.01)
-Adadelta − Adadelta optimizer.
+```python
+keras.optimizers.SGD(learning_rate=0.01, momentum=0.0, nesterov=False)
+```
+### RMSprop (Root Mean Square Propagation)
 
-keras.optimizers.Adadelta(learning_rate = 1.0, rho = 0.95)
-Adam − Adam optimizer.
+The RMSprop optimizer adjusts the learning rate based on a moving average of the squared gradients.
 
+```python
+keras.optimizers.RMSprop(learning_rate=0.001, rho=0.9)
+```
+### Adagrad (Adaptive Gradient Algorithm)
+
+The Adagrad optimizer adapts the learning rate based on the historical gradient values.
+
+```python
+keras.optimizers.Adagrad(learning_rate=0.01)
+```
+### Adadelta
+
+The Adadelta optimizer is an extension of Adagrad that adapts learning rates based on a moving window of gradient updates.
+
+```python
+keras.optimizers.Adadelta(learning_rate=1.0, rho=0.95)
+```
+### Adam
+
+The Adam optimizer combines the benefits of RMSprop and momentum-based optimization.
+
+```python
 keras.optimizers.Adam(
-   learning_rate = 0.001, beta_1 = 0.9, beta_2 = 0.999, amsgrad = False
+    learning_rate=0.001,     # Learning rate for the optimizer
+    beta_1=0.9,             # Exponential decay rate for the first moment estimates
+    beta_2=0.999,           # Exponential decay rate for the second moment estimates
+    amsgrad=False           # Whether to apply AMSGrad variant
 )
-Adamax − Adamax optimizer from Adam.
+```
+### Adamax
 
-keras.optimizers.Adamax(learning_rate = 0.002, beta_1 = 0.9, beta_2 = 0.999)
-Nadam − Nesterov Adam optimizer.
+Adamax is a variant of the Adam optimizer, which uses the infinity norm to stabilize updates.
 
-keras.optimizers.Nadam(learning_rate = 0.002, beta_1 = 0.9, beta_2 = 0.999)
+```python
+keras.optimizers.Adamax(
+    learning_rate=0.002,     # Learning rate for the optimizer
+    beta_1=0.9,             # Exponential decay rate for the first moment estimates
+    beta_2=0.999            # Exponential decay rate for the second moment estimates
+)
+```
+### Nadam (Nesterov Adam)
 
+The Nadam optimizer combines the ideas of Nesterov accelerated gradients with the Adam optimizer.
 
-Import the optimizers module before using optimizers as specified below −
+```python
+keras.optimizers.Nadam(
+    learning_rate=0.002,     # Learning rate for the optimizer
+    beta_1=0.9,             # Exponential decay rate for the first moment estimates
+    beta_2=0.999            # Exponential decay rate for the second moment estimates
+)
 
+```
+
+### Importing the Optimizers Module
+
+Before using any optimizers, you need to import the `optimizers` module as shown below:
+
+```python
 from keras import optimizers
 
-Metrics
-In machine learning, Metrics is used to evaluate the performance of your model. It is similar to loss function, but not used in training process. Keras provides quite a few metrics as a module, metrics and they are as follows
+```
+### Metrics
 
-accuracy
-binary_accuracy
-categorical_accuracy
-sparse_categorical_accuracy
-top_k_categorical_accuracy
-sparse_top_k_categorical_accuracy
-cosine_proximity
-clone_metric
-Similar to loss function, metrics also accepts below two arguments −
+In machine learning, metrics are used to evaluate the performance of your model. They are similar to loss functions but are not used in the training process. Instead, metrics are used to monitor and assess the performance of the model during and after training.
 
-y_true − true labels as tensors
+Keras provides several metrics through the `metrics` module. Some commonly used metrics include:
 
-y_pred − prediction with same shape as y_true
+- **accuracy**: Measures the proportion of correctly predicted instances.
+- **binary_accuracy**: Measures the accuracy of binary classification models.
+- **categorical_accuracy**: Measures the accuracy of multi-class classification models.
+- **sparse_categorical_accuracy**: Measures the accuracy for multi-class classification problems where labels are integers.
+- **top_k_categorical_accuracy**: Measures the accuracy where the model's prediction is considered correct if the true label is among the top k predicted labels.
+- **sparse_top_k_categorical_accuracy**: Similar to `top_k_categorical_accuracy`, but for sparse labels.
+- **cosine_proximity**: Measures the cosine similarity between predicted and true labels.
+- **clone_metric**: A placeholder metric used for cloning purposes.
 
-Import the metrics module before using metrics as specified below −
+You can import these metrics from the Keras library as follows:
 
+```python
+from keras import metrics
+```
+Similar to loss functions, metrics also accept the following two arguments:
+
+- **y_true**: The true labels as tensors.
+- **y_pred**: The predictions with the same shape as `y_true`.
+
+
+### Import the Metrics Module
+
+Import the metrics module before using metrics as specified below:
+
+```python
 from keras import metrics
 
-Compile the model
-Keras model provides a method, compile() to compile the model. The argument and default value of the compile() method is as follows
+```
+### Compile the Model
 
+Keras models provide a method, `compile()`, to compile the model. The arguments and their default values for the `compile()` method are as follows:
+
+```python
 compile(
    optimizer, 
    loss = None, 
@@ -100,182 +186,258 @@ compile(
    weighted_metrics = None, 
    target_tensors = None
 )
-The important arguments are as follows −
+```
+### Important Arguments
 
-loss function
-Optimizer
-metrics
-A sample code to compile the mode is as follows −
+The important arguments for the `compile()` method are as follows:
 
-from keras import losses 
-from keras import optimizers 
-from keras import metrics 
+- **loss**: The loss function to minimize during training.
+- **optimizer**: The optimizer to use for training the model.
+- **metrics**: List of metrics to monitor during training and evaluation.
+  
+### Sample Code to Compile the Model
 
-model.compile(loss = 'mean_squared_error',  
-   optimizer = 'sgd', metrics = [metrics.categorical_accuracy])
+A sample code to compile the model is as follows:
+
+```python
+from keras import losses
+from keras import optimizers
+from keras import metrics
+
+model.compile(
+    loss='mean_squared_error',
+    optimizer='sgd',
+    metrics=[metrics.categorical_accuracy]
+)
+```
 where,
 
-loss function is set as mean_squared_error
+-loss function is set as mean_squared_error
 
-optimizer is set as sgd
+-optimizer is set as sgd
 
-metrics is set as metrics.categorical_accuracy
+-metrics is set as metrics.categorical_accuracy
 
-Model Training
-Models are trained by NumPy arrays using fit(). The main purpose of this fit function is used to evaluate your model on training. This can be also used for graphing model performance. It has the following syntax −
+### Model Training
 
-model.fit(X, y, epochs = , batch_size = )
+Models are trained using NumPy arrays with the `fit()` method. The primary purpose of this `fit()` function is to train your model and evaluate it on the provided data. It can also be used for graphing model performance. The syntax for the `fit()` method is as follows:
+
+```python
+model.fit(X, y, epochs=, batch_size=)
+```
 Here,
 
-X, y − It is a tuple to evaluate your data.
-
-epochs − no of times the model is needed to be evaluated during training.
-
-batch_size − training instances.
+- **X, y**: Tuple to evaluate your data.
+- **epochs**: Number of times the model is needed to be evaluated during training.
+- **batch_size**: Training instances.
 
 Let us take a simple example of numpy random data to use this concept.
 
-Create data
-Let us create a random data using numpy for x and y with the help of below mentioned command −
 
+### Create Data
+
+Let us create random data using NumPy for `x` and `y` with the help of the following commands:
+
+```python
 import numpy as np 
 
-x_train = np.random.random((100,4,8)) 
-y_train = np.random.random((100,10))
-Now, create random validation data,
+x_train = np.random.random((100, 4, 8)) 
+y_train = np.random.random((100, 10))
 
-x_val = np.random.random((100,4,8)) 
-y_val = np.random.random((100,10))
-Create model
-Let us create simple sequential model −
+Now, create random validation data:
 
-from keras.models import Sequential model = Sequential()
-Add layers
-Create layers to add model −
+```python
+x_val = np.random.random((100, 4, 8)) 
+y_val = np.random.random((100, 10))
+```
+### Create Model
 
+Let us create a simple sequential model:
+
+```python
+from keras.models import Sequential
+model = Sequential()
+```
+### Add Layers
+
+Create layers to add to the model:
+
+```python
 from keras.layers import LSTM, Dense 
 
-# add a sequence of vectors of dimension 16 
-model.add(LSTM(16, return_sequences = True)) 
-model.add(Dense(10, activation = 'softmax'))
-compile model
-Now model is defined. You can compile using the below command −
+# Add a sequence of vectors of dimension 16 
+model.add(LSTM(16, return_sequences=True)) 
+model.add(Dense(10, activation='softmax'))
+```
+### Compile Model
 
+Now the model is defined. You can compile it using the following command:
+
+```python
 model.compile(
-   loss = 'categorical_crossentropy', optimizer = 'sgd', metrics = ['accuracy']
+   loss='categorical_crossentropy', 
+   optimizer='sgd', 
+   metrics=['accuracy']
 )
-Apply fit()
-Now we apply fit() function to train our data −
+```
+### Apply fit()
 
-model.fit(x_train, y_train, batch_size = 32, epochs = 5, validation_data = (x_val, y_val))
+Now we apply the `fit()` function to train our data:
 
-Create a Multi-Layer Perceptron ANN
-We have learned to create, compile and train the Keras models.
+```python
+model.fit(
+   x_train, 
+   y_train, 
+   batch_size=32, 
+   epochs=5, 
+   validation_data=(x_val, y_val)
+)
 
-Let us apply our learning and create a simple MPL based ANN.
+```
+### Create a Multi-Layer Perceptron ANN
 
-Dataset module
-Before creating a model, we need to choose a problem, need to collect the required data and convert the data to NumPy array. Once data is collected, we can prepare the model and train it by using the collected data. Data collection is one of the most difficult phase of machine learning. Keras provides a special module, datasets to download the online machine learning data for training purposes. It fetches the data from online server, process the data and return the data as training and test set. Let us check the data provided by Keras dataset module. The data available in the module are as follows,
+We have learned to create, compile, and train Keras models. Let us apply our learning and create a simple MLP-based ANN.
 
-CIFAR10 small image classification
-CIFAR100 small image classification
-IMDB Movie reviews sentiment classification
-Reuters newswire topics classification
-MNIST database of handwritten digits
-Fashion-MNIST database of fashion articles
-Boston housing price regression dataset
-Let us use the MNIST database of handwritten digits (or minst) as our input. minst is a collection of 60,000, 28x28 grayscale images. It contains 10 digits. It also contains 10,000 test images.
 
-Below code can be used to load the dataset −
+### Dataset Module
 
-from keras.datasets import mnist 
+Before creating a model, we need to choose a problem, collect the required data, and convert the data to a NumPy array. Once data is collected, we can prepare the model and train it using the collected data. Data collection is one of the most challenging phases of machine learning. Keras provides a special module, `datasets`, to download online machine learning data for training purposes. It fetches the data from an online server, processes it, and returns the data as training and test sets. The data available in the Keras dataset module includes:
+
+- CIFAR10: Small image classification
+- CIFAR100: Small image classification
+- IMDB: Movie reviews sentiment classification
+- Reuters: Newswire topics classification
+- MNIST: Database of handwritten digits
+- Fashion-MNIST: Database of fashion articles
+- Boston: Housing price regression dataset
+
+### MNIST Database
+
+-Let us use the MNIST database of handwritten digits as our input. MNIST is a collection of 60,000 grayscale images, each with a size of 28x28 pixels, representing digits from 0 to 9. The dataset also includes 10,000 test images.
+
+
+### Loading the MNIST Dataset
+
+Below code can be used to load the MNIST dataset:
+
+```python
+from keras.datasets import mnist
 
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
+
 where
 
-Line 1 imports minst from the keras dataset module.
+- Line 1 imports MNIST from the Keras dataset module.
 
-Line 3 calls the load_data function, which will fetch the data from online server and return the data as 2 tuples, First tuple, (x_train, y_train) represent the training data with shape, (number_sample, 28, 28) and its digit label with shape, (number_samples, ). Second tuple, (x_test, y_test) represent test data with same shape.
+- Line 3 calls the `load_data` function, which fetches the data from the online server and returns it as two tuples:
+  - The first tuple, `(x_train, y_train)`, represents the training data with shape `(number_samples, 28, 28)` and its digit labels with shape `(number_samples, )`.
+  - The second tuple, `(x_test, y_test)`, represents the test data with the same shape.
 
-Other dataset can also be fetched using similar API and every API returns similar data as well except the shape of the data. The shape of the data depends on the type of data.
+Other datasets can also be fetched using similar APIs, and each API returns similar data, except for the shape, which depends on the type of data.
 
-Create a model
-Let us choose a simple multi-layer perceptron (MLP) as represented below and try to create the model using Keras.
 
-Step 1 − Import the modules
+```
+## Create a Model
 
-Let us import the necessary modules.
+Let us choose a simple multi-layer perceptron (MLP) and create the model using Keras.
 
-import keras 
-from keras.datasets import mnist 
-from keras.models import Sequential 
-from keras.layers import Dense, Dropout 
-from keras.optimizers import RMSprop 
+### Step 1 − Import the Modules
+
+Import the necessary modules:
+
+```python
+import keras
+from keras.datasets import mnist
+from keras.models import Sequential
+from keras.layers import Dense, Dropout
+from keras.optimizers import RMSprop
 import numpy as np
-Step 2 − Load data
+```
+### Step 2 − Load Data
 
-Let us import the mnist dataset.
+Let us import the MNIST dataset:
 
+```python
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
-Step 3 − Process the data
+```
+### Step 3 − Process the Data
 
-Let us change the dataset according to our model, so that it can be feed into our model.
+Let us change the dataset according to our model, so that it can be fed into our model:
 
-x_train = x_train.reshape(60000, 784) 
-x_test = x_test.reshape(10000, 784) 
-x_train = x_train.astype('float32') 
-x_test = x_test.astype('float32') 
-x_train /= 255 
-x_test /= 255 
+```python
+x_train = x_train.reshape(60000, 784)
+x_test = x_test.reshape(10000, 784)
+x_train = x_train.astype('float32')
+x_test = x_test.astype('float32')
+x_train /= 255
+x_test /= 255
 
-y_train = keras.utils.to_categorical(y_train, 10) 
+y_train = keras.utils.to_categorical(y_train, 10)
 y_test = keras.utils.to_categorical(y_test, 10)
-Where
 
-reshape is used to reshape the input from (28, 28) tuple to (784, )
+Where:
 
-to_categorical is used to convert vector to binary matrix
+- `reshape` is used to reshape the input from `(28, 28)` tuple to `(784,)`
+- `to_categorical` is used to convert vector to binary matrix
 
-Step 4 − Create the model
+```
+### Step 4 − Create the model
 
 Let us create the actual model.
 
-model = Sequential() 
-model.add(Dense(512, activation = 'relu', input_shape = (784,))) 
-model.add(Dropout(0.2)) 
-model.add(Dense(512, activation = 'relu'))
-model.add(Dropout(0.2)) 
-model.add(Dense(10, activation = 'softmax'))
-Step 5 − Compile the model
+```python
+from keras.models import Sequential
+from keras.layers import Dense, Dropout
 
-Let us compile the model using selected loss function, optimizer and metrics.
+model = Sequential()
+model.add(Dense(512, activation='relu', input_shape=(784,)))
+model.add(Dropout(0.2))
+model.add(Dense(512, activation='relu'))
+model.add(Dropout(0.2))
+model.add(Dense(10, activation='softmax'))
+```
+### Step 5 − Compile the model
 
-model.compile(loss = 'categorical_crossentropy',     
-   optimizer = RMSprop(), 
-   metrics = ['accuracy'])
-Step 6 − Train the model
+Let us compile the model using the selected loss function, optimizer, and metrics.
 
-Let us train the model using fit() method.
+```python
+from keras.optimizers import RMSprop
 
-history = model.fit(
-   x_train, y_train, 
-   batch_size = 128, 
-   epochs = 20, 
-   verbose = 1, 
-   validation_data = (x_test, y_test)
+model.compile(
+    loss='categorical_crossentropy',
+    optimizer=RMSprop(),
+    metrics=['accuracy']
 )
-Final thoughts
-We have created the model, loaded the data and also trained the data to the model. We still need to evaluate the model and predict output for unknown input, which we learn in upcoming chapter.
+```
+### Step 6 − Train the model
 
+Let us train the model using the `fit()` method.
+
+```python
+history = model.fit(
+    x_train, y_train,
+    batch_size=128,
+    epochs=20,
+    verbose=1,
+    validation_data=(x_test, y_test)
+)
+```
+### Final thoughts
+
+We have created the model, loaded the data, and trained the model. We still need to evaluate the model and predict output for unknown inputs, which we will cover in the upcoming chapter.
+
+```python
 import keras 
 from keras.datasets import mnist 
 from keras.models import Sequential 
 from keras.layers import Dense, Dropout 
 from keras.optimizers import RMSprop 
 import numpy as np 
-
+```
+# Load the MNIST dataset
 (x_train, y_train), (x_test, y_test) = mnist.load_data() 
 
+# Preprocess the data
 x_train = x_train.reshape(60000, 784) 
 x_test = x_test.reshape(10000, 784) 
 x_train = x_train.astype('float32') 
@@ -283,21 +445,35 @@ x_test = x_test.astype('float32')
 x_train /= 255 
 x_test /= 255 
 
+# Convert labels to one-hot encoding
 y_train = keras.utils.to_categorical(y_train, 10) 
 y_test = keras.utils.to_categorical(y_test, 10) 
 
+# Create the model
 model = Sequential() 
-model.add(Dense(512, activation='relu', input_shape = (784,))) 
+model.add(Dense(512, activation='relu', input_shape=(784,))) 
 model.add(Dropout(0.2)) 
-model.add(Dense(512, activation = 'relu')) model.add(Dropout(0.2)) 
-model.add(Dense(10, activation = 'softmax'))
-model.compile(loss = 'categorical_crossentropy', 
-   optimizer = RMSprop(), 
-   metrics = ['accuracy']) 
+model.add(Dense(512, activation='relu')) 
+model.add(Dropout(0.2)) 
+model.add(Dense(10, activation='softmax'))
 
+# Compile the model
+model.compile(loss='categorical_crossentropy', 
+              optimizer=RMSprop(), 
+              metrics=['accuracy']) 
+
+# Train the model
 history = model.fit(x_train, y_train, 
-   batch_size = 128, epochs = 20, verbose = 1, validation_data = (x_test, y_test))
-Executing the application will give the below content as output −
+                    batch_size=128, 
+                    epochs=20, 
+                    verbose=1, 
+                    validation_data=(x_test, y_test))
+
+## Model Training Output
+
+Executing the application will give the following output:
+
+
 
 Train on 60000 samples, validate on 10000 samples Epoch 1/20 
 60000/60000 [==============================] - 7s 118us/step - loss: 0.2453 

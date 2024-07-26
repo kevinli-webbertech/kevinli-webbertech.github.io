@@ -11,7 +11,7 @@ keras.applications.resnet.ResNet50(
     pooling=None, 
     classes=1000
 )
-
+```
 ### Parameter Descriptions
 
 - **`include_top`**: Refers to the fully-connected layer at the top of the network.
@@ -35,7 +35,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from keras.applications.resnet50 import ResNet50
 from keras.applications import resnet50
-
+```
 ### Step 2: Select an Input
 
 ```python
@@ -48,13 +48,14 @@ print('PIL image size', original.size)
 # Display the image
 plt.imshow(original) 
 plt.show()
-
+```
 ### Step 3: Convert Images into NumPy Array
 
-```python
-# Convert the PIL image to a NumPy array
-numpy_image = img_to_array(original) 
 
+# Convert the PIL image to a NumPy array
+```python
+numpy_image = img_to_array(original) 
+```
 # Display the NumPy image
 plt.imshow(np.uint8(numpy_image)) 
 plt.show()
@@ -70,10 +71,10 @@ print('image batch size', image_batch.shape)
 
 ### Step 4: Model Prediction
 
-```python
 # Prepare the image for the ResNet50 model
+```python
 processed_image = resnet50.preprocess_input(image_batch.copy()) 
-
+```
 # Create ResNet50 model with pre-trained weights
 resnet_model = resnet50.ResNet50(weights='imagenet') 
 # Output: Downloading data from https://github.com/fchollet/deep-learning-models/releases/download/v0.2/resnet50_weights_tf_dim_ordering_tf_kernels.h5

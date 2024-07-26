@@ -45,6 +45,7 @@ from keras.models import Sequential
 from keras.layers import Dense, Embedding
 from keras.layers import LSTM
 from keras.datasets import imdb
+```
 
 ## **Step 2: Load Data**
 
@@ -52,7 +53,7 @@ Load the IMDB dataset, which is used for sentiment analysis of movie reviews:
 
 ```python
 (x_train, y_train), (x_test, y_test) = imdb.load_data(num_words=2000)
-
+```
 
 ## **Step 3: Process the Data**
 
@@ -61,7 +62,7 @@ Ensure that all sequences in the dataset have the same length by padding them:
 ```python
 x_train = sequence.pad_sequences(x_train, maxlen=80)
 x_test = sequence.pad_sequences(x_test, maxlen=80)
-
+```
 ## **Step 4: Create the Model**
 
 Define the Long Short Term Memory (LSTM) based Recurrent Neural Network (RNN) model:
@@ -71,7 +72,7 @@ model = Sequential()
 model.add(Embedding(2000, 128))
 model.add(LSTM(128, dropout=0.2, recurrent_dropout=0.2))
 model.add(Dense(1, activation='sigmoid'))
-
+```
 
 ## **Step 5: Compile the Model**
 
@@ -83,7 +84,7 @@ model.compile(
     optimizer='adam',
     metrics=['accuracy']
 )
-
+```
 ## **Step 6: Train the Model**
 
 Train the model using the `fit()` method:
@@ -95,7 +96,7 @@ model.fit(
     epochs=15,
     validation_data=(x_test, y_test)
 )
-
+```
 ## **Model Training Output**
 
 Epoch 1/15 2019-09-24 01:19:01.151247: I 
@@ -140,7 +141,7 @@ TensorFlow binary was not co mpiled to use: AVX2
 Evaluate the model using test data:
 
 ```python
-score, acc = model.evaluate(x_test, y_test, batch_size=32) 
+score, acc = model.evaluate(x_test, y_test, batch_size=32)
 
 print('Test score:', score) 
 print('Test accuracy:', acc)

@@ -1,102 +1,152 @@
-Available modules
+# Available Modules in Keras
 
-Initializers − Provides a list of initializers function. We can learn it in details in Keras layer chapter. during model creation phase of machine learning.
+## Initializers
+Provides a list of initializer functions. Detailed information can be found in the [Keras Layers chapter](#) during the model creation phase of machine learning.
 
-Regularizers − Provides a list of regularizers function. We can learn it in details in Keras Layers chapter.
+## Regularizers
+Provides a list of regularizer functions. Detailed information can be found in the [Keras Layers chapter](#).
 
-Constraints − Provides a list of constraints function. We can learn it in details in Keras Layers chapter.
+## Constraints
+Provides a list of constraint functions. Detailed information can be found in the [Keras Layers chapter](#).
 
-Activations − Provides a list of activator function. We can learn it in details in Keras Layers chapter.
+## Activations
+Provides a list of activation functions. Detailed information can be found in the [Keras Layers chapter](#).
 
-Losses − Provides a list of loss function. We can learn it in details in Model Training chapter.
+## Losses
+Provides a list of loss functions. Detailed information can be found in the [Model Training chapter](#).
 
-Metrics − Provides a list of metrics function. We can learn it in details in Model Training chapter.
+## Metrics
+Provides a list of metrics functions. Detailed information can be found in the [Model Training chapter](#).
 
-Optimizers − Provides a list of optimizer function. We can learn it in details in Model Training chapter.
+## Optimizers
+Provides a list of optimizer functions. Detailed information can be found in the [Model Training chapter](#).
 
-Callback − Provides a list of callback function. We can use it during the training process to print the intermediate data as well as to stop the training itself (EarlyStopping method) based on some condition.
+## Callbacks
+Provides a list of callback functions. Useful during the training process to print intermediate data and to stop training based on conditions (e.g., EarlyStopping).
 
-Text processing − Provides functions to convert text into NumPy array suitable for machine learning. We can use it in data preparation phase of machine learning.
+## Text Processing
+Provides functions to convert text into NumPy arrays suitable for machine learning. Useful in the data preparation phase.
 
-Image processing − Provides functions to convert images into NumPy array suitable for machine learning. We can use it in data preparation phase of machine learning.
+## Image Processing
+Provides functions to convert images into NumPy arrays suitable for machine learning. Useful in the data preparation phase.
 
-Sequence processing − Provides functions to generate time based data from the given input data. We can use it in data preparation phase of machine learning.
+## Sequence Processing
+Provides functions to generate time-based data from given input data. Useful in the data preparation phase.
 
-Backend − Provides function of the backend library like TensorFlow and Theano.
+## Backend
+Provides functions related to backend libraries like TensorFlow and Theano.
 
-Utilities − Provides lot of utility function useful in deep learning.
+## Utilities
+Provides a variety of utility functions useful in deep learning.
 
-backend module
+## Backend Module
 
-ackend module is used for keras backend operations. By default, keras runs on top of TensorFlow backend. If you want, you can switch to other backends like Theano or CNTK. Defualt backend configuration is defined inside your root directory under .keras/keras.json file.
+The Backend module is used for Keras backend operations. By default, Keras runs on top of the TensorFlow backend. However, you can switch to other backends such as Theano or CNTK if needed. 
 
-Keras backend module can be imported using below code
+The default backend configuration is specified in the `.keras/keras.json` file located in your root directory.
 
+### Configuration
+
+To configure the backend, you can modify the `keras.json` file with the desired backend. For example:
+
+```json
+{
+  "floatx": "float32",
+  "epsilon": 1e-07,
+  "backend": "tensorflow",  // Change this to "theano" or "cntk" as needed
+  "image_data_format": "channels_last"
+}
+```
+## Keras Backend Module
+
+You can import the Keras Backend module using the following code:
+
+```python
 >>> from keras import backend as k
+```
+### `get_uid()`
 
-get_uid()
+The `get_uid()` function generates a unique identifier (UID). Optionally, you can provide a `prefix` argument to customize the UID. Each call to `get_uid()` returns an incremented UID.
 
->>> k.get_uid(prefix='') 
-1 
->>> k.get_uid(prefix='') 2
+#### Example Usage
 
+```python
+>>> k.get_uid(prefix='')
+1
+>>> k.get_uid(prefix='')
 reset_uids
 
 It is used resets the uid value.
 
 >>> k.reset_uids()
 
-
-
 Now, again execute the get_uid(). This will be reset and change again to 1.
 
 >>> k.get_uid(prefix='') 
-1
+```
 
-placeholder
+### `placeholder`
 
+The `placeholder()` function is used to instantiate a placeholder tensor. This is a simple placeholder that can hold a tensor with a specified shape.
 
-It is used instantiates a placeholder tensor. Simple placeholder to hold 3-D shape is shown below −
+#### Example Usage
+
+To create a placeholder tensor with a 3-D shape, you can use:
+
+```python
+>>> data = k.placeholder(shape=(1, 3, 3))
+>>> data
+<tf.Tensor 'Placeholder_9:0' shape=(1, 3, 3) dtype=float32>
 
 >>> data = k.placeholder(shape = (1,3,3)) 
 >>> data 
 <tf.Tensor 'Placeholder_9:0' shape = (1, 3, 3) dtype = float32> 
 
-If you use int_shape(), it will show the shape. 
+-If you use int_shape(), it will show the shape. 
 
 >>> k.int_shape(data) (1, 3, 3)
+```
+### `dot`
 
-dot
-It is used to multiply two tensors. Consider a and b are two tensors and c will be the outcome of multiply of ab. Assume a shape is (4,2) and b shape is (2,3). It is defined below,
+The `dot()` function is used to perform matrix multiplication between two tensors. Consider `a` and `b` as two tensors with shapes `(4, 2)` and `(2, 3)`, respectively. The result `c` will have the shape `(4, 3)`.
 
->>> a = k.placeholder(shape = (4,2)) 
->>> b = k.placeholder(shape = (2,3)) 
->>> c = k.dot(a,b) 
->>> c 
-<tf.Tensor 'MatMul_3:0' shape = (4, 3) dtype = float32> 
->>>
-ones
-It is used to initialize all as one value.
+#### Example Usage
 
->>> res = k.ones(shape = (2,2)) 
+```python
+>>> a = k.placeholder(shape=(4, 2))
+>>> b = k.placeholder(shape=(2, 3))
+>>> c = k.dot(a, b)
+>>> c
+<tf.Tensor 'MatMul_3:0' shape=(4, 3) dtype=float32>
 
-#print the value 
+```
+### `ones`
 
->>> k.eval(res) 
-array([[1., 1.], [1., 1.]], dtype = float32)
-batch_dot
-It is used to perform the product of two data in batches. Input dimension must be 2 or higher. It is shown below −
+The `ones()` function initializes a tensor where all elements are set to one.
 
->>> a_batch = k.ones(shape = (2,3)) 
->>> b_batch = k.ones(shape = (3,2)) 
->>> c_batch = k.batch_dot(a_batch,b_batch) 
->>> c_batch 
-<tf.Tensor 'ExpandDims:0' shape = (2, 1) dtype = float32>
-variable
-It is used to initializes a variable. Let us perform simple transpose operation in this variable.
+#### Example Usage
 
->>> data = k.variable([[10,20,30,40],[50,60,70,80]]) 
-#variable initialized here 
+```python
+>>> res = k.ones(shape=(2, 2))
+>>> k.eval(res)
+array([[1., 1.], [1., 1.]], dtype=float32)
+```
+### `batch_dot`
+
+The `batch_dot()` function performs a batch-wise dot product between two tensors. Both input tensors must have at least 2 dimensions.
+
+#### Example Usage
+
+```python
+>>> a_batch = k.ones(shape=(2, 3))
+>>> b_batch = k.ones(shape=(3, 2))
+>>> c_batch = k.batch_dot(a_batch, b_batch)
+>>> c_batch
+<tf.Tensor 'ExpandDims:0' shape=(2, 1) dtype=float32>
+
+>>> data = k.variable([[10,20,30,40],[50,60,70,80]])
+ ```
+# variable initialized here 
 >>> result = k.transpose(data) 
 >>> print(result) 
 Tensor("transpose_6:0", shape = (4, 2), dtype = float32) 
@@ -118,80 +168,125 @@ If you want to access from numpy −
 >>> res = k.variable(value = data) 
 >>> print(res) 
 <tf.Variable 'Variable_7:0' shape = (2, 4) dtype = float32_ref>
-is_sparse(tensor)
-It is used to check whether the tensor is sparse or not.
 
->>> a = k.placeholder((2, 2), sparse=True) 
+### `is_sparse(tensor)`
 
->>> print(a) SparseTensor(indices =       
-   Tensor("Placeholder_8:0", 
-   shape = (?, 2), dtype = int64), 
-values = Tensor("Placeholder_7:0", shape = (?,), 
-dtype = float32), dense_shape = Tensor("Const:0", shape = (2,), dtype = int64)) 
+The `is_sparse()` function checks whether a given tensor is sparse or not.
 
->>> print(k.is_sparse(a)) True
-to_dense()
-It is used to converts sparse into dense.
+#### Example Usage
 
->>> b = k.to_dense(a) 
->>> print(b) Tensor("SparseToDense:0", shape = (2, 2), dtype = float32) 
->>> print(k.is_sparse(b)) False
-random_uniform_variable
-It is used to initialize using uniform distribution concept.
+```python
+>>> a = k.placeholder((2, 2), sparse=True)
+>>> print(a)
+SparseTensor(indices=Tensor("Placeholder_8:0", shape=(?, 2), dtype=int64),
+             values=Tensor("Placeholder_7:0", shape=(?), dtype=float32),
+             dense_shape=Tensor("Const:0", shape=(2,), dtype=int64))
+>>> print(k.is_sparse(a))
+True
+```
+### `to_dense()`
 
-k.random_uniform_variable(shape, mean, scale)
-Here,
+The `to_dense()` function converts a sparse tensor into a dense tensor.
 
-shape − denotes the rows and columns in the format of tuples.
+#### Example Usage
 
-mean − mean of uniform distribution.
+```python
+>>> b = k.to_dense(a)
+>>> print(b)
+Tensor("SparseToDense:0", shape=(2, 2), dtype=float32)
+>>> print(k.is_sparse(b))
+False
 
-scale − standard deviation of uniform distribution.
+```
+### `random_uniform_variable`
 
-Let us have a look at the below example usage −
+The `random_uniform_variable()` function initializes a tensor using a uniform distribution. The tensor is created with a specified shape and values are drawn from a uniform distribution within a given range.
 
->>> a = k.random_uniform_variable(shape = (2, 3), low=0, high = 1) 
->>> b = k. random_uniform_variable(shape = (3,2), low = 0, high = 1) 
->>> c = k.dot(a, b) 
->>> k.int_shape(c) 
+#### Parameters
+
+- `shape`: A tuple representing the shape of the tensor (rows and columns).
+- `low`: The lower bound of the uniform distribution.
+- `high`: The upper bound of the uniform distribution.
+
+#### Example Usage
+
+```python
+>>> a = k.random_uniform_variable(shape=(2, 3), low=0, high=1)
+>>> b = k.random_uniform_variable(shape=(3, 2), low=0, high=1)
+>>> c = k.dot(a, b)
+>>> k.int_shape(c)
 (2, 2)
-Explore our latest online courses and learn new skills at your own pace. Enroll and become a certified expert to boost your career.
 
-utils module
-utils provides useful utilities function for deep learning. Some of the methods provided by the utils module is as follows −
+```
 
-HDF5Matrix
-It is used to represent the input data in HDF5 format.
+## `utils` Module
 
-from keras.utils import HDF5Matrix data = HDF5Matrix('data.hdf5', 'data')
-to_categorical
-It is used to convert class vector into binary class matrix.
+The `utils` module provides a variety of utility functions for deep learning. Some of the methods provided by the `utils` module include:
 
->>> from keras.utils import to_categorical 
->>> labels = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] 
->>> to_categorical(labels) 
-array([[1., 0., 0., 0., 0., 0., 0., 0., 0., 0.], 
-   [0., 1., 0., 0., 0., 0., 0., 0., 0., 0.], 
-   [0., 0., 1., 0., 0., 0., 0., 0., 0., 0.], 
-   [0., 0., 0., 1., 0., 0., 0., 0., 0., 0.], 
-   [0., 0., 0., 0., 1., 0., 0., 0., 0., 0.], 
-   [0., 0., 0., 0., 0., 1., 0., 0., 0., 0.], 
-   [0., 0., 0., 0., 0., 0., 1., 0., 0., 0.], 
-   [0., 0., 0., 0., 0., 0., 0., 1., 0., 0.], 
-   [0., 0., 0., 0., 0., 0., 0., 0., 1., 0.], 
-   [0., 0., 0., 0., 0., 0., 0., 0., 0., 1.]], dtype = float32)
->>> from keras.utils import normalize 
->>> normalize([1, 2, 3, 4, 5]) 
-array([[0.13483997, 0.26967994, 0.40451992, 0.53935989, 0.67419986]])
-print_summary
-It is used to print the summary of the model.
+### `HDF5Matrix`
 
-from keras.utils import print_summary print_summary(model)
-plot_model
-It is used to create the model representation in dot format and save it to file.
+The `HDF5Matrix` class is used to represent input data in HDF5 format. It allows for efficient loading and processing of large datasets stored in HDF5 files.
 
-from keras.utils import plot_model 
-plot_model(model,to_file = 'image.png')
-This plot_model will generate an image to understand the performance of model.
+#### Example Usage
+
+```python
+from keras.utils import HDF5Matrix
+
+data = HDF5Matrix('data.hdf5', 'data')
+```
+### `to_categorical`
+
+The `to_categorical()` function converts a class vector (integers) into a binary class matrix, also known as one-hot encoding. This is useful for transforming class labels into a format suitable for classification tasks.
+
+#### Example Usage
+
+```python
+from keras.utils import to_categorical
+
+labels = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+one_hot_labels = to_categorical(labels)
+print(one_hot_labels)
+```
+### output
+array([[1., 0., 0., 0., 0., 0., 0., 0., 0., 0.],
+       [0., 1., 0., 0., 0., 0., 0., 0., 0., 0.],
+       [0., 0., 1., 0., 0., 0., 0., 0., 0., 0.],
+       [0., 0., 0., 1., 0., 0., 0., 0., 0., 0.],
+       [0., 0., 0., 0., 1., 0., 0., 0., 0., 0.],
+       [0., 0., 0., 0., 0., 1., 0., 0., 0., 0.],
+       [0., 0., 0., 0., 0., 0., 1., 0., 0., 0.],
+       [0., 0., 0., 0., 0., 0., 0., 1., 0., 0.],
+       [0., 0., 0., 0., 0., 0., 0., 0., 1., 0.],
+       [0., 0., 0., 0., 0., 0., 0., 0., 0., 1.]], dtype=float32)
+```python
+from keras.utils import normalize
+
+data = [1, 2, 3, 4, 5]
+normalized_data = normalize([data])
+print(normalized_data)
+```
+### `print_summary`
+
+The `print_summary()` function prints a summary of the model, including details such as the layers, their shapes, and the number of parameters. This is useful for inspecting the architecture of a Keras model.
+
+#### Example Usage
+
+```python
+from keras.utils import print_summary
+
+# Assuming 'model' is a pre-defined Keras model
+print_summary(model)
+```
+### `plot_model`
+
+The `plot_model()` function creates a graphical representation of the model architecture and saves it to a file. This visualization can help in understanding and analyzing the structure of the model.
+
+#### Example Usage
+
+```python
+from keras.utils import plot_model
+ ```
+# Assuming 'model' is a pre-defined Keras model
+plot_model(model, to_file='model_image.png', show_shapes=True, show_layer_names=True)
 
 

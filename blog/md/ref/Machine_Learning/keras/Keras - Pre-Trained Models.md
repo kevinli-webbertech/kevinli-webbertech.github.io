@@ -15,7 +15,7 @@ keras.applications.vgg16.VGG16(
    pooling=None, 
    classes=1000
 )
-
+```
 **The default input size for this model is 224x224.**
 
 ## **MobileNetV2**
@@ -35,7 +35,7 @@ keras.applications.mobilenet_v2.MobileNetV2(
    classes=1000
 )
 
-
+```
 ### **Alpha Parameter**
 
 - **Alpha** controls the width of the network.
@@ -60,7 +60,7 @@ keras.applications.inception_resnet_v2.InceptionResNetV2(
    pooling=None, 
    classes=1000
 )
-
+```
 ### **Data Format**
 
 This model can be built with either of the following data formats:
@@ -84,7 +84,7 @@ keras.applications.inception_v3.InceptionV3(
    pooling=None, 
    classes=1000
 )
-
+```
 
 **The default input size for this model is 299x299.**
 
