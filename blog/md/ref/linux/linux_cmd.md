@@ -35,7 +35,7 @@
 * `file` Checks a file’s type
 * `tree` folder structure [not built-in]
 
-## Compression 
+## Compression
 
 * `zip` and `unzip` Creates and extracts a ZIP archive
 * `tar` Archives files without compression in a TAR format
@@ -260,7 +260,6 @@ After running this command, $1 will be arg1, $2 will be arg2, and $3 will be arg
 
 `unset --`
 
-
 ## Permissions
 
 * `sudo` Runs a command as a superuser
@@ -471,32 +470,25 @@ This will sort the numbers numerically in ascending order. If you want to sort t
 `sed 's/old/new/' file.txt`         Substitute (replace) text
 `sed '/pattern/i\new line of text' file.txt`       Insert text before a line
 
-### tr Example
+### tr examples
 
 `echo "hello world" | tr 'a-z' 'A-Z'`              Translate lowercase to uppercase
 
 `echo "hello 123 world" | tr -d '0-9'`             Delete specific characters
 
-### awk Example
+### awk examples
 
 `awk '{print $1, $3}' file.txt`                   Print specific columns
 
 `awk '{sum += $1} END {print sum}' file.txt`       Sum the values of a column
 
-## rev Example
+### rev examples
 
 `echo "hello" | rev`                              Reverse a single line
 
 `rev file.txt`                                    Reverse the content of a file
 
-
-## Text find, replace and regex
-
-* `sed` Finds, replaces, or deletes patterns in a file
-* `awk` Finds and manipulates patterns in a file
-* `grep` Searches a string within a file
-
-### Examples
+### grep examples
 
 ```bash
 grep patt /path/to/src	Search for a text pattern patt in X. Commonly used with pipe e.g., ps aux | grep python3 filters out the processes containing python3 from all running processes of all users.
@@ -504,7 +496,6 @@ grep -r patt /path/to/src	Search recursively (the target directory /path/to/src 
 grep -v patt X	Return lines in X not matching the specified patt.
 grep -l patt X	Write to standard output the names of files containing patt.
 grep -i patt X	Perform case-insensitive matching on X. Ignore the case of patt.
-sort X	Arrange lines of text in X alphabetically or numerically.
 ```
 
 ## Search
@@ -513,7 +504,7 @@ sort X	Arrange lines of text in X alphabetically or numerically.
 
 * `locate` command searches for files in a prebuilt database. It is faster than find because it searches through a database instead of the actual filesystem.
 
-### Examples
+### find and locate examples
 
 ```bash
 find Find files.
@@ -802,7 +793,7 @@ Get all the links recursively.
 `-X`, equivalent to --method??
 `-L`, same as --location
 `-d`, same as --data
-`-o`, --output??
+`-o`, --output
 
 `curl` to send http post.
 
