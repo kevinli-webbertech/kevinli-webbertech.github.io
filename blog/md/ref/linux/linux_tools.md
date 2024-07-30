@@ -190,7 +190,6 @@ By default, SSH listens on port 22. You can change this to a different port for 
 
 Use a Firewall: Ensure that only trusted IP addresses can access your SSH server. You can configure this using tools like ufw (Uncomplicated Firewall) or firewalld.
 
-
 ## Apache2
 
 Apache2 is the http server.
@@ -220,8 +219,7 @@ xiaofengli@xiaofenglx:/etc/init.d$ ls -al apache2
 
 Check the above startup script in `/etc/init.d` dir,
 
-![apache2](apache2.png)
-
+![apache2]((https://kevinli-webbertech.github.io/blog/images/linux/apache2.png))
 
 ## SendMail
 
