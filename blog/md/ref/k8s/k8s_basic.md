@@ -20,6 +20,10 @@ What you’ll need
 * Internet connection
 * Container or virtual machine manager, such as: Docker, QEMU, Hyperkit, Hyper-V, KVM, Parallels, Podman, VirtualBox, or VMware Fusion/Workstation
 
+## Goal of Study in this article
+
+![study_modules](https://kevinli-webbertech.github.io/blog/images/k8s/study_modules.png)
+
 ## Installation
 
 ```shell
@@ -41,14 +45,12 @@ sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-a
 
 ## Deployment
 
-![alt text](image.png)
-
 * Kubernetes coordinates a highly available cluster of computers that are connected to work as a single unit. 
 * Kubernetes automates the distribution and scheduling of application containers across a cluster in a more efficient way.
 
 A Kubernetes cluster consists of two types of resources:
 
-![alt text](image-1.png)
+![cluster_diagram](https://kevinli-webbertech.github.io/blog/images/k8s/cluster_diagram.png)
 
 * The Control Plane coordinates the cluster
 * Nodes are the workers that run applications
