@@ -171,18 +171,6 @@ https://kubernetes.io/docs/tutorials/kubernetes-basics/scale/scale-intro/
 
 https://kubernetes.io/docs/tutorials/kubernetes-basics/update/update-intro/
 
-## Lab 1 Deploy an app
-
-https://kubernetes.io/docs/tutorials/kubernetes-basics/deploy-app/deploy-intro/ [Try]
-
-## Lab 2 Deploy a springboot App
-
-See existing content [TODO, link here]
-
-## Lab 3 using load balancer
-
-https://kubernetes.io/docs/tutorials/stateless-application/expose-external-ip-address/
-
 ## Ref
 
 - https://minikube.sigs.k8s.io/docs/start/
