@@ -107,6 +107,16 @@ Version: 2.0.0
 Hostname: hello-world-6db66cfc65-gn9dd
 ```
 
+**Dashboard**
+
+Launch from cmd,
+
+![launch_app](https://kevinli-webbertech.github.io/blog/images/k8s/dashboard_1.png)
+
+On the left side panel, those show 'N', meaning they are not available to view,
+
+![launch_app](https://kevinli-webbertech.github.io/blog/images/k8s/dashboard_2.png)
+
 **Clean up**
 
 `kubectl delete services my-service`
