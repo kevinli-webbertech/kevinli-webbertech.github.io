@@ -36,7 +36,6 @@ Import the losses module before using loss function as specified below −
 
 `from keras import losses`
 
-
 ## Optimizer
 
 In machine learning, Optimization is an important process which optimize the input weights by comparing the prediction and the loss function. Keras provides quite a few optimizer as a module, optimizers and they are as follows:

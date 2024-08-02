@@ -99,7 +99,3 @@ Activate conda environment
 `spyder`
 
 To ensure everything was installed correctly, import all the modules, it will add everything and if anything went wrong, you will get module not found error message.
-
-
-
-
