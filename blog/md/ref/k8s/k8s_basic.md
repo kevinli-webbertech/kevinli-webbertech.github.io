@@ -31,6 +31,10 @@ sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-a
 
 `minikube start`
 
+## Status
+
+`minikube status`
+
 ## Dashboard
 
 `minikube dashboard`
@@ -156,6 +160,12 @@ storage-provisioner-gluster: disabled
 Optionally, delete the Minikube VM:
 
 `minikube delete`
+
+## Troubleshooting and deep cleaning
+
+`minikube delete --all --purge`
+
+`docker system prune`
 
 ## Revisit
 
