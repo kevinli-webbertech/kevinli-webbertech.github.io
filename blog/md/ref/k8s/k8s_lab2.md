@@ -100,6 +100,13 @@ Hostname: 0bd46b45f32f
 
 ![launch_app](https://kevinli-webbertech.github.io/blog/images/k8s/launch_app.png)
 
+```shell
+xiaofengli@xiaofenglx:~/code/k8s$ curl http://192.168.49.2:32365/
+Hello, world!
+Version: 2.0.0
+Hostname: hello-world-6db66cfc65-gn9dd
+```
+
 **Clean up**
 
 `kubectl delete services my-service`
