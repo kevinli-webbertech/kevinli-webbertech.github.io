@@ -107,15 +107,44 @@ Version: 2.0.0
 Hostname: hello-world-6db66cfc65-gn9dd
 ```
 
+To understand the IP better, let us take a look at these,
+
+```shell
+xiaofengli@xiaofenglx:~/code/k8s$ kubectl get pods --output=wide
+NAME                           READY   STATUS    RESTARTS   AGE   IP           NODE       NOMINATED NODE   READINESS GATES
+hello-world-6db66cfc65-2j4h6   1/1     Running   0          20m   10.244.0.4   minikube   <none>           <none>
+hello-world-6db66cfc65-8nghl   1/1     Running   0          20m   10.244.0.7   minikube   <none>           <none>
+hello-world-6db66cfc65-gn9dd   1/1     Running   0          20m   10.244.0.5   minikube   <none>           <none>
+hello-world-6db66cfc65-n7m8v   1/1     Running   0          20m   10.244.0.6   minikube   <none>           <none>
+hello-world-6db66cfc65-w8p5j   1/1     Running   0          20m   10.244.0.3   minikube   <none>           <none>
+xiaofengli@xiaofenglx:~/code/k8s$ kubectl get services my-service
+NAME         TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+my-service   LoadBalancer   10.101.101.44   <pending>     8080:32365/TCP   7m55s
+xiaofengli@xiaofenglx:~/code/k8s$  minikube service my-service
+|-----------|------------|-------------|---------------------------|
+| NAMESPACE |    NAME    | TARGET PORT |            URL            |
+|-----------|------------|-------------|---------------------------|
+| default   | my-service |        8080 | http://192.168.49.2:32365 |
+```
+
+***Explanation***
+
+* The `10.101.101.44` is the load balancer ip inside the pod.
+* The `10.244.0.*` is the 5 instances|replicas ip inside of the pod.
+* The internal port of the load balancer is 8080.
+* The external port of the load balancer is 32365.
+* The external IP of the loadbalancer is pending and undermined, and it was assigned to 192.168.49.2.
+* So the mapping is 192.168.49.2:32365 maps to internal loadbalancer's 10.101.101.44:8080.
+
 **Dashboard**
 
 Launch from cmd,
 
-![launch_app](https://kevinli-webbertech.github.io/blog/images/k8s/dashboard_1.png)
+![launch_dashboard](https://kevinli-webbertech.github.io/blog/images/k8s/dashboard_1.png)
 
 On the left side panel, those show 'N', meaning they are not available to view,
 
-![launch_app](https://kevinli-webbertech.github.io/blog/images/k8s/dashboard_2.png)
+![web_dashboard](https://kevinli-webbertech.github.io/blog/images/k8s/dashboard_2.png)
 
 **Clean up**
 
