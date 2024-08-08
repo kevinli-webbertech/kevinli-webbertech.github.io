@@ -23,3 +23,15 @@ The following commands will address the computer slowness issue.
 `sudo apt purge snap`
 
 `sudo apt autoremove`
+
+* Inspect the following [TODO]
+
+```
+55.619s plymouth-quit-wait.service
+46.580s e2scrub_reap.service
+33.979s podman-restart.service
+```
+
+* Frozen Terminal
+
+Get `Activity Monitor` and kill `Gnome-shell`, it is like windows explorer and it will restart.
