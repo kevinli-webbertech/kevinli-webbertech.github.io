@@ -21,6 +21,21 @@ V100 is engineered for the convergence of AI and HPC. It offers a platform for H
 
 A2, A10, A16, A30, A40, T4, L4, L40s, L40, H100, H200, GB200 NVL2, GB200 NVL72.
 
+Others unverified: RTX A5000, RTX ADA 6000.
+
+![alt text](image.png)
+![GPU_release_line](../../../images/ml/GPU_release_line.png)
+
+Different tiers of GPUs are optimized for different compute workloads. Tiers from recent generations include:
+
+* `4`: The smallest GPU of a generation, 4-tier cards have low energy consumption and are best for cost-effective invocation of moderately-sized models.
+
+* `10`: A mid-range GPU optimized for AI inference.
+
+* `40`: A high-end GPU best suited for virtual workstations, graphics, and rendering.
+
+* `100`: The largest, most expensive, most powerful GPU of a generation. It has the highest core count and most VRAM and is designed for inference on large models as well as training and fine-tuning new models.
+
 **NVIDIA Multi-Instance GPU**
 
 Seven independent instances in a single GPU.
@@ -87,6 +102,12 @@ DGX GH200 systems with NVLink Switch System support clusters of up to 256 connec
 
 * https://aws.amazon.com/ec2/instance-types/p3/
 
-P3 Docker image (NVidia V100) that supports all the P3 instances.
+P3: Amazon EC2 P3 instances deliver high performance compute in the cloud with up to 8 NVIDIA® V100 Tensor Core GPUs and up to 100 Gbps of networking throughput for machine learning and HPC applications.
 
-P4, P5, G3, etc., then a new image would be needed.
+P4:  You can easily scale from a few to thousands of NVIDIA A100 GPUs in the EC2 UltraClusters based on your ML or HPC project needs.These instances support 400 Gbps instance networking. P4d instances provide up to 60% lower cost to train ML models, including an average of 2.5x better performance for deep learning models compared to previous-generation P3 and P3dn instances.
+
+P5: Amazon Elastic Compute Cloud (Amazon EC2) P5 instances, powered by the latest NVIDIA H100 Tensor Core GPUs, deliver the highest performance in Amazon EC2 for deep learning (DL) and high performance computing (HPC) applications.
+
+For other ML related instance, please check the following for `Accelerated Computing` types.
+
+* https://aws.amazon.com/ec2/instance-types/
