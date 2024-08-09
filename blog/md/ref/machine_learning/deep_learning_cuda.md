@@ -33,7 +33,7 @@ https://developer.nvidia.com/cuda-toolkit-archive (12.3)
 **Troubleshooting**
 
 ```shell
--y install pciutils
+yum -y install pciutils
 lspci | grep -e VGA -ie NVIDIA
 export CUDA_HOME=/usr/local/cuda-10.1
 export LD_LIBRARY_PATH=${CUDA_HOME}/lib64:$LD_LIBRARY_PATH
@@ -43,6 +43,12 @@ LD_LIBRARY_PATH=${CUDA_HOME}/lib64:$LD_LIBRARY_PATH
 export CUDA_HOME
 export LD_LIBRARY_PATH
 ```
+
+Using built-in stream user interface
+-> Detected 4 CPUs online; setting concurrency level to 4.
+-> Unable to locate any tools for listing initramfs contents.
+-> Unable to scan initramfs: no tool found
+ERROR: Unable to find the module utility `modprobe`; please make sure you have the package 'module-init-tools' or 'kmod' installed.  If you do have 'module-init-tools' or 'kmod' installed, then please check that `modprobe` is in your PATH.
 
 * https://www.dell.com/support/kbdoc/en-us/000216077/how-to-install-nvidia-driver-in-rhel
 
