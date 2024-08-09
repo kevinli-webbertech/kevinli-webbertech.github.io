@@ -108,10 +108,6 @@ To enable high-speed, collective operations, each NVLink Switch has engines for 
 
 * https://www.nvidia.com/en-us/studio/compare-gpus/
 
-### GPU and graphics card ranking
-
-* https://www.tomshardware.com/reviews/gpu-hierarchy,4388.html
-
 ## AWS EC2 instance for HPC|ML computing
 
 To quickly identify the Nvidia GPUs production line and timeline, remember the `V`, `T`, `A`, `H`, `L`.
@@ -130,3 +126,7 @@ For other ML related instance, please check the following for `Accelerated Compu
 * https://aws.amazon.com/ec2/instance-types/p3/
 
 ## AMD GPUs
+
+## GPU and graphics card ranking
+
+* https://www.tomshardware.com/reviews/gpu-hierarchy,4388.html
