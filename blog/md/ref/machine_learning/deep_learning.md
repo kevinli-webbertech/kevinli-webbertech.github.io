@@ -1,13 +1,21 @@
 # Deep Learning
 
-## Software
+## Software and frameworks
 
-* Tensorflow, CUDA
+* Tensorflow
+* CUDA
 * Keras is part of Tensorflow now
+* Pytorch
 
 ## Hardware
 
-### NAVIDIA GPU
+The hardware is very important in Deep learning because it is going to use GPU.
+There are a couple of manufactures of GPUs in the market now and it is very competitive.
+Taking NVIDIA as example it has different types of GPUs, some are normal graphics cards with GPU and some are high-end graphic cards with GPUs, and some are GPUs dedicated for data center and ML/HPC computing. Also NVIDIA is building super chip that is using NVLink and NVLink Switch to interconnect CPUs and GPUs as a big rack for the new computing hub. Such an multi-CPUs and multi-GPUs infrastructure provides possibily to scale hardware from software requests and make computing more elastic.
+
+In the following article, we will be surveying major data center GPUs and different manufactures just in case different cloud vendors such as AWS and GCP they would use different data center GPUs.
+
+### NVIDIA GPU
 
 `v100`: NVIDIA® V100 Tensor Core is the most advanced data center GPU ever built to accelerate AI, high performance computing (HPC), data science and graphics. It’s powered by NVIDIA Volta architecture, comes in 16 and 32GB configurations, and offers the performance of up to 32 CPUs in a single GPU.
 
@@ -23,7 +31,12 @@ A2, A10, A16, A30, A40, T4, L4, L40s, L40, H100, H200, GB200 NVL2, GB200 NVL72.
 
 Others unverified: RTX A5000, RTX ADA 6000.
 
-![alt text](image.png)
+The following image shows how the NVidia GPU product is named.
+
+![Nvidia_GPU_naming](../../../images/ml/Nvidia_GPU_naming.png)
+
+The following is a release line of the NVidia GPU so from the name of the GPU you can see its capacity eassily,
+
 ![GPU_release_line](../../../images/ml/GPU_release_line.png)
 
 Different tiers of GPUs are optimized for different compute workloads. Tiers from recent generations include:
@@ -48,6 +61,16 @@ Without MIG, different jobs running on the same GPU, such as different AI infere
 
 * Provision and Configure Instances as Needed
 * Run Workloads in Parallel, Securely
+
+**Hopper™**
+
+The NVIDIA Hopper architecture advances Tensor Core technology with the Transformer Engine, designed to accelerate the training of AI models. Hopper Tensor Cores have the capability to apply mixed FP8 and FP16 precisions to dramatically accelerate AI calculations for transformers. Hopper also triples the floating-point operations per second (FLOPS) for TF32, FP64, FP16, and INT8 precisions over the prior generation. Combined with Transformer Engine and fourth-generation NVIDIA® NVLink®, Hopper Tensor Cores power an order-of-magnitude speedup on HPC and AI workloads.
+
+Built with over 80 billion transistors using a cutting edge TSMC 4N process, Hopper features five groundbreaking innovations that fuel the NVIDIA H200 and H100 Tensor Core GPUs and combine to deliver incredible speedups over the prior generation on generative AI training and inference.
+
+DGX GH200 systems with NVLink Switch System support clusters of up to 256 connected H200s and deliver 57.6 terabytes per second (TB/s) of all-to-all bandwidth.
+
+* https://www.nvidia.com/en-us/data-center/technologies/hopper-architecture/
 
 **NVIDIA Blackwell**
 
@@ -75,19 +98,9 @@ To enable high-speed, collective operations, each NVLink Switch has engines for 
 
 ![NVLink](../../../images/ml/NVLink.png)
 
-![NVLink Switch](../../../images/ml/NVLink_Switch.png)
+![NVLink Switch](../../../images/ml/NVLinkSwitch.png)
 
 * https://www.nvidia.com/en-us/data-center/technologies/blackwell-architecture/
-
-**Hopper™**
-
-The NVIDIA Hopper architecture advances Tensor Core technology with the Transformer Engine, designed to accelerate the training of AI models. Hopper Tensor Cores have the capability to apply mixed FP8 and FP16 precisions to dramatically accelerate AI calculations for transformers. Hopper also triples the floating-point operations per second (FLOPS) for TF32, FP64, FP16, and INT8 precisions over the prior generation. Combined with Transformer Engine and fourth-generation NVIDIA® NVLink®, Hopper Tensor Cores power an order-of-magnitude speedup on HPC and AI workloads.
-
-Built with over 80 billion transistors using a cutting edge TSMC 4N process, Hopper features five groundbreaking innovations that fuel the NVIDIA H200 and H100 Tensor Core GPUs and combine to deliver incredible speedups over the prior generation on generative AI training and inference.
-
-DGX GH200 systems with NVLink Switch System support clusters of up to 256 connected H200s and deliver 57.6 terabytes per second (TB/s) of all-to-all bandwidth.
-
-* https://www.nvidia.com/en-us/data-center/technologies/hopper-architecture/
 
 ### Other GPUS
 
@@ -97,17 +110,23 @@ DGX GH200 systems with NVLink Switch System support clusters of up to 256 connec
 
 * https://www.tomshardware.com/reviews/gpu-hierarchy,4388.html
 
+## AWS EC2 instance for HPC|ML computing
 
-### Ref
+To quickly identify the Nvidia GPUs production line and timeline, remember the `V`, `T`, `A`, `H`, `L`.
 
-* https://aws.amazon.com/ec2/instance-types/p3/
+The following are a list of the instance types with its configuration,
 
-P3: Amazon EC2 P3 instances deliver high performance compute in the cloud with up to 8 NVIDIA® V100 Tensor Core GPUs and up to 100 Gbps of networking throughput for machine learning and HPC applications.
+* `P3`: Amazon EC2 P3 instances deliver high performance compute in the cloud with up to 8 NVIDIA® V100 Tensor Core GPUs and up to 100 Gbps of networking throughput for machine learning and HPC applications.
 
-P4:  You can easily scale from a few to thousands of NVIDIA A100 GPUs in the EC2 UltraClusters based on your ML or HPC project needs.These instances support 400 Gbps instance networking. P4d instances provide up to 60% lower cost to train ML models, including an average of 2.5x better performance for deep learning models compared to previous-generation P3 and P3dn instances.
+* `P4`: You can easily scale from a few to thousands of NVIDIA A100 GPUs in the EC2 UltraClusters based on your ML or HPC project needs.These instances support 400 Gbps instance networking. P4d instances provide up to 60% lower cost to train ML models, including an average of 2.5x better performance for deep learning models compared to previous-generation P3 and P3dn instances.
 
-P5: Amazon Elastic Compute Cloud (Amazon EC2) P5 instances, powered by the latest NVIDIA H100 Tensor Core GPUs, deliver the highest performance in Amazon EC2 for deep learning (DL) and high performance computing (HPC) applications.
+* `P5`: Amazon Elastic Compute Cloud (Amazon EC2) P5 instances, powered by the latest NVIDIA H100 Tensor Core GPUs, deliver the highest performance in Amazon EC2 for deep learning (DL) and high performance computing (HPC) applications.
 
 For other ML related instance, please check the following for `Accelerated Computing` types.
 
 * https://aws.amazon.com/ec2/instance-types/
+* https://aws.amazon.com/ec2/instance-types/p3/
+
+## AMD GPUs
+
+
