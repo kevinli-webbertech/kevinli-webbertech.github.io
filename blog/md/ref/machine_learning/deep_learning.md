@@ -66,7 +66,22 @@ To enable high-speed, collective operations, each NVLink Switch has engines for 
 
 **Hopper™**
 
+The NVIDIA Hopper architecture advances Tensor Core technology with the Transformer Engine, designed to accelerate the training of AI models. Hopper Tensor Cores have the capability to apply mixed FP8 and FP16 precisions to dramatically accelerate AI calculations for transformers. Hopper also triples the floating-point operations per second (FLOPS) for TF32, FP64, FP16, and INT8 precisions over the prior generation. Combined with Transformer Engine and fourth-generation NVIDIA® NVLink®, Hopper Tensor Cores power an order-of-magnitude speedup on HPC and AI workloads.
+
+Built with over 80 billion transistors using a cutting edge TSMC 4N process, Hopper features five groundbreaking innovations that fuel the NVIDIA H200 and H100 Tensor Core GPUs and combine to deliver incredible speedups over the prior generation on generative AI training and inference.
+
+DGX GH200 systems with NVLink Switch System support clusters of up to 256 connected H200s and deliver 57.6 terabytes per second (TB/s) of all-to-all bandwidth.
+
 * https://www.nvidia.com/en-us/data-center/technologies/hopper-architecture/
+
+### Other GPUS
+
+* https://www.nvidia.com/en-us/studio/compare-gpus/
+
+### GPU and graphics card ranking
+
+* https://www.tomshardware.com/reviews/gpu-hierarchy,4388.html
+
 
 ### Ref
 
