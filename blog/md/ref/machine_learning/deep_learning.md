@@ -94,15 +94,17 @@ The `NVIDIA GB200 NVL72` connects 36 GB200 Grace Blackwell Superchips with 36 Gr
 
 NVLink is a 1.8TB/s bidirectional, direct GPU-to-GPU interconnect that scales multi-GPU input and output (IO) within a server. The NVIDIA NVLink Switch chips connect multiple NVLinks to provide all-to-all GPU communication at full NVLink speed within a single rack and between racks.
 
-To enable high-speed, collective operations, each NVLink Switch has engines for NVIDIA Scalable Hierarchical Aggregation and Reduction Protocol (SHARP)™ for in-network reductions and multicast acceleration.
-
 ![NVLink](../../../images/ml/NVLink.png)
+
+NVLink switch is like a switch or router to connect NVLink components.
+
+To enable high-speed, collective operations, each NVLink Switch has engines for NVIDIA Scalable Hierarchical Aggregation and Reduction Protocol (SHARP)™ for in-network reductions and multicast acceleration.
 
 ![NVLink Switch](../../../images/ml/NVLinkSwitch.png)
 
 * https://www.nvidia.com/en-us/data-center/technologies/blackwell-architecture/
 
-### Other GPUS
+**Other Nvidia GPUs**
 
 * https://www.nvidia.com/en-us/studio/compare-gpus/
 
@@ -128,5 +130,3 @@ For other ML related instance, please check the following for `Accelerated Compu
 * https://aws.amazon.com/ec2/instance-types/p3/
 
 ## AMD GPUs
-
-
