@@ -1,6 +1,6 @@
 # Deep Learning VM setup
 
-## Takeaway 
+## Takeaway
 
 * In this article we will talk about how to set up a docker image for tensorflow deep learning.
 
