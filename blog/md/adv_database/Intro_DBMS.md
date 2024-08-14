@@ -198,3 +198,135 @@ This is the level you will write sql code,
 
 `View  level`: application programs hide details of data types. Views can also hide information (such as an employee’s salary) for security purposes.
 
+## View of Data
+
+An architecture for a database system.
+
+![architecture](architecture.png)
+
+## Schema
+
+## Data Definition Language (DDL)
+
+* Specification notation for defining the database schema.
+
+Example:	
+
+```SQL
+create table instructor (
+ID                char(5),
+name           varchar(20),
+dept_name  varchar(20),
+salary           numeric(8,2))
+```
+
+* DDL compiler generates a set of table templates stored in a data dictionary
+
+* Data dictionary contains metadata (i.e., data about data)
+  * Database schema
+  * Integrity constraints
+  * Primary key (ID uniquely identifies instructors)
+  * Authorization, Who can access what
+
+## Data Manipulation Language (DML)
+
+* Language for accessing and updating the data organized by the appropriate data model
+DML also known as query language.
+
+* There are basically two types of data-manipulation language,
+
+  * Procedural DML --  require a user to specify what data are needed and how to get those data.
+  * Declarative DML  -- require a user to specify what data are needed without specifying how to get those data.
+
+* Declarative DMLs are usually easier to learn and use than are procedural DMLs.  
+* Declarative DMLs are also referred to as non-procedural DMLs
+The portion of a DML that involves information retrieval is called a query language.
+
+## SQL Query Language
+
+SQL  query language is nonprocedural. A query takes as input several tables (possibly only one) and always returns a single table.
+Example to find all instructors in Comp. Sci. dept
+
+```sql
+select name
+from instructor
+where dept_name = 'Comp. Sci.'
+```
+
+* SQL is NOT a Turing machine equivalent language.
+
+* To be able to compute complex functions SQL is usually embedded in some higher-level language
+
+* Application programs generally access databases through one of
+Language extensions to allow embedded SQL
+Application program interface (e.g., ODBC/JDBC) which allow SQL queries to be sent to a database
+
+## Database Access from Application Program
+
+**Facts**
+
+* Non-procedural query languages such as SQL are not as powerful as a universal Turing machine.    
+* SQL does not support actions such as input from users, output to displays, or communication over the network.  
+* Such computations and actions must be written in a host language, such as C/C++, Java or Python, with embedded SQL queries that access the data in the database.
+
+**Application programs** -- are programs that are used to interact with the database in this fashion.  
+
+## Database Design
+
+The process of designing the general structure of the database:
+
+* Logical Design –  Deciding on the database schema. Database design requires that we find a “good” collection of relation schemas.
+    * Business decision – What attributes should we record in the database?
+    * Computer Science decision –  What relation schemas should we have and how should the attributes be distributed among the various relation schemas?
+
+* Physical Design – Deciding on the physical layout of the database                
+
+## Database Engine
+
+* A database system is partitioned into modules that deal with each of the responsibilities of the overall system. 
+
+* The functional components of a database system can be divided into
+  * The storage manager,
+  * The  query processor component,
+  * The transaction management component.
+
+# Storage Manager
+
+* A program module that provides the interface between the low-level data stored in the database and the application programs and queries submitted to the system.
+* The storage manager is responsible to the following tasks:
+    * Interaction with the OS file manager
+    * Efficient storing, retrieving and updating of data
+  
+* The storage manager components include:
+   * Authorization and integrity manager
+   * Transaction manager
+   * File manager
+   * Buffer manager
+
+* The storage manager implements several data structures as part of the physical system implementation:
+  * Data files -- store the database itself
+  * Data dictionary --  stores metadata about the structure of the database, in particular the schema of the database.
+  * Indices --  can provide fast access to data items.  A database index provides pointers to those data items that hold a particular value.
+
+## Query Processor
+
+The query processor components include:
+
+* DDL interpreter --  interprets DDL statements and records the definitions in the data dictionary.
+* DML compiler -- translates DML statements in a query language into an evaluation plan consisting of low-level instructions that the query evaluation engine understands.
+* The DML compiler performs query optimization; that is, it picks the lowest cost evaluation plan from among the various alternatives.
+Query evaluation engine -- executes low-level instructions generated by the DML compiler.
+
+## Query Processing
+
+1.	Parsing and translation
+2.	Optimization
+3.	Evaluation
+
+![query_processing](query_processing.png)
+
+## Transaction Management
+
+* A transaction is a collection of operations that performs a single logical function in a database application
+* Transaction-management component ensures that the database remains in a consistent (correct) state despite system failures (e.g., power failures and operating system crashes) and transaction failures.
+* Concurrency-control manager controls the interaction among the concurrent transactions, to ensure the consistency of the database. 
