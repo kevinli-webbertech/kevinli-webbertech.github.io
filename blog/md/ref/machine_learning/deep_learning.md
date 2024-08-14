@@ -11,7 +11,7 @@
 
 The hardware is very important in Deep learning because it is going to use GPU.
 There are a couple of manufactures of GPUs in the market now and it is very competitive.
-Taking NVIDIA as example it has different types of GPUs, some are normal graphics cards with GPU and some are high-end graphic cards with GPUs, and some are GPUs dedicated for data center and ML/HPC computing. Also NVIDIA is building super chip that is using NVLink and NVLink Switch to interconnect CPUs and GPUs as a big rack for the new computing hub. Such an multi-CPUs and multi-GPUs infrastructure provides possibily to scale hardware from software requests and make computing more elastic.
+Taking NVIDIA as example it has different types of GPUs, some are normal graphics cards with GPU and some are high-end graphic cards with GPUs, and some are GPUs dedicated for data center and ML/HPC computing. Also NVIDIA is building super chip that is using NVLink and NVLink Switch to interconnect CPUs and GPUs as a big rack for the new computing hub. Such multi-CPUs and multi-GPUs infrastructure provides possibility to scale hardware from software requests and make computing more elastic.
 
 In the following article, we will be surveying major data center GPUs and different manufactures just in case different cloud vendors such as AWS and GCP they would use different data center GPUs.
 
@@ -35,7 +35,7 @@ The following image shows how the NVidia GPU product is named.
 
 ![Nvidia_GPU_naming](../../../images/ml/Nvidia_GPU_naming.png)
 
-The following is a release line of the NVidia GPU so from the name of the GPU you can see its capacity eassily,
+The following is a release line of the Nvidia GPU so from the name of the GPU you can see its capacity eassily,
 
 ![GPU_release_line](../../../images/ml/GPU_release_line.png)
 
@@ -126,6 +126,8 @@ For other ML related instance, please check the following for `Accelerated Compu
 * https://aws.amazon.com/ec2/instance-types/p3/
 
 ## AMD GPUs
+
+[TODO]
 
 ## GPU and graphics card ranking
 
