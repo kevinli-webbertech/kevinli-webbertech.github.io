@@ -128,11 +128,13 @@ The good tensorflow docker image is:
 
 `docker run -it tensorflow/tensorflow:latest-gpu`
 
-https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/ci_build/Dockerfile.rbe.gpu
+The following urls are where you would find the docker file of the above images,
 
-https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/ci_build/Dockerfile.gpu
+* https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/ci_build/Dockerfile.rbe.gpu
 
-Dockerfile.rbe.cuda12.3-cudnn9.1-ubuntu20.04-manylinux2014-multipython
+* https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/ci_build/Dockerfile.gpu
+
+`Dockerfile.rbe.cuda12.3-cudnn9.1-ubuntu20.04-manylinux2014-multipython`
 
 ### Ref
 
