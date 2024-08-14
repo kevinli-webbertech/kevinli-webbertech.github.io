@@ -120,6 +120,20 @@ or
 
 ERROR: Unable to find the module utility `modprobe`; please make sure you have the package 'module-init-tools' or 'kmod' installed.  If you do have 'module-init-tools' or 'kmod' installed, then please check that `modprobe` is in your PATH.
 
+## Troubleshooting
+
+The good tensorflow docker image is: 
+
+`docker pull tensorflow/tensorflow:latest-gpu`
+
+`docker run -it tensorflow/tensorflow:latest-gpu`
+
+https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/ci_build/Dockerfile.rbe.gpu
+
+https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/ci_build/Dockerfile.gpu
+
+Dockerfile.rbe.cuda12.3-cudnn9.1-ubuntu20.04-manylinux2014-multipython
+
 ### Ref
 
 * https://developer.nvidia.com/cuda-toolkit-archive
