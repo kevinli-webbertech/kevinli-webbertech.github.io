@@ -1,28 +1,32 @@
-PyTorch - Loading Data
+# PyTorch - Loading Data
 
-PyTorch includes a package called torchvision which is used to load and prepare the dataset. It includes two basic functions namely Dataset and DataLoader which helps in transformation and loading of dataset.
+PyTorch includes a package called `torchvision` which is used to load and prepare datasets. It provides two essential classes for dataset handling: `Dataset` and `DataLoader`. These classes help in transforming and loading datasets efficiently.
 
-Dataset
+## Dataset
 
-Dataset is used to read and transform a datapoint from the given dataset
+The `Dataset` class is used to represent and access the data in your dataset
 
-syntax
+# Load the CIFAR-10 training dataset
+trainset = torchvision.datasets.CIFAR10(
+    root='./data',        # Directory where the dataset will be stored
+    train=True,           # Load the training set
+    download=True,        # Download the dataset if not already present
+    transform=transform  # Transform to apply to each image
+)
 
-trainset = torchvision.datasets.CIFAR10(root = './data', train = True,
-   download = True, transform = transform)
+## Example: Loading CSV File
 
-DataLoader is used to shuffle and batch data. It can be used to load the data in parallel with multiprocessing workers.
+We use the Python package `pandas` to load the CSV file. The original file has the following format: (image name, 68 landmarks - each landmark has x, y coordinates).
 
-trainloader = torch.utils.data.DataLoader(trainset, batch_size = 4,
-   shuffle = True, num_workers = 2)
+```python
+import pandas as pd
 
-Example: Loading CSV File
-
-We use the Python package Panda to load the csv file. The original file has the following format: (image name, 68 landmarks - each landmark has a x, y coordinates).
-
+# Load the CSV file
 landmarks_frame = pd.read_csv('faces/face_landmarks.csv')
 
+# Access a specific entry
 n = 65
 img_name = landmarks_frame.iloc[n, 0]
-landmarks = landmarks_frame.iloc[n, 1:].as_matrix()
+landmarks = landmarks_frame.iloc[n, 1:].values  # Use .values instead of .as_matrix()
 landmarks = landmarks.astype('float').reshape(-1, 2)
+```
