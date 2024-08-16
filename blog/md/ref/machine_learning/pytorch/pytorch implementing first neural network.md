@@ -1,68 +1,91 @@
-PyTorch includes a special feature of creating and implementing neural networks. In this chapter, we will create a simple neural network with one hidden layer developing a single output unit.
+# Implementation of Neural Network in PyTorch
 
-Step 1
- import the PyTorch library using the below command
-import torch 
+PyTorch provides robust features for creating and implementing neural networks. In this chapter, we will create a simple neural network with one hidden layer and a single output unit.
+
+## Step 1
+
+Import the PyTorch library using the following commands:
+
+```python
+import torch
 import torch.nn as nn
+```
 
-Step 2
-Define all the layers and the batch size to start executing the neural network
+## Step 2
 
-# Defining input size, hidden layer size, output size and batch size respectively
+Define all the layers and the batch size to start executing the neural network.
+
+```python
+# Defining input size, hidden layer size, output size, and batch size
 n_in, n_h, n_out, batch_size = 10, 5, 1, 10
+```
 
-Step 3
-As neural network includes a combination of input data to get the respective output data, we will be following the same procedure as given below −
+## Step 3
 
+As a neural network includes a combination of input data to get the respective output data, follow the procedure below:
+
+```python
 # Create dummy input and target tensors (data)
 x = torch.randn(batch_size, n_in)
 y = torch.tensor([[1.0], [0.0], [0.0], 
-[1.0], [1.0], [1.0], [0.0], [0.0], [1.0], [1.0]])
+                  [1.0], [1.0], [1.0], 
+                  [0.0], [0.0], [1.0], 
+                  [1.0]])
 
+```
 
-Step 4
-Create a sequential model with the help of in-built functions. Using the below lines of code, create a sequential model −
+## Step 4
 
+Create a sequential model using built-in functions. Use the following lines of code to create the model:
+
+```python
 # Create a model
-model = nn.Sequential(nn.Linear(n_in, n_h),
-   nn.ReLU(),
-   nn.Linear(n_h, n_out),
-   nn.Sigmoid())
-Step 5
-Step 5
-Construct the loss function with the help of Gradient Descent optimizer as shown below −
+model = nn.Sequential(
+    nn.Linear(n_in, n_h),  # Input layer to hidden layer
+    nn.ReLU(),             # ReLU activation function
+    nn.Linear(n_h, n_out), # Hidden layer to output layer
+    nn.Sigmoid()           # Sigmoid activation function for the output
+)
+```
+## Step 5
 
-Construct the loss function
+Construct the loss function and optimizer as shown below:
+
+```python
+# Construct the loss function
 criterion = torch.nn.MSELoss()
+
 # Construct the optimizer (Stochastic Gradient Descent in this case)
-optimizer = torch.optim.SGD(model.parameters(), lr = 0.01)
+optimizer = torch.optim.SGD(model.parameters(), lr=0.01)
+```
 
-Step 6
+## Step 6
 
+Implement the gradient descent model with an iterating loop using the following lines of code:
 
-Implement the gradient descent model with the iterating loop with the given lines of code −
-
+```python
 # Gradient Descent
 for epoch in range(50):
-   # Forward pass: Compute predicted y by passing x to the model
-   y_pred = model(x)
+    # Forward pass: Compute predicted y by passing x to the model
+    y_pred = model(x)
 
-   # Compute and print loss
-   loss = criterion(y_pred, y)
-   print('epoch: ', epoch,' loss: ', loss.item())
+    # Compute and print loss
+    loss = criterion(y_pred, y)
+    print('epoch:', epoch, 'loss:', loss.item())
 
-   # Zero gradients, perform a backward pass, and update the weights.
-   optimizer.zero_grad()
+    # Zero gradients, perform a backward pass, and update the weights
+    optimizer.zero_grad()
+    
+    # Perform a backward pass (backpropagation)
+    loss.backward()
+    
+    # Update the parameters
+    optimizer.step()
+```
 
-   # perform a backward pass (backpropagation)
-   loss.backward()
+## Step 7
 
-   # Update the parameters
-   optimizer.step()
-
-Step 7
-The output generated is as follows −
-
+The output generated is as follows:
 epoch: 0 loss: 0.2545787990093231
 epoch: 1 loss: 0.2545052170753479
 epoch: 2 loss: 0.254431813955307
