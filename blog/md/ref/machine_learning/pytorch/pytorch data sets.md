@@ -1,40 +1,63 @@
-PyTorch includes following dataset loaders −
+# Dataset Loaders in PyTorch
 
-MNIST
-COCO (Captioning and Detection)
+
+PyTorch includes the following dataset loaders:
+
+- **MNIST**
+- **COCO (Captioning and Detection)**
+
 
 Dataset includes majority of two types of functions given below −
 
-Transform − a function that takes in an image and returns a modified version of standard stuff. These can be composed together with transforms.
+Dataset includes the majority of two types of functions given below:
 
-Target_transform − a function that takes the target and transforms it. For example, takes in the caption string and returns a tensor of world indices.
+- **Transform**: A function that takes in an image and returns a modified version of standard stuff. These can be composed together with other transforms.
 
 
-MNIST
-The following is the sample code for MNIST dataset −
+- **Target_transform**: A function that takes the target and transforms it. For example, it takes in a caption string and returns a tensor of word indices.
 
-dset.MNIST(root, train = TRUE, transform = NONE, 
-target_transform = None, download = FALSE)
-The parameters are as follows −
 
-root − root directory of the dataset where processed data exist.
 
-train − True = Training set, False = Test set
+# MNIST Dataset
 
-download − True = downloads the dataset from the internet and puts it in the root.
+The following is a sample code for loading the MNIST dataset:
 
-COCO
-This requires the COCO API to be installed. The following example is used to demonstrate the COCO implementation of dataset using PyTorch −
+```python
+dset.MNIST(root, train=True, transform=None, target_transform=None, download=False)
+```
+The parameters are as follows:
 
-import torchvision.dataset as dset
+- **root**: The root directory of the dataset where the processed data exists.
+- **train**: 
+  - `True`: Loads the training set
+  - `False`: Loads the test set
+- **download**: 
+  - `True`: Downloads the dataset from the internet and stores it in the root directory
+  - `False`: Does not download the dataset and expects it to be available in the root directory
+
+
+# COCO Dataset
+
+To use the COCO dataset with PyTorch, you need to have the COCO API installed. Below is an example demonstrating how to load and use the COCO dataset with PyTorch:
+
+```python
+import torchvision.datasets as dset
 import torchvision.transforms as transforms
-cap = dset.CocoCaptions(root = ‘ dir where images are’, 
-annFile = ’json annotation file’,
-transform = transforms.ToTensor())
-print(‘Number of samples: ‘, len(cap))
-print(target)
-The output achieved is as follows −
 
-Number of samples: 82783
-Image Size: (3L, 427L, 640L)
+# Initialize the COCO Captions dataset
+cap = dset.CocoCaptions(
+    root='dir where images are',
+    annFile='json annotation file',
+    transform=transforms.ToTensor()
+)
+
+# Print the number of samples in the dataset
+print('Number of samples:', len(cap))
+print(target)
+```
+The output achieved is as follows:
+
+- **Number of samples**: 82,783
+- **Image Size**: (3, 427, 640)
+
 
