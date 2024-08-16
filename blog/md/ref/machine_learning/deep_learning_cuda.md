@@ -136,6 +136,24 @@ The following urls are where you would find the docker file of the above images,
 
 `Dockerfile.rbe.cuda12.3-cudnn9.1-ubuntu20.04-manylinux2014-multipython`
 
+In the above images, we can check dll by doing this,
+
+They are,
+
+```shell
+root@6a8e90e9439e:/usr/lib/x86_64-linux-gnu# ldconfig -p|grep libcuda*
+	libcudnn_ops_train.so.8 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcudnn_ops_train.so.8
+	libcudnn_ops_infer.so.8 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcudnn_ops_infer.so.8
+	libcudnn_cnn_train.so.8 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcudnn_cnn_train.so.8
+	libcudnn_cnn_infer.so.8 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcudnn_cnn_infer.so.8
+	libcudnn_adv_train.so.8 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcudnn_adv_train.so.8
+	libcudnn_adv_infer.so.8 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcudnn_adv_infer.so.8
+	libcudnn.so.8 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcudnn.so.8
+	libcudart.so.12 (libc6,x86-64) => /usr/local/cuda/targets/x86_64-linux/lib/libcudart.so.12
+	libcudart.so (libc6,x86-64) => /usr/local/cuda/targets/x86_64-linux/lib/libcudart.so
+	libcuda.so.1 (libc6,x86-64) => /usr/local/cuda/lib64/stubs/libcuda.so.1
+```
+
 ### Ref
 
 * https://developer.nvidia.com/cuda-toolkit-archive
