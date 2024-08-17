@@ -32,3 +32,24 @@ File name schema:
 * Database System Concept [©Silberschatz, Korth and Sudarshan]
 * DATABASE SYSTEMS 2nd edition(the complete book) by Hector Garcia-Molina, Jeffrey D. Ullman and Jennifer Widom.
 
+## Course Schedule
+
+| Week                                 | Title                                                     |
+|--------------------------------------|-----------------------------------------------------------|
+| Week 1                               | Introduction to DBMS                                      |
+| Week 2                               | Relational Database - Intro to Relational Model           |
+| Week 3                               | Relational Database - Relational Model Diagram and Design |
+| Week 4                               | Learning SQL Basic - CURD Operation                       |
+| Week 5                               | Learning SQL Intermediate - Constraints                   |
+| Week 6                               | Learning SQl Advanced - Aggregations and Functions        |
+| Week 7                               | Relational Databse - Normalization                        |
+| Week 8                               | Midterm Quiz                                              |
+| Week 9                               | Web Application with SQL                                  |
+| Week 14- Assignment of Final Project | Take 2-3 weeks                                            |
+| Week 10                              | Database Indexing, Storage                                |
+| Week 11                              | BTree and algorithms                                      |
+| Week 12                              | Recovery and Transctions                                  |
+ | Final project submission             | Collect final project|                                   |                                                          
+| Week 13                              | Introduction to NoSQL - Cassandra                         |
+| Week 14                              | ORM and Programming with Cassandra                     |   
+| Week 15 | Introduction to Graph Database- MongoDB                  |
