@@ -77,38 +77,40 @@ Example:
   * Not Turing-machine equivalent
   * Consists of 6 basic operations
 
-## Relational Algebra [TODO cross checking]
+## Relational Algebra
 
 * A  procedural language consisting  of a set of operations that take one or two relations as input and produce a new relation as their result.
 * Six basic operators
-  * select: 
-  * project: 
-  * union: 
+  * select: $\delta$
+  * project: $\pi$
+  * union: U
   * set difference: –
-  * Cartesian product: x
-  * rename: 
+  * Cartesian product: $\chi$
+  * rename: $\rho$
 
 ## Select Operation
 
 The  select operation selects tuples that satisfy a given predicate.
 
-Notation:   ![select_notation.png](select_notation.png)
+Notation:   
 
-p is called the selection predicate
+$\delta$<sub>c</sub>(R)
+
+* $\delta$ is called the selection predicate.
+* R is the relations.
+* ‘c’ is the selection condition which is a boolean
 Example: select those tuples of the instructor  relation where the instructor is in the “Physics” department.
 
 **Query**
 
-  ![select_algebra](select_algebra.png)
-
+$\delta$<sub>dept_name="Physics"</sub>(instructor)
+  
 **Result**
 
 ![select_result](select_result.png)
 
 We allow comparisons using
-=,  >,  <
-
-in the selection predicate.
+**=,  >,  <** in the selection predicate.
 
 We can combine several predicates into a larger predicate by using the connectives:
 
@@ -116,10 +118,192 @@ We can combine several predicates into a larger predicate by using the connectiv
 
 Example: Find the instructors in Physics with a salary greater $90,000, we write:
 
-![select_algebra1.png](select_algebra1.png)
+$\delta$<sub>dept_name="Physics" and salary>90,000</sub>(instructor)
 
 * The select predicate may  include comparisons between two attributes.
   
   Example, find all departments whose name is the same as their building name:
+  $\delta$<sub>dept_name="building"</sub>(department)
 
-![select_algebra2.png](select_algebra2.png)
+Nested queries could be like,
+
+$\delta$<sub>Department="Analytics"</sub>($\delta$<sub>Location = 'NewYork'</sub>(Manager))
+
+## Project Operation
+
+Notation:
+
+   $\pi$<sub>A</sub>(R) or $\pi$<sub>A1,A2,...Ak</sub>(R) 
+
+* A unary operation that returns its argument relation, with certain attributes left out.
+* The result is defined as the relation of k columns obtained by erasing the columns that are not listed
+* Duplicate rows removed from result, since relations are sets
+
+### Project Operation Example
+
+<b>Query</b>
+
+$\pi$<sub>ID, name, salary</sub>(instructor)
+![project_result.png](Cartesian_product.png)
+
+## Composition of Relational Operations
+
+* The result of a relational-algebra operation is relation  and therefore of relational-algebra operations can be composed together into a relational-algebra expression.
+
+* Consider  the query -- Find the names of all instructors in the Physics department.
+
+$\pi$<sub>name</sub>($\delta$<sub>dept_name =“Physics”</sub>(instructor))
+
+* Instead of giving the name of a relation as the argument of the projection operation, we give an expression that evaluates to a relation.
+
+## Cartesian-Product Operation
+* The Cartesian-product operation (denoted by X)  allows us to combine information from any two relations.  
+
+  Example: the Cartesian product of the relations instructor and teaches is written  as:
+     `instructor  X  teaches`
+
+* We construct a tuple of the result out of each possible pair of tuples: one from the instructor relation and one from the teaches relation
+* Since the instructor ID appears in both relations we distinguish between these attribute by attaching to the attribute the name of the relation from which the attribute originally came.
+instructor.ID
+teaches.ID
+
+**The  instructor  $\chi$  teaches  table**
+
+![cartesian_product](cartesian_product.png)
+
+## Join Operation
+
+The Cartesian-Product
+
+`instructor  X  teaches`
+
+associates every tuple of  instructor with every tuple of teaches. That are all the combinations
+of cross-product.
+
+* Most of the resulting rows have information about instructors who did NOT teach a particular course.
+
+* To get only those tuples of  “instructor  X  teaches “ that pertain to instructors and the courses that they taught, 
+  we write a condition to join them:
+
+   `instructor.id =  teaches.id  (instructor  x teaches ))`
+
+We get only those tuples of “instructor  X  teaches” that pertain to instructors and the courses that they taught.
+
+**Example**
+
+Consider two relations STUDENT(SNO, FNAME, LNAME) and 
+DETAIL(ROLLNO, AGE) below:
+
+|SNO	|FNAME|	LNAME|
+|--|--|--|
+|1|	Albert|	Singh|
+|2|	Nora|	Fatehi|
+
+|ROLLNO|	AGE|
+|--|--|
+|5|	18|
+|9|	21|
+
+On applying CROSS PRODUCT on STUDENT and DETAIL:
+
+|SNO|	FNAME|	LNAME|	ROLLNO|	AGE|
+|--|--|--|--|--|
+|1|	Albert|	Singh|	5|	18|
+|1|	Albert|	Singh|	9|	21|
+|2|	Nora|	Fatehi|	5|	18|
+|2|	Nora|	Fatehi|	9|	21|
+
+SNO	FNAME	LNAME	ROLLNO	AGE
+1	Albert	Singh	5	18
+1	Albert	Singh	9	21
+2	Nora	Fatehi	5	18
+2	Nora	Fatehi	9	21
+
+We can observe that the number of tuples in STUDENT relation is 2, and the number of tuples in DETAIL is 2. So the number of tuples in the resulting relation on performing CROSS PRODUCT is 2*2 = 4.
+
+Important points on CARTESIAN PRODUCT(CROSS PRODUCT) Operation:
+
+1. The cardinality (number of tuples) of resulting relation from a Cross Product operation is equal to the number of attributes(say m) in the first relation multiplied by the number of attributes in the second relation(say n).
+   
+`Cardinality = m*n` 
+
+2. The Cross Product of two relation A(R1, R2, R3, …, Rp) with degree p, and B(S1, S2, S3, …, Sn) with degree n, is a relation C(R1, R2, R3, …, Rp, S1, S2, S3, …, Sn) with degree p + n attributes.
+
+`Degree = p+n`
+
+3. In SQL, CARTESIAN PRODUCT(CROSS PRODUCT) can be applied using CROSS JOIN.
+
+
+4. In general, we don’t use cartesian Product unnecessarily, which means without proper meaning we don’t use Cartesian Product. Generally, we use Cartesian Product followed by a Selection operation and comparison on the operators as shown below :
+
+$\delta$<sub>A=D</sub>(A ✕ B)
+
+The above query gives meaningful results.
+
+And this combination of Select and Cross Product operation is so popular that JOIN operation is inspired by this combination.
+
+CROSS PRODUCT is a binary set operation means, at a time we can apply the operation on two relations.
+
+Coming back with the university data,
+
+
+**The  instructor  X  teaches  table (cross product)**
+
+![cartesian_product](cartesian_product.png)
+
+## Join Operation
+
+  $\delta$<sub>instructor.id =  teaches.id</sub> (instructor  x teaches)) 
+  
+The data are much smaller,
+
+![join.png](join.png)
+
+The join operation allows us to combine  a select operation and a   Cartesian-Product  operation into a single operation.
+Consider relations r (R) and s (S)
+Let  “theta” be a predicate on attributes in the schema R “union” S. The join operation  r  s is defined as follows:
+
+Thus
+
+$\delta$<sub>instructor.id = teaches.id</sub> (instructor x teaches ) 
+
+is equivalent to,
+
+`instructor Instructor.id = teaches.id teaches.`
+
+## Union Operation
+
+The union operation allows us to combine two relations.
+
+Notation:  `r U s`    
+
+For r  U s to be valid.
+1.   r, s must have the same arity (same number of attributes)
+2.   The attribute domains must be compatible (example: 2nd
+3. column of r deals with the same type of values as does the 2nd column of s)
+
+Example: to find all courses taught in the Fall 2017 semester, or in the Spring 2018 semester, or in both
+ $\pi$<sub>course_id</sub> ($\delta$<sub> semester=“Fall”  Λ year=2017</sub> (section))  U
+$\pi$<sub>course_id</sub>($\delta$<sub> semester=“Spring”  Λ year=2018 (section))
+
+**Result**
+
+![union](union.png)
+
+## Set-Intersection Operation
+
+The  set-intersection  operation  allows us to find tuples that are in both the input relations.
+
+Notation: r $\cap$ s
+
+Assume:
+r, s have the same arity
+attributes of r and s are compatible
+
+Example: Find the set of all courses taught in both the Fall 2017 and the Spring 2018 semesters.
+$\pi$<sub>course_id</sub> ($\delta$<sub> semester=“Fall”  Λ year=2017</sub> (section))  $\cap$
+$\pi$<sub>course_id</sub>($\delta$<sub> semester=“Spring”  Λ year=2018 (section))
+
+**Result**
+
+![intersect.png](intersect.png)
