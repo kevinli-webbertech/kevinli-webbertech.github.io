@@ -107,7 +107,7 @@ $\delta$<sub>dept_name="Physics"</sub>(instructor)
   
 **Result**
 
-![select_result](select_result.png)
+![select_result](../../../images/database/select_result.png)
 
 We allow comparisons using
 **=,  >,  <** in the selection predicate.
@@ -169,7 +169,7 @@ teaches.ID
 
 **The  instructor  $\chi$  teaches  table**
 
-![cartesian_product](cartesian_product.png)
+![cartesian_product](../../../images/database/cartesian_product.png)
 
 ## Join Operation
 
@@ -249,7 +249,7 @@ Coming back with the university data,
 
 **The  instructor  X  teaches  table (cross product)**
 
-![cartesian_product](cartesian_product.png)
+![cartesian_product](../../../images/database/cartesian_product.png)
 
 ## Join Operation
 
@@ -257,7 +257,7 @@ Coming back with the university data,
   
 The data are much smaller,
 
-![join.png](join.png)
+![join.png](../../../images/database/join.png)
 
 The join operation allows us to combine  a select operation and a   Cartesian-Product  operation into a single operation.
 Consider relations r (R) and s (S)
@@ -288,7 +288,7 @@ $\pi$<sub>course_id</sub>($\delta$<sub> semester=“Spring”  Λ year=2018 (sec
 
 **Result**
 
-![union](union.png)
+![union](../../../images/database/union.png)
 
 ## Set-Intersection Operation
 
@@ -306,4 +306,69 @@ $\pi$<sub>course_id</sub>($\delta$<sub> semester=“Spring”  Λ year=2018 (sec
 
 **Result**
 
-![intersect.png](intersect.png)
+![intersect.png](../../../images/database/intersect.png) 
+
+## Set Difference Operation
+
+The set-difference operation allows us to find tuples that are in one relation but are not in another.
+
+Notation 
+
+`r – s`
+
+* Set differences must be taken between compatible relations.
+* r and s must have the same arity
+* attribute domains of r and s must be compatible
+
+Example: to find all courses taught in the Fall 2017 semester, but not in the Spring 2018 semester
+
+$\pi$<sub>course_id</sub> ($\delta$<sub> semester=“Fall”  Λ year=2017</sub> (section))  -
+$\pi$<sub>course_id</sub>($\delta$<sub> semester=“Spring”  Λ year=2018 (section))
+
+**result**
+
+![set_difference.png](../../../images/database/set_difference.png)
+
+## The Rename Operation 
+
+Notation:
+
+ρ <sub>X</sub> (R)
+
+where the symbol ‘ρ’ is used to denote the RENAME operator and ,
+R is the result of the sequence of operation or expression which is saved with the name X.
+
+The RENAME operation is used to rename the output of a relation.
+
+Sometimes it is simple and suitable to break a complicated sequence of operations and rename it as a relation with different names. Reasons to rename a relation can be many, like –
+
+* We may want to save the result of a relational algebra expression as a relation so that we can use it later.
+* We may want to join a relation with itself, in that case, it becomes too confusing to specify which one of the tables we are talking about, in that case, we rename one of the tables and perform join operations on them
+
+Example-1:  
+
+Query to rename the relation Student as Male Student and the attributes of Student – RollNo, SName as (Sno, Name).
+
+|Sno|	Name|
+|2600|	Ronny|
+|2655|	Raja|
+
+ρ <sub>MaleStudent</sub>(Sno, Name) π<sub>RollNo, SName</sub>(σ<sub>Condition</sub>(Student))
+
+Example-2:  
+
+Query to rename the attributes Name, Age of table Department to A,B.
+
+`ρ (A, B) (Department)`
+
+Example-3: 
+
+Query to rename the table name Project to Pro and its attributes to P, Q, R.
+
+`ρ Pro(P, Q, R) (Project)`
+
+Example-4: 
+
+Query to rename the first attribute of the table Student with attributes A, B, C to P.
+
+`ρ (P, B, C) (Student)`
