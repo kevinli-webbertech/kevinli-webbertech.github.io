@@ -19,7 +19,7 @@
 
 Suppose we combine instructor and department into in_dep, which represents the natural join on the relations instructor and department
 
-![repetition.png](repetition.png) 
+![repetition.png](../../../images/database/repetition.png) 
 
 * There is repetition of information, for example note the "building" and "dept_name" columns in the above big table.
 * Need to use null values (if we add a new department with no instructors). `null` is like holes in this big flat table.
@@ -61,7 +61,7 @@ The next slide shows how we lose information
 
 ## A Lossy Decomposition
 
-![lossy_Decomposition.png](lossy_Decomposition.png)  
+![lossy_Decomposition.png](../../../images/database/lossy_Decomposition.png)  
 
 ## Lossless Decomposition
 
@@ -78,7 +78,7 @@ R2 = (B, C)
 Here the $\pi$ and $\Pi$ is the same symbol of projection.
 ? is the join|merge symbol.
 
-![lossless_decomposition.png](lossless_decomposition.png)
+![lossless_decomposition.png](../../../images/database/lossless_decomposition.png)
 
 ## Normalization Theory
 
