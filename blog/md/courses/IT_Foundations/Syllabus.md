@@ -23,7 +23,3 @@ Each 15 courses * 2 = 30 hrs.
 # Homework, Midterm and Final Project
 
 * Only homework including installation of software, essay and writing code.
-
-## Ref
-
-- https://faculty.washington.edu/ajko/books/foundations-of-information/

@@ -8,9 +8,9 @@ Information technology (IT) is the use of computers, storage, networking and oth
 
 ## Three characterastic of information
 
-* asymmetric
-* real-time
-* historic
+* Asymmetric
+* Real-time
+* Historic
 
 ## In the world of information
 
@@ -52,20 +52,71 @@ Prior to 1592, there was no standard calendar in western civilization, and so it
 ![Constitution](../../../images/IT_Foundations/Constitution.png)
 The information in the U.S. Constitution continues to be the supreme law of the United States.
 
-As European colonialism waned and modern democracies emerged, information was a central force in shaping new systems of government. For example, the Declaration of Independence, released on July 4th, 1776, can be thought of simply as a one page letter to the Kingdom of Great Britain, declaring the British colonies as sovereign states. But it was far more than a letter: it led to the Revolutionary War, the decline of power in Great Britain, and the writing of the U.S. Constitution1
-1
+As European colonialism waned and modern democracies emerged, information was a central force in shaping new systems of government. For example, the Declaration of Independence, released on July 4th, 1776, can be thought of simply as a one page letter to the Kingdom of Great Britain, declaring the British colonies as sovereign states. But it was far more than a letter: it led to the Revolutionary War, the decline of power in Great Britain, and the writing of the U.S. Constitution.
+
 Max Edling (2003). A Revolution in Favor of Government: Origin of the U.S. Constitution and the Making of the American State. OUP USA.
 
-The Constitution, and its amendments, have led to great advances in freedom in the United States and beyond, while simultaneously encoding great injustices and inequities in human rights. Information, for better or worse, regulates us.
+The Constitution, and its amendments, have led to great advances in freedom in the United States and beyond, while simultaneously encoding great injustices and inequities in human rights. Information, for better or worse, **regulates** us.
 
 ![MLK](../../../images/IT_Foundations/MLK.png)
 Martin Luther King, Jr. gives I have a dream.
 
 Some of these injustices in the United States led to information that changed the course of civil rights. For example, Martin Luther King, Jr’s 1963 speech, I have a dream, conveyed a vision of the United States without racism.
 
-It pressured the U.S. Congress to advance civil rights legislation, and create a generation of activists to fight for racial justice, trying to overcome the racist beliefs and laws that had been at the foundation of U.S. history and its constitution. Information, therefore, inspires us.
+It pressured the U.S. Congress to advance civil rights legislation, and create a generation of activists to fight for racial justice, trying to overcome the racist beliefs and laws that had been at the foundation of U.S. history and its constitution. Information, therefore, **inspires** us.
 
 ![alt text](../../../images/IT_Foundations/birth_certificate.png)
+
+Throughout this history of human and civil rights, a central challenge has been defining identity. Who is American? How does one prove they were born here? Documents like birth certificates, filled out and signed at the time and place of birth, become powerful media for laying claim to the rights of citizenship. Nowhere was this more apparent than in President Trump’s baseless conspiracy theories of President Obama’s citizenship.
+Vincent N. Pham (2015). Our foreign president Barack Obama: The racial logics of birther discourses. Journal of International and Intercultural Communication.
+
+Even the release of President Obama’s long form certificate did not quell skepticism. Information, therefore, **identifies** us.
+
+### Something more exciting?
+
+**Starlink**
+
+Telecommunication and network will be part of IT.
+Whether it is bluetooth, TCPIP, IPV4 or IPV6. These are basic knowledge that will help us connect the world. 
+When I grew up in college, bluetooth was still in the research and not mature, and look at today for the bluetooth earbud,
+phone and car connection or even more.
+
+![star_link1.png](../../../images/IT_Foundations/star_link1.png)
+
+![star_link2.png](../../../images/IT_Foundations/star_link2.png)
+
+![star_link3.png](../../../images/IT_Foundations/star_link3.png)
+
+Starlink is the new tech, from envisioning to reality. It tells a successful story of "You need to have a dream".
+
+![star_link4.png](../../../images/IT_Foundations/star_link4.png)
+
+**Mars Landrover**
+
+The robots actually acquire knowledge by computer vision, and they would have to send back
+petabytes data per sec.
+
+![perservance1.png](../../../images/IT_Foundations/perservance1.png)
+
+![perservance2.png](../../../images/IT_Foundations/perservance2.png)
+
+![perservance3.png](../../../images/IT_Foundations/perservance3.png)
+
+**Boston Dynamics**
+
+Robots would sense the world by multiple cams and sensors. They will computer fast and take 
+reactions, also it would have to send back all the information in the form of data back to storage or control terminal.
+
+![boston_dynamics1.png](../../../images/IT_Foundations/boston_dynamics1.png)
+
+![boston_dynamics2.png](../../../images/IT_Foundations/boston_dynamics2.png)
+
+![boston_dynamics3.png](../../../images/IT_Foundations/boston_dynamics3.png)
+
+![boston_dynamics4.png](../../../images/IT_Foundations/boston_dynamics4.png)
+
+![boston_dynamics5.png](../../../images/IT_Foundations/boston_dynamics5.png)
+
 
 ## Types of information technology
 
