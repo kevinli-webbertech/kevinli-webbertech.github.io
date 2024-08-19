@@ -1,16 +1,49 @@
 # Information Technology
 
-## What is information technology?
-
-Information technology (IT) is the use of computers, storage, networking and other physical devices, infrastructure and processes to create, process, store, secure and exchange all forms of electronic data. Typically, IT is used in the context of business operations, as opposed to the technology used for personal or entertainment purposes. The commercial use of IT encompasses both computer technology and telecommunications.
-
 ## What is information?
 
-## Three characterastic of information
+Information is the output that results from analyzing, contextualizing, structuring, interpreting or in other ways processing data. Information infuses meaning and value into the data. It facilitates understanding, communication and learning, and is a key factor in system designs and strategic planning, as well as in problem-solving and decision-making. Information brings context to the data, turning what would otherwise be meaningless content into something comprehensible and usable.
+
+Information has been defined in many ways over the years, and the definitions are not always consistent with each other. For example, one Merriam-Webster definition describes information as "knowledge obtained from investigation, study or instruction." However, the Dictionary of Information Science and Technology, written by Carolyn Watters, defines information as "meaning assigned to data within some context for the use of that data." And the National Institute of Standards and Technology (NIST) describes information as "any communication or representation of knowledge such as facts, data or opinions in any medium or form, including textual, numerical, graphic, cartographic, narrative or audiovisual."
+
+Despite the varied definitions, there is still a general consensus that information is different from raw data and that it can be said to bring meaning to the data. Information can also come from many sources, including books, magazines, letters, text messages, emails, websites, classrooms, social networking sites, oral presentations, movies, and audio recordings.
+
+## What is the difference between information and data?
+
+The terms data and information are often used interchangeably, but there are important differences between them. 
+
+**Data**
+
+* Data is made up of raw facts and figures. 
+* It is unprocessed and without context. It can include statistics, observations, measures or symbols. 
+For example, a data set might contain dates, ages, inventory levels, eye colors, temperature readings, sports scores or an assortment of other facts.
+* In the context of computing and information technology (IT), data can be thought of as unprocessed electronic content that a software application collects and records. 
+This type of data is typically stored in files, databases or other structured systems. 
+* The data can be accessed and manipulated digitally and transferred between systems and across networks.
+* Digital data is collected from a variety of sources, such as computers, sensors, monitors, smartphones and internet of things (IoT) devices. 
+* Data is used extensively in business, government, science and engineering, although consumers also store and exchange ample amounts of data. 
+* Data can also come in many forms, including numbers, text, videos, graphics and sounds.
+
+Regardless of the source, data on its own has little meaning. 
+For example, a data set might include a list of trees and their ages across multiple geographic regions. 
+Without some type of context, the details are relatively meaningless. However, when the data set is contextualized, it can reveal important information about tree life expectancy, regional differences or environmental patterns. 
+Data provides the necessary facts, but information brings understanding to those facts.
+
+**Information**
+
+Information is created when data is presented in a way that has meaning to the recipient. 
+To turn data into information, it must be processed and organized. 
+Presenting data in a way that has meaning and value is called information design, which is an important field in both information architecture and human-computer interaction.
+
+## Three characteristics of information
 
 * Asymmetric
 * Real-time
 * Historic
+
+## What is information technology?
+
+Information technology (IT) is the use of computers, storage, networking and other physical devices, infrastructure and processes to create, process, store, secure and exchange all forms of electronic data. Typically, IT is used in the context of business operations, as opposed to the technology used for personal or entertainment purposes. The commercial use of IT encompasses both computer technology and telecommunications.
 
 ## In the world of information
 
