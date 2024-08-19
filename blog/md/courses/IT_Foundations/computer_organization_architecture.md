@@ -57,11 +57,11 @@ It seems impossible but the idea is to look up a dictionary.
 
 **Telegram** (This is not the chatting or messenger tools )
 
-![telegram.png](telegram.png)
+![telegram.png](../../../images/IT_Foundations/telegram.png)
 
 Let us read the story in the below image,
 
-![telegram1.png](telegram1.png)
+![telegram1.png](../../../images/IT_Foundations/telegram1.png)
 
 ## History and Origin of Computers
 
@@ -71,13 +71,27 @@ The development of computers started thousands of years ago with ancient devices
 
 There are various types of computers that are used today based on the need of user. Some of the types are:
 
-Desktop: Desktops are mainly used for regular use and they have separate components mounted together like the monitor, keyboard, mouse, CPU etc. Since the system is primarily kept on a desk for better usability it is called as desktops. They have powerful processors in them which accounts for a wide variety of tasks that they are capable of doing.
+Desktop: Desktops are mainly used for regular use, and they have separate components mounted together like the monitor, keyboard, mouse, CPU etc. Since the system is primarily kept on a desk for better usability it is called as desktops. They have powerful processors in them which accounts for a wide variety of tasks that they are capable of doing.
+
+![desktop.png](../../../images/IT_Foundations/desktop.png)
 
 Laptop: Laptops are a portable version of the desktops, with all the components integrated in a single unit thus providing mobility to the system. They are great for on the go work and come with built-in eb cams, Bluetooth and Wi-Fi.
 
-![laptop.png](laptop.png)
+![laptop.png](../../../images/IT_Foundations/laptop.png)
 
 Servers: Servers are special types of computers that are used to manage network resources. They provide services to other systems and computers. Some of the primary tasks of servers include creating databases, hosting and proving support to other applications. They are backed up by multiple processors and high capacity storage.
+
+It might look like a normal case,
+
+![server1s.png](../../../images/IT_Foundations/server1.png)
+
+or you could be a special case,
+
+![server2.png](../../../images/IT_Foundations/server2.png)
+
+And server room might look like this where it has cooling system, electricity recovery protection, and it removes a lot of computer accessories like DVD-ROM.
+
+![server3.png](../../../images/IT_Foundations/server3.png)
 
 Tablets: Tablets are even portal than laptops. They are smaller than laptops but are larger in size than smartphones. They come with touchscreens with makes it perfect for browsing the web, consuming content and personal communications.
 Other devices: Other devices include smartphones, game console, Smart TV’s etc.
