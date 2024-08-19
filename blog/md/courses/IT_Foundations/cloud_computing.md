@@ -1,4 +1,4 @@
-# Computer Cloud - Data and Information
+# Cloud Computing- Data and Information
 
 ## What is computer cloud or cloud computing?
 
@@ -136,6 +136,45 @@ Cloud spending remains substantial, as nearly half of all workloads and data are
 * The development of faster CPUs make server side can handle heavy-duty load, thus client side application is much leaner.
 
 * Faster internet data transmission speed and bandwidth, making mobile device to access signal everywhere.
+
+## A deep dive into Amazon Cloud Service
+
+![img.png](../../../images/IT_Foundations/aws.png)
+
+[aws service pdf](https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf#amazon-web-services-cloud-platform)
+[aws url](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/amazon-web-services-cloud-platform.html)
+
+When you click into `Networking and content delivery`, you will see these,
+
+![aws1.png](../../../images/IT_Foundations/aws1.png)
+
+And the above should be your major focus if you are an IT students,
+
+**Ref**
+
+- [pdf](https://docs.aws.amazon.com/pdfs/whitepapers/latest/aws-overview/aws-overview.pdf#networking-services)
+- [url](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/networking-services.html)
+
+### AWS Certifications
+
+![aws3.png](../../../images/IT_Foundations/aws3.png)
+
+Among all these, three should be extremely helpful, which are,
+
+* Solution Architect
+* Security Specialty
+* Advanced Networking
+
+Other that might be helpful are,
+
+* Developer Associate
+* DevOps Engineer Professional
+
+# Cloud Policy, Legal Issue and Legislations
+
+**Ref**
+
+[certifications](https://aws.amazon.com/certification/?gclid=Cj0KCQjw2ou2BhCCARIsANAwM2FFW3Fmf8RDlFYYu9Dhqb_Be7Oq9Nu0e8ZJxXKWfGN0bcTBOeI-iaUaAnVVEALw_wcB&trk=1d3789b7-cdfb-4b92-a125-75424f21eaaf&sc_channel=ps&ef_id=Cj0KCQjw2ou2BhCCARIsANAwM2FFW3Fmf8RDlFYYu9Dhqb_Be7Oq9Nu0e8ZJxXKWfGN0bcTBOeI-iaUaAnVVEALw_wcB:G:s&s_kwcid=AL!4422!3!616960529276!e!!g!!aws%20certifications!11120345480!105898020221)
 
 ## Ref
 
