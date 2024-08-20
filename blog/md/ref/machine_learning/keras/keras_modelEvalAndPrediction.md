@@ -1,62 +1,72 @@
-Keras - Model Evaluation and Model Prediction
+# Keras - Model Evaluation and Model Prediction
 
-Model Evaluation
+## Model Evaluation
 
--process during development of the model to check whether the model is best fit for the given problem and corresponding data
--Keras model provides a function, evaluate.
-It has three main arguments
-Test data
-Test data label
-verbose - true or false
+Model evaluation is a process during the development of the model to check whether the model is a good fit for the given problem and corresponding data. 
 
-evaluate the model
+Keras provides a function, `evaluate`, for model evaluation. This function assesses the performance of the model on the test data and returns the loss value and metrics.
 
-score = model.evaluate(x_test, y_test, verbose = 0) 
+### Function
 
-print('Test loss:', score[0]) 
+```python
+model.evaluate(x, y, verbose=...)
+```
+Keras provides a function, `evaluate`, for model evaluation. It has three main arguments:
+
+- **Test data**
+- **Test data label**
+- **Verbose**: `True` or `False`
+
+
+##  Evaluate the Model
+
+To evaluate the model, use the following code:
+
+```python
+score = model.evaluate(x_test, y_test, verbose=0)
+
+print('Test loss:', score[0])
 print('Test accuracy:', score[1])
+```
 
-output
+**Output:**
 0
-
 The test accuracy is 98.28%.
 
-Model Prediction
+## Model Prediction
 
-Prediction is the final step and our expected outcome of the model generation.
+Prediction is the final step and the expected outcome of the model generation.
 
-signature of the predict method
+The signature of the `predict` method is as follows:
 
+```python
 predict(
    x, 
-   batch_size = None, 
-   verbose = 0, 
-   steps = None, 
-   callbacks = None, 
-   max_queue_size = 10, 
-   workers = 1, 
-   use_multiprocessing = False
+   batch_size=None, 
+   verbose=0, 
+   steps=None, 
+   callbacks=None, 
+   max_queue_size=10, 
+   workers=1, 
+   use_multiprocessing=False
 )
+```
+## Prediction for Our MLP Model
 
+To make predictions with the model, use the following code:
 
-prediction for our MPL model
-
+```python
 pred = model.predict(x_test) 
-pred = np.argmax(pred, axis = 1)[:5] 
-label = np.argmax(y_test,axis = 1)[:5] 
+pred = np.argmax(pred, axis=1)[:5] 
+label = np.argmax(y_test, axis=1)[:5] 
 
 print(pred) 
 print(label)
+```
 
-Line 1 call the predict function using test data.
 
-Line 2 gets the first five prediction
+The output of the above application is as follows:
 
-Line 3 gets the first five labels of the test data.
-
-Line 5 - 6 prints the prediction and actual label.
-
-The output of the above application is as follows −
 
 [7 2 1 0 4] 
 [7 2 1 0 4]
