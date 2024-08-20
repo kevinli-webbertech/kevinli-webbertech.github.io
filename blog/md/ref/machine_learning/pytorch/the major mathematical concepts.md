@@ -1,4 +1,4 @@
-# Major Mathematical Concepts for Natural Language Processing (NLP)
+ # Major Mathematical Concepts for Natural Language Processing (NLP)
 
 The major mathematical concepts of machine learning that are important from a Natural Language Processing (NLP) point of view include:
  
