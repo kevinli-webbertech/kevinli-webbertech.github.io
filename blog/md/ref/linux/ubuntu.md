@@ -37,6 +37,15 @@ The following commands will address the computer slowness issue.
 Get `Activity Monitor` and kill `Gnome-shell`, it is like windows explorer and it will restart.
 
 
-Other
+* Other
 
 "$XDG_CURRENT_DESKTOP" "$GDMSESSION"
+
+```
+Ubuntu 18.04 and 20.04 (Ubuntu on GNOME)
+XDG_CURRENT_DESKTOP=ubuntu:GNOME
+GDMSESSION=ubuntu
+Ubuntu 18.04 (Ubuntu on Wayland)
+XDG_CURRENT_DESKTOP=ubuntu:GNOME
+GDMSESSION=ubuntu-wayland
+```
