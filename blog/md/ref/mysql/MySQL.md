@@ -49,20 +49,19 @@ or
 8. Start MySQL: Start the MySQL server as normal then enter the new password you just reset
 
 
-# The MySQL CREATE DATABASE Statement
+## The MySQL CREATE DATABASE Statement
 The CREATE DATABASE statement is used to create a new SQL database.
 
 Syntax
 
 `CREATE DATABASE databasename;`
 
-
 ### CREATE DATABASE Example
 The following SQL statement creates a database called "testDB":
 
 `CREATE DATABASE testDB;`
 
-### CREATE Username and Password for the Database
+## CREATE Username and Password for the Database
 
 After creating the database, the next step is to create a MySQL User:
 
@@ -74,7 +73,7 @@ After creating the database, the next step is to create a MySQL User:
 
 * Replace myPassword with you own password
 
-### Grant Privileges
+## Grant Privileges
 
 `GRANT ALL PRIVILEGES ON databasename.* TO 'myUSER'@'localhost';`
 
@@ -95,23 +94,21 @@ Once a database is created, you can check it in the list of databases with the f
 # MySQL DROP DATABASE Statement
 The DROP DATABASE statement is used to drop an existing SQL database.
 
-Syntax
+***Syntax***
 
 `DROP DATABASE databasename;`
 
-### DROP DATABASE Example
+***Example***
 
 The following SQL statement drops the existing database "testDB":
 
 `DROP DATABASE testDB;`
 
-
-
-# MySQL CREATE TABLE Statement
+## MySQL CREATE TABLE Statement
 
 The CREATE TABLE statement is used to create a new table in a database.
 
-Syntax
+***Syntax***
 
 ```
 CREATE TABLE table_name (
@@ -126,7 +123,6 @@ The column parameters specify the names of the columns of the table.
 The datatype parameter specifies the type of data the column can hold (e.g. varchar, integer, date, etc.).
 
 ***Tip:*** For an overview of the available data types, go to our complete [Data Types Reference](https://www.w3schools.com/mysql/mysql_datatypes.asp)
-
 
 ### MySQL CREATE TABLE Example
 
@@ -154,6 +150,7 @@ The empty "Persons" table will now look like this:
 
 
 ### Create Table Using Another Table
+
 A copy of an existing table can also be created using 
 
 `CREATE TABLE`
@@ -162,7 +159,7 @@ The new table gets the same column definitions. All columns or specific columns 
 
 If you create a new table using an existing table, the new table will be filled with the existing values from the old table.
 
-Syntax
+***Syntax***
 
 ```
 CREATE TABLE new_table_name AS
@@ -179,11 +176,11 @@ CREATE TABLE TestTable AS
     FROM customers;
 ```
 
-# The MySQL DROP TABLE Statement
+## The MySQL DROP TABLE Statement
 
 The DROP TABLE statement is used to drop an existing table in a database.
 
-Syntax
+***Syntax***
 
 `DROP TABLE table_name;`
 
@@ -194,16 +191,15 @@ The following SQL statement drops the existing table "Shippers":
 
 `DROP TABLE Shippers;`
 
-
-# MySQL TRUNCATE TABLE
+## MySQL TRUNCATE TABLE
 The TRUNCATE TABLE statement is used to delete the data inside a table, but not the table itself.
 
-Syntax
+***Syntax***
 
 `TRUNCATE TABLE table_name;`
 
+## MySQL ALTER TABLE Statement
 
-# MySQL ALTER TABLE Statement
 The ALTER TABLE statement is used to add, delete, or modify columns in an existing table.
 The ALTER TABLE statement is also used to add and drop various constraints on an existing table.
 
@@ -257,8 +253,6 @@ Look at the "Persons" table:
 | 2  | Svendson  | Tove      | Borgvn 23    | Sandnes   |
 | 3  | Pettersen | Kari      | Storgt 20    | Stavanger |
 
-
-
 Now we want to add a column named "DateOfBirth" in the "Persons" table. We use the following SQL statement:
 
 ***Example***
@@ -280,6 +274,7 @@ The "Persons" table will now look like this:
 
 
 ### Change Data Type Example
+
 Now we want to change the data type of the column named "DateOfBirth" in the "Persons" table.
 
 We use the following SQL statement:
@@ -292,7 +287,6 @@ MODIFY COLUMN DateOfBirth year;
 ```
 
 Notice that the "DateOfBirth" column is now of type year and is going to hold a year in a two- or four-digit format.
-
 
 ### DROP COLUMN Example
 Next, we want to delete the column named "DateOfBirth" in the "Persons" table.
@@ -315,14 +309,14 @@ The "Persons" table will now look like this:
 | 3  | Pettersen | Kari      | Storgt 20    | Stavanger |
 
 
+## MySQL Constraints
 
-# MySQL Constraints
 ## SQL constraints are used to specify rules for data in a table.
 
 ### Create Constraints
 Constraints can be specified when the table is create with the CREATE TABLE statement, or after the table is created with ALTER TABLE statement.
 
-Syntax
+***Syntax***
 
 ```
 CREATE TABLE table_name (
@@ -334,6 +328,7 @@ CREATE TABLE table_name (
 ```
 
 ### MySQL Constraints
+
 SQL constraints are used to specify rules for the data in a table.
 
 Constraints are used to limit the type of data that can go into a table. This ensures the accuracy and reliability of the data in the table. If there is any violation between the constraint and the data action, the action is aborted.
@@ -349,8 +344,6 @@ The following constraints are commonly used in SQL:
   5. ***CHECK*** - Ensures that the values in a column satisfies a specific condition 
   6. ***DEFAULT*** - Sets a default value for a column if no value is specified 
   7. ***CREATE INDEX*** - Used to create and retrieve data from the database very quickly
-
-
 
 # MySQL NOT NULL Constraint
 
@@ -385,8 +378,6 @@ To create a `NOT NULL` constraint on the "Age" column when the "Persons" table i
 ALTER TABLE Persons
 MODIFY Age int NOT NULL;
 ```
-
-
 
 # MySQL UNIQUE Constraint
 
@@ -448,7 +439,6 @@ ALTER TABLE Persons
 DROP INDEX UC_Person;
 ```
 
-
 # MySQL PRIMARY KEY Constraint
 
 The `PRIMARY KEY` constraint uniquely identifies each record in a table.
@@ -483,7 +473,10 @@ CREATE TABLE Persons (
 );
 ```
 
-***Note:*** In the example above there is only ONE `PRIMARY KEY` (PK_Person). However, the VALUE of the primary key is made up of TWO COLUMNS (ID + LastName).
+***Note:*** 
+
+In the example above there is only ONE `PRIMARY KEY` (PK_Person). 
+However, the VALUE of the primary key is made up of TWO COLUMNS (ID + LastName).
 
 ### PRIMARY KEY on ALTER TABLE
 
@@ -501,7 +494,9 @@ ALTER TABLE Persons
 ADD CONSTRAINT PK_Person PRIMARY KEY (ID,LastName);
 ```
 
-***Note:*** If you use ALTER TABLE to add a primary key, the primary key column(s) must have been declared to not contain NULL values (when the table was first created).
+***Note:*** 
+
+If you use ALTER TABLE to add a primary key, the primary key column(s) must have been declared to not contain NULL values (when the table was first created).
 
 ### DROP a PRIMARY KEY Constraint
 To drop a PRIMARY KEY constraint, use the following SQL:
@@ -511,9 +506,8 @@ ALTER TABLE Persons
 DROP PRIMARY KEY;
 ```
 
-
-
 # MySQL FOREIGN KEY Constraint
+
 The `FOREIGN KEY` constraint is used to prevent actions that would destroy links between tables.
 
 A `FOREIGN KEY` is a field (or collection of fields) in one table, that refers to the `PRIMARY KEY` in another table.
@@ -529,8 +523,6 @@ Look at the following two tables:
 | 1        | Hansen    | Ola       | 30  |
 | 2        | Svendson  | Tove      | 23  |
 | 3        | Pettersen | Kari      | 20  |
-
-
 
 ### Orders Table
 
@@ -549,7 +541,6 @@ The "PersonID" column in the "Persons" table is the `PRIMARY KEY` in the "Person
 The "PersonID" column in the "Orders" table is a `FOREIGN KEY` in the "Orders" table.
 
 The `FOREIGN KEY` constraint prevents invalid data from being inserted into the foreign key column, because it has to be one of the values contained in the parent table.
-
 
 ### FOREIGN KEY on CREATE TABLE
 
@@ -756,8 +747,6 @@ ALTER TABLE table_name
 DROP INDEX index_name;
 ```
 
-
-
 # MySQL AUTO INCREMENT Field
 
 Auto-increment allows a unique number to be generated automatically when a new record is inserted into a table.
@@ -793,8 +782,6 @@ VALUES ('Lars','Monsen');
 ```
 
 The SQL statement above would insert a new record into the "Persons" table. The "Personid" column would be assigned a unique value automatically. The "FirstName" column would be set to "Lars" and the "LastName" column would be set to "Monsen".
-
-
 
 # MySQL Dates
 
@@ -1627,7 +1614,7 @@ The following SQL statement deletes all rows in the "Customers" table, without d
 
 ___
 
-### MySQL Joining Tables
+## MySQL Joining Tables
 A `JOIN` clause is used to combine rows from two or more tables, based on a related column between them.
 
 Let's look at a selection from the "Orders" table:
