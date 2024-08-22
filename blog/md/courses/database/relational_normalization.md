@@ -108,13 +108,13 @@ A table is in 1NF if:
 3. There is a unique name for every Attribute/Column.
 4. The order in which data is stored does not matter.
 
-![non_1NF.png](non_1NF.png)
+![non_1NF.png](../../../images/database/non_1NF.png)
 
 In the above table, Course is a multivalued attribute so it is not 1NF.
 
 Below table is in 1NF as there is no multivalued attribute:
 
-![1NF.png](1NF.png)
+![1NF.png](../../../images/database/1NF.png)
 
 First Normal Form (1NF) does not eliminate redundancy, but rather, it’s that it eliminates repeating groups. 
 Instead of having multiple columns of the same kind of data in a record, (0NF or Unnormalized form) you remove the repeated information into a separate relation and represent them as rows. 
@@ -130,11 +130,11 @@ If the proper subset of candidate key determines non-prime attribute, it is call
 
 The normalization of 1NF relations to 2NF involves the removal of partial dependencies. If a partial dependency exists, we remove the partially dependent attribute(s) from the relation by placing them in a new relation along with a copy of their determinant.
 
-![partial_dependency.png](partial_dependency.png)
+![partial_dependency.png](../../../images/database/partial_dependency.png)
 
 The above table should be partitioned into the following two tables,
 
-![2NF.png](2NF.png)
+![2NF.png](../../../images/database/2NF.png)
 
 The above table should be partitioned into the following two tables. 2NF tries to reduce the redundant data getting stored in memory. For instance, if there are 100 students taking C1 course, we dont need to store its Fee as 1000 for all the 100 records, instead once we can store it in the second table as the course fee for C1 is 1000.
 
@@ -191,7 +191,7 @@ Note: To test whether a relation is in BCNF, we identify all the determinants an
 * The 2NF has a slightly more restrictive constraint.
 * The 3NF has a more restrictive constraint than the first two normal forms but is less restrictive than the BCNF. In this manner, the restriction increases as we traverse down the hierarchy.
 
-![non_bcnf.png](non_bcnf.png)
+![non_bcnf.png](../../../images/database/non_bcnf.png)
 
 ## Glossary Review
 

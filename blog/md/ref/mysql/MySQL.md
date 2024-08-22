@@ -1,40 +1,40 @@
 # Login to MySQL
 
+## Log in to MySQL server
+
 - Normal login to root of MySQL
 
 `mysql -u root -p`
 
 Then, enter your root password
 
+## Reset root password in Ubuntu
+
 ***Note:*** If you forget the password for the MySQL root user, you can reset it using the following steps:
 
-1. Stop the MySQL server: if the MySQL server is running, stop it using one of the following methods:
+1. Stop the MySQL Server
 
-`sudo service mysql stop` : For systems using systemd
+`sudo /etc/init.d/mysql stop`
 
-or
+(In some cases, if /var/run/mysqld doesn't exist, you have to create it at first: 
 
-`sudo /user/local/mysql/support-files/mysql.server stop` : For systems using init.d
+    `sudo mkdir -v /var/run/mysqld && sudo chown mysql /var/run/mysqld`
 
-2. Start MySQL in Safe Mode: Start MySQL in safe mode with priviledge bypass. This allows you to connect to the MySQL server without password.
+2. Start the mysqld configuration: 
 
-`sudo mysqlId_safe --skip-grant-tables &`
+`sudo mysqld --skip-grant-tables &`
 
-3. Connect to MySQL: Open a new terminal window and connect to MySQL without providing a password:
+3. Login to MySQL as root: 
 
 `mysql -u root`
 
 4. Update Root Password: Once connected to MySQL, use the following SQL query to update the root password.
 
+`FLUSH PRIVILEGES;`
 `ALTER USER 'root'@'localhost' IDENTIFIED BY 'new_password'; `
-
-***Note:*** Replace new_password with your own password.
-
-5. Flush Privileges: After updating the password, flush the privileges to ensure that the changes take effect.
-
 `FLUSH PRIVILEGES;`
 
-6. Exit MySQL
+5. Exit MySQL
 
 `exit;`
 
@@ -48,7 +48,6 @@ or
 
 8. Start MySQL: Start the MySQL server as normal then enter the new password you just reset
 
----
 
 # The MySQL CREATE DATABASE Statement
 The CREATE DATABASE statement is used to create a new SQL database.
@@ -69,28 +68,29 @@ After creating the database, the next step is to create a MySQL User:
 
 `CREATE USER 'myUser'@'localhost' IDENTIFIED BY 'myPassword';`
 
-***Note:*** Replace myUser with your own username
+***Note:*** 
 
-***Note:*** Replace myPassword with you own password
+* Replace myUser with your own username
+
+* Replace myPassword with you own password
 
 ### Grant Privileges
 
 `GRANT ALL PRIVILEGES ON databasename.* TO 'myUSER'@'localhost';`
 
-***Note:*** Replace databasename with your own database name that you created
+***Note:*** 
 
-***Note:*** Replace myUser with you own username
+* Replace databasename with your own database name that you created
+
+* Replace myUser with you own username
 
 ### Flush Privileges
 
 `FLUSH PRIVILEGES;`
 
-
 Once a database is created, you can check it in the list of databases with the following SQL command:
 
 `SHOW DATABASES;`
-
-
 
 # MySQL DROP DATABASE Statement
 The DROP DATABASE statement is used to drop an existing SQL database.
