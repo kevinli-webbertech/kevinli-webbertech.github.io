@@ -13,7 +13,9 @@ Solution:
 ![db_driver2.png](../../../images/database/db_driver2.png)
 
 ## Reset root password in Ubuntu
-![img.png](img.png)
+
+![check_mysql_status.png](../../../images/database/check_mysql_status.png)
+
 ***Note:*** If you forget the password for the MySQL root user, you can reset it using the following steps:
 
 1. Stop the MySQL Server
