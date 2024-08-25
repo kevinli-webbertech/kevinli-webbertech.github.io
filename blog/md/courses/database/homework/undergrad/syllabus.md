@@ -34,22 +34,38 @@ File name schema:
 
 ## Course Schedule
 
-| Week                                 | Title                                                     |
-|--------------------------------------|-----------------------------------------------------------|
-| Week 1                               | Introduction to DBMS                                      |
-| Week 2                               | Relational Database - Intro to Relational Model           |
-| Week 3                               | Relational Database - Relational Model Diagram and Design |
-| Week 4                               | Learning SQL Basic - CURD Operation                       |
-| Week 5                               | Learning SQL Intermediate - Constraints                   |
-| Week 6                               | Learning SQl Advanced - Aggregations and Functions        |
-| Week 7                               | Relational Databse - Normalization                        |
-| Week 8                               | Midterm Quiz                                              |
-| Week 9                               | Web Application with SQL                                  |
-| Week 14- Assignment of Final Project | Take 2-3 weeks                                            |
-| Week 10                              | Database Indexing, Storage                                |
-| Week 11                              | BTree and algorithms                                      |
-| Week 12                              | Recovery and Transctions                                  |
- | Final project submission             | Collect final project|                                   |                                                          
-| Week 13                              | Introduction to NoSQL - Cassandra                         |
-| Week 14                              | ORM and Programming with Cassandra                     |   
-| Week 15 | Introduction to Graph Database- MongoDB                  |
+# Database - Data Management using Database Systems
+
+## Course Intro
+Credits: 3 Credits
+Length: 15 weeks
+
+This course provides an opportunity for students to learn the foundations of computer data management class by mastering the following topics,
+
+* Relational Database and SQL Programming
+* NoSQL Database and MongoDB
+*
+
+| Week          | Course title                   |
+|---------------|--------------------------------|
+| Week1         | Introduction to DBMS           |
+| Week2         | Relational Model               |
+| Week3         | Relational Normalization       |
+| Week4         | ER Diagram                     |
+| Week5         | SQL Programming 1              |
+| Week6         | SQL Programming 2              |
+| Week7         | SQL Programming 3              |
+| Week8         | SQL Programming 4              |
+| Mid-term*     | Online Quiz(check BB system)   |
+| Week9         | Python Web Service Development |
+| Week10        | Python Web Development         |
+| Week11        | MongoDB 1                      |
+| Week12        | MongoDB 2                      |
+| Week13        | Python Programming with CSV    |
+| Final-project | Python Programming with Data   |
+| Week14        | Database Internal - Btree      |
+| Week15        | Database Internal - Storage    |
+
+# Homework, Midterm and Final Project
+
+* Only homework including installation of software, essay and writing code.

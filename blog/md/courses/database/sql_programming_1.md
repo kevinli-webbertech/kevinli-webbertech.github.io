@@ -1,23 +1,61 @@
-## SQL Basics - MYSQL Databse
+## SQL Basics - MYSQL Database and SQL Literature
 
 ## Prerequisite
 
-* MySQL 8 installation
+* MySQL 8 and Workbench installation
 * DBeaver installation
 
 ## Outline
 
-Get familiarize with basic SQL Programming.
+Get familiarized with basic SQL Programming.
 
-* Create database
-* Drop database
-* Create user account
-* Grant user permissions
-* Create table
-* Alter table
-* Insert, Select, Update, Delete Records
-* Truncate table
-* Delete table
+* **Part I** Introduction to SQL, history and Literature
+
+* **Part II** Introduction to MySQL Database
+  * Create database
+  * Drop database
+  * Create user account
+  * Grant user permissions
+
+## Part I SQL History and Literature
+
+### SQL History
+
+SQL (Structured Query Language) is a domain-specific programming language used for managing and manipulating relational databases. It has a rich history that dates back to the 1970s and has evolved significantly over the years. Here’s an overview of the history of SQL:
+
+1. Early Development (1970-1973)
+   Relational Model: SQL’s history begins with the development of the relational model of data by Edgar F. Codd, an IBM researcher, in 1970. He published a seminal paper titled "A Relational Model of Data for Large Shared Data Banks," which introduced the concept of organizing data in tables (relations).
+   SEQUEL: In 1973, a team at IBM's San Jose Research Laboratory, led by Donald D. Chamberlin and Raymond F. Boyce, developed a language called SEQUEL (Structured English Query Language) to manipulate and retrieve data stored in IBM’s experimental relational database system, System R. SEQUEL was designed to be more user-friendly and accessible to people without deep programming knowledge.
+
+3. Renaming and Standardization (1974-1986)
+   SEQUEL to SQL: Due to trademark issues, SEQUEL was renamed SQL. IBM continued to refine SQL, and it became a standard interface for relational databases.
+   SQL/86: In 1986, the American National Standards Institute (ANSI) and the International Organization for Standardization (ISO) adopted SQL as the standard language for relational database management systems (RDBMS). This first standard was known as SQL-86 or SQL-1.
+   Commercial Adoption: During this period, several commercial database systems that supported SQL emerged, including Oracle (1979), IBM’s DB2 (1983), and Microsoft SQL Server (1989).
+
+4. Growth and Evolution (1987-1999)
+   SQL/89: A minor revision of the standard, SQL-89, was released in 1989, introducing some clarifications and enhancements to SQL-86.
+   SQL/92: The SQL-92 standard (also known as SQL2) was a significant update, introducing features like more complex queries, new data types, and enhanced language features. SQL-92 provided greater consistency across different database systems and helped solidify SQL’s dominance.
+   SQL/99: SQL-99 (also known as SQL3) was another major revision that introduced object-relational database management system (ORDBMS) features, including support for structured types, recursive queries, triggers, and more advanced data handling capabilities.
+
+5. Modern Enhancements (2000-Present)
+   SQL:2003: This revision added XML-related features, standardized sequences, and introduced the "MERGE" statement, which allowed for conditional update/inserts.
+   SQL:2006: This update focused on better integration with XML, reflecting the growing importance of XML in data exchange and storage.
+   SQL:2008: Introduced new features like the TRUNCATE statement, improved diagnostics, and enhanced data types.
+   SQL:2011: Introduced temporal databases, which allow the storage and querying of historical data (time periods).
+   SQL:2016: Added features for JSON (JavaScript Object Notation) data management, reflecting the increasing use of JSON in modern applications.
+   SQL:2019: Focused on enhanced support for big data and internet-of-things (IoT) applications, including support for polymorphic table functions and enhancements to the JSON capabilities.
+
+6. SQL in Modern Context
+   NoSQL Movement: In the 2000s, the NoSQL movement emerged as a response to the needs of web-scale applications, focusing on non-relational databases. Despite this, SQL remains the dominant language for relational databases.
+   Open Source Databases: Open-source relational databases like MySQL (launched in 1995) and PostgreSQL (started in 1986, with its SQL implementation released in 1995) gained widespread popularity and contributed to SQL’s continued relevance.
+   Cloud and Big Data: SQL has been adapted for cloud databases and big data platforms. Many NoSQL databases now support SQL-like query languages to bridge the gap between relational and non-relational data management.
+   
+**Legacy and Impact**
+   SQL has had a profound impact on the way data is stored, retrieved, and managed across various industries. Its declarative nature, which allows users to specify what they want rather than how to get it, has made it accessible to a broad range of users, from developers to business analysts. Despite the rise of alternative database technologies, SQL continues to be a cornerstone of data management in the digital age.
+
+## Installation
+
+![dbeaver.png](../../../images/database/dbeaver.png)
 
 ## Log in to MySQL server
 
@@ -83,213 +121,7 @@ The following SQL statement drops the existing database "testDB":
 
 `DROP DATABASE testDB;`
 
-## MySQL CREATE TABLE Statement
-
-The CREATE TABLE statement is used to create a new table in a database.
-
-***Syntax***
-
-```
-CREATE TABLE table_name (
-    column1 datatype,
-    column2 datatype,
-    column3 datatype,
-   ....
-);
-```
-The column parameters specify the names of the columns of the table.
-
-The datatype parameter specifies the type of data the column can hold (e.g. varchar, integer, date, etc.).
-
-***Tip:*** For an overview of the available data types, go to our complete [Data Types Reference](https://www.w3schools.com/mysql/mysql_datatypes.asp)
-
-***Example***
-
-The following example creates a table called "Persons" that contains five columns: PersonID, LastName, FirstName, Address, and City:
-
-```
-CREATE TABLE Persons (
-PersonID int,
-LastName varchar(255),
-FirstName varchar(255),
-Address varchar(255),
-City varchar(255)
-);
-```
-
-The PersonID column is of type int and will hold an integer.
-
-The LastName, FirstName, Address, and City columns are of type varchar and will hold characters, and the maximum length for these fields is 255 characters.
-
-The empty "Persons" table will now look like this:
-
-| PersonID | LastName | FirstName | Address | City   |
-|----------|----------|-----------|---------|--------|
-| &nbsp;   | &nbsp;   | &nbsp;    | &nbsp;  | &nbsp; |
-
-
-### Create Table Using Another Table
-
-A copy of an existing table can also be created using
-
-`CREATE TABLE`
-
-The new table gets the same column definitions. All columns or specific columns can be selected.
-
-If you create a new table using an existing table, the new table will be filled with the existing values from the old table.
-
-***Syntax***
-
-```
-CREATE TABLE new_table_name AS
-    SELECT column1, column2,...
-    FROM existing_table_name
-    WHERE ....;
-```
-
-The following SQL creates a new table called "TestTables" (which is a copy of the "Customers" table):
-
-```
-CREATE TABLE TestTable AS
-    SELECT customername, contactname
-    FROM customers;
-```
-
-## The MySQL DROP TABLE Statement
-
-The DROP TABLE statement is used to drop an existing table in a database.
-
-***Syntax***
-
-`DROP TABLE table_name;`
-
-***Note:*** Be careful before dropping a table. Deleting a table will result in loss of complete information stored in the table!
-
-***Example***
-The following SQL statement drops the existing table "Shippers":
-
-`DROP TABLE Shippers;`
-
-
-## MySQL TRUNCATE TABLE
-The TRUNCATE TABLE statement is used to delete the data inside a table, but not the table itself.
-
-***Syntax***
-
-`TRUNCATE TABLE table_name;`
-
-
-## MySQL ALTER TABLE Statement
-
-The ALTER TABLE statement is used to add, delete, or modify columns in an existing table.
-The ALTER TABLE statement is also used to add and drop various constraints on an existing table.
-
-### ALTER TABLE - ADD Column
-
-To add a column in a table_name, use the following syntax:
-
-```
-ALTER TABLE table_name
-ADD column_name datatype;
-```
-
-The following SQL adds an "Email" column to the "Customers" table:
-
-```
-ALTER TABLE Customers
-ADD Email varchar(255);
-```
-
-### ALTER TABLE - DROP COLUMN
-
-To delete a column in a table, use the following syntax (notice that some database systems don't allow deleting a column):
-
-```
-ALTER TABLE table_name
-DROP COLUMN column_name;
-```
-
-The following SQL deletes the "Email" column from the "Customers" table:
-
-```
-ALTER TABLE Customers
-DROP COLUMN Email;
-```
-
-### ALTER TABLE - MODIFY COLUMN
-
-To change the datatype of a column in a table, use the following syntax:
-
-```
-ALTER TABLE table_name
-MODIFY COLUMN column_name datatype;
-```
-
-### MySQL ALTER TABLE Example
-Look at the "Persons" table:
-
-| ID | LastName  | FirstName | Address      | City      |
-|----|-----------|-----------|--------------|-----------|
-| 1  | Hansen    | Ola       | Timoteivn 10 | Sandnes   |
-| 2  | Svendson  | Tove      | Borgvn 23    | Sandnes   |
-| 3  | Pettersen | Kari      | Storgt 20    | Stavanger |
-
-Now we want to add a column named "DateOfBirth" in the "Persons" table. We use the following SQL statement:
-
-***Example***
-
-```
-ALTER TABLE Persons
-ADD DateOfBirth date;
-```
-
-Notice that the new column, "DateOfBirth", is of type date and is going to hold a date. The data type specifies what type of data the column can hold. For a complete reference of all the data types available in MySQL, go to our complete Data Types reference.
-
-The "Persons" table will now look like this:
-
-| ID  | LastName  | FirstName | Address      | City      | DateOfBirth |
-|-----|-----------|-----------|--------------|-----------|-------------|
-| 1   | Hansen    | Ola       | Timoteivn 10 | Sandnes   | &nbsp;      |
-| 2   | Svendson  | Tove      | Borgvn 23    | Sandnes   | &nbsp;      |
-| 3   | Pettersen | Kari      | Storgt 20    | Stavanger | &nbsp;      |
-
-
-### Change Data Type Example
-
-Now we want to change the data type of the column named "DateOfBirth" in the "Persons" table.
-
-We use the following SQL statement:
-
-***Example***
-
-```
-ALTER TABLE Persons
-MODIFY COLUMN DateOfBirth year;
-```
-
-Notice that the "DateOfBirth" column is now of type year and is going to hold a year in a two- or four-digit format.
-
-### DROP COLUMN Example
-Next, we want to delete the column named "DateOfBirth" in the "Persons" table.
-
-We use the following SQL statement:
-
-***Example***
-
-```
-ALTER TABLE Persons
-DROP COLUMN DateOfBirth;
-```
-
-The "Persons" table will now look like this:
-
-| ID | LastName  | FirstName | Address      | City      |
-|----|-----------|-----------|--------------|-----------|
-| 1  | Hansen    | Ola       | Timoteivn 10 | Sandnes   |
-| 2  | Svendson  | Tove      | Borgvn 23    | Sandnes   |
-| 3  | Pettersen | Kari      | Storgt 20    | Stavanger |
-
-# MySQL SELECT STATEMENT
+## MySQL SELECT STATEMENT
 
 The `SELECT` statement is used to select data from a database.
 
@@ -629,8 +461,7 @@ SELECT * FROM Customers
 ORDER BY Country ASC, CustomerName DESC;
 ```
 
-
-### The MySQL INSERT INTO Statement
+## The MySQL INSERT INTO Statement
 
 The `INSERT INTO` statement is used to insert new records in a table.
 
@@ -687,7 +518,6 @@ The selection from the "Customers" table will now look like this:
 ***Did you notice that we did not insert any number into the CustomerID field?***
 The CustomerID column is an auto-increment field and will be generated automatically when a new record is inserted into the table.
 
-
 ### Insert Data Only in Specified Columns
 
 It is also possible to only insert data in specific columns.
@@ -710,9 +540,7 @@ The selection from the "Customers" table will now look like this:
 | 91         | Wolski               | Zbyszek         | ul. Filtrowa 68             | Walla     | 01-012     | Poland  |
 | 92         | Cardinal             | null            | null                        | Stavanger | null       | Norway  |
 
-
-
-# MySQL NULL Values
+## MySQL NULL Values
 
 A field with a NULL value is a field with no value.
 
@@ -753,9 +581,7 @@ Below is a selection from the "Customers" table in the Northwind sample database
 | 4          | Around the Horn                     | Thomas Hardy       | 120 Hanover Sq.               | London       | WA1 1DP    | UK       |
 | 5          | Berglunds snabbköp                  | Christina Berglund | Berguvsvägen 8                | Luleå        | S-958 22   | Sweden   |
 
-
-
-# MySQL UPDATE Statement
+## MySQL UPDATE Statement
 
 The `UPDATE` statement is used to modify the existing records in a table.
 
@@ -845,8 +671,6 @@ The selection from the "Customers" table will now look like this:
 | 2          | Ana Trujillo Emparedados y helados | Ana Trujillo   | Avda. de la Constitución 2222 | México D.F.  | 00000      | Mexico   |
 | 3          | Antonio Moreno Taquería            | Antonio Moreno | Mataderos 2312                | México D.F.  | 00000      | Mexico   |
 | 4          | Around the Horn                    | Thomas Hardy   | 120 Hanover Sq.               | London       | 00000      | UK       |
-
-
 
 # MySQL DELETE Statement
 The `DELETE` statement is used to delete existing records in a table.
