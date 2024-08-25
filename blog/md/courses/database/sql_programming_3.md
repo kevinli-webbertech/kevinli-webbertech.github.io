@@ -8,6 +8,14 @@
 
 **Part II**
 * SQL Join and Join clause
+  * Inner Join
+     * Self Join
+     * Cross Join
+  * Outer Join
+    * Left Join
+    * Right Join
+    * Full Join
+    
 * Complex queries
 
 **Part III**
@@ -707,3 +715,50 @@ Output
 By executing the query above, the resultant table is displayed and contains the values present in ID, NAME, AGE fields of CUSTOMERS table and AMOUNT field of ORDERS table.
 
 ![img_3.png](../../../images/database/table_data3.png)
+
+### INNER JOIN
+
+![inner_join1.png](../../../images/database/inner_join1.png)
+
+![inner_join2.png](../../../images/database/inner_join2.png)
+
+## OUTER JOIN
+
+JOIN in general is about set operations. Logically there are only two types of joins,
+
+* Inner join
+* Outer join
+
+As we can see that inner join is about getting the records of the **insertection* of the two sets.
+
+While outer join can be the "intersected" with something else. And we categorize them into three parts,
+
+* Left join
+* Right join
+* Full join
+
+Please use the following formula to help understand it,
+
+Left join = intersect + rest of left
+Right join = intersect + rest or right
+Full join = everything of the cartesian join (all combinations)
+
+The following is the full definition,
+
+* Left (Outer) Join: Retrieves all the records from the first table, Matching records from the second table and NULL values in the unmatched rows.
+* Right (Outer) Join: Retrieves all the records from the second table, Matching records from the first table and NULL values in the unmatched rows.
+* Full (Outer) Join: Retrieves records from both the tables and fills the unmatched values with NULL.
+
+The following diagram will help you understand better,
+
+Left join
+
+![left_join.png](../../../images/database/left_join.png)
+
+Right join
+
+![right_join.png](../../../images/database/right_join.png)
+
+Full join
+
+![full_join.png](../../../images/database/full_join.png)
