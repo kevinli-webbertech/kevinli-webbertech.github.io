@@ -633,7 +633,7 @@ A `JOIN` clause is used to combine rows from two or more tables, based on a rela
 
 **Syntax**
 
-Following is the basic syntax of a the SQL JOIN CLAUSE −
+Following is the basic syntax of the SQL JOIN CLAUSE −
 
 ```sql
 SELECT column_name(s)
@@ -698,6 +698,15 @@ The ORDERS table will be created as follows −
 
 ![table_data2.png](../../../images/database/table_data2.png)
 
+### INNER JOIN
+
+The following images show how the inner join works. 
+It is trying to get the intersected area.  
+
+![inner_join1.png](../../../images/database/inner_join1.png)
+
+![inner_join2.png](../../../images/database/inner_join2.png)
+
 Following query performs the join operation on the tables CUSTMERS and ORDERS −
 
 ```sql
@@ -707,17 +716,47 @@ JOIN ORDERS
 ON CUSTOMERS.ID = ORDERS.CUSTOMER_ID;
 ```
 
-Output
+**Output**
 
 By executing the query above, the resultant table is displayed and contains the values present in ID, NAME, AGE fields of CUSTOMERS table and AMOUNT field of ORDERS table.
 
 ![table_data3.png](../../../images/database/table_data3.png)
 
-### INNER JOIN
+### Self Join
 
-![inner_join1.png](../../../images/database/inner_join1.png)
+The SQL Self Join is used to join a table to itself as if the table were two tables. To carry this out, alias of the tables should be used at least once.
 
-![inner_join2.png](../../../images/database/inner_join2.png)
+* Self Join is a type of inner join, which is performed in cases where the comparison between two columns of a same table is required; probably to establish a relationship between them. In other words, a table is joined with itself when it contains both Foreign Key and Primary Key in it.
+
+* Unlike queries of other joins, we use WHERE clause to specify the condition for the table to combine with itself; instead of the ON clause.
+
+**Syntax**
+
+```sql
+SELECT column_name(s)
+FROM table1 a, table1 b
+WHERE a.common_field = b.common_field;
+```
+
+**Example**
+
+Self Join only requires one table, so, let us create a CUSTOMERS table containing the customer details like their names, age, address and the salary they earn.
+
+```sql
+SELECT a.ID, b.NAME as EARNS_HIGHER, a.NAME
+as EARNS_LESS, a.SALARY as LOWER_SALARY
+FROM CUSTOMERS a, CUSTOMERS b
+WHERE a.SALARY < b.SALARY;
+```
+
+![inner_join_output.png](../../../images/database/inner_join_output.png)
+
+### Cross Join
+
+* An SQL Cross Join is a basic type of inner join that is used to retrieve the Cartesian product (or cross product) of two individual tables. That means, this join will combine each row of the first table with each row of second table (i.e. permutations).
+* A Cartesian product, or a cross product, is the result achieved from multiplication of two sets. This is done by multiplying all the possible pairs from both the sets.
+
+![Cross_join.png](../../../images/database/Cross_join.png)
 
 ## OUTER JOIN
 
@@ -726,19 +765,13 @@ JOIN in general is about set operations. Logically there are only two types of j
 * Inner join
 * Outer join
 
-As we can see that inner join is about getting the records of the **insertection* of the two sets.
+As we can see that inner join is about getting the records of the **intersection* of the two sets.
 
 While outer join can be the "intersected" with something else. And we categorize them into three parts,
 
 * Left join
 * Right join
 * Full join
-
-Please use the following formula to help understand it,
-
-Left join = intersect + rest of left
-Right join = intersect + rest or right
-Full join = everything of the cartesian join (all combinations)
 
 The following is the full definition,
 
@@ -759,3 +792,5 @@ Right join
 Full join
 
 ![full_join.png](../../../images/database/full_join.png)
+
+Please write some query using the same dataset we used in the above and try left, right and full joins.
