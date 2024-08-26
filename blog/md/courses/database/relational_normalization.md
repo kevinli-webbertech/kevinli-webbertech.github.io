@@ -120,7 +120,7 @@ First Normal Form (1NF) does not eliminate redundancy, but rather, it’s that i
 Instead of having multiple columns of the same kind of data in a record, (0NF or Unnormalized form) you remove the repeated information into a separate relation and represent them as rows. 
 This is what constitutes 1NF.
 
-### Second Normal Form (2NF) [TODO]
+### Second Normal Form (2NF)
 
 A relation that is in First Normal Form and every non-primary-key attribute is fully functionally dependent on the primary key, then the relation is in Second Normal Form (2NF).
 
@@ -142,7 +142,8 @@ Although Second Normal Form (2NF) relations have less redundancy than those in 1
 
 ### Third Normal Form (3NF)
 
-A relation is in third normal form, if there is no transitive dependency for non-prime attributes as well as it is in second normal form. A relation that is in First and Second Normal Form and in which no non-primary-key attribute is transitively dependent on the primary key, then it is in Third Normal Form (3NF).
+A relation is in third normal form, if there is no transitive dependency for non-prime attributes as well as it is in second normal form. 
+A relation that is in First and Second Normal Form and in which no non-primary-key attribute is transitively dependent on the primary key, then it is in Third Normal Form (3NF).
 
 A relation is in 3NF if at least one of the following condition holds in every non-trivial function dependency X –> Y:
 1. X is a super key.
@@ -154,21 +155,26 @@ FD: stands for functional dependencies.
 
 If A->B and B->C are two FDs then A->C is called transitive dependency.
 
-**FD set:**
+** Example 1**
+
+`FD set:`
 
 {STUD_NO -> STUD_NAME, STUD_NO -> STUD_STATE, STUD_STATE -> STUD_COUNTRY, STUD_NO -> STUD_AGE}
 
-**Candidate Key:**
+`Candidate Key:`
 
 {STUD_NO}
 
-For this relation in table 4, STUD_NO -> STUD_STATE and STUD_STATE -> STUD_COUNTRY are true. So STUD_COUNTRY is transitively dependent on STUD_NO. It violates the third normal form. To convert it in third normal form,
+For this relation, STUD_NO -> STUD_STATE and STUD_STATE -> STUD_COUNTRY are true. So STUD_COUNTRY is transitively dependent on STUD_NO. 
+It violates the third normal form. To convert it in third normal form,
 we will decompose the relation
 
 `STUDENT (STUD_NO, STUD_NAME, STUD_PHONE, STUD_STATE, STUD_COUNTRY_STUD_AGE)` as:
 
 `STUDENT (STUD_NO, STUD_NAME, STUD_PHONE, STUD_STATE, STUD_AGE)`
+
 and 
+
 `STATE_COUNTRY (STATE, COUNTRY)`
 
 **Note –**
@@ -191,14 +197,46 @@ Note: To test whether a relation is in BCNF, we identify all the determinants an
 * The 2NF has a slightly more restrictive constraint.
 * The 3NF has a more restrictive constraint than the first two normal forms but is less restrictive than the BCNF. In this manner, the restriction increases as we traverse down the hierarchy.
 
+**Example**
+
+Functional Dependency of the above as mentioned should be the following relations:
+
+```
+Stu_ID −> Stu_Branch
+{Branch_Number, Stu_Course_No} −> Stu_Course 
+```
+
 ![non_bcnf.png](../../../images/database/non_bcnf.png)
 
-## Glossary Review
+It is not BCNF, reasons,
+
+* the {Branch_Number, Stu_Course_No} are super key to define Stu_Course
+* Stu_ID should decide Stu_Branch, so Stu_ID should be a super key
+
+But the above flat table does not indicate the X -> Y, X is the super key.
+
+However, the following partitions of the above table into the following will be BCNF.
+
+![BCNF1.png](../../../images/database/BCNF1.png)
+
+Candidate Key for this table: Stu_ID.
+
+![BCNF2.png](../../../images/database/BCNF2.png)
+
+Candidate Key for this table: Stu_Course.
+
+![BCNF3.png](../../../images/database/BCNF3.png)
+
+Candidate Key for this table: {Stu_ID, Stu_Course_No}.
+
+## Keys of Databases
 
 Super Key: 
 Candidate Key:
 Prime attributes:
 Non-prime attributes:
+
+[https://www.geeksforgeeks.org/types-of-keys-in-relational-model-candidate-super-primary-alternate-and-foreign/]
 
 ## Quick Cheatsheet of Norm Rules
 
