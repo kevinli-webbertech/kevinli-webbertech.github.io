@@ -478,7 +478,6 @@ SELECT * FROM Customers
 ORDER BY Country ASC, CustomerName DESC;
 ```
 
-
 ## MySQL UPDATE Statement
 
 The `UPDATE` statement is used to modify the existing records in a table.
@@ -503,7 +502,6 @@ Below is a selection from the "Customers" table in the Northwind sample database
 | 2          | Ana Trujillo Emparedados y helados | Ana Trujillo   | Avda. de la Constitución 2222 | México D.F.  | 05021      | Mexico   |
 | 3          | Antonio Moreno Taquería            | Antonio Moreno | Mataderos 2312                | México D.F.  | 05023      | Mexico   |
 | 4          | Around the Horn                    | Thomas Hardy   | 120 Hanover Sq.               | London       | WA1 1DP    | UK       |
-
 
 ### UPDATE Table
 
@@ -549,7 +547,6 @@ The selection from the "Customers" table will now look like this:
 | 2          | Ana Trujillo Emparedados y helados | Ana Trujillo   | Avda. de la Constitución 2222 | México D.F.  | 00000      | Mexico   |
 | 3          | Antonio Moreno Taquería            | Antonio Moreno | Mataderos 2312                | México D.F.  | 00000      | Mexico   |
 | 4          | Around the Horn                    | Thomas Hardy   | 120 Hanover Sq.               | London       | WA1 1DP    | UK       |
-
 
 ## Update Warning!
 Be careful when updating records. If you omit the `WHERE` clause, ALL records will be updated!
@@ -676,7 +673,7 @@ The CUSTOMERS table will be created as follows −
 
 Following is another table ORDERS which contains the order details made by the customers.
 
-![img_1.png](../../../images/database/table_data1.png)
+![table_data1.png](../../../images/database/table_data1.png)
 
 ```sql
 CREATE TABLE ORDERS (
@@ -699,7 +696,7 @@ INSERT INTO ORDERS VALUES
 
 The ORDERS table will be created as follows −
 
-![img_2.png](../../../images/database/table_data2.png)
+![table_data2.png](../../../images/database/table_data2.png)
 
 Following query performs the join operation on the tables CUSTMERS and ORDERS −
 
@@ -714,7 +711,7 @@ Output
 
 By executing the query above, the resultant table is displayed and contains the values present in ID, NAME, AGE fields of CUSTOMERS table and AMOUNT field of ORDERS table.
 
-![img_3.png](../../../images/database/table_data3.png)
+![table_data3.png](../../../images/database/table_data3.png)
 
 ### INNER JOIN
 
