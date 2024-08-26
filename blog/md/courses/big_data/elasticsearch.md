@@ -6,7 +6,7 @@
 
 * Elasticsearch is a distributed document store. 
 Initially released in 2010, Elasticsearch (sometimes dubbed ES) is a modern search and analytics engine which is based on Apache Lucene. 
-Its built with Java, Elasticsearch is a NoSQL database. That means it stores data in an unstructured way and that you cannot use SQL to query it. Elasticsearch is used together with the other components in the ELK Stack, Logstash and Kibana, and plays the role of data indexing and storage. 
+It's built with Java, Elasticsearch is a NoSQL database. That means it stores data in an unstructured way and that you cannot use SQL to query it. Elasticsearch is used together with the other components in the ELK Stack, Logstash and Kibana, and plays the role of data indexing and storage. 
 
 * Elasticsearch is a web service. Instead of storing information as rows of columnar data, Elasticsearch stores complex data structures that have been serialized as JSON documents.
 
