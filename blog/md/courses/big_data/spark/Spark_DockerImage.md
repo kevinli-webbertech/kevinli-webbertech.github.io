@@ -8,7 +8,7 @@ You can pull the official Spark image by running the following command in your t
 ```bash
  docker pull bitnami/spark
 ```
-![docker image pull](docker-image-pull.png)
+![docker image pull](docke_image_pull.png)
 
 
 This command pulls the Spark image maintained by **Bitnami**, which is a well-known provider of up-to-date and secure images.
@@ -20,10 +20,12 @@ Once the image is pulled, you can verify it by listing the Docker images:
 ```bash
 docker images
 ```
-![docker image](docker-image.jpg)  
+![docker image](docker_image.jpg) 
+
 ## 4. Run a Spark Container
    ```bash
    docker run -it --rm bitnami/spark spark-shell
 ```
-![docker image run](docker-image-run.jpg)
+![docker image run](docker_image_run.jpg)
+
 This will start a Spark shell inside the Docker container.
