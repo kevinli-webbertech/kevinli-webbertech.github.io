@@ -231,12 +231,117 @@ Candidate Key for this table: {Stu_ID, Stu_Course_No}.
 
 ## Keys of Databases
 
-Super Key: 
-Candidate Key:
-Prime attributes:
-Non-prime attributes:
+After the above 1NF to BCNF you might be still confused about the keys we are talking about. Hopefully the following would explain it better.
 
-[https://www.geeksforgeeks.org/types-of-keys-in-relational-model-candidate-super-primary-alternate-and-foreign/]
+* **Candidate Key**
+* **Primary Key**
+* **Super Key**
+* **Prime attributes**
+* **Non-prime attributes**
+
+### Candidate Key
+The minimal set of attributes that can uniquely identify a tuple is known as a candidate key. For Example, STUD_NO in STUDENT relation.
+
+* It is a minimal super key.
+* It is a super key with no repeated data is called a candidate key.
+* The minimal set of attributes that can uniquely identify a record.
+* It must contain unique values.
+* It can contain NULL values.
+* Every table must have at least a single candidate key.
+* A table can have multiple candidate keys but only one primary key.
+* The value of the Candidate Key is unique and may be null for a tuple.
+* There can be more than one candidate key in a relationship.
+* The candidate key can be simple (having only one attribute) or composite as well.
+
+![candidate_key1.png](../../../images/database/candidate_key1.png)
+
+`STUD_NO` is the candidate key for relation STUDENT.
+
+![candidate_key2.png](../../../images/database/candidate_key2.png)
+
+`{STUD_NO, COURSE_NO}` is a composite
+candidate key for relation STUDENT_COURSE.
+
+### Primary Key
+
+There can be more than one candidate key in relation out of which one can be chosen as the primary key. 
+For Example, STUD_NO or STUD_PHONE are candidate key for relation STUDENT but STUD_NO can be chosen as the primary key (only one out of many candidate keys).
+
+* It is a unique key.
+* It can identify only one tuple (a record) at a time.
+* It has no duplicate values, it has unique values.
+* It cannot be NULL.
+* Primary keys are not necessarily to be a single column; more than one column can also be a primary key for a table.
+
+### Super Key
+
+The set of attributes that can uniquely identify a tuple is known as Super Key. For Example, STUD_NO, (STUD_NO, STUD_NAME), etc. A super key is a group of single or multiple keys that identifies rows in a table. It supports NULL values.
+
+* Adding zero or more attributes to the candidate key generates the super key.
+* A candidate key is a super key but vice versa is not true.
+* Super Key values may also be NULL.
+
+![key_relations.png](../../../images/database/key_relations.png)
+
+## Alternate Key
+
+The candidate key other than the primary key is called an alternate key.
+
+* All the keys which are not primary keys are called alternate keys.
+* It is a secondary key.
+* It contains two or more fields to identify two or more records.
+* These values are repeated.
+
+* Eg:- SNAME, and ADDRESS is Alternate keys
+
+* Example:
+
+Consider the table shown above.
+
+`STUD_NO`, as well as `PHONE` both,
+are candidate keys for relation STUDENT but
+`PHONE` will be an alternate key
+(only one out of many candidate keys).
+
+![alternative_key.png](../../../images/database/alternative_key.png)
+
+### Foreign Key
+If an attribute can only take the values which are present as values of some other attribute, it will be a foreign key to the attribute to which it refers. The relation which is being referenced is called referenced relation and the corresponding attribute is called referenced attribute. The referenced attribute of the referenced relation should be the primary key to it.
+
+* It is a key it acts as a primary key in one table, and it acts as secondary key in another table.
+* It combines two or more relations (tables) at a time.
+* They act as a cross-reference between the tables.
+
+* For example, DNO is a primary key in the DEPT table and a non-key in EMP
+
+**Example:**
+
+>Refer Table STUDENT shown above.
+STUD_NO in STUDENT_COURSE is a
+foreign key to STUD_NO in STUDENT relation.
+
+![candidate_key2.png](../../../images/database/candidate_key2.png)
+
+It may be worth noting that, unlike the Primary Key of any given relation, Foreign Key can be NULL as well as may contain duplicate tuples i.e. it need not follow uniqueness constraint. For Example, STUD_NO in the STUDENT_COURSE relation is not unique. It has been repeated for the first and third tuples. However, the STUD_NO in STUDENT relation is a primary key and it needs to be always unique, and it cannot be null.
+
+![foreign_key.png](../../../images/database/foreign_key.png)
+
+### Composite Key
+
+Sometimes, a table might not have a single column/attribute that uniquely identifies all the records of a table. To uniquely identify rows of a table, a combination of two or more columns/attributes can be used.  It still can give duplicate values in rare cases. So, we need to find the optimal set of attributes that can uniquely identify rows in a table.
+
+* It acts as a primary key if there is no primary key in a table
+* Two or more attributes are used together to make a composite key.
+* Different combinations of attributes may give different accuracy in terms of identifying the rows uniquely.
+
+**Example:**
+
+>FULLNAME + DOB can be combined
+together to access the details of a student.
+
+![composite_key.png](../../../images/database/composite_key.png)
+
+ref: [https://www.geeksforgeeks.org/types-of-keys-in-relational-model-candidate-super-primary-alternate-and-foreign/]
 
 ## Quick Cheatsheet of Norm Rules
 
