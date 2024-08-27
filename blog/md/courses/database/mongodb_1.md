@@ -12,13 +12,13 @@ MongoDB provides a document-oriented data model, meaning data is stored in BSON 
 
 * Linux 
 
-![alt text](linux_installation.png)
+![alt text](../../../images/database/linux_installation.png)
 
 * Windows
-![alt text](windows_installation.png)
+![alt text](../../../images/database/windows_installation.png)
 
 * Mac
-![alt text](mac_installation.png)
+![alt text](../../../images/database/mac_installation.png)
 
 ## Installation of Dbeaver
 Skipped
