@@ -101,11 +101,11 @@ In the Libraries tab, click Add File and add your JDBC driver `all.jar` file.
 
   c. In the Main tab, enter the following information:
   
- ![mongo_connection1](mongo_connection1.png)
+ ![mongo_connection1](../../../images/database/mongo_connection1.png)
 
   d. In the Driver properties tab, expand User Properties. Add the following key-value properties:
 
- ![mongo_connection2](mongo_connection2.png)
+ ![mongo_connection2](../../../images/database/mongo_connection2.png)
 
 * Click Finish.
 
@@ -156,7 +156,6 @@ Example of a document:
   }
 }
 ```
-
 
 ## Ref
 
