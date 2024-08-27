@@ -35,15 +35,15 @@ echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gp
 
 `sudo apt-get install -y mongodb-org`
 
-![linux_installation1.png](linux_installation1.png)
+![linux_installation1.png](../../../images/database/linux_installation1.png)
 
 - https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/
 
 * Windows
-![alt text](../../../images/database/windows_installation.png)
-
+[Windows installation](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/)
 * Mac
-![alt text](../../../images/database/mac_installation.png)
+
+[Mac installation](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/)
 
 ## Installation of Dbeaver
 Skipped
