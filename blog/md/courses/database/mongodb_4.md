@@ -3,37 +3,44 @@
 Prerequisites
 
 MongoDB stores data in JSON-like documents:
-# Mongodb document (JSON-style)
+
+***Mongodb document (JSON-style)***
+
+```json
 document_1 = {
   "_id" : "BF00001CFOOD",
   "item_name" : "Bread",
   "quantity" : 2,
   "ingredients" : "all-purpose flour"
 }
+```
 
-# python dictionary
+***python dictionary***
+
+```
 dict_1 = {
   "item_name" : "blender",
   "max_discount" : "10%",
   "batch_number" : "RR450020FRG",
   "price" : 340
 }
+```
 
 ## Connecting Python and MongoDB Atlas
 
-For the following tutorial, start by creating a 
-virtual environment
-, and activate it.
+For the following tutorial, start by creating a virtual environment, and activate it.
 
-python -m venv env
-source env/bin/activate
+`python -m venv env`
+
+`source env/bin/activate`
 
 **Installation Python Packages**
 
 Now that you are in your virtual environment, you can install PyMongo. In your terminal, type:
 
-python -m pip install "pymongo[srv]"
-python -m pip install python-dateutil
+`python -m pip install "pymongo[srv]"`
+
+`python -m pip install python-dateutil`
 
 **Creating a MongoDB database in Python**
 
@@ -56,7 +63,6 @@ if __name__ == "__main__":
    # Get the database
    dbname = get_database()
 ```
-
 
 ### Ref
 
