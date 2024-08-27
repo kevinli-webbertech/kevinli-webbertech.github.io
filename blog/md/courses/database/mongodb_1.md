@@ -1,11 +1,27 @@
-# MongoDB
+# MongoDB - Installation
+
+## What is MongoDB?
+
+MongoDB is a popular NoSQL database known for its flexibility, scalability, and ease of use. Unlike traditional relational databases, MongoDB stores data in a flexible, JSON-like format, allowing for more dynamic schemas. In this guide, we'll explore the core concepts, methods, operations, and advanced features you need to know to work effectively with MongoDB.
+
+MongoDB provides a document-oriented data model, meaning data is stored in BSON (Binary JSON) format. It allows for the storage of complex data types, making it highly suitable for modern applications that require flexible and scalable data storage solutions.
 
 ## Installation of Mongo
 
+[MongoDB Installation](https://www.mongodb.com/try/download/community)
+
+* Linux 
+
+![alt text](linux_installation.png)
+
+* Windows
+![alt text](windows_installation.png)
+
+* Mac
+![alt text](mac_installation.png)
 
 ## Installation of Dbeaver
 Skipped
-
 
 ## Connect to Mongo with DBeaver
 
@@ -18,8 +34,6 @@ This page describes how to connect to your federated database instance with DBea
 A federated database instance mapped to one or more data stores.
 
 **Note**
-
->If some or all of your data comes from an Atlas cluster, you must use MongoDB version 5.0 or greater for that cluster to take advantage of Atlas SQL.
 
 * DBeaver (Community Edition).
 
@@ -51,7 +65,6 @@ The Data Federation page displays.
 Atlas Data Federation provides a connection string to connect to your federated database instance. You'll need this in a later step.
 
 6. Connect from DBeaver.
-
 
 * Launch DBeaver.
 
@@ -88,11 +101,11 @@ In the Libraries tab, click Add File and add your JDBC driver `all.jar` file.
 
   c. In the Main tab, enter the following information:
   
- ![alt text](image-1.png)
+ ![mongo_connection1](mongo_connection1.png)
 
   d. In the Driver properties tab, expand User Properties. Add the following key-value properties:
 
-  ![alt text](image-2.png)
+ ![mongo_connection2](mongo_connection2.png)
 
 * Click Finish.
 
@@ -119,6 +132,31 @@ For example queries, see Query with Atlas SQL Statements.
 4. Click Execute SQL Statement to run your SQL query.
 
 If the query is successful, the results are displayed in a table view below your query.
+
+## Key Concepts
+
+### Collections
+
+A collection is a group of MongoDB documents. Collections are analogous to tables in relational databases. However, unlike tables, collections do not enforce a schema, meaning each document within a collection can have a different structure.
+
+### Documents
+
+In MongoDB, data is stored as **documents**. A document is a key-value pair similar to JSON objects. Each document can have its own unique structure, but typically, similar documents are grouped together.
+
+Example of a document:
+
+```json
+{
+  "_id": ObjectId("507f1f77bcf86cd799439011"),
+  "name": "John Doe",
+  "age": 29,
+  "address": {
+    "street": "123 Main St",
+    "city": "New York"
+  }
+}
+```
+
 
 ## Ref
 
