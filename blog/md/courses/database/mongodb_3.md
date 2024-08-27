@@ -5,6 +5,7 @@
 * MongoDB Query Operators
 * MongoDB Update Operators
 * Aggregation Pipelines
+* Schema Validation
 
 ## MongoDB Query Operators
 
@@ -79,3 +80,12 @@ db.posts.aggregate([
 [TODO] Mongo vs RDMS
 [TODO](https://www.w3schools.com/mongodb/mongodb_aggregations_group.php)
 
+### Atlas Feature
+
+https://www.w3schools.com/mongodb/mongodb_charts.php
+https://www.w3schools.com/mongodb/mongodb_indexing_search.php
+https://www.w3schools.com/mongodb/mongodb_data_api.php
+
+## Ref
+
+https://www.mongodb.com/docs/manual/crud/
