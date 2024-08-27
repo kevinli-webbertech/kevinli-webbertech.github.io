@@ -108,7 +108,7 @@ Once a database is created, you can check it in the list of databases with the f
 
 `SHOW DATABASES;`
 
-# MySQL DROP DATABASE Statement
+## MySQL DROP DATABASE Statement
 The DROP DATABASE statement is used to drop an existing SQL database.
 
 ***Syntax***
@@ -120,3 +120,63 @@ The DROP DATABASE statement is used to drop an existing SQL database.
 The following SQL statement drops the existing database "testDB":
 
 `DROP DATABASE testDB;`
+
+## DBeaver Installation
+
+DBeaver is a GUI tool to connect to database without using terminal.
+
+Once you download and install it, it will look like the following,
+
+![dbeaver1.png](../../../images/database/dbeaver1.png)
+
+* Create a connection,
+
+![create_connection.png](../../../images/database/create_connection.png)
+
+* Choose a driver,
+
+![mysql_driver.png](../../../images/database/mysql_driver.png)
+
+* Edit connection,
+
+![edit_connection.png](../../../images/database/edit_connection.png)
+
+You would need to fill out,
+
+  1. `Server Host` which should be `localhost`, and port is default to `3306`
+  2. `Database` If you have created one from terminal, then fill it. Or leave it empty.
+  3. `Username` and `Password`
+
+* Test connection
+
+In the above image, in the left-bottom corner there is a `Test Connection` button.
+
+Then you will see something like this,
+
+![test_connection.png](../../../images/database/test_connection.png) 
+
+**Troubleshooting**
+
+If you get connection refuse or **Public Key Retrieval is not allowed**. 
+
+Please make sure you configure the followings,
+
+![troubleshooting_driver1.png](../../../images/database/troubleshooting_driver1.png)
+
+and also check the followings,
+
+![troubleshooting_driver2.png](../../../images/database/troubleshooting_driver2.png) 
+
+* Re-edit Configuration
+
+If you close the above connection editing, and you would like to find your existing connection
+and re-edit on it, here is how you will find it.
+
+All your existing connections should be found in the left panel of Dbeaver like shown below,
+
+![existing_connections.png](../../../images/database/existing_connections.png) 
+
+For instance, the second entry is MySQL connection we just created, let us right click on it,
+
+![re_edit_connection.png](../../../images/database/re_edit_connection.png)
+
