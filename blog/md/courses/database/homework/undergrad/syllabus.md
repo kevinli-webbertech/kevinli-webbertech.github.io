@@ -46,25 +46,25 @@ This course provides an opportunity for students to learn the foundations of com
 * NoSQL Database and MongoDB
 *
 
-| Week          | Course title                   |
-|---------------|--------------------------------|
-| Week1         | Introduction to DBMS           |
-| Week2         | Relational Model               |
-| Week3         | Relational Normalization       |
-| Week4         | ER Diagram                     |
-| Week5         | SQL Programming 1              |
-| Week6         | SQL Programming 2              |
-| Week7         | SQL Programming 3              |
-| Week8         | SQL Programming 4              |
-| Mid-term*     | Online Quiz(check BB system)   |
-| Week9         | Python Web Service Development |
-| Week10        | Python Web Development         |
-| Week11        | MongoDB 1                      |
-| Week12        | MongoDB 2                      |
-| Week13        | Python Programming with CSV    |
-| Final-project | Python Programming with Data   |
-| Week14        | Database Internal - Btree      |
-| Week15        | Database Internal - Storage    |
+| Week          | Course title                 |
+|---------------|------------------------------|
+| Week1         | Introduction to DBMS         |
+| Week2         | Relational Model             |
+| Week3         | Relational Normalization     |
+| Week4         | ER Diagram                   |
+| Week5         | SQL Programming 1            |
+| Week6         | SQL Programming 2            |
+| Week7         | SQL Programming 3            |
+| Week8         | SQL Programming 4            |
+| Mid-term*     | Online Quiz(check BB system) |
+| Week9         | MongoDB 1                    |
+| Week10        | MongoDB 2                    |
+| Week11        | MongoDB 3                    |
+| Week12        | MongoDB 4                    |
+| Week13        | Python Programming with CSV  |
+| Final-project | Python Programming with Data |
+| Week14        | Database Internal - Btree    |
+| Week15        | Database Internal - Storage  |
 
 # Homework, Midterm and Final Project
 
