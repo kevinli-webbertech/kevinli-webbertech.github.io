@@ -307,7 +307,6 @@ Continue the rebase process after resolving conflicts.
 
 `git rebase --continue`
 
-
 `git rebase --abort`
 
 Abort the rebase and return to the original state
@@ -327,8 +326,6 @@ Skip the commit that caused conflicts.
 `git rebase main`
 
 `git rebase --skip`
-
-
 
 `git rebase -onto [newbase] [upstream] [branch]`
 
@@ -388,7 +385,6 @@ Perform a merge and always create a merge commit, even if a fast-forward is poss
 
 Merge the changes from the specified branch, but do not create a merge commit. Instead, stage all the changes and prepare them to be committed in a single commit.
 
-
 `git clone --depth 1 [url]`
 
 Perform a shallow clone with a history truncated to the latest commit.
@@ -442,6 +438,53 @@ Copy your SSH public key and add it to your GitHub account.
 
 `git commit -m 'rebuild pages' --allow-empty`
 `git push origin <branch_name>`
+
+## A new set of commands when you create a new repo in git
+
+**Here is a complete example**
+
+You have an empty repository
+To get started you will need to run these commands in your terminal.
+
+New to Git? Learn the basic Git commands
+
+**Configure Git for the first time**
+
+```shell
+git config --global user.name "Kevin Li"
+git config --global user.email "id@email.com"
+```
+
+**Working with your repository**
+
+I just want to clone this repository
+If you want to simply clone this empty repository then run this command in your terminal.
+
+`git clone https://coderepo.mobilehealth.va.gov/scm/vamfdtr/mlops-test.git`
+
+**My code is ready to be pushed**
+
+If you already have code ready to be pushed to this repository then run this in your terminal.
+
+```shell
+cd existing-project
+git init
+git add --all
+git commit -m "Initial Commit"
+git remote add origin https://coderepo.mobilehealth.va.gov/scm/vamfdtr/mlops-test.git
+git push -u origin HEAD:mlops-test
+```
+
+**My code is already tracked by Git**
+
+If your code is already tracked by Git then set this repository as your "origin" to push to.
+
+```shell
+cd existing-project
+git remote set-url origin https://coderepo.mobilehealth.va.gov/scm/vamfdtr/mlops-test.git
+git push -u origin --all
+git push origin --tags
+```
 
 ## Ref
 
