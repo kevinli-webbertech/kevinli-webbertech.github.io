@@ -10,7 +10,7 @@
 
 ## Example of an Instructor Relation
 
-![relation](../../../images/database/relation.png)
+![relation](../../../images/database/relation.png) 
 
 Order of tuples is irrelevant (tuples may be stored in an arbitrary order)
 
