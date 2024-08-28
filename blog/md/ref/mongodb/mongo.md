@@ -72,7 +72,6 @@ Example of a document:
 3. **Success**:
    - You are now connected to your MongoDB database.
 
-
 # MongoDB Query Operators
 
 MongoDB provides various query operators that allow you to compare and reference document fields in your queries. These operators are categorized into comparison, logical, and evaluation operators.
@@ -86,7 +85,6 @@ These operators are used to compare values in your MongoDB queries:
   ```javascript
   db.collection.find({ age: { $eq: 30 } })
 
-
 - **$ne**: Matches documents where the value of a field is not equal to the specified value.
 
 `db.collection.find({ age: { $ne: 30 } })`
@@ -98,7 +96,6 @@ These operators are used to compare values in your MongoDB queries:
 - **$gte**: Matches documents where the value of a field is greater than or equal to the specified value.
 
 `db.collection.find({ age: { $gte: 30 } })`
-
 
 - **$lt**: Matches documents where the value of a field is less than the specified value.
 

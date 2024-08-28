@@ -1,4 +1,12 @@
-# MongoDB Programming - 
+# MongoDB Programming - Basic MongoDB Programming 
+
+## Outline
+ * Show Databases
+ * Insert Document
+ * Find Document
+ * Update Document
+ * Delete Document
+ * Index
 
 ## Show all databases
 To see all available databases, in your terminal type,
@@ -211,3 +219,19 @@ The deleteOne() method will delete the first document that matches the query pro
 The deleteMany() method will delete all documents that match the query provided.
 
 `db.posts.deleteMany({ category: "Technology" })`
+
+### Indexing
+
+Indexes are used to improve the performance of queries by allowing MongoDB to quickly locate data.Without indexes, MongoDB must scan every document in a collection to find the ones that match the query criteria.
+
+Here are some common indexing methods:
+
+* createIndex(): Creates a new index on a field or a set of fields.
+
+`db.users.createIndex({ name: 1 });`
+
+`db.users.createIndex({ age: 1, name: 1 });`
+
+Here, 1 indicates ascending order, and -1 would indicate descending order.
+
+* dropIndex(): Drops an existing index.
