@@ -92,7 +92,7 @@ Functional dependencies are used to mathematically express relations among datab
 
 Example:
 
-![functional_dependencies.png](functional_dependencies.png)
+![functional_dependencies.png](../../../images/database/functional_dependencies.png)
 
 **From the above table we can conclude some valid functional dependencies:**
 
@@ -133,7 +133,7 @@ In Trivial Functional Dependency, a dependent is always a subset of the determin
    
  **Example:**
 
-![trivial_functional_dependency.png](trivial_functional_dependency.png) 
+![trivial_functional_dependency.png](../../../images/database/trivial_functional_dependency.png) 
 
 Here, {roll_no, name} → name is a trivial functional dependency, since the dependent name is a subset of determinant set {roll_no, name}. Similarly, roll_no → roll_no is also an example of trivial functional dependency.
 
@@ -144,7 +144,7 @@ In Non-trivial functional dependency, the dependent is strictly not a subset of 
 
 **Example:**
 
-![trivial_functional_dependency.png](trivial_functional_dependency.png)
+![trivial_functional_dependency.png](../../../images/database/trivial_functional_dependency.png)
 
 Here, roll_no → name is a non-trivial functional dependency, since the dependent name is not a subset of determinant roll_no. Similarly, {roll_no, name} → age is also a non-trivial functional dependency, since age is not a subset of {roll_no, name}
 
@@ -153,7 +153,7 @@ Here, roll_no → name is a non-trivial functional dependency, since the depende
 
 For example,
 
-![trivial_functional_dependency.png](trivial_functional_dependency.png)
+![trivial_functional_dependency.png](../../../images/database/trivial_functional_dependency.png)
 
 Here, roll_no → {name, age} is a multivalued functional dependency, since the dependents name & age are not dependent on each other(i.e. name → age or age → name doesn’t exist !)
 
@@ -161,7 +161,7 @@ Here, roll_no → {name, age} is a multivalued functional dependency, since the 
 
 In transitive functional dependency, dependent is indirectly dependent on determinant. i.e. If a → b & b → c, then according to axiom of transitivity, a → c. This is a transitive functional dependency.
 
-![functional_dependencies.png](functional_dependencies.png)
+![functional_dependencies.png](../../../images/database/functional_dependencies.png)
 
 Here, enrol_no → dept and dept → building_no. Hence, according to the axiom of transitivity, enrol_no → building_no is a valid functional dependency. This is an indirect functional dependency, hence called Transitive functional dependency.
 
