@@ -38,7 +38,7 @@ dict_1 = {
 
 * Understand how to start MongoDB server and how to connect to it successfully
 
-![test_mongodb.png](test_mongodb.png)
+![test_mongodb.png](../../../images/database/test_mongodb.png)
 
 * Understand that we could either use terminal to run and test python code or we could use PyCharm to do it.
 In the following sections we will show you these two methods.
@@ -61,7 +61,7 @@ If you use IDE such as "Visual Studio Code", or Window|Linux|Mac Terminal, you c
 
 After you execute the above two steps, you will see something like below,
 
-![python_virtual_env.png](python_virtual_env.png)
+![python_virtual_env.png](../../../images/database/python_virtual_env.png)
 
 **Installation Python Packages**
 
@@ -73,7 +73,7 @@ Now that you are in your virtual environment, you can install PyMongo. In your t
 
 After you execute the above two installation, you will see something similar to this,
 
-![mongodb_py_packages.png](mongodb_py_packages.png)
+![mongodb_py_packages.png](../../../images/database/mongodb_py_packages.png)
 
 ### Lab Work
 
@@ -105,7 +105,7 @@ if __name__ == "__main__":
 
 To run it, we can see the following,
 
-![mongodb_python_output.png](mongodb_python_output.png)
+![mongodb_python_output.png](../../../images/database/mongodb_python_output.png)
 
 ## Method2: Use Run Python code with PyCharm
 
