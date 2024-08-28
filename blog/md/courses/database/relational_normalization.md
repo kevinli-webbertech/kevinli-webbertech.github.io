@@ -4,7 +4,7 @@
 
 * Features of Good Relational Design
 * Decomposition Using Multivalued Dependencies
-* Functional Dependencie
+* Functional Dependencies
 * Normal Forms
 * Database-Design Process
 
