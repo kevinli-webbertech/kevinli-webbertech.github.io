@@ -2,8 +2,9 @@
 
 ## Course Intro
 
-Credits: 3 Credits
-Length: 15 weeks
+- Credits: 3 Credits
+
+- Length: 15 weeks
 
 ## Survey
 
@@ -60,8 +61,8 @@ This course provides an opportunity for students to learn the foundations of com
 | Week12        | MongoDB 4                        |
 | Week13        | Python Programming with CSV      |
 | Final-project | Python Programming with Data     |
-| Week14        | Python Programming with Pandas 1 |
-| Week15        | Python Programming with Pandas 2 |
+| Week14        | Python Programming with Pandas |
+| Week15        | RMDB Internal Storage, System Recovery and Concurrency|
 
 ## Homework, Midterm and Final Project
 
