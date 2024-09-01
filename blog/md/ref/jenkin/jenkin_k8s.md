@@ -269,7 +269,6 @@ Alternatively, you can run the exec command to get the password directly from th
 
 ## K8s
 
-
 ## K8s Tools
 
 Rancher desktop [a good dashboard client]
