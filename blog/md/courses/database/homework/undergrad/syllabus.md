@@ -1,6 +1,7 @@
 # Database - Data Management
 
 ## Course Intro
+
 Credits: 3 Credits
 Length: 15 weeks
 
@@ -24,7 +25,7 @@ Per week or biweekly. Depending on the homework size.
 **Submission requirement**
 
 * Homework Submission: File upload
-* Homework should include at least one word or pdf document. Any code should be put into a zip file, please do not use WinRAR format. 
+* Homework should include at least one word or pdf document. Any code should be put into a zip file, please do not use WinRAR or tar.gz format.
 * Please write your full name in the homework document.
 * For assignment with coding, please take screenshot to prove that it is working.
 
@@ -62,6 +63,6 @@ This course provides an opportunity for students to learn the foundations of com
 | Week14        | Python Programming with Pandas 1 |
 | Week15        | Python Programming with Pandas 2 |
 
-# Homework, Midterm and Final Project
+## Homework, Midterm and Final Project
 
 * Only homework including installation of software, essay and writing code.
