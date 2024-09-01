@@ -5,7 +5,7 @@ echo $project_root
 cd $project_root
 git pull --no-ff --no-edit
 git add -A .
-git add -A ..
+#git add -A ..
 git commit -m "updating code"
 git push
 
