@@ -49,3 +49,9 @@ Ubuntu 18.04 (Ubuntu on Wayland)
 XDG_CURRENT_DESKTOP=ubuntu:GNOME
 GDMSESSION=ubuntu-wayland
 ```
+
+## Change Wayland to X11 Window Manager
+
+* If you wish to do it permanently, edit /etc/gdm3/custom.conf and uncomment the line:
+#WaylandEnable=false
+* Save and reboot
