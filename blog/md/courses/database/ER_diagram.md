@@ -11,9 +11,13 @@ The Entity Relationship Diagram explains the relationship among the entities pre
 ## Why Use ER Diagrams In DBMS?
 
 * ER diagrams represent the E-R model in a database, making them easy to convert into relations (tables).
+
 * ER diagrams provide the purpose of real-world modeling of objects which makes them intently useful.
+
 * ER diagrams require no technical knowledge and no hardware support.
+
 * These diagrams are very easy to understand and easy to create even for a naive user.
+
 * It gives a standard solution for visualizing the data logically.
 
 ## Symbols Used in ER Model
@@ -29,15 +33,25 @@ Understanding the Types of ERD Symbols is critical for understanding relational 
 ER Diagram symbols can be categorized into three types. The following are three types of ER Diagram symbols.
 
 1/ Chen ERD Notations
+
 2/ Crow's Foot Notations
+
 3/ UML Notations
+
 4/ Barker's Notations
+
 5/ Bachman Notations
+
 6/ IDEF1X Notations
+
 7/ Min-Max Notation/ISO Notations
+
 8/ Object Relationship Symbols
+
 9/ Express-G Symbols
+
 10/ Martin ERD Symbols
+
 11 ORM Diagram Symbols
 
 ### Chen ERD Symbols
@@ -94,7 +108,6 @@ Gordon Everest was the creator of the Crow's Foot notation in an article he wrot
 **ERD Table Symbols**
 
 A table is another way of representing entities. They are an essential component of physical ER diagrams. The table consists of the entity, and the different attributes related to it are listed right below it. They are also called fields in the physical ER diagram.
-
 
 **ERD Cardinality**
 
