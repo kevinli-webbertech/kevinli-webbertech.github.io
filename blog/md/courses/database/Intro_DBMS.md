@@ -157,17 +157,17 @@ for describing,
 
 **Relational model**
 
-**Entity-Relationship data model (mainly for database design, or called ER diagram)**
+*Entity-Relationship data model (mainly for database design, or called ER diagram)*
 
-**Object-based data models (Object-oriented and Object-relational, or called UML)**
+*Object-based data models (Object-oriented and Object-relational, or called UML)*
 
-**Semi-structured data model  (XML)**
+*Semi-structured data model  (XML)*
 
-**Other older models**
+*Other older models*
 
-* Network model
+ * Network model
 
-* Hierarchical model
+ * Hierarchical model
 
 ## Relational Model
 
