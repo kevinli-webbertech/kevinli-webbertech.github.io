@@ -67,3 +67,7 @@ This course provides an opportunity for students to learn the foundations of com
 ## Homework, Midterm and Final Project
 
 * Only homework including installation of software, essay and writing code.
+
+## Grading
+
+Final grade will be calculated based on homework 40%, midterm quiz 30% and final project 30%.
