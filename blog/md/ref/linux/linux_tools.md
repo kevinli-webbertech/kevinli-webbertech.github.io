@@ -5,6 +5,8 @@ What have been covered in this articles are:
 
 * Samba server
 * SSH server
+* HTTP server - Apache2
+* SendMail
 
 ## Samba Server
 
@@ -190,22 +192,13 @@ By default, SSH listens on port 22. You can change this to a different port for 
 
 Use a Firewall: Ensure that only trusted IP addresses can access your SSH server. You can configure this using tools like ufw (Uncomplicated Firewall) or firewalld.
 
-## Apache2
+## HTTP server - Apache2
 
 Apache2 is the http server.
 
-`sudo service apache2 restart`
+### Installation
 
-`sudo service apache2 reload`
-
-Also to start/stop/reload/restart apache on Ubuntu, you can use:
-
-```bash
-sudo start apache2
-sudo stop apache2
-sudo reload apache2
-sudo restart apache2
-```
+`sudo apt install apache2`
 
 Check where it is installed,
 
@@ -220,6 +213,14 @@ xiaofengli@xiaofenglx:/etc/init.d$ ls -al apache2
 Check the above startup script in `/etc/init.d` dir,
 
 ![apache2]((https://kevinli-webbertech.github.io/blog/images/linux/apache2.png))
+
+## Start/Stop/Status
+
+`sudo service apache2 start`
+`sudo service apache2 stop`
+`sudo service apache2 restart`
+`sudo service apache2 reload`
+`sudo service apache2 status`
 
 ## SendMail
 
