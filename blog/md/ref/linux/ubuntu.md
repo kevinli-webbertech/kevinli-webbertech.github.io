@@ -64,6 +64,34 @@ GDMSESSION=ubuntu-wayland
 
 `sudo systemctl reboot`
 
+## Monitor display issue
+
+```shell
+xiaofengli@xiaofenglx:~$ xrandr -q
+Screen 0: minimum 320 x 200, current 1920 x 1080, maximum 16384 x 16384
+VGA-1 disconnected (normal left inverted right x axis y axis)
+HDMI-1 connected primary 1920x1080+0+0 (normal left inverted right x axis y axis) 598mm x 336mm
+   1920x1080     60.00*+  74.97    50.00    59.94  
+   1920x1080i    60.00    50.00    59.94  
+   1680x1050     59.88  
+   1280x1024     75.02    60.02  
+   1440x900      59.90  
+   1280x960      60.00  
+   1280x720      60.00    50.00    59.94  
+   1024x768      75.03    70.07    60.00  
+   832x624       74.55  
+   800x600       72.19    75.00    60.32    56.25  
+   720x576       50.00  
+   720x480       60.00    59.94  
+   640x480       75.00    72.81    66.67    60.00    59.94  
+   720x400       70.08  
+HDMI-2 disconnected (normal left inverted right x axis y axis)
+
+```
+
+https://askubuntu.com/questions/425628/how-do-i-resolve-desktop-larger-than-screen
+
+
 ### Ref
 
 https://support.system76.com/articles/login-loop-ubuntu/
