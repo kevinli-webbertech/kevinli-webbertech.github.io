@@ -53,5 +53,17 @@ GDMSESSION=ubuntu-wayland
 ## Change Wayland to X11 Window Manager
 
 * If you wish to do it permanently, edit /etc/gdm3/custom.conf and uncomment the line:
-#WaylandEnable=false
+
+`#WaylandEnable=false`
+
 * Save and reboot
+
+## Fix login and gnome-shell issue
+
+`sudo apt install --reinstall gdm3 ubuntu-desktop gnome-shell`
+
+`sudo systemctl reboot`
+
+### Ref
+
+https://support.system76.com/articles/login-loop-ubuntu/
