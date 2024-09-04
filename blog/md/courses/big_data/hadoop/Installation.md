@@ -42,15 +42,14 @@ Then you will open git bash in your windows, in linux or Mac, just use your term
 
 `docker build -t  my-hadoop-container:latest .`
 
+Or you put that above command into a bash script, called “build.sh”, and it looks like the following,
 
 ```bash
 #!/bin/bash
 docker build -t my-hadoop-container
 ```
 
-Or you put that above command into a bash script, called “build.sh” 
-
-So folder structure looks like the following,
+Now the folder structure looks like the following,
 
 ![folders](https://kevinli-webbertech.github.io/blog/images/big_data/hadoop/folders.png)
 

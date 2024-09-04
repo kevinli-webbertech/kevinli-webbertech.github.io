@@ -2,8 +2,9 @@
 
 ## Homework and Projects
 
-* Every two weeks
-* Final Project
+* Every one or two weeks depends on the content.
+* Midterm we will be doing some Machine learning project
+* Final project - Project based
 
 ## Outcome and Expectations
 
@@ -11,9 +12,9 @@ After this class, students will have a general idea of the core toolchains of bi
 
 ## 15 Weeks Schedule
 
-Week 1. Introduction to Big Data Analytics
-
-Get familiarized with Docker, Hadoop container, and learn how Hadoop’s components and distributed file system.  We will talk about Hadoop and Spark. And the installation of Hadoop, both the native way and the dockerized container.
+|Unit  | Content| Goal  |
+|------|--------|-------|
+|Week 1|Introduction to Big Data Analytics|Get familiarized with Docker, Hadoop container, and learn how Hadoop’s components and distributed file system.  We will talk about Hadoop and Spark. And the installation of Hadoop, both the native way and the dockerized container.|
 
 Week 2. Hadoop Distributed File Systems, S3 and MapReduce
 
