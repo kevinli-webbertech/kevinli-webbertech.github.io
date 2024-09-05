@@ -35,7 +35,6 @@ $ ls -l input
 ```
 ![alt text](../../../../images/big_data/hadoop/image-1.png)
 
-
 It will give the following files in your input directory −
 
 ```bash
@@ -57,9 +56,7 @@ Run the following example,
 
 `bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.0.jar wordcount input output`
 
-
 ![alt text](../../../../images/big_data/hadoop/image-2.png)
-
 
 Check output,
 
