@@ -87,11 +87,12 @@ The datanode is a commodity hardware having the GNU/Linux operating system and d
     • Datanodes perform read-write operations on the file systems, as per client request.
     • They also perform operations such as block creation, deletion, and replication according to the instructions of the namenode.
 
-Block
+**Block**
+
 Generally the user data is stored in the files of HDFS. The file in a file system will be divided into one or more segments and/or stored in individual data nodes. These file segments are called as blocks. In other words, the minimum amount of data that HDFS can read or write is called a Block. The default block size is 64MB, but it can be increased as per the need to change in HDFS configuration.
 
-
 **Goals of HDFS**
+
 Fault detection and recovery− Since HDFS includes a large number of commodity hardware, failure of components is frequent. Therefore HDFS should have mechanisms for quick and automatic fault detection and recovery.
 
 Huge datasets− HDFS should have hundreds of nodes per cluster to manage the applications having huge datasets.
