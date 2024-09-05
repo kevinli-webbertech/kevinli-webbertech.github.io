@@ -122,6 +122,7 @@ check the start-dfs.sh
 ![alt text](../../../../images/big_data/hadoop/image-8.png)
 
 Check other core startup scripts
+
 ![alt text](../../../../images/big_data/hadoop/image-9.png)
 
 **Listing Files in HDFS**
