@@ -111,21 +111,40 @@ After formatting the HDFS, start the distributed file system. The following comm
 
 `$ start-dfs.sh`
 
-In our docker image, we did not have to do that,
+In our docker image, we did not have to do that, because we run docker image with a script like the following which we executed earlier,
+
+`docker run -it sequenceiq/hadoop-docker:2.7.0 /etc/bootstrap.sh -bash`
+
+We can inspect `/etc/bootstrap.sh` for the logic and it shows the following,
 
 ![alt text](../../../../images/big_data/hadoop/image-6.png)
 
+It did three things,
+
+* start sshd server
+* call start-dfs.sh
+* call start-yarn.sh
+
+We can see them in the following `/etc/bootstrap.sh` script,
+
 ![alt text](../../../../images/big_data/hadoop/image-7.png)
 
-check the start-dfs.sh
+Now, let us check the `start-dfs.sh` in the **sbin** dir, and we can see more.
+
 
 ![alt text](../../../../images/big_data/hadoop/image-8.png)
 
-Check other core startup scripts
+Check the core startup scripts. Now inside of the start-dfs.sh it might call a chain of other scripts as well. For instance, in the hightlights of the following image, it shows it calls `hadoop-daemons.sh`.
 
 ![alt text](../../../../images/big_data/hadoop/image-9.png)
 
 **Listing Files in HDFS**
+
+Note that the syntax of the following is,
+
+***hadoop fs|dfs -linux-command path_in_dfs***
+
+> note: the path_in_dfs such as `/user/input` is not found in your docker container but in a distributed file system, for short, we call `dfs`.
 
 ```bash
 bash-4.1# bin/hadoop fs -mkdir /user/input 
@@ -133,7 +152,8 @@ bash-4.1# bin/hadoop fs -mkdir /user/output
 bash-4.1# bin/hadoop fs -rm -r /user/output
 23/11/28 00:57:39 INFO fs.TrashPolicyDefault: Namenode trash configuration: Deletion interval = 0 minutes, Emptier interval = 0 minutes.
 Deleted /user/output
-``
+```
+
 ![alt text](../../../../images/big_data/hadoop/image-10.png)
 
 Make a file, and put contents in it,
