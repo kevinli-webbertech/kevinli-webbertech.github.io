@@ -1,6 +1,17 @@
 # Big Data Analysis
 
-## Introduction
+## Outline
+
+* Introduction of Big Data Analysis
+  * History
+  * Tools and tech stacks
+
+* Big Data Platforms
+  * Databricks
+  * Tableau
+  * Snowflake
+
+## Introduction to Big Data Analysis
 
 Big data analytics describes the process of uncovering trends, patterns, and correlations in large amounts of raw data to help make data-informed decisions.
 

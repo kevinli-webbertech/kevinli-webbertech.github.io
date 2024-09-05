@@ -38,7 +38,6 @@ Databricks is an enterprise software company founded by the creators of Apache S
 
 Databricks is used by organizations across various industries to improve data-driven decision-making, enhance operational efficiency, and foster innovation through advanced analytics and AI.
 
-
 ## Tableau
 
 Tableau is a powerful and widely-used data visualization and business intelligence (BI) tool that helps people see and understand their data. It is designed to transform raw data into interactive and shareable dashboards and visualizations, enabling users to make data-driven decisions. Here are some key features and components of Tableau:
