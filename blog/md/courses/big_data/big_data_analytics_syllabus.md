@@ -6,6 +6,14 @@
 * Midterm we will be doing some Machine learning project
 * Final project - Project based
 
+## Textbook
+
+No textbook needed.
+
+## Other
+
+Laptop required. In class homework.
+
 ## Outcome and Expectations
 
 After this class, students will have a general idea of the core toolchains of big data analysis in the market and will be able to utilize the most popular programming language and libraries to do the data access, collection, curation and analysis. And we also survey the best and up-to-date commercial platforms of big data analysis and get our hands on their usage.
