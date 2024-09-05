@@ -1,5 +1,15 @@
 # Linux Desktop Environment
 
+## Outline
+
+* Window Display Manager
+    * GDM
+    * KDE
+    * Xfce
+
+* Wayland
+* X11/X Server
+
 ## GNOME
 
 GNOME is used both by Fedora and Ubuntu.
@@ -183,3 +193,7 @@ PID: N/A
 Window manager's "showing the desktop" mode: OFF
 xiaofengli@xiaofenglx:~$ echo $XDG_SESSION_TYPE
 wayland
+
+### Troubleshooting UI issues
+
+https://askubuntu.com/questions/6217/disabling-assistive-technologies-during-login
