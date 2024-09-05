@@ -93,11 +93,17 @@ Generally the user data is stored in the files of HDFS. The file in a file syste
 
 **Goals of HDFS**
 
-Fault detection and recovery− Since HDFS includes a large number of commodity hardware, failure of components is frequent. Therefore HDFS should have mechanisms for quick and automatic fault detection and recovery.
+* Fault detection and recovery
 
-Huge datasets− HDFS should have hundreds of nodes per cluster to manage the applications having huge datasets.
+− Since HDFS includes a large number of commodity hardware, failure of components is frequent. Therefore HDFS should have mechanisms for quick and automatic fault detection and recovery.
 
-Hardware at data− A requested task can be done efficiently, when the computation takes place near the data. Especially where huge datasets are involved, it reduces the network traffic and increases the throughput.
+* Huge datasets
+
+− HDFS should have hundreds of nodes per cluster to manage the applications having huge datasets.
+
+* Hardware at data
+
+− A requested task can be done efficiently, when the computation takes place near the data. Especially where huge datasets are involved, it reduces the network traffic and increases the throughput.
 
 ## Hadoop - HDFS Operations
 
