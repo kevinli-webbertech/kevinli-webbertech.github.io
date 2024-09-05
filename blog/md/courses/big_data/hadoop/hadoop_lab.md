@@ -12,7 +12,7 @@
 
 `echo $HADOOP_PREFIX`
 
-![alt text](image.png)
+![alt text](../../../../images/big_data/hadoop/image.png)
 
 Once you are in $HADOOP_PREFIX directory, do the following,
 
@@ -33,7 +33,7 @@ $ mkdir input2
 $ cp *.txt input2
 $ ls -l input 
 ```
-![alt text](image-1.png)
+![alt text](../../../../images/big_data/hadoop/image-1.png)
 
 
 It will give the following files in your input directory −
@@ -58,22 +58,22 @@ Run the following example,
 `bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.0.jar wordcount input output`
 
 
-![alt text](image-2.png)
+![alt text](../../../../images/big_data/hadoop/image-2.png)
 
 
 Check output,
 
 `bash-4.1# bin/hadoop dfs -cat output/*`
 
-![alt text](image-3.png)
+![alt text](../../../../images/big_data/hadoop/image-3.png)
 
 Check `–help` option for usage,
 
-![alt text](image-4.png)
+![alt text](../../../../images/big_data/hadoop/image-4.png)
 
 ## Architecture
 
-![alt text](image-5.png)
+![alt text](../../../../images/big_data/hadoop/image-5.png)
 
 HDFS follows the master-slave architecture and it has the following elements.
 
@@ -115,16 +115,16 @@ After formatting the HDFS, start the distributed file system. The following comm
 
 In our docker image, we did not have to do that,
 
-![alt text](image-6.png)
+![alt text](../../../../images/big_data/hadoop/image-6.png)
 
-![alt text](image-7.png)
+![alt text](../../../../images/big_data/hadoop/image-7.png)
 
 check the start-dfs.sh
 
-![alt text](image-8.png)
+![alt text](../../../../images/big_data/hadoop/image-8.png)
 
 Check other core startup scripts
-![alt text](image-9.png)
+![alt text](../../../../images/big_data/hadoop/image-9.png)
 
 **Listing Files in HDFS**
 
@@ -135,10 +135,12 @@ bash-4.1# bin/hadoop fs -rm -r /user/output
 23/11/28 00:57:39 INFO fs.TrashPolicyDefault: Namenode trash configuration: Deletion interval = 0 minutes, Emptier interval = 0 minutes.
 Deleted /user/output
 ``
-![alt text](image-10.png)
+![alt text](../../../../images/big_data/hadoop/image-10.png)
+
 Make a file, and put contents in it,
 
-![alt text](image-11.png)
+![alt text](../../../../images/big_data/hadoop/image-11.png)
+
 Then you run the following command,
 
 `bin/hadoop fs -put file.txt /user/input `
@@ -147,7 +149,7 @@ Then you will check the file.txt, as it is moved to user/input/ in the DFS/distr
 
 `bash-4.1# bin/hadoop fs -ls /user/input`
 
-![alt text](image-12.png)
+![alt text](../../../../images/big_data/hadoop/image-12.png)
 
 Then we will be checking the file content, 
 
@@ -161,9 +163,9 @@ Then you can also get the file from the DFS into your local file system,
 
 `bin/hadoop fs -get /user/input/ tmp/`
 
-![alt text](image-13.png)
+![alt text](../../../../images/big_data/hadoop/image-13.png)
 
-![alt text](image-14.png)
+![alt text](../../../../images/big_data/hadoop/image-14.png)
 
 **Shutting Down the HDFS**
 
