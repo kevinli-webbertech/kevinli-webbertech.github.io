@@ -7,6 +7,7 @@ What have been covered in this articles are:
 * SSH server
 * HTTP server - Apache2
 * SendMail
+* GTK
 
 ## Samba Server
 
@@ -257,3 +258,16 @@ Replace your.smtp.server, your_username, and your_password with the appropriate 
 To create the authentication database, run:
 
 `sudo makemap hash /etc/mail/authinfo < /etc/mail/authinfo`
+
+## GTK
+
+GTK (formerly GIMP ToolKit and GTK+) is a free software cross-platform widget toolkit for creating graphical user interfaces (GUIs). It is licensed under the terms of the GNU Lesser General Public License, allowing both free and proprietary software to use it. It is one of the most popular toolkits for the Wayland and X11 windowing systems.
+
+The GTK team releases new versions on a regular basis. GTK 4 and GTK 3 are maintained, while GTK 2 is end-of-life. GTK1 is independently maintained by the CinePaint project. GTK 4 dropped the + from the name.
+
+* GTK Drawing Kit (GDK): GDK acts as a wrapper around the low-level functions provided by the underlying windowing and graphics systems.
+
+### ref
+
+- https://www.gtk.org/
+- DevConf.cz

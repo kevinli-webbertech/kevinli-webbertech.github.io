@@ -7,8 +7,9 @@
     * KDE
     * Xfce
 
-* Wayland
-* X11/X Server
+* Display protocol
+    * Wayland
+    * X11/X Server
 
 ## GNOME
 
@@ -143,12 +144,11 @@ Note: `Source coming from Wikipedia`
 #### ref
 - https://en.wikipedia.org/wiki/X_display_manager#XDMCP
 
-
-## X Server
+## X11/X Server
 
 The X Window System (X11, or simply X) is a windowing system for bitmap displays, common on Unix-like operating systems.
 
-X originated as part of Project Athena at Massachusetts Institute of Technology (MIT) in 1984. The X protocol has been at version 11 (hence "X11") since September 1987. The X.Org Foundation leads the X project, with the current reference implementation, X.Org Server, available as free and open-source software under the MIT License and similar permissive licenses.
+X originated as part of Project Athena at Massachusetts Institute of Technology (MIT) in 1984. The *X protocol* has been at version 11 (hence "X11") since September 1987. The X.Org Foundation leads the X project, with the current reference implementation, X.Org Server, available as free and open-source software under the MIT License and similar permissive licenses.
 
 ![x server](https://kevinli-webbertech.github.io/blog/images/linux/xserver.png)
 
@@ -156,19 +156,6 @@ X originated as part of Project Athena at Massachusetts Institute of Technology 
 
 - https://www.x.org/releases/X11R7.6/doc/man/man1/Xserver.1.xhtml
 
-
-## GTK
-
-GTK (formerly GIMP ToolKit and GTK+) is a free software cross-platform widget toolkit for creating graphical user interfaces (GUIs). It is licensed under the terms of the GNU Lesser General Public License, allowing both free and proprietary software to use it. It is one of the most popular toolkits for the Wayland and X11 windowing systems.
-
-The GTK team releases new versions on a regular basis. GTK 4 and GTK 3 are maintained, while GTK 2 is end-of-life. GTK1 is independently maintained by the CinePaint project. GTK 4 dropped the + from the name.
-
-* GTK Drawing Kit (GDK): GDK acts as a wrapper around the low-level functions provided by the underlying windowing and graphics systems.
-
-### ref
-
-- https://www.gtk.org/
-- DevConf.cz
 
 ## Wayland
 
@@ -178,14 +165,13 @@ Wayland is developed by a group of volunteers initially led by Kristian Høgsber
 
 As part of its efforts, the Wayland project also develops a reference implementation of a Wayland compositor called Weston.
 
-
-
 ### Check the XDM
 
 - Display Environment Variable: `echo $DISPLAY` and `echo $XDG_SESSION_TYPE`
 - Check process: `ps aux | grep [X]` or `ps aux | grep [w]ayland`
 - Using loginctl Command: `$ loginctl show-session $(loginctl | grep $(whoami) | awk '{print $1}') -p Type`
 
+```shell
 xiaofengli@xiaofenglx:~$ wmctrl -m
 Name: GNOME Shell
 Class: N/A
@@ -193,7 +179,20 @@ PID: N/A
 Window manager's "showing the desktop" mode: OFF
 xiaofengli@xiaofenglx:~$ echo $XDG_SESSION_TYPE
 wayland
+```
 
 ### Troubleshooting UI issues
+
+Try resetting gdm to the default values
+
+Disable screen magnifier in GDM:
+
+`sudo -u gdm gconftool-2 --recursive-unset /desktop`
+
+Disable on-screen keyboard in GDM:
+
+`sudo -u gdm gconftool-2 /desktop/gnome/applications/at/screen_magnifier_enabled --type bool --set false`
+
+#### ref
 
 https://askubuntu.com/questions/6217/disabling-assistive-technologies-during-login
