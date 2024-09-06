@@ -92,11 +92,13 @@ HDMI-2 disconnected (normal left inverted right x axis y axis)
 
 ref: https://askubuntu.com/questions/425628/how-do-i-resolve-desktop-larger-than-screen
 
+### startx command
+
 The startx command in Linux starts an X session and has several uses, including:
 
 **Starting an X session.**
 
-The startx command starts an X session on a single computer.
+The `startx` command starts an X session on a single computer.
 
 **Booting Linux**
 
@@ -112,6 +114,14 @@ The startx command can find client commands or options to run for the session.
 The startx command is a shell script that acts as a front end to xinit(1). It's often run without any arguments.
 
 By default, the startx command sends errors to the .xerrors file in the user's home directory.
+
+## Recover Ubuntu Desktop
+
+If you have any wierdness and do not know how to fix it,
+
+`sudo apt autoremove gdm3 ubuntu-desktop`
+`sudo apt purge gdm3 ubuntu-desktop`
+`sudo apt-get install gdm3 ubuntu-desktop`
 
 ### Ref
 
