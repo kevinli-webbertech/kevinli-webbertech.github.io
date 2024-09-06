@@ -38,11 +38,11 @@ Get `Activity Monitor` and kill `Gnome-shell`, it is like windows explorer and i
 
 **Solution**: It was fixed by changing from XWayland to X11.
 
-* Other
+## Variables to check your Desktop Manager
 
 "$XDG_CURRENT_DESKTOP" "$GDMSESSION"
 
-```
+```shell
 Ubuntu 18.04 and 20.04 (Ubuntu on GNOME)
 XDG_CURRENT_DESKTOP=ubuntu:GNOME
 GDMSESSION=ubuntu
@@ -51,21 +51,29 @@ XDG_CURRENT_DESKTOP=ubuntu:GNOME
 GDMSESSION=ubuntu-wayland
 ```
 
+## Recover Ubuntu Desktop
+
+If you have any wierdness and do not know how to fix it,
+
+`sudo apt autoremove gdm3 ubuntu-desktop`
+`sudo apt purge gdm3 ubuntu-desktop`
+`sudo apt-get install gdm3 ubuntu-desktop`
+`sudo /etc/init.d/gdm restart`
+
+## Fix login window and gnome-shell issue
+
+`sudo apt install --reinstall gdm3 ubuntu-desktop gnome-shell`
+`sudo systemctl reboot`
+
 ## Change Wayland to X11 Window Manager
 
-* If you wish to do it permanently, edit /etc/gdm3/custom.conf and uncomment the line:
+* If you wish to do it permanently, edit `/etc/gdm3/custom.conf` and uncomment the line:
 
 `#WaylandEnable=false`
 
 * Save and reboot
 
-## Fix login and gnome-shell issue
-
-`sudo apt install --reinstall gdm3 ubuntu-desktop gnome-shell`
-
-`sudo systemctl reboot`
-
-## Monitor display issue
+## Change Screen Resolution
 
 ```shell
 xiaofengli@xiaofenglx:~$ xrandr -q
@@ -87,7 +95,6 @@ HDMI-1 connected primary 1920x1080+0+0 (normal left inverted right x axis y axis
    640x480       75.00    72.81    66.67    60.00    59.94  
    720x400       70.08  
 HDMI-2 disconnected (normal left inverted right x axis y axis)
-
 ```
 
 ref: https://askubuntu.com/questions/425628/how-do-i-resolve-desktop-larger-than-screen
@@ -115,14 +122,7 @@ The startx command is a shell script that acts as a front end to xinit(1). It's 
 
 By default, the startx command sends errors to the .xerrors file in the user's home directory.
 
-## Recover Ubuntu Desktop
-
-If you have any wierdness and do not know how to fix it,
-
-`sudo apt autoremove gdm3 ubuntu-desktop`
-`sudo apt purge gdm3 ubuntu-desktop`
-`sudo apt-get install gdm3 ubuntu-desktop`
-
 ### Ref
 
 - https://support.system76.com/articles/login-loop-ubuntu/
+- https://superuser.com/questions/65185/when-i-start-ubuntu-it-enters-tty1-6-instead-of-my-desktop-how-do-i-get-to-de
