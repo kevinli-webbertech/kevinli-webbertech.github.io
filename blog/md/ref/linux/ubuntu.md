@@ -36,6 +36,7 @@ The following commands will address the computer slowness issue.
 
 Get `Activity Monitor` and kill `Gnome-shell`, it is like windows explorer and it will restart.
 
+**Solution**: It was fixed by changing from XWayland to X11.
 
 * Other
 
@@ -89,9 +90,29 @@ HDMI-2 disconnected (normal left inverted right x axis y axis)
 
 ```
 
-https://askubuntu.com/questions/425628/how-do-i-resolve-desktop-larger-than-screen
+ref: https://askubuntu.com/questions/425628/how-do-i-resolve-desktop-larger-than-screen
 
+The startx command in Linux starts an X session and has several uses, including:
+
+**Starting an X session.**
+
+The startx command starts an X session on a single computer.
+
+**Booting Linux**
+
+The startx command can boot Linux into runlevel 3 mode, which enables X11, multiuser, and networking.
+
+**Passing options**
+
+The startx command can pass command-line options to the X server, such as starting color-depth information.
+Finding client commands
+
+The startx command can find client commands or options to run for the session.
+
+The startx command is a shell script that acts as a front end to xinit(1). It's often run without any arguments.
+
+By default, the startx command sends errors to the .xerrors file in the user's home directory.
 
 ### Ref
 
-https://support.system76.com/articles/login-loop-ubuntu/
+- https://support.system76.com/articles/login-loop-ubuntu/
