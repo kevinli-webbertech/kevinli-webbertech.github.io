@@ -9,8 +9,9 @@
 ## Part I Aggregation Function
 
 * An aggregate function is a function that performs a calculation on a set of values, and returns a single value.
-* Aggregate functions are often used with the GROUP BY clause of the SELECT statement. 
+* Aggregate functions are often used with the GROUP BY clause of the SELECT statement.
 * The **GROUP BY** clause splits the result-set into groups of values and the aggregate function can be used to return a single value for each group.
+* SQL **HAVING** clause
 
 The most commonly used SQL aggregate functions are:
 
@@ -261,6 +262,29 @@ SELECT AVG(Price) AS AveragePrice, CategoryID
 FROM Products
 GROUP BY CategoryID;
 ```
+
+## HAVING Clause
+
+***HAVING Syntax***
+
+```sql
+SELECT column_name(s)
+FROM table_name
+WHERE condition
+GROUP BY column_name(s)
+HAVING condition
+ORDER BY column_name(s);
+```
+
+**Demo Database**
+
+|CustomerID|	CustomerName|	ContactName|	Address	|City|	PostalCode|	Country|
+|--|--|--|--|--|--|--|
+|1|Alfreds Futterkiste|	Maria Anders|	Obere Str. 57	|Berlin|	12209|	Germany|
+|2|	Ana Trujillo Emparedados y helados|	Ana Trujillo	|Avda. de la Constitución 2222	|México D.F.|	05021	|Mexico|
+|3|	Antonio Moreno Taquería|	Antonio Moreno|	Mataderos |2312	México D.F.	|05023|	Mexico|
+|4|Around the Horn|	Thomas Hardy|	120 Hanover Sq.	London	WA1 1DP	UK
+5	Berglunds snabbköp	Christina Berglund	Berguvsvägen 8	|Luleå|S-958 22|	Sweden|
 
 ## Part II Views
 
