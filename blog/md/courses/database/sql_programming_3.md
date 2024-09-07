@@ -162,8 +162,8 @@ Here, column1, column2, ... are the field names of the table you want to select 
 
 `SELECT * FROM table_name;`
 
-
 ### Demo Database
+
 In this tutorial we will use the well-known Northwind sample database.
 
 Below is a selection from the "Customers" table in the Northwind sample database:
@@ -228,7 +228,6 @@ The following SQL statement counts and returns the number of different (distinct
 
 `SELECT COUNT(DISTINCT Country) FROM Customers;`
 
-
 ## The MySQL WHERE Clause
 
 The `WHERE` clause is used to filter records.
@@ -246,6 +245,7 @@ WHERE condition;
 ***Note:*** The `WHERE` clause is not only used in `SELECT` statements, it is also used in `UPDATE`, `DELETE`, etc.!
 
 ### Demo Database
+
 Below is a selection from the "Customers" table in the Northwind sample database:
 
 | CustomerID | CustomerName                       | ContactName        | Address                       | City         | PostalCode | Country  |
@@ -432,7 +432,6 @@ Below is a selection from the "Customers" table in the Northwind sample database
 | 3          | Antonio Moreno Taquería             | Antonio Moreno      | Mataderos 2312                       | México D.F.    | 05023      | Mexico     |
 | 4          | Around the Horn                     | Thomas Hardy        | 120 Hanover Sq.                      | London         | WA1 1DP    | UK         |
 | 5          | Berglunds snabbköp                  | Christina Berglund  | Berguvsvägen 8                       | Luleå          | S-958 22   | Sweden     |
-
 
 ### ORDER BY Example
 
