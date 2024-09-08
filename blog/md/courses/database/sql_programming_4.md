@@ -146,6 +146,7 @@ VALUES
 ```
 
 ***Syntax***
+
 ```sql
 SELECT SUM(column_name)
 FROM table_name
@@ -153,6 +154,7 @@ WHERE condition;
 ```
 
 ***Example***
+
 Return the sum of all Quantity fields in the OrderDetails table:
 
 ```sql
@@ -161,6 +163,7 @@ FROM OrderDetails;
 ```
 
 ***Add a WHERE Clause***
+
 ```sql
 SELECT SUM(Quantity)
 FROM OrderDetails
@@ -177,6 +180,7 @@ FROM OrderDetails;
 ```
 
 ***Use SUM() with GROUP BY***
+
 Here we use the SUM() function and the GROUP BY clause, to return the Quantity for each OrderID in the OrderDetails table:
 
 ```sql
@@ -186,6 +190,7 @@ GROUP BY OrderID;
 ```
 
 ***SUM() With an Expression***
+
 The parameter inside the SUM() function can also be an expression.
 
 If we assume that each product in the OrderDetails column costs 10 dollars, we can find the total earnings in dollars by multiply each quantity with 10:
@@ -242,6 +247,7 @@ FROM Products;
 ```
 
 ***Higher Than Average***
+
 To list all records with a higher price than average, we can use the AVG() function in a sub query:
 
 Return all products with a higher price than the average price:
@@ -278,24 +284,104 @@ ORDER BY column_name(s);
 
 **Demo Database**
 
-|CustomerID|	CustomerName|	ContactName|	Address	|City|	PostalCode|	Country|
-|--|--|--|--|--|--|--|
-|1|Alfreds Futterkiste|	Maria Anders|	Obere Str. 57	|Berlin|	12209|	Germany|
-|2|	Ana Trujillo Emparedados y helados|	Ana Trujillo	|Avda. de la Constitución 2222	|México D.F.|	05021	|Mexico|
-|3|	Antonio Moreno Taquería|	Antonio Moreno|	Mataderos |2312	México D.F.	|05023|	Mexico|
-|4|Around the Horn|	Thomas Hardy|	120 Hanover Sq.	London	WA1 1DP	UK
-5	Berglunds snabbköp	Christina Berglund	Berguvsvägen 8	|Luleå|S-958 22|	Sweden|
+|CustomerID|CustomerName|ContactName|Address|City|PostalCode|Country|
+|----------|------------|-----------|-------|----|----------|-------|
+|1|Alfreds Futterkiste|Maria Anders|Obere Str. 57|Berlin|12209|Germany|
+|2|Ana Trujillo Emparedados y helados|Ana Trujillo|Avda. de la Constitución 2222|México D.F.|05021|Mexico|
+|3|Antonio Moreno Taquería|Antonio Moreno|Mataderos|2312 México D.F.|05023|Mexico|
+|4|Around the Horn|Thomas Hardy|120 Hanover Sq.|London|WA1|1DP|UK|
+|5|Berglunds snabbköp|Christina Berglund|Berguvsvägen 8|Luleå|S-958 22|Sweden|
+
+**SQL HAVING Examples**
+
+```sql
+SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country
+HAVING COUNT(CustomerID) > 5;
+```
+
+> Hint: To run this example, please create a table, and then insert the above data into the table, and run the above select.
+
+> Hint: The reason why you can't use `WHERE` instead of using `HAVING` is that you had used a `COUNT` which is an aggregation function already. `WHERE` keyword is used for those plain column attribute for simplicity.
 
 ## Part II Views
 
-https://www.w3schools.com/sql/sql_view.asp
+* In SQL, a view is a virtual table based on the result-set of an SQL statement.
+
+* A view contains rows and columns, just like a real table. The fields in a view are fields from one or more real tables in the database.
+
+* You can add SQL statements and functions to a view and present the data as if the data were coming from one single table.
+
+### Create View
+
+***CREATE VIEW Syntax***
+
+```sql
+CREATE VIEW view_name AS
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+```
+
+**SQL CREATE VIEW Examples**
+
+```sql
+CREATE VIEW [Brazil Customers] AS
+SELECT CustomerName, ContactName
+FROM Customers
+WHERE Country = 'Brazil';
+```
+
+We can query the view above as follows:
+
+```sql
+SELECT * FROM [Brazil Customers];
+```
+
+The following SQL creates a view that selects every product in the "Products" table with a price higher than the average price:
+
+```sql
+CREATE VIEW [Products Above Average Price] AS
+SELECT ProductName, Price
+FROM Products
+WHERE Price > (SELECT AVG(Price) FROM Products);
+```
+
+We can query the view above as follows:
+
+`SELECT * FROM [Products Above Average Price];`
+
+### Update View
+
+***SQL CREATE OR REPLACE VIEW Syntax***
+
+```sql
+CREATE OR REPLACE VIEW view_name AS
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+```
+
+***Example***
+
+```sql
+CREATE OR REPLACE VIEW [Brazil Customers] AS
+SELECT CustomerName, ContactName, City
+FROM Customers
+WHERE Country = 'Brazil';
+```
+
+### SQL Dropping a View
+
+***Drop view Syntax***
+
+`DROP VIEW view_name;`
 
 ## Part III Others
 
 * In, Between, Alias
 
-
 ### Ref
 
-- https://www.w3schools.com/sql/sql_min_max.asp
-- https://www.w3schools.com/sql/sql_view.asp
+- https://www.w3schools.com
