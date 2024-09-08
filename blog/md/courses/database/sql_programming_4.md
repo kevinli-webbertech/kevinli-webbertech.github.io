@@ -378,9 +378,214 @@ WHERE Country = 'Brazil';
 
 `DROP VIEW view_name;`
 
-## Part III Others
+## Part III Others Operators
 
-* In, Between, Alias
+### `In` Operator
+
+* The IN operator allows you to specify multiple values in a WHERE clause.
+
+* The IN operator is a shorthand for multiple OR conditions.
+
+***Syntax***
+
+```sql
+SELECT column_name(s)
+FROM table_name
+WHERE column_name IN (value1, value2, ...);
+```
+
+***Example***
+
+```sql
+SELECT * FROM Customers
+WHERE Country IN ('Germany', 'France', 'UK');
+```
+
+**NOT IN**
+
+***Example***
+
+```sql
+SELECT * FROM Customers
+WHERE Country NOT IN ('Germany', 'France', 'UK');
+```
+
+**IN (SELECT)**
+
+You can also use IN with a subquery in the WHERE clause.
+
+```sql
+SELECT * FROM Customers
+WHERE CustomerID IN (SELECT CustomerID FROM Orders);
+```
+
+**NOT IN (SELECT)**
+
+Similar to the above one,
+
+```sql
+SELECT * FROM Customers
+WHERE CustomerID NOT IN (SELECT CustomerID FROM Orders);
+```
+
+## `Between` Operator
+
+* The BETWEEN operator selects values within a given range. The values can be numbers, text, or dates.
+
+* The BETWEEN operator is inclusive: begin and end values are included.
+
+```sql
+SELECT * FROM Products
+WHERE Price BETWEEN 10 AND 20;
+```
+
+**NOT BETWEEN**
+
+Similar to the above example,
+
+```sql
+SELECT * FROM Products
+WHERE Price NOT BETWEEN 10 AND 20;
+```
+
+**BETWEEN with IN**
+
+```sql
+SELECT * FROM Products
+WHERE Price BETWEEN 10 AND 20
+AND CategoryID IN (1,2,3);
+```
+
+**BETWEEN Text Values**
+
+```sql
+SELECT * FROM Products
+WHERE ProductName BETWEEN 'Carnarvon Tigers' AND 'Mozzarella di Giovanni'
+ORDER BY ProductName;
+```
+
+```sql
+SELECT * FROM Products
+WHERE ProductName BETWEEN "Carnarvon Tigers" AND "Chef Anton's Cajun Seasoning"
+ORDER BY ProductName;
+```
+
+**NOT BETWEEN Text Values**
+
+```sql
+SELECT * FROM Products
+WHERE ProductName NOT BETWEEN 'Carnarvon Tigers' AND 'Mozzarella di Giovanni'
+ORDER BY ProductName;
+```
+
+**BETWEEN Dates**
+
+```sql
+SELECT * FROM Orders
+WHERE OrderDate BETWEEN #07/01/1996# AND #07/31/1996#;
+```
+
+or 
+
+```sql
+SELECT * FROM Orders
+WHERE OrderDate BETWEEN '1996-07-01' AND '1996-07-31';
+```
+
+### `Alias`
+
+**Alias on column name**
+
+```sql
+SELECT column_name AS alias_name
+FROM table_name;
+```
+
+* An alias is created with the `AS` keyword. But it can be optional.
+
+```sql
+SELECT CustomerID AS ID
+FROM Customers;
+```
+
+The following works too without `AS`,
+
+```sql
+SELECT CustomerID ID
+FROM Customers;
+```
+
+Another example,
+
+```sql
+SELECT CustomerID AS ID, CustomerName AS Customer
+FROM Customers;
+```
+
+**Alias on table name**
+
+***Syntax***
+
+```sql
+SELECT column_name(s)
+FROM table_name AS alias_name;
+```
+
+Example,
+
+```sql
+SELECT * FROM Customers AS Persons;
+```
+
+It is normally used in a complex query where you use the new alias in the `where` statement.
+
+```sql
+SELECT o.OrderID, o.OrderDate, c.CustomerName
+FROM Customers AS c, Orders AS o
+WHERE c.CustomerName='Around the Horn' AND c.CustomerID=o.CustomerID;
+```
+
+Of course, it works without alias too with their original table name,
+
+```sql
+SELECT Orders.OrderID, Orders.OrderDate, Customers.CustomerName
+FROM Customers, Orders
+WHERE Customers.CustomerName='Around the Horn' AND Customers.CustomerID=Orders.CustomerID;
+```
+
+**Using Aliases With a Space Character**
+
+If your new name contains whitespace, then it should be the following,
+
+```sql
+SELECT ProductName AS [My Great Products]
+FROM Products;
+```
+
+or,
+
+```sql
+SELECT ProductName AS "My Great Products"
+FROM Products;
+```
+
+At anytime, you have to put the into a bracket, [] or ""
+
+**Concatenate Columns**
+
+Repurpose one column for a new column like the following,
+
+```sql
+SELECT CustomerName, Address + ', ' + PostalCode + ' ' + City + ', ' + Country AS Address
+FROM Customers;
+```
+
+or you can use `concat` function,
+
+```sql
+SELECT CustomerName, CONCAT(Address,', ',PostalCode,', ',City,', ',Country) AS Address
+FROM Customers;
+```
 
 ### Ref
 
