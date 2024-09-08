@@ -792,35 +792,56 @@ Arrays: Broadcasting” on page 63).
 
 ## NumPy Aggregations: Min, Max, and Everything in Between
 
-Summing the Values in an Array
+**Summing the Values in an Array**
+
 As a quick example, consider computing the sum of all values in an array. Python
 itself can do this using the built-in sum function:
+
+```python
 In[1]: import numpy as np
 In[2]: L = np.random.random(100)
 sum(L)
 Out[2]: 55.61209116604941
+```
+
 The syntax is quite similar to that of NumPy’s sum function, and the result is the same
 in the simplest case:
+
+```python
 In[3]: np.sum(L)
 Out[3]: 55.612091166049424
+```
+
 However, because it executes the operation in compiled code, NumPy’s version of the
 operation is computed much more quickly:
+
+```python
 In[4]: big_array = np.random.rand(1000000)
 %timeit sum(big_array)
 %timeit np.sum(big_array)
 10 loops, best of 3: 104 ms per loop
 1000 loops, best of 3: 442 µs per loop
+```
+>hint: do this in Jupyter notebook.
+
 Be careful, though: the sum function and the np.sum function are not identical, which
 can sometimes lead to confusion! In particular, their optional arguments have differ‐
 ent meanings, and np.sum is aware of multiple array dimensions, as we will see in the
 following section.
-Minimum and Maximum
-Similarly, Python has built-in min and max functions, used to find the minimum value
-and maximum value of any given array:
+
+**Minimum and Maximum**
+
+Similarly, Python has built-in min and max functions, used to find the minimum value and maximum value of any given array:
+
+```python
 In[5]: min(big_array), max(big_array)
 Out[5]: (1.1717128136634614e-06, 0.9999976784968716)
+```
+
 NumPy’s corresponding functions have similar syntax, and again operate much more
 quickly:
+
+```python
 In[6]: np.min(big_array), np.max(big_array)
 Out[6]: (1.1717128136634614e-06, 0.9999976784968716)
 
@@ -828,15 +849,24 @@ In[7]: %timeit min(big_array)
 %timeit np.min(big_array)
 10 loops, best of 3: 82.3 ms per loop
 1000 loops, best of 3: 497 µs per loop
+```
+
 For min, max, sum, and several other NumPy aggregates, a shorter syntax is to use
 methods of the array object itself:
-In[8]: print(big_array.min(), big_array.max(), big_array.sum())
+
+```In[8]: print(big_array.min(), big_array.max(), big_array.sum())
 1.17171281366e-06 0.999997678497 499911.628197
+```
+
 Whenever possible, make sure that you are using the NumPy version of these aggre‐
 gates when operating on NumPy arrays!
-Multidimensional aggregates
+
+**Multidimensional aggregates**
+
 One common type of aggregation operation is an aggregate along a row or column.
 Say you have some data stored in a two-dimensional array:
+
+```python
 In[9]: M = np.random.random((3, 4))
 print(M)
 [[ 0.8967576
@@ -844,53 +874,60 @@ print(M)
 [ 0.8354065
 0.99196818 0.19544769 0.43447084]
 [ 0.66859307 0.15038721 0.37911423 0.6687194 ]]
-By default, each NumPy aggregation function will return the aggregate over the entire
-array:
+```
+
+By default, each NumPy aggregation function will return the aggregate over the entire array:
+
+```python
 In[10]: M.sum()
 Out[10]: 6.0850555667307118
-Aggregation functions take an additional argument specifying the axis along which
-the aggregate is computed. For example, we can find the minimum value within each
-column by specifying axis=0:
+```
+
+Aggregation functions take an additional argument specifying the axis along which the aggregate is computed. For example, we can find the minimum value within each column by specifying axis=0:
+
+```python
 In[11]: M.min(axis=0)
-Out[11]: array([ 0.66859307,
-0.03783739,
-0.19544769,
-0.06682827])
+Out[11]: array([ 0.66859307, 0.03783739, 0.19544769, 0.06682827])
+```
+
 The function returns four values, corresponding to the four columns of numbers.
 Similarly, we can find the maximum value within each row:
+
+```python
 In[12]: M.max(axis=1)
-Out[12]: array([ 0.8967576 ,
-0.99196818,
-0.6687194 ])
+Out[12]: array([ 0.8967576, 0.99196818, 0.6687194 ])
+```
+
 The way the axis is specified here can be confusing to users coming from other lan‐
 guages. The axis keyword specifies the dimension of the array that will be collapsed,
-rather than the dimension that will be returned. So specifying axis=0 means that the
-
-first axis will be collapsed: for two-dimensional arrays, this means that values within
+rather than the dimension that will be returned. So specifying `axis=0` means that the first axis will be collapsed: for two-dimensional arrays, this means that values within
 each column will be aggregated.
-Other aggregation functions
+
+**Other aggregation functions**
+
 NumPy provides many other aggregation functions, but we won’t discuss them in
 detail here. Additionally, most aggregates have a NaN-safe counterpart that computes
 the result while ignoring missing values, which are marked by the special IEEE
 floating-point NaN value (for a fuller discussion of missing data, see “Handling Miss‐
 ing Data” on page 119). Some of these NaN-safe functions were not added until
 NumPy 1.8, so they will not be available in older NumPy versions.
-Table 2-3 provides a list of useful aggregation functions available in NumPy.
 
 ![numpy_aggregation_funcs](numpy_aggregation_funcs.png)
 
-
 **Example: What Is the Average Height of US Presidents?**
 
+```python
 In[13]: !head -4 data/president_heights.csv
 order,name,height(cm)
 1,George Washington,189
 2,John Adams,170
 3,Thomas Jefferson,189
-
+```
 
 We’ll use the Pandas package, which we’ll explore more fully in Chapter 3, to read the
 file and extract this information (note that the heights are measured in centimeters):
+
+```python
 In[14]: import pandas as pd
 data = pd.read_csv('data/president_heights.csv')
 heights = np.array(data['height(cm)'])
@@ -898,14 +935,15 @@ print(heights)
 [189 170 189 163 183 171 185 168 173 183 173 173 175 178 183 193 178 173
 174 183 183 168 170 178 182 180 183 178 182 188 175 179 183 193 182 183
 177 185 188 188 182 185]
+```
+
 Now that we have this data array, we can compute a variety of summary statistics:
-In[15]: print("Mean height:
-", heights.mean())
+
+```python
+In[15]: print("Mean height:", heights.mean())
 print("Standard deviation:", heights.std())
-print("Minimum height:
-", heights.min())
-print("Maximum height:
-", heights.max())
+print("Minimum height:", heights.min())
+print("Maximum height:", heights.max())
 Mean height:
 179.738095238
 Standard deviation: 6.93184344275
@@ -913,25 +951,32 @@ Minimum height:
 163
 Maximum height:
 193
+```
+
 Note that in each case, the aggregation operation reduced the entire array to a single
 summarizing value, which gives us information about the distribution of values. We
 may also wish to compute quantiles:
+
+```python
 In[16]: print("25th percentile:
 print("Median:
-print("75th percentile:
-25th percentile:
-Median:
-75th percentile:
+print("75th percentile: 25th percentile:
+Median: 75th percentile:
 ", np.percentile(heights, 25))
 ", np.median(heights))
 ", np.percentile(heights, 75))
 174.25
 182.0
 183.0
+```
+
 We see that the median height of US presidents is 182 cm, or just shy of six feet.
 Of course, sometimes it’s more useful to see a visual representation of this data, which
 we can accomplish using tools in Matplotlib (we’ll discuss Matplotlib more fully in
 Chapter 4). For example, this code generates the chart shown in Figure 2-3:
+
+```python
+
 In[17]: %matplotlib inline
 import matplotlib.pyplot as plt
 import seaborn; seaborn.set() # set plot style
@@ -939,6 +984,7 @@ In[18]: plt.hist(heights)
 plt.title('Height Distribution of US Presidents')
 plt.xlabel('height (cm)')
 plt.ylabel('number');
+```
 
 ![alt text](image.png)
 
