@@ -6,13 +6,13 @@
 
 `pip3 install cassandra-driver`
 
-Ref: 
+Ref:
 
 - https://www.tutorialspoint.com/python_data_persistence/python_data_persistence_cassandra_driver.htm
 
 ## Code
 
-```
+```python
 from cassandra.cluster import Cluster
 from cassandra.policies import DCAwareRoundRobinPolicy
 from cassandra.auth import PlainTextAuthProvider
