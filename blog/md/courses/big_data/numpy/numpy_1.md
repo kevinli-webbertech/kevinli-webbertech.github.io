@@ -677,27 +677,18 @@ the lines of “gamma function python” will generally find the relevant inform
 Many NumPy users make use of ufuncs without ever learning their full set of features.
 We’ll outline a few specialized features of ufuncs here.
 
-Specifying output
+***Specifying output***
 
 For large calculations, it is sometimes useful to be able to specify the array where the
 result of the calculation will be stored. Rather than creating a temporary array, you
 can use this to write computation results directly to the memory location where you’d
-56
-|
-Chapter 2: Introduction to NumPylike them to be. For all ufuncs, you can do this using the out argument of the
-function:
 
 ```python
 In[24]: x = np.arange(5)
 y = np.empty(5)
 np.multiply(x, 10, out=y)
 print(y)
-[
-0.
-10.
-20.
-30.
-40.]
+[0. 10. 20. 30. 40.]
 ```
 
 This can even be used with array views. For example, we can write the results of a
@@ -707,17 +698,7 @@ computation to every other element of a specified array:
 In[25]: y = np.zeros(10)
 np.power(2, x, out=y[::2])
 print(y)
-[
-1.
-0.
-2.
-0.
-4.
-0.
-8.
-0.
-16.
-0.]
+[1. 0. 2. 0 4. 0 8. 0. 16. 0.]
 ```
 
 If we had instead written y[::2] = 2 ** x, this would have resulted in the creation
@@ -754,16 +735,10 @@ accumulate:
 
 ```python
 In[28]: np.add.accumulate(x)
-Out[28]: array([ 1,
-3,
-6, 10, 15])
+Out[28]: array([ 1, 3, 6, 10, 15])
 
 In[29]: np.multiply.accumulate(x)
-Out[29]: array([
-1,
-2,
-6,
-24, 120])
+Out[29]: array([1, 2, 6, 24, 120])
 ```
 
 **Outer products**
