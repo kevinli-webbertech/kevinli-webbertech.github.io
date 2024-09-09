@@ -14,7 +14,11 @@
 <script> 
     function saveAsPDF() { 
       window.print(); 
-    } 
+    }
+
+    window.MathJax = {
+        loader: {load: ["input/tex", "output/chtml"]}
+    };
 </script>
 
 <div class="column content">
