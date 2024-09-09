@@ -2,7 +2,7 @@
 
 ## History
 
-Peter Chen developed the ER diagram in 1976. The ER model was created to provide a simple and understandable model for representing the structure and logic of databases. It has since evolved into variations such as the Enhanced ER Model and the Object Relationship Model
+Peter Chen developed the ER diagram in 1976. The ER model was created to provide a simple and understandable model for representing the structure and logic of databases. It has since evolved into variations such as the Enhanced ER Model and the Object Relationship Model.
 
 The Entity Relational Model is a model for identifying entities to be represented in the database and representation of how those entities are related. The ER data model specifies enterprise schema that represents the overall logical structure of a database graphically.
 
@@ -91,7 +91,7 @@ An entity set, in simpler terms, is a group of similar entities. They may either
 
 The attribute symbol is also the second step in making an ER diagram. It is an essential component of the entire process. An attribute is a characteristic related to the entity. These characteristics are used to understand the database in more detail and depth.
 
-![attribute_symbol](../../../images/database/attribute_symbol.png) 
+![attribute_symbol](../../../images/database/attribute_symbol.png)
 
 **ERD Relationship Symbols**
 
@@ -134,7 +134,7 @@ UML is well known for documenting, visualizing, and specifying the components of
 
 UML is well known for documenting, visualizing, and specifying the components of non-software and software systems. Since the UML has many diagrams, it is divided into two representing the behavior and the other structural information.
 
-![baker_notation](../../../images/database/baker_notation.png) 
+![baker_notation](../../../images/database/baker_notation.png)
 
 ## Bachman Notation
 
