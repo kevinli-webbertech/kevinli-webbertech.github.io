@@ -8,11 +8,11 @@
 * Relational Query Languages
 * The Relational Algebra
 
-## Example of an Instructor Relation
+## Example of an Instructor Model
 
 ![relation](../../../images/database/relation.png) 
 
-Order of tuples is irrelevant (tuples may be stored in an arbitrary order)
+> Order of tuples is irrelevant (tuples may be stored in an arbitrary order)
 
 ## Relation Schema and Instance
 
