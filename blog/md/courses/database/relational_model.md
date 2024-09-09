@@ -145,7 +145,7 @@ Notation:
 
 $\pi$<sub>ID, name, salary</sub>(instructor)
 
-![project_result.png](../../../images/database/cartesian_product.png)
+![cartesian_product](../../../images/database/cartesian_product.png)
 
 ## Composition of Relational Operations
 
