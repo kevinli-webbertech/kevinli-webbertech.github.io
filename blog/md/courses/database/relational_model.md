@@ -144,7 +144,8 @@ Notation:
 <b>Query</b>
 
 $\pi$<sub>ID, name, salary</sub>(instructor)
-![project_result.png](Cartesian_product.png)
+
+![project_result.png](../../../images/database/cartesian_product.png)
 
 ## Composition of Relational Operations
 
