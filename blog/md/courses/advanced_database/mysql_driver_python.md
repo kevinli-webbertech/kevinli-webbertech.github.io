@@ -1,6 +1,6 @@
 # MySQL Driver Troubleshooting
 
-When you are coding Python with Mysql, you would meet driver issue.
+When you are coding Python with Mysql, you would often have driver issue.
 
 The issue lies in where you installed your driver, and which pip or python you are using, sometimes you might have a few different versions python installed or even from anaconda.
 
@@ -35,8 +35,8 @@ Ideally, you will see the following screenshot,
 
 ![alt text](https://kevinli-webbertech.github.io/blog/images/database/pyCharm.png)
 
-If not, then you are likely to see the following issue **"module not found"** issue, you will  need to uninstall two packages,
-
+* Make sure you create a Python virtual environment.
+* If not, then you are likely to see the following issue **"module not found"** issue, you will  need to uninstall two packages,
 
 `pip uninstall mysql-connector`
 
