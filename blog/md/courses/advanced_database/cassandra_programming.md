@@ -116,8 +116,8 @@ Additionally, any environment variable beginning with the following prefix will 
 
 • CASSANDRA_CFG_COMMITLOG_: Will add the corresponding key and the provided value to commitlog_archiving.properties.
 
-![cassandra_docker1.png](cassandra_docker1.png)
-![cassandra_docker2.png](cassandra_docker2.png)
+![cassandra_docker1.png](../../../images/advanced_database/cassandra_docker1.png)
+![cassandra_docker2.png](../../../images/advanced_database/cassandra_docker2.png)
 
 # 2 way to run canssdra image via docker-compose
 
@@ -169,9 +169,9 @@ Non-root container images add an extra layer of security and are generally recom
 Deploying Bitnami applications as Helm Charts is the easiest way to get started with our applications on Kubernetes. Read more about the installation in the Bitnami Apache Cassandra Chart GitHub repository.
 Bitnami containers can be used with Kubeapps for deployment and management of Helm Charts in clusters.
 
-![cassandra_docker3.png](cassandra_docker3.png)
+![cassandra_docker3.png](../../../images/advanced_database/cassandra_docker3.png)
 
-![cassandra_docker4.png](cassandra_docker4.png)
+![cassandra_docker4.png](../../../images/advanced_database/cassandra_docker4.png) 
 
 
 > References:
