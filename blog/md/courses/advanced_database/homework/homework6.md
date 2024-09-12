@@ -2,8 +2,8 @@
 
 Please see the following two files for instructions.
 Please submit both jupiter notebook  and code in word document with screenshots, so that I can do grading quicker.
-
-**Step 1 - Climate Analysis and Exploration**
+ 
+## Climate Analysis and Exploration**
 
 To begin, use Python and SQLAlchemy to do basic climate analysis and data exploration of your climate database. 
 All of the following analysis should be completed using SQLAlchemy ORM queries, Pandas, and Matplotlib.
@@ -21,7 +21,7 @@ All of the following analysis should be completed using SQLAlchemy ORM queries, 
 * Sort the DataFrame values by date.
 * Plot the results using the DataFrame plot method.
 
-![homework6-1.png](homework6-1.png)
+![homework6-1.png](../../../../images/advanced_database/homework6-1.png)
 
 Use Pandas to print the summary statistics for the precipitation data.
 
@@ -37,7 +37,7 @@ Use Pandas to print the summary statistics for the precipitation data.
   * Filter by the station with the highest number of observations.
   * Plot the results as a histogram with bins=12.
 
-![homework6-1-1.png](homework6-1-1.png)
+![homework6-1-1.png](../../../../images/advanced_database/homework6-1-1.png)
 
 **Temperature Analysis**
 
@@ -47,7 +47,7 @@ Use Pandas to print the summary statistics for the precipitation data.
   * Use the average temperature as the bar height.
   * Use the peak-to-peak (tmax-tmin) value as the y error bar (yerr).
 
-![homework6-2.png](homework6-2.png)
+![homework6-2.png](../../../../images/advanced_database/homework6-2.png)
 
 ```python
 import numpy as np
@@ -74,15 +74,15 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 ```
 
-![homework6-3.png](homework6-3.png)
+![homework6-3.png](../../../../images/advanced_database/homework6-3.png)
 
 Data are found in sqlite database,
 
-![homework6-4.png](homework6-4.png)
+![homework6-4.png](../../../../images/advanced_database/homework6-4.png)
 
 Then you can make queries like above,
 
-![homework6-5.png](homework6-5.png)
+![homework6-5.png](../../../../images/advanced_database/homework6-5.png)
 
 Then you can do something like this,
 
