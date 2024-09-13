@@ -19,7 +19,7 @@
 >>> np.[tab on your keyboard]
 ```
 
-![alt text](numpy.png)
+![alt text](../../../../images/big_data/numpy/numpy.png)
 
 * Data types is an object in C.
 
@@ -47,7 +47,7 @@ tion and deallocation
 This means that there is some overhead in storing an integer in Python as compared
 to an integer in a compiled language like C, as illustrated below,
 
-![alt text](datatype_data_structure.png)
+![alt text](../../../../images/big_data/numpy/datatype_data_structure.png)
 
 * A Python List Is More Than Just a List.
 
@@ -199,7 +199,7 @@ or
 
 **Standard NumPy data types**
 
-![alt text](NumPy_DataType.png)
+![alt text](../../../../images/big_data/numpy/NumPy_DataType.png)
 
 ## Basics of NumPy
 
@@ -266,7 +266,7 @@ Out[7]: 7
 
 To index from the end of the array, you can use negative indices:
 
-```sql
+```python
 In[8]: x1[-1]
 Out[8]: 9
 
@@ -277,7 +277,7 @@ Out[9]: 7
 In a multidimensional array, you access items using a comma-separated tuple of
 indices:
 
-```sql
+```python
 In[10]: x2
 Out[10]: array([[3, 5, 2, 4],
 [7, 6, 8, 8],
@@ -427,7 +427,7 @@ To be exact, it is the IPython shell that I am interseted to use.
 
 `python3 -m notebook`
 
-![benchmark_python_loop](benchmark_python_loop.png)
+![benchmark_python_loop](../../../../images/big_data/numpy/benchmark_python_loop.png)
 
 **Introducing UFuncs**
 
@@ -436,7 +436,7 @@ to quickly execute repeated operations on values in NumPy arrays.
 
 Using the same 1M numbers big array, we do some math operations, and we can see the difference in timing,
 
-![numpy_performance](numpy_performance.png)
+![numpy_performance](../../../../images/big_data/numpy/numpy_performance.png)
 
 Ufuncs are
 extremely flexible—before we saw an operation between a scalar and an array, but we
@@ -462,7 +462,7 @@ Out[6]: array([[ 1, 2, 4],
                [ 64, 128, 256]])
 ```
 
-![numpy_functions](numpy_functions.png)
+![numpy_functions](../../../../images/big_data/numpy/numpy_functions.png)
 
 **Examples**
 
@@ -887,7 +887,7 @@ floating-point NaN value (for a fuller discussion of missing data, see “Handli
 ing Data” on page 119). Some of these NaN-safe functions were not added until
 NumPy 1.8, so they will not be available in older NumPy versions.
 
-![numpy_aggregation_funcs](numpy_aggregation_funcs.png)
+![numpy_aggregation_funcs](../../../../images/big_data/numpy/numpy_aggregation_funcs.png)
 
 **Example: What Is the Average Height of US Presidents?**
 
@@ -961,7 +961,7 @@ plt.xlabel('height (cm)')
 plt.ylabel('number');
 ```
 
-![alt text](image.png)
+![heights_of_presidents](../../../../images/big_data/numpy/heights_of_presidents.png)
 
 >What Is a Histogram?
 A histogram is a graphical representation of data points organized into user-specified ranges. Similar in appearance to a bar graph, the histogram condenses a data series into an easily interpreted visual by taking many data points and grouping them into logical ranges or bins.
