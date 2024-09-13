@@ -354,39 +354,29 @@ Out[23]: array([5, 3, 1])
 
 ***Multidimensional subarrays***
 
+```python
 In[24]: x2
 Out[24]: array([[12, 5, 2, 4],
 [ 7, 6, 8, 8],
 [ 1, 6, 7, 7]])
+```
 
+```python
 In[25]: x2[:2, :3] # two rows, three columns
-Out[25]: array([[12,
-[ 7,5,
-6,
-2],
-8]])
+Out[25]: array([[12,5,2], [ 7, 6, 8]])
 
-In[26]: x2[:3, ::2]# all rows, every other column
-Out[26]: array([[12,
-[ 7,
-[ 1,2],
-8],
-7]])
+In[26]: x2[:3, ::2] # all rows, every other column
+Out[26]: array([[12,2], [7, 8], [1,7]])
+```
 
 Finally, subarray dimensions can even be reversed together:
 
+```python
 In[27]: x2[::-1, ::-1]
-Out[27]: array([[ 7,
-[ 8,
-[ 4,
-7,
-8,
-2,
-6, 1],
-6, 7],
-5, 12]])
-
-[Page 45]
+Out[27]: array([[ 7, 7 , 6, 1],
+                [8, 8, 6, 7],
+                [4, 2, 5, 12]])
+```
 
 ***Accessing array rows and columns***
 
@@ -438,19 +428,14 @@ Using the same 1M numbers big array, we do some math operations, and we can see 
 
 ![numpy_performance](../../../../images/big_data/numpy/numpy_performance.png)
 
-Ufuncs are
-extremely flexible—before we saw an operation between a scalar and an array, but we
+Ufuncs are extremely flexible—before we saw an operation between a scalar and an array, but we
 can also operate between two arrays:
+
+```python
 In[5]: np.arange(5) / np.arange(1, 6)
-Out[5]: array([ 0.
-,
-0.5
-,
-0.66666667,
-0.75
-,
-0.8
-])
+Out[5]: array([ 0. , 0.5, 0.66666667, 0.75, 0.8])
+```
+
 And ufunc operations are not limited to one-dimensional arrays—they can act on
 multidimensional arrays as well:
 
@@ -757,14 +742,6 @@ Out[30]: array([[ 1, 2, 3, 4, 5],
 [ 5, 10, 15, 20, 25]])
 ```
 
-The ufunc.at and ufunc.reduceat methods, which we’ll explore in “Fancy Index‐
-ing” on page 78, are very helpful as well.
-
-Another extremely useful feature of ufuncs is the ability to operate between arrays of
-different sizes and shapes, a set of operations known as broadcasting. This subject is
-important enough that we will devote a whole section to it (see “Computation on
-Arrays: Broadcasting” on page 63).
-
 ## NumPy Aggregations: Min, Max, and Everything in Between
 
 **Summing the Values in an Array**
@@ -873,8 +850,7 @@ In[12]: M.max(axis=1)
 Out[12]: array([ 0.8967576, 0.99196818, 0.6687194 ])
 ```
 
-The way the axis is specified here can be confusing to users coming from other lan‐
-guages. The axis keyword specifies the dimension of the array that will be collapsed,
+The way the axis is specified here can be confusing to users coming from other languages. The axis keyword specifies the dimension of the array that will be collapsed,
 rather than the dimension that will be returned. So specifying `axis=0` means that the first axis will be collapsed: for two-dimensional arrays, this means that values within
 each column will be aggregated.
 
@@ -971,49 +947,47 @@ Both histograms and bar charts provide a visual display using columns, and peopl
 A bar graph typically represents a graphical comparison of discrete or categorical variables.
 
 ## Computation on Arrays: Broadcasting
-Broadcasting is simply a
-set of rules for applying binary ufuncs (addition, subtraction, multiplication, etc.) on arrays of different sizes.
+Broadcasting is simply a set of rules for applying binary ufuncs (addition, subtraction, multiplication, etc.) on arrays of different sizes.
 
 **Introducing Broadcasting**
 
-***Rules of Broadcasting***
-
-Broadcasting in NumPy follows a strict set of rules to determine the interaction
-between the two arrays:
-• Rule 1: If the two arrays differ in their number of dimensions, the shape of the
-one with fewer dimensions is padded with ones on its leading (left) side.
-• Rule 2: If the shape of the two arrays does not match in any dimension, the array
-with shape equal to 1 in that dimension is stretched to match the other shape.
-• Rule 3: If in
-
+```python
 In[1]: import numpy as np
 In[2]: a = np.array([0, 1, 2])
 b = np.array([5, 5, 5])
 a + b
 Out[2]: array([5, 6, 7])
+```
 
+To add a scala like zero dimension array, it can add to each element of the vector.
+
+```python
 In[3]: a + 5
 Out[3]: array([5, 6, 7])
+```
 
+We can similarly extend this to arrays of higher dimension. Observe the result when
+we add a one-dimensional array to a two-dimensional array:
+
+```python
 In[4]: M = np.ones((3, 3))
 M
 Out[4]: array([[ 1., 1., 1.],
 [ 1., 1., 1.],
 [ 1., 1., 1.]])
 In[5]: M + a
-Out[5]: array([[ 1.,
-[ 1.,
-[ 1.,
-2.,
-2.,
-2.,
-3.],
-3.],
-3.]])
+Out[5]: array([
+[ 1., 2.,3.],
+[ 1., 2.,3.],
+[ 1., 2.,3.]
+])
+```
 
-> What is Scala?
+A more complex one,
 
-
+```python
+While these examples are relatively easy to understand, more complicated cases can
+involve broadcasting of both arrays. Consider the following example:
 In[6]: a = np.arange(3)
 b = np.arange(3)[:, np.newaxis]
 print(a)
@@ -1022,9 +996,23 @@ print(b)
 [[0]
 [1]
 [2]]
+
 In[7]: a + b
 Out[7]: array([[0, 1, 2],
 [1, 2, 3],
 [2, 3, 4]])
+```
 
-[TODO page 65]
+***Rules of Broadcasting***
+
+Broadcasting in NumPy follows a strict set of rules to determine the interaction
+between the two arrays:
+
+• Rule 1: If the two arrays differ in their number of dimensions, the shape of the
+one with fewer dimensions is padded with ones on its leading (left) side.
+
+• Rule 2: If the shape of the two arrays does not match in any dimension, the array
+with shape equal to 1 in that dimension is stretched to match the other shape.
+
+• Rule 3: If in any dimension the sizes disagree and neither is equal to 1, an error is raised.
+
