@@ -85,7 +85,7 @@ CONSTRAINT pk_person PRIMARY KEY (person_id)
 
 ## Drop Table
 
-`drop person;`
+`drop table person;`
 
 ## Constraints
 
@@ -129,19 +129,19 @@ Check the new table by doing the following,
 ```sql
 INSERT INTO person
 (person_id, fname, lname, gender, birth_date)
-VALUES (null, 'William','Turner', 'M', '1972-05-27')
+VALUES (1, 'William','Turner', 'M', '1972-05-27')
 
 SELECT person_id, fname, lname, birth_date
 FROM person;
 
 INSERT INTO favorite_food (person_id, food)
-VALUES (null, 'pizza');
+VALUES (1, 'pizza');
 
 INSERT INTO favorite_food (person_id, food)
-VALUES (null, 'cookies');
+VALUES (1, 'cookies');
 
 INSERT INTO favorite_food (person_id, food)
-VALUES (null, 'nachos');
+VALUES (1, 'nachos');
 
 SELECT food
 FROM favorite_food
@@ -149,7 +149,7 @@ WHERE person_id = 1
 ORDER BY food;
 
 INSERT INTO person(person_id, fname, lname, gender, birth_date, street, city, state, country, postal_code)
-VALUES (null, 'Susan','Smith', 'F', '1975-11-02', '23 Maple St.', 'Arlington', 'VA', 'USA', '20220');
+VALUES (1, 'Susan','Smith', 'F', '1975-11-02', '23 Maple St.', 'Arlington', 'VA', 'USA', '20220');
 ```
 
 ## Updating Data
