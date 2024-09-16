@@ -1,4 +1,4 @@
-# Homework #2
+# Homework #3
 
 1. What is primary key? Please give an example when we need combo/tuple primary key.
 2. Can foreign key be part of the primary key? Please give an example.
