@@ -9,7 +9,7 @@ Complete this assignment individually
 The following is a company database schemas. And in this homework we would need to create these schemas depicted
 in the following charts.
 
-![company_database.png](company_database.png)
+![company_database.png](../../../../../images/database/company_database.png)
 
 * Create schemas/tables of the following using SQL. 
 * You would need to self study something from our future chapter of the following pages. This should include all the tables in the
