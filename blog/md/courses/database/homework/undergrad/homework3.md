@@ -1,5 +1,11 @@
 # Homework #3
 
+>Hint:
+> * A lot of the question here you can not really find answer in my sides. You would have to do google search.
+> * Using ChatGPT is fine. Please cite ChatGPT or external websites where you find the answer.
+> * For more SQL Programming resource you can refer to my website: https://kevinli-webbertech.github.io/blog.html under courses> Database Systems.
+> or you can go to w3schools.com and look for MySQL information. 
+
 1. What is primary key? Please give an example when we need combo/tuple primary key.
 2. Can foreign key be part of the primary key? Please give an example.
 3. What are constraints? Please list a few.
