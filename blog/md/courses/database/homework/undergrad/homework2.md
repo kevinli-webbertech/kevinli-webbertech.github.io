@@ -1,10 +1,20 @@
-# Homework #2
+# Homework 2
+The goal of this homework is to practice interpreting relational model schema diagrams.
 
-1. What is primary key? Please give an example when we need combo/tuple primary key.
-2. Can foreign key be part of the primary key? Please give an example.
-3. What are constraints? Please list a few.
-4. What is unique constraint?
-5. What is index? Please explain a few different types of index in SQL?
-6. What is the difference between drop and truncate? 
-7. What is weak entity set?
-8. Can index be multiple attributes or tuple?
+**Instructions**
+Complete this assignment individually
+
+**Problem : COMPANY Database**
+
+The following is a company database schemas. And in this homework we would need to create these schemas depicted
+in the following charts.
+
+![company_database.png](company_database.png)
+
+* Create schemas/tables of the following using SQL. 
+* You would need to self study something from our future chapter of the following pages. This should include all the tables in the
+following picture.
+
+* For how to use SQL syntax, please watch videos recorded here,
+https://www.youtube.com/playlist?list=PLsZezxKI7Eu7qVtc-nIhHLY64fS716H2U
+

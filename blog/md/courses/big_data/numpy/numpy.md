@@ -38,11 +38,10 @@ struct _longobject {
 
 A single integer in Python 3.4 actually contains four pieces:
 
-• ob_refcnt, a reference count that helps Python silently handle memory alloca‐
-tion and deallocation
-• ob_type, which encodes the type of the variable
-• ob_size, which specifies the size of the following data members
-• ob_digit, which contains the actual integer value that we expect the Python vari‐able to represent
+* ob_refcnt, a reference count that helps Python silently handle memory allocation and deallocation
+* ob_type, which encodes the type of the variable
+* ob_size, which specifies the size of the following data members
+* ob_digit, which contains the actual integer value that we expect the Python variable to represent
 
 This means that there is some overhead in storing an integer in Python as compared
 to an integer in a compiled language like C, as illustrated below,
@@ -64,11 +63,11 @@ Out[5]: [bool, str, float, int]
 
 But this flexibility comes at a cost: to allow these flexible types, each item in the list must contain its own type info, reference count, and other information—that is, each item is a complete Python object. In the special case that all variables are of the same type, much of this information is ***redundant***: it can be much more efficient to store data in a fixed-type array.
 
-* For an array, it should be At the implementation level, the array essentially contains a single pointer to one con‐tiguous block of data. The Python list, on the other hand, contains a pointer to a block of pointers, each of which in turn points to a full Python object like the Python integer we saw earlier. **Array Vs LinkedList**
+* For an array, it should be At the implementation level, the array essentially contains a single pointer to one contiguous block of data. The Python list, on the other hand, contains a pointer to a block of pointers, each of which in turn points to a full Python object like the Python integer we saw earlier. **Array Vs LinkedList**
 
 > Hint: Java Interview question: ArrayList vs LinkedList.
 
-* Fixed-type NumPy-style arrays lack this flexibil‐ity, but are much more efficient for storing and manipulating data.
+* Fixed-type NumPy-style arrays lack this flexibility, but are much more efficient for storing and manipulating data.
 
 ### Fixed-Type Arrays in Python
 
@@ -122,10 +121,9 @@ Out[11]: array([[2, 3, 4],
 
 **Creating Arrays from Scratch**
 
-```python
-
 Especially for larger arrays, it is more efficient to create arrays from scratch using rou‐tines built into NumPy. Here are several examples:
 
+```python
 In[12]: # Create a length-10 integer array filled with zeros
 np.zeros(10, dtype=int)
 Out[12]: array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
@@ -222,7 +220,7 @@ Combining multiple arrays into one, and splitting one array into many
 
 ### NumPy Array Attributes
 
-Let us use the following examples to emuerate all the features.
+Let us use the following examples to enumerate all the features.
 
 ```python
 In[1]: import numpy as np
