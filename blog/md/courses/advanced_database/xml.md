@@ -8,13 +8,12 @@
 * XML was designed to store and transport data.
 * XML was designed to be both human- and machine-readable
 * XML was designed to be self-descriptive
-* XML does not DO anything.
+* XML does not do anything.
 * XML is extensible. XML tags are not predefined like HTML tags are, if you do, you need a schema, and thus has schema check for you
 * XML is often used to separate data from presentation.
-* XML is Often a Complement to HTML
+* XML is often a complement to HTML
 
-
-                                Outline
+**Outline**
 
 [XML AJAX](https://www.w3schools.com/xml/ajax_intro.asp)
 
@@ -337,7 +336,7 @@ Check the whole process of HTML to show the display area,
 ![xml](../../../images/advanced_database/xmlinspect.png)
 
 
-                                XML Parser
+**XML Parser**
 
 All modern browsers have a built-in XML parser that can 
 convert text into an XML DOM object. Actually this is a 
@@ -376,7 +375,7 @@ xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue;
 
 ```
 
-**The XML DOM**
+# **The XML DOM**
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
