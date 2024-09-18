@@ -1,8 +1,11 @@
-# Assignment 6
+# Assignment 6 SQLite and Data Analysis
 
 Please see the following two files for instructions.
-Please submit both jupiter notebook  and code in word document with screenshots, so that I can do grading quicker.
- 
+
+* Please submit both jupiter notebook  and code in word document with screenshots, so that I can do grading quicker.
+* Please download your database, a sqlite file from here,
+[TODO]
+
 ## Climate Analysis and Exploration**
 
 To begin, use Python and SQLAlchemy to do basic climate analysis and data exploration of your climate database. 
@@ -115,3 +118,5 @@ engine.execute('SELECT * FROM measurement LIMIT 5').fetchall()
 ```
 
 Now, you are start programming, also when you are curious about the sqlite database, please feel free to use Dbeaver to connect and visually see what it is inside..
+
+> Note: All questions have equal points totalling to 100 pts. Word document of a decent report is 10 pts.

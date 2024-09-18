@@ -1,27 +1,91 @@
-1/ What is Functional Dependency? How many types of Functional dependencies? Please give examples.
-2/ What is Attribute Closure? Please give examples.
-3/ What is the blob type in MySQL? That is the difference between blob and binary type?
+# Assignment 5 XML Programming
 
-4/ What is the differences between Enum and Set data type?
+1. What is Javascript? And please write a little bit about what versions JS has been gone through and standards, a little history about Javascript.
 
-5/ How to get available database engines in MySQL database?
+2. What is unicode?
 
-6/ What is the differences between InnoDB engine and MyISAM in MySQL?
+3. What is Collation in Databases?Links to an external site. And why that matters to database? Please give a good example to explain it.
 
-7/ What is the differences between MySQL and Postgresql? Please give examples. (You can talk more about it if you know more, like a small essay.)
+4. What is the relationship between collation and character sets in database system? Please use solid examples to explain it.
 
-8/ Write the SQL query to get the third maximum salary of an employee from a table named employees. (Code in word file is fine,  and screenshot just screenshot is not ok)
-Employee table
+5. Please use python do the following requirements,
 
-![homework5.png](../../../../images/advanced_database/homework5.png)
+Here is movies.xml
 
-9. What is temp table How to create a temp table in Mysql SQL ? Give an example
+```xml
+<collection shelf="New Arrivals">
 
-10. How to remove duplicate rows in SQL?
+<movie title="Enemy Behind">
 
-If the SQL table has duplicate rows, the duplicate rows must be removed.
+<type>War, Thriller</type>
 
-Let’s assume the following table as our dataset:
+<format>DVD</format>
 
-![homework5-1.png](../../../../images/advanced_database/homework5-1.png)
+<year>2003</year>
 
+<rating>PG</rating>
+
+<stars>10</stars>
+
+<description>Talk about a US-Japan war</description>
+
+</movie>
+
+<movie title="Transformers">
+
+<type>Anime, Science Fiction</type>
+
+<format>DVD</format> <year>1989</year>
+
+<rating>R</rating>
+
+<stars>8</stars>
+
+<description>A schientific fiction</description>
+
+</movie>
+
+<movie title="Trigun">
+
+<type>Anime, Action</type>
+
+<format>DVD</format>
+
+<episodes>4</episodes>
+
+<rating>PG</rating>
+
+<stars>10</stars>
+
+<description>Vash the Stampede!</description> </movie>
+
+<movie title="Ishtar">
+
+<type>Comedy</type>
+
+<format>VHS</format>
+
+<rating>PG</rating>
+
+<stars>2</stars>
+
+<description>Viewable boredom</description>
+
+</movie>
+
+</collection>
+```
+
+Requirements: I need screenshots if you generate db tables, and sorted_move.xml and step by step screenshots and the final .py code. Java programmers, please try to use python for extra credits if you are short in other scores.
+
+a. read movies.xml from python and print out all the movies, and count how many movies in the list are rated as ‘R’.
+
+b. print out root node ‘s attribute
+
+c. create a Cassandra table using python, and insert everything from xml to the db table called ‘movies’
+
+d. Sort all the rating that is ‘PG’ from Cassandra using python and write to sorted_movie.xml with all the original columns.
+
+6. Once question 5 is done, please write code to read from movies.xml and write to cassandra database, please create keyspace, and table as needed. Prove that it is in the database with python printouts.
+
+> Note: Each tasks or bullet points equally shared the points totally to 100 pts. Your word doc report itself is 10 pts.

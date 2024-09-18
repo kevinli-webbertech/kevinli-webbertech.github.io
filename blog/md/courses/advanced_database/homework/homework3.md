@@ -1,45 +1,24 @@
-# Assignment 3
+# Homework 3 Normalization
 
-1/ What is ACID in RDMS?
+1. What is Functional Dependency? How many types of Functional dependencies? Please give examples.
+2. What is Attribute Closure? Please give examples.
+3. What is the blob type in MySQL? That is the difference between blob and binary type?
+4. What is the differences between Enum and Set data type?
+5. How to get available database engines in MySQL database?
+6. What is the differences between InnoDB engine and MyISAM in MySQL?
+7. What is the differences between MySQL and Postgresql? Please give examples. (You can talk more about it if you know more, like a small essay.)
+8. Write the SQL query to get the third maximum salary of an employee from a table named employees. (Code in word file is fine,  and screenshot just screenshot is not ok)
+Employee table
 
-2/ What is cross join in RDMS? Please give examples.
+![homework3.png](../../../../images/advanced_database/homework3.png)
 
-3/ What is the difference between Union and Union All in MySQL. Please give example.
+9. What is temp table How to create a temp table in Mysql SQL ? Give an example
+10. How to remove duplicate rows in SQL?
 
-4/ What are views in RDMS? Do views take disk space?
+If the SQL table has duplicate rows, the duplicate rows must be removed.
 
-5/ Why we use views in Database?
+Let’s assume the following table as our dataset:
 
-6/ What is Column-oriented DBMS?
-
-7/ What is Wide-column Database? Please list a few such databases.
-
-8/ SQL programming. Please use the tables we imported from the bank system in in-class lab/handout in module 2 from the #2 class. Please attach the sql and screenshot in a word document.
-
-a. The bank president would like to have a report showing the name and city of each branch, along with the total balances of all accounts opened at the branch.
-
-b. Create a view to generate the data.
-
-9/ Programming Cassandra with Java or Python (EITHER language is fine, zip everything please)
-
-> Note: I have some python code(our class material) to connect to cassandra, you could use that.
-You would need docker with my code below, because of the username and password, so it is nice that you read module 4 's document named "#4_1_Docker_Cassandra_Programming.odt". That will teach a little about docker image that we are using.
-https://kevinli-webbertech.github.io/blog/html/cassandra.htmlLinks to an external site.
-
-* Create keyspace using Java/Python
-
-* Create Index using Java/Python API Verify it, read data using Java/Python
-
-* Creating Data using Java/Python API Verify it, read data using Java/Python
-
-* Batch processing inJava/Python Verify it, read data using Java/Python
-
-* Update data in Java/Python Verify data, read data in Java/Python
-
-* Delete one record and verify the data using Java/Python
-
-* Truncating a Table using Java/Python API Verify data, read data in Java/Python
-
-* Dropping an Index using Java/Python API
+![homework3-1.png](../../../../images/advanced_database/homewor3-1.png)
 
 > Note: All questions have equal points totalling to 100 pts. Word document of a decent report is 10 pts.

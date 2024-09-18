@@ -1,91 +1,45 @@
-# Assignment 4
+# Assignment 4 Cassandra Programming + SQL Questions
 
-1. What is Javascript? And please write a little bit about what versions JS has been gone through and standards, a little history about Javascript.
+1/ What is ACID in RDMS?
 
-2. What is unicode?
+2/ What is cross join in RDMS? Please give examples.
 
-3. What is Collation in Databases?Links to an external site. And why that matters to database? Please give a good example to explain it.
+3/ What is the difference between Union and Union All in MySQL. Please give example.
 
-4. What is the relationship between collation and character sets in database system? Please use solid examples to explain it.
+4/ What are views in RDMS? Do views take disk space?
 
-5. Please use python do the following requirements,
+5/ Why we use views in Database?
 
-Here is movies.xml
+6/ What is Column-oriented DBMS?
 
-```xml
-<collection shelf="New Arrivals">
+7/ What is Wide-column Database? Please list a few such databases.
 
-<movie title="Enemy Behind">
+8/ SQL programming. Please use the tables we imported from the bank system in in-class lab/handout in module 2 from the #2 class. Please attach the sql and screenshot in a word document.
 
-<type>War, Thriller</type>
+a. The bank president would like to have a report showing the name and city of each branch, along with the total balances of all accounts opened at the branch.
 
-<format>DVD</format>
+b. Create a view to generate the data.
 
-<year>2003</year>
+9/ Programming Cassandra with Java or Python (EITHER language is fine, zip everything please)
 
-<rating>PG</rating>
+> Note: I have some python code(our class material) to connect to cassandra, you could use that.
+You would need docker with my code below, because of the username and password, so it is nice that you read module 4 's document named "#4_1_Docker_Cassandra_Programming.odt". That will teach a little about docker image that we are using.
+https://kevinli-webbertech.github.io/blog/html/cassandra.htmlLinks to an external site.
 
-<stars>10</stars>
+* Create keyspace using Java/Python
 
-<description>Talk about a US-Japan war</description>
+* Create Index using Java/Python API Verify it, read data using Java/Python
 
-</movie>
+* Creating Data using Java/Python API Verify it, read data using Java/Python
 
-<movie title="Transformers">
+* Batch processing inJava/Python Verify it, read data using Java/Python
 
-<type>Anime, Science Fiction</type>
+* Update data in Java/Python Verify data, read data in Java/Python
 
-<format>DVD</format> <year>1989</year>
+* Delete one record and verify the data using Java/Python
 
-<rating>R</rating>
+* Truncating a Table using Java/Python API Verify data, read data in Java/Python
 
-<stars>8</stars>
+* Dropping an Index using Java/Python API
 
-<description>A schientific fiction</description>
-
-</movie>
-
-<movie title="Trigun">
-
-<type>Anime, Action</type>
-
-<format>DVD</format>
-
-<episodes>4</episodes>
-
-<rating>PG</rating>
-
-<stars>10</stars>
-
-<description>Vash the Stampede!</description> </movie>
-
-<movie title="Ishtar">
-
-<type>Comedy</type>
-
-<format>VHS</format>
-
-<rating>PG</rating>
-
-<stars>2</stars>
-
-<description>Viewable boredom</description>
-
-</movie>
-
-</collection>
-```
-
-Requirements: I need screenshots if you generate db tables, and sorted_move.xml and step by step screenshots and the final .py code. Java programmers, please try to use python for extra credits if you are short in other scores.
-
-a. read movies.xml from python and print out all the movies, and count how many movies in the list are rated as ‘R’.
-
-b. print out root node ‘s attribute
-
-c. create a Cassandra table using python, and insert everything from xml to the db table called ‘movies’
-
-d. Sort all the rating that is ‘PG’ from Cassandra using python and write to sorted_movie.xml with all the original columns.
-
-6. Once question 5 is done, please write code to read from movies.xml and write to cassandra database, please create keyspace, and table as needed. Prove that it is in the database with python printouts.
-
-> Note: Each tasks or bullet points equally shared the points totally to 100 pts. Your word doc report itself is 10 pts.
+> Note: All questions have equal points totalling to 100 pts. Word document of a decent report is 10 pts.
