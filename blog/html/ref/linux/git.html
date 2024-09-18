@@ -18,6 +18,7 @@
     const checkUnlockCode=()=>{"csit555"===document.getElementById("unlockCode").value?(document.getElementById("modal").classList.add("hidden"),document.getElementById("blurredContent").classList.remove("blurred"),document.cookie="unlocked=true; path=/; max-age=2592000"):alert("Incorrect code. Please try again.")},checkCookie=()=>{const e=document.cookie.split("; ").find((e=>e.startsWith("unlocked=")));e&&"true"===e.split("=")[1]?(document.getElementById("modal").classList.add("hidden"),document.getElementById("blurredContent").classList.remove("blurred")):(document.getElementById("modal").classList.remove("hidden"),document.getElementById("blurredContent").classList.add("blurred"))},saveAsPDF=()=>window.print();
 </script>
 
+
 <div id="modal" class="modal">
     <div class="modal-content">
         <h2>Enter the code to access the course content</h2>
