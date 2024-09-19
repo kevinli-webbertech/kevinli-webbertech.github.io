@@ -206,3 +206,7 @@ There are a lot of softwares online, such as,
     * Microsoft Visio
     * Draw.io
 * Software plugins or tools of some IDE like eclipse, Dbeaver, MySQLWorkbench and ..etc.
+
+**Draw.io**
+
+![drawio_er.png](../../../images/database/drawio_er.png)
