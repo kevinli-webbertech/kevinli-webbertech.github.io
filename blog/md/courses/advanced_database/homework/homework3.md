@@ -10,7 +10,7 @@
 8. Write the SQL query to get the third maximum salary of an employee from a table named employees. (Code in word file is fine,  and screenshot just screenshot is not ok)
 Employee table
 
-![homework3.png](https://kevinli-webbertech.github.io/blog/images/images/advanced_database/homework3.png)
+![homework3.png](https://kevinli-webbertech.github.io/blog/images/advanced_database/homework3.png)
 
 9. What is temp table How to create a temp table in Mysql SQL ? Give an example
 10. How to remove duplicate rows in SQL?
