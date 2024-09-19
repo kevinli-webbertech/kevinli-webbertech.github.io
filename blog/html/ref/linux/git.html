@@ -4,7 +4,34 @@
     <link rel="stylesheet" href="../../css/index.css">
 </head>
 <style>
-    .modal{display:block;position:fixed;z-index:999;left:0;top:0;width:100%;height:100%;background-color:rgba(0,0,0,.7);display:flex;justify-content:center;align-items:center}.modal-content{background-color:#fff;padding:20px;border-radius:8px;box-shadow:0 5px 15px rgba(0,0,0,.3);text-align:center}.blurred{filter:blur(8px);pointer-events:none}.hidden{display:none} 
+    .modal {
+        display: block;
+        position: fixed;
+        z-index: 999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-content {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        text-align: center;
+    }
+    .blurred {
+        filter: blur(8px);
+        pointer-events: none;
+    }
+    .hidden {
+        display: none;
+    }
 </style>
 
 <body onload="checkCookie()">
@@ -15,10 +42,33 @@
 <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
 
 <script> 
-    const checkUnlockCode=()=>{"csit555"===document.getElementById("unlockCode").value?(document.getElementById("modal").classList.add("hidden"),document.getElementById("blurredContent").classList.remove("blurred"),document.cookie="unlocked=true; path=/; max-age=2592000"):alert("Incorrect code. Please try again.")},checkCookie=()=>{const e=document.cookie.split("; ").find((e=>e.startsWith("unlocked=")));e&&"true"===e.split("=")[1]?(document.getElementById("modal").classList.add("hidden"),document.getElementById("blurredContent").classList.remove("blurred")):(document.getElementById("modal").classList.remove("hidden"),document.getElementById("blurredContent").classList.add("blurred"))},saveAsPDF=()=>window.print();
+    const checkUnlockCode = () => {
+        const enteredCode = document.getElementById("unlockCode").value;
+        if (enteredCode === "csit555") {
+            document.getElementById("modal").classList.add("hidden"); // Hide modal
+            document.getElementById("blurredContent").classList.remove("blurred"); // Remove blur
+            document.cookie = "unlocked=true; path=/; max-age=" + (60 * 60 * 24 * 30); // Set cookie for 30 days
+        } else {
+            alert("Incorrect code. Please try again.");
+        }
+    };
+
+    const checkCookie = () => {
+        const cookieValue = document.cookie.split("; ").find(row => row.startsWith("unlocked="));
+        if (cookieValue && cookieValue.split("=")[1] === "true") {
+            document.getElementById("modal").classList.add("hidden");
+            document.getElementById("blurredContent").classList.remove("blurred");
+        } else {
+            document.getElementById("modal").classList.remove("hidden");
+            document.getElementById("blurredContent").classList.add("blurred");
+        }
+    };
+
+    const saveAsPDF = () => {
+        window.print();
+    };
+
 </script>
-
-
 <div id="modal" class="modal">
     <div class="modal-content">
         <h2>Enter the code to access the course content</h2>
@@ -28,10 +78,10 @@
 </div>
 <div id="blurredContent" class="blurred">
     <div class="column content">
-        <!-- Simply set the `src` attribute to your MD file and win -->
-        <zero-md src="../../../md/ref/linux/git.md"></zero-md>
-        <button onclick="saveAsPDF()">Save as PDF</button> 
-    </div>
+    <!-- Simply set the `src` attribute to your MD file and win -->
+    <zero-md src="../../../md/ref/linux/git.md"></zero-md>
+    <button onclick="saveAsPDF()">Save as PDF</button> 
+</div>
 </div>
 
 </body>
