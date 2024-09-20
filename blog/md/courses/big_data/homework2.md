@@ -28,14 +28,14 @@ and the trips whose dropoff time is after December 31, 2019.
 
 * Task 4 (15 pts). Remove records that have negative values in any of the following columns.
 
-- --trip distance
-- --fare amount
-- --extra
-- --mta tax
-- --tip amount
-- --improvement surcharge
-- --total amount
-- --congestion surcharge
+--trip distance 
+--fare amount
+--extra
+--mta tax 
+--tip amount
+--improvement surcharge
+--total amount
+--congestion surcharge
 
 * Task 5 (15 pts). Remove records that have N/A values in VendorID and
 print out the number of rows in the cleaned dataframe.
