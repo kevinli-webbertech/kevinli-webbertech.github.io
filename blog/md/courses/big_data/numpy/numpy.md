@@ -1153,11 +1153,11 @@ to explicitly write slow Python loops. Broadcasting extends this ability.
 
 One commonly seen example is centering an array of data. Imagine you have an array of 10 observations, each of which consists of 3 values.
 
-![mean_ufunc.png](mean_ufunc.png)
+![mean_ufunc.png](../../../../images/big_data/numpy/mean_ufunc.png)
 
 More practice on this,
 
-![mean_ufunc.png](mean_ufunc1.png)
+![mean_ufunc.png](../../../../images/big_data/numpy/mean_ufunc1.png)
 
 After the above practice, let us do the following,
 
@@ -1210,7 +1210,7 @@ plt.colorbar();
 
 The result, shown in the following is a compelling visualization of the two-dimensional
 
-![numPy_plot.png](numPy_plot.png)
+![numPy_plot.png](../../../../images/big_data/numpy/numPy_plot.png)
 
 **Comparison**
 
@@ -1240,7 +1240,7 @@ Out[10]: array([False, False, True, False, False], dtype=bool)
 >Hint: For example, when you write x < 3, internally NumPy uses
 np.less(x, 3).
 
-![NumPy_operator.png](NumPy_operator.png) 
+![NumPy_operator.png](../../../../images/big_data/numpy/NumPy_operator.png) 
 
 **Another example on two dimensional**
 
