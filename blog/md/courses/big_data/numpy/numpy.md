@@ -946,11 +946,12 @@ A histogram is a graphical representation of data points organized into user-spe
 Both histograms and bar charts provide a visual display using columns, and people often use the terms interchangeably. Technically, however, a histogram represents the frequency distribution of variables in a data set.
 A bar graph typically represents a graphical comparison of discrete or categorical variables.
 
-## Part II Advanced Array Operations: Broadcasting
+## Part II Advanced Array Operations: Broadcasting, Sorting, Comparison, Masks and Boolean Logic
 
-Broadcasting is simply a set of rules for applying binary ufuncs (addition, subtraction, multiplication, etc.) on arrays of different sizes.
 
 **Introducing Broadcasting**
+
+Broadcasting is simply a set of rules for applying binary ufuncs (addition, subtraction, multiplication, etc.) on arrays of different sizes.
 
 ```python
 In[1]: import numpy as np
