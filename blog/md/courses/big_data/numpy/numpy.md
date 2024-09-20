@@ -1244,6 +1244,14 @@ Out[10]: array([False, False, True, False, False], dtype=bool)
 >Hint: For example, when you write x < 3, internally NumPy uses
 np.less(x, 3).
 
+It is also possible to do an element-by-element comparison of two arrays, and to
+include compound expressions:
+
+```
+In[11]: (2 * x) == (x ** 2)
+Out[11]: array([False, True, False, False, False], dtype=bool)
+```
+
 ![NumPy_operator.png](../../../../images/big_data/numpy/NumPy_operator.png) 
 
 **Another example on two dimensional**
@@ -1340,7 +1348,7 @@ Here all the elements in the first and third rows are less than 8, while this is
 case for the second row.
 
 Finally, a quick warning: as mentioned in “Aggregations: Min, Max, and Everything
-in Between” on page 58, Python has built-in sum(), any(), and all() functions.
+in Between”, Python has built-in sum(), any(), and all() functions.
 These have a different syntax than the NumPy versions, and in particular will fail or
 produce unintended results when used on multidimensional arrays.
 
@@ -1388,23 +1396,37 @@ arrays. A more powerful pattern is to use Boolean arrays as masks, to select par
 subsets of the data themselves. Returning to our x array from before, suppose we
 want an array of all values in the array that are less than, say, 5:
 
+```
 In[26]: x
 Out[26]: array([[5, 0, 3, 3],
-[7, 9, 3, 5],
-[2, 4, 7, 6]])
+                [7, 9, 3, 5],
+                [2, 4, 7, 6]])
+```
+
 We can obtain a Boolean array for this condition easily, as we’ve already seen:
+
+```
 In[27]: x < 5
 Out[27]: array([[False, True, True, True],
-[False, False, True, False],
-[ True, True, False, False]], dtype=bool)
+                [False, False, True, False],
+                [True, True, False, False]], dtype=bool)
+```
+
 Now to select these values from the array, we can simply index on this Boolean array;
 this is known as a masking operation:
+
+```
 In[28]: x[x < 5]
 Out[28]: array([0, 3, 3, 3, 2, 4])
+```
+
 What is returned is a one-dimensional array filled with all the values that meet this
 condition; in other words, all the values in positions at which the mask array is True.
+
 We are then free to operate on these values as we wish. For example, we can compute
 some relevant statistics on our Seattle rain data:
+
+```
 In[29]:
 # construct a mask of all rainy days
 rainy = (inches > 0)
@@ -1425,52 +1447,70 @@ Median precip on summer days in 2014 (inches):
 0.0
 Maximum precip on summer days in 2014 (inches): 0.850393700787
 Median precip on non-summer rainy days (inches): 0.200787401575
+```
 
 By combining Boolean operations, masking operations, and aggregates, we can very
 quickly answer these sorts of questions for our dataset.
 
 
-Using the Keywords and/or Versus the Operators &/|
+**Using the Keywords and/or Versus the Operators &/|**
+
 One common point of confusion is the difference between the keywords and and or
 on one hand, and the operators & and | on the other hand. When would you use one
 versus the other?
-The difference is this: and and or gauge the truth or falsehood of entire object, while &
+
+The difference is this: `and` and `or` gauge the truth or falsehood of entire object, while &
 and | refer to bits within each object.
-When you use and or or, it’s equivalent to asking Python to treat the object as a single
+
+When you use `and` or `or`, it’s equivalent to asking Python to treat the object as a single
 Boolean entity. In Python, all nonzero integers will evaluate as True. Thus:
+
+```
 In[30]: bool(42), bool(0)
 Out[30]: (True, False)
+
 In[31]: bool(42 and 0)
 Out[31]: False
+
 In[32]: bool(42 or 0)
 Out[32]: True
+```
+
 When you use & and | on integers, the expression operates on the bits of the element,
 applying the and or the or to the individual bits making up the number:
+
+```
 In[33]: bin(42)
 Out[33]: '0b101010'
+
 In[34]: bin(59)
 Out[34]: '0b111011'
+
 In[35]: bin(42 & 59)
 Out[35]: '0b101010'
+
 In[36]: bin(42 | 59)
 Out[36]: '0b111011'
+```
+
 Notice that the corresponding bits of the binary representation are compared in order
 to yield the result.
+
 When you have an array of Boolean values in NumPy, this can be thought of as a
 string of bits where 1 = True and 0 = False, and the result of & and | operates in a
 similar manner as before:
+
+```
 In[37]: A = np.array([1, 0, 1, 0, 1, 0], dtype=bool)
 B = np.array([1, 1, 1, 0, 1, 1], dtype=bool)
 A | B
-Out[37]: array([ True,
-True,
-True, False,
-True,
-True], dtype=bool)
-
+Out[37]: array([ True, True, True, False, True, True], dtype=bool)
+```
 
 Using or on these arrays will try to evaluate the truth or falsehood of the entire array
 object, which is not a well-defined value:
+
+```
 In[38]: A or B
 ---------------------------------------------------------------------------
 ValueError
@@ -1480,13 +1520,17 @@ Traceback (most recent call last)
 ValueError: The truth value of an array with more than one element is...
 Similarly, when doing a Boolean expression on a given array, you should use | or &
 rather than or or and:
+
 In[39]: x = np.arange(10)
 (x > 4) & (x < 8)
-Out[39]: array([False, False, ...,
-True,
+Out[39]: array([False, False, ..., True,
 True, False, False], dtype=bool)
+```
+
 Trying to evaluate the truth or falsehood of the entire array will give the same
 ValueError we saw previously:
+
+```
 In[40]: (x > 4) and (x < 8)
 ---------------------------------------------------------------------------
 ValueError
@@ -1494,7 +1538,9 @@ Traceback (most recent call last)
 <ipython-input-40-3d24f1ffd63d> in <module>()
 ----> 1 (x > 4) and (x < 8)
 ValueError: The truth value of an array with more than one element is...
-So remember this: and and or perform a single Boolean evaluation on an entire
+```
+
+So remember this: `and` and `or` perform a single Boolean evaluation on an entire
 object, while & and | perform multiple Boolean evaluations on the content (the indi‐
 vidual bits or bytes) of an object. For Boolean NumPy arrays, the latter is nearly
 always the desired operation.
@@ -1526,7 +1572,6 @@ Suppose we want to access three different elements. We could do it like this:
 In[2]: [x[3], x[7], x[2]]
 Out[2]: [71, 86, 14]
 ```
-
 
 Alternatively, we can pass a single list or array of indices to obtain the same result:
 
@@ -1714,12 +1759,7 @@ In[18]: x = np.arange(10)
 i = np.array([2, 1, 8, 4])
 x[i] = 99
 print(x)
-[ 0 99 99
-3 99
-5
-6
-7 99
-9]
+[ 0 99 99 3 99 5 6 7 99 9]
 ```
 
 We can use any assignment-type operator for this. For example:
@@ -1727,12 +1767,7 @@ We can use any assignment-type operator for this. For example:
 ```
 In[19]: x[i] -= 10
 print(x)
-[ 0 89 89
-3 89
-5
-6
-7 89
-9]
+[ 0 89 89 3 89 5 6 7 89 9]
 ```
 
 Notice, though, that repeated indices with these operations can cause some potentially unexpected results. Consider the following:
@@ -1741,16 +1776,7 @@ Notice, though, that repeated indices with these operations can cause some poten
 In[20]: x = np.zeros(10)
 x[[0, 0]] = [4, 6]
 print(x)
-[ 6.
-0.
-0.
-0.
-0.
-0.
-0.
-0.
-0.
-0.]
+[ 6. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
 ```
 
 Where did the 4 go? The result of this operation is to first assign x[0] = 4, followed
