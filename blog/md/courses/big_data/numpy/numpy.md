@@ -1667,7 +1667,7 @@ import seaborn; seaborn.set() # for plot styling
 plt.scatter(X[:, 0], X[:, 1]);
 ```
 
-![numpy_scatter_plot.png](numpy_scatter_plot.png)
+![numpy_scatter_plot.png](../../../../images/big_data/numpy/numpy_scatter_plot.png)
 
 Let’s use fancy indexing to select 20 random points. We’ll do this by first choosing 20
 random indices with no repeats, and use these indices to select a portion of the original array:
@@ -1693,7 +1693,7 @@ plt.scatter(selection[:, 0], selection[:, 1],
 facecolor='none', s=200);
 ```
 
-![numpy_scatter_plot1.png](numpy_scatter_plot1.png)
+![numpy_scatter_plot1.png](../../../../images/big_data/numpy/numpy_scatter_plot1.png)
 
 This sort of strategy is often used to quickly partition datasets, as is often needed in
 train/test splitting for validation of statistical models (see “Hyperparameters and
@@ -2045,7 +2045,7 @@ import seaborn; seaborn.set() # Plot styling
 plt.scatter(X[:, 0], X[:, 1], s=100);
 ```
 
-![numpy_k-neighbors.png](numpy_k-neighbors.png)
+![numpy_k-neighbors.png](../../../../images/big_data/numpy/numpy_k-neighbors.png)
 
 Now we’ll compute the distance between each pair of points. Recall that the squared-distance between two points is the sum of the squared differences in each dimension;
 using the efficient broadcasting and aggregation (“Aggregations: Min, Max, and Everything in Between")
@@ -2137,7 +2137,7 @@ for j in nearest_partition[i, :K+1]:
 plt.plot(*zip(X[j], X[i]), color='black')
 ```
 
-![neighbors1.png](neighbors1.png)
+![neighbors1.png](../../../../images/big_data/numpy/neighbors1.png)
 
 Each point in the plot has lines drawn to its two nearest neighbors. At first glance, it
 might seem strange that some of the points have more than two lines coming out of
@@ -2320,7 +2320,7 @@ bytes.
 
 **NumPy data types**
 
-![imnumpy_datatypesg.png](numpy_datatypes.png)
+![imnumpy_datatypesg.png](../../../../images/big_data/numpy/numpy_datatypes.png)
 
 **More Advanced Compound Types**
 
