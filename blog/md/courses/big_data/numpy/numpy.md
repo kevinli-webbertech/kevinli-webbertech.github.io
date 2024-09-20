@@ -2028,6 +2028,7 @@ np.argpartition that computes indices of the partition. We’ll see this in acti
 following section.
 
 **Example: k-Nearest Neighbors**
+
 Let’s quickly see how we might use this argsort function along multiple axes to find
 the nearest neighbors of each point in a set. We’ll start by creating a random set of 10 points on a two-dimensional plane. Using the standard convention, we’ll arrange
 these in a 10×2 array:
