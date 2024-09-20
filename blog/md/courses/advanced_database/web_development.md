@@ -212,6 +212,7 @@ Then open localhost:5000 or http://127.0.0.1:5000/
 Then create flask_blog/templates/base.html
 
 ```html
+{% raw %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -249,17 +250,19 @@ Then create flask_blog/templates/base.html
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>
+{% endraw %}
 ```
 
 Then, replace the content in index.html with,
 
 ```html
+{% raw %}
 {% extends 'base.html' %}
 
 {% block content %}
     <h1>{% block title %} Welcome to FlaskBlog {% endblock %}</h1>
 {% endblock %}
-
+{% endraw %}
 ```
 
 #### **Lab 2 Dig further about route (This is called the endpoint)**
@@ -530,6 +533,7 @@ display it dynamically on our index HTML file.
 Update your index file as follows.
 
 ```html
+{% raw %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -559,6 +563,7 @@ Update your index file as follows.
 	</table>
 </body>
 </html>
+{% endraw %}
 ```
 
 **Deleting data from our database**
