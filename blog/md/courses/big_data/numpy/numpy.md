@@ -1260,3 +1260,1123 @@ Out[13]: array([[True, True, True, True],
 
 In each case, the result is a Boolean array, and NumPy provides a number of straight‐
 forward patterns for working with these Boolean results.
+
+
+***Working with Boolean Arrays***
+
+Given a Boolean array, there are a host of useful operations you can do. We’ll work
+with x, the two-dimensional array we created earlier:
+
+```
+In[14]: print(x)
+[[5 0 3 3]
+[7 9 3 5]
+[2 4 7 6]]
+```
+
+**Counting entries**
+
+To count the number of True entries in a Boolean array, np.count_nonzero is useful:
+
+```
+In[15]: # how many values less than 6?
+np.count_nonzero(x < 6)
+Out[15]: 8
+```
+
+We see that there are eight array entries that are less than 6. Another way to get at this
+information is to use np.sum; in this case, False is interpreted as 0, and True is interpreted as 1:
+
+```
+In[16]: np.sum(x < 6)
+Out[16]: 8
+```
+
+The benefit of sum() is that like with other NumPy aggregation functions, this sum‐
+mation can be done along rows or columns as well:
+
+```
+In[17]: # how many values less than 6 in each row?
+np.sum(x < 6, axis=1)
+Out[17]: array([4, 2, 2])
+```
+
+This counts the number of values less than 6 in each row of the matrix.
+
+If we’re interested in quickly checking whether any or all the values are true, we can
+use (you guessed it) np.any() or np.all():
+
+```
+In[18]: # are there any values greater than 8?
+np.any(x > 8)
+Out[18]: True
+
+In[19]: # are there any values less than zero?
+np.any(x < 0)
+Out[19]: False
+
+In[20]: # are all values less than 10?
+np.all(x < 10)
+Out[20]: True
+
+In[21]: # are all values equal to 6?
+np.all(x == 6)
+Out[21]: False
+```
+
+np.all() and np.any() can be used along particular axes as well. For example:
+
+```
+In[22]: # are all values in each row less than 8?
+np.all(x < 8, axis=1)
+Out[22]: array([ True, False, True], dtype=bool)
+```
+
+Here all the elements in the first and third rows are less than 8, while this is not the
+case for the second row.
+
+Finally, a quick warning: as mentioned in “Aggregations: Min, Max, and Everything
+in Between” on page 58, Python has built-in sum(), any(), and all() functions.
+These have a different syntax than the NumPy versions, and in particular will fail or
+produce unintended results when used on multidimensional arrays.
+
+
+**Boolean operators**
+
+We’ve already seen how we might count, say, all days with rain less than four inches,
+or all days with rain greater than two inches. But what if we want to know about all
+days with rain less than four inches and greater than one inch? This is accomplished
+through Python’s bitwise logic operators, `&`, `|`, `^`, and `~`. Like with the standard arithmetic operators, NumPy overloads these as ufuncs that work element-wise on (usually Boolean) arrays.
+
+For example, we can address this sort of compound question as follows:
+
+```
+In[23]: np.sum((inches > 0.5) & (inches < 1))
+Out[23]: 29
+```
+
+So we see that there are 29 days with rainfall between 0.5 and 1.0 inches.
+
+Note that the parentheses here are important—because of operator precedence rules,
+with parentheses removed this expression would be evaluated as follows, which
+results in an error:
+
+`inches > (0.5 & inches) < 1`
+
+Using the equivalence of A AND B and NOT (A OR B) (which you may remember if
+you’ve taken an introductory logic course), we can compute the same result in a different manner:
+
+```python
+In[24]: np.sum(~( (inches <= 0.5) | (inches >= 1) ))
+Out[24]: 29
+```
+
+Combining comparison operators and Boolean operators on arrays can lead to a wide
+range of efficient logical operations.
+
+![ufunc_bit_op.png](../../../../images/big_data/numpy/ufunc_bit_op.png)
+
+
+**Boolean Arrays as Masks**
+
+In the preceding section, we looked at aggregates computed directly on Boolean
+arrays. A more powerful pattern is to use Boolean arrays as masks, to select particular
+subsets of the data themselves. Returning to our x array from before, suppose we
+want an array of all values in the array that are less than, say, 5:
+
+In[26]: x
+Out[26]: array([[5, 0, 3, 3],
+[7, 9, 3, 5],
+[2, 4, 7, 6]])
+We can obtain a Boolean array for this condition easily, as we’ve already seen:
+In[27]: x < 5
+Out[27]: array([[False, True, True, True],
+[False, False, True, False],
+[ True, True, False, False]], dtype=bool)
+Now to select these values from the array, we can simply index on this Boolean array;
+this is known as a masking operation:
+In[28]: x[x < 5]
+Out[28]: array([0, 3, 3, 3, 2, 4])
+What is returned is a one-dimensional array filled with all the values that meet this
+condition; in other words, all the values in positions at which the mask array is True.
+We are then free to operate on these values as we wish. For example, we can compute
+some relevant statistics on our Seattle rain data:
+In[29]:
+# construct a mask of all rainy days
+rainy = (inches > 0)
+# construct a mask of all summer days (June 21st is the 172nd day)
+summer = (np.arange(365) - 172 < 90) & (np.arange(365) - 172 > 0)
+print("Median precip on rainy days in 2014 (inches):
+",
+np.median(inches[rainy]))
+print("Median precip on summer days in 2014 (inches): ",
+np.median(inches[summer]))
+print("Maximum precip on summer days in 2014 (inches): ",
+np.max(inches[summer]))
+print("Median precip on non-summer rainy days (inches):",
+np.median(inches[rainy & ~summer]))
+Median precip on rainy days in 2014 (inches):
+0.194881889764
+Median precip on summer days in 2014 (inches):
+0.0
+Maximum precip on summer days in 2014 (inches): 0.850393700787
+Median precip on non-summer rainy days (inches): 0.200787401575
+
+By combining Boolean operations, masking operations, and aggregates, we can very
+quickly answer these sorts of questions for our dataset.
+
+
+Using the Keywords and/or Versus the Operators &/|
+One common point of confusion is the difference between the keywords and and or
+on one hand, and the operators & and | on the other hand. When would you use one
+versus the other?
+The difference is this: and and or gauge the truth or falsehood of entire object, while &
+and | refer to bits within each object.
+When you use and or or, it’s equivalent to asking Python to treat the object as a single
+Boolean entity. In Python, all nonzero integers will evaluate as True. Thus:
+In[30]: bool(42), bool(0)
+Out[30]: (True, False)
+In[31]: bool(42 and 0)
+Out[31]: False
+In[32]: bool(42 or 0)
+Out[32]: True
+When you use & and | on integers, the expression operates on the bits of the element,
+applying the and or the or to the individual bits making up the number:
+In[33]: bin(42)
+Out[33]: '0b101010'
+In[34]: bin(59)
+Out[34]: '0b111011'
+In[35]: bin(42 & 59)
+Out[35]: '0b101010'
+In[36]: bin(42 | 59)
+Out[36]: '0b111011'
+Notice that the corresponding bits of the binary representation are compared in order
+to yield the result.
+When you have an array of Boolean values in NumPy, this can be thought of as a
+string of bits where 1 = True and 0 = False, and the result of & and | operates in a
+similar manner as before:
+In[37]: A = np.array([1, 0, 1, 0, 1, 0], dtype=bool)
+B = np.array([1, 1, 1, 0, 1, 1], dtype=bool)
+A | B
+Out[37]: array([ True,
+True,
+True, False,
+True,
+True], dtype=bool)
+
+
+Using or on these arrays will try to evaluate the truth or falsehood of the entire array
+object, which is not a well-defined value:
+In[38]: A or B
+---------------------------------------------------------------------------
+ValueError
+Traceback (most recent call last)
+<ipython-input-38-5d8e4f2e21c0> in <module>()
+----> 1 A or B
+ValueError: The truth value of an array with more than one element is...
+Similarly, when doing a Boolean expression on a given array, you should use | or &
+rather than or or and:
+In[39]: x = np.arange(10)
+(x > 4) & (x < 8)
+Out[39]: array([False, False, ...,
+True,
+True, False, False], dtype=bool)
+Trying to evaluate the truth or falsehood of the entire array will give the same
+ValueError we saw previously:
+In[40]: (x > 4) and (x < 8)
+---------------------------------------------------------------------------
+ValueError
+Traceback (most recent call last)
+<ipython-input-40-3d24f1ffd63d> in <module>()
+----> 1 (x > 4) and (x < 8)
+ValueError: The truth value of an array with more than one element is...
+So remember this: and and or perform a single Boolean evaluation on an entire
+object, while & and | perform multiple Boolean evaluations on the content (the indi‐
+vidual bits or bytes) of an object. For Boolean NumPy arrays, the latter is nearly
+always the desired operation.
+
+## Fancy Indexing
+
+In the previous sections, we saw how to access and modify portions of arrays using
+simple indices (e.g., arr[0]), slices (e.g., arr[:5]), and Boolean masks (e.g., arr[arr > 0]). In this section, we’ll look at another style of array indexing, known as fancy
+indexing. Fancy indexing is like the simple indexing we’ve already seen, but we pass
+arrays of indices in place of single scalars. This allows us to very quickly access and
+modify complicated subsets of an array’s values.
+
+**Exploring Fancy Indexing**
+
+Fancy indexing is conceptually simple: it means passing an array of indices to access
+multiple array elements at once. For example, consider the following array:
+
+```
+In[1]: import numpy as np
+rand = np.random.RandomState(42)
+x = rand.randint(100, size=10)
+print(x)
+[51 92 14 71 60 20 82 86 74 74]
+```
+
+Suppose we want to access three different elements. We could do it like this:
+
+```
+In[2]: [x[3], x[7], x[2]]
+Out[2]: [71, 86, 14]
+```
+
+
+Alternatively, we can pass a single list or array of indices to obtain the same result:
+
+```
+In[3]: ind = [3, 7, 4]
+x[ind]
+Out[3]: array([71, 86, 60])
+```
+
+With fancy indexing, the shape of the result reflects the shape of the index arrays
+rather than the shape of the array being indexed:
+
+```
+In[4]: ind = np.array([[3, 7],
+[4, 5]])
+x[ind]
+Out[4]: array([[71, 86],
+[60, 20]])
+```
+
+Fancy indexing also works in multiple dimensions. Consider the following array:
+
+```
+In[5]: X = np.arange(12).reshape((3, 4))
+X
+Out[5]: array([[ 0, 1, 2, 3],
+               [ 4, 5, 6, 7],
+               [ 8, 9, 10, 11]
+             ]) 
+```
+
+Like with standard indexing, the first index refers to the row, and the second to the
+column:
+
+```
+In[6]: row = np.array([0, 1, 2])
+col = np.array([2, 1, 3])
+X[row, col]
+Out[6]: array([ 2, 5, 11]) 
+```
+
+Notice that the first value in the result is X[0, 2], the second is X[1, 1], and the
+third is X[2, 3].
+
+For example, if we combine a column vector and a row vector within the indices, we
+get a two-dimensional result:
+
+```
+In[7]: X[row[:, np.newaxis], col]
+Out[7]: array([[ 2, 1, 3],
+               [ 6, 5, 7],
+               [10, 9, 11]
+             ])
+```
+
+Here, each row value is matched with each column vector, exactly as we saw in broad‐
+casting of arithmetic operations. For example:
+
+```
+In[8]: row[:, np.newaxis] * col
+Out[8]: array([[0, 0, 0],
+[2, 1, 3],
+[4, 2, 6]])
+```
+
+It is always important to remember with fancy indexing that the return value reflects
+the broadcasted shape of the indices, rather than the shape of the array being indexed.
+
+**Combined Indexing**
+
+For even more powerful operations, fancy indexing can be combined with the other
+indexing schemes we’ve seen:
+
+```
+In[9]: print(X)
+[[ 0
+[ 4
+[ 8
+1 2 3]
+5 6 7]
+9 10 11]]
+```
+
+We can combine fancy and simple indices:
+
+```
+In[10]: X[2, [2, 0, 1]]
+Out[10]: array([10,
+8,
+9])
+```
+
+We can also combine fancy indexing with slicing:
+
+```
+In[11]: X[1:, [2, 0, 1]]
+Out[11]: array([[ 6,
+[10,
+4,
+8,
+5],
+9]])
+```
+
+And we can combine fancy indexing with masking:
+
+```
+In[12]: mask = np.array([1, 0, 1, 0], dtype=bool)
+X[row[:, np.newaxis], mask]
+Out[12]: array([[ 0, 2],
+[ 4, 6],
+[ 8, 10]])
+```
+
+All of these indexing options combined lead to a very flexible set of operations for
+accessing and modifying array values.
+
+**Example: Selecting Random Points**
+
+One common use of fancy indexing is the selection of subsets of rows from a matrix.
+For example, we might have an N by D matrix representing N points in D dimen‐
+sions, such as the following points drawn from a two-dimensional normal distribu‐
+tion:
+
+```
+In[13]: mean = [0, 0]
+cov = [[1, 2],
+[2, 5]]
+X = rand.multivariate_normal(mean, cov, 100)
+X.shape
+Out[13]: (100, 2)
+```
+
+Using the plotting tools we will discuss in Chapter 4, we can visualize these points as
+a scatter plot (Figure 2-7):
+
+```
+In[14]: %matplotlib inline
+import matplotlib.pyplot as plt
+import seaborn; seaborn.set() # for plot styling
+plt.scatter(X[:, 0], X[:, 1]);
+```
+
+![numpy_scatter_plot.png](numpy_scatter_plot.png)
+
+Let’s use fancy indexing to select 20 random points. We’ll do this by first choosing 20
+random indices with no repeats, and use these indices to select a portion of the original array:
+
+```
+In[15]: indices = np.random.choice(X.shape[0], 20, replace=False)
+indices
+Out[15]: array([93, 45, 73, 81, 50, 10, 98, 94,
+80, 25, 90, 63, 20])
+
+In[16]: selection = X[indices]
+selection.shape
+# fancy indexing here
+Out[16]: (20, 2)
+```
+
+Now to see which points were selected, let’s over-plot large circles at the locations of
+the selected points (Figure 2-8):
+
+```
+In[17]: plt.scatter(X[:, 0], X[:, 1], alpha=0.3)
+plt.scatter(selection[:, 0], selection[:, 1],
+facecolor='none', s=200);
+```
+
+![numpy_scatter_plot1.png](numpy_scatter_plot1.png)
+
+This sort of strategy is often used to quickly partition datasets, as is often needed in
+train/test splitting for validation of statistical models (see “Hyperparameters and
+Model Validation” on page 359), and in sampling approaches to answering statistical
+questions.
+
+**Modifying Values with Fancy Indexing**
+
+Just as fancy indexing can be used to access parts of an array, it can also be used to
+modify parts of an array. For example, imagine we have an array of indices and we’d
+like to set the corresponding items in an array to some value:
+
+```
+In[18]: x = np.arange(10)
+i = np.array([2, 1, 8, 4])
+x[i] = 99
+print(x)
+[ 0 99 99
+3 99
+5
+6
+7 99
+9]
+```
+
+We can use any assignment-type operator for this. For example:
+
+```
+In[19]: x[i] -= 10
+print(x)
+[ 0 89 89
+3 89
+5
+6
+7 89
+9]
+```
+
+Notice, though, that repeated indices with these operations can cause some potentially unexpected results. Consider the following:
+
+```
+In[20]: x = np.zeros(10)
+x[[0, 0]] = [4, 6]
+print(x)
+[ 6.
+0.
+0.
+0.
+0.
+0.
+0.
+0.
+0.
+0.]
+```
+
+Where did the 4 go? The result of this operation is to first assign x[0] = 4, followed
+by x[0] = 6. The result, of course, is that x[0] contains the value 6.
+Fair enough, but consider this operation:
+
+```
+In[21]: i = [2, 3, 3, 4, 4, 4]
+x[i] += 1
+x
+Out[21]: array([ 6.,
+0.,
+1.,
+1.,
+1.,
+0.,
+0.,
+0.,
+0.,
+0.])
+```
+
+You might expect that x[3] would contain the value 2, and x[4] would contain the
+value 3, as this is how many times each index is repeated. Why is this not the case?
+Conceptually, this is because x[i] += 1 is meant as a shorthand of x[i] = x[i] + 1.
+x[i] + 1 is evaluated, and then the result is assigned to the indices in x. With this in
+mind, it is not the augmentation that happens multiple times, but the assignment,
+which leads to the rather nonintuitive results.
+
+So what if you want the other behavior where the operation is repeated? For this, you
+can use the at() method of ufuncs (available since NumPy 1.8), and do the following:
+
+```
+In[22]: x = np.zeros(10)
+np.add.at(x, i, 1)
+print(x)
+[ 0.
+0.
+1.
+2.
+3.
+0.
+0.
+0.
+0.
+0.]
+```
+
+The at() method does an in-place application of the given operator at the specified
+indices (here, i) with the specified value (here, 1). Another method that is similar in
+spirit is the reduceat() method of ufuncs, which you can read about in the NumPy
+documentation.
+
+```
+In[23]: np.random.seed(42)
+x = np.random.randn(100)
+# compute a histogram by hand
+bins = np.linspace(-5, 5, 20)
+counts = np.zeros_like(bins)
+# find the appropriate bin for each x
+i = np.searchsorted(bins, x)
+# add 1 to each of these bins
+np.add.at(counts, i, 1)
+The counts now reflect the number of points within each bin—in other words, a his‐
+togram (Figure 2-9):
+
+In[24]: # plot the results
+plt.plot(bins, counts, linestyle='steps');
+
+![numpy_bindata_plot.png](numpy_bindata_plot.png)
+```
+
+Of course, it would be silly to have to do this each time you want to plot a histogram.
+This is why Matplotlib provides the plt.hist() routine, which does the same in a
+single line:
+
+`plt.hist(x, bins, histtype='step');`
+
+This function will create a nearly identical plot to the one seen here. To compute the
+binning, Matplotlib uses the np.histogram function, which does a very similar com‐
+putation to what we did before. Let’s compare the two here:
+
+```
+In[25]: print("NumPy routine:")
+%timeit counts, edges = np.histogram(x, bins)
+
+print("Custom routine:")
+%timeit np.add.at(counts, np.searchsorted(bins, x), 1)
+
+NumPy routine:
+10000 loops, best of 3: 97.6 µs per loop
+Custom routine:
+10000 loops, best of 3: 19.5 µs per loop
+```
+
+Our own one-line algorithm is several times faster than the optimized algorithm in
+NumPy! How can this be? If you dig into the np.histogram source code (you can do
+this in IPython by typing np.histogram??), you’ll see that it’s quite a bit more
+involved than the simple search-and-count that we’ve done; this is because NumPy’s
+algorithm is more flexible, and particularly is designed for better performance when
+the number of data points becomes large:
+
+```
+In[26]: x = np.random.randn(1000000)
+print("NumPy routine:")
+%timeit counts, edges = np.histogram(x, bins)
+print("Custom routine:")
+%timeit np.add.at(counts, np.searchsorted(bins, x), 1)
+NumPy routine:
+10 loops, best of 3: 68.7 ms per loop
+Custom routine:
+10 loops, best of 3: 135 ms per loop
+```
+
+**Sorting Arrays**
+
+Up to this point we have been concerned mainly with tools to access and operate on
+array data with NumPy. This section covers algorithms related to sorting values in
+NumPy arrays. These algorithms are a favorite topic in introductory computer sci‐
+ence courses: if you’ve ever taken one, you probably have had dreams (or, depending
+on your temperament, nightmares) about insertion sorts, selection sorts, merge sorts,
+quick sorts, bubble sorts, and many, many more. All are means of accomplishing a
+similar task: sorting the values in a list or array.
+
+For example, a simple selection sort repeatedly finds the minimum value from a list,
+and makes swaps until the list is sorted. We can code this in just a few lines of Python:
+
+```
+In[1]: import numpy as np
+def selection_sort(x):
+for i in range(len(x)):
+swap = i + np.argmin(x[i:])
+(x[i], x[swap]) = (x[swap], x[i])
+return x
+
+In[2]: x = np.array([2, 1, 4, 3, 5])
+selection_sort(x)
+Out[2]: array([1, 2, 3, 4, 5])
+```
+
+As any first-year computer science major will tell you, the selection sort is useful for
+its simplicity, but is much too slow to be useful for larger arrays. For a list of N values,
+it requires N loops, each of which does on the order of ~ N comparisons to find the
+swap value. In terms of the “big-O” notation often used to characterize these algo‐
+rithms (see “Big-O Notation” on page 92), selection sort averages � N 2 : if you dou‐
+ble the number of items in the list, the execution time will go up by about a factor of
+four.
+
+Even selection sort, though, is much better than my all-time favorite sorting algo‐
+rithms, the bogosort:
+
+```
+In[3]: def bogosort(x):
+while np.any(x[:-1] > x[1:]):
+np.random.shuffle(x)
+return x
+
+In[4]: x = np.array([2, 1, 4, 3, 5])
+bogosort(x)Out[4]: array([1, 2, 3, 4, 5])
+```
+
+This silly sorting method relies on pure chance: it repeatedly applies a random shuffling of the array until the result happens to be sorted. With an average scaling of
+O( N × N) ! (that’s N times N factorial), this should—quite obviously—never be used
+for any real computation.
+
+Fortunately, Python contains built-in sorting algorithms that are much more efficient
+than either of the simplistic algorithms just shown. We’ll start by looking at the
+Python built-ins, and then take a look at the routines included in NumPy and optimized for NumPy arrays.
+
+
+**Fast Sorting in NumPy: np.sort and np.argsort**
+
+Although Python has built-in sort and sorted functions to work with lists, we won’t
+discuss them here because NumPy’s np.sort function turns out to be much more efficient and useful for our purposes. By default np.sort uses an � N log N , quick‐
+sort algorithm, though mergesort and heapsort are also available. For most applications, the default quicksort is more than sufficient.
+
+To return a sorted version of the array without modifying the input, you can use np.sort:
+
+```
+In[5]: x = np.array([2, 1, 4, 3, 5])
+np.sort(x)
+Out[5]: array([1, 2, 3, 4, 5])
+```
+
+If you prefer to sort the array in-place, you can instead use the sort method of arrays:
+
+```
+In[6]: x.sort()
+print(x)
+[1 2 3 4 5]
+```
+
+A related function is argsort, which instead returns the indices of the sorted
+elements:
+
+```
+In[7]: x = np.array([2, 1, 4, 3, 5])
+i = np.argsort(x)
+print(i)
+[1 0 3 2 4]
+```
+
+The first element of this result gives the index of the smallest element, the second
+value gives the index of the second smallest, and so on. These indices can then be
+used (via fancy indexing) to construct the sorted array if desired:
+
+```
+In[8]: x[i]
+Out[8]: array([1, 2, 3, 4, 5])
+```
+
+**Sorting along rows or columns**
+
+A useful feature of NumPy’s sorting algorithms is the ability to sort along specific
+rows or columns of a multidimensional array using the axis argument. For example:
+
+```
+In[9]: rand = np.random.RandomState(42)
+X = rand.randint(0, 10, (4, 6))
+print(X)
+[[6 3 7 4 6 9]
+[2 6 7 4 3 7]
+[7 2 5 4 1 7]
+[5 1 4 0 9 5]]
+
+In[10]: # sort each column of X
+np.sort(X, axis=0)
+Out[10]: array([[2, 1, 4, 0, 1, 5],
+                [5, 2, 5, 4, 3, 7],
+                [6, 3, 7, 4, 6, 7],
+                [7, 6, 7, 4, 9, 9]])
+
+In[11]: # sort each row of X
+np.sort(X, axis=1)
+Out[11]: array([[3, 4, 6, 6, 7, 9],
+                [2, 3, 4, 6, 7, 7],
+                [1, 2, 4, 5, 7, 7],
+                [0, 1, 4, 5, 5, 9]])
+```
+
+Keep in mind that this treats each row or column as an independent array, and any
+relationships between the row or column values will be lost!
+
+**Partial Sorts: Partitioning**
+
+Sometimes we’re not interested in sorting the entire array, but simply want to find the
+K smallest values in the array. NumPy provides this in the np.partition function.
+np.partition takes an array and a number K; the result is a new array with the small‐
+est K values to the left of the partition, and the remaining values to the right, in arbi‐
+trary order:
+
+```
+In[12]: x = np.array([7, 2, 3, 1, 6, 5, 4])
+np.partition(x, 3)
+Out[12]: array([2, 1, 3, 4, 6, 5, 7])
+```
+
+Note that the first three values in the resulting array are the three smallest in the
+array, and the remaining array positions contain the remaining values. Within the
+two partitions, the elements have arbitrary order.
+
+Similarly to sorting, we can partition along an arbitrary axis of a multidimensional
+array:
+
+```
+In[13]: np.partition(X, 2, axis=1)
+Out[13]: array([[3, 4, 6, 7, 6, 9],
+                [2, 3, 4, 7, 6, 7],
+                [1, 2, 4, 5, 7, 7],
+                [0, 1, 4, 5, 9, 5]])
+```
+
+The result is an array where the first two slots in each row contain the smallest values
+from that row, with the remaining values filling the remaining slots.
+
+Finally, just as there is a np.argsort that computes indices of the sort, there is a
+np.argpartition that computes indices of the partition. We’ll see this in action in the
+following section.
+
+**Example: k-Nearest Neighbors**
+Let’s quickly see how we might use this argsort function along multiple axes to find
+the nearest neighbors of each point in a set. We’ll start by creating a random set of 10 points on a two-dimensional plane. Using the standard convention, we’ll arrange
+these in a 10×2 array:
+
+```
+In[14]: X = rand.rand(10, 2)
+```
+
+To get an idea of how these points look, let’s quickly scatter plot them (Figure 2-10):
+
+```
+In[15]: %matplotlib inline
+import matplotlib.pyplot as plt
+import seaborn; seaborn.set() # Plot styling
+plt.scatter(X[:, 0], X[:, 1], s=100);
+```
+
+![numpy_k-neighbors.png](numpy_k-neighbors.png)
+
+Now we’ll compute the distance between each pair of points. Recall that the squared-distance between two points is the sum of the squared differences in each dimension;
+using the efficient broadcasting and aggregation (“Aggregations: Min, Max, and Everything in Between")
+routines provided by NumPy, we can compute the matrix of square distances in a single line of code:
+
+`In[16]: dist_sq = np.sum((X[:,np.newaxis,:] - X[np.newaxis,:,:]) ** 2, axis=-1)`
+
+This operation has a lot packed into it, and it might be a bit confusing if you’re unfa‐
+miliar with NumPy’s broadcasting rules. When you come across code like this, it can
+be useful to break it down into its component steps:
+
+```
+In[17]: # for each pair of points, compute differences in their coordinates
+differences = X[:, np.newaxis, :] - X[np.newaxis, :, :]
+differences.shape
+Out[17]: (10, 10, 2)
+
+In[18]: # square the coordinate differences
+sq_differences = differences ** 2
+sq_differences.shape
+Out[18]: (10, 10, 2)
+
+In[19]: # sum the coordinate differences to get the squared distance
+dist_sq = sq_differences.sum(-1)
+dist_sq.shape
+Out[19]: (10, 10)
+```
+
+Just to double-check what we are doing, we should see that the diagonal of this matrix
+(i.e., the set of distances between each point and itself) is all zero:
+
+```
+In[20]: dist_sq.diagonal()
+Out[20]: array([ 0.,
+0.,
+0.,
+0.,
+0.,
+0.,
+0.,
+0.,
+0.,
+0.])
+```
+
+It checks out! With the pairwise square-distances converted, we can now use np.arg
+sort to sort along each row. The leftmost columns will then give the indices of the
+nearest neighbors:
+
+```
+In[21]: nearest = np.argsort(dist_sq, axis=1)
+print(nearest)
+[[0 3 9 7 1 4 2 5 6 8]
+[1 4 7 9 3 6 8 5 0 2]
+[2 1 4 6 3 0 8 9 7 5]
+[3 9 7 0 1 4 5 8 6 2]
+[4 1 8 5 6 7 9 3 0 2]
+[5 8 6 4 1 7 9 3 2 0]
+[6 8 5 4 1 7 9 3 2 0]
+[7 9 3 1 4 0 5 8 6 2]
+[8 5 6 4 1 7 9 3 2 0]
+[9 7 3 0 1 4 5 8 6 2]]
+```
+
+Notice that the first column gives the numbers 0 through 9 in order: this is due to the
+fact that each point’s closest neighbor is itself, as we would expect.
+By using a full sort here, we’ve actually done more work than we need to in this case.
+If we’re simply interested in the nearest k neighbors, all we need is to partition each
+row so that the smallest k + 1 squared distances come first, with larger distances fill‐
+ing the remaining positions of the array. We can do this with the np.argpartition
+function:
+
+```
+In[22]: K = 2
+nearest_partition = np.argpartition(dist_sq, K + 1, axis=1)
+```
+
+In order to visualize this network of neighbors, let’s quickly plot the points along with
+lines representing the connections from each point to its two nearest neighbors.
+
+```
+In[23]: plt.scatter(X[:, 0], X[:, 1], s=100)
+# draw lines from each point to its two nearest neighbors
+K = 2
+for i in range(X.shape[0]):
+for j in nearest_partition[i, :K+1]:
+# plot a line from X[i] to X[j]
+# use some zip magic to make it happen:
+plt.plot(*zip(X[j], X[i]), color='black')
+```
+
+![neighbors1.png](neighbors1.png)
+
+Each point in the plot has lines drawn to its two nearest neighbors. At first glance, it
+might seem strange that some of the points have more than two lines coming out of
+them: this is due to the fact that if point A is one of the two nearest neighbors of point
+B, this does not necessarily imply that point B is one of the two nearest neighbors of
+point A.
+
+Although the broadcasting and row-wise sorting of this approach might seem less
+straightforward than writing a loop, it turns out to be a very efficient way of operating
+on this data in Python. You might be tempted to do the same type of operation by
+manually looping through the data and sorting each set of neighbors individually, but
+this would almost certainly lead to a slower algorithm than the vectorized version we
+used. The beauty of this approach is that it’s written in a way that’s agnostic to the size
+of the input data: we could just as easily compute the neighbors among 100 or
+1,000,000 points in any number of dimensions, and the code would look the same.
+
+Finally, I’ll note that when doing very large nearest-neighbor searches, there are tree-
+based and/or approximate algorithms that can scale as � N log N or better rather than the � N 2 of the brute-force algorithm. One example of this is the KD-Tree,
+implemented in Scikit-Learn.
+
+>Hint 
+> 
+> Big-O Notation
+Big-O notation is a means of describing how the number of operations required for
+an algorithm scales as the input grows in size. To use it correctly is to dive deeply into
+the realm of computer science theory, and to carefully distinguish it from the related
+small-o notation, big-θ notation, big-Ω notation, and probably many mutant hybrids
+thereof. While these distinctions add precision to statements about algorithmic scal‐
+ing, outside computer science theory exams and the remarks of pedantic blog com‐
+menters, you’ll rarely see such distinctions made in practice. Far more common in the
+data science world is a less rigid use of big-O notation: as a general (if imprecise)
+description of the scaling of an algorithm. With apologies to theorists and pedants,
+this is the interpretation we’ll use throughout this book.
+Big-O notation, in this loose sense, tells you how much time your algorithm will take
+as you increase the amount of data. If you have an � N (read “order N”) algorithm
+that takes 1 second to operate on a list of length N=1,000, then you should expect it to
+take roughly 5 seconds for a list of length N=5,000. If you have an � N 2 (read “order
+N squared”) algorithm that takes 1 second for N=1,000, then you should expect it to
+take about 25 seconds for N=5,000.
+For our purposes, the N will usually indicate some aspect of the size of the dataset (the
+number of points, the number of dimensions, etc.). When trying to analyze billions or
+trillions of samples, the difference between � N and � N 2 can be far from trivial!
+Notice that the big-O notation by itself tells you nothing about the actual wall-clock
+time of a computation, but only about its scaling as you change N. Generally, for
+example, an � N algorithm is considered to have better scaling than an � N 2 algo‐
+rithm, and for good reason. But for small datasets in particular, the algorithm with
+better scaling might not be faster. For example, in a given problem an � N 2 algo‐
+rithm might take 0.01 seconds, while a “better” � N algorithm might take 1 second.
+Scale up N by a factor of 1,000, though, and the � N algorithm will win out.
+Even this loose version of Big-O notation can be very useful for comparing the per‐
+formance of algorithms, and we’ll use this notation throughout the book when talking
+about how algorithms scale.
+
+**Structured Data: NumPy’s Structured Arrays**
+
+While often our data can be well represented by a homogeneous array of values,
+sometimes this is not the case. This section demonstrates the use of NumPy’s structured arrays and record arrays, which provide efficient storage for compound, heterogeneous data. While the patterns shown here are useful for simple operations,
+scenarios like this often lend themselves to the use of Pandas DataFrames, which we’ll explore later.
+
+Imagine that we have several categories of data on a number of people (say, name, age, and weight), and we’d like to store these values for use in a Python program. It
+would be possible to store these in three separate arrays:
+
+```
+In[2]: name = ['Alice', 'Bob', 'Cathy', 'Doug']
+age = [25, 45, 37, 19]
+weight = [55.0, 85.5, 68.0, 61.5]
+```
+
+But this is a bit clumsy. There’s nothing here that tells us that the three arrays are
+related; it would be more natural if we could use a single structure to store all of this
+data. NumPy can handle this through structured arrays, which are arrays with com‐
+pound data types.
+
+Recall that previously we created a simple array using an expression like this:
+
+```
+In[3]: x = np.zeros(4, dtype=int)
+```
+
+We can similarly create a structured array using a compound data type specification:
+
+```
+In[4]: # Use a compound data type for structured arrays
+data = np.zeros(4, dtype={'names':('name', 'age', 'weight'),
+'formats':('U10', 'i4', 'f8')})
+print(data.dtype)
+[('name', '<U10'), ('age', '<i4'), ('weight', '<f8')]
+Here 'U10' translates to “Unicode string of maximum length 10,” 'i4' translates to
+“4-byte (i.e., 32 bit) integer,” and 'f8' translates to “8-byte (i.e., 64 bit) float.” We’ll
+discuss other options for these type codes in the following section.
+Now that we’ve created an empty container array, we can fill the array with our lists of
+values:
+
+In[5]: data['name'] = name
+data['age'] = age
+data['weight'] = weight
+print(data)
+[('Alice', 25, 55.0) ('Bob', 45, 85.5) ('Cathy', 37, 68.0)
+('Doug', 19, 61.5)]
+
+```
+
+As we had hoped, the data is now arranged together in one convenient block of
+memory.
+
+The handy thing with structured arrays is that you can now refer to values either by
+index or by name:
+
+```
+In[6]: # Get all names
+data['name']
+
+Out[6]: array(['Alice', 'Bob', 'Cathy', 'Doug'],
+dtype='<U10')
+
+In[7]: # Get first row of data
+data[0]
+Out[7]: ('Alice', 25, 55.0)
+
+In[8]: # Get the name from the last row
+data[-1]['name']
+Out[8]: 'Doug'
+```
+
+Using Boolean masking, this even allows you to do some more sophisticated operastions such as filtering on age:
+
+```
+In[9]: # Get names where age is under 30
+data[data['age'] < 30]['name']
+Out[9]: array(['Alice', 'Doug'],
+dtype='<U10')
+```
+
+Note that if you’d like to do any operations that are any more complicated than these,
+you should probably consider the Pandas package, covered in the next chapter. As
+we’ll see, Pandas provides a DataFrame object, which is a structure built on NumPy
+arrays that offers a variety of useful data manipulation functionality similar to what
+we’ve shown here, as well as much, much more.
+
+**Creating Structured Arrays**
+
+Structured array data types can be specified in a number of ways. Earlier, we saw the
+dictionary method:
+
+```
+In[10]: np.dtype({'names':('name', 'age', 'weight'),
+'formats':('U10', 'i4', 'f8')})
+Out[10]: dtype([('name', '<U10'), ('age', '<i4'), ('weight', '<f8')])
+```
+
+For clarity, numerical types can be specified with Python types or NumPy dtypes
+instead:
+
+```
+In[11]: np.dtype({'names':('name', 'age', 'weight'),
+'formats':((np.str_, 10), int, np.float32)})
+Out[11]: dtype([('name', '<U10'), ('age', '<i8'), ('weight', '<f4')])
+```
+
+A compound type can also be specified as a list of tuples:
+```
+In[12]: np.dtype([('name', 'S10'), ('age', 'i4'), ('weight', 'f8')])
+Out[12]: dtype([('name', 'S10'), ('age', '<i4'), ('weight', '<f8')])
+```
+
+If the names of the types do not matter to you, you can specify the types alone in a
+comma-separated string:
+
+```
+In[13]: np.dtype('S10,i4,f8')
+Out[13]: dtype([('f0', 'S10'), ('f1', '<i4'), ('f2', '<f8')])
+```
+
+The shortened string format codes may seem confusing, but they are built on simple
+principles. The first (optional) character is < or >, which means “little endian” or “big
+endian,” respectively, and specifies the ordering convention for significant bits. The
+next character specifies the type of data: characters, bytes, ints, floating points, and so
+on (see Table 2-4). The last character or characters represents the size of the object in
+bytes.
+
+**NumPy data types**
+
+![imnumpy_datatypesg.png](numpy_datatypes.png)
+
+**More Advanced Compound Types**
+
+It is possible to define even more advanced compound types. For example, you can
+create a type where each element contains an array or matrix of values. Here, we’ll
+create a data type with a mat component consisting of a 3×3 floating-point matrix:
+
+```
+In[14]: tp = np.dtype([('id', 'i8'), ('mat', 'f8', (3, 3))])
+X = np.zeros(1, dtype=tp)
+print(X[0])
+print(X['mat'][0])
+(0, [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]])
+[[ 0. 0. 0.]
+[ 0. 0. 0.]
+[ 0. 0. 0.]]
+```
+
+Now each element in the X array consists of an id and a 3×3 matrix. Why would you
+use this rather than a simple multidimensional array, or perhaps a Python dictionary?
+The reason is that this NumPy dtype directly maps onto a C structure definition, so
+the buffer containing the array content can be accessed directly within an appropri‐
+ately written C program. If you find yourself writing a Python interface to a legacy C
+or Fortran library that manipulates structured data, you’ll probably find structured
+arrays quite useful!
+
+**RecordArrays: Structured Arrays with a Twist**
+
+NumPy also provides the np.recarray class, which is almost identical to the structured arrays just described, but with one additional feature: fields can be accessed as
+attributes rather than as dictionary keys. Recall that we previously accessed the ages
+by writing:
+
+```
+In[15]: data['age']
+Out[15]: array([25, 45, 37, 19], dtype=int32)
+```
+
+If we view our data as a record array instead, we can access this with slightly fewer
+keystrokes:
+
+```
+In[16]: data_rec = data.view(np.recarray)
+data_rec.age
+Out[16]: array([25, 45, 37, 19], dtype=int32)
+```
+
+The downside is that for record arrays, there is some extra overhead involved in
+accessing the fields, even when using the same syntax. We can see this here:
+
+```
+In[17]: %timeit data['age']
+%timeit data_rec['age']
+%timeit data_rec.age
+1000000 loops, best of 3: 241 ns per loop
+100000 loops, best of 3: 4.61 µs per loop
+100000 loops, best of 3: 7.27 µs per loop
+```
+
+Whether the more convenient notation is worth the additional overhead will depend
+on your own application.
