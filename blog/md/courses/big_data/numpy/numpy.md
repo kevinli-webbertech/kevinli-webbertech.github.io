@@ -486,11 +486,14 @@ In addition, these can be strung together however you wish, and the standard ord
 ```python
 In[9]: -(0.5*x + 1) ** 2
 Out[9]: array([-1. , -2.25, -4., -6.25])
+```
 
 All of these arithmetic operations are simply convenient wrappers around specific functions built into NumPy; for example, the + operator is a wrapper for the add function:
 
+```python
 In[10]: np.add(x, 2)
 Out[10]: array([2, 3, 4, 5])
+```
 
 **Absolute value**
 
@@ -925,7 +928,6 @@ we can accomplish using tools in Matplotlib (we’ll discuss Matplotlib more ful
 Chapter 4). For example, this code generates the chart shown in Figure 2-3:
 
 ```python
-
 In[17]: %matplotlib inline
 import matplotlib.pyplot as plt
 import seaborn; seaborn.set() # set plot style
@@ -1014,3 +1016,141 @@ with shape equal to 1 in that dimension is stretched to match the other shape.
 
 • Rule 3: If in any dimension the sizes disagree and neither is equal to 1, an error is raised.
 
+**Broadcasting example 1**
+
+Let’s look at adding a two-dimensional array to a one-dimensional array:
+
+```python
+In[8]: M = np.ones((2, 3))
+a = np.arange(3)
+```
+
+Let’s consider an operation on these two arrays. The shapes of the arrays are:
+
+```python
+M.shape = (2, 3)
+a.shape = (3,)
+```
+
+We see by rule 1 that the array a has fewer dimensions, so we pad it on the left with
+ones:
+
+```python
+M.shape -> (2, 3)
+a.shape -> (1, 3)
+```
+
+By rule 2, we now see that the first dimension disagrees, so we stretch this dimension
+to match:
+
+```python
+M.shape -> (2, 3)
+a.shape -> (2, 3)
+```
+
+The shapes match, and we see that the final shape will be (2, 3):
+
+```python
+In[9]: M + a
+Out[9]: array([[ 1., 2., 3.],
+[ 1., 2., 3.]])
+```
+
+**Broadcasting example 2**
+
+Let’s take a look at an example where both arrays need to be broadcast:
+
+```python
+In[10]: a = np.arange(3).reshape((3, 1))
+b = np.arange(3)
+```
+
+Again, we’ll start by writing out the shape of the arrays:
+
+```python
+a.shape = (3, 1)
+b.shape = (3,)
+```
+
+**Broadcasting example 3**
+
+Now let’s take a look at an example in which the two arrays are not compatible:
+
+```python
+In[12]: M = np.ones((3, 2))
+a = np.arange(3)
+```
+
+This is just a slightly different situation than in the first example: the matrix M is
+transposed. How does this affect the calculation? The shapes of the arrays are:
+
+```python
+M.shape = (3, 2)
+a.shape = (3,)
+```
+
+Again, rule 1 tells us that we must pad the shape of a with ones:
+
+```python
+M.shape -> (3, 2)
+a.shape -> (1, 3)
+```
+
+By rule 2, the first dimension of a is stretched to match that of M:
+
+```python
+M.shape -> (3, 2)
+a.shape -> (3, 3)
+```
+
+Now we hit rule 3—the final shapes do not match, so these two arrays are incompati‐
+ble, as we can observe by attempting this operation:
+
+```python
+In[13]: M + a
+---------------------------------------------------------------------------
+ValueError
+Traceback (most recent call last)
+<ipython-input-13-9e16e9f98da6> in <module>()
+----> 1 M + a
+ValueError: operands could not be broadcast together with shapes (3,2) (3,)
+```
+
+Because neither of the (n,m) of both of the matrix has in common,
+to make it work, we can do the following,
+
+```python
+In[14]: a[:, np.newaxis].shape
+Out[14]: (3, 1)
+In[15]: M + a[:, np.newaxis]
+Out[15]: array([[ 1.,1.],
+                [ 2.,2.]
+                [ 3.,3.]
+])
+```
+
+>Hint: Rule of thumb is that if the low dimensional matrix can be padded by adding more rows.
+> and after padding, the number of columns of the operator matrices have to have the same column numbers.
+
+Also note that while we’ve been focusing on the + operator here, these broadcasting
+rules apply to any binary ufunc. For example, here is the logaddexp(a, b) function,
+which computes log(exp(a) + exp(b)) with more precision than the naive
+approach: 
+
+```
+In[16]: np.logaddexp(M, a[:, np.newaxis])
+Out[16]: array([[ 1.31326169, 1.31326169],
+[ 1.69314718, 1.69314718],
+[ 2.31326169, 2.31326169]])
+```
+
+## Applications
+
+**Centering an array**
+
+In the previous section, we saw that ufuncs allow a NumPy user to remove the need
+to explicitly write slow Python loops. Broadcasting extends this ability.
+
+One commonly seen example is centering an array of data. Imagine you have an array of 10 observations, each of which consists of 3 values.
+
+![mean_ufunc.png](mean_ufunc.png)
