@@ -1211,3 +1211,52 @@ plt.colorbar();
 The result, shown in the following is a compelling visualization of the two-dimensional
 
 ![numPy_plot.png](numPy_plot.png)
+
+**Comparison**
+
+```python
+In[4]: x = np.array([1, 2, 3, 4, 5])
+In[5]: x < 3
+# less than
+Out[5]: array([ True, True, False, False, False], dtype=bool)
+
+In[6]: x > 3
+# greater than
+Out[6]: array([False, False, False,True, True], dtype=bool)
+
+In[7]: x <= 3
+Out[7]: array([ True,True, True, False, False, dtype=bool)
+
+In[8]: x >= 3
+Out[8]: array([False, False, True,True,True], dtype=bool)
+
+In[9]: x != 3 # not equal
+Out[9]: array([ True, True, False,True,True], dtype=bool)
+
+In[10]: x == 3
+Out[10]: array([False, False, True, False, False], dtype=bool)
+```
+
+>Hint: For example, when you write x < 3, internally NumPy uses
+np.less(x, 3).
+
+![NumPy_operator.png](NumPy_operator.png) 
+
+**Another example on two dimensional**
+
+```python
+In[12]: rng = np.random.RandomState(0)
+x = rng.randint(10, size=(3, 4))
+x
+Out[12]: array([[5, 0, 3, 3],
+[7, 9, 3, 5],
+[2, 4, 7, 6]])
+
+In[13]: x < 6
+Out[13]: array([[True, True, True, True],
+               [False, False, True, True],
+               [True, True, False, False]], dtype=bool)
+```
+
+In each case, the result is a Boolean array, and NumPy provides a number of straight‐
+forward patterns for working with these Boolean results.
