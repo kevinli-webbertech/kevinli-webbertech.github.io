@@ -975,21 +975,23 @@ we add a one-dimensional array to a two-dimensional array:
 In[4]: M = np.ones((3, 3))
 M
 Out[4]: array([[ 1., 1., 1.],
-[ 1., 1., 1.],
-[ 1., 1., 1.]])
+               [ 1., 1., 1.],
+               [ 1., 1., 1.]])
+
 In[5]: M + a
 Out[5]: array([
-[ 1., 2.,3.],
-[ 1., 2.,3.],
-[ 1., 2.,3.]
-])
+               [ 1., 2.,3.],
+               [ 1., 2.,3.],
+               [ 1., 2.,3.]
+        ])
 ```
 
 A more complex one,
 
-```python
 While these examples are relatively easy to understand, more complicated cases can
 involve broadcasting of both arrays. Consider the following example:
+
+```python
 In[6]: a = np.arange(3)
 b = np.arange(3)[:, np.newaxis]
 print(a)
@@ -1227,7 +1229,7 @@ In[6]: x > 3
 Out[6]: array([False, False, False,True, True], dtype=bool)
 
 In[7]: x <= 3
-Out[7]: array([ True,True, True, False, False, dtype=bool)
+Out[7]: array([ True,True, True, False, False], dtype=bool)
 
 In[8]: x >= 3
 Out[8]: array([False, False, True,True,True], dtype=bool)
