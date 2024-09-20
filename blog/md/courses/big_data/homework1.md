@@ -1,4 +1,4 @@
-# Homework #1
+# Homework 1 Prepare Your Development Environment
 
 * Please upload your word or pdf document with screenshots inside. If you already have it, you still have to take screenshots to prove it.
 

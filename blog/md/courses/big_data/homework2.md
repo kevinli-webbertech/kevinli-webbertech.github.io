@@ -1,11 +1,10 @@
-# HW2 Data Analysis with Pandas
+# Homework 2 Data Analysis with Pandas
 
-## 1. Problem Description
+## Problem Description
 
-Instructions. Please write code with Pandas DataFrame to complete the fol-
-lowing tasks.
+Instructions. Please write code with Pandas DataFrame to complete the following tasks.
 
-• Task 0 (0 pt). Load the nyc taxi dataset by using the command
+* Task 0 (0 pt). Load the nyc taxi dataset by using the command
 
 ```python
 path = ’dbfs:/databricks-datasets/nyctaxi/tripdata/green/green_tripdata_2019-12.csv.gz’
@@ -15,6 +14,8 @@ spark.read.format(’csv’)
 .toPandas()
 )
 ```
+
+> The data was put in the discussion forum in canvas now.
 
 * Task 1 (15 pts). Convert lpep pickup datetime and lpep dropoff datetime
 to the type of datetime.
@@ -44,7 +45,7 @@ and lpep dropoff datetime.
 
 * Task 7. (15 pts). Find the trip with the highest fare amount.
 
-## 2 Submission Guideline
+## Submission Guideline
 
 1. Work individually.
 2. Any code or code result, please write a doc report and paste screenshots to prove it is working.
