@@ -1788,15 +1788,7 @@ In[21]: i = [2, 3, 3, 4, 4, 4]
 x[i] += 1
 x
 Out[21]: array([ 6.,
-0.,
-1.,
-1.,
-1.,
-0.,
-0.,
-0.,
-0.,
-0.])
+0., 1., 1., 1., 0., 0., 0., 0., 0.])
 ```
 
 You might expect that x[3] would contain the value 2, and x[4] would contain the
@@ -1813,16 +1805,7 @@ can use the at() method of ufuncs (available since NumPy 1.8), and do the follow
 In[22]: x = np.zeros(10)
 np.add.at(x, i, 1)
 print(x)
-[ 0.
-0.
-1.
-2.
-3.
-0.
-0.
-0.
-0.
-0.]
+[ 0. 0. 1. 2. 3. 0. 0. 0. 0. 0.]
 ```
 
 The at() method does an in-place application of the given operator at the specified
@@ -1840,14 +1823,17 @@ counts = np.zeros_like(bins)
 i = np.searchsorted(bins, x)
 # add 1 to each of these bins
 np.add.at(counts, i, 1)
-The counts now reflect the number of points within each bin—in other words, a his‐
-togram (Figure 2-9):
+```
 
+The counts now reflect the number of points within each bin—in other words, a histogram (Figure 2-9):
+
+```
 In[24]: # plot the results
 plt.plot(bins, counts, linestyle='steps');
+```
 
 ![numpy_bindata_plot.png](numpy_bindata_plot.png)
-```
+
 
 Of course, it would be silly to have to do this each time you want to plot a histogram.
 This is why Matplotlib provides the plt.hist() routine, which does the same in a
@@ -1856,8 +1842,7 @@ single line:
 `plt.hist(x, bins, histtype='step');`
 
 This function will create a nearly identical plot to the one seen here. To compute the
-binning, Matplotlib uses the np.histogram function, which does a very similar com‐
-putation to what we did before. Let’s compare the two here:
+binning, Matplotlib uses the np.histogram function, which does a very similar computation to what we did before. Let’s compare the two here:
 
 ```
 In[25]: print("NumPy routine:")
@@ -1895,8 +1880,9 @@ Custom routine:
 
 Up to this point we have been concerned mainly with tools to access and operate on
 array data with NumPy. This section covers algorithms related to sorting values in
-NumPy arrays. These algorithms are a favorite topic in introductory computer sci‐
-ence courses: if you’ve ever taken one, you probably have had dreams (or, depending
+NumPy arrays. These algorithms are a favorite topic in introductory computer science courses: 
+
+if you’ve ever taken one, you probably have had dreams (or, depending
 on your temperament, nightmares) about insertion sorts, selection sorts, merge sorts,
 quick sorts, bubble sorts, and many, many more. All are means of accomplishing a
 similar task: sorting the values in a list or array.
@@ -1907,9 +1893,9 @@ and makes swaps until the list is sorted. We can code this in just a few lines o
 ```
 In[1]: import numpy as np
 def selection_sort(x):
-for i in range(len(x)):
-swap = i + np.argmin(x[i:])
-(x[i], x[swap]) = (x[swap], x[i])
+    for i in range(len(x)):
+        swap = i + np.argmin(x[i:])
+        (x[i], x[swap]) = (x[swap], x[i])
 return x
 
 In[2]: x = np.array([2, 1, 4, 3, 5])
@@ -1920,32 +1906,27 @@ Out[2]: array([1, 2, 3, 4, 5])
 As any first-year computer science major will tell you, the selection sort is useful for
 its simplicity, but is much too slow to be useful for larger arrays. For a list of N values,
 it requires N loops, each of which does on the order of ~ N comparisons to find the
-swap value. In terms of the “big-O” notation often used to characterize these algo‐
-rithms (see “Big-O Notation” on page 92), selection sort averages � N 2 : if you dou‐
-ble the number of items in the list, the execution time will go up by about a factor of
-four.
+swap value. In terms of the “big-O” notation often used to characterize these algorithms (see “Big-O Notation”), 
+selection sort averages O(N^2) : if you double the number of items in the list, the execution time will go up by about a factor of four.
 
-Even selection sort, though, is much better than my all-time favorite sorting algo‐
-rithms, the bogosort:
+Even selection sort, though, is much better than my all-time favorite sorting algorithms, the bogosort:
 
 ```
 In[3]: def bogosort(x):
-while np.any(x[:-1] > x[1:]):
-np.random.shuffle(x)
-return x
+         while np.any(x[:-1] > x[1:]):
+           np.random.shuffle(x)
+       return x
 
 In[4]: x = np.array([2, 1, 4, 3, 5])
 bogosort(x)Out[4]: array([1, 2, 3, 4, 5])
 ```
 
 This silly sorting method relies on pure chance: it repeatedly applies a random shuffling of the array until the result happens to be sorted. With an average scaling of
-O( N × N) ! (that’s N times N factorial), this should—quite obviously—never be used
-for any real computation.
+O( N × N) ! (that’s N times N factorial), this should quite obviously never be used for any real computation.
 
 Fortunately, Python contains built-in sorting algorithms that are much more efficient
 than either of the simplistic algorithms just shown. We’ll start by looking at the
 Python built-ins, and then take a look at the routines included in NumPy and optimized for NumPy arrays.
-
 
 **Fast Sorting in NumPy: np.sort and np.argsort**
 
@@ -1969,8 +1950,7 @@ print(x)
 [1 2 3 4 5]
 ```
 
-A related function is argsort, which instead returns the indices of the sorted
-elements:
+A related function is argsort, which instead returns the indices of the sorted elements:
 
 ```
 In[7]: x = np.array([2, 1, 4, 3, 5])
@@ -1979,8 +1959,7 @@ print(i)
 [1 0 3 2 4]
 ```
 
-The first element of this result gives the index of the smallest element, the second
-value gives the index of the second smallest, and so on. These indices can then be
+The first element of this result gives the index of the smallest element, the second value gives the index of the second smallest, and so on. These indices can then be
 used (via fancy indexing) to construct the sorted array if desired:
 
 ```
@@ -2109,16 +2088,7 @@ Just to double-check what we are doing, we should see that the diagonal of this 
 
 ```
 In[20]: dist_sq.diagonal()
-Out[20]: array([ 0.,
-0.,
-0.,
-0.,
-0.,
-0.,
-0.,
-0.,
-0.,
-0.])
+Out[20]: array([ 0., 0., 0., 0., 0., 0., 0., 0., 0. 0.])
 ```
 
 It checks out! With the pairwise square-distances converted, we can now use np.arg
@@ -2142,11 +2112,12 @@ print(nearest)
 
 Notice that the first column gives the numbers 0 through 9 in order: this is due to the
 fact that each point’s closest neighbor is itself, as we would expect.
+
 By using a full sort here, we’ve actually done more work than we need to in this case.
-If we’re simply interested in the nearest k neighbors, all we need is to partition each
-row so that the smallest k + 1 squared distances come first, with larger distances fill‐
-ing the remaining positions of the array. We can do this with the np.argpartition
-function:
+If we’re simply interested in the nearest k neighbors, all we need is to partition each row so that the smallest k + 1 squared 
+distances come first, with larger distances filling the remaining positions of the array. 
+
+We can do this with the np.argpartition function:
 
 ```
 In[22]: K = 2
@@ -2169,24 +2140,19 @@ plt.plot(*zip(X[j], X[i]), color='black')
 
 ![neighbors1.png](../../../../images/big_data/numpy/neighbors1.png)
 
-Each point in the plot has lines drawn to its two nearest neighbors. At first glance, it
-might seem strange that some of the points have more than two lines coming out of
-them: this is due to the fact that if point A is one of the two nearest neighbors of point
-B, this does not necessarily imply that point B is one of the two nearest neighbors of
-point A.
+Each point in the plot has lines drawn to its two nearest neighbors. At first glance, it might seem strange that some of 
+the points have more than two lines coming out of them: this is due to the fact that if point A is one of the two nearest 
+neighbors of point B, this does not necessarily imply that point B is one of the two nearest neighbors of point A.
 
-Although the broadcasting and row-wise sorting of this approach might seem less
-straightforward than writing a loop, it turns out to be a very efficient way of operating
-on this data in Python. You might be tempted to do the same type of operation by
-manually looping through the data and sorting each set of neighbors individually, but
-this would almost certainly lead to a slower algorithm than the vectorized version we
-used. The beauty of this approach is that it’s written in a way that’s agnostic to the size
-of the input data: we could just as easily compute the neighbors among 100 or
-1,000,000 points in any number of dimensions, and the code would look the same.
+Although the broadcasting and row-wise sorting of this approach might seem less straightforward than writing a loop, 
+it turns out to be a very efficient way of operating on this data in Python. You might be tempted to do the same type of operation by
+manually looping through the data and sorting each set of neighbors individually, but this would almost certainly lead to a slower algorithm 
+than the vectorized version we used. The beauty of this approach is that it’s written in a way that’s agnostic to the size
+of the input data: we could just as easily compute the neighbors among 100 or 1,000,000 points in any number of dimensions, 
+and the code would look the same.
 
-Finally, I’ll note that when doing very large nearest-neighbor searches, there are tree-
-based and/or approximate algorithms that can scale as � N log N or better rather than the � N 2 of the brute-force algorithm. One example of this is the KD-Tree,
-implemented in Scikit-Learn.
+Finally, I’ll note that when doing very large nearest-neighbor searches, there are tree-based and/or approximate algorithms 
+that can scale as O(N log N) or better rather than the O(N^2) of the brute-force algorithm. One example of this is the KD-Tree, implemented in Scikit-Learn.
 
 >Hint 
 > 
@@ -2195,30 +2161,20 @@ Big-O notation is a means of describing how the number of operations required fo
 an algorithm scales as the input grows in size. To use it correctly is to dive deeply into
 the realm of computer science theory, and to carefully distinguish it from the related
 small-o notation, big-θ notation, big-Ω notation, and probably many mutant hybrids
-thereof. While these distinctions add precision to statements about algorithmic scal‐
-ing, outside computer science theory exams and the remarks of pedantic blog com‐
-menters, you’ll rarely see such distinctions made in practice. Far more common in the
-data science world is a less rigid use of big-O notation: as a general (if imprecise)
-description of the scaling of an algorithm. With apologies to theorists and pedants,
-this is the interpretation we’ll use throughout this book.
-Big-O notation, in this loose sense, tells you how much time your algorithm will take
-as you increase the amount of data. If you have an � N (read “order N”) algorithm
-that takes 1 second to operate on a list of length N=1,000, then you should expect it to
-take roughly 5 seconds for a list of length N=5,000. If you have an � N 2 (read “order
-N squared”) algorithm that takes 1 second for N=1,000, then you should expect it to
-take about 25 seconds for N=5,000.
-For our purposes, the N will usually indicate some aspect of the size of the dataset (the
-number of points, the number of dimensions, etc.). When trying to analyze billions or
-trillions of samples, the difference between � N and � N 2 can be far from trivial!
-Notice that the big-O notation by itself tells you nothing about the actual wall-clock
-time of a computation, but only about its scaling as you change N. Generally, for
-example, an � N algorithm is considered to have better scaling than an � N 2 algo‐
-rithm, and for good reason. But for small datasets in particular, the algorithm with
-better scaling might not be faster. For example, in a given problem an � N 2 algo‐
-rithm might take 0.01 seconds, while a “better” � N algorithm might take 1 second.
-Scale up N by a factor of 1,000, though, and the � N algorithm will win out.
-Even this loose version of Big-O notation can be very useful for comparing the per‐
-formance of algorithms, and we’ll use this notation throughout the book when talking
+thereof. While these distinctions add precision to statements about algorithmic scaling, outside computer science theory exams 
+and the remarks of pedantic blog commenters, you’ll rarely see such distinctions made in practice. Far more common in the
+data science world is a less rigid use of big-O notation: as a general (if imprecise) description of the scaling of an algorithm. 
+With apologies to theorists and pedants, this is the interpretation we’ll use throughout this book.
+Big-O notation, in this loose sense, tells you how much time your algorithm will take as you increase the amount of data. 
+If you have an O(N) (read “order N”) algorithm that takes 1 second to operate on a list of length N=1,000, then you should expect it to
+take roughly 5 seconds for a list of length N=5,000. If you have an O(N^2) (read “order N squared”) algorithm that takes 1 second for N=1,000, then you should expect it to
+take about 25 seconds for N=5,000. For our purposes, the N will usually indicate some aspect of the size of the dataset (the
+number of points, the number of dimensions, etc.). When trying to analyze billions or trillions of samples, the difference between O(N) and (N^2) can be far from trivial!
+Notice that the big-O notation by itself tells you nothing about the actual wall-clock time of a computation, but only about its scaling as you change N. Generally, for
+example, an O(N) algorithm is considered to have better scaling than an O(N^2) algorithm, and for good reason. But for small datasets in particular, the algorithm with
+better scaling might not be faster. For example, in a given problem an O(N^2) algorithm might take 0.01 seconds, while a “better” O(N) algorithm might take 1 second.
+Scale up N by a factor of 1,000, though, and the O(N) algorithm will win out.
+Even this loose version of Big-O notation can be very useful for comparing the performance of algorithms, and we’ll use this notation throughout the book when talking
 about how algorithms scale.
 
 **Structured Data: NumPy’s Structured Arrays**
@@ -2236,10 +2192,9 @@ age = [25, 45, 37, 19]
 weight = [55.0, 85.5, 68.0, 61.5]
 ```
 
-But this is a bit clumsy. There’s nothing here that tells us that the three arrays are
-related; it would be more natural if we could use a single structure to store all of this
-data. NumPy can handle this through structured arrays, which are arrays with com‐
-pound data types.
+But this is a bit clumsy. There’s nothing here that tells us that the three arrays are related; it would be more natural 
+if we could use a single structure to store all of this data. NumPy can handle this through structured arrays, which are 
+arrays with compound data types.
 
 Recall that previously we created a simple array using an expression like this:
 
@@ -2267,7 +2222,6 @@ data['weight'] = weight
 print(data)
 [('Alice', 25, 55.0) ('Bob', 45, 85.5) ('Cathy', 37, 68.0)
 ('Doug', 19, 61.5)]
-
 ```
 
 As we had hoped, the data is now arranged together in one convenient block of
@@ -2297,20 +2251,17 @@ Using Boolean masking, this even allows you to do some more sophisticated operas
 ```
 In[9]: # Get names where age is under 30
 data[data['age'] < 30]['name']
-Out[9]: array(['Alice', 'Doug'],
-dtype='<U10')
+
+Out[9]: array(['Alice', 'Doug'], dtype='<U10')
 ```
 
-Note that if you’d like to do any operations that are any more complicated than these,
-you should probably consider the Pandas package, covered in the next chapter. As
-we’ll see, Pandas provides a DataFrame object, which is a structure built on NumPy
-arrays that offers a variety of useful data manipulation functionality similar to what
-we’ve shown here, as well as much, much more.
+Note that if you’d like to do any operations that are any more complicated than these, you should probably consider the Pandas package, 
+covered in the next chapter. As we’ll see, Pandas provides a DataFrame object, which is a structure built on NumPy
+arrays that offers a variety of useful data manipulation functionality similar to what we’ve shown here, as well as much, much more.
 
 **Creating Structured Arrays**
 
-Structured array data types can be specified in a number of ways. Earlier, we saw the
-dictionary method:
+Structured array data types can be specified in a number of ways. Earlier, we saw the dictionary method:
 
 ```
 In[10]: np.dtype({'names':('name', 'age', 'weight'),
@@ -2318,8 +2269,7 @@ In[10]: np.dtype({'names':('name', 'age', 'weight'),
 Out[10]: dtype([('name', '<U10'), ('age', '<i4'), ('weight', '<f8')])
 ```
 
-For clarity, numerical types can be specified with Python types or NumPy dtypes
-instead:
+For clarity, numerical types can be specified with Python types or NumPy dtypes instead:
 
 ```
 In[11]: np.dtype({'names':('name', 'age', 'weight'),
@@ -2341,12 +2291,10 @@ In[13]: np.dtype('S10,i4,f8')
 Out[13]: dtype([('f0', 'S10'), ('f1', '<i4'), ('f2', '<f8')])
 ```
 
-The shortened string format codes may seem confusing, but they are built on simple
-principles. The first (optional) character is < or >, which means “little endian” or “big
-endian,” respectively, and specifies the ordering convention for significant bits. The
-next character specifies the type of data: characters, bytes, ints, floating points, and so
-on (see Table 2-4). The last character or characters represents the size of the object in
-bytes.
+The shortened string format codes may seem confusing, but they are built on simple principles. 
+The first (optional) character is < or >, which means “little endian” or “big endian,” respectively, and specifies the 
+ordering convention for significant bits. The next character specifies the type of data: characters, bytes, ints, floating points, 
+and so on (see Table 2-4). The last character or characters represents the size of the object in bytes.
 
 **NumPy data types**
 
@@ -2354,8 +2302,7 @@ bytes.
 
 **More Advanced Compound Types**
 
-It is possible to define even more advanced compound types. For example, you can
-create a type where each element contains an array or matrix of values. Here, we’ll
+It is possible to define even more advanced compound types. For example, you can create a type where each element contains an array or matrix of values. Here, we’ll
 create a data type with a mat component consisting of a 3×3 floating-point matrix:
 
 ```
@@ -2369,12 +2316,8 @@ print(X['mat'][0])
 [ 0. 0. 0.]]
 ```
 
-Now each element in the X array consists of an id and a 3×3 matrix. Why would you
-use this rather than a simple multidimensional array, or perhaps a Python dictionary?
-The reason is that this NumPy dtype directly maps onto a C structure definition, so
-the buffer containing the array content can be accessed directly within an appropri‐
-ately written C program. If you find yourself writing a Python interface to a legacy C
-or Fortran library that manipulates structured data, you’ll probably find structured
+Now each element in the X array consists of an id and a 3×3 matrix. Why would you use this rather than a simple multidimensional array, or perhaps a Python dictionary?
+The reason is that this NumPy dtype directly maps onto a C structure definition, so the buffer containing the array content can be accessed directly within an appropriately written C program. If you find yourself writing a Python interface to a legacy C or Fortran library that manipulates structured data, you’ll probably find structured
 arrays quite useful!
 
 **RecordArrays: Structured Arrays with a Twist**
@@ -2409,5 +2352,4 @@ In[17]: %timeit data['age']
 100000 loops, best of 3: 7.27 µs per loop
 ```
 
-Whether the more convenient notation is worth the additional overhead will depend
-on your own application.
+Whether the more convenient notation is worth the additional overhead will depend on your own application.
