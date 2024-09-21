@@ -23,8 +23,6 @@ b. Create a view to generate the data.
 9/ Programming Cassandra with Java or Python (EITHER language is fine, zip everything please)
 
 > Note: I have some python code(our class material) to connect to cassandra, you could use that.
-You would need docker with my code below, because of the username and password, so it is nice that you read module 4 's document named "#4_1_Docker_Cassandra_Programming.odt". That will teach a little about docker image that we are using.
-https://kevinli-webbertech.github.io/blog/html/cassandra.html to an external site.
 
 * Create keyspace using Java/Python
 
