@@ -1,4 +1,4 @@
-# Homework 3 Normalization
+# Homework 4 Normalization
 
 >Hint:
 > * A lot of the question here you can not really find answer in my sides. You would have to do google search.
