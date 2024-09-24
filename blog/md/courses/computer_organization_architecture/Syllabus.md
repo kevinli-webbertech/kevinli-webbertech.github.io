@@ -16,7 +16,7 @@ Computer Organization and Architecture 10th - William Stallings
 | Week 3  | Operating System and System Software                               |
 | Week 4  | Arithmetic: Number Systems                                         |
 | Week 4  | Arithmetic: Computer Arithmetic                                    |
-| Week 5  | CPU: (Instruction sets: Chracteristics and Functions)              |
+| Week 5  | CPU: (Instruction sets: Characteristics and Functions)             |
 | Week 5  | CPU: (Instruction sets: Addressing Modes and Formats)              |
 | Week 6  | Processor Structure and Function                                   |
 | Week 6  | Reduced Instruction Set Computers(RISC)                            |
