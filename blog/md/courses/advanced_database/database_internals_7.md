@@ -1,7 +1,7 @@
 # **Database Internals**
 
 
-![HTTP Protocol](../../../../images/advanced_database/database_internals1.png)
+![HTTP Protocol](../../../images/advanced_database/database_internals1.png)
 
 **Outline**
 
@@ -44,7 +44,7 @@ These databases combine properties of both OLTP and OLAP stores.
 
 **Storage Engine**
 
-![HTTP Protocol](../../../../images/advanced_database/database_internals2.png)
+![HTTP Protocol](../../../images/advanced_database/database_internals2.png)
 
 **_Access methods (storage structures)_** 
 
@@ -59,7 +59,7 @@ MySQL, PostgreSQL, and most of the traditional relational databases. The two pio
 
 **Column-Oriented Data Layout** 
 
-![HTTP Protocol](../../../../images/advanced_database/database_internals3.png)
+![HTTP Protocol](../../../images/advanced_database/database_internals3.png)
 
 Here, values for the same 
 column are stored contiguously on disk (as opposed to storing rows contiguously as in the previous example). 
@@ -83,7 +83,7 @@ representing links between pages) are identified by the timestamps at
 which these snapshots were taken. In a simplified way, it can be 
 represented as a nested map,
 
-![HTTP Protocol](../../../../images/advanced_database/database_internals4.png)
+![HTTP Protocol](../../../images/advanced_database/database_internals4.png)
 
 
 A canonical example from the Bigtable paper [CHANG06] is a Webtable.
@@ -91,7 +91,7 @@ A canonical example from the Bigtable paper [CHANG06] is a Webtable.
 A Webtable stores snapshots of web page contents, their attributes, and the relations among them at a specific timestamp. Pages are identified by the reversed URL, and all attributes (such as page content and anchors, 
 representing links between pages) are identified by the timestamps at which these snapshots were taken.
 
-![HTTP Protocol](../../../../images/advanced_database/database_internals5.png)
+![HTTP Protocol](../../../images/advanced_database/database_internals5.png)
 
 ## **Data Files** 
 
@@ -126,7 +126,7 @@ a) Two indexes reference data entries directly from secondary index files.
 
 b) A secondary index goes through the indirection layer of a primary index to locate the data entries.
 
-![HTTP Protocol](../../../../images/advanced_database/database_internals6.png)
+![HTTP Protocol](../../../images/advanced_database/database_internals6.png)
 
 Many database systems have an inherent and explicit primary key, a set of columns that uniquely identify the database record. In cases when the primary key is not specified, the storage engine can create an implicit 
 primary key (for example, MySQL InnoDB adds a new auto-increment column and fills in its values automatically). 
@@ -137,7 +137,7 @@ a) Two indexes reference data entries directly from secondary index files.
 
 b) A secondary index goes through the indirection layer of a primary index to locate the data entries.
 
-![HTTP Protocol](../../../../images/advanced_database/database_internals7.png)
+![HTTP Protocol](../../../images/advanced_database/database_internals7.png)
 
 
 Both approaches have their pros and cons and are better discussed in the scope of a complete implementation. By referencing data directly, we can reduce the number of disk seeks, but have to pay a cost of updating the pointers whenever the record is updated or relocated during a maintenance process. 
@@ -191,7 +191,7 @@ B-Trees are not a recent invention: they were introduced by Rudolph Bayer and Ed
 
 Binary Search Tree Issue (Tree balancing)
 
-![HTTP Protocol](../../../../images/advanced_database/database_internals8.png)
+![HTTP Protocol](../../../images/advanced_database/database_internals8.png)
 
 The balanced tree is defined as one that has a height of log2 N, where N is the total number of items in the tree, and the difference in height between the two subtrees is not greater than one. Without balancing, we lose performance benefits of the binary search tree structure, 
 and allow insertions and deletions order to determine tree shape.
@@ -202,7 +202,7 @@ O(log2 N). If the tree is not balanced, worst-case complexity goes up to O(N), s
 One of the ways to keep the tree balanced is to perform a rotation step after nodes are added or removed. If the insert operation leaves a branch unbalanced (two consecutive nodes in the branch have only one child), we 
 can rotate nodes around the middle one. In the example shown in Figure 2-4, during rotation the middle node (3), known as a rotation pivot, is promoted one level higher, and its parent becomes its right child. 
 
-![HTTP Protocol](../../../../images/advanced_database/database_internals9.png)
+![HTTP Protocol](../../../images/advanced_database/database_internals9.png)
 
 1. **What is the differences between column-based and column-wide based database?**
 2. **What is marshalling?**
