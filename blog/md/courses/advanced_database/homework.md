@@ -1,4 +1,4 @@
-# Assignment 7 Implement a Javascript Calculator
+# HW 7
 
 ## Write a Javascript code to implement a simple calculator.
 This is to get yourself familiarized with HTML5 and Javascript.
