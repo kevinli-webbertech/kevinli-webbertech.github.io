@@ -18,3 +18,7 @@ Please fill out the algorithm body and submit your code in word and python file 
 ![homework8-2.png](../../../../images/advanced_database/homework8-2.png)
 
 For how LRU is working, please refer to our class content.
+
+The result should look similar to the following,
+
+![homework8-3.png](../../../../images/advanced_database/homework8-3.png)
