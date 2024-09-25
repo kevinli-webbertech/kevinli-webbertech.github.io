@@ -1,22 +1,19 @@
 # **Database Internals**
 
-
-![HTTP Protocol](../../../images/advanced_database/database_internals1.png)
+![database_internal_book](../../../images/advanced_database/database_internals1.png)
 
 **Outline**
 
 * Focuses on the storage engine in node-local processes
-* introduce B-Trees, and cover algorithms for efficiently maintaining B-Tree structures on disk, 
+* Introduce B-Trees, and cover algorithms for efficiently maintaining B-Tree structures on disk, 
 including serialization, page layout, and on-disk representations
 * Log-structured storage, commonly used for implementing file and storage systems, motivation, and reasons to use them. 
-* how to organize multiple nodes into a database cluster
-* fault-tolerant distributed systems
+* How to organize multiple nodes into a database cluster
+* Fault-tolerant distributed systems
 * Distributed Algorithms
-* introduce several algorithms for leader 
+* Introduce several algorithms for leader 
 election and discuss their suitability
-* one of the most difficult things in distributed systems is achieving data 
-consistency
-
+* One of the most difficult things in distributed systems is achieving data consistency
 
 Most databases already have stress tools that can be used to reconstruct specific use cases. If there’s no standard 
 stress tool to generate realistic randomized workloads in the database ecosystem, it might be a red flag. 
@@ -25,7 +22,6 @@ One of the popular tools used for benchmarking, performance evaluation, and comp
 (YCSB). The Transaction Processing Performance Council (TPC). TPC has a set of benchmarks that database  vendors use for
 comparing and advertising the performance of their products. TPC-C is an online transaction processing (OLTP) benchmark,
 a mixture of read-only and update transactions that  simulate common application workloads. 
-
 
 ## **Online transaction processing (OLTP) databases** 
 
@@ -41,10 +37,9 @@ handling  complex, long-running ad hoc queries.
 
 These databases combine properties of both OLTP and OLAP stores. 
 
-
 **Storage Engine**
 
-![HTTP Protocol](../../../images/advanced_database/database_internals2.png)
+![sql_engine](../../../images/advanced_database/database_internals2.png)
 
 **_Access methods (storage structures)_** 
 
@@ -59,7 +54,7 @@ MySQL, PostgreSQL, and most of the traditional relational databases. The two pio
 
 **Column-Oriented Data Layout** 
 
-![HTTP Protocol](../../../images/advanced_database/database_internals3.png)
+![column_oriented_data](../../../images/advanced_database/database_internals3.png)
 
 Here, values for the same 
 column are stored contiguously on disk (as opposed to storing rows contiguously as in the previous example). 
@@ -74,7 +69,6 @@ well as column-oriented stores, such as Apache Kudu, ClickHouse, and many others
 Column-oriented databases should not be mixed up with wide column stores, such as BigTable or HBase, where data is represented as a multidimensional map, columns are grouped into column families (usually storing data of the same type), and inside each column family, data is 
 stored row-wise. This layout is best for storing data retrieved by a key or a sequence of keys. 
 
-
 A canonical example from the Bigtable paper [CHANG06] is a Webtable. 
 A Webtable stores snapshots of web page contents, their attributes, and the 
 relations among them at a specific timestamp. Pages are identified by the 
@@ -83,15 +77,14 @@ representing links between pages) are identified by the timestamps at
 which these snapshots were taken. In a simplified way, it can be 
 represented as a nested map,
 
-![HTTP Protocol](../../../images/advanced_database/database_internals4.png)
-
+![wide_column_store](../../../images/advanced_database/database_internals4.png)
 
 A canonical example from the Bigtable paper [CHANG06] is a Webtable.
 
 A Webtable stores snapshots of web page contents, their attributes, and the relations among them at a specific timestamp. Pages are identified by the reversed URL, and all attributes (such as page content and anchors, 
 representing links between pages) are identified by the timestamps at which these snapshots were taken.
 
-![HTTP Protocol](../../../images/advanced_database/database_internals5.png)
+![wide_column_store1](../../../images/advanced_database/database_internals5.png)
 
 ## **Data Files** 
 
@@ -126,7 +119,7 @@ a) Two indexes reference data entries directly from secondary index files.
 
 b) A secondary index goes through the indirection layer of a primary index to locate the data entries.
 
-![HTTP Protocol](../../../images/advanced_database/database_internals6.png)
+![database_index](../../../images/advanced_database/database_internals6.png)
 
 Many database systems have an inherent and explicit primary key, a set of columns that uniquely identify the database record. In cases when the primary key is not specified, the storage engine can create an implicit 
 primary key (for example, MySQL InnoDB adds a new auto-increment column and fills in its values automatically). 
@@ -137,7 +130,7 @@ a) Two indexes reference data entries directly from secondary index files.
 
 b) A secondary index goes through the indirection layer of a primary index to locate the data entries.
 
-![HTTP Protocol](../../../images/advanced_database/database_internals7.png)
+![database_index1](../../../images/advanced_database/database_internals7.png)
 
 
 Both approaches have their pros and cons and are better discussed in the scope of a complete implementation. By referencing data directly, we can reduce the number of disk seeks, but have to pay a cost of updating the pointers whenever the record is updated or relocated during a maintenance process. 
@@ -149,7 +142,6 @@ To reduce the costs of pointer updates, instead of payload offsets, some impleme
 Why storage engine is evolving and why new database storage structures keep emerging.  why there are so many B- Tree variants.
 
 Storage structures have three common variables: they use buffering (or avoid using it), use immutable (or mutable) files, and store values in order (or out of order).
-
 
 **Buffering**
 
@@ -168,7 +160,7 @@ One of them is copy-on-write (see “Copy-on-Write”), where the modified page,
 
 Storing data out of order (most often, in insertion order) opens up for some write-time optimizations. For example, Bitcask (see “Bitcask”) and WiscKey (see “WiscKey”) store data records directly in append-only files. 
 
-## **B - tree Basics**
+## **B Tree Basics**
 
 Two types of storage engines:
 
@@ -191,7 +183,7 @@ B-Trees are not a recent invention: they were introduced by Rudolph Bayer and Ed
 
 Binary Search Tree Issue (Tree balancing)
 
-![HTTP Protocol](../../../images/advanced_database/database_internals8.png)
+![BST_TREE](../../../images/advanced_database/database_internals8.png)
 
 The balanced tree is defined as one that has a height of log2 N, where N is the total number of items in the tree, and the difference in height between the two subtrees is not greater than one. Without balancing, we lose performance benefits of the binary search tree structure, 
 and allow insertions and deletions order to determine tree shape.
@@ -202,7 +194,7 @@ O(log2 N). If the tree is not balanced, worst-case complexity goes up to O(N), s
 One of the ways to keep the tree balanced is to perform a rotation step after nodes are added or removed. If the insert operation leaves a branch unbalanced (two consecutive nodes in the branch have only one child), we 
 can rotate nodes around the middle one. In the example shown in Figure 2-4, during rotation the middle node (3), known as a rotation pivot, is promoted one level higher, and its parent becomes its right child. 
 
-![HTTP Protocol](../../../images/advanced_database/database_internals9.png)
+![BST_Pivoting](../../../images/advanced_database/database_internals9.png)
 
 1. **What is the differences between column-based and column-wide based database?**
 2. **What is marshalling?**
