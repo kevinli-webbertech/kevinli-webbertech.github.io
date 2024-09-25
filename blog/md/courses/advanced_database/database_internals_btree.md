@@ -171,7 +171,7 @@ What is BST?
 
 ![bst1](../../../images/advanced_database/databaseinternals104.png)
 
-![bst2](../../../images/advanced_database/databaseinternals105.png)
+![bst2](../../../images/advanced_database/database_internals8.png)
 
 The balanced tree is defined as one that has a height of log2 N, where N is the total number of items in the tree, and the difference in height between the two subtrees is not greater than one. Without balancing, we lose performance benefits of the binary search tree structure, and allow insertions and deletions order to determine tree shape.
 
@@ -183,7 +183,7 @@ If the tree is not balanced, worst-case complexity goes up to O(N), since we mig
 
 One of the ways to keep the tree balanced is to perform a rotation step after nodes are added or removed. If the insert operation leaves a branch unbalanced (two consecutive nodes in the branch have only one child), we can rotate nodes around the middle one. In the example shown in Figure 2-4, during rotation the middle node (3), known as a rotation pivot, is promoted one level higher, and its parent becomes its right child. 
 
-![bst_pivoting](../../../images/advanced_database/databaseinternals107.png)
+![bst_pivoting](../../../images/advanced_database/database_internals9.png)
 
 ## **Trees for Disk-Based Storage**
 

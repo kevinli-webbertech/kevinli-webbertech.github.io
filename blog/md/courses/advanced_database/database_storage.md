@@ -149,17 +149,17 @@ All other indexes are called secondary. Secondary indexes can point directly to 
 ```sql
 SELECT * FROM students WHERE score > 90
 ```
-```
-Stu_id primary index,
-Score , index, 
-(Score and stu_id)
-(score and age) age > 25 and score > 90
-```
+
+If let us have a schema like the following, let us think about what is the primary index and what is the secondary index.
+
+`students(id, lastname, firstname, score)`
 
 An index is a structure that organizes data records on disk in a way that facilitates efficient retrieval operations. Index files are organized as specialized structures that map keys to locations in data files where the records identified by these keys (in the case of heap files) or primary keys 
 (in the case of index-organized tables) are stored. 
 
-An index on a primary (data) file is called the primary index. However, in most cases we can also assume that the primary index is built over a primary key or a set of keys identified as primary. All other indexes are called secondary. Secondary indexes can point directly to the data record, or simply store its primary key. A pointer to a data record can hold an offset to a heap file or an index-organized table. Multiple secondary indexes can point to the same record, allowing a single data record to be identified by different fields and located through different indexes. While primary index files hold a unique entry per search key, secondary indexes may hold several entries per search key. 
+* An index on a primary (data) file is called the primary index. However, in most cases we can also assume that the primary index is built over a primary key or a set of keys identified as primary. 
+
+* All other indexes are called secondary. Secondary indexes can point directly to the data record, or simply store its primary key. A pointer to a data record can hold an offset to a heap file or an index-organized table. Multiple secondary indexes can point to the same record, allowing a single data record to be identified by different fields and located through different indexes. While primary index files hold a unique entry per search key, secondary indexes may hold several entries per search key. 
  
 If the order of data records follows the search key order, this index is called clustered (also known as clustering). Data records in the clustered case are usually stored in the same file or in a clustered file, where the key 
 order is preserved. If the data is stored in a separate file, and its order does not follow the key order, the index is called nonclustered (sometimes called unclustered). Figure 1-5 shows the difference between the two approaches: 
@@ -187,10 +187,10 @@ Using indirection in the form of a primary index allows us to reduce the cost of
 
 To reduce the costs of pointer updates, instead of payload offsets, some implementations use primary keys for indirection. For example, MySQL InnoDB uses a primary index and performs two lookups: one in the secondary index, and one in a primary index when performing a query [TARIQ11]. This adds an overhead of a primary index lookup instead of following the offset directly from the secondary index.
 
-Why storage engine is evolving and why new database storage structures keep emerging.  why there are so many B- Tree variants.
+> Why storage engine is evolving and why new database storage structures keep emerging.  
+> Why there are so many B-Tree variants.
 
 Storage structures have three common variables: they use buffering (or avoid using it), use immutable (or mutable) files, and store values in order (or out of order).
-
 
 
 **Buffering**
