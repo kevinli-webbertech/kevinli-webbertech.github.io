@@ -124,14 +124,13 @@ When records are stored in a separate file, index files hold data entries, uniqu
 
 **Two ways of storing data**
 
-* _Storing data with index_
+* Storing data with index
 
 Storing data records in the index allows us to reduce the number of disk seeks by at least one, since after traversing the index and locating the searched key, we do not have to address a separate file to find the associated data record.
 
-* _Storing data and index separately_
+* Storing data and index separately
 
 When records are stored in a separate file, index files hold data entries, uniquely identifying data records and containing enough information to locate them in the data file. For example, we can store file offsets (sometimes called row locators), locations of data records in the data file, or bucket IDs in the case of hash files. In index-organized tables, data entries hold actual data records.
-
 
 ## **Index Files** 
 
@@ -211,7 +210,7 @@ One of them is copy-on-write (see “Copy-on-Write”), where the modified page,
 
 Storing data out of order (most often, in insertion order) opens up for some write-time optimizations. For example, Bitcask (see “Bitcask”) and WiscKey (see “WiscKey”) store data records directly in append-only files. 
 
-## **Ref: Database internal****
+## **Ref: Database internal**
 
 
 
