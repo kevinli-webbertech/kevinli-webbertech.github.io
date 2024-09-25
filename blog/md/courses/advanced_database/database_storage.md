@@ -1,4 +1,4 @@
-# **Database Internals**
+# **Database Internals - Index, Data Files and Storage**
 
 ![database_internal_book](../../../images/advanced_database/database_internals1.png)
 
@@ -86,6 +86,24 @@ representing links between pages) are identified by the timestamps at which thes
 
 ![wide_column_store1](../../../images/advanced_database/database_internals5.png)
 
+### **Blocks vs page**
+
+**Page :** excel sheet of data, flat table, a sequence of records.
+
+**Blocks:** Each block is linkedlist node. And disk seek will link them and find them.
+
+* New records (insertions) and updates to the existing records are
+  represented by key/value pairs.
+
+* Most modern storage systems do not delete data from pages explicitly. Instead, they use deletion markers (also called
+  tombstones), which contain deletion metadata, such as a key and a
+  timestamp.
+
+* Space occupied by the records shadowed by their updates or
+  deletion markers is reclaimed during garbage collection, which reads the pages, writes the live (i.e., nonshadowed) records to the new place, and discards the shadowed ones.
+
+
+
 ## **Data Files** 
 
 * Data files (sometimes called primary files) can be implemented as index- organized tables (IOT), 
@@ -104,8 +122,40 @@ Storing data records in the index allows us to reduce the number of disk seeks b
 When records are stored in a separate file, index files hold data entries, uniquely identifying data records and containing enough information to locate them in the data file. For example, we can store file offsets 
 (sometimes called row locators), locations of data records in the data file, or bucket IDs in the case of hash files. In index-organized tables, data entries hold actual data records.
 
+**Two ways of storing data**
+
+* _Storing data with index_
+
+Storing data records in the index allows us to reduce the number of disk seeks by at least one, since after traversing the index and locating the searched key, we do not have to address a separate file to find the associated data record.
+
+* _Storing data and index separately_
+
+When records are stored in a separate file, index files hold data entries, uniquely identifying data records and containing enough information to locate them in the data file. For example, we can store file offsets (sometimes called row locators), locations of data records in the data file, or bucket IDs in the case of hash files. In index-organized tables, data entries hold actual data records.
+
 
 ## **Index Files** 
+
+Index files are used to map keys to locations in data files where the records identified by these keys (in the case of heap files) or primary keys (in the case of index-organized tables) are stored.
+
+### **Two types of index**
+
+* Primary index: index on primary key, one column or a tuple of columns that are primary key.
+
+* Secondary index: all others, such as in the where statement in sql
+
+**Note:** An index on a primary (data) file is called the primary index. However, in most cases we can also assume that the primary index is built over a primary key or a set of keys identified as primary.
+
+All other indexes are called secondary. Secondary indexes can point directly to the data record, or simply store its primary key. A pointer to a data record can hold an offset to a heap file or an index-organized table. Multiple secondary indexes can point to the same record, allowing a single data record to be identified by different fields and located through different indexes. While primary index files hold a unique entry per search key, secondary indexes may hold several entries per search key.
+
+```sql
+SELECT * FROM students WHERE score > 90
+```
+```
+Stu_id primary index,
+Score , index, 
+(Score and stu_id)
+(score and age) age > 25 and score > 90
+```
 
 An index is a structure that organizes data records on disk in a way that facilitates efficient retrieval operations. Index files are organized as specialized structures that map keys to locations in data files where the records identified by these keys (in the case of heap files) or primary keys 
 (in the case of index-organized tables) are stored. 
@@ -132,7 +182,6 @@ b) A secondary index goes through the indirection layer of a primary index to lo
 
 ![database_index1](../../../images/advanced_database/database_internals7.png)
 
-
 Both approaches have their pros and cons and are better discussed in the scope of a complete implementation. By referencing data directly, we can reduce the number of disk seeks, but have to pay a cost of updating the pointers whenever the record is updated or relocated during a maintenance process. 
 
 Using indirection in the form of a primary index allows us to reduce the cost of pointer updates, but has a higher cost on a read path. Updating just a couple of indexes might work if the workload mostly consists of reads, but this approach does not work well for write-heavy workloads with multiple indexes. 
@@ -142,6 +191,8 @@ To reduce the costs of pointer updates, instead of payload offsets, some impleme
 Why storage engine is evolving and why new database storage structures keep emerging.  why there are so many B- Tree variants.
 
 Storage structures have three common variables: they use buffering (or avoid using it), use immutable (or mutable) files, and store values in order (or out of order).
+
+
 
 **Buffering**
 
@@ -160,48 +211,7 @@ One of them is copy-on-write (see “Copy-on-Write”), where the modified page,
 
 Storing data out of order (most often, in insertion order) opens up for some write-time optimizations. For example, Bitcask (see “Bitcask”) and WiscKey (see “WiscKey”) store data records directly in append-only files. 
 
-## **B Tree Basics**
-
-Two types of storage engines:
-
-* mutable (in-place update)
-* immutable
-
-### **Mutable and in-place:** 
-
-During insert, delete, or update operations, data records are updated directly in their locations in the target file.
-
-**_Note:_** 
-
-Storage engines often allow multiple versions of the same data record to be present in the database; for example, when using multiversion concurrency control (see “Multiversion Concurrency Control”) or slotted page organization (see “Slotted Pages”). 
-
-Before we go to b-tree, we want to see other tree data structures,
-
-Binary search trees, 2-3-Trees, and AVL Trees.
-
-B-Trees are not a recent invention: they were introduced by Rudolph Bayer and Edward M. McCreight back in 1971 and gained popularity over the years. By 1979, there were already quite a few variants of B-Trees. 
-
-Binary Search Tree Issue (Tree balancing)
-
-![BST_TREE](../../../images/advanced_database/database_internals8.png)
-
-The balanced tree is defined as one that has a height of log2 N, where N is the total number of items in the tree, and the difference in height between the two subtrees is not greater than one. Without balancing, we lose performance benefits of the binary search tree structure, 
-and allow insertions and deletions order to determine tree shape.
-
-In the balanced tree, following the left or right node pointer reduces the search space in half on average, so lookup complexity is logarithmic: 
-O(log2 N). If the tree is not balanced, worst-case complexity goes up to O(N), since we might end up in the situation where all elements end up on one side of the tree.
-
-One of the ways to keep the tree balanced is to perform a rotation step after nodes are added or removed. If the insert operation leaves a branch unbalanced (two consecutive nodes in the branch have only one child), we 
-can rotate nodes around the middle one. In the example shown in Figure 2-4, during rotation the middle node (3), known as a rotation pivot, is promoted one level higher, and its parent becomes its right child. 
-
-![BST_Pivoting](../../../images/advanced_database/database_internals9.png)
-
-1. **What is the differences between column-based and column-wide based database?**
-2. **What is marshalling?**
-3. **What is ACID?**
-4. **What is database sharding?**
-
-## **Ref: Database internal**
+## **Ref: Database internal****
 
 
 
