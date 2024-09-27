@@ -460,9 +460,6 @@ For example, we use shifted values to compute the one-year return on investment 
 
 ![roi.png](../../../../images/big_data/pandas/stock_roi.png)
 
-This helps us to see the overall trend in Google stock: thus far, the most profitable
-times to invest in Google have been (unsurprisingly, in retrospect) shortly after its
-IPO, and in the middle of the 2009 recession.
 
 **Rolling windows**
 
