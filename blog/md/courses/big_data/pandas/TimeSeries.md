@@ -451,11 +451,30 @@ ax[0].axvline(local_max, alpha=0.3, color='red')
 
 ax[1].legend(['shift(900)'], loc=2)
 ax[1].get_xticklabels()[4].set(weight='heavy', color='red')
-ax[1].axvline(local_max + offset, alpha=0.3, color='red')
-
+ax[1].axvline(local_max + offset, alpha=0.3, color='red'
 ```
 
 ![shift.png](../../../../images/big_data/pandas/shift.png)
+
+We see here that shift(900) shifts the data by 900 days, pushing some of it off the end of the graph (and leaving NA values at the other end).
+A common context for this type of shift is computing differences over time. 
+For example, we use shifted values to compute the one-year return on investment for Microsoft stock over the course of the dataset.
+
+![roi.png](../../../../images/big_data/pandas/stock_roi.png)
+
+This helps us to see the overall trend in Google stock: thus far, the most profitable
+times to invest in Google have been (unsurprisingly, in retrospect) shortly after its
+IPO, and in the middle of the 2009 recession.
+
+**Rolling windows**
+
+For example, here is the one-year centered rolling mean and standard deviation of the
+Microsoft stock prices.
+
+![msft_rolling_window.png](../../../../images/big_data/pandas/msft_rolling_window.png)
+
+As with `groupby` operations, the `aggregate()` and `apply()` methods can be used for
+custom rolling computations.
 
 ### ref
 
