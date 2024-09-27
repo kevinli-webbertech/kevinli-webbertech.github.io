@@ -164,8 +164,7 @@ essentially a replacement for Python’s native datetime, but is based on the mo
 efficient `numpy.datetime64` data type. The associated index structure is
 `DatetimeIndex`.
 
-• For time periods, Pandas provides the `Period` type. This encodes a fixed-frequency interval based on numpy.datetime64. 
-The associated index structure is `PeriodIndex`.
+• For time periods, Pandas provides the `Period` type. This encodes a fixed-frequency interval based on numpy.datetime64.The associated index structure is `PeriodIndex`.
 
 • For time deltas or durations, Pandas provides the `Timedelta` type. Timedelta is a
 more efficient replacement for Python’s native datetime.timedelta type, and is
@@ -273,10 +272,10 @@ Adding an S suffix to any of these marks it instead at the beginning.
 
 ![frequency_start.png](../../../../images/big_data/pandas/frequency_start.png)
 
-Additionally, you can change the month used to mark any quarterly or annual code
-by adding a three-letter month code as a suffix:
+Additionally, you can change the month used to mark any quarterly or annual code by adding a three-letter month code as a suffix:
 
 • Q-JAN, BQ-FEB, QS-MAR, BQS-APR, etc.
+
 • A-JAN, BA-FEB, AS-MAR, BAS-APR, etc.
 
 In the same way, you can modify the split-point of the weekly frequency by adding a
@@ -284,8 +283,7 @@ three-letter weekday code:
 
 • W-SUN, W-MON, W-TUE, W-WED, etc.
 
-On top of this, codes can be combined with numbers to specify other frequencies. For
-example, for a frequency of 2 hours 30 minutes, we can combine the hour (H) and minute (T) codes as follows:
+On top of this, codes can be combined with numbers to specify other frequencies. For example, for a frequency of 2 hours 30 minutes, we can combine the hour (H) and minute (T) codes as follows:
 
 ```
 In[23]: pd.timedelta_range(0, periods=9, freq="2H30T")
