@@ -406,6 +406,57 @@ Try it in your notebook,
 
 ![msft_close_plot.png](../../../../images/big_data/pandas/msft_close_plot.png)
 
+### Resampling and converting frequencies
+
+One common need for time series data is resampling at a higher or lower frequency.
+You can do this using the `resample()` method, or the much simpler `asfreq()` method.
+
+Notice the difference: at each point, resample reports the average of the previous year,
+while asfreq reports the value at the end of the year.
+
+![resample.png](../../../../images/big_data/pandas/resample.png)
+
+For up-sampling, resample() and asfreq() are largely equivalent, though resample
+has many more options available. In this case, the default for both methods is to leave
+the up-sampled points empty—that is, filled with NA values. Just as with the
+pd.fillna() function discussed previously, asfreq() accepts a method argument to
+specify how values are imputed. Here, we will resample the business day data at a
+daily frequency (i.e., including weekends);
+
+The top panel is the default: non-business days are left as NA values and do not
+appear on the plot. The bottom panel shows the differences between two strategies
+for filling the gaps: forward-filling and backward-filling.
+
+![up-sampling.png](../../../../images/big_data/pandas/up-sampling.png)
+
+### Time-shifts
+
+Another common time series–specific operation is shifting of data in time. Pandas
+has two closely related methods for computing this: `shift()`. In short,
+the difference between them is that shift() shifts the data.
+
+```
+fig, ax = plt.subplots(2, sharey=True)
+# apply a frequency to the data
+msft = msft_close.asfreq('D', method='pad')
+msft.plot(ax=ax[0])
+msft.shift(900).plot(ax=ax[1])
+
+# legends and annotations
+local_max = pd.to_datetime('2007-11-05')
+offset = pd.Timedelta(900, 'D')
+ax[0].legend(['input'], loc=2)
+ax[0].get_xticklabels()[4].set(weight='heavy', color='red')
+ax[0].axvline(local_max, alpha=0.3, color='red')
+
+ax[1].legend(['shift(900)'], loc=2)
+ax[1].get_xticklabels()[4].set(weight='heavy', color='red')
+ax[1].axvline(local_max + offset, alpha=0.3, color='red')
+
+```
+
+![shift.png](../../../../images/big_data/pandas/shift.png)
+
 ### ref
 
 - https://pandas-datareader.readthedocs.io/en/latest/
