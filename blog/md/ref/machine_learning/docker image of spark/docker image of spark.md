@@ -17,7 +17,7 @@ Once the image is pulled, you can verify it by listing the Docker images:
 ```bash
 docker images
 ```
-4. Run a Spark Container
+## 4. Running a Spark Container
    ```bash
    docker run -it --rm bitnami/spark spark-shell
 ```
