@@ -79,8 +79,8 @@ In[8]: np.datetime64('2015-07-04 12:59:59.50', 'ns')
 Out[8]: numpy.datetime64('2015-07-04T12:59:59.500000000')
 ```
 
-![datetime.png](datetime1.png)
-![datetime2.png](datetime2.png)
+![datetime.png](../../../../images/big_data/pandas/datetime1.png)
+![datetime2.png](../../../../images/big_data/pandas/datetime2.png)
 
 **Dates and times in Pandas**
 
@@ -266,12 +266,12 @@ offset. Just as we saw the D (day) and H (hour) codes previously, we can use suc
 to specify any desired frequency spacing. Table 3-7 summarizes the main codes
 available.
 
-![frequency_code.png](frequency_code.png)
+![frequency_code.png](../../../../images/big_data/pandas/frequency_code.png)
 
 The monthly, quarterly, and annual frequencies are all marked at the end of the specified period. 
 Adding an S suffix to any of these marks it instead at the beginning.
 
-![frequency_start.png](frequency_start.png)
+![frequency_start.png](../../../../images/big_data/pandas/frequency_start.png)
 
 Additionally, you can change the month used to mark any quarterly or annual code
 by adding a three-letter month code as a suffix:
@@ -333,7 +333,7 @@ Date
 2004-08-25 52.43 53.95 51.89 52.95 NaN
 ```
 
-![pandas-datareader.png](pandas_datareader.png)
+![pandas-datareader.png](../../../../images/big_data/pandas/pandas_datareader.png)
 
 Imports data from a number of online sources.
 
@@ -384,11 +384,11 @@ Imports data from a number of online sources.
     ff = DataReader("F-F_ST_Reversal_Factor", "famafrench")
 ```
 
-![functions.png](functions.png)
+![functions.png](../../../../images/big_data/pandas/functions.png)
 
 A lot of the data needs API for some reason, but we will stick to the FRED data,
 
-![vix_index.png](vix_index.png)
+![vix_index.png](../../../../images/big_data/pandas/vix_index.png)
 
 > hint: VIX in finance means the COBE VIX, it is a panic index.
 
@@ -398,13 +398,13 @@ skipped
 
 **Yahoo Fin**
 
-![yahoo_finance_api.png](yahoo_finance_api.png)
+![yahoo_finance_api.png](../../../../images/big_data/pandas/yahoo_finance_api.png)
 
 Try it in your notebook,
 
-![yahoo_finance_api1.png](yahoo_finance_api1.png) 
+![yahoo_finance_api1.png](../../../../images/big_data/pandas/yahoo_finance_api1.png) 
 
-![msft_close_plot.png](msft_close_plot.png)
+![msft_close_plot.png](../../../../images/big_data/pandas/msft_close_plot.png)
 
 ### ref
 
