@@ -6,15 +6,15 @@ In this homework, we will import external data and apply time-series methodologi
 
 In Jupyter notebook, you can run the following to get the data,
 
-# !curl -o FremontBridge.csv https://data.seattle.gov/api/views/65db-xm6k/rows.csv?accessType=DOWNLOAD
+`!curl -o FremontBridge.csv https://data.seattle.gov/api/views/65db-xm6k/rows.csv?accessType=DOWNLOAD`
 
 You should get to the following,
 
-![homework3.png](homework3.png)
+![homework3.png](https://kevinli-webbertech.github.io/blog/images/big_data/homework/homework3.png)
 
 And we can see hourly plot like the following,
 
-![homework3_1.png](homework3_1.png)
+![homework3_1.png](https://kevinli-webbertech.github.io/blog/images/big_data/homework/homework3_1.png)
 
 * Task 2 (25 pts) Plot the Weekly **bicycle crossings of Seattle’s Fremont bridge** data using Resample method.
 
