@@ -108,6 +108,10 @@ pd.eval('df1 + df2 + df3 + df4'))
 Out[9]: True
 ```
 
+See the following image,
+
+![benchmarking](benchmarking.png)
+
 **Operations supported by pd.eval()**
 
 As of Pandas v0.16, pd.eval() supports a wide range of operations. To demonstrate
