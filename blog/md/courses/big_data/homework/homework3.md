@@ -6,7 +6,7 @@ In this homework, we will import external data and apply time-series methodologi
 
 In Jupyter notebook, you can run the following to get the data,
 
-# !curl -o FremontBridge.csv https://data.seattle.gov/api/views/65db-xm6k/rows.csv?accessType=DOWNLOAD
+`!curl -o FremontBridge.csv https://data.seattle.gov/api/views/65db-xm6k/rows.csv?accessType=DOWNLOAD`
 
 You should get to the following,
 
