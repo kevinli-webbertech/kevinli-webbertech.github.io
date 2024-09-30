@@ -4,7 +4,7 @@ Please see the following two files for instructions.
 
 * Please submit both jupiter notebook  and code in word document with screenshots, so that I can do grading quicker.
 * Please download your database, a sqlite file from here,
-[TODO]
+[hawaii.sqlite](../../../courses/advanced_database/homework/hawaii.sqlite)
 
 ## Climate Analysis and Exploration**
 
