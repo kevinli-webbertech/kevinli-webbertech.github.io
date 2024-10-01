@@ -1,5 +1,12 @@
 # Assignment 5 XML Programming
 
+## Submission requirements
+
+* Your word/pdf on top, not in the zip file.
+* If you have source code of a project, you can zip and upload it.
+
+## Tasks
+
 1. What is Javascript? And please write a little bit about what versions JS has been gone through and standards, a little history about Javascript.
 
 2. What is unicode?

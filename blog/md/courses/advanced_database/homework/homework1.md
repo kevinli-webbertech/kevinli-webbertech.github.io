@@ -1,5 +1,10 @@
 # Assignment 1 SQL Basics
 
+## Submission requirements
+
+* Your word/pdf on top, not in the zip file.
+* If you have source code of a project, you can zip and upload it.
+
 ## Tasks
 
 * Install MySQL 8 on your personal laptop. Please make sure you note down the root username and password during installation. (please upload screenshot)

@@ -1,5 +1,12 @@
 # Assignment 4 Cassandra Programming + SQL Questions
 
+## Submission requirements
+
+* Your word/pdf on top, not in the zip file.
+* If you have source code of a project, you can zip and upload it.
+
+## Tasks
+
 1/ What is ACID in RDMS?
 
 2/ What is cross join in RDMS? Please give examples.

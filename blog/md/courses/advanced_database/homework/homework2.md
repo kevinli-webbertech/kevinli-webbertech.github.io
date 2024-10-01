@@ -1,8 +1,11 @@
 # Assignment 2
 
-**Task1**
+## Submission requirements
 
-For linux& Mac users, you could do the following,
+* Your word/pdf on top, not in the zip file.
+* If you have source code of a project, you can zip and upload it.
+
+**Task1**
 
 1/ Install Docker software in your machine, linux, mac or windows whichever you use,
 

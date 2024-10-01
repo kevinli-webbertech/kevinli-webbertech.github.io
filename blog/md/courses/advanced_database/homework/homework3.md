@@ -1,5 +1,12 @@
 # Homework 3 Normalization
 
+## Submission requirements
+
+* Your word/pdf on top, not in the zip file.
+* If you have source code of a project, you can zip and upload it.
+
+## Tasks
+
 1. What is Functional Dependency? How many types of Functional dependencies? Please give examples.
 2. What is Attribute Closure? Please give examples.
 3. What is the blob type in MySQL? That is the difference between blob and binary type?

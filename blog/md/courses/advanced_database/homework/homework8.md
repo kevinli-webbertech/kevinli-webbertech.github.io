@@ -1,5 +1,10 @@
 # Assignment 8 Algorithm Implementation
 
+## Submission requirements
+
+* Your word/pdf on top, not in the zip file.
+* If you have source code of a project, you can zip and upload it.
+
 ## Implement the LRU page replacement algorithm
 
 **Pseudocode of LRU Algorithm**

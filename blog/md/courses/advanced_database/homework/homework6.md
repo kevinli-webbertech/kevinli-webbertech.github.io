@@ -1,5 +1,12 @@
 # Assignment 6 SQLite and Data Analysis
 
+## Submission requirements
+
+* Your word/pdf on top, not in the zip file.
+* If you have source code of a project, you can zip and upload it.
+
+## Tasks
+
 Please see the following two files for instructions.
 
 * Please submit both jupiter notebook  and code in word document with screenshots, so that I can do grading quicker.
