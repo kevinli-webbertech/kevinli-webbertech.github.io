@@ -52,6 +52,61 @@ Alternatively, you can use Cypher Shell to interact with the database via termin
 
 ## **Basic Commands (Cypher Queries)**
 
+## **Cypher** 
+
+### **What is Cypher?**
+
+Cypher is Neo4j’s declarative graph query language. It was created in 2011 by Neo4j engineers as an SQL-equivalent language for graph databases. Similar to SQL, Cypher lets users focus on what to retrieve from graph, rather than how to retrieve it. As such, Cypher enables users to realize the full potential of their property graph databases by allowing for efficient and expressive queries that reveal previously unknown data connections and clusters.
+
+Cypher provides a visual way of matching patterns and relationships. It relies on the following ascii-art type of syntax: (nodes)-[:CONNECT_TO]→(otherNodes). Rounded brackets are used for circular nodes, and -[:ARROWS]→ for relationships. Writing a query is effectively like drawing a pattern through the data in the graph. In other words, entities such as nodes and their relationships are visually built into queries. This makes Cypher a highly intuitive language to both read and write.
+
+
+### **Cypher and SQL: key differences**
+
+Cypher and SQL are similar in many ways. For example, they share many of the same keywords, such as WHERE and ORDER BY. However, there are some important differences between the two:
+
+_**Cypher is schema-flexible**_
+
+While it is both possible and advised to enforce partial schemas using indexes and constraints, Cypher and Neo4j offers a greater degree of schema-flexibility than SQL and a relational database. More specifically, nodes and relationships in a Neo4j database do not have to have a specific property set to them because other nodes or relationships in the same graph have that property (unless there is an existence constraint created on that specific property). This means that users are not required to use a fixed schema to represent data and that they can add new attributes and relationships as their graphs evolve.
+
+**_Query order_**
+
+SQL queries begin with what a user wants to return, whereas Cypher queries end with the return clause. For example, consider the following two queries (both searching a database for titles of movies with a rating of greater than 7), the first written with SQL and the second with Cypher:
+
+**SQL** 
+
+```sql
+SELECT movie.name
+FROM movie
+WHERE movie.rating > 7
+```
+**Cypher** 
+
+```cypher
+MATCH (movie:Movie)
+WHERE movie.rating > 7
+RETURN movie.title
+```
+
+_**Cypher queries are more concise**_
+
+Due to its intuitive, whiteboard-like method of constructing clauses, Cypher queries are often more concise than their equivalent SQL queries. For example, consider the following two queries (both searching a database for the names of the actors in the movie The Matrix), the first written with SQL and the second with Cypher:
+
+**SQL** 
+
+```sql
+SELECT actors.name
+FROM actors
+ 	LEFT JOIN acted_in ON acted_in.actor_id = actors.id
+	LEFT JOIN movies ON movies.id = acted_in.movie_id
+WHERE movies.title = "The Matrix"
+```
+
+`MATCH (actor:Actor)-[:ACTED_IN]->(movie:Movie {title: 'The Matrix'})
+RETURN actor.name`
+
+To learn more on Cypher commands one can visit the documentation [here](https://neo4j.com/docs/cypher-manual/current/introduction/)
+
 1. Create a Node
 
 To create a node representing a person:
