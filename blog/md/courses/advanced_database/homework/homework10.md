@@ -1,6 +1,6 @@
 # HW 10 - MongoDB Programming HW2
 
-Download the zip from the this link, [movie data](./movies.zip)
+Download the zip from this link, [movie data](./movies.zip)
 
 1. Retrieve all movies with title, languages, released, year, directors, writers, countries from the 'movies' collection in MongoDB that released before the year 1900.
 
