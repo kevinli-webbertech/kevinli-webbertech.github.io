@@ -76,6 +76,12 @@ you will see the following terminal,
 
 ![connect_mongodb.png](../../../images/database/connect_mongodb.png)
 
+## Import data into mongo database
+
+Download database file, a json file from here, ["restaurant.json"]("./restaurant.json")
+
+`mongoimport --db restaurant --collection collectionName --file ./restaurant.json --jsonArray`
+
 ## Takeaway
 
 * `Mongod` is the server side service of linux. We will have to start it with root account.
