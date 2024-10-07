@@ -10,6 +10,14 @@ MongoDB provides a document-oriented data model, meaning data is stored in BSON 
 
 > Please install MongoDB Community Edition not Atlas version.
 
+* Windows
+
+[Windows installation](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/)
+
+* Mac
+
+[Mac installation](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/)
+
 * Linux 
 
 From a terminal, install gnupg and curl if they are not already available:
@@ -41,15 +49,10 @@ echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gp
 
 - https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/
 
-* Windows
-[Windows installation](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/)
-
-* Mac
-
-[Mac installation](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/)
 
 ## Installation of Dbeaver
-Skipped
+
+Skipped. (Free version of Dbeaver does not support mongo connection.)
 
 ## Start Mongo Server (This is in ubuntu)
 
