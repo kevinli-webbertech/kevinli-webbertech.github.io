@@ -4,8 +4,6 @@
 
 Neo4j can be installed in different deployment contexts, such as Linux, macOS, and Windows.
 
-
-
 * [System requirements](https://neo4j.com/docs/operations-manual/current/installation/requirements/) — The system requirements for a production deployment of Neo4j.
 
 * [Linux](https://neo4j.com/docs/operations-manual/current/installation/linux/) — Installation instructions for Linux.
@@ -16,13 +14,11 @@ Neo4j can be installed in different deployment contexts, such as Linux, macOS, a
 
 * [Neo4j Desktop](https://neo4j.com/docs/operations-manual/current/installation/neo4j-desktop/) — About Neo4j Desktop.
 
-
 ## **Installation-free options**
 
 Neo4j AuraDB is a fully managed Neo4j database, hosted in the cloud and requires no installation. For more information, see the [AuraDB product page](https://neo4j.com/aura/) and [AuraDB documentation](https://neo4j.com/docs/aura/current/).
 
 Neo4j can be run in a Docker container. For information on running Neo4j on Docker, see [Docker](https://neo4j.com/docs/operations-manual/current/docker/).
-
 
 ### **Using Docker:**
 
@@ -33,7 +29,6 @@ Ensure you have installed docker desktop and it has started
     -p7474:7474 -p7687:7687 \
     -d neo4j:latest`
 
-
 ### **Connecting to Neo4j**
 
 After installation, you can access the Neo4j Browser at http://localhost:7474. Use the default credentials:
@@ -42,7 +37,7 @@ After installation, you can access the Neo4j Browser at http://localhost:7474. U
 
 * Password: You will set this up on the first run. its still for the first time (neo4j)
 
-The Page looks like this Once its connected: 
+The Page looks like this Once its connected:
 
 ![Neo4j](../../../images/advanced_database/neo4j1.png)
 
@@ -59,7 +54,6 @@ Alternatively, you can use Cypher Shell to interact with the database via termin
 Cypher is Neo4j’s declarative graph query language. It was created in 2011 by Neo4j engineers as an SQL-equivalent language for graph databases. Similar to SQL, Cypher lets users focus on what to retrieve from graph, rather than how to retrieve it. As such, Cypher enables users to realize the full potential of their property graph databases by allowing for efficient and expressive queries that reveal previously unknown data connections and clusters.
 
 Cypher provides a visual way of matching patterns and relationships. It relies on the following ascii-art type of syntax: (nodes)-[:CONNECT_TO]→(otherNodes). Rounded brackets are used for circular nodes, and -[:ARROWS]→ for relationships. Writing a query is effectively like drawing a pattern through the data in the graph. In other words, entities such as nodes and their relationships are visually built into queries. This makes Cypher a highly intuitive language to both read and write.
-
 
 ### **Cypher and SQL: key differences**
 
@@ -80,7 +74,7 @@ SELECT movie.name
 FROM movie
 WHERE movie.rating > 7
 ```
-**Cypher** 
+**Cypher**
 
 ```cypher
 MATCH (movie:Movie)
@@ -173,13 +167,3 @@ For Docker:
 Neo4j is a powerful graph database with many features. Once installed, you can use Cypher to create and query data with
 ease. This document provides a basic foundation to get started with Neo4j. For more advanced use cases, 
 refer to the [Neo4j documentation](https://neo4j.com/docs/).
-
-
-
-
-
-
-
-
-
-

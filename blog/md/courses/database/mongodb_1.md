@@ -69,7 +69,7 @@ In linux, it will look like this,
 
 Once we start the server like above, then we type,
 
-`mongosh` 
+`mongosh`
 
 to connect to your MongoDB. Once you successfully connect to MongoDB,
 you will see the following terminal,
