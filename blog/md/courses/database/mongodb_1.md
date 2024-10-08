@@ -82,6 +82,8 @@ Download database file, a json file from here, ["restaurant.json"]("./restaurant
 
 `mongoimport --db restaurant --collection collectionName --file ./restaurant.json --jsonArray`
 
+![mongo_import.png](../../../images/database/mongo_import.png)
+
 ## Takeaway
 
 * `Mongod` is the server side service of linux. We will have to start it with root account.
