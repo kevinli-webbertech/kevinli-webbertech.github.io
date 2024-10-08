@@ -1,6 +1,6 @@
 # HW 9 - MongoDB Programming HW1
 
-Download the zip from the this link, [movie data](./movies.zip)
+Download the zip from the this link, [movie data](https://kevinli-webbertech.github.io/blog/md/courses/advanced_database/homework/movies.zip)
 
 1. Find all movies with full information from the 'movies' collection that released in the year 1893.
 
