@@ -8,6 +8,7 @@ You can pull the official Spark image by running the following command in your t
 ```bash
  docker pull bitnami/spark
 ```
+![docker_image_pull](blog/md/ref/machine_learning/docker image of spark/docker image pull.png)
 This command pulls the Spark image maintained by **Bitnami**, which is a well-known provider of up-to-date and secure images.
 
 
