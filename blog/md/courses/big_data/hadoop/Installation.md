@@ -61,7 +61,7 @@ Then the image should be built, and we will check the image is ok or not in the 
 
 To Test your container, and run the container
 
-`docker images ls`
+`docker image ls`
 
 ![docker_image](https://kevinli-webbertech.github.io/blog/images/big_data/hadoop/docker_image.png)
 
