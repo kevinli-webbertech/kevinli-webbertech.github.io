@@ -22,8 +22,7 @@ And we can see hourly plot like the following,
 
 * Task 4 (20 pts) 50 days rolling mean with Guassian function (std set to 30 days).
 
-* Task 5 (20 pts) Average daily bicycle counts. X axis is Monday to Sunday.
-We will have to achieve to this digram.
+* Task 5 (20 pts) Average daily bicycle counts. X axis is Monday to Sunday. We will have to achieve to this digram.
 
 ![daily_bicycle_counts](./daily_bicycle_counts.png)
 
