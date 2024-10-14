@@ -129,38 +129,6 @@ drwxr-xr-x   1 root root     4096 Nov  8  2017 var
 
 ## Run WordCount Example
 
-* use `touch` and `vim` to create a `WordCount.java` 
-
-```shell
-[root@150bd5dc3090 hadoop]# touch WordCount.java
-[root@150bd5dc3090 hadoop]# vi WordCount.java
-```
-
-* Check `$JAVA_HOME`, `$PATH` and `$HADOOP_CLASSPATH`
-
-By default, this image has set all these for you.
->Hint: you could check the link in the following Ref section for the original documentation.
-
-```shell
-[root@150bd5dc3090 hadoop]# which java
-/usr/bin/java
-[root@150bd5dc3090 hadoop]# echo $JAVA_HOME
-/usr
-[root@150bd5dc3090 hadoop]# echo $PATH
-/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/hadoop/bin
-[root@150bd5dc3090 hadoop]# echo $HADOOP_CLASSPATH
-```
-
-But you have to set the following,
-
-`export HADOOP_CLASSPATH=${JAVA_HOME}/lib/tools.jar`
-
-```shell
-[root@150bd5dc3090 hadoop] export HADOOP_CLASSPATH=${JAVA_HOME}/lib/tools.jar
-[root@150bd5dc3090 hadoop] echo $HADOOP_CLASSPATH
-/usr/lib/tools.jar
-```
-
 * Create input directory in the dfs system.
 
 ```
@@ -192,14 +160,13 @@ NOTICE.txt   WordCount.java  etc  include                              libexec  
 
 * Copy local file to the dfs's input dir,
 
-```
+```shell
 [root@150bd5dc3090 hadoop]# hdfs dfs -copyFromLocal testme.txt /mapreduce/wordcount/input/
-
 ```
 
 After the copy, you should check if the file was indeed in the dfs, by doing the folloiwng,
 
-```
+```shell
 [root@150bd5dc3090 hadoop]# bin/hadoop dfs -ls /mapreduce/wordcount/input/
 DEPRECATED: Use of this script to execute hdfs command is deprecated.
 Instead use the hdfs command for it.
@@ -385,6 +352,27 @@ public static void main(String[] args) throws Exception {
 ```
 
 >Hint: in the docker image, you can't compile it. I think the Java installation had some issues.
+
+* Get to your hosting operating system, windows, Mac or Linux,
+
+1/ Launch your intelliJ and create a Maven project,
+
+>hint: following the following link,
+>[compiling java code](https://medium.com/analytics-vidhya/testing-your-hadoop-program-with-maven-on-intellij-42d534db7974) 
+
+[intelliJ_Wordcount](./intelliJ_Wordcount.png)
+
+Now I have a jar file,
+
+`Installing /home/xiaofengli/code/Wordcount/target/Wordcount-1.0-SNAPSHOT.jar`
+
+Now, you will need to quick your docker container and rerun it by mounting this directory into your docker container.
+
+`docker run -ti -p 8042 -p 8088 -p 19888 -p 50070 -p 50075 -v /home/xiaofengli/code/Wordcount/target/:/tmp harisekhon/hadoop`
+
+This will mount my directory in my hosting os to the `/tmp` inside of the container.
+
+Now, check if our jar is there,
 
 
 ## Ref
