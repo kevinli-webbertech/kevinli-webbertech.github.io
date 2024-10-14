@@ -24,6 +24,8 @@ And we can see hourly plot like the following,
 
 * Task 5 (20 pts) Average daily bicycle counts. X axis is Monday to Sunday. We will have to achieve to this digram.
 
+> Hint: prep your data using `groupby`.
+
 ![daily_bicycle_counts](https://kevinli-webbertech.github.io/blog/images/big_data/homework/daily_bicycle_counts.png)
 
 * Task 6 (20 pts) Plot daily data by hourly.
