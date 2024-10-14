@@ -467,12 +467,14 @@ Found 1 items
 * Now, let us run the example,
 
 ```shell
-[root@150bd5dc3090 hadoop]# bin/hadoop jar hadoop-mapreduce-examples-2.8.2.jar wordcount -files testme.txt /mapreduce/wordcount/input output
+[root@150bd5dc3090 hadoop]# bin/hadoop jar .jar wordcount -files testme.txt /mapreduce/wordcount/input output
+```
 
 ## Pending (To be continued)
 
 $ bin/hadoop jar wc.jar WordCount /user/joe/wordcount/input /user/joe/wordcount/output
 
+Need to reboot, and rebuild and retry the jar.
 
 ## Ref
 
