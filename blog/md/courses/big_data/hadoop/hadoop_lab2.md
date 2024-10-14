@@ -4,16 +4,10 @@
 
 `docker run -ti -p 8042 -p 8088 -p 19888 -p 50070 -p 50075 harisekhon/hadoop`
 
-This docker image will run the /en
+This docker image will run like the following,
 
 >Hint: It is going to set up sshd, ssh and password less config.
 ```
-> [root@0ae4f895a19d /]# pwd
-/
-[root@0ae4f895a19d /]# pwd
-/
-[root@0ae4f895a19d /]# exit
-exit
 xiaofengli@xiaofenglx:~$ docker run -ti -p 8042 -p 8088 -p 19888 -p 50070 -p 50075 harisekhon/hadoop
 Generating public/private rsa key pair.
 Created directory '/root/.ssh'.
@@ -46,7 +40,7 @@ SSH is ready to rock
 ....
 ```
 
-## Step Two Get container id
+## Step 2 Get container id
 
 ```shell
 xiaofengli@xiaofenglx:~/k8s$ docker container ls
