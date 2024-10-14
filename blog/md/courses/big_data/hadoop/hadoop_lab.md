@@ -1,4 +1,4 @@
-# Hadoop Lab
+# Hadoop Lab - Legacy Hadoop 2.7.2 Image
 
 ## Lab 1 Get hadoop Container
 
