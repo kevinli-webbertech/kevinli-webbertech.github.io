@@ -285,7 +285,9 @@ vim.	1
 you	1
 ```
 
-## Check the source code
+## How to develop Hadoop Code
+
+* Check the source code
 
 ```java
 import java.io.IOException;
@@ -352,129 +354,9 @@ public static void main(String[] args) throws Exception {
 
 >Hint: in the docker image, you can't compile it. I think the Java installation had some issues.
 
-* Get to your hosting operating system, windows, Mac or Linux,
+For development setup using intelliJ, you can follow the link below,
 
-1/ Launch your intelliJ and create a Maven project,
-
->hint: following the following link,
->[compiling java code](https://medium.com/analytics-vidhya/testing-your-hadoop-program-with-maven-on-intellij-42d534db7974) 
-
-[intelliJ_Wordcount](./intelliJ_Wordcount.png)
-
-Now I have a jar file,
-
-`Installing /home/xiaofengli/code/Wordcount/target/Wordcount-1.0-SNAPSHOT.jar`
-
-Now, you will need to quick your docker container and rerun it by mounting this directory into your docker container.
-
-Make sure you are in your `Wordcount` working directory, and it should look like this,
->Hint: In your computer it might be different, but they are similar. I am using Ubuntu22 Linux.
-
-```shell
-xiaofengli@xiaofenglx:~/code$ cd Wordcount/
-xiaofengli@xiaofenglx:~/code/Wordcount$ ls
-pom.xml  src  target  WordCount.java
-xiaofengli@xiaofenglx:~/code/Wordcount$ pwd
-/home/xiaofengli/code/Wordcount
-xiaofengli@xiaofenglx:~/code/Wordcount$ 
-```
-
-Then `pwd` command above means showing current directory, you have to stay inside of the `Wordcount` directory to run the following command,
-
-`docker run -ti -v "$PWD/target/":/opt -p 8042 -p 8088 -p 19888 -p 50070 -p 50075  harisekhon/hadoop`
-
-This will mount my directory in my hosting os to the `/opt` inside of the container.
->Hint: You can't mount it to /tmp in the container because the container is writing to it so it will have some locks.
-> `-v` option above is the mounting flag in docker command. "-v source:/target".
-> Here `source` is a directory in your hosting operating system. and `target` is your container's directory.
-
-Now, check if our jar is there,
-
-![mounting_drive](mounting_drive.png)
-
-* Set right permission to the jar file
-
-Next, we need to give permission to the jar file you see red color above,
-
-`[root@aee75f621730 target]# chmod +x Wordcount-1.0-SNAPSHOT.jar`
-
-Next, again we have to create the input directory and input file.
-
-* Copy the jar file to /hadoop dir
-
-`[root@aee75f621730 opt]# cp target/Wordcount-1.0-SNAPSHOT.jar /hadoop`
-
-* Get into /hadoop dir
-
-```shell
-[root@aee75f621730 opt]# cd /hadoop
-[root@aee75f621730 hadoop]# pwd
-/hadoop
-```
-
-* Create a local file like before
-
-```shell
-touch testme.txt
-```
-
-* Create content for `testme.txt`
-
-```shell
-vi testme.txt
-```
-
-and put the following text into it,
-
-```shell
-this is our test file.
-you have to make this file by using touch and vim.
-```
-
-* Check what files we have now,
-
-```shell
-[root@aee75f621730 hadoop]# ls
-LICENSE.txt  README.txt                  bin  include  libexec  sbin   testme.txt
-NOTICE.txt   Wordcount-1.0-SNAPSHOT.jar  etc  lib      logs     share
-```
-
-![hadoop_files](hadoop_files.png)
-
-* Create input directory in the dfs system.
-
-```
-[root@150bd5dc3090 hadoop]# hdfs dfs -mkdir -p /mapreduce/wordcount/input/
-```
-
-* Copy local file to the dfs's input dir,
-
-```shell
-[root@150bd5dc3090 hadoop]# hdfs dfs -copyFromLocal testme.txt /mapreduce/wordcount/input/
-```
-
-After the copy, you should check if the file was indeed in the dfs, by doing the folloiwng,
-
-```shell
-[root@150bd5dc3090 hadoop]# bin/hadoop dfs -ls /mapreduce/wordcount/input/
-DEPRECATED: Use of this script to execute hdfs command is deprecated.
-Instead use the hdfs command for it.
-
-Found 1 items
--rw-r--r--   1 root supergroup         74 2024-10-14 03:45 /mapreduce/wordcount/input/testme.txt
-```
-
-* Now, let us run the example,
-
-```shell
-[root@150bd5dc3090 hadoop]# bin/hadoop jar .jar wordcount -files testme.txt /mapreduce/wordcount/input output
-```
-
-## Pending (To be continued)
-
-$ bin/hadoop jar wc.jar WordCount /user/joe/wordcount/input /user/joe/wordcount/output
-
-Need to reboot, and rebuild and retry the jar.
+https://github.com/autopear/Intellij-Hadoop
 
 ## Ref
 
