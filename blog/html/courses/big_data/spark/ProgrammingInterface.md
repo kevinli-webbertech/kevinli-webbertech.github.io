@@ -25,3 +25,23 @@ But it is important to understand the RDD abstraction because:
 The RDD is the underlying infrastructure that allows Spark to run so fast and provide data lineage. If you are diving into more advanced components of Spark, it may be necessary to use RDDs.
 The visualizations within the Spark UI reference RDDs. When you develop Spark applications, you typically use DataFrames and Datasets.
 
+## History
+
+This tutorial provides a quick introduction to using Spark. We will first introduce the API through Spark’s interactive shell (in Python or Scala), then show how to write applications in Java, Scala, and Python.
+To follow along with this guide, first, download a packaged release of Spark from the Spark website. Since we won’t be using HDFS, you can download a package for any version of Hadoop.
+
+* Note that, before Spark 2.0, the main programming interface of Spark was the Resilient Distributed Dataset (RDD).
+* After Spark 2.0, RDDs are replaced by Dataset, which is strongly-typed like an RDD, but with richer optimizations under the hood. 
+* The RDD interface is still supported, and you can get a more detailed reference at the RDD programming guide. 
+* However, we highly recommend you to switch to use Dataset, which has better performance than RDD. 
+* See the SQL programming guide to get more information about Dataset.
+
+## Programming support
+
+![spark_languages.png](spark_languages.png)
+
+
+## Ref
+
+- https://spark.apache.org/docs/latest/quick-start.html#self-contained-applications
+
