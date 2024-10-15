@@ -259,3 +259,118 @@ To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLeve
 24/10/14 22:20:44 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
 Lines with a: 38, lines with b: 20
 ```
+
+## More Examples
+
+Finally, Spark includes several samples in the examples directory (Scala, Java, Python, R). You can run them as follows:
+
+### For Scala and Java, use run-example
+./bin/run-example SparkPi
+
+### For Python examples, use spark-submit directly
+./bin/spark-submit examples/src/main/python/pi.py
+
+### For R examples, use spark-submit directly
+./bin/spark-submit examples/src/main/r/dataframe.R
+
+Let us check only Python examples in the following directory,
+
+```shell
+spark@994e99365cfe:/opt/spark/examples/src/main$ cd python/
+spark@994e99365cfe:/opt/spark/examples/src/main/python$ ls
+als.py		     kmeans.py		     mllib		     pi.py    status_api_demo.py     wordcount.py
+avro_inputformat.py  logistic_regression.py  pagerank.py	     sort.py  streaming
+__init__.py	     ml			     parquet_inputformat.py  sql      transitive_closure.py
+spark@994e99365cfe:/opt/spark/examples/src/main/python$ pwd
+/opt/spark/examples/src/main/python
+spark@994e99365cfe:/opt/spark/examples/src/main/python$ 
+```
+
+Then we are going to run the `pi.py` example,
+
+```shell
+spark@994e99365cfe:/opt/spark/examples/src/main/python$ spark-submit ./pi.py
+bash: spark-submit: command not found
+spark@994e99365cfe:/opt/spark/examples/src/main/python$ export PATH=$PATH:/opt/spark/bin:.
+spark@994e99365cfe:/opt/spark/examples/src/main/python$ spark-submit ./pi.py
+24/10/15 02:33:02 INFO SparkContext: Running Spark version 3.5.1
+24/10/15 02:33:02 INFO SparkContext: OS info Linux, 6.8.0-45-generic, amd64
+24/10/15 02:33:02 INFO SparkContext: Java version 11.0.22
+24/10/15 02:33:02 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+24/10/15 02:33:02 INFO ResourceUtils: ==============================================================
+24/10/15 02:33:02 INFO ResourceUtils: No custom resources configured for spark.driver.
+24/10/15 02:33:02 INFO ResourceUtils: ==============================================================
+24/10/15 02:33:02 INFO SparkContext: Submitted application: PythonPi
+24/10/15 02:33:02 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+24/10/15 02:33:02 INFO ResourceProfile: Limiting resource is cpu
+24/10/15 02:33:02 INFO ResourceProfileManager: Added ResourceProfile id: 0
+24/10/15 02:33:03 INFO SecurityManager: Changing view acls to: spark
+24/10/15 02:33:03 INFO SecurityManager: Changing modify acls to: spark
+24/10/15 02:33:03 INFO SecurityManager: Changing view acls groups to: 
+24/10/15 02:33:03 INFO SecurityManager: Changing modify acls groups to: 
+24/10/15 02:33:03 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: spark; groups with view permissions: EMPTY; users with modify permissions: spark; groups with modify permissions: EMPTY
+24/10/15 02:33:03 INFO Utils: Successfully started service 'sparkDriver' on port 34053.
+24/10/15 02:33:03 INFO SparkEnv: Registering MapOutputTracker
+24/10/15 02:33:03 INFO SparkEnv: Registering BlockManagerMaster
+24/10/15 02:33:03 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+24/10/15 02:33:03 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+24/10/15 02:33:03 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+24/10/15 02:33:03 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-4ca8444b-a570-4178-83a2-f05bc1ec326b
+24/10/15 02:33:03 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+24/10/15 02:33:03 INFO SparkEnv: Registering OutputCommitCoordinator
+24/10/15 02:33:03 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+24/10/15 02:33:03 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+24/10/15 02:33:03 INFO Executor: Starting executor ID driver on host 994e99365cfe
+24/10/15 02:33:03 INFO Executor: OS info Linux, 6.8.0-45-generic, amd64
+24/10/15 02:33:03 INFO Executor: Java version 11.0.22
+24/10/15 02:33:03 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+24/10/15 02:33:03 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@29fe4ab4 for default.
+24/10/15 02:33:03 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 33547.
+24/10/15 02:33:03 INFO NettyBlockTransferService: Server created on 994e99365cfe:33547
+24/10/15 02:33:03 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+24/10/15 02:33:03 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 994e99365cfe, 33547, None)
+24/10/15 02:33:03 INFO BlockManagerMasterEndpoint: Registering block manager 994e99365cfe:33547 with 434.4 MiB RAM, BlockManagerId(driver, 994e99365cfe, 33547, None)
+24/10/15 02:33:03 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 994e99365cfe, 33547, None)
+24/10/15 02:33:03 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 994e99365cfe, 33547, None)
+24/10/15 02:33:04 INFO SparkContext: Starting job: reduce at /opt/spark/examples/src/main/python/pi.py:42
+24/10/15 02:33:04 INFO DAGScheduler: Got job 0 (reduce at /opt/spark/examples/src/main/python/pi.py:42) with 2 output partitions
+24/10/15 02:33:04 INFO DAGScheduler: Final stage: ResultStage 0 (reduce at /opt/spark/examples/src/main/python/pi.py:42)
+24/10/15 02:33:04 INFO DAGScheduler: Parents of final stage: List()
+24/10/15 02:33:04 INFO DAGScheduler: Missing parents: List()
+24/10/15 02:33:04 INFO DAGScheduler: Submitting ResultStage 0 (PythonRDD[1] at reduce at /opt/spark/examples/src/main/python/pi.py:42), which has no missing parents
+24/10/15 02:33:04 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 11.4 KiB, free 434.4 MiB)
+24/10/15 02:33:04 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 8.6 KiB, free 434.4 MiB)
+24/10/15 02:33:04 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 994e99365cfe:33547 (size: 8.6 KiB, free: 434.4 MiB)
+24/10/15 02:33:04 INFO SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:1585
+24/10/15 02:33:04 INFO DAGScheduler: Submitting 2 missing tasks from ResultStage 0 (PythonRDD[1] at reduce at /opt/spark/examples/src/main/python/pi.py:42) (first 15 tasks are for partitions Vector(0, 1))
+24/10/15 02:33:04 INFO TaskSchedulerImpl: Adding task set 0.0 with 2 tasks resource profile 0
+24/10/15 02:33:04 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (994e99365cfe, executor driver, partition 0, PROCESS_LOCAL, 7595 bytes) 
+24/10/15 02:33:04 INFO TaskSetManager: Starting task 1.0 in stage 0.0 (TID 1) (994e99365cfe, executor driver, partition 1, PROCESS_LOCAL, 7595 bytes) 
+24/10/15 02:33:04 INFO Executor: Running task 1.0 in stage 0.0 (TID 1)
+24/10/15 02:33:04 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+24/10/15 02:33:05 INFO PythonRunner: Times: total = 496, boot = 389, init = 48, finish = 59
+24/10/15 02:33:05 INFO PythonRunner: Times: total = 497, boot = 391, init = 46, finish = 60
+24/10/15 02:33:05 INFO Executor: Finished task 1.0 in stage 0.0 (TID 1). 1369 bytes result sent to driver
+24/10/15 02:33:05 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 1369 bytes result sent to driver
+24/10/15 02:33:05 INFO TaskSetManager: Finished task 1.0 in stage 0.0 (TID 1) in 610 ms on 994e99365cfe (executor driver) (1/2)
+24/10/15 02:33:05 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 628 ms on 994e99365cfe (executor driver) (2/2)
+24/10/15 02:33:05 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+24/10/15 02:33:05 INFO PythonAccumulatorV2: Connected to AccumulatorServer at host: 127.0.0.1 port: 49881
+24/10/15 02:33:05 INFO DAGScheduler: ResultStage 0 (reduce at /opt/spark/examples/src/main/python/pi.py:42) finished in 0.787 s
+24/10/15 02:33:05 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+24/10/15 02:33:05 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage finished
+24/10/15 02:33:05 INFO DAGScheduler: Job 0 finished: reduce at /opt/spark/examples/src/main/python/pi.py:42, took 0.840705 s
+Pi is roughly 3.142480
+24/10/15 02:33:05 INFO SparkContext: SparkContext is stopping with exitCode 0.
+24/10/15 02:33:05 INFO SparkUI: Stopped Spark web UI at http://994e99365cfe:4040
+24/10/15 02:33:05 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+24/10/15 02:33:05 INFO MemoryStore: MemoryStore cleared
+24/10/15 02:33:05 INFO BlockManager: BlockManager stopped
+24/10/15 02:33:05 INFO BlockManagerMaster: BlockManagerMaster stopped
+24/10/15 02:33:05 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+24/10/15 02:33:05 INFO SparkContext: Successfully stopped SparkContext
+24/10/15 02:33:06 INFO ShutdownHookManager: Shutdown hook called
+24/10/15 02:33:06 INFO ShutdownHookManager: Deleting directory /tmp/spark-4d2b4583-87a0-46da-8a53-c19a259fba39
+24/10/15 02:33:06 INFO ShutdownHookManager: Deleting directory /tmp/spark-770fa595-05d9-49f8-9d1f-79bc4ff35efc/pyspark-ad8f1f8a-6966-4e5f-b2d5-875e309b7230
+24/10/15 02:33:06 INFO ShutdownHookManager: Deleting directory /tmp/spark-770fa595-05d9-49f8-9d1f-79bc4ff35efc
+```
