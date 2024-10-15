@@ -38,7 +38,7 @@ To follow along with this guide, first, download a packaged release of Spark fro
 
 ## Programming support
 
-![spark_languages.png](spark_languages.png)
+![spark_languages.png](../../../../images/big_data/spark/spark_languages.png)
 
 
 ## Ref

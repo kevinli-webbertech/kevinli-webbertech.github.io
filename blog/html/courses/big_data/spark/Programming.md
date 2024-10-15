@@ -226,9 +226,9 @@ Lines with a: 38, lines with b: 20
 
 Seen in the following image,
 
-![spark-submit.png](spark-submit.png)
+![spark-submit.png](../../../../images/big_data/spark/spark-submit.png)
 
-![spark-submit-output.png](spark-submit-output.png)
+![spark-submit-output.png](../../../../images/big_data/spark/spark-submit-output.png)
 
 For a lot of PySpark clusters, such as databricks, you would need this above way to run the job and distribute it to a cluster.
 
