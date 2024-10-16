@@ -420,6 +420,36 @@ CPU-X:core.c:1637: failed to retrieve CPU voltage (fallback mode)
      Memory Used: 
 ```
 
+## Phoronix Test Suite
+
+This is an open source test suite licensed under the GPLv3:
+
+source code: https://github.com/phoronix-test-suite/phoronix-test-suite
+website: https://www.phoronix-test-suite.com
+
+## time
+
+Measure single core:
+
+-bash-4.2$ time cat </dev/urandom | head -c 1G | gzip >/dev/null
+
+real    0m43.011s
+user    0m42.608s
+sys     0m8.819s
+Measure all cores:
+
+-bash-4.2$ time cat </dev/urandom | head -c 1G | pigz >/dev/null
+
+real    0m13.870s
+user    0m45.988s
+sys     0m6.803s
+If you already have pv but don't feel like installing special benchmarking software it's even more straightforward
+
+a@a-virtual-machine:~$ pv </dev/urandom | gzip >/dev/null 
+ 149MiB 0:00:04 [37.5MiB/s]
+a@a-virtual-machine:~$ pv </dev/urandom | pigz >/dev/null 
+ 348MiB 0:00:02 [ 173MiB/s]
+
 ### ref
 
 - https://www.gtk.org/
