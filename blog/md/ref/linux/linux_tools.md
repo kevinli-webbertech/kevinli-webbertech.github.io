@@ -304,9 +304,121 @@ Firstly, to access the NCurses interface use the following command.
 
 `cpu-x -N`
 
+![cpu-x](cpu-x.png)
+
 Secondly, to get a summary of data, enter the following command.
 
 `cpu-x -D`
+
+```shell
+xiaofengli@xiaofenglx:~$ cpu-x -D
+Your CPU socket is not present in the database ==> Intel(R) Core(TM) i5-4690K CPU @ 3.50GHz, codename: Haswell (Core i5)
+CPU-X:core.c:1637: failed to retrieve CPU voltage (fallback mode)
+  >>>>>>>>>> CPU <<<<<<<<<<
+
+	***** Processor *****
+          Vendor: Intel
+       Code Name: Haswell (Core i5)
+         Package: 
+      Technology: 22 nm
+         Voltage: 
+   Specification: Intel(R) Core(TM) i5-4690K CPU @ 3.50GHz
+          Family: 0x6
+     Ext. Family: 0x6
+           Model: 0xC
+      Ext. Model: 0x3C
+           Temp.: 49.00°C
+        Stepping: 3
+    Instructions: MMX, SSE(1, 2, 3, 3S, 4.1, 4.2), AVX(1, 2), FMA(3), AES, CLMUL, RdRand, VT-x, x86-64
+
+	***** Clocks *****
+      Core Speed: 3478 MHz
+      Multiplier: 
+       Bus Speed: 
+           Usage:  16.82 %
+
+	***** Cache *****
+         L1 Data: 4 x 32 kB, 8-way
+        L1 Inst.: 4 x 32 kB, 8-way
+         Level 2: 4 x 256 kB, 8-way
+         Level 3: 6 MB, 12-way
+
+	***** * *****
+       Socket(s): 1
+         Core(s): 4
+       Thread(s): 4
+
+
+  >>>>>>>>>> Caches <<<<<<<<<<
+
+	***** L1 Cache *****
+            Size: 4 x 32 kB, 8-way associative, 64-bytes line size
+           Speed: 111219.40 MB/s
+
+	***** L2 Cache *****
+            Size: 4 x 256 kB, 8-way associative, 64-bytes line size
+           Speed: 63140.90 MB/s
+
+	***** L3 Cache *****
+            Size: 6 MB, 12-way associative, 64-bytes line size
+           Speed: 33885.40 MB/s
+
+
+  >>>>>>>>>> Motherboard <<<<<<<<<<
+
+	***** Motherboard *****
+    Manufacturer: Gigabyte Technology Co., Ltd.
+           Model: Z97X-UD5H
+        Revision: x.x
+
+	***** BIOS *****
+           Brand: American Megatrends Inc.
+         Version: F8
+            Date: 06/17/2014
+        ROM Size: 
+
+	***** Chipset *****
+          Vendor: Intel Corporation
+           Model: Z97 Chipset LPC Controller
+
+
+  >>>>>>>>>> Memory <<<<<<<<<<
+
+
+  >>>>>>>>>> System <<<<<<<<<<
+
+	***** Operating System *****
+          Kernel: Linux 6.8.0-45-generic
+    Distribution: Ubuntu 22.04.5 LTS
+        Hostname: xiaofenglx
+          Uptime: 0 days, 5 hours, 8 minutes, 28 seconds
+        Compiler: cc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0
+
+	***** Memory *****
+            Used: 9.30 GiB / 31.19 GiB
+         Buffers: 0.45 GiB / 31.19 GiB
+          Cached: 7.20 GiB / 31.19 GiB
+            Free: 14.26 GiB / 31.19 GiB
+            Swap: 0.00 GiB / 2.00 GiB
+
+
+  >>>>>>>>>> Graphics <<<<<<<<<<
+
+	***** Card 0 *****
+          Vendor: Intel
+          Driver: i915
+     UMD Version: Mesa 23.2.1-1ubuntu3.1~22.04.2
+           Model: Xeon E3-1200 v3/4th Gen Core Processor Integrated Graphics Controller
+        DeviceID: 0x0412:0x06
+       Interface: 
+     Temperature: 
+           Usage: 
+    Core Voltage: 
+       Power Avg: 
+       GPU clock: 600 MHz
+    Memory clock: 
+     Memory Used: 
+```
 
 ### ref
 
