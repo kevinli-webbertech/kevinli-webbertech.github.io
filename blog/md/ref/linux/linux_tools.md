@@ -267,6 +267,47 @@ The GTK team releases new versions on a regular basis. GTK 4 and GTK 3 are maint
 
 * GTK Drawing Kit (GDK): GDK acts as a wrapper around the low-level functions provided by the underlying windowing and graphics systems.
 
+## Slack
+
+Open slack from chrome browser,
+
+`chrome --app=https://app.slack.com/client`
+
+## sysbench
+
+Test your CPU benchmark,
+
+`sudo apt-get install sysbench`
+
+* To do CPU benchmarking you can use:
+
+`sysbench cpu run`
+
+* This will run a single-threaded CPU benchmark. To use all cores, use:
+
+`sysbench --threads="$(nproc)" cpu run`
+
+## 7zip benchmark
+
+To run a single-thread benchmark: 7z b -mmt1
+
+To run a multi-thread benchmark: 7z b
+
+## CPU-Z, CPU-X
+
+* CPU-Z for windows
+* CPU-X for Linux
+
+You can also use CPU-X from the command line, as there are two options available for using CPU-X in the terminal, i.e., `NCurses` and `Coredump`.
+
+Firstly, to access the NCurses interface use the following command.
+
+`cpu-x -N`
+
+Secondly, to get a summary of data, enter the following command.
+
+`cpu-x -D`
+
 ### ref
 
 - https://www.gtk.org/

@@ -3,6 +3,7 @@
 * Activity Research Information Security
 
 Write a one-page summary of your research.
+
 In this activity, you will identify recent examples of cyberattacks that have exposed private information and damaged businesses and financial institutions.
 Conduct online research to answer the following questions.
 
