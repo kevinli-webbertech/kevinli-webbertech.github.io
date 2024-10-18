@@ -525,8 +525,7 @@ def profile():
 **Display data on Index Page**
 
 On our index page now, we will be displaying all the data that has been stored in our data table. We will be using
-`Profile.query.all()` to query all the objects of the Profile class and then use **Jinja templating language** to 
-display it dynamically on our index HTML file.
+`Profile.query.all()` to query all the objects of the Profile class and then use **Jinja templating language** to display it dynamically on our index HTML file.
 
 Update your index file as follows.
 
