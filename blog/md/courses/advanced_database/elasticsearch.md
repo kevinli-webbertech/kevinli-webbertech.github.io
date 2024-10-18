@@ -1,6 +1,6 @@
 # Elastic Search
 
-## Created: 04-26-2024
+### Created: 04-26-2024
 
 ## What is Elasticsearch
 
@@ -16,10 +16,9 @@ It's built with Java, Elasticsearch is a NoSQL database. That means it stores da
 
 * Elasticsearch was no longer opensource from year 2021. And AWS's opensearch ...etc are based on Elasticsearch.
 
-# History
+## History
 
-
-# Installation in local
+## Installation in local
 
 * To install the version 8.* in Linux
 

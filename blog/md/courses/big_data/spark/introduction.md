@@ -51,7 +51,7 @@ Apache Spark runs with the following components:
 
 * GraphX allows you to visualize and analyze data with graphs.
 
-![hadoop_vs_spark](hadoop_vs_spark.png)
+![hadoop_vs_spark](../../../../images/spark/hadoop_vs_spark.png)
 
 ## Misconceptions about Hadoop and Spark
 
