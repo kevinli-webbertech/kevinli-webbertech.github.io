@@ -298,9 +298,9 @@ Good platforms are:
 - https://www.databricks.com/resources/ebook/big-book-of-machine-learning-use-cases?scid=7018Y000001Fi0MQAS&utm_medium=paid+search&utm_source=google&utm_campaign=17114500970&utm_adgroup=147740743372&utm_content=ebook&utm_offer=big-book-of-machine-learning-use-cases&utm_ad=665885917674&utm_term=databricks%20use&gad_source=1&gclid=EAIaIQobChMIioassd-YiQMVckT_AR0ZCSrhEAAYASAAEgJx4fD_BwE
 - https://www.databricks.com/spark/getting-started-with-apache-spark
 
-![databrick1.png](databrick1.png)
+![databrick1.png](../../../../images/spark/databrick1.png)
 
-![databrick2.png](databrick2.png)
+![databrick2.png](../../../../images/spark/databrick2.png)
 
 * Cloudera
 
