@@ -212,6 +212,7 @@ Then open localhost:5000 or http://127.0.0.1:5000/
 Then create flask_blog/templates/base.html
 
 ```html
+{% raw %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -249,16 +250,19 @@ Then create flask_blog/templates/base.html
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>
+{% endraw %}
 ```
 
 Then, replace the content in index.html with,
 
 ```html
+{% raw %}
 {% extends 'base.html' %}
 
 {% block content %}
     <h1>{% block title %} Welcome to FlaskBlog {% endblock %}</h1>
 {% endblock %}
+{% endraw %}
 ```
 
 #### **Lab 2 Dig further about route (This is called the endpoint)**
@@ -340,11 +344,13 @@ if __name__ == '__main__':
 
 **Creating the database**
 
-In the command line which is navigated to the project directory and virtual environment running, we need to run the following commands.
+In the command line which is navigated to the project directory and virtual environment running, we need to run 
+the following commands.
 
 `python`
 
-The above command will initiate a python bash in your command line where you can use further lines of code to create your data table according to your model class in your database. 
+The above command will initiate a python bash in your command line where you can use further lines of code to create 
+your data table according to your model class in your database. 
 
 `from app import db`
 
@@ -354,7 +360,7 @@ The above command will initiate a python bash in your command line where you can
 
 **Making Migrations in database**
 
-Install Flask-Migrate using pip,
+Install Flask-Migrate using pip 
 
 `pip install Flask-Migrate`
 
@@ -397,6 +403,7 @@ named index.html and paste the below code for now. We will go back to adding mor
 
 Update app.py
 
+
 ````python
 from flask import Flask, request, redirect
 from flask.templating import render_template
@@ -435,7 +442,7 @@ To test whether everything is working fine you can run your application using th
 
 `python app.py`
 
-The run http://127.0.0.1:5000 on your browser,
+The run http://127.0.0.1:5000   on your browser
 
 **Output**
 
@@ -488,6 +495,7 @@ To add data to the database we will be using the “POST” method. POST is used
 
 Add this to your app.py
 
+
 ```python
 # function to add profiles
 @app.route('/add', methods=["POST"])
@@ -522,6 +530,7 @@ display it dynamically on our index HTML file.
 Update your index file as follows.
 
 ```html
+{% raw %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -551,6 +560,7 @@ Update your index file as follows.
 	</table>
 </body>
 </html>
+{% endraw %}
 ```
 
 **Deleting data from our database**
