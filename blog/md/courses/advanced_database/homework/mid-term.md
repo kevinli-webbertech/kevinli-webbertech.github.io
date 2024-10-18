@@ -55,6 +55,7 @@ Just explain the web system, no need to explain the sql part in the python codin
  *  Views in web development. The following should be different html pages and routes for the following views.
 
 1/ Students should have a view that shows their grades. Specifically, it should show: Course_name, Course_number, Section_identifier, Instructor, Credit_hours, Semester, Year, Grade for each course they are enrolled in. How to pass the student_number to the html? We pass it from the url (This is a task for you to figure out.)
+
 **Endpoint: students/{id}**
 
 2/ Instructor view: should be a hyperlink in step 1’s html and clicking it, it will direct to the instructor page.
@@ -66,10 +67,11 @@ Just explain the web system, no need to explain the sql part in the python codin
 **Endpoint: /courses/{course_id}**
 
 4/ Design a controller route to show student information page.
+
 **Endpoint /students/all**: a page will show all the students
+
 **Endpoint /students/{id}**: a page will show only that student if you click on student name in the students/all page.
 
 5/ Design a controller route to show course information page which will include prerequisite too.
+
 **Endpoint: /courses/all**
-
-
