@@ -7,7 +7,8 @@
 This docker image will run like the following,
 
 >Hint: It is going to set up sshd, ssh and password less config.
-```
+
+```shell
 xiaofengli@xiaofenglx:~$ docker run -ti -p 8042 -p 8088 -p 19888 -p 50070 -p 50075 harisekhon/hadoop
 Generating public/private rsa key pair.
 Created directory '/root/.ssh'.
@@ -157,7 +158,7 @@ NOTICE.txt   WordCount.java  etc  include                              libexec  
 [root@150bd5dc3090 hadoop]# hdfs dfs -copyFromLocal testme.txt /mapreduce/wordcount/input/
 ```
 
-After the copy, you should check if the file was indeed in the dfs, by doing the folloiwng,
+After the copy, you should check if the file was indeed in the dfs, by doing the following,
 
 ```shell
 [root@150bd5dc3090 hadoop]# bin/hadoop dfs -ls /mapreduce/wordcount/input/
