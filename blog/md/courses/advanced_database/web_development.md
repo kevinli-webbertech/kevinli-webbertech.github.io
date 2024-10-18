@@ -27,7 +27,8 @@ This is a not a complete session of Python web service development.
 **Http server**: A web server is [computer software](https://en.wikipedia.org/wiki/Computer) and underlying [hardware](https://en.wikipedia.org/wiki/Computer_hardware) 
 that accepts requests via [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) (the [network protocol](https://en.wikipedia.org/wiki/Network_protocol) created to distribute [web content](https://en.wikipedia.org/wiki/Web_browser)) or its secure variant [HTTPS](https://en.wikipedia.org/wiki/HTTPS). A user agent, commonly 
 a [web browser](https://en.wikipedia.org/wiki/Web_browser) or [web crawler](https://en.wikipedia.org/wiki/Web_crawler), initiates communication by making a request for a [web page](https://en.wikipedia.org/wiki/Web_page) or other [resource](https://en.wikipedia.org/wiki/Web_Resource) using HTTP, 
-and the [server](https://en.wikipedia.org/wiki/Server_(computing)) responds with the content of that resource or an [error message.](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) A web server can also accept and store resources sent from the user agent if configured to do so.
+and the [server](https://en.wikipedia.org/wiki/Server_(computing)) responds with the content of that resource or an [error message.](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) A web server can also accept and store 
+resources sent from the user agent if configured to do so.
 
 **HTTP protocol**
 
@@ -38,14 +39,13 @@ and the [server](https://en.wikipedia.org/wiki/Server_(computing)) responds with
 ![HTTP Protocol](../../../images/advanced_database/webdev2.png)
 
 ## **HTTP**
-
 * Http requests
 * Http response
 
 ### **HTTP requests**
 
-A correctly composed HTTP request contains the following elements:
 
+A correctly composed HTTP request contains the following elements:
 1. A request line.
 2. A series of HTTP headers, or header fields.
 3. A message body, if needed.
@@ -66,7 +66,10 @@ Accept-Language: fr, de If-Modified-Since: Fri, 10 Dec 2004 11:22:13 GMT
 
 **Message body**
 
-The body content of any HTTP message can be referred to as a message body or **entity body**. Technically, the entity body is the actual content of the message. The message body contains the entity body, which can be in its original state, or can be encoded in some way for transport, such as by being broken into chunks (chunked transfer-coding). The message body of a request may be referred to for convenience as a request body.
+The body content of any HTTP message can be referred to as a message body or **entity body**. Technically, 
+the entity body is the actual content of the message. The message body contains the entity body, which can 
+be in its original state, or can be encoded in some way for transport, such as by being broken into chunks 
+(chunked transfer-coding). The message body of a request may be referred to for convenience as a request body.
 
 [**Request Methods**](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
 
@@ -77,6 +80,7 @@ GET, POST, DELETE, …
 #### **Lab 1 Run a flask http server**
 
 In this lab, you will learn what is http server, and how to run a http server in python, and what is controller and what is web service.
+
 
 [**Step 1 — Installing Flask**](https://www.digitalocean.com/community/tutorials/how-to-make-a-web-application-using-flask-in-python-3#step-1-installing-flask)
 
@@ -106,8 +110,10 @@ if __name__ == '__main__':
     app.run()
 ```
 
+
 ![HTTP Protocol](../../../images/advanced_database/webdev4.png)
 ![HTTP Protocol](../../../images/advanced_database/webdev5.png)
+
 
 You pass the special variable `__name__`that holds the name of the current Python module. It’s used to tell the instance where it’s located—you need this because Flask sets up some paths behind the scenes.
 
@@ -121,7 +127,6 @@ To run your web application, you’ll first tell Flask where to find the applica
 export FLASK_APP=hello
 export FLASK_ENV=development
 ```
-
 `flask run`
 
 To change the port, you can start it by : `flask run -p 5001`
@@ -143,13 +148,12 @@ if __name__ == '__main__':
   app.run()
 
 ```
-
 In command line, run the following,
+
 
 ```dotenv
 export FLASK_APP=app
 ```
-
 `flask run`
 
 Then run (This is in Linux and Mac, for windows, please just right click and create it, suggested using Visual studio Code),
@@ -179,6 +183,7 @@ and add the following into index.html,
 
 `touch static/css/style.css`
 
+
 **style.css**
 
 ```css
@@ -191,6 +196,7 @@ h1 {
 ```
 
 open templates/index.html, and add the following,
+
 
 ```html
 ...
@@ -262,6 +268,7 @@ Then, replace the content in index.html with,
 ```
 
 #### **Lab 2 Dig further about route (This is called the endpoint)**
+
 
 ```python
 @app.route('/')
@@ -352,6 +359,7 @@ The above command will initiate a python bash in your command line where you can
 
 ![web development](../../../images/advanced_database/webdev6.png)
 
+
 **Making Migrations in database**
 
 Install Flask-Migrate using pip,
@@ -440,6 +448,7 @@ The run http://127.0.0.1:5000 on your browser,
 **Output**
 
 ![web development](../../../images/advanced_database/webdev8.png)
+
 
 **Creating HTML page for form**
 
