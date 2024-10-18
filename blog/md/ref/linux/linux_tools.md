@@ -454,4 +454,3 @@ a@a-virtual-machine:~$ pv </dev/urandom | pigz >/dev/null
 
 - https://www.gtk.org/
 - DevConf.cz
-- https://askubuntu.com/questions/634513/cpu-benchmarking-utility-for-linux
