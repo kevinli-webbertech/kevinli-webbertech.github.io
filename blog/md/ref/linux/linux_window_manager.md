@@ -193,6 +193,13 @@ Disable on-screen keyboard in GDM:
 
 `sudo -u gdm gconftool-2 /desktop/gnome/applications/at/screen_magnifier_enabled --type bool --set false`
 
+
+## Switch from Wayland to X11
+
+If you wish to do it permanently, edit /etc/gdm3/custom.conf and uncomment the line:
+
+`#WaylandEnable=false`
+
 #### ref
 
 https://askubuntu.com/questions/6217/disabling-assistive-technologies-during-login
