@@ -124,6 +124,24 @@ Ref:
 
 https://www.ibm.com/topics/apache-spark
 
+## Why choose Spark over a SQL-only engine?
+
+Apache Spark is a fast general-purpose cluster computation engine that can be deployed in a Hadoop cluster or stand-alone mode. With Spark, programmers can write applications quickly in Java, Scala, Python, R, and SQL which makes it accessible to developers, data scientists, and advanced business people with statistics experience. Using Spark SQL, users can connect to any data source and present it as tables to be consumed by SQL clients. In addition, interactive machine learning algorithms are easily implemented in Spark.
+
+With a SQL-only engine like `Apache Impala`, `Apache Hive`, or `Apache Drill`, users can only use SQL or SQL-like languages to query data stored across multiple databases. That means that the frameworks are smaller compared to Spark.
+
+## How are companies using Spark?
+
+Many companies are using Spark to help simplify the challenging and computationally intensive task of processing and analyzing high volumes of real-time or archived data, both structured and unstructured. Spark also enables users to seamlessly integrate relevant complex capabilities like machine learning and graph algorithms.
+
+### Data engineers
+
+Data engineers use Spark for coding and building data processing jobs—with the option to program in an expanded language set.
+
+### Data scientists
+
+Data scientists can have a richer experience with analytics and ML using Spark with GPUs. 
+The ability to process larger volumes of data faster with a familiar language can help accelerate innovation.
 
 ## Spark Key Components
 
@@ -295,3 +313,11 @@ Good platforms are:
 * AWS EMR
 
 - https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-spark-launch.html
+
+* Google Dataproc
+
+- https://cloud.google.com/dataproc
+
+* IBM Analytics Engine
+
+- https://www.ibm.com/topics/apache-spark
