@@ -57,13 +57,13 @@ Apache Spark runs with the following components:
 
 ### Common misconceptions about Hadoop
 
-Hadoop is cheap: Though it’s open source and easy to set up, keeping the server running can be costly. When using features like in-memory computing and network storage, big data management can cost up to USD 5,000.
+**Hadoop is cheap:** Though it’s open source and easy to set up, keeping the server running can be costly. When using features like in-memory computing and network storage, big data management can cost up to USD 5,000.
 
-Hadoop is a database: Though Hadoop is used to store, manage and analyze distributed data, there are no queries involved when pulling data. This makes Hadoop a data warehouse rather than a database.
+**Hadoop is a database:** Though Hadoop is used to store, manage and analyze distributed data, there are no queries involved when pulling data. This makes Hadoop a data warehouse rather than a database.
 
-Hadoop does not help SMBs: “Big data” is not exclusive to “big companies”. Hadoop has simple features like Excel reporting that enable smaller companies to harness its power. Having one or two Hadoop clusters can greatly enhance a small company’s performance.
+**Hadoop does not help SMBs:** “Big data” is not exclusive to “big companies”. Hadoop has simple features like Excel reporting that enable smaller companies to harness its power. Having one or two Hadoop clusters can greatly enhance a small company’s performance.
 
-Hadoop is hard to set up: Though Hadoop management is difficult at the higher levels, there are many graphical user interfaces (GUIs) that simplify programming for MapReduce.
+**Hadoop is hard to set up:** Though Hadoop management is difficult at the higher levels, there are many graphical user interfaces (GUIs) that simplify programming for MapReduce.
 
 ### Common misconceptions about Spark
 
@@ -103,6 +103,27 @@ Spark is most effective for scenarios that involve the following:
 Ref:
 
 - https://www.ibm.com/think/insights/hadoop-vs-spark
+
+## Advantages of Apache Spark
+
+Spark speeds development and operations in a variety of ways. Spark will help teams:
+
+**Accelerate app development:** Apache Spark's Streaming and SQL programming models backed by MLlib and GraphX make it easier to build apps that exploit machine learning and graph analytics.
+
+**Innovate faster:**  APIs provide ease of use when manipulating semi-structured data and transforming data.
+
+**Manage with ease:** A unified engine supports SQL queries, streaming data, machine learning (ML) and graph processing.
+
+**Optimize with open technologies:** The OpenPOWER Foundation enables GPU, CAPI Flash, RDMA, FPGA acceleration and machine learning innovation to optimize performance for Apache Spark workloads.
+
+**Process faster:** Spark can be 100x faster than Hadoop (link resides outside ibm.com) for smaller workloads because of its advanced in-memory computing engine and disk data storage.
+
+**Speed memory access:** Spark can be used to create one large memory space for data processing, enabling more advanced users to access data via interfaces using Python, R, and Spark SQL.
+
+Ref:
+
+https://www.ibm.com/topics/apache-spark
+
 
 ## Spark Key Components
 
@@ -246,3 +267,31 @@ Ref:
 - **Features**:
   - Optimized execution plans.
   - Integration with Spark SQL.
+
+
+## Spark Clusters
+
+For commercial platform, you develop your code and submit the job to clusters to execute.
+
+Good platforms are:
+
+* Databrick
+
+- https://www.databricks.com/resources/ebook/big-book-of-machine-learning-use-cases?scid=7018Y000001Fi0MQAS&utm_medium=paid+search&utm_source=google&utm_campaign=17114500970&utm_adgroup=147740743372&utm_content=ebook&utm_offer=big-book-of-machine-learning-use-cases&utm_ad=665885917674&utm_term=databricks%20use&gad_source=1&gclid=EAIaIQobChMIioassd-YiQMVckT_AR0ZCSrhEAAYASAAEgJx4fD_BwE
+- https://www.databricks.com/spark/getting-started-with-apache-spark
+
+![databrick1.png](databrick1.png)
+
+![databrick2.png](databrick2.png)
+
+* Cloudera
+
+- https://www.cloudera.com/open-source.html
+
+* Azure HDInsight
+
+- https://learn.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-overview
+
+* AWS EMR
+
+- https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-spark-launch.html
