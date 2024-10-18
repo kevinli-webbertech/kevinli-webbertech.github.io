@@ -76,7 +76,35 @@ Spark introduces new technologies in data processing: Though Spark effectively u
 - https://aws.amazon.com/compare/the-difference-between-hadoop-vs-spark/
 - https://www.ibm.com/think/insights/hadoop-vs-spark
 
-## Key Components
+## Hadoop and Spark use cases
+
+Based on the comparative analyses and factual information provided above, the following cases best illustrate the overall usability of Hadoop versus Spark.
+
+### Hadoop use cases
+
+Hadoop is most effective for scenarios that involve the following:
+
+- Processing big data sets in environments where data size exceeds available memory
+- Batch processing with tasks that exploit disk read and write operations
+- Building data analysis infrastructure with a limited budget
+- Completing jobs that are not time-sensitive
+- Historical and archive data analysis
+
+### Spark use cases
+
+Spark is most effective for scenarios that involve the following:
+
+- Dealing with chains of parallel operations by using iterative algorithms
+- Achieving quick results with in-memory computations
+- Analyzing stream data analysis in real time
+- Graph-parallel processing to model data
+- All ML applications
+
+Ref:
+
+- https://www.ibm.com/think/insights/hadoop-vs-spark
+
+## Spark Key Components
 
 ### 1. **Driver Program**
 
