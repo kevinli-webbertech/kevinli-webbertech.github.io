@@ -16,7 +16,7 @@ And we can see hourly plot like the following,
 
 ![homework3_1.png](https://kevinli-webbertech.github.io/blog/images/big_data/homework/homework3_1.png)
 
-* Task 2 (20 pts) Plot the Weekly **bicycle crossings of Seattle’s Fremont bridge** data using Resample method. (hint: resample daily data)
+* Task 2 (20 pts) Plot the Weekly **bicycle crossings of Seattle’s Fremont bridge** data using Resample method.
 
 * Task 3 (20 pts) Plot the Weekly **bicycle crossings of Seattle’s Fremont bridge** data using a rolling mean. (hint: resample daily data, rolling mean on 7 days in right/default and plot.)
 
