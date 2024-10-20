@@ -22,14 +22,14 @@ The class will include linux system, docker, docker registry, jenkin, Kuberntes 
 | Week 7  | Midterm Project                                |
 | Week 7  | Introduction with Jenkin                       |
 | Week 8  | Writing Jenkinfile - Hands-on Lab              |
-| Week 9  | Integrate github with Jenkin                   |
+| Week 9  | Integrate Jenkin with Github                   |
 | Week 10 | Introduction to Nexus                          |
-| Week 11 | Introduction with Jenkin and Nexus             |
-| Week 12 | Introduction to Kubernetes - Lab1              |
-| Week 13 | Springboot app deployment with Kubernetes      |
-| Week 13 | Python app deployment with Kubernetes          |
+| Week 11 | Integration Jenkin with Nexus                  |
+| Week 12 | Introduction to Kubernetes                     |
+| Week 13 | Springboot app deployment with Kubernetes - Lab1  |
+| Week 13 | Python app deployment with Kubernetes - Lab2          |
 | Week 14 | Release final project                          |
-| Week 14 | ML app deployment with Kuberntes               |
+| Week 14 | ML app deployment with Kuberntes - Lab3        |
 | Week 15 | Introduction to loadbalaner- NGINX             |
 
 ## Homework
