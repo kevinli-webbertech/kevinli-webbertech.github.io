@@ -38,7 +38,7 @@ Per week or biweekly. Depending on the homework size.
 
 ## Textbook
 
-No textbook required. Slides and hangout is provided by professors.
+No textbook required. Slides and hangout are provided by the professor.
 
 ## References
 
