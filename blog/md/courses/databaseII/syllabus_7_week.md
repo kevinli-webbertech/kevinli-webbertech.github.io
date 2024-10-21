@@ -24,13 +24,13 @@ Note: You could find the free textbooks online or from online or textbook rental
 | Week    | Course                           |
 |---------|----------------------------------|
 | Week1   | Relational database Intro        |
-| Week2   | SQL Programming                  |
-| Week3   | Cassandra and Python Programming |
+| Week2   | SQL Programming 1                |
+| Week3   | SQL Programming 2                |
 | Midterm | Online quiz                      |
-| Week4   | Mongo and Python programming     |
-| Week5   | Web development with Database    |
-| Week5-Final project assignment| 2-3 weeks  |
-| Week6 | Database Internals                 |
+| Week4   | MongoDB Programming 1            |
+| Week5   | MongoDB Programming 2            |
+| Week5 - Final project assignment 2 weeks   |
+| Week6 | Cassandra Programming              |
 | Week7 | Python Programming with XML        |
 
 * Midterm is online quiz (take offline)
