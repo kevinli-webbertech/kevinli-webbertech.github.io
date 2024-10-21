@@ -19,7 +19,6 @@
 
 Note: You could find the free textbooks online or from online or textbook rentals
 
-
 ## Course Schedule
 
 | Week    | Course                           |
@@ -30,9 +29,9 @@ Note: You could find the free textbooks online or from online or textbook rental
 | Midterm | Online quiz                      |
 | Week4   | Mongo and Python programming     |
 | Week5   | Web development with Database    |
-| Week5-Final project assignment| 2-3 weeks|                        
-| Week6 | Database Internals               |
-| Week7 | Python Programming with XML      |
+| Week5-Final project assignment| 2-3 weeks  |
+| Week6 | Database Internals                 |
+| Week7 | Python Programming with XML        |
 
 * Midterm is online quiz (take offline)
 * the Final is a web dev project
