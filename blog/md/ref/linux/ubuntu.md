@@ -122,6 +122,13 @@ The startx command is a shell script that acts as a front end to xinit(1). It's 
 
 By default, the startx command sends errors to the .xerrors file in the user's home directory.
 
+## Enable *.desktop file in ubuntu
+
+```shell
+xiaofengli@xiaofenglx:~$ gio set ~/Desktop/thinkorswim.desktop metadata::trusted true
+chmod a+x ~/Desktop/app.desktop
+```
+
 ### Ref
 
 - https://support.system76.com/articles/login-loop-ubuntu/
