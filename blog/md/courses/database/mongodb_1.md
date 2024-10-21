@@ -56,6 +56,8 @@ Skipped. (Free version of Dbeaver does not support mongo connection.)
 
 ## Start Mongo Server (This is in ubuntu)
 
+For windows and Mac, you would need to follow instruction to start it.
+
 ```shell
 xiaofengli@xiaofenglx:~/Downloads$ sudo chown -R mongodb:mongodb /var/lib/mongodb
 xiaofengli@xiaofenglx:~/Downloads$ sudo chown mongodb:mongodb /tmp/mongodb-27017.sock
@@ -78,7 +80,7 @@ you will see the following terminal,
 
 ## Import data into mongo database
 
-Download database file, a json file from here, ["restaurant.json"]("./restaurant.json")
+Download database file, a json file from here, ["restaurant.json"](./restaurant.json)
 
 `mongoimport --db restaurant --collection collectionName --file ./restaurant.json --jsonArray`
 
