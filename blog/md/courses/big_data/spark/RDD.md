@@ -410,7 +410,7 @@ partitions meaning there will be data movements between partitions to execute wi
 
 Since these shuffles the data, they also called shuffle transformations.
 
-![wider_transformation.png](wider_transformation.png)
+![wider_transformation.png](../../../../images/spark/wider_transformation.png)
 
 ## PySpark RDD Transformations Examples
 
@@ -469,7 +469,7 @@ rdd3=rdd2.map(lambda x: (x,1))
 
 Collecting and Printing rdd3 yields below output.
 
-![rdd_map.png](rdd_map.png)
+![rdd_map.png](../../../../images/spark/rdd_map.png)
 
 ## reduceByKey() Transformation
 
