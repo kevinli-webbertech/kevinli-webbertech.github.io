@@ -471,7 +471,42 @@ Collecting and Printing rdd3 yields below output.
 
 ![rdd_map.png](rdd_map.png)
 
+## reduceByKey() Transformation
 
+reduceByKey() merges the values for each key with the function specified. 
+In our example, it reduces the word string by applying the sum function on value. 
+The result of our RDD contains unique words and their count.
+
+```python
+# reduceByKey()
+rdd4=rdd3.reduceByKey(lambda a,b: a+b)
+```
+
+Collecting and Printing rdd4 yields below output.
+
+![reduceByKey.png](../../../../images/spark/reduceByKey.png)
+
+## sortByKey() Transformation
+sortByKey() transformation is used to sort RDD elements on key. In our example, first, we convert RDD[(String,Int]) to RDD[(Int,String]) using map transformation and later apply sortByKey which ideally does sort on an integer value. And finally, foreach with println statement prints all words in RDD and their count as key-value pair to console.
+
+```python
+# sortByKey()
+rdd5 = rdd4.map(lambda x: (x[1],x[0])).sortByKey()
+```
+
+Collecting and Printing rdd5 yields below output. Note the columns order has changed.
+
+![sortByKey.png](../../../../images/spark/sortByKey.png)
+
+## filter() Transformation
+filter() transformation is used to filter the records in an RDD. In our example we are filtering all words starts with “a”.
+
+```python
+# filter()
+rdd6 = rdd5.filter(lambda x : 'a' in x[1])
+```
+
+This above statement yields “(2, 'Wonderland')” that has a value ‘a’.
 
 ## Ref
 
