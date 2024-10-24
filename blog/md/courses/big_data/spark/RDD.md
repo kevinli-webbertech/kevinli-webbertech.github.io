@@ -515,3 +515,5 @@ This above statement yields “(2, 'Wonderland')” that has a value ‘a’.
 - https://sparkbyexamples.com/pyspark/pyspark-parallelize-create-rdd/
 
 - https://sparkbyexamples.com/pyspark/pyspark-rdd-transformations/
+- 
+- https://sparkbyexamples.com/pyspark/pyspark-rdd-actions/
