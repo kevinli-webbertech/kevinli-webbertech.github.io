@@ -254,6 +254,12 @@ xiaofengli@xiaofenglx:~/code/spark$ vi SimpleApp-b.py
 
 * Run it with just your python
 
+First set this line if you see errors,
+
+`export SPARK_LOCAL_IP="127.0.0.1"`
+
+Run the code,
+
 ```shell
 xiaofengli@xiaofenglx:~/code/spark$ python SimpleApp-b.py
 Setting default log level to "WARN".
