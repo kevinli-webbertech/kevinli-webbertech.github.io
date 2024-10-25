@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tax Tracking App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <title>Tax Tracking App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  $("#test_me").click(function(){
+		  console.log("you click me");
+    $("#data_table").toggle();
+  });
+});
+</script>
+
+</head>
+<body>
+
+    <button id="test_me" >show content</button>	
+   <div id="data_table">
+        <h1>This is the Tax Data Table</h1>
+   </div>
+
+   <div id="filtered_table">
+	<h1>This is the Tax Filtered Table</h1>
+   </div>
+</body>
+</html>
