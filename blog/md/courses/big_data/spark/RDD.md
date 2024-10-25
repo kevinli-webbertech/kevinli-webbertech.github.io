@@ -37,7 +37,7 @@ It should look like the following,
 
 Run the code,
 
-![run_code.png](../../../../images/spark/run_code.png)
+![run_code.png](../../../../images/spark/run_example2.png)
 
 ***Explanation:***
 
@@ -67,7 +67,7 @@ print("Action: First element: " + str(rdd.first()))
 print(dataCollect)
 ```
 
-![run_example2.png](../../../../images/spark/run_example2.png)
+![run_example2.png](../../../../images/spark/run_code.png)
 
 **create empty RDD by using sparkContext.parallelize**
 
