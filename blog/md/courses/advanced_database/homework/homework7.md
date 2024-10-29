@@ -1,4 +1,4 @@
-# Assignment 7 Implement a Javascript Calculator
+# Implement a Javascript Calculator
 
 ## Submission requirements
 

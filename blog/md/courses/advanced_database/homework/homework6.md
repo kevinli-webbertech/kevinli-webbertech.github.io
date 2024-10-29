@@ -1,4 +1,4 @@
-# Assignment 6 SQLite and Data Analysis
+# SQLite and Data Analysis
 
 ## Submission requirements
 
