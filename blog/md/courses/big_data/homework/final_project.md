@@ -7,7 +7,7 @@
 Instructions. Please write code with Spark DataFrame and MLlib to complete
 the following tasks.
 
-• Task 1 Data collection (10 pts). Load the “adult dataset” from [here](https://archive.ics.uci.edu/ml/datasets/adult).
+• Task 1 Data collection (10 pts). Load the “adult dataset” from [here](adult.zip).
 
 • Task 2 Data cleaning (20 pts). Handle the missing values.
 
