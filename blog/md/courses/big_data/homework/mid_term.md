@@ -6,7 +6,11 @@ NPI database is fast and provide public data and API.
 
 https://npiregistry.cms.hhs.gov/search
 
+![npiregistry](npiregistry.png)
+
 Once you search you would get the following,
+
+![npi_search](npi_search.png)
 
 **Goal:**
 
@@ -22,7 +26,9 @@ https://download.cms.gov/nppes/NPI_Files.html
 
 * We should analyze the following,
 
-## Task 2 Visualize the data
+![NPI_Data](NPI_Data.png)
+
+## Task of visualizing the data
 
 1/ Read all the montly doctor data and sort doctors with different practices. (20 pts)
 
