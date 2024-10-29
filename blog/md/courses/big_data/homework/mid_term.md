@@ -6,11 +6,11 @@ NPI database is fast and provide public data and API.
 
 https://npiregistry.cms.hhs.gov/search
 
-![npiregistry](npiregistry.png)
+![npiregistry](../../../../images/big_data/homework/npiregistry.png)
 
 Once you search you would get the following,
 
-![npi_search](npi_search.png)
+![npi_search](../../../../images/big_data/homework/npi_search.png)
 
 **Goal:**
 
@@ -26,7 +26,7 @@ https://download.cms.gov/nppes/NPI_Files.html
 
 * We should analyze the following,
 
-![NPI_Data](NPI_Data.png)
+![NPI_Data](../../../../images/big_data/homework/NPI_Data.png)
 
 ## Task of visualizing the data
 

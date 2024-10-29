@@ -10,7 +10,7 @@ It is an immutable-distributed collection of objects. Each dataset in RDD is div
 
 Create a file called "RDDTest.py",
 
-![rddtest.png](../../../../images/spark/rddtest.png)
+![rddtest.png](../../../../images/big_data/spark/rddtest.png)
 
 Paste the content in,
 
@@ -33,11 +33,11 @@ import numpy as np
 
 It should look like the following,
 
-![source.png](../../../../images/spark/source.png)
+![source.png](../../../../images/big_data/spark/source.png)
 
 Run the code,
 
-![run_code.png](../../../../images/spark/run_example2.png)
+![run_code.png](../../../../images/big_data/spark/run_example2.png)
 
 ***Explanation:***
 
@@ -67,7 +67,7 @@ print("Action: First element: " + str(rdd.first()))
 print(dataCollect)
 ```
 
-![run_example2.png](../../../../images/spark/run_code.png)
+![run_example2.png](../../../../images/big_data/spark/run_code.png)
 
 **create empty RDD by using sparkContext.parallelize**
 
@@ -108,7 +108,7 @@ print(agg) # output 20
 
 Run the code,
 
-![aggregateExample1.png](../../../../images/spark/aggregateExample1.png)
+![aggregateExample1.png](../../../../images/big_data/spark/aggregateExample1.png)
 
 
 **Example 2**
@@ -129,7 +129,7 @@ print(agg2) # output (20,7)
 
 Run the code,
 
-![aggregateExample2.png](../../../../images/spark/aggregateExample2.png)
+![aggregateExample2.png](../../../../images/big_data/spark/aggregateExample2.png)
 
 ## treeAggregate – action
 
@@ -367,7 +367,7 @@ print("take : "+str(listRdd.takeSample()))
 
 ```
 
-![completeExample.png](../../../../images/spark/completeExample.png)
+![completeExample.png](../../../../images/big_data/spark/completeExample.png)
 
 
 ## RDD Transformation and Lineage
@@ -378,7 +378,7 @@ When executed on RDD, it results in a single or multiple new RDD.
 Since RDD are immutable in nature, transformations always create a new RDD without updating an existing one hence,
 a chain of RDD transformations creates an RDD lineage.
 
-![lineage.png](../../../../images/spark/lineage.png)
+![lineage.png](../../../../images/big_data/spark/lineage.png)
 
 RDD Lineage is also known as the RDD operator graph or RDD dependency graph.
 
@@ -399,7 +399,7 @@ Narrow transformations are the result of map() and filter() functions and these 
 
 Functions such as `map()`, `mapPartition()`, `flatMap()`, `filter()`, `union()` are some examples of narrow transformation.
 
-![narrow_transformation.png](../../../../images/spark/narrow_transformation.png)
+![narrow_transformation.png](../../../../images/big_data/spark/narrow_transformation.png)
 
 #### Wider Transformation
 
@@ -410,7 +410,7 @@ partitions meaning there will be data movements between partitions to execute wi
 
 Since these shuffles the data, they also called shuffle transformations.
 
-![wider_transformation.png](../../../../images/spark/wider_transformation.png)
+![wider_transformation.png](../../../../images/big_data/spark/wider_transformation.png)
 
 ## PySpark RDD Transformations Examples
 
@@ -469,7 +469,7 @@ rdd3=rdd2.map(lambda x: (x,1))
 
 Collecting and Printing rdd3 yields below output.
 
-![rdd_map.png](../../../../images/spark/rdd_map.png)
+![rdd_map.png](../../../../images/big_data/spark/rdd_map.png)
 
 ## reduceByKey() Transformation
 
@@ -484,7 +484,7 @@ rdd4=rdd3.reduceByKey(lambda a,b: a+b)
 
 Collecting and Printing rdd4 yields below output.
 
-![reduceByKey.png](../../../../images/spark/reduceByKey.png)
+![reduceByKey.png](../../../../images/big_data/spark/reduceByKey.png)
 
 ## sortByKey() Transformation
 sortByKey() transformation is used to sort RDD elements on key. In our example, first, we convert RDD[(String,Int]) to RDD[(Int,String]) using map transformation and later apply sortByKey which ideally does sort on an integer value. And finally, foreach with println statement prints all words in RDD and their count as key-value pair to console.
@@ -496,7 +496,7 @@ rdd5 = rdd4.map(lambda x: (x[1],x[0])).sortByKey()
 
 Collecting and Printing rdd5 yields below output. Note the columns order has changed.
 
-![sortByKey.png](../../../../images/spark/sortByKey.png)
+![sortByKey.png](../../../../images/big_data/spark/sortByKey.png)
 
 ## filter() Transformation
 filter() transformation is used to filter the records in an RDD. In our example we are filtering all words starts with “a”.
