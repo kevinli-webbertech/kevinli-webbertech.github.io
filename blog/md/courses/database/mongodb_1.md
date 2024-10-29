@@ -80,7 +80,7 @@ you will see the following terminal,
 
 ## Import data into mongo database
 
-Download database file, a json file from here, ["restaurant.json"](./restaurant.json)
+Download database file, a json file from here, ["restaurant.json"](https://kevinli-webbertech.github.io/blog/md/courses/database/restaurant.json)
 
 `mongoimport --db restaurant --collection collectionName --file ./restaurant.json --jsonArray`
 
