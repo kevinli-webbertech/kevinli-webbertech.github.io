@@ -22,7 +22,7 @@ We would like to explore their whole data or data as a whole by analyzing the cs
 
 https://download.cms.gov/nppes/NPI_Files.html
 
-* There is a Full Replacement Monthly NPI Deactivation File zip, and deactivation zips, so we might need to perform a delta cleaning, which means filter them out from the whole data. Since this is more dynamic such as some doctors are leaving the jobs, retiring or dead.
+* There is a Full Replacement Monthly NPI Deactivation File zip, and deactivation zips, so we might need to perform a delta cleaning, which means filter them out from the whole data.
 
 * We should analyze the following,
 
