@@ -147,20 +147,29 @@ One use of Spark SQL is to execute SQL queries. Spark SQL can also be used to re
 
 ## SQL Labs
 
-First we run the docker image and get into it,
+* Step 1 Make a source code like this,
 
-![spark_docker](spark_docker.png)
-
-Since this docker image was provided by Apache foundation, so it contains all its examples,
-
-![spark_example](spark_example.png)
-
-We make sure we stay here,
-
-```shell
-spark@54b07968d472:/opt/spark$ ls
-bin  data  examples  jars  python  R  RELEASE  sbin  tests  work-dir
+```python
+ from pyspark.sql import SparkSession
+ 
+ df = spark.read.json("examples/people.json")
+ df.show()
+ spark.stop()
 ```
+
+## Download spark tarball, unzip it and get the example jsons out
+
+![download](download.png)
+
+Exact the zip and you will see this,
+
+![extracted_zip](extracted_zip.png)
+
+This is my folder structures,
+
+![folder1](folder1.png)
+
+![folder2](folder2.png)
 
 ## Datasets and DataFrames
 
