@@ -1,19 +1,14 @@
 # Spark SQL Guide
 
 ## Intro
+
 Aggregate functions in PySpark are functions that operate on a group of rows and return a single value. These functions are used in Spark SQL queries to summarize and analyze data.
 
-Here are some examples of aggregate functions in PySpark:
-
-Sample Data
-from pyspark.sql import SparkSession
-
-## create SparkSession
-spark = SparkSession.builder.appName("AggregateFunctionsExample").getOrCreate()
-
-## create a sample dataframe
+## create SparkSession and Dataframe
 
 ```python
+from pyspark.sql import SparkSession
+spark = SparkSession.builder.appName("AggregateFunctionsExample").getOrCreate()
 data = [("John", "Hardware", 1000),
 ("Sara", "Software", 2000),
 ("Mike", "Hardware", 3000),
@@ -30,17 +25,19 @@ This will create a dataframe with columns name, category, and sales and five row
    This function returns the sum of the values in a specified column.
 
 ```python
-
 from pyspark.sql.functions import sum
 df.select(sum("sales")).show()
 ```
 
-# Output
+**Output**
+
+```shell
 +----------+
 |sum(sales)|
 +----------+
 |    15000 |
 +----------+
+```
 
 2. COUNT
 
@@ -51,12 +48,15 @@ from pyspark.sql.functions import count
 df.select(count("customer_id")).show()
 ```
 
-# Output
+**Output**
+
+```shell
 +------------------+
 |count(customer_id)|
 +------------------+
 |               5  |
 +------------------+
+```
 
 3. AVG
 
@@ -67,12 +67,15 @@ from pyspark.sql.functions import avg
 df.select(avg("sales")).show()
 ```
 
-# Output
+**Output**
+
+```shell
 +-------------------+
 |         avg(sales)|
 +-------------------+
 |            3000.0 |
 +-------------------+
+```
 
 5. MAX
 
@@ -83,12 +86,15 @@ from pyspark.sql.functions import max
 df.select(max("sales")).show()
 ```
 
-# Output
+**Output**
+
+```shell
 +----------+
 |max(sales)|
 +----------+
 |      5000|
 +----------+
+```
 
 5. MIN
 
@@ -99,12 +105,15 @@ from pyspark.sql.functions import min
 df.select(min("sales")).show()
 ```
 
-# Output
+**Output**
+
+```shell
 +----------+
 |min(sales)|
 +----------+
 |      1000|
 +----------+
+```
 
 6. GROUP BY
 
@@ -115,16 +124,20 @@ from pyspark.sql.functions import avg
 df.groupBy("category").agg(avg("sales")).show()
 ```
 
-# Output
+**Output**
+
+```shell
 +--------+----------+
 |category|avg(sales)|
 +--------+----------+
 |Hardware|      2666|
 |Software|      3500|
 +--------+----------+
+```
 
 Note that the exact values might be different based on the data you are using. These are just a few examples of the many aggregate functions available in PySpark.
 
 ## Ref
 
 - https://spark.apache.org/docs/latest/sql-programming-guide.html
+- https://sparkbyexamples.com/pyspark/pyspark-rdd-actions/
