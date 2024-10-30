@@ -180,7 +180,7 @@ This is my folder structures,
 * Step 4 update our code to the following,
 
 Let us add more usage of the dataframe, once the data is imported into dataframe,
-it is in our hand,
+it is in our hand. In the following example, we use `df.select`, `df.filter` and `df.groupBy`
 
 ```python
 from pyspark.sql import SparkSession
@@ -190,8 +190,8 @@ spark = SparkSession \
         .appName("Python Spark SQL basic example") \
         .config("spark.some.config.option", "some-value") \
         .getOrCreate()
-    df = spark.read.json("examples/people.json")
-    df.show()
+df = spark.read.json("examples/people.json")
+df.show()
    
 # spark, df are from the previous example
 # Print the schema in a tree format
@@ -204,11 +204,11 @@ df.select("name").show()
 df.select(df['name'], df['age'] + 1).show() 
 
 # Select people older than 21
- df.filter(df['age'] > 21).show()
+df.filter(df['age'] > 21).show()
   
  # Count people by age
 df.groupBy("age").count().show()
- spark.stop()
+spark.stop()
 ```
 
 ![new_code](new_code.png)
