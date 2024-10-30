@@ -145,7 +145,7 @@ Note that the exact values might be different based on the data you are using. T
 
 One use of Spark SQL is to execute SQL queries. Spark SQL can also be used to read data from an existing Hive installation. For more on how to configure this feature, please refer to the Hive Tables section. When running SQL from within another programming language the results will be returned as a Dataset/DataFrame. You can also interact with the SQL interface using the command-line or over JDBC/ODBC.
 
-## SQL Labs
+## SQL Lab1
 
 * Step 1 Make a source code like this,
 
@@ -213,7 +213,31 @@ spark.stop()
 
 ![new_code](new_code.png)
 
-You can download the code from here [SQL1.py](./SQL1.py)
+You can download the code from here [SQL1.py](kevinli-webbertech.github.io/blog/md/courses/big_data/spark/spark_code/SQL1.py)
+
+## SQL Lab 2
+
+Download the code from here [SQL2.py](kevinli-webbertech.github.io/blog/md/courses/big_data/spark/spark_code/SQL2.py). It is the same content as the following code,
+
+```python
+from pyspark.sql import SparkSession
+spark = SparkSession \
+       .builder \
+       .appName("Python Spark SQL basic example") \
+       .config("spark.some.config.option", "some-value") \
+       .getOrCreate()
+df = spark.read.json("examples/people.json")
+
+# Register the DataFrame as a SQL temporary view
+df.createOrReplaceTempView("people")
+sqlDF = spark.sql("SELECT * FROM people")
+sqlDF.show()
+spark.stop()
+```
+
+* Run the code
+
+![run_sql2](run_sql2.png)
 
 ## Datasets and DataFrames
 
