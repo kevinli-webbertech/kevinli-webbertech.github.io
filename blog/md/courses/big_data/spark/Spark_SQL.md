@@ -162,8 +162,6 @@ spark@54b07968d472:/opt/spark$ ls
 bin  data  examples  jars  python  R  RELEASE  sbin  tests  work-dir
 ```
 
-
-
 ## Datasets and DataFrames
 
 A Dataset is a distributed collection of data. Dataset is a new interface added in Spark 1.6 that provides the benefits of RDDs (strong typing, ability to use powerful lambda functions) with the benefits of Spark SQL’s optimized execution engine.
