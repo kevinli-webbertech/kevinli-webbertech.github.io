@@ -531,6 +531,10 @@ query = output\
   .start()
 ```
 
+* Binary file
+
+`park.read.format("binaryFile").option("pathGlobFilter", "*.png").load("/path/to/data")`
+
 ## Ref
 
 - https://spark.apache.org/docs/latest/sql-programming-guide.html
