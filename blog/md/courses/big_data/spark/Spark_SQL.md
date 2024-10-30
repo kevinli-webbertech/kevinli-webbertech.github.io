@@ -145,6 +145,25 @@ Note that the exact values might be different based on the data you are using. T
 
 One use of Spark SQL is to execute SQL queries. Spark SQL can also be used to read data from an existing Hive installation. For more on how to configure this feature, please refer to the Hive Tables section. When running SQL from within another programming language the results will be returned as a Dataset/DataFrame. You can also interact with the SQL interface using the command-line or over JDBC/ODBC.
 
+## SQL Labs
+
+First we run the docker image and get into it,
+
+![spark_docker](spark_docker.png)
+
+Since this docker image was provided by Apache foundation, so it contains all its examples,
+
+![spark_example](spark_example.png)
+
+We make sure we stay here,
+
+```shell
+spark@54b07968d472:/opt/spark$ ls
+bin  data  examples  jars  python  R  RELEASE  sbin  tests  work-dir
+```
+
+
+
 ## Datasets and DataFrames
 
 A Dataset is a distributed collection of data. Dataset is a new interface added in Spark 1.6 that provides the benefits of RDDs (strong typing, ability to use powerful lambda functions) with the benefits of Spark SQL’s optimized execution engine.
