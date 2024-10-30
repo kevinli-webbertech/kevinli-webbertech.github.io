@@ -1,4 +1,4 @@
-# Spark SQL Guide
+# Spark SQL and Dateframe
 
 ## Intro
 
@@ -157,7 +157,7 @@ One use of Spark SQL is to execute SQL queries. Spark SQL can also be used to re
  spark.stop()
 ```
 
-## Download spark tarball, unzip it and get the example jsons out
+* Step 2 Download spark tarball, unzip it and get the example jsons out
 
 ![download](download.png)
 
@@ -170,6 +170,50 @@ This is my folder structures,
 ![folder1](folder1.png)
 
 ![folder2](folder2.png)
+
+![code](code.png)
+
+* Step 3 Run the code
+
+![runcode](runcode.png)
+
+* Step 4 update our code to the following,
+
+Let us add more usage of the dataframe, once the data is imported into dataframe,
+it is in our hand,
+
+```python
+from pyspark.sql import SparkSession
+
+spark = SparkSession \
+       .builder \
+        .appName("Python Spark SQL basic example") \
+        .config("spark.some.config.option", "some-value") \
+        .getOrCreate()
+    df = spark.read.json("examples/people.json")
+    df.show()
+   
+# spark, df are from the previous example
+# Print the schema in a tree format
+df.printSchema()
+ 
+# Select only the "name" column
+df.select("name").show()
+
+# Select everybody, but increment the age by 1
+df.select(df['name'], df['age'] + 1).show() 
+
+# Select people older than 21
+ df.filter(df['age'] > 21).show()
+  
+ # Count people by age
+df.groupBy("age").count().show()
+ spark.stop()
+```
+
+![new_code](new_code.png)
+
+You can download the code from here [SQL1.py](./SQL1.py)
 
 ## Datasets and DataFrames
 
@@ -189,3 +233,7 @@ A Dataset is a distributed collection of data. Dataset is a new interface added 
 
 - https://spark.apache.org/docs/latest/sql-programming-guide.html
 - https://sparkbyexamples.com/pyspark/pyspark-rdd-actions/
+- https://spark.apache.org/sql/
+- https://spark.apache.org/streaming/
+- https://spark.apache.org/mllib/
+- https://spark.apache.org/docs/latest/ml-guide.html
