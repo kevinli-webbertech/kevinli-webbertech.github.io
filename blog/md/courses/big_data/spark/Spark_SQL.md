@@ -159,23 +159,23 @@ One use of Spark SQL is to execute SQL queries. Spark SQL can also be used to re
 
 * Step 2 Download spark tarball, unzip it and get the example jsons out
 
-![download](download.png)
+![download](../../../../images/big_data/spark/download.png)
 
 Exact the zip and you will see this,
 
-![extracted_zip](extracted_zip.png)
+![extracted_zip](../../../../images/big_data/spark/extracted_zip.png)
 
 This is my folder structures,
 
-![folder1](folder1.png)
+![folder1](../../../../images/big_data/spark/folder1.png)
 
-![folder2](folder2.png)
+![folder2](../../../../images/big_data/spark/folder2.png)
 
-![code](code.png)
+![code](../../../../images/big_data/spark/code.png)
 
 * Step 3 Run the code
 
-![runcode](runcode.png)
+![runcode](../../../../images/big_data/spark/runcode.png)
 
 * Step 4 update our code to the following,
 
@@ -211,7 +211,7 @@ df.groupBy("age").count().show()
 spark.stop()
 ```
 
-![new_code](new_code.png)
+![new_code](../../../../images/big_data/spark/new_code.png)
 
 You can download the code from here [SQL1.py](kevinli-webbertech.github.io/blog/md/courses/big_data/spark/spark_code/SQL1.py)
 
@@ -237,7 +237,7 @@ spark.stop()
 
 * Run the code
 
-![run_sql2](run_sql2.png)
+![run_sql2](../../../../images/big_data/spark/run_sql2.png)
 
 ## Datasets and DataFrames
 
@@ -257,7 +257,7 @@ A Dataset is a distributed collection of data. Dataset is a new interface added 
 
 Datasets are similar to RDDs, however, instead of using Java serialization or Kryo they use a specialized Encoder to serialize the objects for processing or transmitting over the network. While both encoders and standard serialization are responsible for turning an object into bytes, encoders are code generated dynamically and use a format that allows Spark to perform many operations like filtering, sorting and hashing without deserializing the bytes back into an object.
 
-![serialization](serialization.png)
+![serialization](../../../../images/big_data/spark/serialization.png)
 
 ## Lab 3 Programmatically Specifying the Schema
 
@@ -339,7 +339,7 @@ if __name__ == "__main__":
 
 * Run SQL3.py
 
-![run_sql3](run_sql3.png)
+![run_sql3](../../../../images/big_data/spark/run_sql3.png)
 
 ## Lab 4
 
@@ -412,7 +412,7 @@ Tom, 15
 ```
 
 * Run SQL4.py
-![run_sql4](run_sql4.png)
+![run_sql4](../../../../images/big_data/spark/run_sql4.png)
 
 ## Files supported
 

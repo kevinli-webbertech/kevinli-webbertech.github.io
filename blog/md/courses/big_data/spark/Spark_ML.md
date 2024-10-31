@@ -10,6 +10,8 @@ MLlib is Spark’s machine learning (ML) library. Its goal is to make practical 
 * Persistence: saving and load algorithms, models, and Pipelines
 * Utilities: linear algebra, statistics, data handling, etc.
 
+![MLLib.png](../../../../images/big_data/spark/MLLib.png)
+
 ## What are the implications?
 
 MLlib will still support the RDD-based API in spark.mllib with bug fixes.
@@ -50,7 +52,7 @@ Table of Contents
 
 When we download the zip and unarchive it, we can see a data dir,
 
-![spark_ml_data](spark_ml_data.png)
+![spark_ml_data](../../../../images/big_data/spark/spark_ml_data.png)
 
 ### Image data source
 
@@ -80,11 +82,11 @@ This image data source is used to load image files from a directory, it can load
 
 Copy from spark dir/
 
-![data_in_spark](data_in_spark.png)
+![data_in_spark](../../../../images/big_data/spark/data_in_spark.png)
 
 To my dev dir/
 
-![data_in_dev](data_in_dev.png)
+![data_in_dev](../../../../images/big_data/spark/data_in_dev.png)
 
 * Prepare the above code in datasource.py
 
@@ -100,7 +102,7 @@ spark.stop()
 
 * Then run the code
 
-![run_loading_image](run_loading_image.png)
+![run_loading_image](../../../../images/big_data/spark/run_loading_image.png)
 
 ### LIBSVM data source
 
