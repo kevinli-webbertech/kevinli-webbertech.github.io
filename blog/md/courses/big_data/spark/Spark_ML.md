@@ -12,6 +12,32 @@ MLlib is Spark’s machine learning (ML) library. Its goal is to make practical 
 
 ![MLLib.png](../../../../images/big_data/spark/MLLib.png)
 
+**Algorithms**
+
+MLlib contains many algorithms and utilities.
+
+**ML algorithms include:**
+
+* Classification: logistic regression, naive Bayes,...
+* Regression: generalized linear regression, survival regression,...
+* Decision trees, random forests, and gradient-boosted trees
+* Recommendation: alternating least squares (ALS)
+* Clustering: K-means, Gaussian mixtures (GMMs),...
+* Topic modeling: latent Dirichlet allocation (LDA)
+* Frequent itemsets, association rules, and sequential pattern mining
+
+**ML workflow utilities include:**
+
+* Feature transformations: standardization, normalization, hashing,...
+* ML Pipeline construction
+* Model evaluation and hyper-parameter tuning
+* ML persistence: saving and loading models and Pipelines
+
+**Other utilities include:**
+
+* Distributed linear algebra: SVD, PCA,...
+* Statistics: summary statistics, hypothesis testing,...
+
 ## What are the implications?
 
 MLlib will still support the RDD-based API in spark.mllib with bug fixes.
@@ -65,7 +91,7 @@ This image data source is used to load image files from a directory, it can load
 * mode: IntegerType (OpenCV-compatible type)
 * data: BinaryType (Image bytes in OpenCV-compatible order: row-wise BGR in most cases)
 
-```
+```python
 >>> df = spark.read.format("image").option("dropInvalid", True).load("data/mllib/images/origin/kittens")
 >>> df.select("image.origin", "image.width", "image.height").show(truncate=False)
 +-----------------------------------------------------------------------+-----+------+
