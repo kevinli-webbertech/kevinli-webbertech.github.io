@@ -76,6 +76,32 @@ This image data source is used to load image files from a directory, it can load
 +-----------------------------------------------------------------------+-----+------+
 ```
 
+* Copy the data/ directory from unarchived spark dir to your code dir,
+
+Copy from spark dir/
+
+![data_in_spark](data_in_spark.png)
+
+To my dev dir/
+
+![data_in_dev](data_in_dev.png)
+
+* Prepare the above code in datasource.py
+
+```python
+from pyspark.sql import SparkSession
+
+spark = SparkSession.builder.appName("SimpleApp").getOrCreate()
+
+df = spark.read.format("image").option("dropInvalid", True).load("data/mllib/images/origin/kittens")
+df.select("image.origin", "image.width", "image.height").show(truncate=False)
+spark.stop()
+```
+
+* Then run the code
+
+![run_loading_image](run_loading_image.png)
+
 ### LIBSVM data source
 
 This LIBSVM data source is used to load ‘libsvm’ type files from a directory. The loaded DataFrame has two columns: label containing labels stored as doubles and features containing feature vectors stored as Vectors. The schemas of the columns are:
@@ -106,10 +132,7 @@ In PySpark we provide Spark SQL data source API for loading LIBSVM data as a Dat
 
 only showing top 10 rows
 
-
-
 ## Basic Statistics
-
 
 ## Ref
 
