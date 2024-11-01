@@ -30,11 +30,13 @@ https://download.cms.gov/nppes/NPI_Files.html
 
 ## Task of visualizing the data
 
-1/ Read all the montly doctor data and sort doctors with different practices. (20 pts)
+In the above image, we showed the data from the past, in this homework, we would need to download the latest data to process.
 
-2/ Remove the doctors from the deactivation zip. (20 pts)
+1/ Remove the doctors from the deactivation zip and apply all the incremental weekly data patches. (20 pts)
 
-3/ After removal, get counts of all the active doctors based on the practices. (20 pts)
+2/ After cleanup the data from 1/, please read all the monthly doctor data and sort doctors with different practices. (20 pts)
+
+3/ After removal, get counts of all the active doctors based on the "Dermatology" or "Dermatologist"(20 pts)
 
 4/ Use a Piechart or any visualization to show the percentage other any other charts you think that can visualize better. (20 pts)
 
