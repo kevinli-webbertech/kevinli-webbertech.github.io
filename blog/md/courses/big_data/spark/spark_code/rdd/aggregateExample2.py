@@ -1,7 +1,7 @@
 import pyspark
 from pyspark.sql import SparkSession
 
-spark = SparkSession.builder.appName('SparkBySession').getOrCreate()
+spark = SparkSession.builder.appName('SparkBySession').config("spark.driver.bindAddress", "127.0.0.1").getOrCreate()
 listRdd = spark.sparkContext.parallelize([1,2,3,4,5,3,2])
 
 #aggregate 2

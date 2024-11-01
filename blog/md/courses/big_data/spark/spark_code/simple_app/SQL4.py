@@ -40,7 +40,7 @@ if __name__ == "__main__":
     spark = SparkSession \
         .builder \
         .appName("Python Spark SQL basic example") \
-        .config("spark.some.config.option", "some-value") \
+        .config("spark.driver.bindAddress", "127.0.0.1") \
         .getOrCreate()
     # $example off:init_session$
 

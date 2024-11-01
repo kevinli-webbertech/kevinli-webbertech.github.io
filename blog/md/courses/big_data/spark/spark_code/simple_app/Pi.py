@@ -11,7 +11,7 @@ if __name__ == "__main__":
     """
     spark = SparkSession\
         .builder\
-        .appName("PythonPi")\
+        .appName("PythonPi").config("spark.driver.bindAddress", "127.0.0.1") \
         .getOrCreate()
 
     partitions = int(sys.argv[1]) if len(sys.argv) > 1 else 2
