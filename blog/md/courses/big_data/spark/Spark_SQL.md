@@ -213,11 +213,11 @@ spark.stop()
 
 ![new_code](../../../../images/big_data/spark/new_code.png)
 
-You can download the code from here [SQL1.py](kevinli-webbertech.github.io/blog/md/courses/big_data/spark/spark_code/SQL1.py)
+You can download the code from here [SQL1.py](http://kevinli-webbertech.github.io/blog/md/courses/big_data/spark/spark_code/SQL1.py)
 
 ## SQL Lab 2
 
-Download the code from here [SQL2.py](kevinli-webbertech.github.io/blog/md/courses/big_data/spark/spark_code/SQL2.py). It is the same content as the following code,
+Download the code from here [SQL2.py](http://kevinli-webbertech.github.io/blog/md/courses/big_data/spark/spark_code/SQL2.py). It is the same content as the following code,
 
 ```python
 from pyspark.sql import SparkSession
@@ -268,7 +268,7 @@ In this lab, we are doing the following things,
 * Create the schema represented by a StructType matching the structure of tuples or lists in the RDD created in the step 1.
 * Apply the schema to the RDD via createDataFrame method provided by SparkSession.
 
-You can download the file from here [SQL3.py](kevinli-webbertech.github.io/blog/md/courses/big_data/spark/spark_code/SQL3.py)
+You can download the file from here [SQL3.py](http://kevinli-webbertech.github.io/blog/md/courses/big_data/spark/spark_code/SQL3.py)
 
 * Step 1 create a SQL3.py
 
@@ -345,7 +345,7 @@ if __name__ == "__main__":
 
 * Prepare your code SQL4.py
 
-Download the code from here [SQL4.py](kevinli-webbertech.github.io/blog/md/courses/big_data/spark/spark_code/SQL4.py)
+Download the code from here [SQL4.py](http://kevinli-webbertech.github.io/blog/md/courses/big_data/spark/spark_code/SQL4.py)
 
 ```python
 # $example on:init_session$
