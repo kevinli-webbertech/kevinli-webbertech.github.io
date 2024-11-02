@@ -411,6 +411,7 @@ Tom, 15
 ```
 
 * Run SQL4.py
+
 ![run_sql4](../../../../images/big_data/spark/run_sql4.png)
 
 ## Files supported
