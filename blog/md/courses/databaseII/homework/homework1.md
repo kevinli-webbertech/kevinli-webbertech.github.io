@@ -4,6 +4,7 @@
 
 * Please submit a word document with screenshots and description for each task.
 * If SQL code is needed, please paste SQL code into the word document and screenshots to prove that it is working.
+* Each question is getting score evenly based on 100 pts.
 
 1. Install MySQL 8 on your personal laptop. Please make sure you note down the root username and password during installation. (please upload screenshot)
 2. Install DBeaver on your personal laptop and try to connect to your MySQL 8 via localhost. (please upload screenshot)
