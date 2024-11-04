@@ -1,5 +1,3 @@
-# Syllabus
-
 ## Survey
 
 * How many people knows Python language.
