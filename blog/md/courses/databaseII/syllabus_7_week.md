@@ -89,8 +89,10 @@ We will provide you the optional information above and talked about them but it 
 * Quiz 30%
 * Final 35%
 
-95-100 -> A
-90-95 -> B
-80-89 -> C
-70-79 -> D
-Others -> F
+|Grades| Rank|
+|--|--|
+|95-100| A|
+|90-95| B|
+|80-89|C|
+|70-79 |D|
+|Others|F|
