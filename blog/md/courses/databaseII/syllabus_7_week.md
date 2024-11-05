@@ -5,7 +5,6 @@
 * How many people know C programming language.
 * How many people have learned data structures in either C, Python or Java.
 
-
 ## Textbook
 
 * **No textbooks required**. All would be provided via my personal research website,
