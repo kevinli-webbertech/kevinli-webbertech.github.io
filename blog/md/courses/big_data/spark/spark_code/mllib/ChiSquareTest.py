@@ -7,7 +7,7 @@ from pyspark.ml.linalg import Vectors
 from pyspark.ml.stat import ChiSquareTest
 from pyspark.sql import SparkSession
 
-spark = SparkSession.builder.appName("SimpleApp").getOrCreate()
+spark = SparkSession.builder.appName("SimpleApp").config("spark.driver.bindAddress", "127.0.0.1").getOrCreate()
 data = [(0.0, Vectors.dense(0.5, 10.0)),
         (0.0, Vectors.dense(1.5, 20.0)),
         (1.0, Vectors.dense(1.5, 30.0)),

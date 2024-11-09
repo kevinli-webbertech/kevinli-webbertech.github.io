@@ -2,7 +2,7 @@ from pyspark.ml.linalg import Vectors
 from pyspark.ml.stat import Correlation
 from pyspark.sql import SparkSession
 
-spark = SparkSession.builder.appName("SimpleApp").getOrCreate()
+spark = SparkSession.builder.appName("SimpleApp").config("spark.driver.bindAddress", "127.0.0.1").getOrCreate()
 data = [(Vectors.sparse(4, [(0, 1.0), (3, -2.0)]),),
         (Vectors.dense([4.0, 5.0, 0.0, 3.0]),),
         (Vectors.dense([6.0, 7.0, 0.0, 8.0]),),

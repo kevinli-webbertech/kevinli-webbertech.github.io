@@ -2,7 +2,7 @@ from pyspark.ml.stat import Summarizer
 from pyspark.sql import Row, SparkSession
 from pyspark.ml.linalg import Vectors
 
-spark = SparkSession.builder.appName("SimpleApp").getOrCreate()
+spark = SparkSession.builder.appName("SimpleApp").config("spark.driver.bindAddress", "127.0.0.1").getOrCreate()
 
 df = spark.sparkContext.parallelize([Row(weight=1.0, features=Vectors.dense(1.0, 1.0, 1.0)),
                      Row(weight=0.0, features=Vectors.dense(1.0, 2.0, 3.0))]).toDF()
