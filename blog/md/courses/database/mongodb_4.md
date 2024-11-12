@@ -111,7 +111,7 @@ To run it, we can see the following,
 
 If you use PyCharm, just create a new Python project and it will create the above virtual environment.
 
-[TODO]
+Image skipped. Please use PyCharm community version for practice.
 
 ### Ref
 
