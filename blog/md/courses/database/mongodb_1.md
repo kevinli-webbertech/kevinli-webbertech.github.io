@@ -50,9 +50,9 @@ echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gp
 - https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/
 
 
-## Installation of Dbeaver
+## Installation of Rot 3T
 
-Skipped. (Free version of Dbeaver does not support mongo connection.)
+https://robomongo.org/
 
 ## Start Mongo Server (This is in ubuntu)
 
