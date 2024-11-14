@@ -16,7 +16,7 @@ MongoDB provides a document-oriented data model, meaning data is stored in BSON 
 
   * To start the server, go to `C:\Program Files\MongoDB\Server\3.2\bin>`,
     enter command `mongod`
-    by default, mongodb server will start at port `27017`
+  * By default, mongodb server will start at port `27017`
 
 * Mac
 
@@ -27,7 +27,7 @@ $ brew install mongodb-atlas
 $ atlas setup
 ```
 
-* Linux 
+* Linux
 
 From a terminal, install gnupg and curl if they are not already available:
 
