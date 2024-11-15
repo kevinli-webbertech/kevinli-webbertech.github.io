@@ -53,7 +53,7 @@ The various types of neural networks are as follows −
 
 Feedforward neural networks include basic units of neural network family. The movement of data in this type of neural network is from the input layer to output layer, via present hidden layers. The output of one layer serves as the input layer with restrictions on any kind of loops in the network architecture.
 
-![feedforward nn](https://kevinli-webbertech.github.io/blog/images/ml/feedforward.png)
+![feedforward nn](https://kevinli-webbertech.github.io/blog/images/ml/feedforward_nn.png)
 
 **Recurrent Neural Networks**
 
