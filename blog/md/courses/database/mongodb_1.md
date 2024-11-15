@@ -89,6 +89,12 @@ you will see the following terminal,
 
 ## Import data into mongo database
 
+For Windows user, you will have to install this tool from the link below,
+
+https://www.mongodb.com/try/download/database-tools
+
+![database-tools](../../../images/advanced_database/database-tools.png)
+
 Download database file, a json file from here, ["restaurant.json"](https://kevinli-webbertech.github.io/blog/md/courses/database/restaurant.json)
 
 `mongoimport --db restaurant --collection collectionName --file ./restaurant.json --jsonArray`
@@ -97,9 +103,10 @@ Download database file, a json file from here, ["restaurant.json"](https://kevin
 
 ## Takeaway
 
-* `Mongod` is the server side service of linux. We will have to start it with root account.
+* `Mongod` is the server side service of linux, windows or Mac. We will have to start it with root account.
 * `Mongosh` is a client side CLI tools to connect to the MongoDB server.
   And this is where we write query code to manage data.
+* https://www.mongodb.com/try/download/shell
 
 ## Ref
 
