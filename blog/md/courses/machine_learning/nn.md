@@ -83,6 +83,6 @@ Update the weights of the network, typically using a simple update as given belo
 
 `weight = weight -learning_rate * gradient`
 
-### ref:
+### ref
 
 https://www.tutorialspoint.com/machine_learning/index.htm
