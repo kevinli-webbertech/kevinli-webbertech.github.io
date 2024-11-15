@@ -69,10 +69,20 @@ It is a simple feed-forward network. It takes the input, feeds it through severa
 
 With the help of PyTorch, we can use the following steps for typical training procedure for a neural network −
 
-Define the neural network that has some learnable parameters (or weights).
-Iterate over a dataset of inputs.
-Process input through the network.
-Compute the loss (how far is the output from being correct).
-Propagate gradients back into the network’s parameters.
-Update the weights of the network, typically using a simple update as given below
-rule: weight = weight -learning_rate * gradient
+* Define the neural network that has some learnable parameters (or weights).
+
+* Iterate over a dataset of inputs.
+
+* Process input through the network.
+
+* Compute the loss (how far is the output from being correct).
+
+* Propagate gradients back into the network’s parameters.
+
+Update the weights of the network, typically using a simple update as given below rule: 
+
+`weight = weight -learning_rate * gradient`
+
+### ref:
+
+https://www.tutorialspoint.com/machine_learning/index.htm
