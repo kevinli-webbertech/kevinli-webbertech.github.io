@@ -272,7 +272,6 @@ question. Machine learning rather focuses on what the model predicts.
 
 >http://statsmodels.sourceforge.net/
 
-
 **Supervised learning example: Iris classification**
 
 Using the Iris dataset we discussed earlier.
@@ -283,9 +282,8 @@ For this task, we will use an extremely simple generative model known as Gaussia
 Because it is so fast and has no hyperparameters to choose, Gaussian naive Bayes is often a good model to use as a baseline classification, before you explore whether improvements can be found through more sophisticated models.
 
 > Gaussian naive Bayes
-
 > Two builtin tools from the libraries,
-  *  `train_test_split` utility
+  * `train_test_split` utility
   * `accuracy_score` utility
 
 We would like to evaluate the model on data it has not seen before, and so we will
@@ -347,13 +345,7 @@ transform=ax.transAxes, color='green')
 
 ![digital_data](../../../images/ml/digital_data.png)
 
-In order to work with this data within Scikit-Learn, we need a two-dimensional,
-[n_samples, n_features] representation. We can accomplish this by treating each
-pixel in the image as a feature—that is, by flattening out the pixel arrays so that we
-have a length-64 array of pixel values representing each digit. Additionally, we need
-the target array, which gives the previously determined label for each digit. These two
-quantities are built into the digits dataset under the data and target attributes,
-respectively:
+In order to work with this data within Scikit-Learn, we need a two-dimensional, [n_samples, n_features] representation. We can accomplish this by treating each pixel in the image as a feature—that is, by flattening out the pixel arrays so that we have a length-64 array of pixel values representing each digit. Additionally, we need the target array, which gives the previously determined label for each digit. These two quantities are built into the digits dataset under the data and target attributes, respectively:
 
 ```python
 In[24]: X = digits.data
@@ -381,8 +373,7 @@ data_projected.shape
 Out[26]: (1797, 2)
 ```
 
-We see that the projected data is now two-dimensional. Let’s plot this data to see if we
-can learn anything from its structure (Figure 5-19):
+We see that the projected data is now two-dimensional. Let’s plot this data to see if we can learn anything from its structure (Figure 5-19):
 
 ```python
 In[27]: plt.scatter(data_projected[:, 0], data_projected[:, 1], c=digits.target,
@@ -401,7 +392,6 @@ empty in the middle of the image, while a one will generally have ink in the mid
 On the other hand, there seems to be a more or less continuous spectrum between
 ones and fours: we can understand this by realizing that some people draw ones with
 “hats” on them, which cause them to look similar to fours.
-
 
 **Classification on digits**
 
@@ -440,9 +430,8 @@ plt.ylabel('true value');
 
 ![confusion_matrix_plot](../../../images/ml/confusion_matrix_plot.png)
 
-This shows us where the mislabeled points tend to be: for example, a large number of
-twos here are misclassified as either ones or eights. Another way to gain intuition into
-the characteristics of the model is to plot the inputs again, with their predicted labels.
+This shows us where the mislabeled points tend to be: for example, a large number of twos here are misclassified as either ones or eights. Another way to gain intuition into the characteristics of the model is to plot the inputs again, with their predicted labels.
+
 We’ll use green for correct labels, and red for incorrect labels,
 
 ```python
