@@ -85,4 +85,6 @@ Update the weights of the network, typically using a simple update as given belo
 
 ### ref
 
-https://www.tutorialspoint.com/machine_learning/index.htm
+- https://www.tutorialspoint.com/machine_learning/index.htm
+
+- https://www.simplilearn.com/tutorials/deep-learning-tutorial/neural-network
