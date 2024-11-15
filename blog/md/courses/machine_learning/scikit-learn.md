@@ -457,3 +457,5 @@ for i, ax in enumerate(axes.flat):
 ```
 
 ![alt text](../../../images/ml/digital_data.png)
+
+Examining this subset of the data, we can gain insight regarding where the algorithm might not be performing optimally. To go beyond our 80% classification rate, we might move to a more sophisticated algorithm, such as support vector machines or another classification approach.
