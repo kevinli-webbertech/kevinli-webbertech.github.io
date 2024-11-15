@@ -345,7 +345,7 @@ ax.text(0.05, 0.05, str(digits.target[i]),
 transform=ax.transAxes, color='green')
 ```
 
-![digital_data](digital_data.png)
+![digital_data](../../../images/ml/digital_data.png)
 
 In order to work with this data within Scikit-Learn, we need a two-dimensional,
 [n_samples, n_features] representation. We can accomplish this by treating each
@@ -392,4 +392,68 @@ plt.colorbar(label='digit label', ticks=range(10))
 plt.clim(-0.5, 9.5);
 ```
 
-![Isomap_digital_data](Isomap_digital_data.png)
+![Isomap_digital_data](../../../images/ml/Isomap_digital_data.png)
+
+This plot gives us some good intuition into how well various numbers are separated
+in the larger 64-dimensional space. For example, zeros (in black) and ones (in purple)
+have very little overlap in parameter space. Intuitively, this makes sense: a zero is
+empty in the middle of the image, while a one will generally have ink in the middle.
+On the other hand, there seems to be a more or less continuous spectrum between
+ones and fours: we can understand this by realizing that some people draw ones with
+“hats” on them, which cause them to look similar to fours.
+
+
+**Classification on digits**
+
+Let’s apply a classification algorithm to the digits. As with the Iris data previously, we
+will split the data into a training and test set, and fit a Gaussian naive Bayes model:
+
+```python
+In[28]: Xtrain, Xtest, ytrain, ytest = train_test_split(X, y, random_state=0)
+In[29]: from sklearn.naive_bayes import GaussianNB
+model = GaussianNB()
+model.fit(Xtrain, ytrain)
+y_model = model.predict(Xtest)
+```
+
+Now that we have predicted our model, we can gauge its accuracy by comparing the
+true values of the test set to the predictions:
+
+```python
+In[30]: from sklearn.metrics import accuracy_score
+accuracy_score(ytest, y_model)
+Out[30]: 0.83333333333333337
+```
+
+With even this extremely simple model, we find about 80% accuracy for classification
+of the digits! However, this single number doesn’t tell us where we’ve gone wrong—
+one nice way to do this is to use the confusion matrix, which we can compute with
+Scikit-Learn and plot with Seaborn,
+
+```python
+In[31]: from sklearn.metrics import confusion_matrix
+mat = confusion_matrix(ytest, y_model)
+sns.heatmap(mat, square=True, annot=True, cbar=False)
+plt.xlabel('predicted value')
+plt.ylabel('true value');
+```
+
+![confusion_matrix_plot](../../../images/ml/confusion_matrix_plot.png)
+
+This shows us where the mislabeled points tend to be: for example, a large number of
+twos here are misclassified as either ones or eights. Another way to gain intuition into
+the characteristics of the model is to plot the inputs again, with their predicted labels.
+We’ll use green for correct labels, and red for incorrect labels,
+
+```python
+In[32]: fig, axes = plt.subplots(10, 10, figsize=(8, 8),
+subplot_kw={'xticks':[], 'yticks':[]},
+gridspec_kw=dict(hspace=0.1, wspace=0.1))
+for i, ax in enumerate(axes.flat):
+  ax.imshow(digits.images[i], cmap='binary', interpolation='nearest')
+  ax.text(0.05, 0.05, str(y_model[i]),
+  transform=ax.transAxes,
+  color='green' if (ytest[i] == y_model[i]) else 'red')
+```
+
+![alt text](../../../images/ml/digital_data.png)
