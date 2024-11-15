@@ -63,12 +63,13 @@ Then we apply the model to new data,
 
 For example, this is similar to the task of automated spam detection for email; in this case, we might use the following features and labels:
 
-• feature 1, feature 2, etc -> normalized counts of important words or phrases (“Viagra,” “Nigerian prince,” etc.)
-• label -> “spam” or “not spam”.
+* feature 1, feature 2, etc -> normalized counts of important words or phrases (“Viagra,” “Nigerian prince,” etc.)
+
+* label -> “spam” or “not spam”.
 
 Some important classification algorithms will be discussed in details.
 
-* Naive Bayes Classification”
+* Naive Bayes Classification
 
 * Support Vector Machines”
 
