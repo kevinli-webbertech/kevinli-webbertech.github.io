@@ -71,7 +71,7 @@ Some important classification algorithms will be discussed in details.
 
 * Naive Bayes Classification
 
-* Support Vector Machines”
+* Support Vector Machines
 
 * Decision tree random forest classification
 
