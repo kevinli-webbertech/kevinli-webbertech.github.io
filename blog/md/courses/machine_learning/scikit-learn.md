@@ -320,3 +320,76 @@ rithm is effective for this particular dataset!
 
 ## Application: Exploring Handwritten Digits
 
+**Loading and visualizing the digits data**
+
+We’ll use Scikit-Learn’s data access interface and take a look at this data:
+
+```python
+In[22]: from sklearn.datasets import load_digits
+digits = load_digits()
+digits.images.shape
+Out[22]: (1797, 8, 8)
+```
+
+The images data is a three-dimensional array: 1,797 samples, each consisting of an
+8×8 grid of pixels. Let’s visualize the first hundred of these:
+
+```python
+In[23]: import matplotlib.pyplot as plt
+fig, axes = plt.subplots(10, 10, figsize=(8, 8),
+subplot_kw={'xticks':[], 'yticks':[]},
+gridspec_kw=dict(hspace=0.1, wspace=0.1))
+for i, ax in enumerate(axes.flat):
+ax.imshow(digits.images[i], cmap='binary', interpolation='nearest')
+ax.text(0.05, 0.05, str(digits.target[i]),
+transform=ax.transAxes, color='green')
+```
+
+![digital_data](digital_data.png)
+
+In order to work with this data within Scikit-Learn, we need a two-dimensional,
+[n_samples, n_features] representation. We can accomplish this by treating each
+pixel in the image as a feature—that is, by flattening out the pixel arrays so that we
+have a length-64 array of pixel values representing each digit. Additionally, we need
+the target array, which gives the previously determined label for each digit. These two
+quantities are built into the digits dataset under the data and target attributes,
+respectively:
+
+```python
+In[24]: X = digits.data
+X.shape
+Out[24]: (1797, 64)
+In[25]: y = digits.target
+y.shape
+Out[25]: (1797,)
+```
+
+We see here that there are 1,797 samples and 64 features.
+
+**Unsupervised learning: Dimensionality reduction**
+
+We’d like to visualize our points within the 64-dimensional parameter space, but it’s
+difficult to effectively visualize points in such a high-dimensional space. Instead we’ll
+reduce the dimensions to 2, using an unsupervised method. Here, we’ll make use of a manifold learning algorithm called Isomap, and transform the data to two dimensions:
+
+```python
+In[26]: from sklearn.manifold import Isomap
+iso = Isomap(n_components=2)
+iso.fit(digits.data)
+data_projected = iso.transform(digits.data)
+data_projected.shape
+Out[26]: (1797, 2)
+```
+
+We see that the projected data is now two-dimensional. Let’s plot this data to see if we
+can learn anything from its structure (Figure 5-19):
+
+```python
+In[27]: plt.scatter(data_projected[:, 0], data_projected[:, 1], c=digits.target,
+edgecolor='none', alpha=0.5,
+cmap=plt.cm.get_cmap('spectral', 10))
+plt.colorbar(label='digit label', ticks=range(10))
+plt.clim(-0.5, 9.5);
+```
+
+![Isomap_digital_data](Isomap_digital_data.png)
