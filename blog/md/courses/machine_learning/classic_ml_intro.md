@@ -93,10 +93,13 @@ Classical ML models are used for a variety of real-world applications across the
 
 ### Other Intel optimized tools
 
-[Intel® AI Quick Start Guide](https://cdrdv2.intel.com/v1/dl/getContent/767176)
-[Intel® AI Analytics Toolkit (AI Kit)](https://www.intel.com/content/www/us/en/developer/tools/oneapi/ai-tools-selector.html)
-[Intel AI Tools](https://www.intel.com/content/www/us/en/developer/topic-technology/artificial-intelligence/tools.html)
-[AI Frameworks](https://www.intel.com/content/www/us/en/developer/tools/frameworks/overview.html#gs.33zj16)
+- [Intel® AI Quick Start Guide](https://cdrdv2.intel.com/v1/dl/getContent/767176)
+
+- [Intel® AI Analytics Toolkit (AI Kit)](https://www.intel.com/content/www/us/en/developer/tools/oneapi/ai-tools-selector.html)
+
+- [Intel AI Tools](https://www.intel.com/content/www/us/en/developer/topic-technology/artificial-intelligence/tools.html)
+
+- [AI Frameworks](https://www.intel.com/content/www/us/en/developer/tools/frameworks/overview.html#gs.33zj16)
 
 ## Classic Machine Learning Hardware [CPU without GPU]
 
