@@ -1,4 +1,4 @@
-1. History of JavaScript
+## History of JavaScript
 
 JavaScript is developed by Brendan Eich, a computer scientist and programmer at Netscape Communications Corporation. The initial name of the JavaScript was the 'Mocha'. After that, it changed to 'LiveScript', and then 'JavaScript'.
 
