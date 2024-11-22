@@ -101,3 +101,15 @@ Out[6]: (0.95999999999999996, 0.90666666666666662)
 ```
 
 ![cross-validation1](../../../images/ml/cross-validation1.png)
+
+Here we split the data into five groups, and use each of them in turn to evaluate the
+model fit on the other 4/5 of the data. This would be rather tedious to do by hand,
+and so we can use Scikit-Learn’s cross_val_score convenience routine to do it
+succinctly:
+
+```python
+In[7]: from sklearn.cross_validation import cross_val_score
+cross_val_score(model, X, y, cv=5)
+
+Out[7]: array([ 0.96666667, 0.96666667, 0.93333333, 0.93333333, 1.])
+```
