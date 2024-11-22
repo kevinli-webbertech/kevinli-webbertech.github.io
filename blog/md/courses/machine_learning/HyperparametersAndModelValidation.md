@@ -30,7 +30,7 @@ In principle, model validation is very simple: after choosing a model and its hy
 parameters, we can estimate how effective it is by applying it to some of the training
 data and comparing the prediction to the known value.
 
-**Model validation the wrong way
+**Model validation the wrong way**
 
 ```python
 In[1]: from sklearn.datasets import load_iris
@@ -126,7 +126,7 @@ Out[7]: array([ 0.96666667, 0.96666667, 0.93333333, 0.93333333, 1.])
 Repeating the validation across different subsets of the data gives us an even better
 idea of the performance of the algorithm.
 
-**A lot more cross-validation schemes
+**A lot more cross-validation schemes**
 
 This type of cross-validation is known as leave-one-out cross-validation,
 and can be used as follows:
