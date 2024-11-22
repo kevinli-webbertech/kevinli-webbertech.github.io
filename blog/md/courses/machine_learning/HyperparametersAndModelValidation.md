@@ -320,7 +320,7 @@ This shows precisely the qualitative behavior we expect:
 
 ![validation_curves](../../../images/ml/validation_curves.png)
 
-From the validation curve, we can read off that the optimal trade-off between bias and variance is found for a **hird-order polynomial**; we can compute and display this fit over the original data as follows,
+From the validation curve, we can read off that the optimal trade-off between bias and variance is found for a **Third-order polynomial**; we can compute and display this fit over the original data as follows,
 
 **The cross-validated optimal model for the data**
 
@@ -469,6 +469,22 @@ The grid search provides many more options, including the ability to specify a c
 ![automatic_best_fit](../../../images/ml/automatic_best_fit.png)
 
 ## Feature Engineering
+
+The previous sections outline the fundamental ideas of machine learning, but all of the examples assume that you have numerical data in a tidy, [n_samples, n_features] format.
+
+**In the real world, data rarely comes in such a form.**
+
+With this in mind, one of the more important steps in using machine learning in practice is feature engineering—that is, taking whatever information you have about your problem and turning it into numbers that you can use to build your feature matrix.
+
+In this section, we will cover a few common examples of feature engineering tasks:
+  
+* features for representingcategorical data
+
+* features for representing text, and features
+
+* representing images
+
+* Additionally, we will discuss derived features for increasing model complexity and imputation of missing data. Often this process is known as vectorization, as it involves converting arbitrary data into well-behaved vectors.
 
 ## Ref
 
