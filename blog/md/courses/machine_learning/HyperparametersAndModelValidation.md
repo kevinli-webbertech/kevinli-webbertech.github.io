@@ -1,5 +1,14 @@
 # Hyperparameters and Model Validation
 
+## Outline
+
+* ML Work Process Review
+* Model Selection and validation
+* Cross-validation and its schemas
+* Underfit and overfit issues
+* Validation curve (Help model selection)
+* Learning curve
+
 ## Work Process
 
 In the previous section, we saw the basic recipe for applying a supervised machine
@@ -128,7 +137,7 @@ scores = cross_val_score(model, X, y, cv=LeaveOneOut(len(X)))
 scores
 ```
 
-![alt text](../../../images/ml/LeaveOneOut.png)
+![LeaveOneOut](../../../images/ml/LeaveOneOut.png)
 
 Because we have 150 samples, the leave-one-out cross-validation yields scores for 150
 trials, and the score indicates either successful (1.0) or unsuccessful (0.0) prediction.
@@ -159,23 +168,220 @@ ing tutorials.
 Of core importance is the following question: if our estimator is underperforming, how
 should we move forward? There are several possible answers:
 
-• Use a more complicated/more flexible model
+* Use a more complicated/more flexible model
 
-• Use a less complicated/less flexible model
+* Use a less complicated/less flexible model
 
-• Gather more training samples
+* Gather more training samples
 
-• Gather more data to add features to each sample
+* Gather more data to add features to each sample
 
-The answer to this question is often counterintuitive. In particular, sometimes using a
-more complicated model will give worse results, and adding more training samples
-may not improve your results! The ability to determine what steps will improve your
-model is what separates the successful machine learning practitioners from the
-unsuccessful.
+The answer to this question is often counterintuitive. In particular, sometimes using a more complicated model will give worse results, and adding more training samples may not improve your results! The ability to determine what steps will improve your model is what separates the successful machine learning practitioners from the unsuccessful.
 
 **The bias–variance trade-off**
 
-Fundamentally, the question of “the best model” is about finding a sweet spot in the
-trade-off between bias and variance.
+Fundamentally, the question of “the best model” is about finding a sweet spot in the trade-off between bias and variance.
 
 ![bias-variance-trade-off](../../../images/ml/bias-variance-trade-off.png)
+
+It is clear that neither of these models is a particularly good fit to the data, but they fail in different ways.
+
+The model on the left attempts to find a straight-line fit through the data. Because the data are intrinsically more complicated than a straight line, the straight-line model will never be able to describe this dataset well. Such a model is said to `underfit` the data; that is, it does not have enough model flexibility to suitably account for all the features in the data. Another way of saying this is that the model has `high bias`.
+
+The model on the right attempts to fit a high-order polynomial through the data. Here the model fit has enough flexibility to nearly perfectly account for the fine features in the data, but even though it very accurately describes the training data, its precise form seems to be more reflective of the particular noise properties of the data rather than the intrinsic properties of whatever process generated that data. Such a model is said to overfit the data; that is, it has so much model flexibility that the model ends up accounting for random errors as well as the underlying data distribution. Another way of saying this is that the model has `high variance`.
+
+**Errors**
+
+If we use these two models to predict the y-value for some new data. In diagrams in Figure 5-25, the red/lighter points indicate data that is omitted from the training set.
+
+![prediction_accuracy](../../../images/ml/prediction_accuracy.png)
+
+Training and validation scores in high-bias and high-variance models.
+
+The score here is the R2 score, or coefficient of determination, which measures how well a model performs relative to a simple mean of the target values. R2 = 1 indicates a perfect match, R2 = 0 indicates the model does no better than simply taking the mean of the data, and negative values mean even worse models. From the scores associated with these two models, we can make an observation that holds more generally:
+
+* For high-bias models, the performance of the model on the validation set is similar to the performance on the training set.
+
+* For high-variance models, the performance of the model on the validation set is far worse than the performance on the training set.
+
+**validation curve**
+
+we see the following essential features from the above,
+
+• The training score is everywhere higher than the validation score. This is gener‐
+ally the case: the model will be a better fit to data it has seen than to data it has
+not seen.
+
+• For very low model complexity (a high-bias model), the training data is underfit,
+which means that the model is a poor predictor both for the training data and for
+any previously unseen data.
+
+• For very high model complexity (a high-variance model), the training data is
+overfit, which means that the model predicts the training data very well, but fails
+for any previously unseen data.
+
+• For some intermediate value, the validation curve has a maximum. This level of
+complexity indicates a suitable trade-off between bias and variance.
+
+![validation_curve](../../../images/ml/validation_curve.png)
+
+## Validation curves in Scikit-Learn
+
+We will take a look at the curves for a class of models, `polynomial regression` model.
+
+A degree-1 polynomial fits a straight line to the data; for model parameters a and b:
+
+`y = ax + b`
+
+A degree-3 polynomial fits a cubic curve to the data; for model parameters a, b, c, d:
+
+`y = ax3 + bx2 + cx + d`
+
+We can generalize this to any number of polynomial features. In Scikit-Learn, we can
+implement this with a simple linear regression combined with the polynomial pre‐
+processor.
+
+```python
+In[10]: from sklearn.preprocessing import PolynomialFeatures
+from sklearn.linear_model import LinearRegression
+from sklearn.pipeline import make_pipeline
+def PolynomialRegression(degree=2, **kwargs):
+return make_pipeline(PolynomialFeatures(degree),
+LinearRegression(**kwargs))
+```
+
+Now let’s create some data to which we will fit our model:
+
+```python
+In[11]: import numpy as np
+def make_data(N, err=1.0, rseed=1):
+# randomly sample the data
+rng = np.random.RandomState(rseed)
+X = rng.rand(N, 1) ** 2
+y = 10 - 1. / (X.ravel() + 0.1)
+if err > 0:
+y += err * rng.randn(N)
+return X, y
+X, y = make_data(40)
+```
+
+We can now visualize our data, along with polynomial fits of several degrees,
+
+```python
+In[12]: %matplotlib inline
+import matplotlib.pyplot as plt
+import seaborn; seaborn.set() # plot formatting
+X_test = np.linspace(-0.1, 1.1, 500)[:, None]
+plt.scatter(X.ravel(), y, color='black')
+axis = plt.axis()
+for degree in [1, 3, 5]:
+y_test = PolynomialRegression(degree).fit(X, y).predict(X_test)
+plt.plot(X_test.ravel(), y_test, label='degree={0}'.format(degree))
+plt.xlim(-0.1, 1.0)
+plt.ylim(-2, 12)
+plt.legend(loc='best');
+```
+
+The knob controlling model complexity in this case is the degree of the polynomial,
+which can be any non-negative integer. A useful question to answer is this: what
+degree of polynomial provides a suitable trade-off between bias (underfitting) and
+variance (overfitting)?
+
+**Three different polynomial models fit to a dataset.**
+
+![polynomial_models_degrees](../../../images/ml/polynomial_models_degrees.png)
+
+**The validation curves for the data**
+
+Now with all the above thing, scikit-lean can do it for you with the following lines of code.
+
+Given a model, data, parameter name, and a range to explore, this function will automatically compute both the training score and validation score across the range,
+
+```python
+In[13]:
+from sklearn.learning_curve import validation_curve
+degree = np.arange(0, 21)
+train_score, val_score = validation_curve(PolynomialRegression(), X, y,
+'polynomialfeatures__degree',
+degree, cv=7)
+plt.plot(degree, np.median(train_score, 1), color='blue', label='training score')
+plt.plot(degree, np.median(val_score, 1), color='red', label='validation score')
+plt.legend(loc='best')
+plt.ylim(0, 1)
+plt.xlabel('degree')
+plt.ylabel('score')
+```
+
+This shows precisely the qualitative behavior we expect:
+
+* the training score is everywhere higher than the validation score;
+
+* the training score is monotonically improving with increased model complexity; and the validation score reaches a maximum before dropping off as the model becomes overfit.
+
+![validation_curves](../../../images/ml/validation_curves.png)
+
+From the validation curve, we can read off that the optimal trade-off between bias and variance is found for a **hird-order polynomial**; we can compute and display this fit over the original data as follows,
+
+**The cross-validated optimal model for the data**
+
+```python
+In[14]: plt.scatter(X.ravel(), y)
+lim = plt.axis()
+y_test = PolynomialRegression(3).fit(X, y).predict(X_test)
+plt.plot(X_test.ravel(), y_test);
+plt.axis(lim);
+```
+
+![optimal_order](../../../images/ml/optimal_order.png)
+
+> Hint: Examining the relationship between the training score and validation score can give us useful insight into the performance of the model.
+
+## Learning Curves
+
+One important aspect of model complexity is that the optimal model will generally
+depend on the size of your training data. Let us make 200 instead of 40,
+
+```python
+In[15]: X2, y2 = make_data(200)
+plt.scatter(X2.ravel(), y2);
+```
+
+![learning_curves](../../../images/ml/learning_curves.png)
+
+We will duplicate the preceding code to plot the validation curve for this larger dataset; for reference let’s over-plot the previous results as well,
+
+```python
+In[16]:
+degree = np.arange(21)
+train_score2, val_score2 = validation_curve(PolynomialRegression(), X2, y2, 'polynomialfeatures__degree degree, cv=7)
+
+plt.plot(degree, np.median(train_score2, 1), color='blue', label='training score')
+plt.plot(degree, np.median(val_score2, 1), color='red', label='validation score')
+plt.plot(degree, np.median(train_score, 1), color='blue', alpha=0.3, linestyle='dashed')
+plt.plot(degree, np.median(val_score, 1), color='red', alpha=0.3, linestyle='dashed')
+plt.legend(loc='lower center')
+plt.ylim(0, 1)
+plt.xlabel('degree')
+plt.ylabel('score');
+```
+
+![learning_curves_large_data](../../../images/ml/learning_curves_large_data.png)
+
+The solid lines show the new results, while the fainter dashed lines show the results of the previous smaller dataset. It is clear from the validation curve that the larger dataset can support a much more complicated model: the peak here is probably around a degree of 6, but even a degree-20 model is not seriously overfitting the data—the validation and training scores remain very close.
+
+**learning curve**:
+
+A plot of the training/validation score with respect to the size of the training set is known as a `learning curve`.
+
+* A model of a given complexity will overfit a small dataset: this means the training score will be relatively high, while the validation score will be relatively low.
+
+* A model of a given complexity will underfit a large dataset: this means that the training score will decrease, but the validation score will increase.
+
+* A model will never, except by chance, give a better score to the validation set than the training set: this means the curves should keep getting closer together bu never cross.
+
+With these features in mind, we would expect a learning curve to look qualitatively
+like that shown below,
+
+![learning_curve_interpretation](../../../images/ml/learning_curve_interpretation.png)
+
+Schematic showing the typical interpretation of learning curves.
