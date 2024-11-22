@@ -143,7 +143,12 @@ print(f"Inserted document with ID: {result.inserted_id}")
 
 Try to get the above string from the `mongosh` connection.
 
-![connection_string](connection_string.png)
+![connection_string](../../../images/database/connection_string.png)
+
+Copy the above code to the `pycharm` editor like the following,
+
+![pycharm_editor](../../../images/database/pycharm_editor.png)
+
 
 ### Ref
 
