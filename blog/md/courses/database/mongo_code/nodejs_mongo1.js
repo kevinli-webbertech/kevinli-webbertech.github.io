@@ -13,11 +13,14 @@ async function run() {
     const query = { title: 'Back to the Future' };
     console.log("debugging3: " + JSON.stringify(query));
 
+    // I added this part as there was no entry before
     await movies.insertOne(query, function(err, res) {
        if (err) throw err;
         console.log("1 document inserted");
        db.close();
     });
+
+    // this is a query
     const movie = await movies.findOne(query);
     console.log("debugging4: " + JSON.stringify(movie));
   } finally {
