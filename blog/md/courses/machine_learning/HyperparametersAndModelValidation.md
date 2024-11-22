@@ -387,3 +387,89 @@ like that shown below,
 Schematic showing the typical interpretation of learning curves.
 
 > Conclusion: The notable feature of the learning curve is the convergence to a particular score as the number of training samples grows. In particular, once you have enough points that a particular model has converged, adding more training data will not help you! The only way to increase model performance in this case is to use another (often more complex) model.
+
+## Learning curves in Scikit-Learn
+
+Scikit-Learn offers a convenient utility for computing such learning curves from your
+models; here we will compute a learning curve for our original dataset with a second-
+order polynomial model and a ninth-order polynomial.
+
+```python
+In[17]:
+from sklearn.learning_curve import learning_curve
+fig, ax = plt.subplots(1, 2, figsize=(16, 6))
+fig.subplots_adjust(left=0.0625, right=0.95, wspace=0.1)
+for i, degree in enumerate([2, 9]):
+N, train_lc, val_lc = learning_curve(PolynomialRegression(degree),
+X, y, cv=7,
+train_sizes=np.linspace(0.3, 1, 25))
+ax[i].plot(N, np.mean(train_lc, 1), color='blue', label='training score')
+ax[i].plot(N, np.mean(val_lc, 1), color='red', label='validation score')
+ax[i].hlines(np.mean([train_lc[-1], val_lc[-1]]), N[0], N[-1], color='gray',
+linestyle='dashed')
+ax[i].set_ylim(0, 1)
+ax[i].set_xlim(N[0], N[-1])
+ax[i].set_xlabel('training size')
+ax[i].set_ylabel('score')
+ax[i].set_title('degree = {0}'.format(degree), size=14)
+ax[i].legend(loc='best')
+```
+
+![learning_curve_comparison](../../../images/ml/learning_curve_comparison.png)
+
+This is a valuable diagnostic, because it gives us a visual depiction of how our model responds to increasing training data. In particular, **when your learning curve has already converged (i.e., when the training and validation curves are already close to each other), adding more training data will not significantly improve the fit**! This situation is seen in the left panel, with the learning curve for the degree-2 model.
+
+The only way to increase the converged score is to use a different (usually more complicated) model. We see this in the right panel: by moving to a much more complicated model, we increase the score of convergence (indicated by the dashed line), but at the expense of higher model variance (indicated by the difference between the training and validation scores). If we were to add even more data points, the learning curve for the more complicated model would eventually converge.
+
+Plotting a learning curve for your particular choice of model and dataset can help you to make this type of decision about how to move forward in improving your analysis.
+
+## Validation in Practice: Grid Search
+
+In practice, models generally have more than one knob to turn, and thus plots of validation and learning curves change from lines to multidimensional surfaces. In these cases, such visualizations are difficult and we would rather simply find the particular model that maximizes the validation score.
+
+Scikit-Learn provides automated tools to do this in the grid_search module. Here is an example of using grid search to find the optimal polynomial model. We will explore a three-dimensional grid of model features—namely, the polynomial degree, the flag telling us whether to fit the intercept, and the flag telling us whether to normalize the problem. We can set this up using Scikit-Learn’s GridSearchCV meta-
+estimator:
+
+```python
+
+In[18]: from sklearn.grid_search import GridSearchCV
+param_grid = {'polynomialfeatures__degree': np.arange(21),
+'linearregression__fit_intercept': [True, False],
+'linearregression__normalize': [True, False]}
+grid = GridSearchCV(PolynomialRegression(), param_grid, cv=7)
+
+```
+
+Notice that like a normal estimator, this has not yet been applied to any data. Calling the fit() method will fit the model at each grid point, keeping track of the scores along the way:
+
+`In[19]: grid.fit(X, y);`
+
+Now that this is fit, we can ask for the best parameters as follows:
+
+```python
+In[20]: grid.best_params_
+Out[20]: {'linearregression__fit_intercept': False,
+'linearregression__normalize': True,
+'polynomialfeatures__degree': 4}
+```
+
+Finally, if we wish, we can use the best model and show the fit to our data using code from before,
+
+```python
+In[21]: model = grid.best_estimator_
+plt.scatter(X.ravel(), y)
+lim = plt.axis()
+y_test = model.fit(X, y).predict(X_test)
+plt.plot(X_test.ravel(), y_test, hold=True);
+plt.axis(lim);
+```
+
+The grid search provides many more options, including the ability to specify a custom scoring function, to parallelize the computations, to do randomized searches, and more.
+
+![automatic_best_fit](../../../images/ml/automatic_best_fit.png)
+
+## Feature Engineering
+
+## Ref
+
+Python Data Science Handbook
