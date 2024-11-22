@@ -149,6 +149,13 @@ Copy the above code to the `pycharm` editor like the following,
 
 ![pycharm_editor](../../../images/database/pycharm_editor.png)
 
+Run the code,
+
+![running_code](../../../images/database/running_code.png)
+
+Checking in `mongosh`,
+
+![validate_db](../../../images/database/validate_db.png)
 
 ### Ref
 
