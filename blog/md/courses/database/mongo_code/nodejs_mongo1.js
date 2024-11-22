@@ -9,6 +9,7 @@ async function run() {
     console.log("debugging1: ");
     const movies = database.collection('movies');
     console.log("debugging2: ");
+    
     // Query for a movie that has the title 'Back to the Future'
     const query = { title: 'Back to the Future' };
     console.log("debugging3: " + JSON.stringify(query));
