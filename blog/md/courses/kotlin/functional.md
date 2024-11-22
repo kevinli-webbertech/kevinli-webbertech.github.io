@@ -1,0 +1,1 @@
+https://play.kotlinlang.org/byExample/04_functional/01_Higher-Order%20Functions

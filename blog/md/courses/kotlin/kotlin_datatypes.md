@@ -245,17 +245,21 @@ println("My name is $firstName $lastName")
 
 A boolean type can be declared with the Boolean keyword and can only take the values true or false:
 
+```java
 val isKotlinFun: Boolean = true
 val isFishTasty: Boolean = false
 println(isKotlinFun)   // Outputs true
 println(isFishTasty)   // Outputs false 
+```
 
-r
+or
 
+```java
 val isKotlinFun = true
 val isFishTasty = false
 println(isKotlinFun)   // Outputs true
 println(isFishTasty)   // Outputs false 
+```
 
 ## Boolean Expression
 
@@ -264,10 +268,17 @@ val x = 10
 val y = 9
 println(x > y) // Returns true, because 10 is greater than 9
 ```
-or
+
+or,
 
 `println(10 > 9) // Returns true, because 10 is greater than 9`
 
-or 
+or,
 
 `println(10 == 15); // Returns false, because 10 is not equal to 15`
+
+## dynamic
+
+## Ref
+
+- https://play.kotlinlang.org/byExample/09_Kotlin_JS/01_dynamic

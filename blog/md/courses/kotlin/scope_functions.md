@@ -1,0 +1,1 @@
+https://play.kotlinlang.org/byExample/06_scope_functions/01_let
