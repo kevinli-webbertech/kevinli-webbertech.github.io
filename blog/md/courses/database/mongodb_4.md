@@ -236,3 +236,5 @@ Also in the screenshot like the following,
 - https://www.mongodb.com/resources/languages/python
 - https://www.mongodb.com/resources/languages/mongodb-with-nodejs
 - https://nodejs.org/en/download/package-manager
+- https://www.w3schools.com/mongodb/mongodb_nodejs_connect_database.php
+- https://www.mongodb.com/docs/drivers/java/sync/v4.3/usage-examples/command/
