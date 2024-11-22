@@ -113,3 +113,69 @@ cross_val_score(model, X, y, cv=5)
 
 Out[7]: array([ 0.96666667, 0.96666667, 0.93333333, 0.93333333, 1.])
 ```
+
+Repeating the validation across different subsets of the data gives us an even better
+idea of the performance of the algorithm.
+
+**A lot more cross-validation schemes
+
+This type of cross-validation is known as leave-one-out cross-validation,
+and can be used as follows:
+
+```python
+In[8]: from sklearn.cross_validation import LeaveOneOut
+scores = cross_val_score(model, X, y, cv=LeaveOneOut(len(X)))
+scores
+```
+
+![alt text](../../../images/ml/LeaveOneOut.png)
+
+Because we have 150 samples, the leave-one-out cross-validation yields scores for 150
+trials, and the score indicates either successful (1.0) or unsuccessful (0.0) prediction.
+Taking the mean of these gives an estimate of the error rate:
+
+```python
+In[9]: scores.mean()
+Out[9]: 0.95999999999999996
+```
+
+Other cross-validation schemes can be used similarly. For a description of what is
+available in Scikit-Learn, use IPython to explore the sklearn.cross_validation sub‐
+module.
+
+> http://scikit-learn.org/stable/modules/cross_validation.html
+
+## Selecting the Best Model
+
+Now that we’ve seen the basics of validation and cross-validation, we will go into a
+little more depth regarding model selection and selection of hyperparameters.
+
+Now that we’ve seen the basics of validation and cross-validation, we will go into a
+little more depth regarding model selection and selection of hyperparameters. These
+issues are some of the most important aspects of the practice of machine learning,
+and I find that this information is often glossed over in introductory machine learn‐
+ing tutorials.
+
+Of core importance is the following question: if our estimator is underperforming, how
+should we move forward? There are several possible answers:
+
+• Use a more complicated/more flexible model
+
+• Use a less complicated/less flexible model
+
+• Gather more training samples
+
+• Gather more data to add features to each sample
+
+The answer to this question is often counterintuitive. In particular, sometimes using a
+more complicated model will give worse results, and adding more training samples
+may not improve your results! The ability to determine what steps will improve your
+model is what separates the successful machine learning practitioners from the
+unsuccessful.
+
+**The bias–variance trade-off**
+
+Fundamentally, the question of “the best model” is about finding a sweet spot in the
+trade-off between bias and variance.
+
+![bias-variance-trade-off](../../../images/ml/bias-variance-trade-off.png)
