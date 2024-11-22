@@ -385,3 +385,5 @@ like that shown below,
 ![learning_curve_interpretation](../../../images/ml/learning_curve_interpretation.png)
 
 Schematic showing the typical interpretation of learning curves.
+
+> Conclusion: The notable feature of the learning curve is the convergence to a particular score as the number of training samples grows. In particular, once you have enough points that a particular model has converged, adding more training data will not help you! The only way to increase model performance in this case is to use another (often more complex) model.
