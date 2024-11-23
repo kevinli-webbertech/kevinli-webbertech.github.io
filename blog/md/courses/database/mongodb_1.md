@@ -56,6 +56,16 @@ $ atlas setup
 
 https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/
 
+
+**Troubleshooting**
+
+* brew services stop mongodb
+* brew uninstall homebrew/core/mongodb
+
+* brew tap mongodb/brew
+* brew install mongodb-community
+* brew services start mongodb-community
+
 * Linux
 
 From a terminal, install gnupg and curl if they are not already available:
