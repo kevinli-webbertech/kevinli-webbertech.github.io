@@ -30,6 +30,12 @@ https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-8.0.3-signed.msi
 
 https://www.mongodb.com/try/download/database-tools
 
+**Install database shell**
+
+https://www.mongodb.com/try/download/shell
+
+https://downloads.mongodb.com/compass/mongosh-2.3.3-win32-x64.zip
+
 >Hint: This is only needed by windows user. Not for Mac or Linux users.
 
 ![mongodb_db_tools](../../../images/database/mongodb_db_tools.png)
