@@ -66,7 +66,7 @@ https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/
 * brew install mongodb-community
 * brew services start mongodb-community
 
-* Linux
+## Linux
 
 From a terminal, install gnupg and curl if they are not already available:
 
