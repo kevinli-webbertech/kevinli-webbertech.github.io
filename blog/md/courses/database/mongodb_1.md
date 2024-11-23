@@ -18,6 +18,12 @@ or this link,
 
 https://www.mongodb.com/try/download/community
 
+Select your windows type,
+
+and the download button should show you something like the following,
+
+https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-8.0.3-signed.msi
+
   * To start the server, go to `C:\Program Files\MongoDB\Server\3.2\bin>`,
     enter command `mongod`
   * By default, mongodb server will start at port `27017`
