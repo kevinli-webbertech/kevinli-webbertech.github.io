@@ -82,6 +82,13 @@ https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/
 * brew install mongodb-community
 * brew services start mongodb-community
 
+**To connect to your mongodb using `Mongosh.exe`**
+
+When you finished the download and unzipping the `mongosh-2.3.3-win32-x64.zip`.
+You will need to go to the Windows Ternimal and `cd` into the right directory, and run the `mongosh.exe`.
+
+And also make sure that your mongodb service is running in the background.
+
 ## Linux
 
 From a terminal, install gnupg and curl if they are not already available:
