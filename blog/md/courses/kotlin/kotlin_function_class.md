@@ -21,6 +21,7 @@ fun main() {
 Kotlin OOP is the same as Java.
 
 ### Create a Class
+
 To create a class, use the class keyword, and specify the name of the class:
 
 ```java
