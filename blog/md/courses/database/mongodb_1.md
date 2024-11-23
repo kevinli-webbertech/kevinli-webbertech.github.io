@@ -12,6 +12,8 @@ MongoDB provides a document-oriented data model, meaning data is stored in BSON 
 
 * Windows
 
+**Download and Install mongodb**
+
 [Windows installation](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/)
 
 or this link,
@@ -23,6 +25,14 @@ Select your windows type,
 and the download button should show you something like the following,
 
 https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-8.0.3-signed.msi
+
+**Install database tools**
+
+https://www.mongodb.com/try/download/database-tools
+
+>Hint: This is only needed by windows user. Not for Mac or Linux users.
+
+**To Start your service in Windows**
 
   * To start the server, go to `C:\Program Files\MongoDB\Server\3.2\bin>`,
     enter command `mongod`
