@@ -32,11 +32,16 @@ https://www.mongodb.com/try/download/database-tools
 
 >Hint: This is only needed by windows user. Not for Mac or Linux users.
 
+![mongodb_db_tools](../../../images/database/mongodb_db_tools.png)
+
+https://fastdl.mongodb.org/tools/db/mongodb-database-tools-windows-x86_64-100.10.0.zip
+
 **To Start your service in Windows**
 
   * To start the server, go to `C:\Program Files\MongoDB\Server\3.2\bin>`,
     enter command `mongod`
   * By default, mongodb server will start at port `27017`
+
 
 * Mac
 
@@ -46,6 +51,10 @@ https://www.mongodb.com/try/download/database-tools
 $ brew install mongodb-atlas
 $ atlas setup
 ```
+
+**Start your mongodb**
+
+https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/
 
 * Linux
 
