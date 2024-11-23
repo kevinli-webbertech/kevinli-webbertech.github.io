@@ -14,6 +14,10 @@ MongoDB provides a document-oriented data model, meaning data is stored in BSON 
 
 [Windows installation](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/)
 
+or this link,
+
+https://www.mongodb.com/try/download/community
+
   * To start the server, go to `C:\Program Files\MongoDB\Server\3.2\bin>`,
     enter command `mongod`
   * By default, mongodb server will start at port `27017`
