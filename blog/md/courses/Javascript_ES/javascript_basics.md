@@ -483,28 +483,28 @@ We have given the comparison table between the variables declared with the var, 
 7. Symbol
 8. Object
 
-
-
 ## Number Types
 
 JavaScript Number Methods
 These number methods can be used on all JavaScript numbers:
 
-Method	Description
-toString()	Returns a number as a string
-toExponential()	Returns a number written in exponential notation
-toFixed()	Returns a number written with a number of decimals
-toPrecision()	Returns a number written with a specified length
-valueOf()	Returns a number as a number
+|Method|	Description|
+|----------|--------|
+|toString()|	Returns a number as a string|
+|toExponential()|	Returns a number written in exponential notation|
+|toFixed()|	Returns a number written with a number of decimals|
+|toPrecision()|	Returns a number written with a specified length|
+|valueOf()|	Returns a number as a number|
 
-JavaScript Numbers are Always 64-bit Floating Point
+* JavaScript Numbers are Always 64-bit Floating Point
+
 Unlike many other programming languages, JavaScript does not define different types of numbers, like integers, short, long, floating-point etc.
 
 JavaScript numbers are always stored as double precision floating point numbers, following the international IEEE 754 standard.
 
 This format stores numbers in 64 bits, where the number (the fraction) is stored in bits 0 to 51, the exponent in bits 52 to 62, and the sign in bit 63:
 
-Value (aka Fraction/Mantissa)	Exponent	Sign
+|Value (aka Fraction/Mantissa)|	Exponent	Sign|
 52 bits (0 - 51) 	11 bits (52 - 62)	1 bit (63)
 
 In JavaScript, all numbers are stored in a 64-bit floating-point format (IEEE 754 standard).
@@ -521,13 +521,16 @@ Down to -9007199254740991 -(2^53-1).
 
 Integer values outside this range lose precision.
 
-JavaScript BigInt
+* JavaScript BigInt
+
 JavaScript BigInt variables are used to store big integer values that are too big to be represented by a normal JavaScript Number.
 
 ## Check types
 
+```java
 let x = BigInt(999999999999999);
 let type = typeof x;
+```
 
 ## String Types
 
@@ -535,72 +538,77 @@ let type = typeof x;
 
 ## Operators
 
-Types of JavaScript Operators
 There are different types of JavaScript operators:
 
-Arithmetic Operators
-Assignment Operators
-Comparison Operators
-String Operators
-Logical Operators
-Bitwise Operators
-Ternary Operators
-Type Operators
+* Arithmetic Operators
+* Assignment Operators
+* Comparison Operators
+* String Operators
+* Logical Operators
+* Bitwise Operators
+* Ternary Operators
+* Type Operators
 
+|Operator|	Description|
+|--------|-------------|
+|+|	Addition|
+|-|	Subtraction|
+|*|	Multiplication|
+|**|	Exponentiation (ES2016)|
+|/|	Division|
+|%	Modulus (Division Remainder)|
+|++|	Increment|
+|--|	Decrement|
 
-Operator	Description
-+	Addition
--	Subtraction
-*	Multiplication
-**	Exponentiation (ES2016)
-/	Division
-%	Modulus (Division Remainder)
-++	Increment
---	Decrement
+|Operator|	Example|	Same As|
+|--------|---------|--------|
+|=|	x = y|	x = y|
+|+=|	x += y|	x = x + y|
+|-=|	x -= y|	x = x - y|
+|*=|	x *= y|	x = x * y|
+|/=|	x /= y|	x = x / y|
+|%=|	x %= y|	x = x % y|
+|**=|	x **= y|	x = x ** y|
 
-Operator	Example	Same As
-=	x = y	x = y
-+=	x += y	x = x + y
--=	x -= y	x = x - y
-*=	x *= y	x = x * y
-/=	x /= y	x = x / y
-%=	x %= y	x = x % y
-**=	x **= y	x = x ** y
+**JavaScript Comparison Operators**
 
+|Operator|Description|
+|--------|-------------|
+|==	|equal to|
+|===	|equal value and equal type|
+|!=	|not equal|
+|!==	|not equal value or not equal type|
+|>|	greater than|
+|<|	less than|
+|>=|	greater than or equal to|
+|<=|	less than or equal to|
+|?|	ternary operator|
 
-JavaScript Comparison Operators
-Operator	Description
-==	equal to
-===	equal value and equal type
-!=	not equal
-!==	not equal value or not equal type
->	greater than
-<	less than
->=	greater than or equal to
-<=	less than or equal to
-?	ternary operator
+**JavaScript Logical Operators**
 
-JavaScript Logical Operators
-Operator	Description
-&&	logical and
-||	logical or
-!	logical not
+|Operator|	Description|
+|&&|	logical and|
+||||	logical or|
+|!|	logical not|
 
+**JavaScript Type Operators**
 
-JavaScript Type Operators
-Operator	Description
-typeof	Returns the type of a variable
-instanceof	Returns true if an object is an instance of an object type
+|Operator|	Description||
+|typeof|	Returns the type of a variable|
+|instanceof|	Returns true if an object is an instance of an object type|
 
-JavaScript Bitwise Operators
+**JavaScript Bitwise Operators**
+
 Bit operators work on 32 bits numbers.
 
 Any numeric operand in the operation is converted into a 32 bit number. The result is converted back to a JavaScript number.
-Operator	Description	Example	Same as	Result	Decimal
-&	AND	5 & 1	0101 & 0001	0001	 1
-|	OR	5 | 1	0101 | 0001	0101	 5
-~	NOT	~ 5	 ~0101	1010	 10
-^	XOR	5 ^ 1	0101 ^ 0001	0100	 4
-<<	left shift	5 << 1	0101 << 1	1010	 10
->>	right shift	5 >> 1	0101 >> 1	0010	  2
->>>	unsigned right shift	5 >>> 1	0101 >>> 1	0010	  2
+
+|Operator|	Description|	Example|	Same as|	Result|	Decimal|
+|--------|-------------|----------|--------|-------|---------|
+|   &    |	AND        |	5 & 1	 | 0101 & 0001|	0001|	 1  |
+|  OR    |	5|1	     |0101|0001 | 0101   |	 5|
+|   ~	   |  NOT	     |~ 5	    | ~0101	  |1010	| 10 |
+|   ^    |  XOR        |	5 ^ 1	 | 0101 ^ 0001	|0100|	 4|
+|  <<    |	left shift |	5 << 1 |	0101 << 1|	1010|	 10|
+|  >>    |	right shift|	5 >> 1 |	0101 >> 1|	0010|	  2|
+|>>>|	unsigned right shift|	5 >>> 1|	0101 >>> 1|	0010|	  2|
