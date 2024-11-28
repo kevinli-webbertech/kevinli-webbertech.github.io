@@ -107,3 +107,15 @@ Click to install the package,
 Then in the bottom of the IDE, you will see the progress bar is showing to install the package.
 
 ![install_package3.png](../../../images/database/install_package3.png)
+
+Done installation of package.
+
+![install_package4.png](../../../images/database/install_package4.png)
+
+Click Run button to run the file,
+
+![run_code.png](../../../images/database/run_code.png)
+
+Check the result,
+
+![csv_result.png](../../../images/database/csv_result.png)
