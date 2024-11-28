@@ -90,20 +90,20 @@ print(df.to_string())
 
 * Open PyCharm Community Version,
 
-![csv_file.png](csv_file.png)
+![csv_file.png](../../../images/database/csv_file.png)
 
 * Create a python file called PandasRead.py,
 
-![PandasRead.png](PandasRead.png)
+![PandasRead.png](../../../images/database/PandasRead.png)
 
 * Install the missing package by hover your mouse on the 'red' package, click on "install the package"
 
-![install_package.png](install_package.png)
+![install_package.png](../../../images/database/install_package.png)
 
 Click to install the package,
 
-![install_package2.png](install_package2.png)
+![install_package2.png](../../../images/database/install_package2.png)
 
 Then in the bottom of the IDE, you will see the progress bar is showing to install the package.
 
-![install_package3.png](install_package3.png)
+![install_package3.png](../../../images/database/install_package3.png)

@@ -8,7 +8,7 @@ For instance, we start the mongodb from the following command,
 
 `xiaofengli@xiaofenglx:~/code/scanhub$ sudo service mongod start`
 
-![mongo_status.png](mongo_status.png)
+![mongo_status.png](../../../images/database/mongo_status.png)
 
 Type `mongosh`, the shell CLI to connect to your mongodb, then you can find the url,
 
