@@ -14,16 +14,13 @@
 <script> 
     function saveAsPDF() { 
       window.print(); 
-    }
-    <!----docs.mathjax.org/en/latest/output/index.html-->
-    window.MathJax = {
-        loader: {load: ["input/tex", "output/chtml"]}
-    };
+    } 
 </script>
 
 <div class="column content">
     <!-- Simply set the `src` attribute to your MD file and win -->
     <zero-md src="../../../md/courses/database/relational_model.md"></zero-md>
+    <p>
     <zero-md src="../md/disclaimer.md"></zero-md>
     <button onclick="saveAsPDF()">Save as PDF</button> 
 </div>
