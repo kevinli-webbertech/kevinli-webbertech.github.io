@@ -53,3 +53,126 @@ result = collection.insert_one(new_document)
 print(f"Inserted document with ID: {result.inserted_id}")
 ```
 
+## MySQL Connection from Python
+
+Here’s an example of Python code to connect to a MySQL database using the `mysql-connector-python` library:
+
+### Step 1: Install the required library
+Before running the code, ensure you have the `mysql-connector-python` library installed. You can install it using pip:
+```bash
+pip install mysql-connector-python
+```
+
+### Step 2: Use the following Python code
+```python
+import mysql.connector
+from mysql.connector import Error
+
+def connect_to_mysql():
+    try:
+        # Establish connection
+        connection = mysql.connector.connect(
+            host='localhost',  # Replace with your host
+            database='your_database_name',  # Replace with your database name
+            user='your_username',  # Replace with your MySQL username
+            password='your_password'  # Replace with your MySQL password
+        )
+        
+        if connection.is_connected():
+            print("Successfully connected to MySQL")
+            
+            # Get server info
+            db_info = connection.get_server_info()
+            print("Server version:", db_info)
+            
+            # Optionally create a cursor and fetch data
+            cursor = connection.cursor()
+            cursor.execute("SELECT DATABASE();")
+            record = cursor.fetchone()
+            print("Connected to database:", record)
+        
+    except Error as e:
+        print("Error while connecting to MySQL", e)
+    finally:
+        if 'connection' in locals() and connection.is_connected():
+            cursor.close()
+            connection.close()
+            print("MySQL connection is closed")
+
+# Call the function
+connect_to_mysql()
+```
+
+### Explanation of the Code:
+1. **Connection Parameters**: Replace `host`, `database`, `user`, and `password` with your actual database connection details.
+2. **Check Connection**: `connection.is_connected()` verifies if the connection is successful.
+3. **Cursor Operations**: A `cursor` is used to execute SQL commands.
+4. **Error Handling**: Errors during connection are caught using a `try-except` block.
+5. **Close Resources**: Ensure the connection is closed in the `finally` block to free up resources.
+
+### Example Output
+```
+Successfully connected to MySQL
+Server version: 8.0.27
+Connected to database: ('your_database_name',)
+MySQL connection is closed
+```
+
+Let me know if you need help with specific queries or handling advanced scenarios!
+
+## SQLite Connection from Python
+
+Connecting to an SQLite database in Python is straightforward because Python comes with built-in support for SQLite via the `sqlite3` module.
+
+Here’s an example of Python code to connect to an SQLite database:
+
+### Python Code for SQLite Connection
+```python
+import sqlite3
+
+def connect_to_sqlite():
+    try:
+        # Connect to SQLite database
+        # If the database does not exist, it will be created
+        connection = sqlite3.connect("example.db")  # Replace 'example.db' with your database name
+        print("Successfully connected to SQLite")
+
+        # Create a cursor object
+        cursor = connection.cursor()
+
+        # Example query to check the SQLite version
+        cursor.execute("SELECT sqlite_version();")
+        record = cursor.fetchone()
+        print("SQLite version:", record[0])
+
+    except sqlite3.Error as e:
+        print("Error while connecting to SQLite", e)
+    finally:
+        if 'connection' in locals():
+            # Close the database connection
+            connection.close()
+            print("SQLite connection is closed")
+
+# Call the function
+connect_to_sqlite()
+```
+
+### Explanation of the Code:
+1. **`sqlite3.connect`**: Creates a connection to an SQLite database file. If the file does not exist, SQLite creates it.
+2. **Cursor Object**: `cursor` is used to execute SQL queries.
+3. **SQLite Version**: The sample query retrieves the SQLite version for demonstration purposes.
+4. **Error Handling**: Any errors during the connection or operations are caught with a `try-except` block.
+5. **Closing the Connection**: Always close the connection after operations to free up resources.
+
+### Example Output:
+```
+Successfully connected to SQLite
+SQLite version: 3.39.2
+SQLite connection is closed
+```
+
+### Tips:
+- **Database File Path**: Use the full path if the database file is not in the current working directory.
+- **In-Memory Database**: For temporary databases, use `sqlite3.connect(":memory:")`.
+
+Let me know if you need help executing specific queries or designing an SQLite schema!
