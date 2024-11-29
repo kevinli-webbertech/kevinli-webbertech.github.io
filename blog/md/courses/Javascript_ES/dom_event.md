@@ -2,7 +2,7 @@
 
 ## A toggle button example
 
-In this example, we would like to make a toggle button. This button will not only show the content, but if we click on it again, it would show the content.
+In this example, we would like to make a toggle button. This button will not only show the content, but if we click on it again, it would hide the content.
 
 In order to implement this example, we would use the following features of javascript we learned earlier,
 
