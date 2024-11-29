@@ -120,6 +120,9 @@ MySQL connection is closed
 
 Let me know if you need help with specific queries or handling advanced scenarios!
 
+[MySQL Example](https://kevinli-webbertech.github.io/blog/html/ref/database/mysql_driver.html)
+
+
 ## SQLite Connection from Python
 
 Connecting to an SQLite database in Python is straightforward because Python comes with built-in support for SQLite via the `sqlite3` module.
