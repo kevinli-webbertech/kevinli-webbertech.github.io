@@ -10,7 +10,7 @@ In order to implement this example, we would use the following features of javas
 * function
 * onclick event
 
-To study this example, you can copy and paste the following html source code into a new html file you created. In my example, I created a file called "dom.html".
+To study this example, you can copy and paste the following html source code into a new html file. In my example, I created a file called "dom.html".
 
 **dom.html**
 
