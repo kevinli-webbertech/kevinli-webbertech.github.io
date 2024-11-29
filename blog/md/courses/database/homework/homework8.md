@@ -1,4 +1,4 @@
-# MongoDB Homework 2
+# Homework #8 MongoDB
 
 1. Write a MongoDB query to display the first 5 restaurants where the second address line is "London". (20 pts)
 

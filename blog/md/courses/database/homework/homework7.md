@@ -1,4 +1,4 @@
-# HW7 MongoDB Introduction
+# Homework #7 MongoDB Introduction
 
 * Please install Mongodb and reproduce what I have in my hangout. (33.3 pts)
 * Please import the example database into MongoDB. (33.3 pts)
