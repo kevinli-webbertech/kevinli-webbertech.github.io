@@ -86,7 +86,7 @@ print(df.to_string())
 
 ## Programming Lab
 
-* Download the data.csv file from here [data.csv]("kevinli-webbertech.github.io/blog/md/courses/database/data.csv").
+* Download the data.csv file from here [data.csv]("data.csv").
 
 * Open PyCharm Community Version,
 
