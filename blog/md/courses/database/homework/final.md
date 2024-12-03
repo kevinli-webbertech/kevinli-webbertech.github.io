@@ -2,7 +2,7 @@
 
 **Requirements**
 
-* Download the data.csv file from here [data.csv](https://kevinli-webbertech.github.io/blog/html/courses/database/data.csv). (10 pts)
+* Download the data.csv file from here [data.csv](https://kevinli-webbertech.github.io/blog/md/courses/database/data.csv). (10 pts)
 * Create a database schema(a table) to contain all the data that was shown in the following `data.csv`. (40 pts)
 * Use pandas to select all the data that suffice both of the following criteria and save to the database tabel. (30 pts)
    * Duration > 60
