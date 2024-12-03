@@ -1,24 +1,27 @@
-# **HW 11- Neo4J Programming** 
+# Homework11 - Elastic Search
+
+## Submission Requirements
+
+* You can just submit a word document. No need to zip it since it is just installation and trying in your local machine.
+
+* Screenshots in your computer, and proves that it is your own work not from other people’s computer.
+
+## Tasks and Scoring
+
+* Successful Installation (10 pts)
+* Create a index, delete index, show index stats and settings, and get indexes (15 pts)
+* Populate data into index (15 pts)
+* multi-index search (15 pts)
+* Request Body Search (15 pts)
+* Use aggregation in your query such as Avg Aggregation (15 pts)
+* Kibana installation and access (15 pts)
+
+## References
+
+Please references tutorials on the following two links, (screenshots required in your word document)
+
+* https://www.tutorialspoint.com/elasticsearch/elasticsearch_document_apis.htm
+
+* https://www.tutorialspoint.com/elasticsearch/elasticsearch_search_apis.htm
 
 
-## **Instructions**
-
-In this project, you will be given a dataset and you will represent it in the relational model, in the graph model, run some queries and measure performance.
-
-Go to Stanford Large Network [Dataset Collection](https://snap.stanford.edu/data/#socnets)
-
-Use the Pokec dataset in [Social Networks category](https://snap.stanford.edu/data/soc-Pokec.html)
-
-For each user keep user_id, age and gender.
-
-## **Load data in MySQL and Neo4j**
-
-**Write queries in SQL and Cypher for the following queries and benchmark both:**
-
-Query 1: For each user, count his/her friends.
-
-Query 2: For each user, count his/her friends of friends.
-
-Query 3: For each user, count his/her friends that are over 30.
-
-Query 4: For each male user, count how many male and female friends he is having.
