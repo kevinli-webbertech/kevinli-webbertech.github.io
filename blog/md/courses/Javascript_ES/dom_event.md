@@ -60,3 +60,55 @@ In this example, we use a global variable as a flag to store a boolean value for
 Remember during the course that, if you type up the above code and run it and it does not work as expected, we can debug it by doing `console.log`.
 
 How we do it is to right click on your html page, and click "Inspect", and then we go to "console" to check the printout messages from `console.log`.
+
+## Use built-in event
+
+Here's a simple HTML file to test the JavaScript `addNumbers` function:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Addition Function</title>
+  <script>
+    // JavaScript function to add two numbers
+    function addNumbers(a, b) {
+      return a + b;
+    }
+
+    // Function to handle form submission
+    function handleAddition(event) {
+      event.preventDefault(); // Prevent form reload
+      const num1 = parseFloat(document.getElementById('number1').value);
+      const num2 = parseFloat(document.getElementById('number2').value);
+      const result = addNumbers(num1, num2);
+      document.getElementById('result').textContent = `The sum is: ${result}`;
+    }
+  </script>
+</head>
+<body>
+  <h1>Test Addition Function</h1>
+  <form onsubmit="handleAddition(event)">
+    <label for="number1">Enter first number:</label>
+    <input type="number" id="number1" required><br><br>
+
+    <label for="number2">Enter second number:</label>
+    <input type="number" id="number2" required><br><br>
+
+    <button type="submit">Add Numbers</button>
+  </form>
+
+  <h2 id="result"></h2>
+</body>
+</html>
+```
+
+### How to Use:
+1. Copy and paste the code into a file, e.g., `test-addition.html`.
+2. Open the file in a web browser.
+3. Enter two numbers in the input fields and click the "Add Numbers" button.
+4. The result will be displayed below the form. 
+
+This is a simple way to test the `addNumbers` function interactively!
