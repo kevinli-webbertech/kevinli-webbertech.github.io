@@ -61,7 +61,6 @@ Remember during the course that, if you type up the above code and run it and it
 
 How we do it is to right click on your html page, and click "Inspect", and then we go to "console" to check the printout messages from `console.log`.
 
-<<<<<<< HEAD
 ## Register event to a HTML DOM component
 
 There are two ways we can register events for a HTML DOM element,
@@ -87,53 +86,10 @@ document.getElementById("myBtn").addEventListener("click", function() {
 });
 </script>
 
-=======
-## Use built-in event
-
-Here's a simple HTML file to test the JavaScript `addNumbers` function:
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test Addition Function</title>
-  <script>
-    // JavaScript function to add two numbers
-    function addNumbers(a, b) {
-      return a + b;
-    }
-
-    // Function to handle form submission
-    function handleAddition(event) {
-      event.preventDefault(); // Prevent form reload
-      const num1 = parseFloat(document.getElementById('number1').value);
-      const num2 = parseFloat(document.getElementById('number2').value);
-      const result = addNumbers(num1, num2);
-      document.getElementById('result').textContent = `The sum is: ${result}`;
-    }
-  </script>
-</head>
-<body>
-  <h1>Test Addition Function</h1>
-  <form onsubmit="handleAddition(event)">
-    <label for="number1">Enter first number:</label>
-    <input type="number" id="number1" required><br><br>
-
-    <label for="number2">Enter second number:</label>
-    <input type="number" id="number2" required><br><br>
-
-    <button type="submit">Add Numbers</button>
-  </form>
-
-  <h2 id="result"></h2>
->>>>>>> f7ddca2afaf1c4a5c4428c4ff7798816d92a8a28
 </body>
 </html>
 ```
 
-<<<<<<< HEAD
 Also you can not to define the function inside of the addEventListener, just in case the function definition is bulky, then we can do the following,
 
 
@@ -252,11 +208,11 @@ Here is a table of such events and a line of examples,
 
 HTML or XML document is a tree structure.
 
-![dom_tree](dom_tree.png)
+![dom_tree](../../../images/Javascript_ES/dom_tree.png)
 
 **Node Relationships**
 
-![nodes_relationship](nodes_relationship.png)
+![nodes_relationship](../../../images/Javascript_ES/nodes_relationship.png)
 
 **Navigating Between Nodes**
 
@@ -319,12 +275,3 @@ The most important nodeType properties are:
 |COMMENT_NODE|	8|	`<!-- This is a comment -->`|
 |DOCUMENT_NODE|	9|	The HTML document itself (the parent of <html>)|
 |DOCUMENT_TYPE_NODE|	10|	<!Doctype html>|
-=======
-### How to Use:
-1. Copy and paste the code into a file, e.g., `test-addition.html`.
-2. Open the file in a web browser.
-3. Enter two numbers in the input fields and click the "Add Numbers" button.
-4. The result will be displayed below the form. 
-
-This is a simple way to test the `addNumbers` function interactively!
->>>>>>> f7ddca2afaf1c4a5c4428c4ff7798816d92a8a28
