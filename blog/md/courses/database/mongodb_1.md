@@ -6,11 +6,10 @@ MongoDB is a popular NoSQL database known for its flexibility, scalability, and 
 
 MongoDB provides a document-oriented data model, meaning data is stored in BSON (Binary JSON) format. It allows for the storage of complex data types, making it highly suitable for modern applications that require flexible and scalable data storage solutions.
 
-## Installation of Mongo
+## Windows
 
 > Please install MongoDB Community Edition not Atlas version.
 
-* Windows
 
 **Download and Install mongodb**
 
@@ -59,7 +58,15 @@ https://fastdl.mongodb.org/tools/db/mongodb-database-tools-windows-x86_64-100.10
   * By default, mongodb server will start at port `27017`
 
 
-* Mac
+**To connect to your mongodb using `Mongosh.exe`**
+
+When you finished the download and unzipping the `mongosh-2.3.3-win32-x64.zip`.
+You will need to go to the Windows Ternimal and `cd` into the right directory, and run the `mongosh.exe`.
+
+And also make sure that your mongodb service is running in the background.
+
+
+## Mac
 
 [Mac installation](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/)
 
@@ -76,13 +83,6 @@ https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/
 * brew tap mongodb/brew
 * brew install mongodb-community
 * brew services start mongodb-community
-
-**To connect to your mongodb using `Mongosh.exe`**
-
-When you finished the download and unzipping the `mongosh-2.3.3-win32-x64.zip`.
-You will need to go to the Windows Ternimal and `cd` into the right directory, and run the `mongosh.exe`.
-
-And also make sure that your mongodb service is running in the background.
 
 ## Linux
 
