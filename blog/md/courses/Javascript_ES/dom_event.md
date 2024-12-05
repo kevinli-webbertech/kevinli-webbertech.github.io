@@ -406,3 +406,65 @@ parent.replaceChild(para,child);
 </body>
 </html>
 ```
+
+## HTML DOM Collections
+
+**The HTMLCollection Object**
+
+An HTMLCollection object is an array-like list (collection) of HTML elements.
+
+The `getElementsByTagName()` method returns an HTMLCollection object. The following code selects all <p> elements in a document:
+
+The following code selects all <p> elements in a document:
+
+`const myCollection = document.getElementsByTagName("p");`
+
+* The index starts at 0.
+
+* myCollection.length
+
+* You can loop through the list and refer to the elements with a number (just like an array).
+
+* However, you cannot use array methods like valueOf(), pop(), push(), or join() on an HTMLCollection.
+
+```javascript
+const myCollection = document.getElementsByTagName("p");
+for (let i = 0; i < myCollection.length; i++) {
+  myCollection[i].style.color = "red";
+}
+```
+
+## HTML DOM NodeList Object
+
+* A NodeList object is a list (collection) of nodes extracted from a document.
+
+* A NodeList object is almost the same as an HTMLCollection object.
+
+* Most browsers return a NodeList object for the method querySelectorAll()
+
+* myNodelist.length
+
+`const myNodeList = document.querySelectorAll("p");`
+
+```javascript
+const myNodelist = document.querySelectorAll("p");
+for (let i = 0; i < myNodelist.length; i++) {
+  myNodelist[i].style.color = "red";
+}
+```
+
+## HTMLCollection vs NodeList
+
+* An HTMLCollection is a collection of document elements. A NodeList is a collection of document nodes (element nodes, attribute nodes, and text nodes).
+
+* HTMLCollection items can be accessed by their name, id, or index number. NodeList items can only be accessed by their index number.
+
+* An HTMLCollection is always a live collection. Example: If you add a <li> element to a list in the DOM, the list in the HTMLCollection will also change.
+
+* A NodeList is most often a static collection. Example: If you add a <li> element to a list in the DOM, the list in NodeList will not change.
+
+* The getElementsByClassName() and getElementsByTagName() methods return a live HTMLCollection.
+
+* The querySelectorAll() method returns a static NodeList.
+
+* The childNodes property returns a live NodeList.
