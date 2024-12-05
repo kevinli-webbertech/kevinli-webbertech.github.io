@@ -63,11 +63,6 @@ https://fastdl.mongodb.org/tools/db/mongodb-database-tools-windows-x86_64-100.10
 
 [Mac installation](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/)
 
-```shell
-$ brew install mongodb-atlas
-$ atlas setup
-```
-
 **Start your mongodb**
 
 https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/
