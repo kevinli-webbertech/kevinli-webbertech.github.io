@@ -91,6 +91,20 @@ date: Date()
 
 ### insertMany()
 
+```
+db.posts.insertMany([
+... {
+...   title: "post title 2",
+...   body: "Body of post.",
+...   category: "Event",
+...   likes: 2,
+...   tags: ["news","events"],
+...  date: Date()},
+... {title: "Post title 3", body: "body of post3", category: "Technology", }
+... ]
+... )
+```
+
 ![mongodb_insertMany.png](../../../images/database/mongodb_insertMany.png)
 
 ## Find Documents
