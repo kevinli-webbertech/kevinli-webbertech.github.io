@@ -163,10 +163,10 @@ Download database file, a json file from here, ["restaurant.json"](https://kevin
 * `Mongod` is the server side service of linux, windows or Mac. We will have to start it with root account.
 * `Mongosh` is a client side CLI tools to connect to the MongoDB server.
   And this is where we write query code to manage data.
-* https://www.mongodb.com/try/download/shell
 
 ## Ref
 
 - https://www.mongodb.com/docs/manual/tutorial/
 - https://www.w3schools.com/mongodb/
 - https://www.tutorialspoint.com/mongodb/index.htm
+- https://www.mongodb.com/try/download/shell
