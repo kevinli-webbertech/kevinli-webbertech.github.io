@@ -275,3 +275,134 @@ The most important nodeType properties are:
 |COMMENT_NODE|	8|	`<!-- This is a comment -->`|
 |DOCUMENT_NODE|	9|	The HTML document itself (the parent of <html>)|
 |DOCUMENT_TYPE_NODE|	10|	<!Doctype html>|
+
+## Dynamically Create Contents
+
+The power of Javascript is to create contents dynamically,
+
+**Create new node**
+
+```javascript
+<div id="div1">
+  <p id="p1">This is a paragraph.</p>
+  <p id="p2">This is another paragraph.</p>
+</div>
+
+<script>
+const para = document.createElement("p");
+const node = document.createTextNode("This is new.");
+para.appendChild(node);
+
+const element = document.getElementById("div1");
+element.appendChild(para);
+</script>
+```
+
+**Insert a new node**
+
+```javascript
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript HTML DOM</h2>
+<p>Add a new HTML Element.</p>
+
+<div id="div1">
+<p id="p1">This is a paragraph.</p>
+<p id="p2">This is another paragraph.</p>
+</div>
+
+<script>
+const para = document.createElement("p");
+const node = document.createTextNode("This is new.");
+para.appendChild(node);
+
+const element = document.getElementById("div1");
+const child = document.getElementById("p1");
+element.insertBefore(para,child);
+</script>
+
+</body>
+</html>
+```
+
+**Remove a node**
+
+```javascript
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript HTML DOM</h2>
+<h3>Remove an HTML Element.</h3>
+
+<div>
+<p id="p1">This is a paragraph.</p>
+<p id="p2">This is another paragraph.</p>
+</div>
+
+<button onclick="myFunction()">Remove Element</button>
+
+<script>
+function myFunction() {
+document.getElementById("p1").remove();
+}
+</script>
+
+</body>
+</html>
+```
+
+**Remove Child Node**
+
+```javascript
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript HTML DOM</h2>
+<p>Remove Child Element</p>
+
+<div id="div1">
+<p id="p1">This is a paragraph.</p>
+<p id="p2">This is another paragraph.</p>
+</div>
+
+<script>
+const parent = document.getElementById("div1");
+const child = document.getElementById("p1");
+parent.removeChild(child);
+</script>
+
+</body>
+</html>
+```
+
+**Replacing HTML Elements**
+
+```javascript
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript HTML DOM</h2>
+<h3>Replace an HTML Element.</h3>
+
+<div id="div1">
+<p id="p1">This is a paragraph.</p>
+<p id="p2">This is a paragraph.</p>
+</div>
+
+<script>
+const parent = document.getElementById("div1");
+const child = document.getElementById("p1");
+const para = document.createElement("p");
+const node = document.createTextNode("This is new.");
+para.appendChild(node);
+parent.replaceChild(para,child);
+</script>
+
+</body>
+</html>
+```
