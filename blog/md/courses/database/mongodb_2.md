@@ -249,3 +249,28 @@ Here are some common indexing methods:
 Here, 1 indicates ascending order, and -1 would indicate descending order.
 
 * dropIndex(): Drops an existing index.
+
+* getIndex()
+
+```
+blog1> db.posts.createIndex({title:1})
+title_1
+blog1> db.posts.createIndex({title:1, tags:1})
+title_1_tags_1
+blog1> db.posts.createIndex({title:1, category:1})
+title_1_category_1
+blog1> db.posts.createIndex({title:1, category:1, tags:1})
+title_1_category_1_tags_1
+blog1> db.posts.getIndexes()
+[
+  { v: 2, key: { _id: 1 }, name: '_id_' },
+  { v: 2, key: { title: 1 }, name: 'title_1' },
+  { v: 2, key: { title: 1, tags: 1 }, name: 'title_1_tags_1' },
+  { v: 2, key: { title: 1, category: 1 }, name: 'title_1_category_1' },
+  {
+    v: 2,
+    key: { title: 1, category: 1, tags: 1 },
+    name: 'title_1_category_1_tags_1'
+  }
+]
+```
