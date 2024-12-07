@@ -1,4 +1,4 @@
-HuggingFace 
+# HuggingFace 
 
 1. What is hugging face? Their business model. What they are trying offer you to build, train and deploy models in their platform? How do they make money from?
 
@@ -20,13 +20,13 @@ their models are available on AWS and Azure.
 
 - What they are trying offer you to build, train and deploy models in their platform?
 
-Model Building
+**Model Building**
 
 offers access to pre-trained models in NLP.
 offers model customization where we can tune pre-trained models to fit our tasks and databases.
 Provide the popular transformers library to build and experiment with models like BERT, GPT, T5.
 
-Model Training
+**Model Training**
 
 we can store, share and manage models and datasets on huggingface hub.
 we can train model on custom datasets.
@@ -34,15 +34,13 @@ we can train model on custom datasets.
 integrate with accelerate library to scale model training across GPU or TPU.
 integrate with other platforms like PyTorch, TensorFlow, google cloud, AWS, Azure.
 
-Model Deployment
+**Model Deployment**
 
-offers inference API to allow users host their models on huggingface's cloud infrastructure to deploy models without setting.
+Offers inference API to allow users host their models on huggingface's cloud infrastructure to deploy models without setting.
 
-up our own server or manage infrastructure.
+Offers a no-code solution for training and deploying ML models for people with no technical expertise.
 
-offers a no-code solution for training and deploying ML models for people with no technical expertise.
-
-supports Gradio which is a tool that lets users create a web inference for the model.
+Supports Gradio which is a tool that lets users create a web inference for the model.
 offers end to end pipeline support from building, deploying and push trained models to cloud for real-time inference.
 
 - How do they make money from?
@@ -204,40 +202,41 @@ the model is new and not for commercial or general public use only academical us
 
 - BERT base model
 
-speciality: full-mask (NLP)
+Speciality: full-mask (NLP)
 
-summary: BERT is a transformers model pretrained on a large corpus of English data in a self-supervised fashion.
+Summary: BERT is a transformers model pretrained on a large corpus of English data in a self-supervised fashion.
 
-objectives:
+**Objectives:**
+
 Masked language modeling (MLM): taking a sentence, the model randomly masks 15% of the words in the input then run the entire masked sentence through the model and has to predict the masked words.
 Next sentence prediction (NSP): the models concatenates two masked sentences as inputs during pretraining. Sometimes they correspond to sentences that were next to each other in the original text, sometimes not. The model then has to predict if the two sentences were following each other or not.
 the bert model was pretrained on bookcorpus and english wikipedia. 
 
 - Gemma model
 
-specialization: Text Generation
+Specialization: Text Generation
 
-summary: text to text decoder only LLM, available in english, it includes text generaion, question answering,
-summarization and reasoning. built from the same technology of Gemini model.
+Summary: text to text decoder only LLM, available in english, it includes text generaion, question answering,
+
+Summarization and reasoning. built from the same technology of Gemini model.
 
 Input: Text string, such as a question, a prompt, or a document to be summarized.
 
 Output: Generated English-language text in response to the input, such as an answer to a question, or a summary of a document.
 
-the model was trained on a dataset of text data that include a variety of sources from web documents,  code, mathematics
-the model was trained using last generation of TPU
+The model was trained on a dataset of text data that include a variety of sources from web documents,  code, mathematic the model was trained using last generation of TPU
 
 - SigLIP model
 
-speciality: zero-shot image classification
+Speciality: zero-shot image classification
 
-summary: SigLIP model pre-trained on WebLi at resolution 384x384.The sigmoid loss operates solely on image-text pairs and does not require a global view of the pairwise similarities for normalization. This allows further scaling up the batch size, while also performing better at smaller batch sizes.
+Summary: SigLIP model pre-trained on WebLi at resolution 384x384.The sigmoid loss operates solely on image-text pairs and does not require a global view of the pairwise similarities for normalization. This allows further scaling up the batch size, while also performing better at smaller batch sizes.
 
 5. Please survey(research) Meta’s Models. Are they brokered in Hugging face?
 
 LLMA 3.2 11B, 90B, / image - text-to text
 
-llma 3.2 1B,3B,8B,Guard 3-1B/text generation
+llma 3.2 1B,3B,8B, Guard 3-1B/text generation
 
 Yes they are brokered in huggingface.
 
@@ -259,3 +258,7 @@ how to choose a dataset:
 - identify the language
 - identify the license if needed
 - identify the field (medical, biology, art,..)
+
+## Part II Handson
+
+![huggingface](../../../../images/ml/huggingface.png)
