@@ -1,15 +1,17 @@
-# HuggingFace 
+# HuggingFace
 
 1. What is hugging face? Their business model. What they are trying offer you to build, train and deploy models in their platform? How do they make money from?
 
 - What is hugging face?
 
-a machine learning and Data science platform that lets users deploy and train ML models.
+* A machine learning and Data science platform that lets users deploy and train ML models.
 it hosts open source datasets (developers can create and update) and demos where we can see the code behind the model.
-unlike open ai which is a closed source.
-it hosts leader board that tracks ranks and evaluates the LLMs and chatbots on the platform.
-the models it has: LLMs, computer vision, audio, image so we can transform text to image or image to image.
-it has many models which makes finding the right one difficult.
+
+* Unlike open ai which is a closed source.
+
+* It hosts leader board that tracks ranks and evaluates the LLMs and chatbots on the platform.
+
+The models it hosts: LLMs, computer vision, audio, image so we can transform text to image or image to image. it has many models which makes finding the right one difficult.
 
 - Their business model
 
@@ -177,7 +179,7 @@ meta,
 black forest labs,
 jasperai,
 openbmb,
-On oma AI research ,
+On oma AI research,
 glif,
 nvidia,
 jina ai,
@@ -186,19 +188,17 @@ amd,
 Qwen,
 AIDC
 
-4. Please survey google’s AI models, and specialties and a little summary of each model. Quick copy and paste is ok.
+4. Please survey google’s AI models, and specialties and a little summary of each model.
 
 - datagemma-rag
 
-specialty: text generation
+**Specialty: text generation**
 
 summary: DataGemma is a series of fine-tuned Gemma 2 models used to help LLMs access and incorporate reliable public statistical data from Data Commons into their responses. DataGemma RAG is used with Retrieval Augmented Generation, where it is trained to take a user query and generate natural language queries that can be understood by Data Commons' existing natural language interface.
 
 Input: Text string containing a user query with a prompt to ask for statistical questions.
 
-Output: A list of natural language queries that can be used to answer the user query and can be understood by Data Commons' existing natural language interface.
-model was trained on wide variety of datasets  and trained on TPUv5e using JAX.
-the model is new and not for commercial or general public use only academical use.
+Output: A list of natural language queries that can be used to answer the user query and can be understood by Data Commons' existing natural language interface.  Model was trained on wide variety of datasets  and trained on TPUv5e using JAX. The model is new and not for commercial or general public use only academical use.
 
 - BERT base model
 
@@ -261,4 +261,8 @@ how to choose a dataset:
 
 ## Part II Handson
 
+**Bert Model**
+
 ![huggingface](../../../../images/ml/huggingface.png)
+
+![bert_example](../../../../images/ml/bert_example.png)
