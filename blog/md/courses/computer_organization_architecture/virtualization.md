@@ -8,6 +8,8 @@ Virtualization is technology that you can use to create **virtual representation
 
 >Hint For example, in JP Morgan you have one desktop, it runs 1 `host operating system` on which runs 10 virtual operating systems, and we have 10 employees, and they were told to login to each machine with machine name, host1.jpmorganchase.com, host2.jpmorganchase.com..., host3.jpmorganchase.com. All you invested as a business is one `bare metal machine`, and 10 instances of `hypervisors`(a software emulator) to run operating systems.
 
+![virtualization](../../../images/computer_architecture/virtualization.png)
+
 ## Why is virtualization important?
 
 By using virtualization, you can interact with any hardware resource with greater flexibility. Physical servers consume electricity, take up storage space, and need maintenance. You are often limited by physical proximity and network design if you want to access them. Virtualization removes all these limitations by abstracting physical hardware functionality into software. You can manage, maintain, and use your hardware infrastructure like an application on the web.
