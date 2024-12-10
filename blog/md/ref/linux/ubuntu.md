@@ -129,6 +129,36 @@ xiaofengli@xiaofenglx:~$ gio set ~/Desktop/thinkorswim.desktop metadata::trusted
 chmod a+x ~/Desktop/app.desktop
 ```
 
+## MYSQL Installation
+
+**Reinstallation**
+
+First, remove MySQL:
+
+```shell
+sudo apt purge mysql-server mysql-client mysql-common
+sudo apt autoremove
+sudo mv -iv /var/lib/mysql /var/tmp/mysql-backup
+sudo rm -rf /var/lib/mysql*
+Then reinstall:
+
+sudo apt update
+sudo apt install mysql-server
+mysqld --initialize
+sudo /usr/bin/mysql_secure_installation
+```
+
+Login and reset root password to something,
+
+`sudo mysql -uroot -p`
+
+No password,
+
+Then run the following,
+
+`ALTER USER 'root'@'localhost' IDENTIFIED WITH caching_sha2_password BY 'yourpasswd';`
+
+
 ### Ref
 
 - https://support.system76.com/articles/login-loop-ubuntu/

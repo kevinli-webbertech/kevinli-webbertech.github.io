@@ -91,6 +91,20 @@ date: Date()
 
 ### insertMany()
 
+```
+db.posts.insertMany([
+... {
+...   title: "post title 2",
+...   body: "Body of post.",
+...   category: "Event",
+...   likes: 2,
+...   tags: ["news","events"],
+...  date: Date()},
+... {title: "Post title 3", body: "body of post3", category: "Technology", }
+... ]
+... )
+```
+
 ![mongodb_insertMany.png](../../../images/database/mongodb_insertMany.png)
 
 ## Find Documents
@@ -235,3 +249,28 @@ Here are some common indexing methods:
 Here, 1 indicates ascending order, and -1 would indicate descending order.
 
 * dropIndex(): Drops an existing index.
+
+* getIndex()
+
+```
+blog1> db.posts.createIndex({title:1})
+title_1
+blog1> db.posts.createIndex({title:1, tags:1})
+title_1_tags_1
+blog1> db.posts.createIndex({title:1, category:1})
+title_1_category_1
+blog1> db.posts.createIndex({title:1, category:1, tags:1})
+title_1_category_1_tags_1
+blog1> db.posts.getIndexes()
+[
+  { v: 2, key: { _id: 1 }, name: '_id_' },
+  { v: 2, key: { title: 1 }, name: 'title_1' },
+  { v: 2, key: { title: 1, tags: 1 }, name: 'title_1_tags_1' },
+  { v: 2, key: { title: 1, category: 1 }, name: 'title_1_category_1' },
+  {
+    v: 2,
+    key: { title: 1, category: 1, tags: 1 },
+    name: 'title_1_category_1_tags_1'
+  }
+]
+```

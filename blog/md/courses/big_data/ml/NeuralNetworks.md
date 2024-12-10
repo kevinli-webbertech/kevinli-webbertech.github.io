@@ -4,7 +4,7 @@ Neural Network consists of:
 
 - input layer (root nodes)
 
--hidden layers 
+-hidden layers
 
 -output layer (terminal nodes)
 
@@ -90,8 +90,6 @@ multiplied and added together in complex ways, until it finally arrives, radical
 the weight and bias (NN parameters) are what the NN will learn during the training
 the number of parameters is the inputs nodes * dense + bias
 
-
-
 _2.5: Activation Functions_
 
 functions that occur to the data in a layer where the results are passed to the following layer. 
@@ -121,17 +119,13 @@ the compile() method takes a keyword(loss function) to calculate it so in a FNN 
 
 the optimizer:
 
-based on the gradiant descent algorithm. where each time the loss function is calculated, we decide how much 
-to change the weights and biases in the layers. the process is done gradually to get closer to the correct weight 
-and bias values to enhance the prediction which is defined by convergence.
-the goal is minimize the loss function to ensure correctness of fit where the model uses cost function and reinforcement
-learning to reach the point of convergence(local min).
+based on the gradiant descent algorithm. where each time the loss function is calculated, we decide how much to change the weights and biases in the layers. the process is done gradually to get closer to the correct weight and bias values to enhance the prediction which is defined by convergence.
+
+the goal is minimize the loss function to ensure correctness of fit where the model uses cost function and reinforcement learning to reach the point of convergence(local min).
 
 backward propagation/ model.compile(loss='mse',optimizer='rmsprop'):
 
-backpropagation allows  the model to calculate the error associated with each neuron to adjust the parameters by passing
-data backwards from output to input
-
+backpropagation allows  the model to calculate the error associated with each neuron to adjust the parameters by passing data backwards from output to input
 
 **4. types of Neural networks:**
 
@@ -165,33 +159,32 @@ Artificial super intelligence (ASI)
 
 **7. Deep learning**
 
-branch of machine learning that is based on artificial neural network architecture. used for supervised, unsupervised
-and reinforcement learning.
+Branch of machine learning that is based on artificial neural network architecture. used for supervised, unsupervised and reinforcement learning.
 
 _7.1 DL in supervised machine learning_
 
-neural networks learn to make predictions or classification based on labelled datasets. Neural network
-makes predictions based on the error/cost/loss function evaluation. 
+Neural networks learn to make predictions or classification based on labelled datasets. Neural network makes predictions based on the error/cost/loss function evaluation.
 
 models used: CNN, RNN
 
 applications: image classification and recognition, sentiment analysis, language translation;
 
 _7.2 DL in unsupervised learning_
-neural networks learn to discover the pattern or to cluster the dataset based on unlabelled datasets. 
 
-models: clustering, dimensionality reduction, anomaly detection. 
+Neural networks learn to discover the pattern or to cluster the dataset based on unlabelled datasets.
 
-applications: autoencoders and generative models 
+**Models:** clustering, dimensionality reduction, anomaly detection.
+
+**Applications:** autoencoders and generative models.
 
 _7.3 DL in reinforcement learning_
 
 agent learns to make decisions in an environment to maximize a reward signal by taking action and observe the resulting 
 rewards. deep learning used to learn policies, set of actions to maximize the cumulative reward over time
 
-Models:Deep Q networkds, deep deterministic policy gradiant 
+Models: Deep Q networkds, deep deterministic policy gradiant
 
-applications: robotics and game playing
+Applications: robotics and game playing
 
 _7.4 Deep learning applications_ 
 
@@ -205,15 +198,15 @@ image segmentation(identify features in an image)
 
 - Natural Language Processing (NLP)
 
-Automatic text generation 
+Automatic text generation
 
-Language translation
+**Language translation**
 
 sentiment analysis/determines whether text is positive, negative or neutral  (customer service, social media monitoring, political analysis)
 
 Speech recognition (speech to text conversion, voice search, voice controlled device)
 
-- reinforcement learning 
+- reinforcement learning
 
 game playing/learns how to beat humans experts at games (go, chess, atari)
 
@@ -222,18 +215,23 @@ robotics/train robots to perform complex tasks (grasping objects, navigation, ma
 control systems(power grids, traffic management, supply chain optimization)
 
 8. The Transform Model
+
 A machine learning system used to understand and process sequences of information, like sentences in a language.
-Unlike older methods that read sequences one step at a time (like reading a sentence word by word), the Transformer 
-looks at all parts of the sequence at once. 
+
+Unlike older methods that read sequences one step at a time (like reading a sentence word by word), the Transformer looks at all parts of the sequence at once.
+
 This makes it much faster and better at understanding long-distance relationships between words or data points.
 
 8.1 model characteristics:
-- Self-Attention: The Transformer checks how each part of a sequence is related to every other part. For example, 
-when translating a sentence, it looks at all the words together to figure out their connections.
+
+- Self-Attention: The Transformer checks how each part of a sequence is related to every other part.
+
+For example,  when translating a sentence, it looks at all the words together to figure out their connections.
+
 - Multi-head attention: It does this multiple times in parallel to catch different patterns and relationships at once,
 making it more accurate.
-- No Recurrence or Convolution: Unlike older systems that had to read through sequences one-by-one, the Transformer 
-processes everything at the same time, which speeds things up.
+
+- No Recurrence or Convolution: Unlike older systems that had to read through sequences one-by-one, the Transformer processes everything at the same time, which speeds things up.
 
 8.2 Model Architecture
 
@@ -248,100 +246,93 @@ connected layers in both the encoder and decoder, allowing for faster and more e
 - encoder has 6 identical layers, each has two parts:
 1- multi-head self-attention: model looks at different parts of input sequence at the same time
 2- feed-forward network: fully connected network processes each position seperately.
-- decoder has 6 identical layers:
-1- multi-head self-attention 2-feed-forward network 3-multi-head attention that looks at encoder output
-each part has residual connection helps model learn by skipping layers and layer normalization to speed up training.
 
-Attention:
+- decoder has 6 identical layers:
+1- multi-head self-attention 2-feed-forward network 3-multi-head attention that looks at encoder output each part has residual connection helps model learn by skipping layers and layer normalization to speed up training.
+
+**Attention:**
+
 helps the model decide which parts of the input to focus on when making predictions. how?
 - it compares a query (what you're looking for) with keys (features of input)
-- it assigns weights to the values ( the information being processed) based on how well they match. 
-methods:
-- multi-head attention, compares multiple times in parallel to capture different patterns making the model better at
-  focusing on important information. 
-- Scaled dot-product attention, compares the query and keys, divides by the square root of their size for stability and 
-uses softmax function to assign attention weights to make the process faster and efficient. 
+- it assigns weights to the values ( the information being processed) based on how well they match.
+
+**methods:**
+- multi-head attention, compares multiple times in parallel to capture different patterns making the model better at focusing on important information. 
+- Scaled dot-product attention, compares the query and keys, divides by the square root of their size for stability and uses softmax function to assign attention weights to make the process faster and efficient.
 
 The transformer uses attention in three ways:
+
 - encoder-decoder attention: decoder focuses on different parts of the encoder output
 - encoder self-attention: each part of the input can attend to every other part in the encoder.
-- decoder self-attention: each part of the output can attend to earlier parts while generating the output sequence but 
-not future ones to ensure proper prediction order. 
+- decoder self-attention: each part of the output can attend to earlier parts while generating the output sequence but not future ones to ensure proper prediction order. 
 
-The position-wise-feedforward networks in encoder and decoder layers process (through math operations) each position in
-the input separately (each word). They
+The position-wise-feedforward networks in encoder and decoder layers process (through math operations) each position in the input separately (each word). They
 consist of two linear transformations with a ReLu activation in between. the process:
+
 - input is transformed using two linear layers: FFN(x)=max(0,xW1 + b1)W2 + b2.
 - these transformations apply across all positions but each layer has its own unique parameters. 
-- the input and output dimensions (d_model) are 512 while the inner layer dimension (inner processing space d_ff) is
-2048.
+- the input and output dimensions (d_model) are 512 while the inner layer dimension (inner processing space d_ff) is 2048.
 
-Embedding and softmax
+**Embedding and softmax**
+
 - The model uses embeddings to convert words/tokens into numerical vectors.
-- on output side, model uses linear transformation and softmax function to predict the next word. the softmax function 
-converts numbers into probabilities, helping the model decide which word is likely to come next.
-- the model shares the same weight matrix for both the input and output embeddings and pre-softmax transformation. the 
-sharing helps make the model more efficient
-- the weights are scaled by square root of d_model 
+- on output side, model uses linear transformation and softmax function to predict the next word. the softmax function converts numbers into probabilities, helping the model decide which word is likely to come next.
+- the model shares the same weight matrix for both the input and output embeddings and pre-softmax transformation. the sharing helps make the model more efficient
+- the weights are scaled by square root of d_model.
 
-Neural machine Translation
-a modern approach to translate languages that differs from traditional methods. it uses a single
-large NN that learns to translate by reading a whole sentence at once. 
+**Neural machine Translation**
 
-NMT maximizes the probability of a correct translation to find best translation where it learns from sentence pairs
-(source and target language).
+A modern approach to translate languages that differs from traditional methods. it uses a single
+large NN that learns to translate by reading a whole sentence at once.
+
+NMT maximizes the probability of a correct translation to find best translation where it learns from sentence pairs (source and target language).
+
 - RNN encoder-decoder framework: the encoder reads, compresses the sentence into a vector and decode generates translation
-- alignment and attention mechanism: instead of encoding a whole sentence into a vector, the system creates a series
-of vectors and chooses the most relevant ones as it translates so the model handles longer sentences effectively 
-and translation performance is improved. 
-- Bidirectional RNNs: reads the sentence forward and backward summerizing information from the entire sentence so the model
-can generate more accurate translations by considering all parts of the sentence. 
+- alignment and attention mechanism: instead of encoding a whole sentence into a vector, the system creates a series of vectors and chooses the most relevant ones as it translates so the model handles longer sentences effectively and translation performance is improved.
+- Bidirectional RNNs: reads the sentence forward and backward summerizing information from the entire sentence so the model can generate more accurate translations by considering all parts of the sentence.
 
-Retrieval-Augmented generation (RAG)
+**Retrieval-Augmented generation (RAG)**
 
-LLMs is a technology powering intellegent chatbots and NLP applications to answer questions, translate.. but the source
-of information for LLMs could be non-authorative so the information could be false.
+LLMs is a technology powering intellegent chatbots and NLP applications to answer questions, translate.. but the source of information for LLMs could be non-authorative so the information could be false.
 
 RAG came to solve this problem of LLMs to retrieve relevant information from authorative knowledge sources.
-why are RAG good?
 
-1- chatbots development via foundation models, foundation models are retrained based on an organization. however, that
-expensive. RAG works on Gen AI and new data introduction with a more cost-effective approach. 
-2- its challenging to maintain relevancy  even if training data sources are suitable for an LLM. RAG provides latest
-statistics and news to generative models as it connects LLM to live soial media feed, news sites and updated info sources. 
+**why are RAG good?**
+
+1- chatbots development via foundation models, foundation models are retrained based on an organization. however, that expensive. RAG works on Gen AI and new data introduction with a more cost-effective approach.
+
+2- its challenging to maintain relevancy  even if training data sources are suitable for an LLM. RAG provides latest statistics and news to generative models as it connects LLM to live soial media feed, news sites and updated info sources.
+
 3- RAG references the sources in output for more accuracy
+
 4- RAG allows applications to be developed, LLMs information sources can be updated, sensitive
 information can be restricted.
 
-how does RAG work?
+**how does RAG work?**
+
 LLMs create response based on information it was trained on. what does RAG do?
 
 - RAG uses the user input to pull information from a new data source
 - the user Query is pre-processed (i.e tokenization, stemming and stop words removal) then converted to a numerical vector and matched with vector databases via an embedding language model
 - the relevancy is calculated and established using mathematical vector calculations and representations
-- the highly relevant documents vectors to the query vector will be retrieved. 
-- examples of data sources: APIs, databases, document repositories and storage examples: files, database records,
-long form texts)
-- RAG model adds the user query (input or prompt) to the relevant retrieved data using prompt engineering techniques 
-and communicated it with the LLM and LLM uses the new knowledge and trained data to create a better response. 
+- the highly relevant documents vectors to the query vector will be retrieved.
+- examples of data sources: APIs, databases, document repositories and storage examples: files, database records,long form texts)
+- RAG model adds the user query (input or prompt) to the relevant retrieved data using prompt engineering techniques and communicated it with the LLM and LLM uses the new knowledge and trained data to create a better response. 
 
-Semantic Search
-a technology that does all the work of knowledge based preperations (word embedding, document chunking,,,) as well as
-generating semantically relevant passages and token words ordered by relevance to maximize the quality of RAG payload on its own 
-without the need to developers. 
+**Semantic Search**
+a technology that does all the work of knowledge based preperations (word embedding, document chunking,,,) as well as generating semantically relevant passages and token words ordered by relevance to maximize the quality of RAG payload on its own without the need to developers.
 
-AWS
-- Amazon Bedrock :connect FMs to data sources for RAG in few clicks where vector conversions, retrievals and improved output generation 
-are handled automatically.
-- Amazon Kendra: provides optimized retreieved API with high accuracy 
+**AWS**
+- Amazon Bedrock :connect FMs to data sources for RAG in few clicks where vector conversions, retrievals and improved output generation are handled automatically.
+- Amazon Kendra: provides optimized retreieved API with high accuracy.
 
-Google cloud
+**Google cloud**
 - vertex AI search
 - vertex AI vector search
 - BigQuery
 
-Navida:
+**Navida:**
 - launchPad Lab
 
-IBM:
+**IBM:**
 - open book
