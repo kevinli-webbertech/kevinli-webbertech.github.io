@@ -204,6 +204,10 @@ https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion
 
 https://ubuntu.com/download/server
 
+### Step 3 Install the ubuntu ISO file in the virtual box
+
+- https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox#1-overview
+
 **Youtube tutorial**
 
 - https://www.youtube.com/watch?v=hYaCCpvjsEY&pp=ygUcaW5zdGFsbCB1YnVudHUgaW4gdmlydHVhbGJveA%3D%3D
