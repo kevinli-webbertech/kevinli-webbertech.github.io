@@ -100,7 +100,25 @@ drwxr-x---+ 91 kevinli  staff         2912 Dec 11 20:38 ..
 
 `wget https://gist.github.com/theboreddev/5f79f86a0f163e4a1f9df919da5eea20/raw/f546faea68f4149c06cca88fa67ace07a3758268/QEMU_EFI-cb438b9-edk2-stable202011-with-extra-resolutions.tar.gz`
 
+Move the tar.gz file to the ~/qemu,
+
+`mv ~/Downloads/QEMU_EFI-*.tar.gz ~/qemu`
+
+unarchive it,
+
+`tar xzvf QEMU_EFI-*.tar.gz`
+
 ![QEMU_UEFI](../../../images/computer_architecture/UEFI_image_QEMU.png)
+
+and you will see something like these,
+
+```shell
+kevins-Laptop:qemu kevinli$ ls
+QEMU_EFI-cb438b9-edk2-stable202011-with-extra-resolutions.tar.gz	ubuntu-latest.raw
+kevins-Laptop:qemu kevinli$ tar zxvf QEMU_EFI-cb438b9-edk2-stable202011-with-extra-resolutions.tar.gz 
+x ./QEMU_EFI.fd
+x ./QEMU_VARS.fd
+```
 
 * Create Ubuntu linux image with QEMU
 
@@ -123,6 +141,10 @@ qemu-system-aarch64 \
    -drive file=ubuntu-latest.raw,format=raw,if=virtio,cache=writethrough \
    -cdrom /Users/kevinli/Downloads/ubuntu-24.04.1-live-server-amd64.iso
    ```
+
+Once we execute the above commands, you can see something like the following,
+
+![qemu_window](../../../images/qemu_window.png)
 
 * Start Ubuntu on QEMU
 
