@@ -228,6 +228,10 @@ https://ubuntu.com/download/server
 
 ![vm_installation5](../../../images/computer_architecture/vm_installation4.png)
 
+## Pocket VM
+
+![Pocket VM](pocketVM.png)
+
 **Youtube tutorial**
 
 - https://www.youtube.com/watch?v=hYaCCpvjsEY&pp=ygUcaW5zdGFsbCB1YnVudHUgaW4gdmlydHVhbGJveA%3D%3D
