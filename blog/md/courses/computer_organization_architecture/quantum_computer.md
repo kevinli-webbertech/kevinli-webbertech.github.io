@@ -1,5 +1,7 @@
 # Quantum Computer
 
+## What is Quantum computing
+
 * Quantum vs Classic Computer
 
 ![Quantum_Computer](Quantum_Computer.png)
@@ -69,7 +71,7 @@ How this superposition is working?
 ![alt text](image-23.png)
 
 **Bloch sphere representation of a qubit**
- 
+
 ![alt text](image-43.png)
 
 ## Quantum Entanglement (Quantum Mechanics)
