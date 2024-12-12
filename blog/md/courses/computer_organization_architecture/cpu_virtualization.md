@@ -70,6 +70,17 @@ In M chip apple, you will need to run colima first, because a lot of softwares a
 colima start --arch x86_64 --memory 4
 ```
 
+after you run the colima simulation, it is emulating your machine is a X86 architecture.
+
+```shell
+kevins-Laptop:qemu kevinli$ colima status
+INFO[0000] colima is running using QEMU                 
+INFO[0000] arch: x86_64                                 
+INFO[0000] runtime: docker                              
+INFO[0000] mountType: sshfs                             
+INFO[0000] socket: unix:///Users/kevinli/.colima/default/docker.sock 
+```
+
 ![colima](../../../images/computer_architecture/colima.png)
 
 ## Lab1 - Install Qemu and explore it
