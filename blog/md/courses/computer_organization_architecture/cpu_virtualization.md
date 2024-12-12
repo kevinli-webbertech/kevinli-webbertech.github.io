@@ -83,6 +83,19 @@ INFO[0000] socket: unix:///Users/kevinli/.colima/default/docker.sock
 
 ![colima](../../../images/computer_architecture/colima.png)
 
+For instance, in my M1 Chip Apple book, it should show this,
+
+```
+kevins-Laptop:qemu kevinli$ uname -m
+arm64
+```
+
+After we use QEMU, it shows X86_64.
+
+For more detail differences of these architecture of CPU, we can check here.
+
+- https://www.asacomputers.com/blog/difference-between-x86-64-vs-arm-architecture/
+
 ## Lab1 - Install Qemu and explore it
 
 https://www.qemu.org/download/
