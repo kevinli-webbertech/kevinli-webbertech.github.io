@@ -56,7 +56,6 @@ QEMU has multiple operating modes:
 
 * Hypervisor support. In the hypervisor support mode, QEMU either acts as a Virtual Machine Manager (VMM) or as a device emulation back-end for virtual machines running under a hypervisor. The most common is Linux's KVM but the project supports a number of hypervisors including Xen, Apple's HVF, Windows' WHPX, and NetBSD's NVMM.
 
-
 ## Colima - Container runtimes on macOS (and Linux) with minimal setup
 
 https://github.com/abiosoft/colima

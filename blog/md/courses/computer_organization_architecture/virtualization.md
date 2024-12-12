@@ -198,6 +198,14 @@ https://www.virtualbox.org/wiki/Downloads
 
 https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion
 
+I will install the virtual box in my Linux machine,
+
+![virtualbox](../../../images/computer_architecture/virtualbox.png)
+
+To start the virtual box in linux, I typed `virtualbox`,
+
+![virtualbox1](../../../images/computer_architecture/virtualbox1.png)
+
 ### Step 2 Download Ubuntu 24 iso
 
 **Download from here**
