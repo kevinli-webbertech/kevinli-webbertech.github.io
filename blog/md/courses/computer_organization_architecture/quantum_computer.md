@@ -26,61 +26,79 @@ How this superposition is working?
 
 ![alt text](superposition1.png)
 
-![alt text](image-1.png)
+![alt text](superposition2.png)
 
-![alt text](image-2.png)
+![alt text](superposition3.png)
 
-![alt text](image-3.png)
+![alt text](superposition4.png)
 
-![alt text](image-4.png)
+![alt text](superposition5.png)
 
-![alt text](image-5.png)
+![alt text](quantum_entanglement.png)
 
-![alt text](image-6.png)
+![alt text](quantum1.png)
 
-![alt text](image-7.png)
+![alt text](quantum2.png)
 
-![alt text](image-8.png)
+![alt text](quantum3.png)
 
-![alt text](image-9.png)
+![alt text](quantum4.png)
 
-![alt text](image-10.png)
+![alt text](quantum5.png)
 
-![alt text](image-11.png)
+![alt text](quantum6.png)
 
-![alt text](image-12.png)
+* Quantum + Virtualization
 
-![alt text](image-13.png)
+![alt text](quantum_virtualization.png)
 
-![alt text](image-14.png)
+![alt text](quantum_virtualization1.png)
 
-![alt text](image-16.png)
+![alt text](quantum_virtualization2.png)
 
-![alt text](image-15.png)
+* Google's quantum processor
 
-![alt text](image-17.png)
+![alt text](google_quantum.png)
 
-![alt text](image-18.png)
+![alt text](sycamore_processor.png)
 
-![alt text](image-19.png)
+![alt text](quantum_faster.png)
 
-![alt text](image-20.png)
-![alt text](image-21.png)
+![alt text](quantum_faster1.png)
 
-![alt text](image-22.png)
-![alt text](image-23.png)
+**Companies are doing quantum research**
+
+* Google
+* Microsoft
+* IBM
+* China...
+
+![alt text](other_quantum_companies.png)
+
+**Quantum Cloud**
+
+* Private cloud
+* public cloud, Virtual machines connect to the quantum server
+* OS for the quantum computers
+* Software for the quantum computers
+
+![alt text](quantum_cloud.png)
+
+![alt text](quantum_cloud1.png)
+
+![alt text](quantum_cloud2.png)
+
+![alt text](quantum_cloud3.png)
 
 **Bloch sphere representation of a qubit**
 
-![alt text](image-43.png)
+![alt text](Bloch_sphere1.png)
 
 ## Quantum Entanglement (Quantum Mechanics)
 
-![alt text](image-24.png)
+![alt text](quantum_mechanics1.png)
 
-![alt text](image-25.png)
-
-![alt text](image-26.png)
+![alt text](quantum_mechanics2.png)
 
 ![alt text](image-27.png)
 
