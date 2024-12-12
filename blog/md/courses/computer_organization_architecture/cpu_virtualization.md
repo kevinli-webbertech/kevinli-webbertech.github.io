@@ -56,6 +56,7 @@ QEMU has multiple operating modes:
 
 * Hypervisor support. In the hypervisor support mode, QEMU either acts as a Virtual Machine Manager (VMM) or as a device emulation back-end for virtual machines running under a hypervisor. The most common is Linux's KVM but the project supports a number of hypervisors including Xen, Apple's HVF, Windows' WHPX, and NetBSD's NVMM.
 
+
 ## Colima - Container runtimes on macOS (and Linux) with minimal setup
 
 https://github.com/abiosoft/colima
@@ -63,6 +64,94 @@ https://github.com/abiosoft/colima
 ## Lab1 - Install Qemu and explore it
 
 https://www.qemu.org/download/
+
+If you haven't already, install the QEMU package on your system. 
+
+* Install QEMU
+
+If you haven't already, install the QEMU package on your system. 
+
+* For Mac,
+
+`brew install qemu`
+
+* For Windows,
+
+https://www.qemu.org/download#:~:text=QEMU%20can%20be%20installed%20from,for%20it%2C%20whatever%20comes%20first.
+
+* Download Ubuntu ISO:
+
+Go to the Ubuntu website and download the desired version of Ubuntu as an ISO file. 
+
+* Create an Empty Image
+
+```shell
+kevins-Laptop:~ kevinli$ mkdir qemu 
+kevins-Laptop:~ kevinli$ qemu-img create -f raw  ~/qemu/ubuntu-latest.raw 40G
+Formatting '/Users/kevinli/qemu/ubuntu-latest.raw', fmt=raw size=42949672960
+kevins-Laptop:qemu kevinli$ ls -al
+total 32
+drwxr-xr-x   3 kevinli  staff           96 Dec 11 20:38 .
+drwxr-x---+ 91 kevinli  staff         2912 Dec 11 20:38 ..
+-rw-r--r--   1 kevinli  staff  42949672960 Dec 11 20:38 ubuntu-latest.raw
+```
+
+* Download pre-built EDK2 UEFI image for QEMU
+
+`wget https://gist.github.com/theboreddev/5f79f86a0f163e4a1f9df919da5eea20/raw/f546faea68f4149c06cca88fa67ace07a3758268/QEMU_EFI-cb438b9-edk2-stable202011-with-extra-resolutions.tar.gz`
+
+![QEMU_UEFI](../../../images/computer_architecture/UEFI_image_QEMU.png)
+
+* Create Ubuntu linux image with QEMU
+
+```shell
+qemu-system-aarch64 \
+   -monitor stdio \
+   -M virt,highmem=off \
+   -accel hvf \
+   -cpu host \
+   -smp 4 \
+   -m 3000 \
+   -bios QEMU_EFI.fd \
+   -device virtio-gpu-pci \
+   -display default,show-cursor=on \
+   -device qemu-xhci \
+   -device usb-kbd \
+   -device usb-tablet \
+   -device intel-hda \
+   -device hda-duplex \
+   -drive file=ubuntu-latest.raw,format=raw,if=virtio,cache=writethrough \
+   -cdrom /Users/kevinli/Downloads/ubuntu-24.04.1-live-server-amd64.iso
+   ```
+
+* Start Ubuntu on QEMU
+
+```shell
+qemu-system-aarch64 \
+   -monitor stdio \
+   -M virt,highmem=off \
+   -accel hvf \
+   -cpu host \
+   -smp 4 \
+   -m 3000 \
+   -bios QEMU_EFI.fd \
+   -device virtio-gpu-pci \
+   -display default,show-cursor=on \
+   -device qemu-xhci \
+   -device usb-kbd \
+   -device usb-tablet \
+   -device intel-hda \
+   -device hda-duplex \
+   -drive file=ubuntu-latest.raw,format=raw,if=virtio,cache=writethrough
+   ````
+
+#### Ref
+
+- https://ubuntu.com/server/docs/virtualisation-with-qemu
+
+- https://www.makeuseof.com/install-ubuntu-virtual-machine-with-qemu/
+
+- https://theboreddev.com/run-ubuntu-on-mac-using-qemu/
 
 ## Lab2 - Colima
 

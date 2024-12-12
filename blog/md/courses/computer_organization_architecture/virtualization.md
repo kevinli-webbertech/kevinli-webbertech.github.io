@@ -214,6 +214,18 @@ https://ubuntu.com/download/server
 - https://www.youtube.com/watch?v=Hva8lsV2nTk&pp=ygUcaW5zdGFsbCB1YnVudHUgaW4gdmlydHVhbGJveA%3D%3D
 - https://www.youtube.com/watch?v=rJ9ysibH768&pp=ygUcaW5zdGFsbCB1YnVudHUgaW4gdmlydHVhbGJveA%3D%3D
 
+## Free hypervisor
+
+free virtual machine software options include:
+
+* Citrix Hypervisor
+* Google Compute Engine
+* Proxmox VE
+* Scale Computing Platform
+* VMware ESXi
+* VMware Fusion
+* VMware vSphere
+
 ## Ref
 
 - https://aws.amazon.com/what-is/virtualization/#:~:text=Virtualization%20is%20technology%20that%20you,on%20a%20single%20physical%20machine.
