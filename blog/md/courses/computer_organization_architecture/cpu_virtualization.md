@@ -61,6 +61,17 @@ QEMU has multiple operating modes:
 
 https://github.com/abiosoft/colima
 
+In M chip apple, you will need to run colima first, because a lot of softwares are not working with M chip Mac, but intel Mac seems to be fine.
+
+![Apple_M1Chip](../../../images/computer_architecture/Apple_M1Chip.png)
+
+```shell
+#!/bin/bash
+colima start --arch x86_64 --memory 4
+```
+
+![colima](../../../images/computer_architecture/colima.png)
+
 ## Lab1 - Install Qemu and explore it
 
 https://www.qemu.org/download/
