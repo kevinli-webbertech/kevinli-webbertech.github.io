@@ -106,34 +106,35 @@ How this superposition is working?
 
 ![alt text](quantum_mechanics5.png)
 
-![alt text](image-30.png)
+![alt text](quantum_mechanics6.png)
 
-![alt text](image-31.png)
+![alt text](quantum_mechanics7.png)
 
-![alt text](image-32.png)
+![alt text](quantum_mechanics8.png)
 
-![alt text](image-33.png)
+![alt text](quantum_mechanics9.png)
 
-![alt text](image-34.png)
+![alt text](quantum_mechanics10.png)
 
-![alt text](image-35.png)
+![alt text](quantum_mechanics11.png)
 
-![alt text](image-36.png)
+![alt text](quantum_mechanics12.png)
 
 but we don't know which is up and which is down, but if we measure to know one is up , and the other is down,
 
-![alt text](image-37.png)
+![alt text](quantum_mechanics13.png)
 
-![alt text](image-38.png)
+![alt text](quantum_mechanics14.png)
 
-![alt text](image-39.png)
+![alt text](quantum_mechanics15.png)
 
-![alt text](image-40.png)
+![alt text](quantum_mechanics16.png)
 
-![alt text](image-41.png)
+![alt text](quantum_mechanics17.png)
 
-![alt text](image-42.png)
+![alt text](quantum_mechanics18.png)
 
+![alt text](quantum_mechanics19.png)
 
 https://www.youtube.com/watch?v=B3U1NDUiwSA
 https://www.youtube.com/watch?v=unb_yoj1Usk
