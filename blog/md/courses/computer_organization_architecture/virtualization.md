@@ -212,6 +212,8 @@ To start the virtual box in linux, I typed `virtualbox`,
 
 https://ubuntu.com/download/server
 
+![ubuntu_image](../../../images/computer_architecture/ubuntu_image.png)
+
 ### Step 3 Install the ubuntu ISO file in the virtual box
 
 - https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox#1-overview
