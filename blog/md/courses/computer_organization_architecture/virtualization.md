@@ -218,6 +218,16 @@ https://ubuntu.com/download/server
 
 - https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox#1-overview
 
+![vm_installation1](../../../images/computer_architecture/vm_installation.png)
+
+![vm_installation2](../../../images/computer_architecture/vm_installation1.png)
+
+![vm_installation3](../../../images/computer_architecture/vm_installation2.png)
+
+![vm_installation4](../../../images/computer_architecture/vm_installation3.png)
+
+![vm_installation5](../../../images/computer_architecture/vm_installation4.png)
+
 **Youtube tutorial**
 
 - https://www.youtube.com/watch?v=hYaCCpvjsEY&pp=ygUcaW5zdGFsbCB1YnVudHUgaW4gdmlydHVhbGJveA%3D%3D
