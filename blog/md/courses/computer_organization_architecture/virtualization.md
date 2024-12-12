@@ -230,7 +230,9 @@ https://ubuntu.com/download/server
 
 ## Pocket VM
 
-![Pocket VM](pocketVM.png)
+![Pocket VM](../../../images/computer_architecture/pocketVM.png)
+
+![Pocket VM1](../../../images/computer_architecture/pocketVM1.png)
 
 **Youtube tutorial**
 
