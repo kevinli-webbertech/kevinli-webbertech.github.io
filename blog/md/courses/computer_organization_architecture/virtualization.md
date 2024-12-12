@@ -204,11 +204,27 @@ https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion
 
 https://ubuntu.com/download/server
 
+### Step 3 Install the ubuntu ISO file in the virtual box
+
+- https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox#1-overview
+
 **Youtube tutorial**
 
 - https://www.youtube.com/watch?v=hYaCCpvjsEY&pp=ygUcaW5zdGFsbCB1YnVudHUgaW4gdmlydHVhbGJveA%3D%3D
 - https://www.youtube.com/watch?v=Hva8lsV2nTk&pp=ygUcaW5zdGFsbCB1YnVudHUgaW4gdmlydHVhbGJveA%3D%3D
 - https://www.youtube.com/watch?v=rJ9ysibH768&pp=ygUcaW5zdGFsbCB1YnVudHUgaW4gdmlydHVhbGJveA%3D%3D
+
+## Free hypervisor
+
+free virtual machine software options include:
+
+* Citrix Hypervisor
+* Google Compute Engine
+* Proxmox VE
+* Scale Computing Platform
+* VMware ESXi
+* VMware Fusion
+* VMware vSphere
 
 ## Ref
 
