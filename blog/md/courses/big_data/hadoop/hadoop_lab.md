@@ -18,6 +18,117 @@ Once you are in $HADOOP_PREFIX directory, do the following,
 
 `file hadoop`
 
+**How do we know all the variables that are related to Hadoop in the linux container?**
+
+* You can find out all the shell script of the VM container. The following example uses `find` command to show all the shell script with `.sh`, however, that is not complete thought. As some of the shell script in hadoop home's /bin directory does not have the `.sh` extention. A better way is to use `find` command with `-type` of shell script nature and find them all.
+
+```shell
+bash-4.1# find . -name "*.sh"
+./hdfs-config.sh
+./start-yarn.sh
+./distribute-exclude.sh
+./yarn-daemon.sh
+./hadoop-daemon.sh
+./stop-secure-dns.sh
+./httpfs.sh
+./kms.sh
+./slaves.sh
+./stop-dfs.sh
+./stop-all.sh
+./mr-jobhistory-daemon.sh
+./stop-yarn.sh
+./start-balancer.sh
+./refresh-namenodes.sh
+./start-all.sh
+./start-dfs.sh
+./hadoop-daemons.sh
+./stop-balancer.sh
+./start-secure-dns.sh
+./yarn-daemons.sh
+```
+
+Once we have found all the shell scripts like above, we read them line by line, or write script to extract all the left hand side of the `=` and we can hopefully find out some variables related to the above scripts of hadoop.
+
+However, this is tedious work. An easier way to find out all the system variables in any system, is to use the linux `env` command like below,
+
+```shell
+bash-4.1# env
+BOOTSTRAP=/etc/bootstrap.sh
+HOSTNAME=5259d592e010
+TERM=xterm
+HADOOP_PREFIX=/usr/local/hadoop
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/java/default/bin
+HADOOP_HDFS_HOME=/usr/local/hadoop
+HADOOP_COMMON_HOME=/usr/local/hadoop
+PWD=/usr/local/hadoop/sbin
+JAVA_HOME=/usr/java/default
+HADOOP_YARN_HOME=/usr/local/hadoop
+HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop
+HOME=/root
+SHLVL=2
+YARN_CONF_DIR=/usr/local/hadoop/etc/hadoop
+HADOOP_MAPRED_HOME=/usr/local/hadoop
+_=/usr/bin/env
+OLDPWD=/usr/local/hadoop
+```
+
+Another command that is helpful, is the `set` command in linux, and it will give us not only the variables, but also the alias, and functions we defined in our linux profiles (.bashrc, .bash_profile).
+
+```shell
+bash-4.1# set
+BASH=/bin/bash
+BASHOPTS=cmdhist:expand_aliases:extquote:force_fignore:hostcomplete:interactive_comments:progcomp:promptvars:sourcepath
+BASH_ALIASES=()
+BASH_ARGC=()
+BASH_ARGV=()
+BASH_CMDS=()
+BASH_LINENO=()
+BASH_SOURCE=()
+BASH_VERSINFO=([0]="4" [1]="1" [2]="2" [3]="1" [4]="release" [5]="x86_64-redhat-linux-gnu")
+BASH_VERSION='4.1.2(1)-release'
+BOOTSTRAP=/etc/bootstrap.sh
+COLUMNS=177
+DIRSTACK=()
+EUID=0
+GROUPS=()
+HADOOP_COMMON_HOME=/usr/local/hadoop
+HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop
+HADOOP_HDFS_HOME=/usr/local/hadoop
+HADOOP_MAPRED_HOME=/usr/local/hadoop
+HADOOP_PREFIX=/usr/local/hadoop
+HADOOP_YARN_HOME=/usr/local/hadoop
+HISTFILE=/root/.bash_history
+HISTFILESIZE=500
+HISTSIZE=500
+HOME=/root
+HOSTNAME=5259d592e010
+HOSTTYPE=x86_64
+IFS=$' \t\n'
+JAVA_HOME=/usr/java/default
+LINES=42
+MACHTYPE=x86_64-redhat-linux-gnu
+MAILCHECK=60
+OLDPWD=/usr/local/hadoop
+OPTERR=1
+OPTIND=1
+OSTYPE=linux-gnu
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/java/default/bin
+PIPESTATUS=([0]="0")
+PPID=1
+PS1='\s-\v\$ '
+PS2='> '
+PS4='+ '
+PWD=/usr/local/hadoop/sbin
+SHELL=/bin/bash
+SHELLOPTS=braceexpand:emacs:hashall:histexpand:history:interactive-comments:monitor
+SHLVL=2
+TERM=xterm
+UID=0
+YARN_CONF_DIR=/usr/local/hadoop/etc/hadoop
+_=clear
+```
+
+
 **run the mapreduce**
 
 `bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.0.jar grep input output 'dfs[a-z.]+'`
