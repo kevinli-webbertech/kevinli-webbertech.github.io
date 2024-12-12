@@ -100,9 +100,11 @@ How this superposition is working?
 
 ![alt text](quantum_mechanics2.png)
 
-![alt text](image-27.png)
+![alt text](quantum_mechanics3.png)
 
-![alt text](image-29.png)
+![alt text](quantum_mechanics4.png)
+
+![alt text](quantum_mechanics5.png)
 
 ![alt text](image-30.png)
 
@@ -131,6 +133,7 @@ but we don't know which is up and which is down, but if we measure to know one i
 ![alt text](image-41.png)
 
 ![alt text](image-42.png)
+
 
 https://www.youtube.com/watch?v=B3U1NDUiwSA
 https://www.youtube.com/watch?v=unb_yoj1Usk
