@@ -371,6 +371,54 @@ bash-4.1# bin/hadoop fs -rm -r output
 Deleted output
 ```
 
+**Why we need to delete the above output dir?**
+
+You need to delete the output/ dir in the dfs (distributed file system). And it is not in the current directory at all.
+It is not visible by doing a `ls` command.
+
+We run the deletion command above just to make sure that we do not encounter the following errors,
+
+```shell
+bash-4.1# bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.0.jar wordcount input2 output
+24/12/12 19:23:21 INFO client.RMProxy: Connecting to ResourceManager at /0.0.0.0:8032
+org.apache.hadoop.mapred.FileAlreadyExistsException: Output directory hdfs://5259d592e010:9000/user/root/output already exists
+	at org.apache.hadoop.mapreduce.lib.output.FileOutputFormat.checkOutputSpecs(FileOutputFormat.java:146)
+	at org.apache.hadoop.mapreduce.JobSubmitter.checkSpecs(JobSubmitter.java:269)
+	at org.apache.hadoop.mapreduce.JobSubmitter.submitJobInternal(JobSubmitter.java:142)
+	at org.apache.hadoop.mapreduce.Job$10.run(Job.java:1290)
+	at org.apache.hadoop.mapreduce.Job$10.run(Job.java:1287)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:415)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1657)
+	at org.apache.hadoop.mapreduce.Job.submit(Job.java:1287)
+	at org.apache.hadoop.mapreduce.Job.waitForCompletion(Job.java:1308)
+	at org.apache.hadoop.examples.WordCount.main(WordCount.java:87)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.hadoop.util.ProgramDriver$ProgramDescription.invoke(ProgramDriver.java:71)
+	at org.apache.hadoop.util.ProgramDriver.run(ProgramDriver.java:144)
+	at org.apache.hadoop.examples.ExampleDriver.main(ExampleDriver.java:74)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:221)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:136)
+```
+
+Because the above command is going to create a output/ dir if it does not exists, but if it exists, then it will give you the above errors,
+
+Now let us delete it one more time,
+
+```shell
+bash-4.1# bin/hadoop fs -rm -r output
+24/12/12 19:23:42 INFO fs.TrashPolicyDefault: Namenode trash configuration: Deletion interval = 0 minutes, Emptier interval = 0 minutes.
+Deleted output
+bash-4.1# 
+```
+
 Run the following example,
 
 `bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.0.jar wordcount input output`
