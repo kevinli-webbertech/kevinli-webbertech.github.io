@@ -425,7 +425,128 @@ Run the following example, and note that it is `input2` and this time we will ru
 
 ![alt text](../../../../images/big_data/hadoop/image-2.png)
 
-Check output,
+
+Then we will see another issue, similarly, we are assuming that there is an input2/ dir in the dfs (note that dfs is the distributed system consists of data nodes, not in our current directory, and you can confirm that our current dir we already have a input2/ here, but we still get the following error.)
+
+```shell
+bash-4.1# bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.0.jar wordcount input2 output
+24/12/12 19:27:01 INFO client.RMProxy: Connecting to ResourceManager at /0.0.0.0:8032
+24/12/12 19:27:01 INFO mapreduce.JobSubmitter: Cleaning up the staging area /tmp/hadoop-yarn/staging/root/.staging/job_1734045485087_0004
+org.apache.hadoop.mapreduce.lib.input.InvalidInputException: Input path does not exist: hdfs://5259d592e010:9000/user/root/input2
+	at org.apache.hadoop.mapreduce.lib.input.FileInputFormat.singleThreadedListStatus(FileInputFormat.java:323)
+	at org.apache.hadoop.mapreduce.lib.input.FileInputFormat.listStatus(FileInputFormat.java:265)
+	at org.apache.hadoop.mapreduce.lib.input.FileInputFormat.getSplits(FileInputFormat.java:387)
+	at org.apache.hadoop.mapreduce.JobSubmitter.writeNewSplits(JobSubmitter.java:304)
+	at org.apache.hadoop.mapreduce.JobSubmitter.writeSplits(JobSubmitter.java:321)
+	at org.apache.hadoop.mapreduce.JobSubmitter.submitJobInternal(JobSubmitter.java:199)
+	at org.apache.hadoop.mapreduce.Job$10.run(Job.java:1290)
+	at org.apache.hadoop.mapreduce.Job$10.run(Job.java:1287)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:415)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1657)
+	at org.apache.hadoop.mapreduce.Job.submit(Job.java:1287)
+	at org.apache.hadoop.mapreduce.Job.waitForCompletion(Job.java:1308)
+	at org.apache.hadoop.examples.WordCount.main(WordCount.java:87)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.hadoop.util.ProgramDriver$ProgramDescription.invoke(ProgramDriver.java:71)
+	at org.apache.hadoop.util.ProgramDriver.run(ProgramDriver.java:144)
+	at org.apache.hadoop.examples.ExampleDriver.main(ExampleDriver.java:74)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:221)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:136)
+```
+
+To fix it, we have to run the folloiwng command,
+
+`bash-4.1# bin/hadoop fs -put input2`
+
+Then we run the command of the following, one more time,
+
+`bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.0.jar wordcount input2 output`
+
+Now, with the creation of input2/ in the `dfs`, we are going to get the job run from the above command,
+
+```shell
+bash-4.1# bin/hadoop fs -put input2 
+bash-4.1# bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.0.jar wordcount input2 output
+24/12/12 19:29:45 INFO client.RMProxy: Connecting to ResourceManager at /0.0.0.0:8032
+24/12/12 19:29:46 INFO input.FileInputFormat: Total input paths to process : 3
+24/12/12 19:29:46 INFO mapreduce.JobSubmitter: number of splits:3
+24/12/12 19:29:46 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1734045485087_0005
+24/12/12 19:29:47 INFO impl.YarnClientImpl: Submitted application application_1734045485087_0005
+24/12/12 19:29:47 INFO mapreduce.Job: The url to track the job: http://5259d592e010:8088/proxy/application_1734045485087_0005/
+24/12/12 19:29:47 INFO mapreduce.Job: Running job: job_1734045485087_0005
+24/12/12 19:29:52 INFO mapreduce.Job: Job job_1734045485087_0005 running in uber mode : false
+24/12/12 19:29:52 INFO mapreduce.Job:  map 0% reduce 0%
+24/12/12 19:29:58 INFO mapreduce.Job:  map 33% reduce 0%
+24/12/12 19:29:59 INFO mapreduce.Job:  map 100% reduce 0%
+24/12/12 19:30:04 INFO mapreduce.Job:  map 100% reduce 100%
+24/12/12 19:30:04 INFO mapreduce.Job: Job job_1734045485087_0005 completed successfully
+24/12/12 19:30:04 INFO mapreduce.Job: Counters: 49
+	File System Counters
+		FILE: Number of bytes read=12989
+		FILE: Number of bytes written=486591
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=17248
+		HDFS: Number of bytes written=8983
+		HDFS: Number of read operations=12
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=2
+	Job Counters 
+		Launched map tasks=3
+		Launched reduce tasks=1
+		Data-local map tasks=3
+		Total time spent by all maps in occupied slots (ms)=14916
+		Total time spent by all reduces in occupied slots (ms)=3097
+		Total time spent by all map tasks (ms)=14916
+		Total time spent by all reduce tasks (ms)=3097
+		Total vcore-seconds taken by all map tasks=14916
+		Total vcore-seconds taken by all reduce tasks=3097
+		Total megabyte-seconds taken by all map tasks=15273984
+		Total megabyte-seconds taken by all reduce tasks=3171328
+	Map-Reduce Framework
+		Map input records=322
+		Map output records=2347
+		Map output bytes=24935
+		Map output materialized bytes=13001
+		Input split bytes=352
+		Combine input records=2347
+		Combine output records=897
+		Reduce input groups=840
+		Reduce shuffle bytes=13001
+		Reduce input records=897
+		Reduce output records=840
+		Spilled Records=1794
+		Shuffled Maps =3
+		Failed Shuffles=0
+		Merged Map outputs=3
+		GC time elapsed (ms)=198
+		CPU time spent (ms)=1930
+		Physical memory (bytes) snapshot=958361600
+		Virtual memory (bytes) snapshot=2915766272
+		Total committed heap usage (bytes)=805306368
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Input Format Counters 
+		Bytes Read=16896
+	File Output Format Counters 
+		Bytes Written=8983
+```
+
+* Check output in the distributed file system using the following commands,
 
 `bash-4.1# bin/hadoop dfs -cat output/*`
 
