@@ -72,6 +72,29 @@ _=/usr/bin/env
 OLDPWD=/usr/local/hadoop
 ```
 
+If you feel the above results are not clustering the hadoop commands, then we can sort them out and let all the hadoop grouped together like the following,
+
+```shell
+bash-4.1# env |sort
+BOOTSTRAP=/etc/bootstrap.sh
+HADOOP_COMMON_HOME=/usr/local/hadoop
+HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop
+HADOOP_HDFS_HOME=/usr/local/hadoop
+HADOOP_MAPRED_HOME=/usr/local/hadoop
+HADOOP_PREFIX=/usr/local/hadoop
+HADOOP_YARN_HOME=/usr/local/hadoop
+HOME=/root
+HOSTNAME=5259d592e010
+JAVA_HOME=/usr/java/default
+OLDPWD=/usr/local/hadoop
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/java/default/bin
+PWD=/usr/local/hadoop/sbin
+SHLVL=2
+TERM=xterm
+YARN_CONF_DIR=/usr/local/hadoop/etc/hadoop
+_=/usr/bin/env
+```
+
 Another command that is helpful, is the `set` command in linux, and it will give us not only the variables, but also the alias, and functions we defined in our linux profiles (.bashrc, .bash_profile).
 
 ```shell
@@ -128,6 +151,34 @@ YARN_CONF_DIR=/usr/local/hadoop/etc/hadoop
 _=clear
 ```
 
+## Inspect Hadoop Processes
+
+Once a hadoop server is running and it does not matter it is running in a VM, very likely in a VM in AWS environment or GCP.
+It would be similar to what we are running right now. Without any documentation or readme.md of any arbiturary linux docker image. Because anyone can make a different docker image and pushed to the docker repo for other people to use.
+
+If we get any random image and run into it, the following command will help us to identify the processes related to `hopefully` the hadoop. Because you can really `grep` hadoop keyword, or you just query `java`.
+
+```shell
+bash-4.1# ps axuw|grep java
+root         131  0.4  0.8 1573008 273868 ?      Sl   18:17   0:10 /usr/java/default/bin/java -Dproc_namenode -Xmx1000m -Djava.net.preferIPv4Stack=true -Dhadoop.log.dir=/usr/local/hadoop/logs -Dhadoop.log.file=hadoop.log -Dhadoop.home.dir= -Dhadoop.id.str=root -Dhadoop.root.logger=INFO,console -Djava.library.path= -Dhadoop.policy.file=hadoop-policy.xml -Djava.net.preferIPv4Stack=true -Djava.net.preferIPv4Stack=true -Djava.net.preferIPv4Stack=true -Dhadoop.log.dir=/usr/local/hadoop/logs -Dhadoop.log.file=hadoop-root-namenode-5259d592e010.log -Dhadoop.home.dir=/usr/local/hadoop -Dhadoop.id.str=root -Dhadoop.root.logger=INFO,RFA -Djava.library.path=/usr/local/hadoop/lib/native -Dhadoop.policy.file=hadoop-policy.xml -Djava.net.preferIPv4Stack=true -Dhadoop.security.logger=INFO,RFAS -Dhdfs.audit.logger=INFO,NullAppender -Dhadoop.security.logger=INFO,RFAS -Dhdfs.audit.logger=INFO,NullAppender -Dhadoop.security.logger=INFO,RFAS -Dhdfs.audit.logger=INFO,NullAppender -Dhadoop.security.logger=INFO,RFAS org.apache.hadoop.hdfs.server.namenode.NameNode
+root         226  0.3  0.6 1571696 214388 ?      Sl   18:17   0:09 /usr/java/default/bin/java -Dproc_datanode -Xmx1000m -Djava.net.preferIPv4Stack=true -Dhadoop.log.dir=/usr/local/hadoop/logs -Dhadoop.log.file=hadoop.log -Dhadoop.home.dir= -Dhadoop.id.str=root -Dhadoop.root.logger=INFO,console -Djava.library.path= -Dhadoop.policy.file=hadoop-policy.xml -Djava.net.preferIPv4Stack=true -Djava.net.preferIPv4Stack=true -Djava.net.preferIPv4Stack=true -Dhadoop.log.dir=/usr/local/hadoop/logs -Dhadoop.log.file=hadoop-root-datanode-5259d592e010.log -Dhadoop.home.dir=/usr/local/hadoop -Dhadoop.id.str=root -Dhadoop.root.logger=INFO,RFA -Djava.library.path=/usr/local/hadoop/lib/native -Dhadoop.policy.file=hadoop-policy.xml -Djava.net.preferIPv4Stack=true -server -Dhadoop.security.logger=ERROR,RFAS -Dhadoop.security.logger=ERROR,RFAS -Dhadoop.security.logger=ERROR,RFAS -Dhadoop.security.logger=INFO,RFAS org.apache.hadoop.hdfs.server.datanode.DataNode
+root         417  0.2  0.7 1565612 238868 ?      Sl   18:17   0:06 /usr/java/default/bin/java -Dproc_secondarynamenode -Xmx1000m -Djava.net.preferIPv4Stack=true -Dhadoop.log.dir=/usr/local/hadoop/logs -Dhadoop.log.file=hadoop.log -Dhadoop.home.dir= -Dhadoop.id.str=root -Dhadoop.root.logger=INFO,console -Djava.library.path= -Dhadoop.policy.file=hadoop-policy.xml -Djava.net.preferIPv4Stack=true -Djava.net.preferIPv4Stack=true -Djava.net.preferIPv4Stack=true -Dhadoop.log.dir=/usr/local/hadoop/logs -Dhadoop.log.file=hadoop-root-secondarynamenode-5259d592e010.log -Dhadoop.home.dir=/usr/local/hadoop -Dhadoop.id.str=root -Dhadoop.root.logger=INFO,RFA -Djava.library.path=/usr/local/hadoop/lib/native -Dhadoop.policy.file=hadoop-policy.xml -Djava.net.preferIPv4Stack=true -Dhadoop.security.logger=INFO,RFAS -Dhdfs.audit.logger=INFO,NullAppender -Dhadoop.security.logger=INFO,RFAS -Dhdfs.audit.logger=INFO,NullAppender -Dhadoop.security.logger=INFO,RFAS -Dhdfs.audit.logger=INFO,NullAppender -Dhadoop.security.logger=INFO,RFAS org.apache.hadoop.hdfs.server.namenode.SecondaryNameNode
+root         575  0.8  0.8 1756604 273628 pts/0  Sl   18:18   0:22 /usr/java/default/bin/java -Dproc_resourcemanager -Xmx1000m -Dhadoop.log.dir=/usr/local/hadoop/logs -Dyarn.log.dir=/usr/local/hadoop/logs -Dhadoop.log.file=yarn--resourcemanager-5259d592e010.log -Dyarn.log.file=yarn--resourcemanager-5259d592e010.log -Dyarn.home.dir= -Dyarn.id.str= -Dhadoop.root.logger=INFO,RFA -Dyarn.root.logger=INFO,RFA -Djava.library.path=/usr/local/hadoop/lib/native -Dyarn.policy.file=hadoop-policy.xml -Dhadoop.log.dir=/usr/local/hadoop/logs -Dyarn.log.dir=/usr/local/hadoop/logs -Dhadoop.log.file=yarn--resourcemanager-5259d592e010.log -Dyarn.log.file=yarn--resourcemanager-5259d592e010.log -Dyarn.home.dir=/usr/local/hadoop -Dhadoop.home.dir=/usr/local/hadoop -Dhadoop.root.logger=INFO,RFA -Dyarn.root.logger=INFO,RFA -Djava.library.path=/usr/local/hadoop/lib/native -classpath /usr/local/hadoop/etc/hadoop/:/usr/local/hadoop/etc/hadoop/:/usr/local/hadoop/etc/hadoop/:/usr/local/hadoop/share/hadoop/common/lib/*:/usr/local/hadoop/share/hadoop/common/*:/usr/local/hadoop/share/hadoop/hdfs:/usr/local/hadoop/share/hadoop/hdfs/lib/*:/usr/local/hadoop/share/hadoop/hdfs/*:/usr/local/hadoop/share/hadoop/yarn/lib/*:/usr/local/hadoop/share/hadoop/yarn/*:/usr/local/hadoop/share/hadoop/mapreduce/lib/*:/usr/local/hadoop/share/hadoop/mapreduce/*:/usr/local/hadoop/contrib/capacity-scheduler/*.jar:/usr/local/hadoop/contrib/capacity-scheduler/*.jar:/usr/local/hadoop/contrib/capacity-scheduler/*.jar:/usr/local/hadoop/share/hadoop/yarn/*:/usr/local/hadoop/share/hadoop/yarn/lib/*:/usr/local/hadoop/etc/hadoop//rm-config/log4j.properties org.apache.hadoop.yarn.server.resourcemanager.ResourceManager
+root         672  0.5  0.7 1599452 236868 ?      Sl   18:18   0:13 /usr/java/default/bin/java -Dproc_nodemanager -Xmx1000m -Dhadoop.log.dir=/usr/local/hadoop/logs -Dyarn.log.dir=/usr/local/hadoop/logs -Dhadoop.log.file=yarn-root-nodemanager-5259d592e010.log -Dyarn.log.file=yarn-root-nodemanager-5259d592e010.log -Dyarn.home.dir= -Dyarn.id.str=root -Dhadoop.root.logger=INFO,RFA -Dyarn.root.logger=INFO,RFA -Djava.library.path=/usr/local/hadoop/lib/native -Dyarn.policy.file=hadoop-policy.xml -server -Dhadoop.log.dir=/usr/local/hadoop/logs -Dyarn.log.dir=/usr/local/hadoop/logs -Dhadoop.log.file=yarn-root-nodemanager-5259d592e010.log -Dyarn.log.file=yarn-root-nodemanager-5259d592e010.log -Dyarn.home.dir=/usr/local/hadoop -Dhadoop.home.dir=/usr/local/hadoop -Dhadoop.root.logger=INFO,RFA -Dyarn.root.logger=INFO,RFA -Djava.library.path=/usr/local/hadoop/lib/native -classpath /usr/local/hadoop/etc/hadoop/:/usr/local/hadoop/etc/hadoop/:/usr/local/hadoop/etc/hadoop/:/usr/local/hadoop/share/hadoop/common/lib/*:/usr/local/hadoop/share/hadoop/common/*:/usr/local/hadoop/share/hadoop/hdfs:/usr/local/hadoop/share/hadoop/hdfs/lib/*:/usr/local/hadoop/share/hadoop/hdfs/*:/usr/local/hadoop/share/hadoop/yarn/lib/*:/usr/local/hadoop/share/hadoop/yarn/*:/usr/local/hadoop/share/hadoop/mapreduce/lib/*:/usr/local/hadoop/share/hadoop/mapreduce/*:/usr/local/hadoop/contrib/capacity-scheduler/*.jar:/usr/local/hadoop/contrib/capacity-scheduler/*.jar:/usr/local/hadoop/share/hadoop/yarn/*:/usr/local/hadoop/share/hadoop/yarn/lib/*:/usr/local/hadoop/etc/hadoop//nm-config/log4j.properties org.apache.hadoop.yarn.server.nodemanager.NodeManager
+root        1092  0.0  0.0   6448  1408 pts/0    S+   19:00   0:00 grep java
+bash-4.1# 
+```
+
+>Hint: How to read the above process information?
+> * we know who and what is the process id
+> * we know what each process is, such as the the following,
+
+```
+`org.apache.hadoop.yarn.server.nodemanager.NodeManager`, `org.apache.hadoop.yarn.server.resourcemanager.ResourceManager`,`org.apache.hadoop.hdfs.server.namenode.SecondaryNameNode`, `org.apache.hadoop.hdfs.server.datanode.DataNode`, `org.apache.hadoop.hdfs.server.datanode.NameNode`. These are the classes. And the org.`apache. ...` are the java packages, which are folder.
+```
+
+> * All the -D argument such as these `-Dproc_secondarynamenode -Xmx1000m -Djava.net.preferIPv4Stack=true -Dhadoop.log.dir=/usr/local/hadoop/logs` would be passed into the respective class.
+> * Java is the jvm and hadoop is implemented by Java.
 
 **run the mapreduce**
 
