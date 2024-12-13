@@ -419,9 +419,9 @@ Deleted output
 bash-4.1# 
 ```
 
-Run the following example,
+Run the following example, and note that it is `input2` and this time we will run the word counting against the input/*.txt files.
 
-`bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.0.jar wordcount input output`
+`bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.0.jar wordcount input2 output`
 
 ![alt text](../../../../images/big_data/hadoop/image-2.png)
 
