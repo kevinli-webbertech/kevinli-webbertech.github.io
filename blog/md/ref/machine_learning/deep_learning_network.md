@@ -671,3 +671,9 @@ Both **TensorFlow** and **PyTorch** are powerful deep learning frameworks that a
 - **For mobile or edge deployment**, TensorFlow is more mature, but PyTorch is catching up with tools like `TorchServe` and `TorchScript`.
 
 In conclusion, both frameworks are excellent choices, and the best one depends on your use case, with TensorFlow excelling in production and PyTorch being more suited for research and rapid prototyping.
+
+
+## Ref of Githubs
+
+- https://github.com/ashishpatel26/Andrew-NG-Notes/blob/master/andrewng-p-1-neural-network-deep-learning.md
+- https://github.com/amanchadha/coursera-deep-learning-specialization
