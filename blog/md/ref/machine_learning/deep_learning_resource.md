@@ -1,4 +1,4 @@
-# Deep Learning
+# Deep Learning hardware and Software
 
 ## Software and frameworks
 
