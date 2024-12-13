@@ -1,10 +1,14 @@
-## Deep Learning Network
+## Deep Learning CNN Implementation
 
+## Part I Build CNN from Scratch
 
+To understand the CNN better with the mathematica and algorithms behind it, let us implement a few simple CNN using Numpy.
+
+## One hidden layer CNN Impl
 
 `import numpy as np`
 
-# Sigmoid activation function and its derivative
+### Sigmoid activation function and its derivative
 
 ```python
 def sigmoid(x):
@@ -14,7 +18,7 @@ def sigmoid_derivative(x):
     return x * (1 - x)
 ```
 
-# Neural Network class
+### Neural Network class
 
 ```python
 class NeuralNetwork:
@@ -182,3 +186,407 @@ if __name__ == "__main__":
 ### Notes
 
 - This is a basic implementation of a neural network. In practice, you would use libraries like TensorFlow or PyTorch for large-scale and more efficient training of neural networks.
+
+## Two hidden layer CNN Impl
+
+```python
+import numpy as np
+
+# Sigmoid activation function and its derivative
+def sigmoid(x):
+    return 1 / (1 + np.exp(-x))
+
+def sigmoid_derivative(x):
+    return x * (1 - x)
+
+# Neural Network class with two hidden layers
+class NeuralNetwork:
+    def __init__(self, input_size, hidden_size1, hidden_size2, output_size):
+        # Initialize weights randomly with mean 0
+        self.input_size = input_size
+        self.hidden_size1 = hidden_size1
+        self.hidden_size2 = hidden_size2
+        self.output_size = output_size
+        
+        # Initialize weights for both hidden layers and the output layer
+        self.weights_input_hidden1 = np.random.uniform(-1, 1, (self.input_size, self.hidden_size1))
+        self.weights_hidden1_hidden2 = np.random.uniform(-1, 1, (self.hidden_size1, self.hidden_size2))
+        self.weights_hidden2_output = np.random.uniform(-1, 1, (self.hidden_size2, self.output_size))
+        
+        # Initialize biases
+        self.bias_hidden1 = np.random.uniform(-1, 1, (1, self.hidden_size1))
+        self.bias_hidden2 = np.random.uniform(-1, 1, (1, self.hidden_size2))
+        self.bias_output = np.random.uniform(-1, 1, (1, self.output_size))
+
+    def feedforward(self, X):
+        # Calculate the first hidden layer activations
+        self.hidden1_input = np.dot(X, self.weights_input_hidden1) + self.bias_hidden1
+        self.hidden1_output = sigmoid(self.hidden1_input)
+        
+        # Calculate the second hidden layer activations
+        self.hidden2_input = np.dot(self.hidden1_output, self.weights_hidden1_hidden2) + self.bias_hidden2
+        self.hidden2_output = sigmoid(self.hidden2_input)
+        
+        # Calculate the output layer activations
+        self.final_input = np.dot(self.hidden2_output, self.weights_hidden2_output) + self.bias_output
+        self.final_output = sigmoid(self.final_input)
+        
+        return self.final_output
+
+    def backpropagate(self, X, y, learning_rate=0.1):
+        # Compute the error at the output layer
+        output_error = y - self.final_output
+        output_delta = output_error * sigmoid_derivative(self.final_output)
+        
+        # Compute the error at the second hidden layer
+        hidden2_error = output_delta.dot(self.weights_hidden2_output.T)
+        hidden2_delta = hidden2_error * sigmoid_derivative(self.hidden2_output)
+        
+        # Compute the error at the first hidden layer
+        hidden1_error = hidden2_delta.dot(self.weights_hidden1_hidden2.T)
+        hidden1_delta = hidden1_error * sigmoid_derivative(self.hidden1_output)
+        
+        # Update the weights and biases
+        self.weights_input_hidden1 += X.T.dot(hidden1_delta) * learning_rate
+        self.weights_hidden1_hidden2 += self.hidden1_output.T.dot(hidden2_delta) * learning_rate
+        self.weights_hidden2_output += self.hidden2_output.T.dot(output_delta) * learning_rate
+        self.bias_hidden1 += np.sum(hidden1_delta, axis=0, keepdims=True) * learning_rate
+        self.bias_hidden2 += np.sum(hidden2_delta, axis=0, keepdims=True) * learning_rate
+        self.bias_output += np.sum(output_delta, axis=0, keepdims=True) * learning_rate
+
+    def train(self, X, y, epochs=10000, learning_rate=0.1):
+        for epoch in range(epochs):
+            self.feedforward(X)
+            self.backpropagate(X, y, learning_rate)
+
+# Example usage
+if __name__ == "__main__":
+    # Sample training data (XOR problem)
+    X = np.array([[0, 0],
+                  [0, 1],
+                  [1, 0],
+                  [1, 1]])
+    
+    y = np.array([[0], [1], [1], [0]])
+
+    # Create and train the neural network
+    nn = NeuralNetwork(input_size=2, hidden_size1=4, hidden_size2=4, output_size=1)
+    nn.train(X, y, epochs=10000, learning_rate=0.1)
+
+    # Test the neural network
+    output = nn.feedforward(X)
+    print("Predicted Output:")
+    print(output)
+```
+
+### Breakdown of Changes
+
+1. **Two Hidden Layers**:
+   - The network now has two hidden layers: `hidden_size1` for the first hidden layer and `hidden_size2` for the second hidden layer.
+   - We initialize weights for both layers: `weights_input_hidden1`, `weights_hidden1_hidden2`, and `weights_hidden2_output`.
+   - Similarly, we have biases for both hidden layers (`bias_hidden1` and `bias_hidden2`) and the output layer (`bias_output`).
+
+2. **Feedforward Method**:
+   - First, the input is passed through the first hidden layer and then through the second hidden layer before reaching the output layer.
+   
+3. **Backpropagation Method**:
+   - The error is propagated backward from the output layer to the second hidden layer, then to the first hidden layer, and the weights and biases are updated accordingly.
+
+4. **Training Method**:
+   - The network is trained in the same way as before, but with the updated architecture (two hidden layers).
+
+### Example Usage
+
+- The XOR problem is used as an example, where the network is trained with inputs `[0, 0], [0, 1], [1, 0], [1, 1]` and the corresponding target outputs `[0], [1], [1], [0]`.
+- The network is trained for 10,000 epochs, and the predicted output is displayed at the end.
+
+This code demonstrates how to extend the original neural network by adding another hidden layer, making the network more capable of handling more complex problems.
+
+## Part II Using Frameworks to build a CNN
+
+## Use Tensorflow to build CNN
+
+Below is a basic implementation of a Convolutional Neural Network (CNN) using TensorFlow and Keras. We'll build a simple CNN model to classify images, such as those from the MNIST dataset, which consists of handwritten digits (0-9). This code uses TensorFlow 2.x, which includes Keras as its high-level API.
+
+### Steps
+
+1. Import necessary libraries.
+2. Load and preprocess the MNIST dataset.
+3. Build the CNN model.
+4. Compile the model.
+5. Train the model.
+6. Evaluate the model.
+
+### Full Implementation of CNN Using TensorFlow
+
+```python
+import tensorflow as tf
+from tensorflow.keras import layers, models
+from tensorflow.keras.datasets import mnist
+from tensorflow.keras.utils import to_categorical
+
+# 1. Load and preprocess the MNIST dataset
+(X_train, y_train), (X_test, y_test) = mnist.load_data()
+
+# Reshape the data to include the color channel (grayscale images have 1 channel)
+X_train = X_train.reshape(-1, 28, 28, 1).astype('float32') / 255
+X_test = X_test.reshape(-1, 28, 28, 1).astype('float32') / 255
+
+# One-hot encode the labels
+y_train = to_categorical(y_train, 10)
+y_test = to_categorical(y_test, 10)
+
+# 2. Build the CNN model
+model = models.Sequential()
+
+# Convolutional Layer 1: 32 filters, kernel size 3x3, ReLU activation
+model.add(layers.Conv2D(32, (3, 3), activation='relu', input_shape=(28, 28, 1)))
+
+# Max Pooling Layer 1: Pooling size 2x2
+model.add(layers.MaxPooling2D((2, 2)))
+
+# Convolutional Layer 2: 64 filters, kernel size 3x3, ReLU activation
+model.add(layers.Conv2D(64, (3, 3), activation='relu'))
+
+# Max Pooling Layer 2: Pooling size 2x2
+model.add(layers.MaxPooling2D((2, 2)))
+
+# Flatten the 3D output to 1D
+model.add(layers.Flatten())
+
+# Fully connected (dense) layer with 128 neurons and ReLU activation
+model.add(layers.Dense(128, activation='relu'))
+
+# Output layer: 10 neurons (for 10 classes) with softmax activation
+model.add(layers.Dense(10, activation='softmax'))
+
+# 3. Compile the model
+model.compile(optimizer='adam', 
+              loss='categorical_crossentropy', 
+              metrics=['accuracy'])
+
+# 4. Train the model
+model.fit(X_train, y_train, epochs=5, batch_size=64, validation_split=0.2)
+
+# 5. Evaluate the model on the test set
+test_loss, test_acc = model.evaluate(X_test, y_test)
+print(f"Test accuracy: {test_acc:.4f}")
+```
+
+### Explanation
+
+1. **Dataset Loading and Preprocessing**
+   - The MNIST dataset is loaded using `tensorflow.keras.datasets.mnist`. The training and test sets are divided into images and labels.
+   - Images are reshaped to have a channel dimension (`28x28x1`), indicating a grayscale image.
+   - The pixel values are scaled between 0 and 1 by dividing by 255.
+   - Labels are one-hot encoded to create a binary matrix for classification.
+
+2. **CNN Architecture**
+   - **Conv2D**: This is a convolutional layer that applies 2D convolutions to the input data (e.g., images). It uses filters (kernels) to extract features from the image. The `relu` activation function is used after each convolution to introduce non-linearity.
+   - **MaxPooling2D**: This layer reduces the spatial dimensions (height and width) by applying a max pooling operation. It helps to reduce computational load and capture the most important features.
+   - **Flatten**: After the convolutional and pooling layers, we flatten the 3D output into a 1D vector to feed it into fully connected layers.
+   - **Dense**: Fully connected layers are added for classification. The last layer has 10 neurons corresponding to the 10 classes, and we use the `softmax` activation to output a probability distribution for each class.
+
+3. **Model Compilation**
+   - The model is compiled using the `Adam` optimizer, which is efficient for training deep learning models. The `categorical_crossentropy` loss function is used because it's a multi-class classification problem.
+   - The model's accuracy is tracked during training and evaluation.
+
+4. **Training**
+   - The model is trained for 5 epochs with a batch size of 64. We use a validation split of 20% to monitor performance on a validation set during training.
+
+5. **Evaluation**
+   - The model is evaluated on the test set using the `evaluate()` method, and the test accuracy is printed.
+
+### Output
+
+After training, you should see output similar to this:
+
+```shell
+Epoch 1/5
+750/750 [==============================] - 12s 16ms/step - loss: 0.1853 - accuracy: 0.9441 - val_loss: 0.0618 - val_accuracy: 0.9810
+Epoch 2/5
+750/750 [==============================] - 12s 16ms/step - loss: 0.0484 - accuracy: 0.9857 - val_loss: 0.0414 - val_accuracy: 0.9871
+...
+Test accuracy: 0.9910
+```
+
+This shows the loss and accuracy on both the training and validation data at each epoch, and the final test accuracy.
+
+### Notes
+
+- The above model is quite simple and can be extended to more complex CNN architectures for larger or more complex datasets (e.g., CIFAR-10, ImageNet).
+
+- You can modify the number of convolutional layers, their filters, kernel sizes, pooling layers, etc., to improve model performance or adapt it to different tasks.
+
+## Use Pytorch to build CNN
+
+Certainly! Below is an implementation of a Convolutional Neural Network (CNN) using **PyTorch**. We will use the **MNIST dataset** for this example, similar to the TensorFlow example, to classify handwritten digits (0-9).
+
+### Steps
+
+1. Import necessary libraries.
+2. Load and preprocess the MNIST dataset.
+3. Define the CNN model.
+4. Define the loss function and optimizer.
+5. Train the model.
+6. Evaluate the model.
+
+### Full Implementation of CNN Using PyTorch
+
+```python
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from torch.utils.data import DataLoader
+from torchvision import datasets, transforms
+
+# 1. Load and preprocess the MNIST dataset
+transform = transforms.Compose([
+    transforms.ToTensor(),
+    transforms.Normalize((0.5,), (0.5,))
+])
+
+# Load the training and testing datasets
+train_dataset = datasets.MNIST(root='./data', train=True, download=True, transform=transform)
+test_dataset = datasets.MNIST(root='./data', train=False, download=True, transform=transform)
+
+# DataLoader for batching the data
+train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True)
+test_loader = DataLoader(test_dataset, batch_size=64, shuffle=False)
+
+# 2. Define the CNN model
+class CNN(nn.Module):
+    def __init__(self):
+        super(CNN, self).__init__()
+        
+        # Convolutional Layer 1: 1 input channel (grayscale), 32 output channels, 3x3 kernel
+        self.conv1 = nn.Conv2d(1, 32, kernel_size=3, stride=1, padding=1)
+        self.relu1 = nn.ReLU()
+        self.pool1 = nn.MaxPool2d(2, 2)
+        
+        # Convolutional Layer 2: 32 input channels, 64 output channels, 3x3 kernel
+        self.conv2 = nn.Conv2d(32, 64, kernel_size=3, stride=1, padding=1)
+        self.relu2 = nn.ReLU()
+        self.pool2 = nn.MaxPool2d(2, 2)
+        
+        # Fully Connected Layer 1
+        self.fc1 = nn.Linear(64 * 7 * 7, 128)
+        self.relu3 = nn.ReLU()
+        
+        # Fully Connected Layer 2 (Output layer)
+        self.fc2 = nn.Linear(128, 10)  # 10 classes (digits 0-9)
+    
+    def forward(self, x):
+        # Forward pass through convolutional layers
+        x = self.pool1(self.relu1(self.conv1(x)))
+        x = self.pool2(self.relu2(self.conv2(x)))
+        
+        # Flatten the output of the last pooling layer
+        x = x.view(-1, 64 * 7 * 7)
+        
+        # Forward pass through fully connected layers
+        x = self.relu3(self.fc1(x))
+        x = self.fc2(x)
+        
+        return x
+
+# 3. Initialize the model, loss function, and optimizer
+model = CNN()
+
+# Loss function (Cross Entropy Loss for classification)
+criterion = nn.CrossEntropyLoss()
+
+# Optimizer (Adam optimizer)
+optimizer = optim.Adam(model.parameters(), lr=0.001)
+
+# 4. Train the model
+def train_model(model, train_loader, criterion, optimizer, epochs=5):
+    model.train()
+    
+    for epoch in range(epochs):
+        running_loss = 0.0
+        for images, labels in train_loader:
+            # Zero the parameter gradients
+            optimizer.zero_grad()
+            
+            # Forward pass
+            outputs = model(images)
+            
+            # Compute the loss
+            loss = criterion(outputs, labels)
+            
+            # Backward pass and optimization
+            loss.backward()
+            optimizer.step()
+            
+            running_loss += loss.item()
+
+        print(f"Epoch {epoch+1}/{epochs}, Loss: {running_loss/len(train_loader):.4f}")
+
+# 5. Evaluate the model
+def evaluate_model(model, test_loader):
+    model.eval()
+    correct = 0
+    total = 0
+    
+    with torch.no_grad():
+        for images, labels in test_loader:
+            # Forward pass
+            outputs = model(images)
+            
+            # Get predicted labels
+            _, predicted = torch.max(outputs, 1)
+            
+            # Count correct predictions
+            total += labels.size(0)
+            correct += (predicted == labels).sum().item()
+    
+    accuracy = 100 * correct / total
+    print(f"Test Accuracy: {accuracy:.2f}%")
+
+# Train and evaluate the model
+train_model(model, train_loader, criterion, optimizer, epochs=5)
+evaluate_model(model, test_loader)
+```
+
+### Explanation
+
+1. **Dataset Loading and Preprocessing**:
+   - We load the MNIST dataset using `torchvision.datasets.MNIST`. The dataset is transformed using `transforms.ToTensor()` to convert images to PyTorch tensors, and `transforms.Normalize()` normalizes the pixel values to a range of -1 to 1.
+   - We use `DataLoader` to create batches and shuffle the training data.
+
+2. **Model Definition**:
+   - The model is defined as a class `CNN` that inherits from `nn.Module`. It includes two convolutional layers (`conv1`, `conv2`), each followed by ReLU activation (`relu1`, `relu2`) and max-pooling (`pool1`, `pool2`).
+   - After the convolutional layers, we flatten the output to feed it into fully connected layers (`fc1` and `fc2`), where `fc2` has 10 output units corresponding to the 10 digits (0-9).
+
+3. **Loss Function and Optimizer**:
+   - The `CrossEntropyLoss` function is used for multi-class classification.
+   - The `Adam` optimizer is chosen for its efficiency and is set to learn the model parameters.
+
+4. **Training Loop**:
+   - The training loop iterates over the dataset for a specified number of epochs (5 in this case).
+   - For each batch, the model performs a forward pass, the loss is computed, and gradients are backpropagated to update the model's weights.
+
+5. **Evaluation**:
+   - After training, the model is evaluated on the test dataset to calculate the accuracy by comparing predicted labels with the actual labels.
+
+### Output
+
+During training, you will see loss values printed for each epoch. After training, the test accuracy will be printed:
+
+```shell
+Epoch 1/5, Loss: 0.2154
+Epoch 2/5, Loss: 0.0593
+Epoch 3/5, Loss: 0.0380
+Epoch 4/5, Loss: 0.0273
+Epoch 5/5, Loss: 0.0197
+Test Accuracy: 98.60%
+```
+
+### Notes
+
+- This is a simple CNN model. You can experiment by adding more convolutional layers, changing the filter sizes, or adding dropout layers to prevent overfitting.
+
+- You can also try training on different datasets, like CIFAR-10, to extend this model's capabilities.
+
+- PyTorch's dynamic computation graph allows you to easily modify the model and experiment with different architectures.
