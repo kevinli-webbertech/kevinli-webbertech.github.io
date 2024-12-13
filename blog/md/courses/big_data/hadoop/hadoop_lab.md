@@ -184,6 +184,163 @@ bash-4.1#
 
 `bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.0.jar grep input output 'dfs[a-z.]+'`
 
+When you run the above command, then you will the following in your terminal,
+
+```shell
+bash-4.1# bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.0.jar grep input output 'dfs[a-z.]+'
+24/12/12 19:07:46 INFO client.RMProxy: Connecting to ResourceManager at /0.0.0.0:8032
+^[[D24/12/12 19:07:48 INFO input.FileInputFormat: Total input paths to process : 31
+24/12/12 19:07:48 INFO mapreduce.JobSubmitter: number of splits:31
+24/12/12 19:07:49 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1734045485087_0001
+24/12/12 19:07:49 INFO impl.YarnClientImpl: Submitted application application_1734045485087_0001
+24/12/12 19:07:49 INFO mapreduce.Job: The url to track the job: http://5259d592e010:8088/proxy/application_1734045485087_0001/
+24/12/12 19:07:49 INFO mapreduce.Job: Running job: job_1734045485087_0001
+24/12/12 19:07:56 INFO mapreduce.Job: Job job_1734045485087_0001 running in uber mode : false
+24/12/12 19:07:56 INFO mapreduce.Job:  map 0% reduce 0%
+24/12/12 19:08:07 INFO mapreduce.Job:  map 13% reduce 0%
+24/12/12 19:08:08 INFO mapreduce.Job:  map 19% reduce 0%
+24/12/12 19:08:18 INFO mapreduce.Job:  map 23% reduce 0%
+24/12/12 19:08:19 INFO mapreduce.Job:  map 39% reduce 0%
+24/12/12 19:08:28 INFO mapreduce.Job:  map 42% reduce 0%
+24/12/12 19:08:29 INFO mapreduce.Job:  map 55% reduce 0%
+24/12/12 19:08:33 INFO mapreduce.Job:  map 55% reduce 18%
+24/12/12 19:08:35 INFO mapreduce.Job:  map 58% reduce 18%
+24/12/12 19:08:36 INFO mapreduce.Job:  map 65% reduce 19%
+24/12/12 19:08:37 INFO mapreduce.Job:  map 68% reduce 19%
+24/12/12 19:08:38 INFO mapreduce.Job:  map 71% reduce 19%
+24/12/12 19:08:39 INFO mapreduce.Job:  map 71% reduce 24%
+24/12/12 19:08:44 INFO mapreduce.Job:  map 81% reduce 24%
+24/12/12 19:08:45 INFO mapreduce.Job:  map 87% reduce 26%
+24/12/12 19:08:48 INFO mapreduce.Job:  map 87% reduce 29%
+24/12/12 19:08:51 INFO mapreduce.Job:  map 100% reduce 29%
+24/12/12 19:08:52 INFO mapreduce.Job:  map 100% reduce 100%
+24/12/12 19:08:52 INFO mapreduce.Job: Job job_1734045485087_0001 completed successfully
+24/12/12 19:08:53 INFO mapreduce.Job: Counters: 49
+	File System Counters
+		FILE: Number of bytes read=345
+		FILE: Number of bytes written=3697508
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=80529
+		HDFS: Number of bytes written=437
+		HDFS: Number of read operations=96
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=2
+	Job Counters 
+		Launched map tasks=31
+		Launched reduce tasks=1
+		Data-local map tasks=31
+		Total time spent by all maps in occupied slots (ms)=252278
+		Total time spent by all reduces in occupied slots (ms)=32887
+		Total time spent by all map tasks (ms)=252278
+		Total time spent by all reduce tasks (ms)=32887
+		Total vcore-seconds taken by all map tasks=252278
+		Total vcore-seconds taken by all reduce tasks=32887
+		Total megabyte-seconds taken by all map tasks=258332672
+		Total megabyte-seconds taken by all reduce tasks=33676288
+	Map-Reduce Framework
+		Map input records=2060
+		Map output records=24
+		Map output bytes=590
+		Map output materialized bytes=525
+		Input split bytes=3812
+		Combine input records=24
+		Combine output records=13
+		Reduce input groups=11
+		Reduce shuffle bytes=525
+		Reduce input records=13
+		Reduce output records=11
+		Spilled Records=26
+		Shuffled Maps =31
+		Failed Shuffles=0
+		Merged Map outputs=31
+		GC time elapsed (ms)=3045
+		CPU time spent (ms)=10500
+		Physical memory (bytes) snapshot=8414613504
+		Virtual memory (bytes) snapshot=23179350016
+		Total committed heap usage (bytes)=6442450944
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Input Format Counters 
+		Bytes Read=76717
+	File Output Format Counters 
+		Bytes Written=437
+24/12/12 19:08:53 INFO client.RMProxy: Connecting to ResourceManager at /0.0.0.0:8032
+24/12/12 19:08:53 INFO input.FileInputFormat: Total input paths to process : 1
+24/12/12 19:08:53 INFO mapreduce.JobSubmitter: number of splits:1
+24/12/12 19:08:53 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1734045485087_0002
+24/12/12 19:08:53 INFO impl.YarnClientImpl: Submitted application application_1734045485087_0002
+24/12/12 19:08:53 INFO mapreduce.Job: The url to track the job: http://5259d592e010:8088/proxy/application_1734045485087_0002/
+24/12/12 19:08:53 INFO mapreduce.Job: Running job: job_1734045485087_0002
+24/12/12 19:09:02 INFO mapreduce.Job: Job job_1734045485087_0002 running in uber mode : false
+24/12/12 19:09:02 INFO mapreduce.Job:  map 0% reduce 0%
+24/12/12 19:09:06 INFO mapreduce.Job:  map 100% reduce 0%
+24/12/12 19:09:12 INFO mapreduce.Job:  map 100% reduce 100%
+24/12/12 19:09:12 INFO mapreduce.Job: Job job_1734045485087_0002 completed successfully
+24/12/12 19:09:13 INFO mapreduce.Job: Counters: 49
+	File System Counters
+		FILE: Number of bytes read=291
+		FILE: Number of bytes written=230543
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=570
+		HDFS: Number of bytes written=197
+		HDFS: Number of read operations=7
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=2
+	Job Counters 
+		Launched map tasks=1
+		Launched reduce tasks=1
+		Data-local map tasks=1
+		Total time spent by all maps in occupied slots (ms)=1963
+		Total time spent by all reduces in occupied slots (ms)=3176
+		Total time spent by all map tasks (ms)=1963
+		Total time spent by all reduce tasks (ms)=3176
+		Total vcore-seconds taken by all map tasks=1963
+		Total vcore-seconds taken by all reduce tasks=3176
+		Total megabyte-seconds taken by all map tasks=2010112
+		Total megabyte-seconds taken by all reduce tasks=3252224
+	Map-Reduce Framework
+		Map input records=11
+		Map output records=11
+		Map output bytes=263
+		Map output materialized bytes=291
+		Input split bytes=133
+		Combine input records=0
+		Combine output records=0
+		Reduce input groups=5
+		Reduce shuffle bytes=291
+		Reduce input records=11
+		Reduce output records=11
+		Spilled Records=22
+		Shuffled Maps =1
+		Failed Shuffles=0
+		Merged Map outputs=1
+		GC time elapsed (ms)=30
+		CPU time spent (ms)=1150
+		Physical memory (bytes) snapshot=441339904
+		Virtual memory (bytes) snapshot=1473138688
+		Total committed heap usage (bytes)=402653184
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Input Format Counters 
+		Bytes Read=437
+	File Output Format Counters 
+		Bytes Written=197
+```
+
 **check the output**
 
 `bin/hdfs dfs -cat output/*`
