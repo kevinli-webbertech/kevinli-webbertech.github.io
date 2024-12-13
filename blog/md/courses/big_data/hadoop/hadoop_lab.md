@@ -180,10 +180,6 @@ bash-4.1#
 > * All the -D argument such as these `-Dproc_secondarynamenode -Xmx1000m -Djava.net.preferIPv4Stack=true -Dhadoop.log.dir=/usr/local/hadoop/logs` would be passed into the respective class.
 > * Java is the jvm and hadoop is implemented by Java.
 
-**run the mapreduce**
-
-`bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.0.jar grep input output 'dfs[a-z.]+'`
-
 When you run the above command, then you will the following in your terminal,
 
 ```shell
@@ -340,6 +336,10 @@ bash-4.1# bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.0.
 	File Output Format Counters 
 		Bytes Written=197
 ```
+
+**run the mapreduce**
+
+`bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.0.jar grep input output 'dfs[a-z.]+'`
 
 **check the output**
 
