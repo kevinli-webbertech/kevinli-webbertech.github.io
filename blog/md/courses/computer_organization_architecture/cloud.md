@@ -190,6 +190,22 @@ AI backed tools,
 
 ![gke](../../../images/computer_architecture/gke.png)
 
+**GCP Certifications**
+
+![gcp_certification](../../../images/computer_architecture/gcp_certification.png)
+
+![GCP Certificates](../../../images/computer_architecture/gcp_certificates.png)
+
+[GCP Traiing and Certifications](https://cloud.google.com/learn/certification/?hl=en#why-get-google-cloud-certified)
+
+## Microsoft Azure
+
+![azure](../../../images/computer_architecture/azure.png)
+
+![azure1](../../../images/computer_architecture/azure1.png)
+
+![azure2](../../../images/computer_architecture/azure2.png)
+
 ## Ref
 
 - https://en.wikipedia.org/wiki/Cloud_computing
