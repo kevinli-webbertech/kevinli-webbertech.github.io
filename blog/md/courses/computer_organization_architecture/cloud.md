@@ -146,7 +146,31 @@ IaaS-cloud providers supply these resources on-demand from their large pools of 
 
 ![aws_compute](../../../images/computer_architecture/aws_compute.png)
 
+>Hint: If you would like to start learning, you should create an AWS account, and start from the following topics,
 
+![aws_learning_trail](../../../images/computer_architecture/aws_learning_trail.png)
+
+**AWS Database (RDS service)**
+
+![rds](../../../images/computer_architecture/rds.png)
+
+![aws_learning_trail1](../../../images/computer_architecture/aws_learning_trail1.png)
+
+[AWS RDS] (https://docs.aws.amazon.com/whitepapers/latest/aws-overview/database.html)
+
+**Become AWS Certified**
+
+![aws_certification](aws_certification.png)
+
+The tyeps of certs,
+
+![aws_certs_types](aws_certs_types.png)
+
+>Hint: If you should start with AWS, and GCP certs, but I would start with AWS first. You could directly go for professional and specialty.
+
+[AWS Certification](https://aws.amazon.com/certification/?gclid=Cj0KCQiAvP-6BhDyARIsAJ3uv7YeD90ruTbzEddNHeMmP5uWqwz2qHxQ9hp4OTUtOO6-Jy-Zfmw2YmoaAjT4EALw_wcB&trk=1d3789b7-cdfb-4b92-a125-75424f21eaaf&sc_channel=ps&ef_id=Cj0KCQiAvP-6BhDyARIsAJ3uv7YeD90ruTbzEddNHeMmP5uWqwz2qHxQ9hp4OTUtOO6-Jy-Zfmw2YmoaAjT4EALw_wcB:G:s&s_kwcid=AL!4422!3!616960529276!e!!g!!aws%20certifications!11120345480!105898020221)
+
+## Ref
 
 - https://en.wikipedia.org/wiki/Cloud_computing
 
