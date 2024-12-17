@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript functions</h1>
+<p id="demo"></p>
+
+<script>
+const person = {
+  fullName: function(city, country) {
+    return this.firstName + " " + this.lastName + "," + city + "," + country;
+  }
+}
+
+const person1 = {
+  firstName:"John",
+  lastName: "Doe"
+}
+
+document.write(person.fullName.apply(person1, ["Oslo", "Norway"]));
+
+</script>
+</body>
+</html>
