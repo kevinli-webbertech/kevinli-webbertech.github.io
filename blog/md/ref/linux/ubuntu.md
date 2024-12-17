@@ -158,6 +158,92 @@ Then run the following,
 
 `ALTER USER 'root'@'localhost' IDENTIFIED WITH caching_sha2_password BY 'yourpasswd';`
 
+## EDIMAX BT8500 Driver Installation on Ubuntu
+
+First of all, please make sure the "Secure boot" is disabled in BIOS.  If the Secure Boot is enabled, the installed driver will not work for you.
+
+[1.]  Make sure your system is able to access the Internet.
+
+[2.] Open a Terminal program from your Ubuntu OS.
+
+[3.] Verify the kernel version in your Ubuntu Linux.
+
+`$ uname –r`
+
+If your kernel is newer than the supported kernel, stop here.  This instruction may not work for you.
+
+[4] Update system.  This step is optional but recommended.
+
+`$ sudo apt update`
+
+`$ sudo apt upgrade`
+
+`$ sudo reboot`
+
+ [5] Install Linux headers
+
+` $ sudo apt install linux-headers-$(uname –r)`
+
+[6] Install the necessary package for compiling drivers
+
+`$ sudo apt install build-essential make`
+
+[7] Download Linux driver from Edimax website.
+
+Open your web browser.
+
+Go to http://www.edimax.com site.
+
+Look for the model number BT-8500.
+
+Select BT-8500 to get into the product page.
+
+Click on Download.
+
+Locate the Linux driver.
+
+Pay attention to the supported kernel of the Linux driver before you download it.
+
+Download the Linux driver.
+
+Usually the zip driver will be saved in your Downloads folder.  
+
+We have BT-8500_Linux_Bluetooth_Driver_1_0_0_3.zip in this instruction.
+
+The driver filename can be updated without notification.  You will need to perform below commands according to the newer filename.
+
+[8] Extract the download driver.
+
+Locate the zipped file in Downloads folder.
+
+Right-click on the zip file and select Extract Here.  
+
+You will see a new folder "BT-8500_Linux_Bluetooth_Driver_1.0.0.3".
+
+Right-click on the new folder. elect Open in Terminal Window.
+
+
+[9] Install the driver
+
+`$ sudo make install INTERFACE=usb`
+
+Please note the command is case sensitive.
+
+[10]  Reboot your system
+
+`$ sudo reboot`
+
+[11]  Plug in BT-8500 adapter if the adapter is not plugged in yet.
+
+[12]  Find Bluetooth option on the top right menu bar.  Or you can go to Settings >> Bluetooth.  Search for available bluetooth devices.
+
+Congratulations!  The setup is complete.
+
+For removal,
+
+`$ cd ~/Downloads/BT-8500_Linux_Bluetooth_Driver_1.0.0.3`
+
+`$ sudo make uninstall`
 
 ### Ref
 
