@@ -132,11 +132,21 @@ IaaS-cloud providers supply these resources on-demand from their large pools of 
 * GCP (google)
 * Azure (microsoft)
 
+### AWS (Amazon Web Services)
+
 ![aws](aws.png)
+
+**AWS Products**
+
+![aws_products](../../../images/computer_architecture/aws_products.png)
 
 [AWS products overview](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/amazon-web-services-cloud-platform.html)
 
-## Ref
+**AWS Compute**
+
+![aws_compute](../../../images/computer_architecture/aws_compute.png)
+
+
 
 - https://en.wikipedia.org/wiki/Cloud_computing
 
