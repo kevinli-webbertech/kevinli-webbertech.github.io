@@ -178,6 +178,18 @@ GCP is a self-contained platform with abundant training tutorials,
 
 ![gcp_tutorials](../../../images/computer_architecture/gcp_tutorials.png)
 
+More systematic tutorials,
+
+![gcp_tutorials11](../../../images/computer_architecture/gcp_tutorials1.png)
+
+AI backed tools,
+
+![ai_tools](../../../images/computer_architecture/ai_tools.png)
+
+**Google Kubernetes Engine (GKE) cluster.**
+
+![gke](../../../images/computer_architecture/gke.png)
+
 ## Ref
 
 - https://en.wikipedia.org/wiki/Cloud_computing
