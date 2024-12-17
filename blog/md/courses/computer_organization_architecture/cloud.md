@@ -134,7 +134,7 @@ IaaS-cloud providers supply these resources on-demand from their large pools of 
 
 ### AWS (Amazon Web Services)
 
-![aws](aws.png)
+![aws](../../../images/computer_architecture/aws.png)
 
 **AWS Products**
 
