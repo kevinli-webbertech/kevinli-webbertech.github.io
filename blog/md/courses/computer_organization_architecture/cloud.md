@@ -48,15 +48,15 @@ The "cloud" metaphor for virtualized services dates to 1994, when it was used by
 
 In the 2000s, the application of cloud computing began to take shape with the establishment of `Amazon Web Services (AWS)` in 2002, which allowed developers to build applications independently. In 2006 Amazon Simple Storage Service, known as Amazon S3, and the `Amazon Elastic Compute Cloud (EC2)` were released. In 2008 NASA's development of the first open-source software for deploying private and hybrid clouds.
 
-* 2010, Microsoft launched Microsoft Azure, and Rackspace Hosting and,
+* 2010, Microsoft launched Microsoft Azure, and Rackspace Hosting.
 
 * NASA initiated an open-source cloud-software project, OpenStack.
 
-* IBM introduced the IBM SmartCloud framework in 2011, and,
+* IBM introduced the IBM SmartCloud framework in 2011.
 
-* Oracle announced the Oracle Cloud in 2012. 
+* Oracle announced the Oracle Cloud in 2012.
 
-& In December 2019, Amazon launched AWS Outposts, a service that extends AWS infrastructure, services, APIs, and tools to customer data centers, co-location spaces, or on-premises facilities.
+* In December 2019, Amazon launched AWS Outposts, a service that extends AWS infrastructure, services, APIs, and tools to customer data centers, co-location spaces, or on-premises facilities.
 
 ## Challenges and limitations
 
