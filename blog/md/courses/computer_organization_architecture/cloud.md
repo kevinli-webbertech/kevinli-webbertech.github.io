@@ -134,7 +134,7 @@ IaaS-cloud providers supply these resources on-demand from their large pools of 
 
 ![aws](aws.png)
 
-
+[AWS products overview](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/amazon-web-services-cloud-platform.html)
 
 ## Ref
 
