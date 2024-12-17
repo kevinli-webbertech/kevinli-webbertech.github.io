@@ -160,7 +160,7 @@ IaaS-cloud providers supply these resources on-demand from their large pools of 
 
 **Become AWS Certified**
 
-![aws_certification](aws_certification.png)
+![aws_certification](../../../images/computer_architecture/aws_certification.png)
 
 The tyeps of certs,
 
