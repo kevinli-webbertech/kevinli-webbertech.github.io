@@ -156,7 +156,7 @@ IaaS-cloud providers supply these resources on-demand from their large pools of 
 
 ![aws_learning_trail1](../../../images/computer_architecture/aws_learning_trail1.png)
 
-[AWS RDS] (https://docs.aws.amazon.com/whitepapers/latest/aws-overview/database.html)
+[AWS RDS](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/database.html)
 
 **Become AWS Certified**
 
