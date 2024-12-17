@@ -164,11 +164,19 @@ IaaS-cloud providers supply these resources on-demand from their large pools of 
 
 The tyeps of certs,
 
-![aws_certs_types](aws_certs_types.png)
+![aws_certs_types](../../../images/computer_architecture/aws_certs_types.png)
 
 >Hint: If you should start with AWS, and GCP certs, but I would start with AWS first. You could directly go for professional and specialty.
 
 [AWS Certification](https://aws.amazon.com/certification/?gclid=Cj0KCQiAvP-6BhDyARIsAJ3uv7YeD90ruTbzEddNHeMmP5uWqwz2qHxQ9hp4OTUtOO6-Jy-Zfmw2YmoaAjT4EALw_wcB&trk=1d3789b7-cdfb-4b92-a125-75424f21eaaf&sc_channel=ps&ef_id=Cj0KCQiAvP-6BhDyARIsAJ3uv7YeD90ruTbzEddNHeMmP5uWqwz2qHxQ9hp4OTUtOO6-Jy-Zfmw2YmoaAjT4EALw_wcB:G:s&s_kwcid=AL!4422!3!616960529276!e!!g!!aws%20certifications!11120345480!105898020221)
+
+## GCP (Google Cloud Platform)
+
+![gcp_products](../../../images/computer_architecture/gcp_products.png)
+
+GCP is a self-contained platform with abundant training tutorials,
+
+![gcp_tutorials](../../../images/computer_architecture/gcp_tutorials.png)
 
 ## Ref
 
