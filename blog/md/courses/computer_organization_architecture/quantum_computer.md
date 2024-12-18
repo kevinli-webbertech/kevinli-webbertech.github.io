@@ -90,35 +90,45 @@ How this superposition is working?
 
 ![alt text](../../../images/computer_architecture/quantum_cloud3.png)
 
+**Quantum Processor**
+
+![IBM_7_qubts](../../../images/computer_architecture/IBM_7_qubts.png)
+
+**Quantum products**
+
+![QPU_Chip_Carrier](../../../images/computer_architecture/QPU_Chip_Carrier.png)
+
+![QPU_Chip_Carrier1](../../../images/computer_architecture/QPU_Chip_Carrier1.png)
+
 **Bloch sphere representation of a qubit**
 
-![alt text](../../../images/computer_architecture/Bloch_sphere1.png)
+![Bloch_sphere1](../../../images/computer_architecture/Bloch_sphere1.png)
 
 ## Quantum Entanglement (Quantum Mechanics)
 
-![alt text](../../../images/computer_architecture/quantum_mechanics1.png)
+![quantum_mechanics1](../../../images/computer_architecture/quantum_mechanics1.png)
 
-![alt text](../../../images/computer_architecture/quantum_mechanics2.png)
+![quantum_mechanics2](../../../images/computer_architecture/quantum_mechanics2.png)
 
-![alt text](../../../images/computer_architecture/quantum_mechanics3.png)
+![quantum_mechanics3](../../../images/computer_architecture/quantum_mechanics3.png)
 
-![alt text](../../../images/computer_architecture/quantum_mechanics4.png)
+![quantum_mechanics4](../../../images/computer_architecture/quantum_mechanics4.png)
 
-![alt text](../../../images/computer_architecture/quantum_mechanics5.png)
+![quantum_mechanics5](../../../images/computer_architecture/quantum_mechanics5.png)
 
-![alt text](../../../images/computer_architecture/quantum_mechanics6.png)
+![quantum_mechanics6](../../../images/computer_architecture/quantum_mechanics6.png)
 
-![alt text](../../../images/computer_architecture/quantum_mechanics7.png)
+![quantum_mechanics7](../../../images/computer_architecture/quantum_mechanics7.png)
 
-![alt text](../../../images/computer_architecture/quantum_mechanics8.png)
+![quantum_mechanics8](../../../images/computer_architecture/quantum_mechanics8.png)
 
-![alt text](../../../images/computer_architecture/quantum_mechanics9.png)
+![quantum_mechanics9](../../../images/computer_architecture/quantum_mechanics9.png)
 
-![alt text](../../../images/computer_architecture/quantum_mechanics10.png)
+![quantum_mechanics10](../../../images/computer_architecture/quantum_mechanics10.png)
 
-![alt text](../../../images/computer_architecture/quantum_mechanics11.png)
+![quantum_mechanics11](../../../images/computer_architecture/quantum_mechanics11.png)
 
-![alt text](../../../images/computer_architecture/quantum_mechanics12.png)
+![quantum_mechanics12](../../../images/computer_architecture/quantum_mechanics12.png)
 
 but we don't know which is up and which is down, but if we measure to know one is up , and the other is down,
 
