@@ -138,37 +138,37 @@ but we don't know which is up and which is down, but if we measure to know one i
 
 # How quantum works
 
-![alt text](image.png)
+![alt text](../../../images/computer_architecture/quantum_formula1.png)
 
-![alt text](image-1.png)
+![alt text](../../../images/computer_architecture/quantum_formula2.png)
 
-![alt text](image-2.png)
+![alt text](../../../images/computer_architecture/quantum_formula3.png)
 
-![alt text](image-3.png)
+![alt text](../../../images/computer_architecture/quantum_formula4.png)
 
-![alt text](image-4.png)
+![alt text](../../../images/computer_architecture/quantum_formula5.png)
 
-![alt text](image-5.png)
+![alt text](../../../images/computer_architecture/quantum_formula6.png)
 
-![alt text](image-6.png)
+![alt text](../../../images/computer_architecture/quantum_formula7.png)
 
-![alt text](image-7.png)
+![alt text](../../../images/computer_architecture/quantum_formula8.png)
 
-![alt text](image-8.png)
+![alt text](../../../images/computer_architecture/quantum_formula9.png)
 
-![alt text](image-9.png)
+![alt text](../../../images/computer_architecture/quantum_formula10.png)
 
-![alt text](image-10.png)
+![alt text](../../../images/computer_architecture/quantum_formula11.png)
 
-![alt text](image-11.png)
+![alt text](../../../images/computer_architecture/quantum_formula12.png)
 
-![alt text](image-12.png)
+![alt text](../../../images/computer_architecture/quantum_formula13.png)
 
-![alt text](image-13.png)
+![alt text](../../../images/computer_architecture/quantum_formula14.png)
 
-![alt text](image-14.png)
+![alt text](../../../images/computer_architecture/quantum_formula15.png)
 
-![alt text](image-15.png)
+![alt text](../../../images/computer_architecture/quantum_formula16.png)
 
 ### Ref
 
