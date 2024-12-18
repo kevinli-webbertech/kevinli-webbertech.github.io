@@ -82,13 +82,15 @@ How this superposition is working?
 * OS for the quantum computers
 * Software for the quantum computers
 
-![alt text](../../../images/computer_architecture/quantum_cloud.png)
+![quantum_cloud](../../../images/computer_architecture/quantum_cloud.png)
 
-![alt text](../../../images/computer_architecture/quantum_cloud1.png)
+![quantum_cloud1](../../../images/computer_architecture/quantum_cloud1.png)
 
-![alt text](../../../images/computer_architecture/quantum_cloud2.png)
+![quantum_cloud2](../../../images/computer_architecture/quantum_cloud2.png)
 
-![alt text](../../../images/computer_architecture/quantum_cloud3.png)
+![quantum_cloud3](../../../images/computer_architecture/quantum_cloud3.png)
+
+![quantum_cloud4](../../../images/computer_architecture/quantum_cloud4.png)
 
 **Quantum Processor**
 
