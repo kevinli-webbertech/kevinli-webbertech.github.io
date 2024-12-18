@@ -92,6 +92,10 @@ How this superposition is working?
 
 ![quantum_cloud4](../../../images/computer_architecture/quantum_cloud4.png)
 
+![quantum_computer_japan](../../../images/computer_architecture/quantum_computer_japan.png)
+
+![quantum_computer_ibm](../../../images/computer_architecture/quantum_computer_ibm.png)
+
 **Quantum Processor**
 
 ![IBM_7_qubts](../../../images/computer_architecture/IBM_7_qubts.png)
