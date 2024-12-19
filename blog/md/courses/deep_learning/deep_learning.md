@@ -231,6 +231,106 @@ Adjust the parameters by moving in the direction opposite to the gradient (i.e.,
 
 ![gradient_descent](../../../images/gradient_descent.png)
 
+**Gradient Descent in CNN**
+
+* We want to predict w and b that minimize the cost function.
+
+* Our cost function is convex.
+
+* First we initialize w and b to 0,0 or initialize them to a random value in the convex function and then try to improve the values the reach minimum value.
+
+* In Logistic regression people always use 0,0 instead of random.
+
+* The gradient decent algorithm repeats: w = w - alpha * dw where alpha is the learning rate and dw is the derivative of w (Change to w). The derivative is also the slope of w.
+
+* Looks like greedy algorithms. the derivative give us the direction to improve our parameters.
+
+**The actual equations we will implement:**
+
+`w = w - alpha * d(J(w,b) / dw) (how much the function slopes in the w direction)`
+
+`b = b - alpha * d(J(w,b) / db) (how much the function slopes in the d direction)`
+
+**Derivative**
+
+* Derivative of a linear line is its slope.
+
+`ex. f(a) = 3a d(f(a))/d(a) = 3`
+
+If a = 2 then f(a) = 6
+
+If we move a a little bit a = 2.001 then f(a) = 6.003 means that we multiplied the derivative (Slope) to the moved area and added it to the last result.
+
+* f(a) = a^2 ==> d(f(a))/d(a) = 2a
+
+```
+a = 2 ==> f(a) = 4
+a = 2.0001 ==> f(a) = 4.0004 approx.
+```
+
+* f(a) = a^3 ==> d(f(a))/d(a) = 3a^2
+
+* f(a) = log(a) ==> d(f(a))/d(a) = 1/a
+
+**Algorithm**
+
+Gradient Descent on m examples,
+
+Lets say we have these variables:
+
+```
+	X1					Feature
+	X2                  Feature
+	W1                  Weight of the first feature.
+	W2                  Weight of the second feature.
+	B                   Logistic Regression parameter.
+	M                   Number of training examples
+	Y(i)				Expected output of i
+```
+
+Then from right to left we will calculate derivations compared to the result:
+
+```
+	d(a)  = d(l)/d(a) = -(y/a) + ((1-y)/(1-a))
+	d(z)  = d(l)/d(z) = a - y
+	d(W1) = X1 * d(z)
+	d(W2) = X2 * d(z)
+	d(B) = d(z)
+```
+
+From the above we can conclude the logistic regression pseudo code:
+
+```
+	J = 0; dw1 = 0; dw2 =0; db = 0;                 # Devs.
+	w1 = 0; w2 = 0; b=0;							# Weights
+	for i = 1 to m
+		# Forward pass
+		z(i) = W1*x1(i) + W2*x2(i) + b
+		a(i) = Sigmoid(z(i))
+		J += (Y(i)*log(a(i)) + (1-Y(i))*log(1-a(i)))
+		
+		# Backward pass
+		dz(i) = a(i) - Y(i)
+		dw1 += dz(i) * x1(i)
+		dw2 += dz(i) * x2(i)
+		db  += dz(i)
+	J /= m
+	dw1/= m
+	dw2/= m
+	db/= m
+	
+	# Gradient descent
+	w1 = w1 - alpa * dw1
+	w2 = w2 - alpa * dw2
+	b = b - alpa * db
+```
+
+The above code should run for some iterations to minimize error.
+
+So there will be two inner loops to implement the logistic regression.
+
+Vectorization is so important on deep learning to reduce loops. In the last code we can make the whole loop in one step using vectorization!
+
 ## Ref
 
 Andrew NG [coursara](https://www.coursera.org/learn/neural-networks-deep-learning)
