@@ -131,7 +131,7 @@ For non-convex functions, the behavior might be unpredictable, with multiple ite
 
 Here is the plot of a convex function,
 
-![convex](../../../images/convex.png)
+![convex](../../../images/ml/convex.png)
 
 `f(x)=x^2`
 
