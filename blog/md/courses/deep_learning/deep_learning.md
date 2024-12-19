@@ -335,6 +335,27 @@ So there will be two inner loops to implement the logistic regression.
 
 Vectorization is so important on deep learning to reduce loops. In the last code we can make the whole loop in one step using vectorization!
 
+**Vectorizing Logistic Regression**
+
+We will implement Logistic Regression using one for loop then without any for loop.
+
+As an input we have a matrix X and its [Nx, m] and a matrix Y and its [Ny, m].
+
+We will then compute at instance `[z1,z2...zm] = W' * X + [b,b,...b]`. This can be written in python as:
+
+```
+  	Z = np.dot(W.T,X) + b    # Vectorization, then broadcasting, Z shape is (1, m)
+  	A = 1 / 1 + np.exp(-Z)   # Vectorization, A shape is (1, m)
+```
+
+Vectorizing Logistic Regression's Gradient Output:
+
+```
+  	dz = A - Y                  # Vectorization, dz shape is (1, m)
+  	dw = np.dot(X, dz.T) / m    # Vectorization, dw shape is (Nx, 1)
+  	db = dz.sum() / m           # Vectorization, db shape is (1, 1)
+```
+
 ## Ref
 
 Andrew NG [coursara](https://www.coursera.org/learn/neural-networks-deep-learning)
