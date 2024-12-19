@@ -255,7 +255,11 @@ Adjust the parameters by moving in the direction opposite to the gradient (i.e.,
 
 * Derivative of a linear line is its slope.
 
-`ex. f(a) = 3a d(f(a))/d(a) = 3`
+```
+ex. f(a) = 3a 
+
+d(f(a))/d(a) = 3
+```
 
 If a = 2 then f(a) = 6
 
