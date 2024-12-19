@@ -148,9 +148,9 @@ For example, if you move along one axis (say, the x-axis), the function might de
 
 2/ Gradient at a Saddle Point: In a multivariable function, a saddle point often occurs where the gradient (the vector of partial derivatives) is zero, meaning there is no slope in any direction. However, the point is still not a local minimum or maximum because the curvature is different in different directions.
 
-![saddle_point](../../../images/saddle_point.png)
+![saddle_point](../../../images/ml/saddle_point.png)
 
-![saddle_point1](../../../images/saddle_point1.png)
+![saddle_point1](../../../images/ml/saddle_point1.png)
 
 Saddle points can significantly affect optimization, especially in the context of machine learning and deep learning models, where the optimization landscape is often non-convex. Here's a breakdown of how saddle points impact the optimization process:
 
@@ -229,7 +229,7 @@ Calculate the gradient of the loss function with respect to each parameter (i.e.
 
 Adjust the parameters by moving in the direction opposite to the gradient (i.e., descending the slope). The size of the step is determined by the learning rate:
 
-![gradient_descent](../../../images/gradient_descent.png)
+![gradient_descent](../../../images/ml/gradient_descent.png)
 
 **Gradient Descent in CNN**
 
