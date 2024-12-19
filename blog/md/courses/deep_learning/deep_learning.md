@@ -69,7 +69,7 @@ Equations:
 
 In Convolutional Neural Networks (CNNs), the cost function (also called the loss function) is used to measure the error between the network's predicted output and the actual target values. The goal is to minimize this error during training, so the network learns to make better predictions.
 
-![cost_function](../../../images/cost_function.png)
+![cost_function](../../../images/ml/cost_function.png)
 
 * **How the Cost Function Works in CNN Training:**
 
