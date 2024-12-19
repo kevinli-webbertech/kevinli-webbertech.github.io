@@ -122,8 +122,6 @@ How this superposition is working?
 
 ![quantum_mechanics5](../../../images/computer_architecture/quantum_mechanics5.png)
 
-![quantum_mechanics6](../../../images/computer_architecture/quantum_mechanics6.png)
-
 ![quantum_mechanics7](../../../images/computer_architecture/quantum_mechanics7.png)
 
 ![quantum_mechanics8](../../../images/computer_architecture/quantum_mechanics8.png)
