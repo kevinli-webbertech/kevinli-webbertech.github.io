@@ -345,7 +345,7 @@ We will then compute at instance `[z1,z2...zm] = W' * X + [b,b,...b]`. This can 
 
 ```
   	Z = np.dot(W.T,X) + b    # Vectorization, then broadcasting, Z shape is (1, m)
-  	A = 1 / 1 + np.exp(-Z)   # Vectorization, A shape is (1, m)
+  	A = 1 / (1 + np.exp(-Z))   # Vectorization, A shape is (1, m)
 ```
 
 Vectorizing Logistic Regression's Gradient Output:
