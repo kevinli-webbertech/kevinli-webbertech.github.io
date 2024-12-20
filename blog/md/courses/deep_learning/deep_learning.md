@@ -559,7 +559,6 @@ Several variations of the ReLU activation function have been developed to addres
 
 - **Deep Networks**: ReLU is preferred in deep neural networks because it mitigates the vanishing gradient problem that occurs with sigmoid or tanh functions.
 
-
 ### Example:
 
 Here's how ReLU is used in Keras (with a CNN model):
@@ -593,7 +592,101 @@ In this example, ReLU is applied to the convolutional and fully connected layers
 
 ReLU is a widely-used, efficient, and simple activation function that helps neural networks learn faster and avoid problems like vanishing gradients. Despite some drawbacks, such as the dying ReLU problem, its advantages in deep learning models, especially in CNNs, have made it the go-to choice for many modern architectures.
 
-## 
+## Softmax
+
+The **Softmax activation function** is a generalization of the **sigmoid function** for multi-class classification problems. It is commonly used in the output layer of neural networks when the task is to classify an input into one of several possible classes. The Softmax function converts the raw output of a model (called logits) into a probability distribution, where each class has a probability between 0 and 1, and the sum of all probabilities is 1.
+
+### Mathematical Definition:
+Given an input vector \( \mathbf{z} = [z_1, z_2, ..., z_n] \) representing the raw outputs (logits) for each class, the Softmax function computes the probability \( P(y = k | \mathbf{z}) \) of class \( k \) as follows:
+
+\[
+P(y = k | \mathbf{z}) = \frac{e^{z_k}}{\sum_{i=1}^{n} e^{z_i}}
+\]
+
+Where:
+- \( e^{z_k} \) is the exponential of the raw score for class \( k \).
+- \( \sum_{i=1}^{n} e^{z_i} \) is the sum of the exponentials of all the raw scores for all classes.
+
+### How Softmax Works:
+1. **Exponentiation**: Each logit (raw score) is exponentiated. This operation makes sure that the output values are positive and amplifies the differences between logits.
+2. **Normalization**: The exponentiated values are divided by the sum of all the exponentiated logits to ensure that the output values are in the range [0, 1], and they sum to 1. This step converts the logits into probabilities.
+3. **Interpretation**: The output of the Softmax function for each class represents the probability of that class being the correct classification, given the input.
+
+### Example:
+Consider a classification problem with 3 classes and the following logits (raw outputs) from the network:
+\[
+\mathbf{z} = [2.0, 1.0, 0.1]
+\]
+
+1. **Step 1 - Exponentiate the logits**:
+\[
+e^{2.0} \approx 7.389, \quad e^{1.0} \approx 2.718, \quad e^{0.1} \approx 1.105
+\]
+
+2. **Step 2 - Compute the sum of the exponentials**:
+\[
+7.389 + 2.718 + 1.105 \approx 11.212
+\]
+
+3. **Step 3 - Normalize the values to get probabilities**:
+\[
+P(y = 1) = \frac{7.389}{11.212} \approx 0.659
+\]
+\[
+P(y = 2) = \frac{2.718}{11.212} \approx 0.243
+\]
+\[
+P(y = 3) = \frac{1.105}{11.212} \approx 0.099
+\]
+
+So, the Softmax output for this input is approximately:
+\[
+P = [0.659, 0.243, 0.099]
+\]
+
+This means the model assigns a **65.9%** probability to class 1, a **24.3%** probability to class 2, and a **9.9%** probability to class 3.
+
+### Key Properties of Softmax:
+1. **Probability Distribution**: The output values of the Softmax function are between 0 and 1, and they sum to 1. This makes them interpretable as probabilities.
+2. **Sensitive to Input Differences**: Small differences in the logits (raw scores) can result in large differences in the output probabilities because of the exponentiation step.
+3. **Class Confidence**: The class with the highest probability is the predicted class. However, all the classes contribute to the final prediction, making it possible to have a sense of the network's confidence in the prediction.
+
+### Applications of Softmax:
+1. **Multi-Class Classification**: Softmax is commonly used in the output layer of a neural network for multi-class classification problems. It converts the network’s raw output scores into a probability distribution over multiple classes, making it easier to interpret.
+   
+2. **Probability of Each Class**: It is used in tasks where the network needs to output a probability distribution over a set of possible classes, such as image classification (e.g., recognizing whether an image is a cat, dog, or bird).
+
+### Softmax in Neural Networks:
+In practice, the Softmax function is typically applied in the **final layer** of a neural network, particularly when you want to classify inputs into one of several categories. In frameworks like TensorFlow or Keras, you would use the `softmax` activation in the output layer.
+
+Example (Keras code snippet for multi-class classification):
+
+```python
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+
+model = Sequential()
+
+# Add hidden layers (e.g., Dense layers with ReLU activation)
+model.add(Dense(64, activation='relu', input_shape=(input_shape,)))
+model.add(Dense(32, activation='relu'))
+
+# Output layer with softmax activation for multi-class classification
+model.add(Dense(num_classes, activation='softmax'))
+
+model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+```
+
+### Advantages of Softmax:
+1. **Clear Probabilities**: Softmax provides a clear probabilistic interpretation of the model's output, making it easier to understand how confident the model is in its predictions.
+2. **Sum to One**: By outputting a probability distribution, it is easy to compare the likelihood of different classes. The sum of the probabilities is guaranteed to be 1, providing a normalized and interpretable result.
+
+### Disadvantages of Softmax:
+1. **Sensitivity to Outliers**: If one logit is much larger than the others, Softmax can be highly sensitive to that outlier, pushing the probabilities toward 1 for that class and away from the others.
+2. **Computationally Expensive**: Exponentiating the logits and summing them can be computationally expensive, especially in large models with many classes.
+
+### Summary:
+The **Softmax activation function** is widely used in classification problems where the goal is to assign an input to one of several classes. It transforms the raw outputs (logits) from the network into probabilities that sum to 1. The class with the highest probability is typically selected as the network's predicted output.
 
 ## Ref
 
