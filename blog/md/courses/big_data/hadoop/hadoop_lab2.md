@@ -63,7 +63,7 @@ root        1067  0.0  0.0   9064  1792 pts/1    S+   23:28   0:00 grep --color=
 ```
 
 >hint: how these processes being started?
-> Use a `ls` command to see the following, and the `entrypoint.sh` is the file being executed which started everything for you. 
+> Use a `ls` command to see the following, and the `entrypoint.sh` is the file being executed which started everything for you.
 > 
 > ```shell
 [root@150bd5dc3090 /]# ls
@@ -282,6 +282,22 @@ you	1
 
 ## How to develop Hadoop Code
 
+* Step 1. Download and install `IntelliJ` community version.
+* Step 2. Create a Maven project like the following,
+Make sure you have JDK 17 or up installed.
+
+![intelliJ_hadoop](intelliJ_hadoop.png)
+
+* Step 3. JDK installation(Optional).
+
+If you do not have JDK installed in the step 2 above, please check the following image to install JDK. By using intelliJ's tool you can avoid downloading .exe or .dmg in any Linux, Mac or windows and setting up environmental variables.
+
+![JDK_installation](../../../../images/big_data/hadoop/JDK_installation.png)
+
+* Step 4, When you are done with creating a Java project with Maven setup,
+
+Please paste the following code into the editor,
+
 * Check the source code
 
 ```java
@@ -347,11 +363,33 @@ public static void main(String[] args) throws Exception {
 }
 ```
 
->Hint: in the docker image, you can't compile it. I think the Java installation had some issues.
+And then you will see something like the following,
 
-For development setup using intelliJ, you can follow the link below,
+![java_maven_project](../../../../images/big_data/hadoop/java_maven_project.png)
 
-https://github.com/autopear/Intellij-Hadoop
+* Step 5. Add Maven dependencies of the Hadoop and Mapreduce libraries,
+
+```xml
+       <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-common</artifactId>
+            <version>2.8.0</version>
+            <!--<scope>provided</scope>-->
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-hdfs</artifactId>
+            <version>2.8.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-mapreduce-client-core -->
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-mapreduce-client-core</artifactId>
+            <version>2.8.0</version>
+        </dependency>
+```
+
+![maven_dependencies](../../../../images/big_data/hadoop/maven_dependencies.png)
 
 ## Ref
 

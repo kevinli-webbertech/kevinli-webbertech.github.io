@@ -624,39 +624,39 @@ e^{2.0} \approx 7.389, \quad e^{1.0} \approx 2.718, \quad e^{0.1} \approx 1.105
 \]
 
 2. **Step 2 - Compute the sum of the exponentials**:
-\[
-7.389 + 2.718 + 1.105 \approx 11.212
-\]
 
-3. **Step 3 - Normalize the values to get probabilities**:
-\[
-P(y = 1) = \frac{7.389}{11.212} \approx 0.659
-\]
-\[
-P(y = 2) = \frac{2.718}{11.212} \approx 0.243
-\]
-\[
-P(y = 3) = \frac{1.105}{11.212} \approx 0.099
-\]
+`7.389 + 2.718 + 1.105 \approx 11.212`
+
+3. **Step 3 - Normalize the values to get probabilities**
+
+`P(y = 1) = \frac{7.389}{11.212} \approx 0.659`
+
+`P(y = 2) = \frac{2.718}{11.212} \approx 0.243`
+
+`P(y = 3) = \frac{1.105}{11.212} \approx 0.099`
+
 
 So, the Softmax output for this input is approximately:
-\[
-P = [0.659, 0.243, 0.099]
-\]
+
+`P = [0.659, 0.243, 0.099]`
+
 
 This means the model assigns a **65.9%** probability to class 1, a **24.3%** probability to class 2, and a **9.9%** probability to class 3.
 
 ### Key Properties of Softmax:
+
 1. **Probability Distribution**: The output values of the Softmax function are between 0 and 1, and they sum to 1. This makes them interpretable as probabilities.
 2. **Sensitive to Input Differences**: Small differences in the logits (raw scores) can result in large differences in the output probabilities because of the exponentiation step.
 3. **Class Confidence**: The class with the highest probability is the predicted class. However, all the classes contribute to the final prediction, making it possible to have a sense of the network's confidence in the prediction.
 
 ### Applications of Softmax:
+
 1. **Multi-Class Classification**: Softmax is commonly used in the output layer of a neural network for multi-class classification problems. It converts the network’s raw output scores into a probability distribution over multiple classes, making it easier to interpret.
    
 2. **Probability of Each Class**: It is used in tasks where the network needs to output a probability distribution over a set of possible classes, such as image classification (e.g., recognizing whether an image is a cat, dog, or bird).
 
 ### Softmax in Neural Networks:
+
 In practice, the Softmax function is typically applied in the **final layer** of a neural network, particularly when you want to classify inputs into one of several categories. In frameworks like TensorFlow or Keras, you would use the `softmax` activation in the output layer.
 
 Example (Keras code snippet for multi-class classification):
