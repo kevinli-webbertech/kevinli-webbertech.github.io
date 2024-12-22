@@ -294,9 +294,9 @@ If you do not have JDK installed in the step 2 above, please check the following
 
 ![JDK_installation](../../../../images/big_data/hadoop/JDK_installation.png)
 
-* Step 4, When you are done with creating a Java project with Maven setup,
+* Step 4, Create a main class.
 
-Please paste the following code into the editor,
+When you are done with creating a Java project with Maven setup, please paste the following code into the editor,
 
 * Check the source code
 
@@ -390,6 +390,12 @@ And then you will see something like the following,
 ```
 
 ![maven_dependencies](../../../../images/big_data/hadoop/maven_dependencies.png)
+
+* Step 6 Build maven project and generate the jar file
+
+![maven_build](../../../../images/big_data/hadoop/maven_build.png)
+
+>Trouble shooting, if you see any syntax coloring issue like class not found after Maven has downloaded the package, please go and restart your IntelliJ.
 
 ## Ref
 
