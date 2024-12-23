@@ -286,7 +286,7 @@ you	1
 * Step 2. Create a Maven project like the following,
 Make sure you have JDK 17 or up installed.
 
-![intelliJ_hadoop](intelliJ_hadoop.png)
+![intelliJ_hadoop](../../../../images/big_data/hadoop/intelliJ_hadoop.png)
 
 * Step 3. JDK installation(Optional).
 
