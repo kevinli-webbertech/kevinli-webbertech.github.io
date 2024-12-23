@@ -282,19 +282,19 @@ you	1
 
 ## How to develop Hadoop Code
 
-* Step 1. Download and install `IntelliJ` community version.
-* Step 2. Create a Maven project like the following,
+* Step 1 Download and install `IntelliJ` community version.
+* Step 2 Create a Maven project like the following,
 Make sure you have JDK 17 or up installed.
 
 ![intelliJ_hadoop](../../../../images/big_data/hadoop/intelliJ_hadoop.png)
 
-* Step 3. JDK installation(Optional).
+* Step 3 JDK installation(Optional).
 
 If you do not have JDK installed in the step 2 above, please check the following image to install JDK. By using intelliJ's tool you can avoid downloading .exe or .dmg in any Linux, Mac or windows and setting up environmental variables.
 
 ![JDK_installation](../../../../images/big_data/hadoop/JDK_installation.png)
 
-* Step 4, Create a main class.
+* Step 4 Create a main class.
 
 When you are done with creating a Java project with Maven setup, please paste the following code into the editor,
 
