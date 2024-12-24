@@ -304,7 +304,7 @@ Firstly, to access the NCurses interface use the following command.
 
 `cpu-x -N`
 
-![cpu-x](cpu-x.png)
+![cpu-x](../../../images/linux/cpu-x.png)
 
 Secondly, to get a summary of data, enter the following command.
 
