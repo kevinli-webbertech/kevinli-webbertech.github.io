@@ -96,3 +96,19 @@ Web forensics allows you to trace and attribute security attacks on web applicat
 **Cloud forensics.** While more businesses are adopting cloud computing models, cloud security remains the biggest concern. Cloud forensics addresses these cloud-related privacy crimes. However, since clouds are deployed in different locations, it's quite daunting to seize the physical devices.
 
 Memory forensics allows you to analyze active processes on RAM and volatile memory to extract data where malware might be hidden. The goal is to find when the virus was installed and what its actions were on the system.
+
+## Computer forensics: Some key challenges
+
+Computer crime is the ugly truth of the digitally connected world. Unsurprisingly, the IT sector is the most breached sector of 2024. That’s why organizations use computer forensics to find the root cause of these attacks.
+
+However, following are some of the associated challenges with implementing computer forensics:
+
+* **Difficulty retrieving mobile data:**  Recovering deleted data is part of computer forensics, which is challenging for cell phones and iPhones. It's nearly impossible to retrieve data from the latest released models.
+
+* **Shared computing resources:** Multiple users share the same cloud resource. That's why isolating and securing evidence without compromising other users' privacy is challenging.
+
+* **No physical accessibility:** Due to cloud models' distributed nature, it's impossible to find the exact location of data. This issue will persist unless users can choose the territories of their data.
+
+* **Data hiding in storage space:** Steganography is a common way for criminals to hide evidence in digital storage in the form of images, which makes it challenging for forensic experts to differentiate anomalies from modified ones. (Related reading: storage monitoring can help.)
+
+* **Data encryption:** Scammers encrypt data to other formats to delay the digital investigation process. Data decryption is complex and requires a secret key to crack the code — making it time-consuming for forensics teams to break the encryption.

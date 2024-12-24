@@ -11,7 +11,13 @@ def get_html_path():
 def check_html_directory():
     htmlPath =get_html_path()
     if not os.path.exists(htmlPath):
-        raise Exception(str(htmlPath) + " directory not exists, please create it before")
+        print(str(htmlPath) + " directory not exists, do you want to create it? Y/N")
+        answer= str(input())
+        if answer.lower() == 'y':
+            os.mkdir(str(htmlPath))
+            print("dir created successfully!")
+        else:
+          raise Exception(str(htmlPath) + " directory not exists, please create it before")
     else:
         htmlFiles=os.listdir(htmlPath)
         # if dir exists and html exist, delete them and regenerate
