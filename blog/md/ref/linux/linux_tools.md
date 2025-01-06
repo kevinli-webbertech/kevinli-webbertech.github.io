@@ -6,6 +6,7 @@ What have been covered in this articles are:
 * Samba server
 * SSH server
 * HTTP server - Apache2
+* RDP (remote destop protocol)
 * SendMail
 * GTK
 
@@ -222,6 +223,116 @@ Check the above startup script in `/etc/init.d` dir,
 `sudo service apache2 restart`
 `sudo service apache2 reload`
 `sudo service apache2 status`
+
+## RDP (Remote Desktop Protocol)
+
+RDP is a network protocol developed by Microsoft that allows users to remotely access and interact with the graphical user interface of a remote Windows server. RDP works on the client-server model, where an RDP client is installed on a local machine, and an RDP server is installed on the remote server.
+
+RDP is widely used for Windows remote connections, but you can also access and interact with the graphical user interface of a remote Linux server by using a tool like xrdp, an open-source implementation of the RDP server.
+
+* Install Xfce and xfce-goodies
+
+From the available options for Ubuntu, you will install the Xfce desktop environment. `Xfce` offers a lightweight, user-friendly desktop environment for Linux-based systems.
+
+```shell
+ sudo apt update
+ sudo apt install xfce4 xfce4-goodies -y
+```
+
+* Display manager
+
+You will be prompted to choose a display manager, which is a program that manages graphical login mechanisms and user sessions. You can select any option from the list of available display managers, but this tutorial will use gdm3.
+
+After installing the desktop environment, you will now install xrdp on your server.
+
+```shell
+xiaofengli@xiaofenglx:~$ systemctl status display-manager
+● gdm.service - GNOME Display Manager
+     Loaded: loaded (/lib/systemd/system/gdm.service; static)
+     Active: active (running) since Sun 2025-01-05 16:05:47 EST; 38min ago
+    Process: 1703 ExecStartPre=/usr/share/gdm/generate-config (code=exited, status=0/SUCCESS)
+   Main PID: 1791 (gdm3)
+      Tasks: 3 (limit: 38240)
+     Memory: 5.8M
+        CPU: 161ms
+     CGroup: /system.slice/gdm.service
+             └─1791 /usr/sbin/gdm3
+
+Jan 05 16:05:41 xiaofenglx systemd[1]: Starting GNOME Display Manager...
+Jan 05 16:05:47 xiaofenglx systemd[1]: Started GNOME Display Manager.
+Jan 05 16:05:56 xiaofenglx gdm-launch-environment][1832]: pam_unix(gdm-launch-environment:session): session opened for user gdm(>
+Jan 05 16:09:31 xiaofenglx gdm-password][2990]: gkr-pam: unable to locate daemon control file
+Jan 05 16:09:31 xiaofenglx gdm-password][2990]: gkr-pam: stashed password to try later in open session
+Jan 05 16:09:31 xiaofenglx gdm-password][2990]: pam_unix(gdm-password:session): session opened for user xiaofengli(uid=1000) by >
+Jan 05 16:09:32 xiaofenglx gdm-password][2990]: gkr-pam: gnome-keyring-daemon started properly and unlocked keyring
+Jan 05 16:10:00 xiaofenglx gdm3[1791]: Gdm: Child process -2396 was already dead.
+```
+
+* Installing xrdp on Ubuntu
+
+```shell
+sudo apt install xrdp -y
+
+sudo systemctl status xrdp
+
+sudo systemctl start xrdp
+```
+
+* Configuring xrdp and Updating Your Firewall
+
+Configuration file can be found here,
+
+`sudo nano /etc/xrdp/xrdp.ini`
+
+create a .xsession,
+
+```shell
+xiaofengli@xiaofenglx:~$ echo "xfce4-session" | tee .xsession
+xfce4-session
+xiaofengli@xiaofenglx:~$ ls .xsession
+.xsession
+```
+
+Show your public ip,
+
+```shell
+$ curl ifconfig.me
+`public_ip`
+```
+
+add a firewall rule,
+
+```shell
+$ curl ifconfig.me
+$ sudo ufw allow from public_ip/32 to any port 3389 any port 3389
+Rule added
+```
+
+### Test remote desktop
+
+* Install the software in ubuntu, for other OS such as windows and Mac, please get other software installed,
+
+`sudo apt install remmina`
+
+* To launch it, type `remmina` in the terminal,
+
+![remmina_login](../../../images/linux/remmina_login.png)
+
+* Get the ip address of the remote desktop server,
+
+![rdp_ip](../../../images/linux/rdp_ip.png)
+
+* Enter your userid and pwd of linux,
+
+![rdp_login](../../../images/linux/rdp_login.png)
+
+* After login,
+
+![rdp](../../../images/linux/rdp.png)
+
+### ref
+
+- https://www.digitalocean.com/community/tutorials/how-to-enable-remote-desktop-protocol-using-xrdp-on-ubuntu-22-04#step-2-installing-xrdp-on-ubuntu
 
 ## SendMail
 

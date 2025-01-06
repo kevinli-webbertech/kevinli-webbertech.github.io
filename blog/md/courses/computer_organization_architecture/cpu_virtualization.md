@@ -62,14 +62,25 @@ https://github.com/abiosoft/colima
 
 In M chip apple, you will need to run colima first, because a lot of softwares are not working with M chip Mac, but intel Mac seems to be fine.
 
+
 ![Apple_M1Chip](../../../images/computer_architecture/Apple_M1Chip.png)
+
+
+For instance, in my M1 Chip Apple book, it should show this. This is your native CPU architecture,
+
+```
+kevins-Laptop:qemu kevinli$ uname -m
+arm64
+```
+
+After you execute the following commands, you are emulating x86_64 architecture of your CPU,
 
 ```shell
 #!/bin/bash
 colima start --arch x86_64 --memory 4
 ```
 
-after you run the colima simulation, it is emulating your machine is a X86 architecture.
+Then, we can check out status,
 
 ```shell
 kevins-Laptop:qemu kevinli$ colima status
@@ -82,14 +93,7 @@ INFO[0000] socket: unix:///Users/kevinli/.colima/default/docker.sock
 
 ![colima](../../../images/computer_architecture/colima.png)
 
-For instance, in my M1 Chip Apple book, it should show this,
-
-```
-kevins-Laptop:qemu kevinli$ uname -m
-arm64
-```
-
-After we use QEMU, it shows X86_64.
+Colima internally uses QEMU, after we use QEMU, it shows X86_64.
 
 For more detail differences of these architecture of CPU, we can check here.
 
