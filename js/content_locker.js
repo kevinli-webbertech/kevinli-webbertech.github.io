@@ -94,3 +94,17 @@ const checkCookie = () => {
         addBlurredContentClass(); // Blur content
     }
 };
+
+// TODO
+// there is a file in the same level of the root is called course_authentication.py.
+// Python flask server, and micro-controller and restful api.
+// You can test it in local and make sure you also fake some emails in the students.json.
+const authenticateUser = () => {
+
+    //call webbertech.com/check_user
+    if (Response.code == 200) {
+        // go ahead
+    } else if(Response.code = 404) {
+        addBlurredContentClass(); // Blur content
+    } 
+};
