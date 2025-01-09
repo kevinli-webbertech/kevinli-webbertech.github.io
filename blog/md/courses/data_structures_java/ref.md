@@ -4,6 +4,8 @@
 
 https://github.com/srsandy/Data-Structures-and-Algorithms-in-Java-2nd-Edition-by-Robert-Lafore/tree/master/Chapter-02
 
+Check for his resource and question bank.
+
 ## Github
 
 0. https://github.com/Youkehai/DataStructures (good)
