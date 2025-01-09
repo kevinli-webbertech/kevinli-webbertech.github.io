@@ -6,14 +6,26 @@
 
 - Length: 15 weeks
 
+## Type
+
+Online/Asynchrnous
+
+## QA Time
+
+Zoom Friday Afternoon 4-5 PM.
+
 ## Textbook
 
-![Algorithms_4th](Algorithms_4th.png)
-![Algorithms_4th_1](Algorithms_4th_1.png)
+**Algorithms**
+
+![Algorithms_4th](../../../images/data_structures_java/Algorithms_4th.png)
+
+![Algorithms_4th_1](../../../images/data_structures_java/Algorithms_4th_1.png)
 
 ## Goal
 
-* 15-week including a mid-term Quiz and Final project (No final exam but coding).
+After 15-week study of Java data structure, we would master basic algorithm programming, 
+including array, stack, queue, tree, graph, also with these data structures, we would be learning some most popular algorithms in searching, sorting, tree and graph theory.
 
 ## Homework
 
@@ -25,6 +37,11 @@ Per week or biweekly. Depending on the homework size.
 * Homework should include at least one word or pdf document. Any code should be put into a zip file, please do not use WinRAR or tar.gz format.
 * Please write your full name in the homework document.
 * For assignment with coding, please take screenshot to prove that it is working.
+
+## No late submission
+
+* Professor will not send email to urge you for homework.
+* It is your responsibility to submit them on time.
 
 ## Course Schedule
 
