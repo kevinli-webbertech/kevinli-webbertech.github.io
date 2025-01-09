@@ -1,5 +1,11 @@
 # Java Data Structure References
 
+## Text book
+
+https://github.com/srsandy/Data-Structures-and-Algorithms-in-Java-2nd-Edition-by-Robert-Lafore/tree/master/Chapter-02
+
+## Github
+
 0. https://github.com/Youkehai/DataStructures (good)
 
 1. https://github.com/sfturing/algorithms (good)
