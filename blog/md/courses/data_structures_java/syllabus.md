@@ -16,7 +16,7 @@ Zoom Friday afternoon 4-5 PM.
 
 ### Main Book
 
-* **Data Structures and Algorithms in Java by Mark A ll e n Weiss.**
+* **Data Structures and Algorithms in Java by Mark Allen Weiss.**
 
 ![Data_Structures_and_Algorithms_in_Java_by_MarkAllenWeiss](../../../images/data_structures_java/Data_Structures_and_Algorithms_in_Java_by_MarkAllenWeiss.png)
 
