@@ -1,4 +1,4 @@
-# Intro to computer forensic
+# Week1 Introduction – Understanding Computer Forensics
 
 Every day, thousands of people become victims of cyberterrorism, online fraud, and crimes beyond white-collar offenses. That’s why law enforcement agencies combine traditional investigations with digital evidence to combat these and secure cyberspace.
 
@@ -20,32 +20,39 @@ To perform computer forensics the right way, you must consider the following poi
 
 * Follow professional protocols and avoid conflict of interest.
 
-In 2023, computer crimes resulted in 12.5 billion USD in losses, which will grow if not appropriately handled. Only the rapid pace of technological change and ample funding can bridge the gap and keep you ahead. 
+In 2023, computer crimes resulted in 12.5 billion USD in losses, which will grow if not appropriately handled. Only the rapid pace of technological change and ample funding can bridge the gap and keep you ahead.
 
 Computer forensics is used to handle these crimes. It has many strengths, but some areas still have loopholes. For example, handling cloud evidence is currently the biggest challenge.
 
+![computer_crime](../../../images/computer_forensic/computer_crime.png)
+
 ## How computer forensics work
 
-Any data that is unreliable or compromised cannot be used in court or other justice systems. To avoid that, computer forensics is an excellent threat detection and recovery tool that helps ensure the data is ready to be used. 
+Any data that is unreliable or compromised cannot be used in court or other justice systems. To avoid that, computer forensics is an excellent threat detection and recovery tool that helps ensure the data is ready to be used.
 
-![computer_forensic_steps](computer_forensic_steps.png)
+![computer_forensic_steps](../../../images/computer_forensic/computer_forensic_steps.png)
 >Image: from https://www.splunk.com/en_us/blog/learn/computer-forensics.html
 
 
 **Step 1. Pre-process**
 
+![integrity](../../../images/computer_forensic/integrity.png)
+
 Before data collection and investigation, computer forensics examiners must complete the following pre-process steps:
 
-Computer forensics examiners must be practicing officers.
+* Computer forensics examiners must be practicing officers.
 
-They must obtain approval from the authorities.
-They should prepare and set up the required tools.
+* They must obtain approval from the authorities.
 
-They should obtain consent from relevant parties.
+* They should prepare and set up the required tools.
 
-Verify if the consenting party has the authority to access certain areas or devices in a shared location.
+* They should obtain consent from relevant parties.
+
+* Verify if the consenting party has the authority to access certain areas or devices in a shared location.
 
 **Step 2. Acquisition**
+
+![acquisition](../../../images/computer_forensic/acquisition.png)
 
 In the second phase, they must acquire data from a suspect's digital devices. These devices may contain files or documents that can help resolve legal matters.
 
@@ -59,6 +66,8 @@ The team uses appropriate tools and methods to prevent data loss and modificatio
 
 **Step 4. Analysis**
 
+![analyze](../../../images/computer_forensic/analyze.png)
+
 Aside from finding the source and type of information stored on the device, this phase also includes identifying the real culprit. It can be straightforward if only one person can access the device, but that's not always true.
 
 So, if there are multiple users, forensics teams analyze the following:
@@ -69,7 +78,11 @@ So, if there are multiple users, forensics teams analyze the following:
 
 These questions help them build a solid case and catch the responsible person.
 
+![practical_need](../../../images/computer_forensic/practical_need.png)
+
 **Step 5. Presentation**
+
+![presentation](../../../images/computer_forensic/presentation.png)
 
 In the final phase, the forensic examiner prepares a final report and presents the findings to the authorities. The report includes:
 
@@ -87,7 +100,7 @@ The type of computer forensics you need to perform depends on the nature of the 
 
 Let’s look at some of the most common types of computer forensics:
 
-Web forensics allows you to trace and attribute security attacks on web applications. You analyze log files from web browsers, servers, and applications to find evidence of cybercrime.
+**Web forensics** allows you to trace and attribute security attacks on web applications. You analyze log files from web browsers, servers, and applications to find evidence of cybercrime.
 
 **Email forensics.** Of attacks reported in quarter one of 2024, more than one-third (37.6% ) were phishing attacks. In such attacks, users receive fake emails with malicious links to steal their identity or install malware. As a result, email forensics is used to detect such crimes.
 
