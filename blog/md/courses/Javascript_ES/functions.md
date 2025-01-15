@@ -412,4 +412,6 @@ function myFunction() {
 }
 ```
 
-https://www.w3schools.com/js/js_function_closures.asp
+## Ref
+
+- https://www.w3schools.com/js/js_function_closures.asp
