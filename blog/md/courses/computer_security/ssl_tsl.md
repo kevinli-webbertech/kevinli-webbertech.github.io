@@ -1,10 +1,64 @@
 
-# EC2 instance webbertech.com
-
 ## pub/private + pem file
 
+The following error happens if you give 0777 to the pem file. Linux will fail it but Mac will let it go.
 
+```shell
+Permissions 0777 for 'kltutor.com.pem' are too open.
+It is required that your private key files are NOT accessible by others.
+This private key will be ignored.
+Load key "kltutor.com.pem": bad permissions
+ubuntu@ec2-18-221-239-84.us-east-2.compute.amazonaws.com: Permission denied (publickey).
+xiaofengli@xiaofenglx:~/Desktop/deployment$ ssh -i ./kltutor.com.pem ubuntu@ec2-18-221-239-84.us-east-2.compute.amazonaws.com
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Permissions 0777 for './kltutor.com.pem' are too open.
+It is required that your private key files are NOT accessible by others.
+This private key will be ignored.
+Load key "./kltutor.com.pem": bad permissions
+ubuntu@ec2-18-221-239-84.us-east-2.compute.amazonaws.com: Permission denied (publickey).
 ```
+
+To fix the issue, you have to set pem permissions to `0400`,
+
+```shell
+xiaofengli@xiaofenglx:~/Desktop/deployment$ chmod 0400 *.pem
+xiaofengli@xiaofenglx:~/Desktop/deployment$ ssh -i ./webbertech.com.pem ubuntu@ec2-3-19-83-70.us-east-2.compute.amazonaws.com
+Welcome to Ubuntu 24.04 LTS (GNU/Linux 6.8.0-1012-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Thu Jan 16 04:23:43 UTC 2025
+
+  System load:  0.05              Processes:             109
+  Usage of /:   45.3% of 6.71GB   Users logged in:       0
+  Memory usage: 49%               IPv4 address for enX0: 172.31.6.147
+  Swap usage:   0%
+
+ * Ubuntu Pro delivers the most comprehensive open source security and
+   compliance features.
+
+   https://ubuntu.com/aws/pro
+
+Expanded Security Maintenance for Applications is not enabled.
+
+142 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+
+*** System restart required ***
+Last login: Thu Jan 16 04:11:33 2025 from 96.242.228.246
+```
+
+## EC2 instance webbertech.com
+
+```shell
 ssh -i "webbertech.com.pem" ubuntu@ec2-3-19-83-70.us-east-2.compute.amazonaws.com
 
 MacBookPro:deployment kevinli$ ssh -i "webbertech.com.pem" ubuntu@ec2-3-19-83-70.us-east-2.compute.amazonaws.com
