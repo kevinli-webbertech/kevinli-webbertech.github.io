@@ -32,11 +32,11 @@ GPT (Generative Pre-trained Transformer): The GPT series is a family of language
 
 GPT-3 is the third iteration of the GPT series and is one of the largest language models ever created, with 175 billion parameters. It has demonstrated impressive capabilities in understanding and generating natural language text across a wide range of tasks, often achieving human-level performance in certain contexts. GPT-3 has been widely used by developers and researchers for various applications, including chatbots, content generation, and creative writing.
 
-- DALL-E: 
+- DALL-E:
 
 DALL-E is a variation of the GPT model developed specifically for generating images from textual descriptions. It is trained to understand and generate images based on textual prompts, allowing users to generate novel and creative images by describing them in natural language.
 
-- CLIP (Contrastive Language-Image Pre-training): 
+- CLIP (Contrastive Language-Image Pre-training):
 
 CLIP is a model trained to understand images and text jointly. It can associate images with corresponding textual descriptions and vice versa, even if they were not present during training. CLIP has shown remarkable cross-modal understanding and has been used for tasks such as image classification, zero-shot learning, and image-text retrieval.
 
@@ -76,6 +76,3 @@ SageMaker for machine learning model development and deployment, Rekognition for
 ### Baidu
 
 DeepSpeech for speech recognition and ERNIE (Enhanced Representation through kNowledge Integration) for language understanding tasks.
-
-
-

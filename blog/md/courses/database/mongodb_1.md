@@ -6,19 +6,85 @@ MongoDB is a popular NoSQL database known for its flexibility, scalability, and 
 
 MongoDB provides a document-oriented data model, meaning data is stored in BSON (Binary JSON) format. It allows for the storage of complex data types, making it highly suitable for modern applications that require flexible and scalable data storage solutions.
 
-## Installation of Mongo
+## Windows
 
 > Please install MongoDB Community Edition not Atlas version.
 
-* Windows
+
+**Download and Install mongodb**
 
 [Windows installation](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/)
 
-* Mac
+or this link,
+
+https://www.mongodb.com/try/download/community
+
+Select your windows type,
+
+and the download button should show you something like the following,
+
+https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-8.0.3-signed.msi
+
+**Install database tools**
+
+Go to the following link, choose windows,
+
+https://www.mongodb.com/try/download/database-tools
+
+And download this zip,
+
+https://downloads.mongodb.com/compass/mongosh-2.3.3-win32-x64.zip
+
+**Install database shell**
+
+Go to the following link, choose Windows,
+
+https://www.mongodb.com/try/download/shell
+
+and download this zip,
+
+https://downloads.mongodb.com/compass/mongosh-2.3.3-win32-x64.zip
+
+>Hint: This is only needed by windows user. Not for Mac or Linux users.
+
+![mongodb_db_tools](../../../images/database/mongodb_db_tools.png)
+
+https://fastdl.mongodb.org/tools/db/mongodb-database-tools-windows-x86_64-100.10.0.zip
+
+**To Start your service in Windows**
+
+  * To start the server, go to `C:\Program Files\MongoDB\Server\3.2\bin>`,
+    enter command `mongod`
+  * By default, mongodb server will start at port `27017`
+
+
+**To connect to your mongodb using `Mongosh.exe`**
+
+When you finished the download and unzipping the `mongosh-2.3.3-win32-x64.zip`.
+You will need to go to the Windows Ternimal and `cd` into the right directory, and run the `mongosh.exe`.
+
+And also make sure that your mongodb service is running in the background.
+
+
+## Mac
 
 [Mac installation](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/)
 
-* Linux 
+**Start your mongodb**
+
+https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/
+
+
+**Troubleshooting**
+
+* brew services stop mongodb
+* brew uninstall homebrew/core/mongodb
+
+* brew tap mongodb/brew
+* brew install mongodb-community
+* brew services start mongodb-community
+
+## Linux
 
 From a terminal, install gnupg and curl if they are not already available:
 
@@ -50,9 +116,9 @@ echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gp
 - https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/
 
 
-## Installation of Dbeaver
+## Installation of Rot 3T
 
-Skipped. (Free version of Dbeaver does not support mongo connection.)
+https://robomongo.org/
 
 ## Start Mongo Server (This is in ubuntu)
 
@@ -80,6 +146,12 @@ you will see the following terminal,
 
 ## Import data into mongo database
 
+For Windows user, you will have to install this tool from the link below,
+
+https://www.mongodb.com/try/download/database-tools
+
+![database-tools](../../../images/advanced_database/database-tools.png)
+
 Download database file, a json file from here, ["restaurant.json"](https://kevinli-webbertech.github.io/blog/md/courses/database/restaurant.json)
 
 `mongoimport --db restaurant --collection collectionName --file ./restaurant.json --jsonArray`
@@ -88,7 +160,7 @@ Download database file, a json file from here, ["restaurant.json"](https://kevin
 
 ## Takeaway
 
-* `Mongod` is the server side service of linux. We will have to start it with root account.
+* `Mongod` is the server side service of linux, windows or Mac. We will have to start it with root account.
 * `Mongosh` is a client side CLI tools to connect to the MongoDB server.
   And this is where we write query code to manage data.
 
@@ -97,3 +169,4 @@ Download database file, a json file from here, ["restaurant.json"](https://kevin
 - https://www.mongodb.com/docs/manual/tutorial/
 - https://www.w3schools.com/mongodb/
 - https://www.tutorialspoint.com/mongodb/index.htm
+- https://www.mongodb.com/try/download/shell

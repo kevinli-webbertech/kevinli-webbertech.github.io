@@ -138,6 +138,7 @@ treeAggregate() – Aggregates the elements of this RDD in a multi-level tree pa
 `Syntax: treeAggregate(zeroValue, seqOp, combOp, depth=2)`
 
 ## fold – action
+
 fold() – Aggregate the elements of each partition, and then the results for all the partitions.
 
 ```python
@@ -209,6 +210,7 @@ print("countByValue :  "+str(listRdd.countByValue()))
 ```
 
 ## first
+
 `first()` – Return the first element in the dataset.
 
 ```python
@@ -234,8 +236,8 @@ print("top : "+str(inputRDD.top(2)))
 #Output: take : (Z,1),(C,40)
 ```
 
-
 ## min
+
 `min()` – Return the minimum value from the dataset.
 
 ```python
@@ -260,6 +262,7 @@ print("max :  "+str(inputRDD.max()))
 ```
 
 ## take, takeOrdered, takeSample
+
 `take()` – Return the first num elements of the dataset.
 
 `takeOrdered()` – Return the first num (smallest) elements from the dataset and this is the opposite of the take() action.
@@ -369,7 +372,6 @@ print("take : "+str(listRdd.takeSample()))
 
 ![completeExample.png](../../../../images/big_data/spark/completeExample.png)
 
-
 ## RDD Transformation and Lineage
 
 PySpark RDD Transformations are lazy evaluation and is used to transform/update from one RDD into another.
@@ -459,6 +461,7 @@ Gutenberg’s
 ```
 
 ### map() Transformation
+
 map() transformation is used the apply any complex operations by applying a function to each element.
 
 In our word count example, we are adding a new column with value 1 for each word, the result of the RDD is PairRDDFunctions which contains key-value pairs, word of type String as Key and 1 of type Int as value.
@@ -487,6 +490,7 @@ Collecting and Printing rdd4 yields below output.
 ![reduceByKey.png](../../../../images/big_data/spark/reduceByKey.png)
 
 ## sortByKey() Transformation
+
 sortByKey() transformation is used to sort RDD elements on key. In our example, first, we convert RDD[(String,Int]) to RDD[(Int,String]) using map transformation and later apply sortByKey which ideally does sort on an integer value. And finally, foreach with println statement prints all words in RDD and their count as key-value pair to console.
 
 ```python
@@ -499,6 +503,7 @@ Collecting and Printing rdd5 yields below output. Note the columns order has cha
 ![sortByKey.png](../../../../images/big_data/spark/sortByKey.png)
 
 ## filter() Transformation
+
 filter() transformation is used to filter the records in an RDD. In our example we are filtering all words starts with “a”.
 
 ```python
@@ -515,5 +520,5 @@ This above statement yields “(2, 'Wonderland')” that has a value ‘a’.
 - https://sparkbyexamples.com/pyspark/pyspark-parallelize-create-rdd/
 
 - https://sparkbyexamples.com/pyspark/pyspark-rdd-transformations/
-- 
+
 - https://sparkbyexamples.com/pyspark/pyspark-rdd-actions/

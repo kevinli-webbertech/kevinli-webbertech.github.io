@@ -33,7 +33,7 @@ RUN javac -source 8 -target 8 HelloWorld.java -d .
 FROM ubuntu/jre:8-22.04_edge
 WORKDIR /
 COPY --from=builder /app/HelloWorld.class .
-CMD [ “tail -f /dev/null” ]
+CMD [ "HelloWorld" ]
 ```
 
 **Step 3 Build docker image**

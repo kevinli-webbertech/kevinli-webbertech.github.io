@@ -111,9 +111,130 @@ To run it, we can see the following,
 
 If you use PyCharm, just create a new Python project and it will create the above virtual environment.
 
-[TODO]
+Image skipped. Please use PyCharm community version for practice.
+
+## Programming with Python
+
+```python
+
+import pymongo
+
+# Connect to MongoDB
+
+uri="mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.3.1"
+
+client = pymongo.MongoClient(uri) 
+
+# Access the database and collection
+
+db = client["shop"] 
+
+collection = db["inventory"] 
+
+# Create a document to insert
+
+new_document = {"name": "John Doe", "age": 30}
+
+
+# Insert the document
+result = collection.insert_one(new_document) 
+print(f"Inserted document with ID: {result.inserted_id}") 
+```
+
+Try to get the above string from the `mongosh` connection.
+
+![connection_string](../../../images/database/connection_string.png)
+
+Copy the above code to the `pycharm` editor like the following,
+
+![pycharm_editor](../../../images/database/pycharm_editor.png)
+
+Run the code,
+
+![running_code](../../../images/database/running_code.png)
+
+Checking in `mongosh`,
+
+![validate_db](../../../images/database/validate_db.png)
+
+## Programming with NodeJS
+
+```shell
+(base) xiaofengli@xiaofenglx:/tmp/nodejs$ nvm install 22
+Downloading and installing node v22.11.0...
+Downloading https://nodejs.org/dist/v22.11.0/node-v22.11.0-linux-x64.tar.xz...
+######################################################################################################################################################## 100.0%
+Computing checksum with sha256sum
+Checksums matched!
+Now using node v22.11.0 (npm v10.9.0)
+Creating default alias: default -> 22 (-> v22.11.0)
+(base) xiaofengli@xiaofenglx:/tmp/nodejs$ node -v 
+v22.11.0
+(base) xiaofengli@xiaofenglx:/tmp/nodejs$ nvm -v
+0.40.0
+(base) xiaofengli@xiaofenglx:/tmp/nodejs$ npm install mongodb
+
+added 12 packages in 4s
+npm notice
+npm notice New patch version of npm available! 10.9.0 -> 10.9.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v10.9.1
+npm notice To update run: npm install -g npm@10.9.1
+npm notice
+```
+
+Let us paste the following code into a new file called `mongodb_nodejs.js`,
+
+```nodejs
+const { MongoClient } = require("mongodb");
+// Replace the uri string with your connection string.
+const url = "mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.3.1";
+const client = new MongoClient(url);
+
+async function run() {
+  try {
+    const database = client.db('sample_mflix');
+    console.log("debugging1: ");
+    const movies = database.collection('movies');
+    console.log("debugging2: ");
+    // Query for a movie that has the title 'Back to the Future'
+    const query = { title: 'Back to the Future' };
+    console.log("debugging3: " + JSON.stringify(query));
+
+    await movies.insertOne(query, function(err, res) {
+       if (err) throw err;
+        console.log("1 document inserted");
+       db.close();
+    });
+    const movie = await movies.findOne(query);
+    console.log("debugging4: " + JSON.stringify(movie));
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+run().catch(console.dir);
+
+```
+
+Run the code,
+
+```shell
+(base) xiaofengli@xiaofenglx:/tmp/nodejs$ node nodejs_mongo1.js 
+debugging1: 
+debugging2: 
+debugging3: {"title":"Back to the Future"}
+debugging4: {"_id":"673fd795357a8eba71629c46","title":"Back to the Future"}
+```
+
+Also in the screenshot like the following,
+
+![nodejs_output](../../../images/database/nodejs_output.png)
 
 ### Ref
 
 - https://pymongo.readthedocs.io/en/stable/tutorial.html
 - https://www.mongodb.com/resources/languages/python
+- https://www.mongodb.com/resources/languages/mongodb-with-nodejs
+- https://nodejs.org/en/download/package-manager
+- https://www.w3schools.com/mongodb/mongodb_nodejs_connect_database.php
+- https://www.mongodb.com/docs/drivers/java/sync/v4.3/usage-examples/command/

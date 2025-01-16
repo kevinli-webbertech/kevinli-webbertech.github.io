@@ -72,7 +72,7 @@ const addBlurredContentClass = () => {
 
 const checkUnlockCode = () => {
     const enteredCode = document.getElementById("unlock-code").value;
-    if (enteredCode === "csit555") {
+    if (enteredCode === "unlockme") {
         document.getElementById("content-locker-modal").classList.add("content-locker-hidden"); // Hide modal
         Array.from(document.body.children).forEach((child) => {
             child.classList.remove('content-locker-blurred'); // Remove blur from all elements
@@ -93,4 +93,18 @@ const checkCookie = () => {
     } else {
         addBlurredContentClass(); // Blur content
     }
+};
+
+// TODO
+// there is a file in the same level of the root is called course_authentication.py.
+// Python flask server, and micro-controller and restful api.
+// You can test it in local and make sure you also fake some emails in the students.json.
+const authenticateUser = () => {
+
+    //call webbertech.com/check_user
+    if (Response.code == 200) {
+        // go ahead
+    } else if(Response.code = 404) {
+        addBlurredContentClass(); // Blur content
+    } 
 };
