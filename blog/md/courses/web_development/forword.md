@@ -10,5 +10,5 @@ This is a bootcamp course for training the UI needed skills. The following thing
 |week 4| Gulp Javascript automation| Small tool to learn just C Makefile for Javascript |
 |week 5| SASS/SCSS - CSS templating| An important topic to learn to build large web system |
 |week 6| nodejs, NPM/NPX| An indispensible content to learn for modern web development |
-|week 7| ReactJS | Final destination |
-|week 8| Linux basics| Virtualbox, linux and docker | 
+|week 7| Typescript| A superset of JS Framework and transpilable to JS|
+|week 8| ReactJS | Single page application and web reactive |
