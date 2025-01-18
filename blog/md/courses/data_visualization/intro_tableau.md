@@ -24,11 +24,11 @@ Tableau products include:
 
 ## Other Visualization Product
 
-![data_visualization_products](data_visualization_products.png)
+![data_visualization_products](../../../images/data_visualization/data_visualization_products.png)
 
 ## Installation (Student's copy)
 
-### How to get started with Tableau Public 
+### How to get started with Tableau Public
 
 * Go to Tableau Public
 * Explore, create, or share visualizations
@@ -44,8 +44,8 @@ Tableau products include:
 * Download Tableau Desktop
 * Activate their license key
 
-![license_confirmation](license_confirmation.png)
+![license_confirmation](../../../images/data_visualization/license_confirmation.png)
 
 ### Tableau Jobs
 
-![Tableau_job](Tableau_job.png)
+![Tableau_job](../../../images/data_visualization/Tableau_job.png)
