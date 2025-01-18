@@ -14,7 +14,7 @@ https://en.wikipedia.org/wiki/Data_and_information_visualization
 
 Matplotlib is a Python plotting library that provides a MATLAB-like interface. Here are a few examples of how to create plots using Matplotlib that resemble MATLAB plots:
 
-Line Plot
+**Line Plot**
 
 ```python
 import matplotlib.pyplot as plt
@@ -33,7 +33,7 @@ plt.grid(True)
 plt.show()
 ```
 
-Scatter Plot
+**Scatter Plot**
 
 ```python
 import matplotlib.pyplot as plt
@@ -52,7 +52,7 @@ plt.grid(True)
 plt.show()
 ```
 
-Bar Plot
+**Bar Plot**
 
 ```python
 import matplotlib.pyplot as plt
@@ -71,7 +71,7 @@ plt.grid(True)
 plt.show()
 ```
 
-Histogram
+**Histogram**
 
 ```python
 import matplotlib.pyplot as plt
