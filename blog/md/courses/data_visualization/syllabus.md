@@ -1,4 +1,8 @@
-# Syllabus of 
+# Syllabus
+
+## Course Time
+
+From 1/21/2025 to 5/19/2025
 
 ## Textbook
 
@@ -13,15 +17,26 @@ No textbook required.
 | Week    | Title                                          |
 |---------|------------------------------------------------|
 | Week 1  | Introduction to Data Visualization                           |
-| Week 2  | SQL Programming- Hands-on Lab                  |
-| Week 3  | Relational Database - Algebra, ER Diagram      |
-| Week 4  | Relational Databse - Normalization             |
-| Week 5  | Introduction to NoSQL - Cassandra              |
-| Week 6  | ORM and Programming with Cassandra             |
-| Week 7  | Midterm Quiz                                   |
+| Week 2  | Mathlibplot Visualization                  |
+| Week 3  | Mathlibplot - Cont      |
+| Week 4  | Introduction to Seaborn             |
+| Week 5  | Seaborn - Cont|
+| Week 6  | Introduction to Tableau          |
+| Week 7  | Midterm Quiz                        |
+| Week 8  | Tableau - Part 1|  
+| Week 9  | Tableau - Part 2|  
+| Week 10 | Tableau - Part 3|
+| Week 11 | Introduction to Google Analytics |
+| Week 12 | Google Analytics Integration|
+| Week 13 | Introduction of PowerBI|
 
 
-## Homework
+
+## Homework Submission
+
+* No late submission allowed.
+* Any code must be submitted separately.
+* Every homework must come with a word document with your personal information and detailed answer including code, screenshots and proof of your work is working.
 
 ## Assessments
 
@@ -33,13 +48,13 @@ Assessments of this course including,
 |Mid-term Exam/Project| 30%|
 |Final Exam/Project| 40%|
 
-## Grading
+## Grading Scale
 
-Grading Scale
 The following grading system will be used:
+
 |Rank  |  Points|
 |------|--------|
-|A (4.0)|94-100| 
+|A (4.0)|94-100 | 
 |A- (3.7)| 90-93 |
 |B+ (3.3) |87-89 |
 |B (3.0) |84-86 |
