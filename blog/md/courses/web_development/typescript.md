@@ -56,3 +56,4 @@ TSLint scans TypeScript code for conformance to a set of standards and guideline
    const message = greet("John"); 
    console.log(message); 
 ```
+
