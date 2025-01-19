@@ -2,11 +2,14 @@
 
 ## Course Time
 
-From 1/21/2025 to 5/19/2025
+Time: From 1/21/2025 to 5/19/2025.
+Location: Online
 
 ## Textbook
 
-No textbook required.
+* No textbook required.
+* Professor will provide each week's study material in the module and as well on his research website.
+* Video instructions such as recorded videos will be also provided.
 
 ## References
 
@@ -22,15 +25,15 @@ No textbook required.
 | Week 4  | Introduction to Seaborn             |
 | Week 5  | Seaborn - Cont|
 | Week 6  | Introduction to Tableau          |
-| Week 7  | Midterm Quiz                        |
+| Week 7  | Midterm Project                        |
 | Week 8  | Tableau - Part 1|  
 | Week 9  | Tableau - Part 2|  
-| Week 10 | Tableau - Part 3|
-| Week 11 | Introduction to Google Analytics |
-| Week 12 | Google Analytics Integration|
+| Week 10 | Introduction to Google Analytics |
+| Week 11 | Google Analytics Integration with a website|
+| Week 12 | Final Project Assignment|
 | Week 13 | Introduction of PowerBI|
-
-
+| Week 14 | PowerBI - Part 2|
+| Week 15 | Data Science Job and Outlook|
 
 ## Homework Submission
 
