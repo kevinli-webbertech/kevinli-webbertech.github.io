@@ -65,7 +65,7 @@ This course provides an opportunity for students to learn the foundations of com
 
 * Online quiz
 * Normal homework
-* Midterm and final homework.
+* Midterm and final homework
 
 ## Grading
 

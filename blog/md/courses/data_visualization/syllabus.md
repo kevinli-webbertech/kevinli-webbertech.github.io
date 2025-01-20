@@ -2,8 +2,8 @@
 
 ## Course Time
 
-Time: From 1/21/2025 to 5/19/2025.
-Location: Online
+- Time: From 1/21/2025 to 5/19/2025.
+- Location: Online
 
 ## Textbook
 
