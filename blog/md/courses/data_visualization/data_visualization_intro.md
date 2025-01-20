@@ -1,10 +1,14 @@
 # Introduction Data Visualization
 
-https://en.wikipedia.org/wiki/Data_and_information_visualization
+
 
 ## Graphics and Traditional Visualization
 
 ![computer_graphics](../../../images/data_visualization/computer_graphics.png)
+
+![medical_visualization](medical_visualization.png)
+
+![game_application](game_application.png)
 
 ## Visualize Data from Data Analysis
 
@@ -133,7 +137,24 @@ The following are a group of the most popular and famous commercial softwares we
 
 **Grafana**
 
+Grafana is an open-source data visualization and monitoring platform that allows you to create interactive and customizable dashboards. It is commonly used for visualizing time-series data, particularly for infrastructure monitoring, application performance, and system observability. Grafana supports a wide variety of data sources, including:
+
+1. **Prometheus** – for monitoring and alerting.
+2. **Elasticsearch** – for log and event data.
+3. **InfluxDB** – for time-series data.
+4. **MySQL, PostgreSQL** – for relational data sources.
+5. **Cloud services** like AWS, Azure, and Google Cloud.
+
 ![grafana](../../../images/data_visualization/grafana.png)
+
+Grafana provides various visualization options, such as graphs, tables, heatmaps, and alerting capabilities. It is widely used for real-time monitoring dashboards and provides features like:
+
+- **Alerts**: You can set up rules to trigger notifications based on certain thresholds or conditions.
+- **Dashboard sharing**: Dashboards can be shared with teams or publicly.
+- **User access control**: Granular permissions for dashboard views and settings.
+- **Plugins**: Grafana supports plugins to extend its functionality, including new visualization options, data sources, and apps.
+
+Grafana also integrates with other tools like Loki for log aggregation and Tempo for tracing.
 
 ![grafana-1](../../../images/data_visualization/grafana-1.png)
 
@@ -141,15 +162,228 @@ The following are a group of the most popular and famous commercial softwares we
 
 ![datadog](../../../images/data_visualization/datadog.png)
 
+**Datadog** is a cloud-based monitoring and analytics platform primarily designed to provide observability into infrastructure, applications, and log data. It helps organizations monitor the health and performance of their applications and services in real-time. Datadog collects, analyzes, and visualizes various metrics and traces to enable proactive monitoring, troubleshooting, and optimization.
+
+Key features of **Datadog** include:
+
+### 1. **Infrastructure Monitoring**:
+   - Datadog provides visibility into server health, cloud environments, containers, databases, and services. It allows monitoring of metrics like CPU usage, memory, disk space, network throughput, and more.
+   - It integrates with cloud providers like AWS, Azure, and Google Cloud, as well as container orchestrators like Kubernetes.
+
+### 2. **Application Performance Monitoring (APM)**:
+   - Datadog offers distributed tracing and APM to monitor the performance of applications and microservices.
+   - It allows you to visualize and trace requests across various services to identify performance bottlenecks and optimize response times.
+
+### 3. **Log Management**:
+   - Datadog collects and indexes logs from various sources, providing insights into the behavior and performance of applications and services.
+   - Logs are integrated with metrics and traces for full-stack observability, enabling faster root-cause analysis.
+
+### 4. **Synthetic Monitoring**:
+   - You can simulate user traffic to test the availability and performance of your web applications from different geographic locations.
+   - This helps ensure optimal end-user experience by monitoring uptime and response time of critical services.
+
+### 5. **Security Monitoring**:
+   - Datadog includes features for security monitoring, allowing you to track vulnerabilities, detect anomalies, and correlate security incidents with infrastructure and application performance data.
+
+### 6. **Dashboards & Visualizations**:
+   - Datadog provides customizable dashboards where you can visualize data from multiple sources (metrics, logs, traces) in a unified view.
+   - It offers advanced features for filtering, grouping, and alerting on metrics and logs.
+
+### 7. **Alerting & Notification**:
+   - You can set up alerting rules based on various thresholds or anomalies in your data. Alerts can trigger notifications through email, Slack, PagerDuty, or other integrations.
+
+### 8. **Integrations**:
+   - Datadog has a rich ecosystem of integrations with over 450 technologies, including databases, web servers, cloud services, and messaging systems. It integrates seamlessly with popular tools like Kubernetes, Docker, AWS, and Microsoft Azure.
+
+### 9. **Collaboration Features**:
+   - Datadog supports collaboration among teams by sharing dashboards, reports, and alerting configurations.
+   - Teams can work together on issues and incidents, with centralized access to monitoring data.
+
+### 10. **Machine Learning**:
+   - Datadog includes anomaly detection powered by machine learning, which automatically identifies abnormal behavior in your systems based on historical data, helping to detect potential issues before they escalate.
+
+Datadog is widely used in DevOps environments and by companies adopting cloud-native architectures due to its flexibility and extensive integration options. It supports monitoring of containers, serverless environments, and microservices, making it suitable for both traditional and modern application architectures.
+
 **Dynatrace**
+
+**Dynatrace** is a leading software intelligence platform designed for application performance monitoring (APM), infrastructure monitoring, and digital experience management. It is widely used for providing deep observability into complex, cloud-native environments, enabling enterprises to monitor, optimize, and manage the performance of their applications, infrastructure, and user experience.
+
+Here are the key features and capabilities of **Dynatrace**:
+
+### 1. **Full-stack Monitoring**:
+   - **Dynatrace** provides end-to-end monitoring of applications, microservices, containers, databases, and infrastructure across hybrid and multi-cloud environments.
+   - It automatically discovers and maps your entire technology stack (from front-end applications to back-end services and infrastructure) to provide visibility into system dependencies.
+
+### 2. **Application Performance Monitoring (APM)**:
+   - **Dynatrace APM** offers deep insights into the performance of your applications, including distributed tracing, transaction analysis, and code-level diagnostics.
+   - It provides real-time data on application response times, throughput, errors, and bottlenecks to help identify and resolve issues quickly.
+
+### 3. **AI-powered Root Cause Analysis**:
+   - **Dynatrace** leverages artificial intelligence (AI) and machine learning to automatically detect anomalies, performance issues, and root causes across your entire environment.
+   - Its **Davis AI** engine uses intelligent algorithms to proactively identify performance problems and help pinpoint the underlying cause, significantly reducing the time required for troubleshooting.
+
+### 4. **Cloud and Hybrid Monitoring**:
+   - Dynatrace offers powerful monitoring capabilities for cloud platforms (such as AWS, Azure, Google Cloud) and on-premises environments, enabling seamless hybrid cloud observability.
+   - It provides visibility into cloud services like Kubernetes, containerized applications, serverless functions, and microservices architectures.
+
+### 5. **Infrastructure Monitoring**:
+   - **Dynatrace** can monitor servers, virtual machines (VMs), and cloud infrastructure in real-time, tracking critical metrics like CPU usage, memory consumption, disk space, and network traffic.
+   - It integrates with cloud providers like AWS, Azure, and Google Cloud, as well as with virtualization technologies like VMware and OpenStack.
+
+### 6. **Digital Experience Monitoring (DEM)**:
+   - **Dynatrace** enables digital experience monitoring, focusing on tracking the user experience for web and mobile applications.
+   - It uses **real-user monitoring (RUM)** and synthetic monitoring to measure and optimize page load times, user interactions, and application availability from a global perspective.
+   - It also offers session replay to better understand user behavior and pinpoint usability issues.
+
+### 7. **Distributed Tracing**:
+   - Dynatrace supports **distributed tracing**, allowing you to trace requests across services and microservices to understand the flow of transactions through your environment.
+   - It provides full visibility into the request life cycle from front-end to back-end, making it easier to detect and resolve performance bottlenecks.
+
+### 8. **Log Management**:
+   - Dynatrace allows you to collect, analyze, and correlate logs from applications, infrastructure, and services.
+   - Logs are seamlessly integrated with monitoring data (metrics, traces, and events), providing a complete picture of the system’s behavior for troubleshooting and observability.
+
+### 9. **Automated Monitoring**:
+   - **Dynatrace** automates the discovery and monitoring of services and infrastructure, which eliminates the need for manual configuration and custom instrumentation.
+   - It provides out-of-the-box monitoring for a wide variety of technologies, including Kubernetes, Docker, AWS Lambda, and more.
+
+### 10. **Advanced Dashboards and Visualization**:
+   - Dynatrace provides customizable dashboards for visualizing key performance metrics, logs, and traces.
+   - It allows you to create high-level overviews or drill down into specific details for any part of your system, providing insights into everything from user experience to infrastructure health.
+
+### 11. **Automation and Integrations**:
+   - Dynatrace integrates with various automation and incident management tools, such as ServiceNow, PagerDuty, Slack, and more, for enhanced collaboration and streamlined incident response.
+   - It also integrates with CI/CD pipelines, enabling DevOps teams to monitor and improve application performance during the development lifecycle.
+
+### 12. **Security Monitoring**:
+   - Dynatrace includes security monitoring to help detect vulnerabilities and potential security threats.
+   - It provides visibility into vulnerabilities in your application stack and helps secure cloud-native environments through threat intelligence and real-time monitoring.
+
+### 13. **SaaS or Managed Deployment**:
+   - **Dynatrace** offers both a Software-as-a-Service (SaaS) deployment model and the option for managed deployment on your own infrastructure, giving flexibility to suit different organizational needs.
+
+### 14. **Scalability and Cloud-Native Support**:
+   - Dynatrace is designed to scale with modern, dynamic cloud environments, including Kubernetes, containerized applications, and serverless computing.
+   - It provides visibility across large, distributed systems, automatically adjusting to changes in your environment.
+
+Dynatrace’s **AI-driven insights** and automated monitoring capabilities make it an ideal choice for organizations looking to manage complex, large-scale applications and infrastructures with minimal manual intervention.
 
 ![dynatrace](../../../images/data_visualization/dynatrace.png)
 
-**Data Bricks**
+
+**Databricks**
+
+**Databricks** is a cloud-based platform designed to facilitate big data analytics and machine learning. It provides a unified environment for data engineers, data scientists, and business analysts to collaborate and streamline the process of building, deploying, and managing data-driven applications.
+
+Databricks was founded by the creators of **Apache Spark**, an open-source, distributed computing system, and has become a key player in the data engineering and data science spaces, especially for organizations working with large-scale data in cloud environments.
+
+Here are the key features and capabilities of **Databricks**:
+
+### 1. **Unified Data Analytics Platform**:
+   - Databricks integrates data engineering, data science, and machine learning workflows into a single platform, enabling teams to work together seamlessly.
+   - It provides a collaborative environment for building, training, and deploying machine learning models, as well as analyzing large datasets.
+
+### 2. **Apache Spark Integration**:
+   - Databricks is built on top of **Apache Spark**, providing a scalable, high-performance engine for processing large volumes of data. It supports both batch and real-time processing of structured and unstructured data.
+   - Spark enables distributed computing, making it suitable for big data analytics tasks like ETL (Extract, Transform, Load), data cleaning, aggregations, and complex analytics.
+
+### 3. **Collaborative Notebooks**:
+   - Databricks provides **notebooks** (similar to Jupyter notebooks) that allow data scientists and analysts to write, document, and execute code interactively in languages like Python, Scala, SQL, and R.
+   - These notebooks support rich visualizations, inline dhttps://en.wikipedia.org/wiki/Data_and_information_visualization
+### 9. **Databricks Runtime**:
+   - Databricks provides a custom runtime environment called **Databricks Runtime** that optimizes Apache Spark performance for specific workloads, such as ML or SQL queries.
+   - It includes performance enhancements and built-in libraries for various big data and machine learning tasks, ensuring faster data processing and lower operational overhead.
+
+### 10. **Data Lakehouse Architecture**:
+   - Databricks promotes the **Lakehouse architecture**, which combines the best of data lakes (flexible storage, scalability) and data warehouses (structured, reliable analytics).
+   - Using Delta Lake, Databricks enables the use of a unified storage layer that supports both batch and streaming data processing with strong consistency guarantees, making it easier for businesses to store, manage, and analyze data without moving between different systems.
+
+### 11. **Collaborative Data Science and ML Ops**:
+   - Databricks enables data scientists and data enghttps://en.wikipedia.org/wiki/Data_and_information_visualization
+   - Databricks SQL is a fully managed service designed for running fast, interactive SQL queries on large datasets. It supports Delta Lake tables and provides a robust SQL interface for business analysts and data scientists.
+
+Databricks is often used by data teams to accelerate the process of building and deploying data-driven applications, creating real-time analytics solutions, and performing large-scale machine learning experiments. It is especially well-suited for organizations working with big data, complex data pipelines, and AI/ML workloads.
 
 ![databricks](../../../images/data_visualization/databricks.png)
 
-**Snowflakes**
+**Snowflake**
+
+**Snowflake** is a cloud-based data warehousing platform designed to enable organizations to store and analyze large volumes of data in a scalable, flexible, and secure way. It is known for its simplicity, high performance, and ability to handle both structured and semi-structured data, making it a popular choice for businesses across various industries looking to optimize their data analytics workflows.
+
+Here are the key features and capabilities of **Snowflake**:
+
+### 1. **Cloud-Native Architecture**:
+   - Snowflake is built for the cloud and operates on public cloud platforms like **Amazon Web Services (AWS)**, **Microsoft Azure**, and **Google Cloud Platform (GCP)**.
+   - It is a fully managed service, which means Snowflake handles infrastructure management, including scaling, maintenance, and optimizations, so users can focus on their data tasks.
+
+### 2. **Data Warehouse and Data Lake Integration**:
+   - Snowflake combines the benefits of both **data warehouses** and **data lakes**, often referred to as the **data cloud**.
+   - You can store and process structured data (e.g., relational data) and semi-structured data (e.g., JSON, Parquet, Avro) in the same platform, making it versatile for various types of workloads.
+   - It uses **structured storage** for relational data and **variant data types** for semi-structured data, allowing for seamless querying and analysis.
+
+### 3. **Separation of Storage and Compute**:
+   - Snowflake separates storage from compute, meaning you can scale them independently based on your needs. This allows for cost optimization because you only pay for the storage and computing power you actually use.
+   - The **compute layer** provides virtual warehouses that perform tasks like querying, data loading, and transformation, while the **storage layer** holds all the data in a centralized location.
+
+### 4. **Elastic Scaling**:
+   - Snowflake provides automatic scaling, meaning it can dynamically adjust the amount of compute resources allocated to workloads based on demand.
+   - It supports **multi-cluster virtual warehouses**, allowing different teams or workloads to run concurrently without performance degradation. This means that users can scale up or down depending on the workload's needs.
+
+### 5. **SQL-Based Querying**:
+   - Snowflake uses SQL as its primary query language, making it easy for analysts and data engineers to interact with the data using standard SQL syntax.
+   - Snowflake also supports **ANSI SQL**, so users can leverage their existing SQL knowledge to write queries and manage data.
+
+### 6. **Zero-Copy Cloning**:
+   - Snowflake allows users to create **zero-copy clones** of databases, tables, and schemas. This enables teams to quickly create replicas of datasets without consuming additional storage.
+   - This feature is valuable for scenarios like testing, staging, or exploring new features, without needing to replicate or copy data physically.
+
+### 7. **Data Sharing**:
+   - Snowflake offers a unique **data sharing** feature, enabling organizations to securely share live data with external partners, customers, or other teams without moving the data.
+   - You can share **read-only** access to specific datasets with authorized users, facilitating collaboration while ensuring data security.
+
+### 8. **Semi-Structured Data Support**:
+   - Snowflake is capable of natively handling **semi-structured data** formats such as **JSON**, **Avro**, **XML**, and **Parquet**. You don’t need to pre-process or flatten this data before loading it into Snowflake.
+   - The platform automatically optimizes storage and querying of semi-structured data using its built-in **variant** data type, making it easy to query nested data without complex transformations.
+
+### 9. **Time Travel**:
+   - Snowflake's **Time Travel** feature allows users to access historical data at any point in the past, even if it has been modified or deleted.
+   - This feature supports data recovery, auditing, and historical analysis, which is valuable for compliance and troubleshooting.
+
+### 10. **Automatic Data Optimization**:
+   - Snowflake automatically optimizes and compresses data, using techniques like **automatic clustering** and **micro-partitioning**. This means that you don’t have to manually tune your data storage for performance.
+   - The platform also takes care of partitioning large datasets and automatically handles indexing and optimization without requiring manual intervention.
+
+### 11. **Data Integration and ETL**:
+   - Snowflake supports **ETL** (Extract, Transform, Load) workflows, allowing users to integrate and process data from various sources.
+   - Snowflake integrates with a variety of ETL tools like **Apache NiFi**, **Fivetran**, **Talend**, and more, for automated data integration and transformation.
+   - Additionally, Snowflake has native connectors and supports **streaming data** ingestion for real-time analytics.
+
+### 12. **Security Features**:
+   - Snowflake provides robust **security** features, including data encryption, role-based access control (RBAC), and multi-factor authentication (MFA).
+   - Data is automatically encrypted in transit and at rest using strong encryption standards (e.g., AES-256).
+   - Snowflake also supports **network policies**, **virtual private networks (VPNs)**, and integration with cloud-native security tools to control access and prevent unauthorized data access.
+
+### 13. **Support for Machine Learning and Data Science**:
+   - Snowflake supports data science workloads, making it easy to integrate with popular machine learning frameworks like **TensorFlow**, **scikit-learn**, **Python**, and **R**.
+   - It also integrates with third-party ML tools and platforms (such as **DataRobot**, **H2O.ai**, and **MLflow**) to accelerate machine learning model training and deployment.
+
+### 14. **Serverless Compute for Specific Use Cases**:
+   - Snowflake provides **serverless compute** options, such as **Snowpipe** for continuous data ingestion and loading.
+   - This allows for the seamless flow of data from various sources into Snowflake without requiring dedicated compute clusters or manual provisioning.
+
+### 15. **Marketplace**:
+   - Snowflake has a **data marketplace** where users can buy and sell data and analytics services. This provides access to third-party data sets and insights, helping organizations augment their existing datasets for analysis.
+   - The marketplace also supports sharing datasets between Snowflake users, further enhancing collaboration and access to data.
+https://en.wikipedia.org/wiki/Data_and_information_visualization
+### Snowflake Use Cases:
+
+- **Data Warehousing**: Traditional use cases for Snowflake involve consolidating data from multiple sources into a centralized data warehouse for analytics and reporting.
+- **Data Lake**: Snowflake is also used as a data lake for storing unstructured and semi-structured data, such as logs, IoT data, and JSON files.
+- **Real-Time Analytics**: Organizations use Snowflake for real-time analytics, where it handles both batch and streaming data.
+- **Business Intelligence (BI)**: With its integration with BI tools, Snowflake is often used to support dashboards, reporting, and analytics workflows.
+- **Data Sharing**: Snowflake is a popular choice for sharing data between departments, organizations, and external partners without physically moving the data.
+
+Snowflake’s ease of use, scalability, and performance make it an attractive choice for businesses looking to leverage cloud data solutions without the complexity of managing on-premise data warehouses.
 
 Snowflake uses the above programming language's libraries such as python and Javascript to visualize data.
 
@@ -165,7 +399,14 @@ Snowflake uses the above programming language's libraries such as python and Jav
 
 * Tableau
 
+
+
 * PowerBI
 
 Since we are business major, we are more interested in learning more specialized softwares such as Tableau and PowerBI.
 In the next few classes we will be learning a little more about these two softwares.
+
+## Ref
+
+- https://en.wikipedia.org/wiki/Data_and_information_visualization
+- chatGPT
