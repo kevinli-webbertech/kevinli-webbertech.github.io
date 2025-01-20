@@ -75,11 +75,11 @@ This course provides an opportunity for students to learn the foundations of com
 | Week 6  | Hashing and Priority Queues      | Hashtable and Hashmap implementation|
 | Week 7  | Sorting                          | Bubble, Selection, Insertion, Merge, Quick and Heap sort |
 | Week 8  | Trees                     | Recursion, BFS and DFS, traversal, rebalance tree, construction and Tree path problems|
-| Week 9  | Graph Algorithms                 | Algorithm Implementation |
-| Week 10  | Graph Algorithms Continued       | Solving Leetcode Questions  |
-| Week 11  | Amortized Analysis               | Solving Leetcode Questions  |
 | Mid-term| Coding Assignment                | Distribute Midterm Project  |
-| Week 12 | Disjoint Set Class               |   |
+| Week 9  | MST - Graph Theory                 |Find and Union Algorithm Implementation |
+| Week 10  | Shortest Path - Graph Algorithms Continued       | Solving Leetcode Questions  |
+| Week 11  | Amortized Analysis               | Solving Leetcode Questions  |
+| Week 12 | Disjoint Set Class               |  |
 | Week 13 | Special topics - Greedy Algorithms | Solve leetcode questions   |
 | Final-project | Coding Assignment | Distribute Final project |
 | Week 14 | Special topics - Divide and Conquer Algorithm | Solve leetcode questions  |
