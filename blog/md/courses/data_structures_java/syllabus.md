@@ -69,21 +69,21 @@ This course provides an opportunity for students to learn the foundations of com
 |---------|----------------------------------|--------------|
 | Week 1  | Introduction to Data Structure   | ADT, memory management including stack and heap|
 | Week 2  | Algorithm Analysis               |                                                |
-| Week 3  | Lists, Stacks, and Queues        | Array and pointer based data structures implementation|
-| Week 4  | Hashing and Priority Queues      | Hashtable and Hashmap implementation|
-| Week 5  | Sorting                          | Bubble, Selection, Insertion, Merge, Quick and Heap sort |
-| Week 6  | Trees                            | Recursion, BFS and DFS, traversal, rebalance tree, construction and Tree path problems|
-| Week 7  | Graph Algorithms                 | Algorithm Implementation |
-| Week 8  | Graph Algorithms Continued       | Solving Leetcode Questions  |
-| Week 9  | Amortized Analysis               | Solving Leetcode Questions  |
+| Week 3  | LinkedList        | Array and pointer based data structures implementation|
+| Week 4  | Stack        | Array and pointer based data structures implementation|
+| Week 5  | Queue        | Array and pointer based data structures implementation|
+| Week 6  | Hashing and Priority Queues      | Hashtable and Hashmap implementation|
+| Week 7  | Sorting                          | Bubble, Selection, Insertion, Merge, Quick and Heap sort |
+| Week 8  | Trees                     | Recursion, BFS and DFS, traversal, rebalance tree, construction and Tree path problems|
+| Week 9  | Graph Algorithms                 | Algorithm Implementation |
+| Week 10  | Graph Algorithms Continued       | Solving Leetcode Questions  |
+| Week 11  | Amortized Analysis               | Solving Leetcode Questions  |
 | Mid-term| Coding Assignment                | Distribute Midterm Project  |
-| Week 10 | Disjoint Set Class               |   |
-| Week 11 | Special topics - Greedy Algorithms | Solve leetcode questions   |
-| Week 12 | Special topics - Divide and Conquer Algorithm | Solve leetcode questions  |
-| Week 13 | Special topics - Sliding Window |  Solve leetcode questions                   |
-| Week 14 | Special topics - Backtracking |  Solve leetcode questions                   |
+| Week 12 | Disjoint Set Class               |   |
+| Week 13 | Special topics - Greedy Algorithms | Solve leetcode questions   |
 | Final-project | Coding Assignment | Distribute Final project |
-| Week 15 | Leetcode and Job screen topic | Job interview topic tips|
+| Week 14 | Special topics - Divide and Conquer Algorithm | Solve leetcode questions  |
+| Week 15 | Special topics - Sliding Window and Backtracing |  Solve leetcode questions                   |
 
 ## Homework, Midterm and Final Project
 
