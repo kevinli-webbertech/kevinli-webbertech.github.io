@@ -1,4 +1,4 @@
-### **Pretty Good Privacy (PGP) Overview**
+# **Pretty Good Privacy (PGP) Overview**
 
 **Pretty Good Privacy (PGP)** is a data encryption and decryption program that provides cryptographic privacy and authentication for data communications. PGP was created by **Phil Zimmermann** in 1991 to enable users to send secure and private communications over the internet, particularly via email. It is widely used for email encryption, file encryption, and digital signatures.
 
@@ -304,5 +304,3 @@ Managing your PGP keys properly is crucial to ensuring the security and privacy 
 - **For digital signatures**: It helps verify the authenticity of documents.
 
 PGP remains a popular and trusted method for ensuring privacy and security in digital communications and data storage.
-
-Would you like further help with setting up PGP on your system or using it for a specific scenario? Let me know!
