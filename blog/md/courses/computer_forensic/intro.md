@@ -125,3 +125,196 @@ However, following are some of the associated challenges with implementing compu
 * **Data hiding in storage space:** Steganography is a common way for criminals to hide evidence in digital storage in the form of images, which makes it challenging for forensic experts to differentiate anomalies from modified ones. (Related reading: storage monitoring can help.)
 
 * **Data encryption:** Scammers encrypt data to other formats to delay the digital investigation process. Data decryption is complex and requires a secret key to crack the code — making it time-consuming for forensics teams to break the encryption.
+
+## Tools in a glimpse
+
+### **Types of Digital Forensics**
+
+**Digital forensics** is a branch of forensic science that involves the recovery, investigation, and analysis of digital evidence from devices like computers, smartphones, servers, and other digital storage systems. It is a critical tool for law enforcement, corporate investigations, and cybersecurity. Digital forensics is broadly categorized based on the type of evidence being examined or the devices involved. Below are the major types of digital forensics:
+
+---
+
+### **1. Computer Forensics**
+
+**Computer forensics** involves the investigation and analysis of digital data stored on computers or computer systems. The primary focus is on recovering and analyzing data from hard drives, SSDs, memory, and other internal storage devices.
+
+**Key Areas of Computer Forensics**:
+- **File System Analysis**: Investigating file systems like **NTFS**, **FAT**, **EXT**, and **HFS+** to find deleted files, metadata, and file access history.
+- **Data Recovery**: Recovering files that were deleted or corrupted, including those in unallocated space or slack space.
+- **Memory Forensics**: Analyzing the system’s volatile memory (RAM) for signs of malware, rootkits, or unauthorized activity.
+- **Malware Analysis**: Detecting, analyzing, and identifying malicious software found on computers.
+- **Log Analysis**: Investigating system logs, application logs, and event logs to reconstruct actions or uncover unauthorized activities.
+
+**Common Tools**:
+- **FTK Imager**
+- **EnCase**
+- **The Sleuth Kit**
+- **Autopsy**
+
+---
+
+### **2. Mobile Device Forensics**
+
+**Mobile device forensics** focuses on retrieving and analyzing data from mobile devices such as smartphones, tablets, and smartwatches. This includes recovering data like contacts, messages, app data, call logs, location data, and more.
+
+**Key Areas of Mobile Forensics**:
+- **Data Extraction**: Extracting data from smartphones, tablets, and other mobile devices, even if they are locked or encrypted.
+- **SIM Card Analysis**: Extracting information from SIM cards, including contacts, messages, and network data.
+- **App Forensics**: Analyzing installed apps, their data, and their usage patterns, including app caches, logs, and databases.
+- **Location Forensics**: Investigating location data from GPS-enabled apps and services, as well as mobile carriers' location tracking information.
+- **Call and Text Message Recovery**: Recovering deleted text messages, call logs, voicemails, and multimedia messages (MMS).
+
+**Common Tools**:
+- **Cellebrite UFED**
+- **XRY**
+- **Magnet AXIOM**
+- **Oxygen Forensic Detective**
+
+---
+
+### **3. Network Forensics**
+
+**Network forensics** focuses on the monitoring, capturing, and analysis of network traffic to identify security incidents, detect breaches, or investigate cybercrimes. This type of forensics involves analyzing **packets**, **protocols**, and **network behavior** to trace unauthorized activities or attacks.
+
+**Key Areas of Network Forensics**:
+- **Packet Capture**: Capturing and analyzing raw network traffic to detect malicious activity, unauthorized access, or data exfiltration.
+- **Traffic Analysis**: Analyzing patterns of network traffic to identify suspicious behaviors, including DDoS attacks, port scanning, and data breaches.
+- **Intrusion Detection**: Using network monitoring tools (IDS/IPS) to detect network attacks, such as SQL injection, malware communication, or lateral movement.
+- **VPN Analysis**: Investigating encrypted traffic or tunneling protocols like VPNs, which may be used for bypassing security measures.
+
+**Common Tools**:
+- **Wireshark**
+- **tcpdump**
+- **Suricata**
+- **Snort**
+
+---
+
+### **4. Cloud Forensics**
+
+**Cloud forensics** deals with the investigation and analysis of data stored in cloud computing environments. As more organizations store data and applications in the cloud, this type of forensics has become essential for uncovering cloud-based cybercrimes, breaches, or data theft.
+
+**Key Areas of Cloud Forensics**:
+- **Data Recovery**: Recovering data from cloud storage services (e.g., Google Drive, AWS S3, Microsoft Azure).
+- **Account Analysis**: Investigating user accounts, access logs, and permissions on cloud platforms.
+- **Activity Monitoring**: Tracking actions performed by users or attackers on cloud platforms, including file access, uploads, and downloads.
+- **Virtual Machine Forensics**: Investigating the state and activity of virtual machines and containers in cloud environments.
+
+**Common Tools**:
+- **Elasticsearch**
+- **CloudTrail (AWS)**
+- **Azure Log Analytics**
+- **Google Cloud Platform Logs**
+
+---
+
+### **5. Memory Forensics**
+
+**Memory forensics** is the process of analyzing a system's volatile memory (RAM) to uncover hidden data, running processes, or suspicious activity. This type of forensics is essential for detecting malware, rootkits, or unauthorized processes that may not be visible in traditional disk-based analysis.
+
+**Key Areas of Memory Forensics**:
+- **Live Memory Capture**: Capturing the contents of RAM from running systems to analyze active processes, network connections, and other volatile data.
+- **Malware Analysis**: Identifying malicious processes or hidden malware that may not have been recorded on disk.
+- **Rootkit Detection**: Finding signs of rootkits or advanced persistent threats (APTs) that operate in system memory.
+- **Network Connections**: Analyzing active network connections and open ports in system memory.
+
+**Common Tools**:
+- **Volatility**
+- **Rekall**
+- **Memoryze**
+
+---
+
+### **6. Disk Forensics**
+
+**Disk forensics** involves the examination of storage devices such as hard drives, SSDs, and external media to recover and analyze data. This process can uncover deleted files, hidden data, file system structures, and even encrypted content.
+
+**Key Areas of Disk Forensics**:
+- **Data Carving**: Recovering fragments of deleted files or partially overwritten data from unallocated space.
+- **File System Analysis**: Examining file system structures (e.g., NTFS, EXT4) for metadata, timestamps, file location, and deleted file recovery.
+- **Encrypted Data**: Investigating encrypted volumes or containers and, when possible, attempting to decrypt the data.
+- **Deleted File Recovery**: Identifying and recovering files that were deleted but not overwritten in storage.
+
+**Common Tools**:
+- **EnCase**
+- **FTK Imager**
+- **The Sleuth Kit**
+- **Autopsy**
+
+---
+
+### **7. Mobile Application Forensics**
+
+**Mobile application forensics** focuses on the investigation of **mobile apps** and their associated data. This can include analyzing app behavior, recovering app-specific files, and extracting data stored locally or in the cloud.
+
+**Key Areas of Mobile App Forensics**:
+- **App Data Recovery**: Recovering app data such as chat logs, photos, or contacts.
+- **App Logs and Artifacts**: Analyzing app logs, databases (SQLite), and caches for valuable evidence.
+- **App Network Traffic**: Investigating network traffic generated by mobile apps, including API calls and data exchanged with remote servers.
+- **App Metadata**: Examining metadata and usage statistics for apps installed on the mobile device.
+
+**Common Tools**:
+- **Cellebrite UFED**
+- **X1 Social Discovery**
+- **Oxygen Forensic Detective**
+- **Magnet AXIOM**
+
+---
+
+### **8. Web Forensics**
+
+**Web forensics** focuses on the investigation of web-based data, including websites, web applications, browser history, and online communication. This area of forensics can help uncover evidence of cybercrimes, such as fraud, harassment, or illicit activity.
+
+**Key Areas of Web Forensics**:
+- **Browser History Analysis**: Analyzing browser history, cache, cookies, and downloads to track user activity online.
+- **Web Server Logs**: Analyzing web server logs to trace user access, page views, and potential attack attempts.
+- **Email and Messaging Analysis**: Recovering evidence from web-based email accounts (e.g., Gmail, Yahoo) and messaging platforms (e.g., WhatsApp Web).
+- **Web Application Logs**: Investigating logs for vulnerabilities or evidence of attacks like SQL injection or cross-site scripting (XSS).
+
+**Common Tools**:
+- **X1 Search**
+- **WebHarvy**
+- **Browser History Examiner**
+- **Wireshark**
+
+---
+
+### **9. Forensic Imaging and Data Acquisition Tools**
+
+Forensic imaging tools are used to create **bit-for-bit copies** of storage devices, ensuring that the original evidence is not altered during the examination. These tools play a crucial role in preserving the integrity of data for forensic investigations.
+
+**Key Areas of Forensic Imaging**:
+- **Disk Imaging**: Create exact copies of storage devices (hard drives, SSDs) for analysis.
+- **Memory Imaging**: Create forensic copies of system memory (RAM).
+- **Network Capture**: Capture network traffic and data packets for analysis.
+
+**Common Tools**:
+- **FTK Imager**
+- **dd** (Linux/Unix command)
+- **Guymager**
+- **WinFE**
+
+---
+
+### **10. Forensic Cloud Data Recovery**
+
+Cloud forensics involves retrieving, analyzing, and preserving data from cloud platforms. As more data moves to cloud storage services, forensic investigators must focus on cloud-based evidence collection, including account activities, shared data, and access logs.
+
+**Key Areas of Cloud Forensics**:
+- **Cloud Storage Data**: Investigating files stored in cloud platforms like **Google Drive**, **Dropbox**, or **iCloud**.
+- **Account Authentication Logs**: Examining login and access logs for cloud accounts.
+- **Email Forensics**: Investigating cloud email services like **Gmail**, **Outlook**, and **iCloud Mail**.
+
+**Common Tools**:
+- **CloudTrail (AWS)**
+- **Google Vault**
+- **Elasticsearch**
+- **Azure Log Analytics**
+
+---
+
+### **Conclusion**
+
+Digital forensics encompasses a broad range of investigative techniques used to collect, analyze, and preserve evidence from various digital devices and systems. The tools mentioned above help forensic investigators gather critical evidence from computer systems, mobile devices, networks, cloud environments, and web platforms. 
+
+Each area of forensics requires specialized tools and techniques to effectively investigate and resolve incidents related to cybercrimes, data breaches, and system intrusions.
