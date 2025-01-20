@@ -35,7 +35,7 @@ Tableau products include:
 
 ### Tableau Desktop
 
-![tableau_desktop](tableau_desktop.png)
+![tableau_desktop](../../../images/data_visualization/tableau_desktop.png)
 
 * Students can also get a free one-year license of Tableau Desktop. To do this, they can: 
 * Sign up for Tableau for Students

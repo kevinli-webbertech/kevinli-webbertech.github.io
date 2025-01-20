@@ -475,14 +475,16 @@ Snowflake uses the above programming language's libraries such as python and Jav
 
 ## Visualization in Business Application
 
+Since we are business major, we are more interested in learning more specialized softwares such as Tableau and PowerBI.
+In the next few classes we will be learning a little more about these two softwares.
+
 * Tableau
 
-
+![tableau_ui](../../../images/data_visualization/tableau_ui.png)
 
 * PowerBI
 
-Since we are business major, we are more interested in learning more specialized softwares such as Tableau and PowerBI.
-In the next few classes we will be learning a little more about these two softwares.
+![power_bi](../../../images/data_visualization/power_bi.png)
 
 ## Ref
 
