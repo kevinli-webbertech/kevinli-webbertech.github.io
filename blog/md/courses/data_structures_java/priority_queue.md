@@ -1,3 +1,5 @@
+# **Priority Queue**
+
 A **Priority Queue** is a special type of queue where each element is assigned a priority. Elements are dequeued in order of their priority, with higher-priority elements being removed before lower-priority ones. If two elements have the same priority, they are dequeued in the order they were added, which is known as **FIFO** for elements with the same priority.
 
 In Java, the **PriorityQueue** class is part of the **java.util** package and implements the **Queue** interface. The priority of elements is determined by their natural ordering (if the elements implement `Comparable`) or by a **Comparator** provided at the time of the queue's creation.

@@ -1,4 +1,4 @@
-# Queue
+# **Queue**
 
 A **Queue** is a linear data structure that follows the **First In, First Out (FIFO)** principle. This means that the element added first to the queue will be the first one to be removed. A queue supports the following main operations:
 1. **Enqueue**: Adds an element to the back of the queue.
@@ -190,4 +190,3 @@ Queue is empty. Cannot dequeue.
 ### **Notes:**
 - This queue implementation uses a **circular array**. By using modulo arithmetic (`(rear + 1) % capacity`), we can ensure that the rear index wraps around to the beginning of the array when it reaches the end.
 - If you need a more flexible implementation with automatic resizing, you can implement a **dynamic array-based queue** or use a **LinkedList**. However, the circular array implementation is efficient in terms of space.
-
