@@ -1,16 +1,95 @@
 # Introduction Data Visualization
 
-
-
 ## Graphics and Traditional Visualization
 
+**Computer graphics** is a field of computer science that focuses on creating, manipulating, and rendering visual images and animations using computers. It involves the use of algorithms, mathematical models, and hardware to generate and display visual content. Computer graphics are used in a wide range of industries, including entertainment (movies, video games), design (architecture, industrial design), scientific visualization, virtual reality (VR), and many others.
+
+Here's an overview of key concepts in **computer graphics**:
+
+### 1. **Types of Computer Graphics**:
+   - **Raster Graphics**: These are images composed of pixels arranged in a grid. Common formats include **JPEG**, **PNG**, and **GIF**. Raster graphics are best suited for photographs and complex images with intricate color variations.
+   - **Vector Graphics**: These use geometric shapes such as lines, circles, and polygons, represented by mathematical equations. Vector graphics are scalable without losing quality and are often used for logos, illustrations, and schematics (e.g., formats like **SVG** and **EPS**).
+
+### 2. **Rendering**:
+   - **Rendering** is the process of generating an image from a 3D model by means of computer programs. The goal is to produce a 2D image or animation that appears realistic or artistic, depending on the use case.
+   - **Types of Rendering**:
+     - **Real-time rendering**: Used in video games, simulations, and virtual environments, where images must be generated at high speed for smooth interactivity.
+     - **Offline rendering**: Used for high-quality visual effects in movies, where the rendering process may take longer but produces more detailed results.
+   
+### 3. **3D Graphics**:
+   - **3D Modeling**: This refers to the creation of 3D objects in software, often using vertices (points in space) connected by edges to form faces and create a mesh. Common software used for 3D modeling includes **Blender**, **Maya**, and **3ds Max**.
+   - **3D Rendering**: After creating a model, the next step is rendering the 3D scene to create images or animations. This can involve adding textures, lighting, and materials to make objects appear more realistic.
+   - **Lighting and Shading**: Lighting in a 3D scene is crucial to determine how objects will appear based on the source of light. Shaders are programs that control how light interacts with objects' surfaces, affecting their color, texture, and reflectivity.
+
+### 4. **Textures and Materials**:
+   - **Textures**: These are images that are applied to the surfaces of 3D models to provide detailed surface information, such as wood grain, skin, or stone. Textures are mapped onto 3D models using a technique called **UV mapping**.
+   - **Materials**: Materials define how objects interact with light. They control properties like color, shininess, reflectiveness, transparency, and bumpiness. Materials are crucial for achieving realistic rendering effects.
+
+### 5. **Animation**:
+   - **Keyframe Animation**: Involves setting key points in an animation (keyframes) and then using interpolation to fill in the movement between them. This is widely used in character animation and motion graphics.
+   - **Procedural Animation**: This is generated algorithmically, rather than manually creating keyframes. It is often used for simulations of physics, such as the movement of water, fire, or cloth.
+   - **Rigging and Skeleton Animation**: In character animation, "rigging" involves creating a skeleton for a 3D model, allowing for realistic movement. This technique is widely used in films and video games.
+
+### 6. **Graphics Hardware**:
+   - **Graphics Processing Unit (GPU)**: The GPU is a specialized processor designed to handle the complex calculations required for rendering graphics, especially in real-time applications like video games and VR. GPUs can perform many calculations in parallel, making them ideal for graphics rendering.
+   - **Graphics Card**: A graphics card is a physical component that houses the GPU and memory. It is responsible for outputting graphics to a display.
+   - **Ray Tracing**: A rendering technique that simulates the way light interacts with objects to produce realistic shadows, reflections, and refractions. It’s often used in high-end rendering applications like movies or architectural visualization.
+
+### 7. **Graphics Algorithms**:
+   - **Rasterization**: The process of converting 3D models into a 2D image by determining the pixel values (colors) for the objects based on their position in 3D space. This is commonly used in real-time rendering.
+   - **Ray Tracing**: Unlike rasterization, ray tracing simulates the behavior of light rays and calculates their interactions with objects. It produces highly realistic images but is computationally expensive and primarily used in offline rendering.
+   - **Z-buffering**: A technique used to manage image depth in 3D rendering to ensure that objects closer to the camera obscure objects that are farther away.
+
+### 8. **Graphics APIs**:
+   - **OpenGL**: A widely used cross-platform API for rendering 2D and 3D vector graphics. OpenGL is often used for creating applications like video games and simulations.
+   - **DirectX**: A collection of APIs developed by Microsoft, mainly for use in video games and other multimedia applications on Windows platforms. **Direct3D** is the graphics API used for rendering 3D graphics.
+   - **Vulkan**: A modern, low-overhead graphics API developed by the **Khronos Group** that provides high-performance rendering with more direct control over the GPU.
+
+### 9. **Virtual Reality (VR) and Augmented Reality (AR)**:
+   - **Virtual Reality (VR)**: Computer-generated environments that simulate real-world or imaginary places. VR requires specialized hardware like headsets (e.g., **Oculus Rift**, **HTC Vive**) to create immersive experiences.
+   - **Augmented Reality (AR)**: Combines real-world environments with computer-generated images or objects, often viewed through smartphones or AR glasses (e.g., **Microsoft HoloLens**, **Pokémon GO**).
+
+### 10. **Graphics Design and Digital Art**:
+   - **Vector Design**: Graphic designers often use vector-based tools like **Adobe Illustrator** to create illustrations and designs for logos, icons, and other graphics that need to be scalable without losing quality.
+   - **Raster Image Editing**: Software like **Adobe Photoshop** is used for editing raster images, such as photographs, applying effects, and performing retouching or digital painting.
+
+### 11. **Computer-Generated Imagery (CGI)**:
+   - **CGI** is the use of computer graphics to create visual content in movies, TV shows, advertisements, and more. It involves everything from modeling, texturing, lighting, rendering, and animation to produce realistic or stylized images and animations.
+   - Popular tools for CGI include **Autodesk Maya**, **Cinema 4D**, and **Blender**.
+
+### 12. **Graphical User Interfaces (GUI)**:
+   - GUIs make extensive use of computer graphics to create the visual elements of software applications, such as buttons, icons, windows, and menus. User interface design focuses on creating an intuitive experience for users.
+
+### 13. **3D Printing and Computer-Aided Design (CAD)**:
+   - **3D Printing**: The use of 3D models to create physical objects using a layer-by-layer process. 3D graphics are essential in designing the models before printing.
+   - **CAD (Computer-Aided Design)**: Software used by engineers, architects, and product designers to create 2D or 3D models of objects. CAD applications like **AutoCAD** and **SolidWorks** are commonly used for engineering and architectural design.
+
+---
+
+### Applications of Computer Graphics:
+1. **Entertainment**: Used in movies, video games, VR/AR experiences, and animations.
+2. **Design and Visualization**: Employed in architecture, interior design, product design, and industrial design to create realistic models and prototypes.
+3. **Scientific Visualization**: Helps researchers visualize complex data, such as molecular structures, climate simulations, and astronomical phenomena.
+4. **Medical Imaging**: Used for creating detailed 3D models of organs, tissues, and surgical procedures.
+
+![medical_visualization](../../../images/data_visualization/medical_visualization.png)
+
+5. **Education**: Enhances learning through interactive and immersive graphics, such as educational games or virtual classrooms.
 ![computer_graphics](../../../images/data_visualization/computer_graphics.png)
 
-![medical_visualization](medical_visualization.png)
+6. **Simulations**: Used in flight simulators, military training, or industrial simulations to recreate real-world scenarios for testing and training.
 
-![game_application](game_application.png)
+![flight_simulation](../../../images/data_visualization/flight_simulation.png)
+
+Computer graphics is a vast and multi-faceted field that continues to evolve rapidly, particularly with the advancement of real-time rendering techniques, machine learning, and artificial intelligence. 
+
+![game_application](../../../images/data_visualization/game_application.png)
 
 ## Visualize Data from Data Analysis
+
+Statistician professor Edward Tufte described Charles Joseph Minard's 1869 graphic of Napoleonic France's invasion of Russia as what "may well be the best statistical graphic ever drawn", noting that it captures six variables in two dimensions.
+
+![information_visualization](../../../images/data_visualization/information_visualization.png)
 
 When we study data science, Machine Learning or any fundamental python or data programming, we might have been learning a little bit or heard about the following Python libraries for data visualization.
 
@@ -269,7 +348,6 @@ Here are the key features and capabilities of **Dynatrace**:
 Dynatrace’s **AI-driven insights** and automated monitoring capabilities make it an ideal choice for organizations looking to manage complex, large-scale applications and infrastructures with minimal manual intervention.
 
 ![dynatrace](../../../images/data_visualization/dynatrace.png)
-
 
 **Databricks**
 
