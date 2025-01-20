@@ -16,6 +16,9 @@ Zoom Friday afternoon 4-5 PM.
 
 ### Main Book
 
+>Hint: Most of the textbooks here can be found online or you can use my website for references.
+>Textbook is highly recommended to learn more details of the data structures.
+
 * **Data Structures and Algorithms in Java by Mark Allen Weiss.**
 
 ![Data_Structures_and_Algorithms_in_Java_by_MarkAllenWeiss](../../../images/data_structures_java/Data_Structures_and_Algorithms_in_Java_by_MarkAllenWeiss.png)
