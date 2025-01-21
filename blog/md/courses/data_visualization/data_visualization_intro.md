@@ -492,7 +492,7 @@ Here are the key features and capabilities of **Databricks**:
 
 - Databricks provides **notebooks** (similar to Jupyter notebooks) that allow data scientists and analysts to write, document, and execute code interactively in languages like Python, Scala, SQL, and R.
 
-- These notebooks support rich visualizations, inline dhttps://en.wikipedia.org/wiki/Data_and_information_visualization
+- These notebooks support rich visualizations.
 
 * 9. **Databricks Runtime**:
 
@@ -508,7 +508,7 @@ Here are the key features and capabilities of **Databricks**:
 
 5. **Collaborative Data Science and ML Ops**:
 
-- Databricks enables data scientists and data enghttps://en.wikipedia.org/wiki/Data_and_information_visualization
+- Databricks enables data scientists and data engineering.
 
 - Databricks SQL is a fully managed service designed for running fast, interactive SQL queries on large datasets. It supports Delta Lake tables and provides a robust SQL interface for business analysts and data scientists.
 
