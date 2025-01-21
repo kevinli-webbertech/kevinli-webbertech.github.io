@@ -545,7 +545,7 @@ Please see more introduction of Tableau in the next few chapters,
 PowerBI is another popular data analysis and visualization platform,
 Please see more in the next few chapters.
 
-![power_bi](../../../images/data_visualization/power_bi.png)
+![power_bi](../../../images/data_visualization/power_bi1.png)
 
 ## Ref
 
