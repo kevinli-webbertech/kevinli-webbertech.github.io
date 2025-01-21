@@ -181,13 +181,90 @@ plt.show()
 
 ![matplotlib1](../../../images/data_visualization/matplotlib2.png)
 
-### Seaborn
+## Seaborn
+
+**Seaborn** is a Python data visualization library based on **matplotlib**. It provides a high-level interface for drawing attractive and informative statistical graphics. Seaborn makes it easy to generate complex visualizations with just a few lines of code, and it integrates well with **pandas** DataFrames for plotting.
 
 ![seaborn](../../../images/data_visualization/seaborn.png)
 
+
+### Key Features of Seaborn:
+- **Built-in Themes**: Seaborn comes with several built-in themes for better visual aesthetics.
+- **DataFrames Integration**: Seamlessly works with pandas DataFrames, making it easy to plot data directly.
+- **Statistical Plots**: Seaborn provides easy-to-use functions to generate statistical plots like box plots, violin plots, and pair plots.
+- **Color Palettes**: It has a variety of color palettes and the ability to set custom color schemes.
+- **Categorical Plots**: Functions to create bar plots, box plots, and more for categorical data.
+
 ![seaborn1](../../../images/data_visualization/seaborn1.png)
 
+### Example Usage:
+
+Here’s a simple example to plot a **scatter plot** with Seaborn.
+
+```python
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Load an example dataset
+tips = sns.load_dataset("tips")
+
+# Create a scatter plot using Seaborn
+sns.scatterplot(x="total_bill", y="tip", data=tips)
+
+# Show the plot
+plt.show()
+```
+
+### Common Types of Plots in Seaborn:
+1. **Scatter Plot**: Shows the relationship between two continuous variables.
+   ```python
+   sns.scatterplot(x="total_bill", y="tip", data=tips)
+   ```
+
+2. **Line Plot**: Displays a line chart for continuous data.
+   ```python
+   sns.lineplot(x="size", y="total_bill", data=tips)
+   ```
+
+3. **Box Plot**: Visualizes the distribution of a dataset with respect to categories.
+   ```python
+   sns.boxplot(x="day", y="total_bill", data=tips)
+   ```
+
+4. **Heatmap**: Displays a matrix of values as a color-encoded grid.
+   ```python
+   correlation_matrix = tips.corr()
+   sns.heatmap(correlation_matrix, annot=True, cmap="coolwarm")
+   ```
+
+5. **Pair Plot**: Plots pairwise relationships in a dataset.
+   ```python
+   sns.pairplot(tips)
+   ```
+
+6. **Violin Plot**: Combines aspects of box plots and density plots to show the distribution of data.
+   ```python
+   sns.violinplot(x="day", y="total_bill", data=tips)
+   ```
+
+### Customizing Plots:
+Seaborn allows customization in terms of colors, themes, and other plot properties. For instance:
+```python
+# Set a different color palette
+sns.set_palette("dark")
+
+# Use a different style (e.g., dark background)
+sns.set_style("darkgrid")
+```
+
+### How to Install Seaborn:
+If you don't have Seaborn installed, you can install it via pip:
+```bash
+pip install seaborn
+```
+
 ![seaborn2](../../../images/data_visualization/seaborn2.png)
+
 
 ## D3 - A JavaScript Visualization Library for the Web Development
 
@@ -195,9 +272,15 @@ Apache ECharts, which is an open-source visualization library used to create int
 
 ![d3](../../../images/data_visualization/d3.png)
 
+D3 has been used a lot in commercial software to build those large data analysis platform.
+
 ![d3_galary](../../../images/data_visualization/d3_galary.png)
 
+The following gives you an example how the Javascript syntax looks like,
+
 ![d3_galary1](../../../images/data_visualization/d3_galary-1.png)
+
+There are a lot of standard libries that we can use for developing opensource or commercial software platform,
 
 ![d3_galary2](../../../images/data_visualization/d3_galary-2.png)
 
