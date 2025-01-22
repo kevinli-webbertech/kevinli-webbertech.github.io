@@ -2,7 +2,7 @@
 
 Every day, thousands of people become victims of cyberterrorism, online fraud, and crimes beyond white-collar offenses. That’s why law enforcement agencies combine traditional investigations with digital evidence to combat these and secure cyberspace.
 
-But how do we collect digital evidence?
+**But how do we collect digital evidence?**
 
 Computer forensics has emerged as a modern technology to identify, extract, document, and preserve data stored on digital devices. This ensures the data is presented in authentic and undamaged form at the court of law.
 
@@ -134,7 +134,7 @@ However, following are some of the associated challenges with implementing compu
 
 ---
 
-### **1. Computer Forensics**
+### Computer Forensics
 
 **Computer forensics** involves the investigation and analysis of digital data stored on computers or computer systems. The primary focus is on recovering and analyzing data from hard drives, SSDs, memory, and other internal storage devices.
 
@@ -153,7 +153,7 @@ However, following are some of the associated challenges with implementing compu
 
 ---
 
-### **2. Mobile Device Forensics**
+### Mobile Device Forensics
 
 **Mobile device forensics** focuses on retrieving and analyzing data from mobile devices such as smartphones, tablets, and smartwatches. This includes recovering data like contacts, messages, app data, call logs, location data, and more.
 
@@ -172,7 +172,7 @@ However, following are some of the associated challenges with implementing compu
 
 ---
 
-### **3. Network Forensics**
+### Network Forensics
 
 **Network forensics** focuses on the monitoring, capturing, and analysis of network traffic to identify security incidents, detect breaches, or investigate cybercrimes. This type of forensics involves analyzing **packets**, **protocols**, and **network behavior** to trace unauthorized activities or attacks.
 
@@ -190,7 +190,7 @@ However, following are some of the associated challenges with implementing compu
 
 ---
 
-### **4. Cloud Forensics**
+### Cloud Forensics
 
 **Cloud forensics** deals with the investigation and analysis of data stored in cloud computing environments. As more organizations store data and applications in the cloud, this type of forensics has become essential for uncovering cloud-based cybercrimes, breaches, or data theft.
 
@@ -208,7 +208,7 @@ However, following are some of the associated challenges with implementing compu
 
 ---
 
-### **5. Memory Forensics**
+### Memory Forensics
 
 **Memory forensics** is the process of analyzing a system's volatile memory (RAM) to uncover hidden data, running processes, or suspicious activity. This type of forensics is essential for detecting malware, rootkits, or unauthorized processes that may not be visible in traditional disk-based analysis.
 
@@ -225,7 +225,7 @@ However, following are some of the associated challenges with implementing compu
 
 ---
 
-### **6. Disk Forensics**
+### Disk Forensics
 
 **Disk forensics** involves the examination of storage devices such as hard drives, SSDs, and external media to recover and analyze data. This process can uncover deleted files, hidden data, file system structures, and even encrypted content.
 
@@ -243,7 +243,7 @@ However, following are some of the associated challenges with implementing compu
 
 ---
 
-### **7. Mobile Application Forensics**
+### Mobile Application Forensics
 
 **Mobile application forensics** focuses on the investigation of **mobile apps** and their associated data. This can include analyzing app behavior, recovering app-specific files, and extracting data stored locally or in the cloud.
 
@@ -261,7 +261,7 @@ However, following are some of the associated challenges with implementing compu
 
 ---
 
-### **8. Web Forensics**
+### Web Forensics
 
 **Web forensics** focuses on the investigation of web-based data, including websites, web applications, browser history, and online communication. This area of forensics can help uncover evidence of cybercrimes, such as fraud, harassment, or illicit activity.
 
@@ -279,7 +279,7 @@ However, following are some of the associated challenges with implementing compu
 
 ---
 
-### **9. Forensic Imaging and Data Acquisition Tools**
+### Forensic Imaging and Data Acquisition Tools
 
 Forensic imaging tools are used to create **bit-for-bit copies** of storage devices, ensuring that the original evidence is not altered during the examination. These tools play a crucial role in preserving the integrity of data for forensic investigations.
 
@@ -296,7 +296,7 @@ Forensic imaging tools are used to create **bit-for-bit copies** of storage devi
 
 ---
 
-### **10. Forensic Cloud Data Recovery**
+### Forensic Cloud Data Recovery
 
 Cloud forensics involves retrieving, analyzing, and preserving data from cloud platforms. As more data moves to cloud storage services, forensic investigators must focus on cloud-based evidence collection, including account activities, shared data, and access logs.
 

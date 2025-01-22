@@ -43,23 +43,23 @@ This course provides an opportunity for students to learn the foundations of com
 
 | Week    | Course title                     | Expectation |
 |---------|----------------------------------|--------------|
-| Week 1  | Introduction to Data Structure   | ADT, memory management including stack and heap|
-| Week 2  | LinkedList        | Array and pointer based data structures implementation|
-| Week 3  | Stack        | Array and linkedlist based data structures implementation|
-| Week 4  | Queue        | Array based data structures implementation|
-| Week 5  | Hashing and Priority Queues      | Hashtable and Hashmap implementation|
-| Week 6  | Sorting                          | Bubble, Selection, Insertion, Merge, Quick and Heap sort |
-| Week 7  | Trees                     | Recursion, BFS and DFS, traversal, rebalance tree, construction and Tree path problems|
-| Mid-term| Coding Assignment                | Distribute Midterm Project  |
-| Week 8  | MST - Graph                 |Find and Union Algorithm Implementation |
-| Week 9  | Shortest Path - Graph      | Solving Leetcode Questions  |
-| Week 10  | Amortized Analysis               | Solving Leetcode Questions  |
-| Week 11 | Special topics - Greedy Algorithms | Solve leetcode questions   |
+| Week 1  | Introduction to Computer Forensic   | Literature and preparation for the labs |
+| Week 2  | Trend, Legal and Tools        | Installing software and prepare VM and Linux for security labs |
+| Week 3  | File System Forensic and OS Basics       | Mac, Linux and Windows Tools |
+| Week 4  | OS Forensic and security       | Selinux and security|
+| Week 5  | Computer Network Basics      | Network basics|
+| Week 6  | Network Forenstic Labs       |Port Scanning, Packet Sniffing tools  |
+| Week 7  | Computer Security Basics- Part I| Computer Security Introduction|
+| Mid-term| Midterm Assignment                | Distribute Midterm Project  |
+| Week 8  | Computer Security Basics- Part II                 |Encryption types, private&public keys|
+| Week 9  | Computer Security Basics- Part III      | Common Encryption Algorithms |
+| Week 10  | Computer Security Basics- Part IV               | encryption tools such as SSL, PEM, pgp, x509, CA certs|
+| Week 11 | API security - Part I | JWT, Oauth, OIDC   |
+| Week 12 | API security - Part II| JWT, Oauth, OIDC   |
 | Final-project | Coding Assignment | Distribute Final project |
-| Week 12 | Special topics - Divide and Conquer Algorithm | Solve leetcode questions  |
-| Week 13 | Special topics - Sliding Window and  |  Solve leetcode questions                   |
-| Week 14 | Special topics - Backtracking |  Solve leetcode questions                   |
-| Week 15 | Special topics - BFS and DFS |  Solve leetcode questions                   |
+| Week 13 | Code Scan and Vulnerabilities | Code scan and container scans   |
+| Week 14 | Cloud Security  |  Logging Software and Platforms                   |
+| Week 15 | MLDevSec |  Potential issue and scans for ML models                   |
 
 ## Quiz, Homework, Midterm and Final Project
 
