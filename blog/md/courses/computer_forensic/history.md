@@ -38,6 +38,6 @@ Computer forensics originated from practical needs in the law enforcement commun
   
   You can also use digital forensics to cover both computer and cyber forensics because digital means anything using zeros and ones for representing data, which computers and cyberspaces do. Since its humble beginning in the 1970s, computer forensics has seen explosive growth and continues to expand its scope. Newly emerging technologies such as the Internet of Things, or IoT are constantly pushing the limits of the field. 
   
-  ![alt text](image-8.png)
+  ![alt text](../../../images/computer_forensic/image-8.png)
   
   I'm sure some future successor will soon replace IoT, which will help keep expanding the field of digital forensics.
