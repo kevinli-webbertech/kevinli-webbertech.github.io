@@ -195,7 +195,7 @@ plt.show()
 - **Color Palettes**: It has a variety of color palettes and the ability to set custom color schemes.
 - **Categorical Plots**: Functions to create bar plots, box plots, and more for categorical data.
 
-![seaborn1](../../../images/data_visualization/seaborn1.png)
+![seaborn1](../../../images/data_visualization/seaborn1_1.png)
 
 ### Example Usage:
 
@@ -263,7 +263,7 @@ If you don't have Seaborn installed, you can install it via pip:
 pip install seaborn
 ```
 
-![seaborn2](../../../images/data_visualization/seaborn2.png)
+![seaborn2](../../../images/data_visualization/seaborn2_2.png)
 
 
 ## D3 - A JavaScript Visualization Library for the Web Development
