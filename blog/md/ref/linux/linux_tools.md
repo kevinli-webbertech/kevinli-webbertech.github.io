@@ -9,6 +9,7 @@ What have been covered in this articles are:
 * RDP (remote destop protocol)
 * SendMail
 * GTK
+* tesseract-ocr
 
 ## Samba Server
 
@@ -560,6 +561,22 @@ a@a-virtual-machine:~$ pv </dev/urandom | gzip >/dev/null
  149MiB 0:00:04 [37.5MiB/s]
 a@a-virtual-machine:~$ pv </dev/urandom | pigz >/dev/null 
  348MiB 0:00:02 [ 173MiB/s]
+
+## tesseract-ocr
+
+```shell
+sudo apt install tesseract-ocr
+sudo apt install libtesseract-dev
+```
+
+>> Note for Ubuntu users: In case apt is unable to find the package try adding universe entry to the sources.list file as shown below.
+
+`sudo vi /etc/apt/sources.list`
+
+Copy the first line "deb http://archive.ubuntu.com/ubuntu bionic main" and paste it as shown below on the next line.
+If you are using a different release of ubuntu, then replace bionic with the respective release name.
+
+`deb http://archive.ubuntu.com/ubuntu bionic universe`
 
 ### ref
 
