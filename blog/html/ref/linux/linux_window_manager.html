@@ -10,7 +10,7 @@
 
 <!-- Load the element definition -->
 <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
-
+<script src="../../../../js/content_locker.js"></script>
 <script> 
     function saveAsPDF() { 
       window.print(); 
@@ -20,6 +20,8 @@
 <div class="column content">
     <!-- Simply set the `src` attribute to your MD file and win -->
     <zero-md src="../../../md/ref/linux/linux_window_manager.md"></zero-md>
+    <p>
+    <zero-md src="../md/disclaimer.md"></zero-md>
     <button onclick="saveAsPDF()">Save as PDF</button> 
 </div>
 
