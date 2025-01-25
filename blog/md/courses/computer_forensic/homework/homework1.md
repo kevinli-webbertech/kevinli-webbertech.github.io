@@ -8,7 +8,7 @@ Please write down your system info including operating system, and what you are 
 
 Here are several options,
 
-* For Windows users, you can install virtualbox or vmware and install from an .iso file. Boot the linux form it and run some commands. The linux emulation that comes with linux is not acceptable. Screenshots needed to prove you can do it.
+* For Windows users, you can install virtualbox or vmware and install from an .iso file. Boot the linux form it and run some commands. The linux emulation that comes with Windows is not acceptable. Screenshots needed to prove you can do it.
 
 * For Mac users, preferably you can install virtualbox or vmware and install linux just like windows user. If you are using M Chip Mac and you are encoutering issues, please use docker to pull down ubuntu or Kali linux image. Your native unix terminal is not acceptable.
 
