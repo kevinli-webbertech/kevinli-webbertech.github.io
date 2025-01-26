@@ -2,7 +2,7 @@
 
 ## What is Mathplotlib
 
-This is the first part of Mathplotlib. Most of the content from this section is referenced from the book from "Python Data Science Handbook" by Jake VanderPlas published by O'Reilly.
+This is the first part of Mathplotlib. Most of the contents from this section are referenced from the book "Python Data Science Handbook" by Jake VanderPlas published by O'Reilly.
 
 >Disclaim: everything is for educational purpose. Not for redistribution or sales.
 
