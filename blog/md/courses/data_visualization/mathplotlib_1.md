@@ -123,7 +123,7 @@ plt.plot(x, np.sin(x), '-')
 plt.plot(x, np.cos(x), '--');
 ```
 
-![alt text](image.png)
+![alt text](../../../images/data_visualization/mathplotlib/image.png)
 
 ### Saving Figures to File
 
@@ -181,7 +181,7 @@ We’ll quickly highlight the differences between the two here.
 
 Matplotlib was originally written as a Python alternative for MATLAB users, and much of its syntax reflects that fact. The MATLAB-style tools are contained in the `pyplot (plt)` interface. For example, the following code will probably look quite familiar to MATLAB users:
 
-```
+```python
 In[9]: plt.figure()
 # create a plot figure
 # create the first of two panels and set current axis
