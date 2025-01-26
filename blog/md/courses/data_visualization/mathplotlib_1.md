@@ -22,21 +22,17 @@ Python's package has been grown so much that it has developed so much supports s
 
 ## How to learn Mathplotlib
 
-We’ll now take an in-depth look at the Matplotlib tool for visualization in Python. Matplotlib is a multiplatform data visualization library built on NumPy arrays, and designed to work with the broader SciPy stack. It was conceived by John Hunter in
-2002, originally as a patch to IPython for enabling interactive MATLAB-style plotting via gnuplot from the IPython command line. IPython’s creator, Fernando Perez, was at the time scrambling to finish his PhD, and let John know he wouldn’t have time to review the patch for several months. John took this as a cue to set out on his own, and the Matplotlib package was born, with version 0.1 released in 2003. It received an early boost when it was adopted as the plotting package of choice of the Space Tele‐scope Science Institute (the folks behind the Hubble Telescope), which financially supported Matplotlib’s development and greatly expanded its capabilities.
+We’ll now take an in-depth look at the Matplotlib tool for visualization in Python. Matplotlib is a multiplatform data visualization library built on NumPy arrays, and designed to work with the broader SciPy stack. It was conceived by John Hunter in 2002, originally as a patch to IPython for enabling interactive MATLAB-style plotting via gnuplot from the IPython command line. IPython’s creator, Fernando Perez, was at the time scrambling to finish his PhD, and let John know he wouldn’t have time to review the patch for several months. John took this as a cue to set out on his own, and the Matplotlib package was born, with version 0.1 released in 2003. It received an early boost when it was adopted as the plotting package of choice of the Space Tele‐scope Science Institute (the folks behind the Hubble Telescope), which financially supported Matplotlib’s development and greatly expanded its capabilities.
 
-One of Matplotlib’s most important features is its ability to play well with many oper‐
-ating systems and graphics backends. Matplotlib supports dozens of backends and output types, which means you can count on it to work regardless of which operating system you are using or which output format you wish.
+One of Matplotlib’s most important features is its ability to play well with many operating systems and graphics backends. Matplotlib supports dozens of backends and output types, which means you can count on it to work regardless of which operating system you are using or which output format you wish.
 
-This cross-platform, everything-to-everyone approach has been one of the great strengths of Matplotlib. It
-has led to a large userbase, which in turn has led to an active developer base and Matplotlib’s powerful tools and ubiquity within the scientific Python world.
+This cross-platform, everything-to-everyone approach has been one of the great strengths of Matplotlib. It has led to a large userbase, which in turn has led to an active developer base and Matplotlib’s powerful tools and ubiquity within the scientific Python world.
 
 In recent years, however, the interface and style of Matplotlib have begun to show their age. Newer tools like ggplot and ggvis in the R language, along with web visualization toolkits based on D3js and HTML5 canvas, often make Matplotlib feel clunky and old-fashioned. Still, we cannot ignore Matplotlib’s strength as a well-tested, cross-platform graphics engine. Recent Matplotlib versions make it relatively easy to set new global plotting styles (see “Customizing Matplotlib: Configurations and Stylesheets” on page 282), and people have been developing new packages that build on its powerful internals to drive Matplotlib via cleaner, more modern APIs—for example, Seaborn (discussed in “Visualization with Seaborn” on my website), ggplot, HoloViews, Altair, and even Pandas itself can be used as wrappers around Matplotlib’s API. Even with wrappers like these, it is still often useful to dive into Matplotlib’s syntax to adjust the final plot output. For this reason, I believe that Matplotlib itself will remain a vital piece of the data visualization stack, even if new tools mean the community gradually moves away from using the Matplotlib API directly.
 
 ## General Matplotlib Tips
 
-Before we dive into the details of creating visualizations with Matplotlib, there are a
-few useful things you should know about using the package.
+Before we dive into the details of creating visualizations with Matplotlib, there are a few useful things you should know about using the package.
 
 ### Importing matplotlib
 
@@ -59,8 +55,7 @@ Throughout this section, we will adjust this style as needed. Note that the styl
 
 ### show() or No show()? How to Display Your Plots
 
-A visualization you can’t see won’t be of much use, but just how you view your Matplotlib plots depends on the context. The best use of Matplotlib differs depending on how you are using it; roughly, the three applicable contexts are using Matplotlib in a
-script, in an IPython terminal, or in an IPython notebook.
+A visualization you can’t see won’t be of much use, but just how you view your Matplotlib plots depends on the context. The best use of Matplotlib differs depending on how you are using it; roughly, the three applicable contexts are using Matplotlib in a script, in an IPython terminal, or in an IPython notebook.
 
 ### Plotting from a script
 
@@ -78,8 +73,7 @@ plt.plot(x, np.cos(x))
 plt.show()
 ```
 
-You can then run this script from the command-line prompt, which will result in a
-window opening with your figure displayed:
+You can then run this script from the command-line prompt, which will result in a window opening with your figure displayed:
 
 `$ python myplot.py`
 
@@ -168,8 +162,7 @@ Out[8]: {'eps': 'Encapsulated Postscript',
 'tiff': 'Tagged Image File Format'}
 ```
 
-Note that when saving your figure, it’s not necessary to use plt.show() or related
-commands discussed earlier.
+Note that when saving your figure, it’s not necessary to use `plt.show()` or related commands discussed earlier.
 
 ### Two Interfaces for the Price of One
 
@@ -194,11 +187,9 @@ plt.plot(x, np.cos(x));
 
 ![alt text](../../../images/data_visualization/mathplotlib/image-2.png)
 
-It’s important to note that this interface is stateful: it keeps track of the “current” figure
-and axes, which are where all plt commands are applied. You can get a reference to these using the `plt.gcf()` (get current figure) and `plt.gca()` (get current axes)routines.
+It’s important to note that this interface is stateful: it keeps track of the “current” figure and axes, which are where all plt commands are applied. You can get a reference to these using the `plt.gcf()` (get current figure) and `plt.gca()` (get current axes)routines.
 
-While this stateful interface is fast and convenient for simple plots, it is easy to run
-into problems. For example, once the second panel is created, how can we go back and add something to the first? This is possible within the MATLAB-style interface, but a bit clunky. Fortunately, there is a better way.
+While this stateful interface is fast and convenient for simple plots, it is easy to run into problems. For example, once the second panel is created, how can we go back and add something to the first? This is possible within the MATLAB-style interface, but a bit clunky. Fortunately, there is a better way.
 
 ### Object-oriented interface
 
@@ -215,13 +206,11 @@ ax[1].plot(x, np.cos(x));
 
 ![alt text](../../../images/data_visualization/mathplotlib/image-3.png)
 
-For more simple plots, the choice of which style to use is largely a matter of preference, but the object-oriented approach can become a necessity as plots become more complicated. Throughout this chapter, we will switch between the MATLAB-style
-and object-oriented interfaces, depending on what is most convenient. In most cases, the difference is as small as switching `plt.plot()` to `ax.plot()`, but there are a few gotchas that we will highlight as they come up in the following sections.
+For more simple plots, the choice of which style to use is largely a matter of preference, but the object-oriented approach can become a necessity as plots become more complicated. Throughout this chapter, we will switch between the MATLAB-style and object-oriented interfaces, depending on what is most convenient. In most cases, the difference is as small as switching `plt.plot()` to `ax.plot()`, but there are a few gotchas that we will highlight as they come up in the following sections.
 
 ### Simple Line Plots
 
-Perhaps the simplest of all plots is the visualization of a single function `y = f x` . Here
-we will take a first look at creating a simple plot of this type. As with all the following sections, we’ll start by setting up the notebook for plotting and importing the functions we will use:
+Perhaps the simplest of all plots is the visualization of a single function `y = f x` . Here we will take a first look at creating a simple plot of this type. As with all the following sections, we’ll start by setting up the notebook for plotting and importing the functions we will use:
 
 ```python
 In[1]: %matplotlib inline
@@ -230,8 +219,7 @@ plt.style.use('seaborn-whitegrid')
 import numpy as np
 ```
 
-For all Matplotlib plots, we start by creating a figure and an axes. In their simplest
-form, a figure and axes can be created as follows:
+For all Matplotlib plots, we start by creating a figure and an axes. In their simplest form, a figure and axes can be created as follows:
 
 ```python
 In[2]: fig = plt.figure()
@@ -261,8 +249,7 @@ Alternatively, we can use the pylab interface and let the figure and axes be cre
 
 ![alt text](../../../images/data_visualization/mathplotlib/image-6.png)
 
-If we want to create a single figure with multiple lines, we can simply call the plot
-function multiple times:
+If we want to create a single figure with multiple lines, we can simply call the plot function multiple times:
 
 ```python
 In[5]: plt.plot(x, np.sin(x))
@@ -273,7 +260,8 @@ plt.plot(x, np.cos(x));
 
 That’s all there is to plotting simple functions in Matplotlib! We’ll now dive into some more details about how to control the appearance of the axes and lines.
 
-Adjusting the Plot: Line Colors and Styles
+**Adjusting the Plot: Line Colors and Styles**
+
 The first adjustment you might wish to make to a plot is to control the line colors and styles. The `plt.plot()` function takes additional arguments that can be used to specify these. To adjust the color, you can use the color keyword, which accepts a string argument representing virtually any imaginable color. The color can be specified in a variety of ways:
 
 ```python
@@ -292,8 +280,7 @@ plt.plot(x, np.sin(x - 5), color='chartreuse'); # all HTML color names supported
 
 ![alt text](../../../images/data_visualization/mathplotlib/image-8.png)
 
-If no color is specified, Matplotlib will automatically cycle through a set of default
-colors for multiple lines. Similarly, you can adjust the line style using the linestyle keyword.
+If no color is specified, Matplotlib will automatically cycle through a set of default colors for multiple lines. Similarly, you can adjust the line style using the linestyle keyword.
 
 ```python
 In[7]: plt.plot(x, x + 0, linestyle='solid')
@@ -308,8 +295,7 @@ plt.plot(x, x + 6, linestyle='-.') # dashdot
 
 ![alt text](../../../images/data_visualization/mathplotlib/image-9.png)
 
-If you would like to be extremely terse, these linestyle and color codes can be com‐
-bined into a single nonkeyword argument to the plt.`plot()` function (Figure 4-11):
+If you would like to be extremely terse, these linestyle and color codes can be combined into a single nonkeyword argument to the `plt.plot()` function:
 
 ```python
 In[8]: plt.plot(x, x + 0, '-g') # solid green
@@ -323,3 +309,113 @@ plt.plot(x, x + 3, ':r'); # dotted red
 These single-character color codes reflect the standard abbreviations in the RGB (Red/Green/Blue) and CMYK (Cyan/Magenta/Yellow/blacK) color systems, commonly used for digital color graphics.
 
 There are many other keyword arguments that can be used to fine-tune the appearance of the plot; for more details, I’d suggest viewing the docstring of the `plt.plot()` function using IPython’s help tools.
+
+### Adjusting the Plot: Axes Limits
+
+Matplotlib does a decent job of choosing default axes limits for your plot, but sometimes it’s nice to have finer control. The most basic way to adjust axis limits is to use the `plt.xlim()` and `plt.ylim()` methods:
+
+```python
+In[9]: plt.plot(x, np.sin(x))
+plt.xlim(-1, 11)
+plt.ylim(-1.5, 1.5);
+```
+
+![axis_limits](../../../images/data_visualization/mathplotlib/axis_limits.png)
+
+If for some reason you’d like either axis to be displayed in reverse, you can simply reverse the order of the arguments.
+
+```python
+In[10]: plt.plot(x, np.sin(x))
+plt.xlim(10, 0)
+plt.ylim(1.2, -1.2);
+```
+
+![reversing_the_y-axis](../../../images/data_visualization/mathplotlib/reversing_the_y-axis.png)
+
+A useful related method is `plt.axis()` (note here the potential confusion between axes with an e, and axis with an i). The plt.axis() method allows you to set the x and y limits with a single call, by passing a list that specifies `[xmin, xmax, ymin, ymax]`,
+
+```python
+In[11]: plt.plot(x, np.sin(x))
+plt.axis([-1, 11, -1.5, 1.5]);
+```
+
+![axis_limits](../../../images/data_visualization/mathplotlib/axis_limits_1.png)
+
+The plt.axis() method goes even beyond this, allowing you to do things like automatically tighten the bounds around the current plot:
+
+```python
+In[12]: plt.plot(x, np.sin(x))
+plt.axis('tight');
+```
+
+![grid_tight](../../../images/data_visualization/mathplotlib/grid_tight.png)
+
+It allows even higher-level specifications, such as ensuring an equal aspect ratio so that on your screen, one unit in x is equal to one unit in y:
+
+```python
+In[13]: plt.plot(x, np.sin(x))
+plt.axis('equal');
+```
+
+![grid_equal](../../../images/data_visualization/mathplotlib/grid_equal.png)
+
+For more information on axis limits and the other capabilities of the `plt.axis()` method, refer to the plt.axis() docstring.
+
+### **Labeling Plots**
+
+As the last piece of this section, we’ll briefly look at the labeling of plots: titles, axis labels, and simple legends.
+
+Titles and axis labels are the simplest such labels—there are methods that can be used to quickly set them:
+
+```python
+In[14]: plt.plot(x, np.sin(x))
+plt.title("A Sine Curve")
+plt.xlabel("x")
+plt.ylabel("sin(x)");
+```
+
+![axis_labels](axis_labels.png)
+
+You can adjust the position, size, and style of these labels using optional arguments to the function. For more information, see the Matplotlib documentation and the doc‐strings of each of these functions.
+
+When multiple lines are being shown within a single axes, it can be useful to create a plot legend that labels each line type. Again, Matplotlib has a built-in way of quickly creating such a legend. It is done via the (you guessed it) plt.legend() method.
+
+Though there are several valid ways of using this, I find it easiest to specify the label of each line using the label keyword of the plot function:
+
+```python
+In[15]: plt.plot(x, np.sin(x), '-g', label='sin(x)')
+plt.plot(x, np.cos(x), ':b', label='cos(x)')
+plt.axis('equal')
+
+plt.legend();
+```
+
+![plot_ledend](../../../images/data_visualization/mathplotlib/plot_ledend.png)
+
+As you can see, the plt.legend() function keeps track of the line style and color, and matches these with the correct label. More information on specifying and formatting plot legends can be found in the plt.legend() docstring;
+
+## Matplotlib Gotchas
+
+While most plt functions translate directly to ax methods (such as plt.plot() → ax.plot(), plt.legend() → ax.legend(), etc.), this is not the case for all commands. In particular, functions to set limits, labels, and titles are slightly modified.
+
+For transitioning between MATLAB-style functions and object-oriented methods, make the following changes:
+
+```python
+• plt.xlabel() → ax.set_xlabel()
+• plt.ylabel() → ax.set_ylabel()
+• plt.xlim() → ax.set_xlim()
+• plt.ylim() → ax.set_ylim()
+• plt.title() → ax.set_title()
+```
+
+In the object-oriented interface to plotting, rather than calling these functions individually, it is often more convenient to use the ax.set() method to set all these properties at once:
+
+```python
+In[16]: ax = plt.axes()
+ax.plot(x, np.sin(x))
+ax.set(xlim=(0, 10), ylim=(-2, 2),
+xlabel='x', ylabel='sin(x)',
+title='A Simple Plot');
+```
+
+![multiple_properties](../../../images/data_visualization/mathplotlib/multiple_properties.png)
