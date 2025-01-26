@@ -14,7 +14,7 @@ def map_taxonomy_codes(chunk):
     chunk['taxonomy names']=chunk['codes'].apply(lambda codes:[taxonomy_dict.get(code,'Unknown')for code in codes])
     return chunk
 
-#load the chunks in a smaller size
+#load the chunks in a smaller sizes
 chunk_size = 50000
 chunks = pd.read_csv('npidata_pfile_20050523-20241013.csv', chunksize=chunk_size)
 

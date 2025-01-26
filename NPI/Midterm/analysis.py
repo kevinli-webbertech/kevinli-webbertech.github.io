@@ -128,7 +128,7 @@ def doctor_search_large_file(FirstName, LastName, file_path, chunksize=100000):
         print(f"The doctor {FirstName} {LastName} does not exist in the dataset.")
         return pd.DataFrame()  # Return an empty DataFrame
 
-# Iterate over each name and search in the file
+# Iterate over each name and search in the file.
 for first_name, last_name in names_to_search:
     result = doctor_search_large_file(first_name, last_name, file_path)
     if not result.empty:
