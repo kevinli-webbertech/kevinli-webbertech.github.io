@@ -374,7 +374,7 @@ plt.xlabel("x")
 plt.ylabel("sin(x)");
 ```
 
-![axis_labels](axis_labels.png)
+![axis_labels](../../../images/data_visualization/mathplotlib/axis_labels.png)
 
 You can adjust the position, size, and style of these labels using optional arguments to the function. For more information, see the Matplotlib documentation and the doc‐strings of each of these functions.
 
