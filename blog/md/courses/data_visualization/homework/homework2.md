@@ -1,4 +1,4 @@
-# Homework 2
+# Homework 2 Visualize Stock Data
 
 * Put your code and screenshots into a word document.
   * Please write down your name and ID. (5 pts)
