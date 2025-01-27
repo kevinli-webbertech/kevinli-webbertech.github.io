@@ -21,7 +21,7 @@ y = np.sin(x)
 plt.plot(x, y, 'o', color='black');
 ```
 
-![Scatter1](Scatter1.png)
+![Scatter1](../../../images/data_visualization/mathplotlib/Scatter1.png)
 
 The third argument in the function call is a character that represents the type of symbol used for the plotting. Just as you can specify options such as '-' and '--' to control the line style, the marker style has its own set of short string codes. The full list of available symbols can be seen in the documentation of plt.plot, or in Matplotlib’s online documentation. Most of the possibilities are fairly intuitive, and we’ll show a number of the more common ones here:
 
@@ -34,7 +34,7 @@ plt.legend(numpoints=1)
 plt.xlim(0, 1.8);
 ```
 
-![alt text](Scatter2.png)
+![alt text](../../../images/data_visualization/mathplotlib/Scatter2.png)
 
 For even more possibilities, these character codes can be used together with line and color codes to plot points along with a line connecting them:
 
@@ -42,7 +42,7 @@ For even more possibilities, these character codes can be used together with lin
 
 ### line (-), circle marker (o), black (k)
 
-![alt text](Scatter3.png)
+![alt text](../../../images/data_visualization/mathplotlib/Scatter3.png)
 
 Additional keyword arguments to plt.plot specify a wide range of properties of the lines and markers:
 
@@ -55,7 +55,7 @@ markeredgewidth=2)
 plt.ylim(-1.2, 1.2);
 ```
 
-![alt text](Scatter4.png)
+![alt text](../../../images/data_visualization/mathplotlib/Scatter4.png)
 
 This type of flexibility in the plt.plot function allows for a wide variety of possible visualization options. For a full description of the options available, refer to the plt.plot documentation.
 
@@ -65,7 +65,7 @@ A second, more powerful method of creating scatter plots is the plt.scatter func
 
 `In[6]: plt.scatter(x, y, marker='o');`
 
-![alt text](Scatter5.png)
+![alt text](../../../images/data_visualization/mathplotlib/Scatter5.png)
 
 The primary difference of plt.scatter from plt.plot is that it can be used to create scatter plots where the properties of each individual point (size, face color, edge color, etc.) can be individually controlled or mapped to data.
 
@@ -84,7 +84,7 @@ cmap='viridis')
 plt.colorbar(); # show color scale
 ```
 
-![alt text](Scatter6.png)
+![alt text](../../../images/data_visualization/mathplotlib/Scatter6.png)
 
 Notice that the color argument is automatically mapped to a color scale (shown here by the colorbar() command), and the size argument is given in pixels. In this way, the color and size of points can be used to convey information in the visualization, in order to illustrate multidimensional data.
 
@@ -100,7 +100,7 @@ plt.xlabel(iris.feature_names[0])
 plt.ylabel(iris.feature_names[1]);
 ```
 
-![alt text](Scatter7.png)
+![alt text](../../../images/data_visualization/mathplotlib/Scatter7.png)
 
 We can see that this scatter plot has given us the ability to simultaneously explore four different dimensions of the data: the (x, y) location of each point corresponds to the sepal length and width, the size of the point is related to the petal width, and the color is related to the particular species of flower. Multicolor and multifeature scatter plots like this can be useful for both exploration and presentation of data.
 
@@ -130,7 +130,7 @@ y = np.sin(x) + dy * np.random.randn(50)
 plt.errorbar(x, y, yerr=dy, fmt='.k');
 ```
 
-![alt text](Scatter8.png)
+![alt text](../../../images/data_visualization/mathplotlib/Scatter8.png)
 
 Here the fmt is a format code controlling the appearance of lines and points, and has the same syntax as the shorthand used in plt.plot, outlined in “Simple Line Plots”.
 
@@ -141,7 +141,7 @@ In[3]: plt.errorbar(x, y, yerr=dy, fmt='o', color='black',
 ecolor='lightgray', elinewidth=3, capsize=0);
 ```
 
-![alt text](Scatter9.png)
+![alt text](../../../images/data_visualization/mathplotlib/Scatter9.png)
 
 In addition to these options, you can also specify horizontal errorbars (xerr), one sided errorbars, and many other variants. For more information on the options available, refer to the docstring of plt.errorbar.
 
@@ -183,7 +183,7 @@ color='gray', alpha=0.2)
 plt.xlim(0, 10);
 ```
 
-![alt text](Scatter10.png)
+![alt text](../../../images/data_visualization/mathplotlib/Scatter10.png)
 
 Note what we’ve done here with the fill_between function: we pass an x value, then the lower y-bound, then the upper y-bound, and the result is that the area between these regions is filled.
 
@@ -225,13 +225,13 @@ Now let’s look at this with a standard line-only contour plot:
 
 `In[4]: plt.contour(X, Y, Z, colors='black');`
 
-![alt text](Scatter11.png)
+![alt text](../../../images/data_visualization/mathplotlib/Scatter11.png)
 
 Notice that by default when a single color is used, negative values are represented by dashed lines, and positive values by solid lines. Alternatively, you can color-code the lines by specifying a colormap with the cmap argument. Here, we’ll also specify that we want more lines to be drawn—20 equally spaced intervals within the data range:
 
 `In[5]: plt.contour(X, Y, Z, 20, cmap='RdGy');`
 
-![alt text](Scatter12.png)
+![alt text](../../../images/data_visualization/mathplotlib/Scatter12.png)
 
 Here we chose the RdGy (short for Red-Gray) colormap, which is a good choice for centered data. Matplotlib has a wide range of colormaps available, which you can easily browse in IPython by doing a tab completion on the plt.cm module: plt.cm.<TAB>
 
@@ -246,7 +246,7 @@ In[6]: plt.contourf(X, Y, Z, 20, cmap='RdGy')
 plt.colorbar();
 ```
 
-![alt text](Scatter13.png)
+![alt text](../../../images/data_visualization/mathplotlib/Scatter13.png)
 
 The colorbar makes it clear that the black regions are “peaks,” while the red regions are “valleys.”
 
@@ -267,7 +267,7 @@ There are a few potential gotchas with imshow(), however:
 
 * plt.imshow() will automatically adjust the axis aspect ratio to match the input data; you can change this by setting, for example, plt.axis(aspect='image') to make x and y units match.
 
-![alt text](Scatter14.png)
+![alt text](../../../images/data_visualization/mathplotlib/Scatter14.png)
 
 Finally, it can sometimes be useful to combine contour plots and image plots. For example, to create the effect shown in Figure 4-34, we’ll use a partially transparent background image (with transparency set via the alpha parameter) and over-plot contours with labels on the contours themselves (using the plt.clabel() function):
 
@@ -279,7 +279,7 @@ cmap='RdGy', alpha=0.5)
 plt.colorbar();
 ```
 
-![alt text](Scatter15.png)
+![alt text](../../../images/data_visualization/mathplotlib/Scatter15.png)
 
 The combination of these three functions—plt.contour, plt.contourf, and
 plt.imshow—gives nearly limitless possibilities for displaying this sort of three-dimensional data within a two-dimensional plot. For more information on the options available in these functions, refer to their docstrings.
