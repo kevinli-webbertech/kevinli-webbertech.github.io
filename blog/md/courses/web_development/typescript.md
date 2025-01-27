@@ -40,6 +40,7 @@ TypeScript code is transpiled into plain JavaScript, which can run on any browse
 
 TSLint scans TypeScript code for conformance to a set of standards and guidelines. ESLint, a standard JavaScript linter, also provided some support for TypeScript via community plugins. However, ESLint's inability to leverage TypeScript's language services precluded certain forms of semantic linting and program-wide analysis. In early 2019, the TSLint team announced the linter's deprecation in favor of typescript-eslint, a joint effort of the TSLint, ESLint and TypeScript teams to consolidate linting under the ESLint umbrella for improved performance, community unity and developer accessibility.
 
+<<<<<<< HEAD
 ## Quick Guide
 
 * **Installation**
@@ -161,3 +162,5 @@ This will start the development server, and you can view your app in the browser
 ---
 
 That’s it! You’ve successfully configured TypeScript with React. Feel free to customize the project and start adding more complex components.
+=======
+>>>>>>> npi_branch
