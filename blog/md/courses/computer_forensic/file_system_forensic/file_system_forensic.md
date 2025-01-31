@@ -105,12 +105,7 @@ Forensics must adhere to strict protocols to ensure that the evidence collected 
 - Ensuring the **chain of custody** is maintained (tracking the evidence from the crime scene to the final report).
 - Using forensic tools that comply with standards and can generate reports that are understandable and reliable in a legal setting.
 
----
-
-### **Conclusion**
-
 **File system forensics** is a crucial part of digital forensics, allowing investigators to recover, analyze, and preserve digital evidence stored on file systems. By examining file metadata, timestamps, deleted files, and file system structures, forensic experts can uncover significant evidence, whether in criminal investigations, corporate fraud, or regulatory compliance.
-
 
 ## **File System Forensics on Windows**
 
