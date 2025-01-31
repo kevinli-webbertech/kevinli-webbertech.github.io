@@ -154,6 +154,53 @@ TCP/IP uses a layered approach to organizing network communication. Each layer h
 - **Transport Layer**: Ensures reliable communication between systems (TCP/UDP).
 - **Application Layer**: Provides the interface for applications to send and receive data (HTTP, FTP, etc.).
 
----
+## TCP/IP model Diagram
 
-Let me know if you'd like more detailed examples or help understanding specific concepts, such as **subnetting** calculations, **how routers work**, or anything else related to TCP/IP!
+Here’s an updated version of the TCP/IP model diagram with added details about the data packets and their formats in each layer:
+
+```
++-----------------------------------+
+|  Application Layer (Layer 4)      |  (Data: Data / Message)
+|                                   |
+|  Example Protocols: HTTP, FTP,    |
+|  SMTP, DNS                        |
++-----------------------------------+
+|  Transport Layer (Layer 3)        |  (Data: Segment / Datagram)
+|                                   |
+|  Example Protocols: TCP, UDP      |
++-----------------------------------+
+|  Internet Layer (Layer 2)         |  (Data: Packet)
+|                                   |
+|  Example Protocols: IP, ICMP      |
++-----------------------------------+
+|  Link Layer (Layer 1)             |  (Data: Frame)
+|                                   |
+|  Example Protocols: Ethernet, ARP |
++-----------------------------------+
+```
+
+### Data Packet Format in Each Layer
+
+1. **Application Layer (Layer 4)**:
+   - **Data**: Data / Message
+   - This layer contains the actual user data. Protocols like HTTP, FTP, and SMTP generate messages (often in the form of requests or responses) that are passed down to the transport layer.
+   
+2. **Transport Layer (Layer 3)**:
+   - **Data**: Segment (TCP) / Datagram (UDP)
+   - **TCP Segment**: Contains the application data and adds a **TCP header** that includes source and destination ports, sequence number, acknowledgment, flags, and checksums.
+   - **UDP Datagram**: Similar to a TCP segment but with a simpler header, including source and destination ports, length, and checksum.
+   
+3. **Internet Layer (Layer 2)**:
+   - **Data**: Packet
+   - The Internet layer adds an **IP header** that includes source and destination IP addresses. This layer is responsible for routing data across different networks.
+
+4. **Link Layer (Layer 1)**:
+   - **Data**: Frame
+   - The Link layer encapsulates data into frames for transmission over physical media. The **frame header** contains information such as MAC addresses, error detection (CRC), and other control data.
+
+### Example
+
+- At the **Application Layer**, you might have an HTTP message like `GET /index.html`.
+- At the **Transport Layer**, it would become a TCP segment, with the message encapsulated in a segment header (with ports, sequence numbers, etc.).
+- At the **Internet Layer**, the TCP segment would be wrapped in an IP packet, with source and destination IP addresses.
+- At the **Link Layer**, the IP packet would be placed inside an Ethernet frame, which includes MAC addresses and error-checking data.
