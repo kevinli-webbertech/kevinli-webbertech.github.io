@@ -1,11 +1,33 @@
-A **Trie** (also known as a **Prefix Tree**) is a tree-like data structure used to efficiently store and search a dynamic set of strings, particularly for scenarios like autocomplete or dictionary lookups. Each node in a Trie represents a character of a string, and the tree is structured such that all descendants of a node share a common prefix.
 
-### **Trie Properties:**
-1. **Node Structure**:
-   - Each node contains an array of references (one for each possible character).
-   - It may also contain a boolean flag (`isEndOfWord`) to indicate whether the node represents the end of a valid string.
-2. **Efficiency**:
-   - Insert and search operations are typically O(m), where m is the length of the string being inserted or searched. This is because the operations only depend on the length of the string, not the number of strings stored.
+# Trie
+
+A **Trie** (pronounced "try") is a **tree-like data structure** that is used to store a dynamic set of strings, typically for **prefix matching**. It is primarily used for applications like **autocomplete**, **spell checking**, and **IP routing**, among others. Tries are sometimes called **prefix trees** because they allow efficient retrieval of keys that share common prefixes.
+
+### Key Properties of a Trie
+
+1. **Nodes Represent Prefixes**: Each node represents a character or part of a key, and paths from the root to the leaf represent complete words or strings.
+2. **No Redundancy**: Common prefixes are stored only once. For example, the strings "bat" and "ball" share the prefix "ba", so "ba" would appear only once in the trie.
+3. **Efficient Search**: Searching for a word or prefix is efficient, typically **O(m)**, where `m` is the length of the string being searched. In contrast to searching through a list of strings, tries can offer faster lookups.
+
+### Trie Operations
+
+- **Insert**: Insert a word into the trie.
+- **Search**: Check if a word exists in the trie.
+- **Prefix Search**: Check if there is any word in the trie that starts with a given prefix.
+- **Delete**: Remove a word from the trie.
+
+### Use Cases of Tries
+
+1. **Autocomplete**: Tries are frequently used in search engines to provide suggestions based on typed prefixes.
+2. **Spell Checkers**: For checking if a word exists in a dictionary.
+3. **IP Routing**: Tries are used in networking algorithms, where IP addresses are matched based on prefixes.
+4. **Dictionary Implementations**: To implement dictionary data structures with fast prefix matching.
+
+### Trie Node Structure
+
+Each **TrieNode** contains:
+- **Children**: A dictionary or list that maps characters to child nodes.
+- **End of Word Flag**: A boolean flag that indicates whether a node represents the end of a word.
 
 ### **Java Implementation of Trie**
 
