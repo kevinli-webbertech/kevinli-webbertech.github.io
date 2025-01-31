@@ -1,3 +1,5 @@
+# Binary Tree
+
 A **Binary Tree** is a hierarchical data structure where each node has at most two children referred to as the **left child** and the **right child**. It is widely used for searching, sorting, and hierarchical data representation.
 
 ### **Binary Tree Structure**
