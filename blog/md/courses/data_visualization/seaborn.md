@@ -1,9 +1,8 @@
-# **Seaborn Tutorial for Beginners**
+# **Seaborn Part I**
 
 Seaborn is a Python data visualization library based on Matplotlib. It provides a high-level interface for drawing 
 attractive and informative statistical graphics. In this tutorial, we will explore the basics of Seaborn and learn how 
 to create different types of visualizations. Each section includes examples and tips to help you build a strong foundation.
-
 
 ## **Getting Started with Seaborn**
 
@@ -68,17 +67,13 @@ data = sns.load_dataset("tips")
 data.head()
 ```
 
-
-
 ![seaborn1](../../../images/data_visualization/seaborn4.png)
-
 
 ### **Basic Plotting with Seaborn**
 
 Seaborn provides a simpler and more intuitive interface compared to Matplotlib for creating complex visualizations 
 with minimal code. While Matplotlib is highly flexible, Seaborn excels in statistical data visualization and 
 integrates seamlessly with Pandas DataFrames, making it easier to plot data directly from tabular formats.
-
 
 1. Scatter Plot
 
@@ -140,7 +135,6 @@ plt.title("Box Plot of Tips by Day")
 plt.show()
 ```
 
-
 ![seaborn1](../../../images/data_visualization/seaborn8.png)
 
 You can enhance box plots by adding a hue parameter to compare groups:
@@ -167,11 +161,9 @@ sns.pairplot(data, vars=["total_bill", "tip", "size"], hue="sex", diag_kind="kde
 plt.show()
 ```
 
-
 ![seaborn1](../../../images/data_visualization/seaborn10.png)
 
 Here, diag_kind="kde" changes the diagonal plots to kernel density estimates, and the hue parameter adds color coding for the sex variable, making it easier to distinguish groups.
-
 
 ### **Customizing Seaborn Plots**
 
@@ -193,7 +185,7 @@ Replace 'style_name' with one of the options above
 
 `sns.set_style("style_name")`
 
-For Example 
+For Example,
 
 ```python
 sns.set_style("whitegrid")
@@ -204,7 +196,6 @@ plt.show()
 
 ![seaborn1](../../../images/data_visualization/seaborn11.png)
 
-
 ## **Tips for Using Seaborn**
 
 1. Start with Built-in Datasets: Use Seaborn’s built-in datasets like tips or iris to practice.
@@ -212,7 +203,3 @@ plt.show()
 3. Combine with Pandas: Use Pandas to preprocess your data before visualizing it with Seaborn.
 4. Experiment with Parameters: Don’t hesitate to experiment with various parameters to find the best settings for your data.
 5. Save Your Plots: Use plt.savefig("plot.png") to save your visualizations for reports or presentations.
-
-
-
-
