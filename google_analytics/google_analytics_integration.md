@@ -1,4 +1,5 @@
-What is Google Analytics?
+## What is Google Analytics?
+
 Google Analytics is a web analytics service that provides numerous analytical tools useful for insights on website performance and marketing campaigns. Google Analytics is a web analytics service that provides statistics and basic analytical tools for search engine optimization and marketing purposes. The service is part of the Google Marketing Platform and is available for free to anyone with a Google account, regardless of whether they are working with enterprises or small businesses.
 
 Google Analytics is used to track website performance and collect visitor insights. It can help organizations determine top sources of user traffic, gauge the success of their marketing activities and campaigns, track goal completions (such as purchases, or adding products to carts), discover patterns and trends in user engagement, and obtain other visitor information such as demographics. Small and medium-sized retail websites often use Google Analytics to obtain and analyze various customer behavior analytics, which yield insight that can be the basis to improve marketing campaigns, drive website traffic and better retain visitors.
