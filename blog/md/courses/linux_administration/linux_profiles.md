@@ -110,10 +110,11 @@ if [ -d /etc/profile.d ]; then
   done
   unset i
 fi
-```                                                                                                                  
+```
+
 ## Deep dive in `/etc/bash.bashrc`
 
-![bash.bashrc](bash.bashrc.png)
+![bash.bashrc](../../../images/linux_administration/bash.bashrc.png)
 
 ## alias command
 
@@ -209,22 +210,28 @@ The following table lists the codes for configuring your prompt:
 
 Generally in Linux, a system administrator does everything possible as a normal user. It's a good practice to use superuser privileges only when absolutely necessary. But one time when it's appropriate is during the Red Hat exams. Good administrators will return to being normal users when they're done with their tasks. Mistakes as the root user can disable your Linux system. There are two basic ways to make this work:
 
-su
+**su**
+
 The superuser command, su, prompts you for the root password before logging you in with root privileges.
 
 su command without any arguments will ask for root password. By giving root password you will get root privilege. To execute any command you should know the exact path of command otherwise you get command not found error. Because you will not get root’s command path. To get root’s environments and command paths and home directory use – hyphen sign with su commands
 
-Limiting Access to su
+**Limiting Access to su**
+
 First, you will need to add the users who you want to allow access to the su command. Make them a part of the wheel group. By default, this line in /etc/group looks like:
 
- wheel:x:10:root 
+ `wheel:x:10:root`
+
 You can add the users of your choice to the end of this line directly, with the usermod -G wheel [username] command, or with the Red Hat User Manager.
 
- #usermod –G wheel vinita 
+ `#usermod –G wheel vinita`
+
 Next, you will need to make your Pluggable Authentication Modules (PAM) look for this group. You can do so by activating the following command in your /etc/pam.d/su file:
 
  # auth required pam_wheel.so use_uid 
-sudo
+
+**sudo**
+
 The sudo command allows users listed in /etc/sudoers to run administrative commands. You can configure /etc/sudoers to set limits on the root privileges granted to a specific user.
 
 
