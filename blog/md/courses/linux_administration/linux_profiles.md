@@ -205,7 +205,6 @@ The following table lists the codes for configuring your prompt:
 |\[ \]	|Allows entry of terminal-specific display |characters for features like color or bold font|
 |\nnn	|Character specified in octal format|
 
-
 **Granting root privilege to normal user**
 
 Generally in Linux, a system administrator does everything possible as a normal user. It's a good practice to use superuser privileges only when absolutely necessary. But one time when it's appropriate is during the Red Hat exams. Good administrators will return to being normal users when they're done with their tasks. Mistakes as the root user can disable your Linux system. There are two basic ways to make this work:
@@ -233,9 +232,6 @@ Next, you will need to make your Pluggable Authentication Modules (PAM) look for
 **sudo**
 
 The sudo command allows users listed in /etc/sudoers to run administrative commands. You can configure /etc/sudoers to set limits on the root privileges granted to a specific user.
-
-
-
 
 ## Ref
 
