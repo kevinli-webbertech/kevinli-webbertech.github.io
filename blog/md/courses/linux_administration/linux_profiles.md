@@ -132,64 +132,81 @@ You can also use an alias to alternate for a command and its option, but you nee
 
 `$ alias longlist='ls -l' `
 
-Control Shell Operations
+**Control Shell Operations**
+
 The BASH shell has several features that enable you to control the way different shell operations work. You need not know all these options for exam. But some hand operations you should always try in exam.
 
-To stop logout form CTRL+D
+**To stop logout form CTRL+D**
+
 Several commands in Linux are completed with CTRL+D. for example if you are making file form cat command the CTRL+D is used to save the files. And if you are using calculator on command prompt then CTRL+D is used to exit form calculators. But what if you pressed accidently CTRL+D two times, it will logout you from current session and you have to login again.
 
- $set –o ignoreeof 
+`$set –o ignoreeof `
+
 Now press CTRL+D and you will get a message “Use “logout” to leave the shell.
 
-linux shell
+**linux shell**
 
-To stop overwriting of files
+***To stop overwriting of files***
 Other important shell operation is overwriting. How many times you have overwritten files. For example
 
+```shell
 $cat > test
 Testing file
-$ls test 
+$ls test
+```
+
 now run this command once again
 
+```shell
 $cat > test
 Old contents will overwrite without any message
 $ls $cat test
 Old contents will overwrite without any message 
+```
+
 Notice how easily Linux can overwrite file. To turnoff this shell feature
 
- $set –o noclobber 
+` $set –o noclobber `
+
 Now whenever you will try to overwrite it will stop you with error message.
 
-linux shell
+**linux shell**
 
 Whatever you set with –o option can be revert with + sign.
 
-$set +o ignoreeof
+`$set +o ignoreeof`
+
 Now again you can logout with CTRL+D. 
-Changing shell prompt
+
+**Changing shell prompt**
+
 By default shell prompt show user name hostname and current working directory. You can change this prompt to following variable.
 
-change command prompt
+**change command prompt**
 
 The following table lists the codes for configuring your prompt:
 
-Prompt Codes	Description
-\!	Current history number
-\$	Use $ as prompt for all users except the root user, which has the # as its prompt
-\d	Current date
-\#	History command number for just the current shell
-\h	Hostname
-\s	Shell type currently active
-\t	Time of day in hours, minutes, and seconds
-\u	Username
-\v	Shell version
-\w	Full pathname of the current working directory
-\W	Name of the current working directory
-\\	Displays a backslash character
-\n	Inserts a newline
-\[ \]	Allows entry of terminal-specific display characters for features like color or bold font
-\nnn	Character specified in octal format
-Granting root privilege to normal user
+**Prompt Codes	Description**
+|option|meaning|
+|--|--|
+|!|	Current history number|
+|$|	Use $ as prompt for all users except the root user, which has the # as its prompt|
+|d	|Current date|
+|#	|History command number for just the current shell|
+|h	|Hostname|
+|s	|Shell type currently active|
+|t	|Time of day in hours, minutes, and seconds|
+|u	|Username|
+|v	|Shell version|
+|W	|Name of the current working directory|
+|\	|Displays a backslash character|
+|\n	|Inserts a newline|
+|\[ \]	|Allows entry of terminal-specific display |characters for features like color or bold font|
+|\nnn	|Character specified in octal format|
+
+
+**Granting root privilege to normal user**
+
 Generally in Linux, a system administrator does everything possible as a normal user. It's a good practice to use superuser privileges only when absolutely necessary. But one time when it's appropriate is during the Red Hat exams. Good administrators will return to being normal users when they're done with their tasks. Mistakes as the root user can disable your Linux system. There are two basic ways to make this work:
 
 su
