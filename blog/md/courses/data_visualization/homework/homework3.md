@@ -13,7 +13,7 @@ The options you have is that,
 * Piechart
 * Barchart
 * or the chart shown on page 6.
-* Or if you have a better idea you can propose and visualize them.
+* or if you have a better idea you can propose and visualize them.
 
 You don't have to visualize them in multiple ways but if you like you can provide as many options as you could.
 
