@@ -585,5 +585,3 @@ hist_and_lines()
 ![alt text](../../../images/data_visualization/mathplotlib/image-58.png)
 
 With all of these built-in options for various plot styles, Matplotlib becomes much more useful for both interactive visualization and creation of figures for publication.
-
-Throughout this book, I will generally use one or more of these style conventions when creating plots.

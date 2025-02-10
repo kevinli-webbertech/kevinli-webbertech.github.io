@@ -1,12 +1,6 @@
 # /etc dir
 
-
-| File | Description |
-|------|-------------|
-
-
-
-Sure! Here's a table summarizing the most important configuration files in the `/etc/` directory:
+Here's a table summarizing the most important configuration files in the `/etc/` directory:
 
 | **File**                       | **Purpose**                                                                 |
 |---------------------------------|-----------------------------------------------------------------------------|
