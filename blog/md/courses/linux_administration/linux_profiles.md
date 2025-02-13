@@ -188,6 +188,7 @@ By default shell prompt show user name hostname and current working directory. Y
 The following table lists the codes for configuring your prompt:
 
 **Prompt Codes	Description**
+
 |option|meaning|
 |--|--|
 |!|	Current history number|
@@ -202,7 +203,7 @@ The following table lists the codes for configuring your prompt:
 |W	|Name of the current working directory|
 |\	|Displays a backslash character|
 |\n	|Inserts a newline|
-|\[ \]	|Allows entry of terminal-specific display |characters for features like color or bold font|
+|\[ \] |Allows entry of terminal-specific display |characters for features like color or bold font|
 |\nnn	|Character specified in octal format|
 
 
