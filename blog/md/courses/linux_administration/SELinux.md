@@ -49,7 +49,11 @@ SELinux is available since 2005 as part of Red Hat Enterprise Linux (RHEL) versi
 
 SELinux can potentially control which activities a system allows each user, process, and daemon, with very precise specifications. It is used to confine daemons such as database engines or web servers that have clearly defined data access and activity rights. This limits potential harm from a confined daemon that becomes compromised.
 
-Command-line utilities include: chcon, restorecon, restorecond, runcon, secon, fixfiles,setfiles, load_policy, booleans, getsebool, setsebool, togglesebool setenforce, semodule, postfix-nochroot, check-selinux-installation, semodule_package, checkmodule, selinux-config-enforcing, selinuxenabled, and selinux-policy-upgrade.
+Command-line utilities include: `chcon`, `restorecon`, `restorecond`, `runcon`, `secon`, fixfiles, setfiles, load_policy, booleans, getsebool, setsebool, togglesebool, setenforce, semodule, postfix-nochroot, check-selinux-installation, semodule_package, `checkmodule`, selinux-config-enforcing, selinuxenabled, and selinux-policy-upgrade.
+
+To have them, we have to install in our linux, for example, the following is to install them in ubuntu,
+
+![selinux_tool](../../../images/linux_administration/selinux_tool.png)
 
 **Examples**
 
@@ -57,9 +61,21 @@ Command-line utilities include: chcon, restorecon, restorecond, runcon, secon, f
 
 `setenforce 1`
 
+You will see the following output if you run it,
+
+```shell
+xiaofengli@xiaofenglx:~$ setenforce 1
+setenforce: SELinux is disabled
+```
+
 * To query the SELinux status:
 
 `getenforce`
+
+```shell
+xiaofengli@xiaofenglx:~$ getenforce
+Disabled
+```
 
 ## Ref
 
