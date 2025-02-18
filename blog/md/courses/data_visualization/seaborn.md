@@ -1,4 +1,4 @@
-# **Seaborn Part I**
+# Seaborn - Introduction
 
 Seaborn is a Python data visualization library based on Matplotlib. It provides a high-level interface for drawing 
 attractive and informative statistical graphics. In this tutorial, we will explore the basics of Seaborn and learn how 
@@ -85,7 +85,6 @@ groups within your dataset:
 
 In this example, the hue parameter is used to color the points based on whether the meal occurred during lunch or dinner. 
 This can help identify patterns or differences between categories.
-
 
 2. Line Plot
 
