@@ -26,35 +26,29 @@ Examples of ECharts chart types. From top to down, left to right: scatterplot, l
 
 ## Powerful Visualization
 
-![example1](example1.png)
-
-![example2](example2.png)
-
-![alt text](image.png)
-
-![alt text](image-1.png)
-
-![alt text](image-2.png)
-
-![alt text](image-3.png)
-
-![alt text](image-4.png)
-
-![alt text](image-5.png)
-![alt text](image-6.png)
-![asdf](image-7.png)
-![alt text](image-8.png)
-![alt text](image-9.png)
-![alt text](image-10.png)
-![alt text](image-11.png)
-![alt text](image-12.png)
-![alt text](image-13.png)
-![alt text](image-14.png)
-![alt text](image-15.png)
-![alt text](image-16.png)
-![alt text](image-17.png)
-![alt text](image-18.png)
-![alt text](image-19.png)
+![example0](../../../../images/data_visualization/echarts/example0.png)
+![example1](../../../../images/data_visualization/echarts/example1.png)
+![example2](../../../../images/data_visualization/echarts/example2.png)
+![example3](../../../../images/data_visualization/echarts/example3.png)
+![example4](../../../../images/data_visualization/echarts/example4.png)
+![example5](../../../../images/data_visualization/echarts/example5.png)
+![example6](../../../../images/data_visualization/echarts/example6.png)
+![example7](../../../../images/data_visualization/echarts/example7.png)
+![example8](../../../../images/data_visualization/echarts/example8.png)
+![example9](../../../../images/data_visualization/echarts/example9.png)
+![example10](../../../../images/data_visualization/echarts/example10.png)
+![example11](../../../../images/data_visualization/echarts/example11.png)
+![example12](../../../../images/data_visualization/echarts/example12.png)
+![example13](../../../../images/data_visualization/echarts/example13.png)
+![example14](../../../../images/data_visualization/echarts/example14.png)
+![example15](../../../../images/data_visualization/echarts/example15.png)
+![example16](../../../../images/data_visualization/echarts/example16.png)
+![example17](../../../../images/data_visualization/echarts/example17.png)
+![example18](../../../../images/data_visualization/echarts/example18.png)
+![example19](../../../../images/data_visualization/echarts/example19.png)
+![example20](../../../../images/data_visualization/echarts/example20.png)
+![example21](../../../../images/data_visualization/echarts/example21.png)
+![example22](../../../../images/data_visualization/echarts/example22.png)
 
 ### Ref
 
