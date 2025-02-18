@@ -217,8 +217,9 @@ ticks, but one place you can see them is within logarithmic plots (Figure 4-73):
 ```python
 In[1]: %matplotlib inline
 import matplotlib.pyplot as plt
-plt.style.use('seaborn-whitegrid')
+import seaborn as sns
 import numpy as np
+sns.set_style("whitegrid")
 In[2]: ax = plt.axes(xscale='log', yscale='log')
 ```
 
