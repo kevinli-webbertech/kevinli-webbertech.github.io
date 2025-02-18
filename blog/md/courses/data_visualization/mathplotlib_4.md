@@ -257,8 +257,7 @@ ax.xaxis.set_major_formatter(plt.NullFormatter())
 
 ![alt text](../../../images/data_visualization/mathplotlib/image-39.png)
 
-Notice that we’ve removed the labels (but kept the ticks/gridlines) from the x axis, and removed the ticks (and thus the labels as well) from the y axis. Having no ticks at all can be useful in many situations—for example, when you want to show a grid of
-images. For instance, consider Figure 4-75, which includes images of different faces, an example often used in supervised machine learning problems (for more information, see “In-Depth: Support Vector Machines” on page 405):
+Notice that we’ve removed the labels (but kept the ticks/gridlines) from the x axis, and removed the ticks (and thus the labels as well) from the y axis. Having no ticks at all can be useful in many situations—for example, when you want to show a grid of images. For instance, consider Figure 4-75, which includes images of different faces, an example often used in supervised machine learning problems (for more information, see “In-Depth: Support Vector Machines” on page 405):
 
 ```python
 In[6]: fig, ax = plt.subplots(5, 5, figsize=(5, 5))
@@ -267,10 +266,13 @@ fig.subplots_adjust(hspace=0, wspace=0)
 from sklearn.datasets import fetch_olivetti_faces
 faces = fetch_olivetti_faces().images
 for i in range(5):
-for j in range(5):
-ax[i, j].xaxis.set_major_locator(plt.NullLocator())
-ax[i, j].yaxis.set_major_locator(plt.NullLocator())
-ax[i, j].imshow(faces[10 * i + j], cmap="bone")
+    for j in range(5):
+        ax[i, j].xaxis.set_major_locator(plt.NullLocator())
+        ax[i, j].yaxis.set_major_locator(plt.NullLocator())
+        ax[i, j].imshow(faces[10 * i + j], cmap="bone")
+
+#Enable the following line if you use pyCharm
+#plt.show()
 ```
 
 ![alt text](../../../images/data_visualization/mathplotlib/image-40.png)
@@ -423,7 +425,6 @@ ax.hist(x, edgecolor='#E6E6E6', color='#EE6666');
 ![alt text](../../../images/data_visualization/mathplotlib/image-49.png)
 
 This looks better, and you may recognize the look as inspired by the look of the R language’s ggplot visualization package. But this took a whole lot of effort! We definitely do not want to have to do all that tweaking each time we create a plot. Fortunately, there is a way to adjust these defaults once in a way that will work for all plots.
-
 
 #### Changing the Defaults: rcParams
 
