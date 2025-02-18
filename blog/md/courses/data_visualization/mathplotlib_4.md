@@ -20,8 +20,7 @@ import pandas as pd
 ### Example: Effect of Holidays on US Births
 
 Let’s return to some data we worked with earlier in “Example: Birthrate Data” on page 174, where we generated a plot of average births over the course of the calendar year; as already mentioned, this data can be downloaded at https://raw.githubusercontent.com/jakevdp/data-CDCbirths/master/births.csv.
-
-We’ll start with the same cleaning procedure we used there, and plot the results (Figure 4-67):
+(see image below):
 
 ```python
 In[2]:
@@ -96,7 +95,7 @@ Transform associated with the axes (in units of axes dimensions)
 
 Transform associated with the figure (in units of figure dimensions)
 
-Here let’s look at an example of drawing text at various locations using these transforms (Figure 4-69):
+Here let’s look at an example of drawing text at various locations using these transforms:
 
 ```python
 In[5]: fig, ax = plt.subplots(facecolor='lightgray')
@@ -111,10 +110,9 @@ ax.text(0.2, 0.2, ". Figure: (0.2, 0.2)", transform=fig.transFigure);
 
 Note that by default, the text is aligned above and to the left of the specified coordinates; here the “.” at the beginning of each string will approximately mark the given coordinate location.
 
-The transData coordinates give the usual data coordinates associated with the x- and y-axis labels. The transAxes coordinates give the location from the bottom-left corner of the axes (here the white box) as a fraction of the axes size. The transFigure
-coordinates are similar, but specify the position from the bottom left of the figure (here the gray box) as a fraction of the figure size.
+The transData coordinates give the usual data coordinates associated with the x- and y-axis labels. The transAxes coordinates give the location from the bottom-left corner of the axes (here the white box) as a fraction of the axes size. The transFigure coordinates are similar, but specify the position from the bottom left of the figure (here the gray box) as a fraction of the figure size.
 
-Notice now that if we change the axes limits, it is only the transData coordinates that will be affected, while the others remain stationary (Figure 4-70):
+Notice now that if we change the axes limits, it is only the transData coordinates that will be affected, while the others remain stationary:
 
 ```python
 In[6]: ax.set_xlim(0, 2)
@@ -124,14 +122,13 @@ fig
 
 ![alt text](../../../images/data_visualization/mathplotlib/image-35.png)
 
-You can see this behavior more clearly by changing the axes limits interactively; if you are executing this code in a notebook, you can make that happen by changing %matplotlib inline to %matplotlib notebook and using each plot’s menu to interact
-with the plot.
+You can see this behavior more clearly by changing the axes limits interactively; if you are executing this code in a notebook, you can make that happen by changing %matplotlib inline to %matplotlib notebook and using each plot’s menu to interact with the plot.
 
 ### Arrows and Annotation
 
 Along with tick marks and text, another useful annotation mark is the simple arrow. Drawing arrows in Matplotlib is often much harder than you might hope. While there is a plt.arrow() function available, I wouldn’t suggest using it; the arrows it creates are SVG objects that will be subject to the varying aspect ratio of your plots, and the result is rarely what the user intended. Instead, I’d suggest using the plt.annotate() function. This function creates some text and an arrow, and the arrows can be very flexibly specified.
 
-Here we’ll use annotate with several of its options (Figure 4-71):
+Here we’ll use annotate with several of its options:
 
 ```python
 In[7]: %matplotlib inline
@@ -204,15 +201,13 @@ You’ll notice that the specifications of the arrows and text boxes are very de
 
 Matplotlib’s default tick locators and formatters are designed to be generally sufficient in many common situations, but are in no way optimal for every plot. This section will give several examples of adjusting the tick locations and formatting for the particular plot type you’re interested in.
 
-Before we go into examples, it will be best for us to understand further the object hierarchy of Matplotlib plots. Matplotlib aims to have a Python object representing everything that appears on the plot: for example, recall that the figure is the bound‐
-ing box within which plot elements appear. Each Matplotlib object can also act as a container of sub-objects; for example, each figure can contain one or more axes objects, each of which in turn contain other objects representing plot contents.
+Before we go into examples, it will be best for us to understand further the object hierarchy of Matplotlib plots. Matplotlib aims to have a Python object representing everything that appears on the plot: for example, recall that the figure is the bounding box within which plot elements appear. Each Matplotlib object can also act as a container of sub-objects; for example, each figure can contain one or more axes objects, each of which in turn contain other objects representing plot contents.
 
 The tick marks are no exception. Each axes has attributes xaxis and yaxis, which in turn have attributes that contain all the properties of the lines, ticks, and labels that make up the axes.
 
 ### Major and Minor Ticks
 
-Within each axis, there is the concept of a major tick mark and a minor tick mark. As the names would imply, major ticks are usually bigger or more pronounced, while minor ticks are usually smaller. By default, Matplotlib rarely makes use of minor
-ticks, but one place you can see them is within logarithmic plots (Figure 4-73):
+Within each axis, there is the concept of a major tick mark and a minor tick mark. As the names would imply, major ticks are usually bigger or more pronounced, while minor ticks are usually smaller. By default, Matplotlib rarely makes use of minor ticks, but one place you can see them is within logarithmic plots:
 
 ```python
 In[1]: %matplotlib inline
@@ -247,7 +242,7 @@ plots.
 
 ### Hiding Ticks or Labels
 
-Perhaps the most common tick/label formatting operation is the act of hiding ticks or labels. We can do this using plt.NullLocator() and plt.NullFormatter(), as shown here (Figure 4-74):
+Perhaps the most common tick/label formatting operation is the act of hiding ticks or labels. We can do this using plt.NullLocator() and plt.NullFormatter(), as shown here:
 
 ```python
 In[5]: ax = plt.axes()
@@ -258,7 +253,7 @@ ax.xaxis.set_major_formatter(plt.NullFormatter())
 
 ![alt text](../../../images/data_visualization/mathplotlib/image-39.png)
 
-Notice that we’ve removed the labels (but kept the ticks/gridlines) from the x axis, and removed the ticks (and thus the labels as well) from the y axis. Having no ticks at all can be useful in many situations—for example, when you want to show a grid of images. For instance, consider Figure 4-75, which includes images of different faces, an example often used in supervised machine learning problems (for more information, see “In-Depth: Support Vector Machines” on page 405):
+Notice that we’ve removed the labels (but kept the ticks/gridlines) from the x axis, and removed the ticks (and thus the labels as well) from the y axis. Having no ticks at all can be useful in many situations—for example, when you want to show a grid of images. 
 
 ```python
 In[6]: fig, ax = plt.subplots(5, 5, figsize=(5, 5))
@@ -282,10 +277,12 @@ Notice that each image has its own axes, and we’ve set the locators to null be
 
 ### Reducing or Increasing the Number of Ticks
 
-One common problem with the default settings is that smaller subplots can end up with crowded labels. We can see this in the plot grid shown in Figure 4-76:
+One common problem with the default settings is that smaller subplots can end up with crowded labels. We can see this in the plot grid shown in the following code and image:
 
 ```python
 In[7]: fig, ax = plt.subplots(4, 4, sharex=True, sharey=True)
+for a in ax.flat:
+    a.grid(True, color='lightgray', linestyle='--', linewidth=0.5)
 ```
 
 ![alt text](../../../images/data_visualization/mathplotlib/image-41.png)
@@ -295,8 +292,8 @@ Particularly for the x ticks, the numbers nearly overlap, making them quite diff
 ```python
 In[8]: # For every axis, set the x and y major locator
 for axi in ax.flat:
-axi.xaxis.set_major_locator(plt.MaxNLocator(3))
-axi.yaxis.set_major_locator(plt.MaxNLocator(3))
+  axi.xaxis.set_major_locator(plt.MaxNLocator(3))
+  axi.yaxis.set_major_locator(plt.MaxNLocator(3))
 fig
 ```
 
@@ -306,7 +303,7 @@ This makes things much cleaner. If you want even more control over the locations
 
 ### Fancy Tick Formats
 
-Matplotlib’s default tick formatting can leave a lot to be desired; it works well as a broad default, but sometimes you’d like to do something more. Consider the plot shown in Figure 4-78, a sine and a cosine:
+Matplotlib’s default tick formatting can leave a lot to be desired; it works well as a broad default, but sometimes you’d like to do something more. Consider the plot shown in the following image, a sine and a cosine:
 
 ```python
 In[9]: # Plot a sine and cosine curve
@@ -323,7 +320,7 @@ ax.set_xlim(0, 3 * np.pi);
 
 ![alt text](../../../images/data_visualization/mathplotlib/image-43.png)
 
-There are a couple changes we might like to make. First, it’s more natural for this data to space the ticks and grid lines in multiples of π. We can do this by setting a Multi pleLocator, which locates ticks at a multiple of the number you provide. For good measure, we’ll add both major and minor ticks in multiples of π/4 (Figure 4-79):
+There are a couple changes we might like to make. First, it’s more natural for this data to space the ticks and grid lines in multiples of π. We can do this by setting a Multi pleLocator, which locates ticks at a multiple of the number you provide. For good measure, we’ll add both major and minor ticks in multiples of π/4:
 
 ```python
 In[10]: ax.xaxis.set_major_locator(plt.MultipleLocator(np.pi / 2))
@@ -333,7 +330,7 @@ fig
 
 ![alt text](../../../images/data_visualization/mathplotlib/image-44.png)
 
-But now these tick labels look a little bit silly: we can see that they are multiples of π, but the decimal representation does not immediately convey this. To fix this, we can change the tick formatter. There’s no built-in formatter for what we want to do, so we’ll instead use plt.FuncFormatter, which accepts a user-defined function giving fine-grained control over the tick outputs (Figure 4-80):
+But now these tick labels look a little bit silly: we can see that they are multiples of π, but the decimal representation does not immediately convey this. To fix this, we can change the tick formatter. There’s no built-in formatter for what we want to do, so we’ll instead use plt.FuncFormatter, which accepts a user-defined function giving fine-grained control over the tick outputs:
 
 ```python
 In[11]: def format_func(value, tick_number):
@@ -356,8 +353,7 @@ fig
 
 ![alt text](../../../images/data_visualization/mathplotlib/image-45.png)
 
-This is much better! Notice that we’ve made use of Matplotlib’s LaTeX support, specified by enclosing the string within dollar signs. This is very convenient for display of mathematical symbols and formulae; in this case, "$\pi$" is rendered as the Greek
-character π.
+This is much better! Notice that we’ve made use of Matplotlib’s LaTeX support, specified by enclosing the string within dollar signs. This is very convenient for display of mathematical symbols and formulae; in this case, "$\pi$" is rendered as the Greek character π.
 
 The plt.FuncFormatter() offers extremely fine-grained control over the appearance of your plot ticks, and comes in very handy when you’re preparing plots for presentation or publication.
 
@@ -377,7 +373,7 @@ Here we’ll walk through some of Matplotlib’s runtime configuration (rc) opti
 
 #### Plot Customization by Hand
 
-Throughout this chapter, we’ve seen how it is possible to tweak individual plot settings to end up with something that looks a little bit nicer than the default. It’s possible to do these customizations for each individual plot. For example, here is a fairly drab default histogram (Figure 4-81):
+Throughout this chapter, we’ve seen how it is possible to tweak individual plot settings to end up with something that looks a little bit nicer than the default. It’s possible to do these customizations for each individual plot. For example, here is a fairly drab default histogram:
 
 ```python
 In[1]: import matplotlib.pyplot as plt
@@ -391,7 +387,7 @@ plt.hist(x);
 
 ![alt text](../../../images/data_visualization/mathplotlib/image-48.png)
 
-We can adjust this by hand to make it a much more visually pleasing plot, shown in Figure 4-82:
+We can adjust this by hand to make it a much more visually pleasing plot, shown below:
 
 ```python
 In[3]: # use a gray background
@@ -450,14 +446,14 @@ plt.rc('patch', edgecolor='#E6E6E6')
 plt.rc('lines', linewidth=2)
 ```
 
-With these settings defined, we can now create a plot and see our settings in action (Figure 4-83):
+With these settings defined, we can now create a plot and see our settings in action:
 
 ```python
 In[6]: plt.hist(x);
 ![alt text](../../../images/data_visualization/mathplotlib/image-50.png)
 ```
 
-Let’s see what simple line plots look like with these rc parameters (Figure 4-84):
+Let’s see what simple line plots look like with these rc parameters:
 
 ```python
 In[7]: for i in range(4):
@@ -470,8 +466,7 @@ I find this much more aesthetically pleasing than the default styling. If you di
 
 #### Stylesheets
 
-The version 1.4 release of Matplotlib in August 2014 added a very convenient style module, which includes a number of new default stylesheets, as well as the ability to create and package your own styles. These stylesheets are formatted similarly to
-the .matplotlibrc files mentioned earlier, but must be named with a .mplstyle extension.
+The version 1.4 release of Matplotlib in August 2014 added a very convenient style module, which includes a number of new default stylesheets, as well as the ability to create and package your own styles. These stylesheets are formatted similarly to the .matplotlibrc files mentioned earlier, but must be named with a .mplstyle extension.
 
 Even if you don’t create your own style, the stylesheets included by default are extremely useful. The available styles are listed in plt.style.available—here I’ll list only the first five for brevity:
 
@@ -487,10 +482,9 @@ Out[8]: ['fivethirtyeight',
 The basic way to switch to a stylesheet is to call:
 `plt.style.use('stylename')`
 
-But keep in mind that this will change the style for the rest of the session! Alterna‐
-tively, you can use the style context manager, which sets a style temporarily:
+But keep in mind that this will change the style for the rest of the session! Alternatively, you can use the style context manager, which sets a style temporarily:
 
-```
+```python
 with plt.style.context('stylename'):
 make_a_plot()
 ```
@@ -517,7 +511,7 @@ that. First, let’s reset our runtime configuration to the notebook default:
 ```python
 In[10]: # reset rcParams
 plt.rcParams.update(IPython_default);
-Now let’s see how it looks (Figure 4-85):
+Now let’s see how it looks (below):
 In[11]: hist_and_lines()
 ```
 
@@ -526,7 +520,7 @@ In[11]: hist_and_lines()
 ### FiveThirtyEight style
 
 The FiveThirtyEight style mimics the graphics found on the popular FiveThirtyEight
-website. As you can see in Figure 4-86, it is typified by bold colors, thick lines, and
+website. As you can see earlier, it is typified by bold colors, thick lines, and
 transparent axes.
 
 ```python
@@ -539,7 +533,7 @@ hist_and_lines()
 ### ggplot
 
 The ggplot package in the R language is a very popular visualization tool. Matplot‐
-lib’s ggplot style mimics the default styles from that package (Figure 4-87):
+lib’s ggplot style mimics the default styles from that package:
 
 ```python
 In[13]: with plt.style.context('ggplot'):
@@ -552,7 +546,7 @@ hist_and_lines()
 
 There is a very nice short online book called Probabilistic Programming and Bayesian Methods for Hackers; it features figures created with Matplotlib, and uses a nice set of rc parameters to create a consistent and visually appealing style throughout the book.
 
-This style is reproduced in the bmh stylesheet (Figure 4-88):
+This style is reproduced in the bmh stylesheet:
 
 ```python
 In[14]: with plt.style.context('bmh'):
@@ -563,7 +557,7 @@ hist_and_lines()
 
 ### Dark background
 
-For figures used within presentations, it is often useful to have a dark rather than light background. The dark_background style provides this (Figure 4-89):
+For figures used within presentations, it is often useful to have a dark rather than light background. The dark_background style provides this:
 
 ```python
 In[15]: with plt.style.context('dark_background'):
@@ -574,7 +568,7 @@ hist_and_lines()
 
 ### Grayscale
 
-Sometimes you might find yourself preparing figures for a print publication that does not accept color figures. For this, the grayscale style, shown in Figure 4-90, can be very useful:
+Sometimes you might find yourself preparing figures for a print publication that does not accept color figures. For this, the grayscale style, shown below, can be very useful:
 
 ```python
 In[16]: with plt.style.context('grayscale'):
@@ -585,7 +579,7 @@ hist_and_lines()
 
 ### Seaborn style
 
-Matplotlib also has stylesheets inspired by the Seaborn library (discussed more fully in “Visualization with Seaborn” on page 311). As we will see, these styles are loaded automatically when Seaborn is imported into a notebook. I’ve found these settings to be very nice, and tend to use them as defaults in my own data exploration (see Figure 4-91):
+Matplotlib also has stylesheets inspired by the Seaborn library (discussed more fully in “Visualization with Seaborn” on page 311). As we will see, these styles are loaded automatically when Seaborn is imported into a notebook. I’ve found these settings to be very nice, and tend to use them as defaults in my own data exploration (see image below):
 
 ```python
 In[17]: import seaborn
