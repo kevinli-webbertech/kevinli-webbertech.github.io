@@ -2,9 +2,25 @@
 
 ## What is Echarts
 
+**Apache ECharts**
+
+Apache ECharts is an open-source, powerful, and interactive data visualization library developed by the Apache Software Foundation. It is written in JavaScript and provides a highly customizable way to create a variety of charts and graphs.
+
 ![echarts](../../../../images/data_visualization/echarts/echarts.png)
 
 ## Features
+
+**Rich Chart Types** – Supports bar charts, line charts, pie charts, scatter plots, maps, radar charts, heatmaps, and more.
+
+**High Performance** – Built on canvas (instead of SVG), making it efficient for large datasets.
+
+**Responsive & Interactive** – Supports zooming, tooltips, data highlighting, and real-time updates.
+
+**Extensible** – Allows customization with themes and plugins.
+Works with Multiple Frameworks – Supports Vanilla JavaScript, React, Vue, and Angular.
+
+**Cross-platform** – Works in browsers and Node.js environments.
+
 
 ![features](../../../../images/data_visualization/echarts/features.png)
 
@@ -28,89 +44,91 @@ Examples of ECharts chart types. From top to down, left to right: scatterplot, l
 
 Here are some examples that you can see the richess of the chart types it offered,
 
-* Radar charts
+### Radar charts
 
 ![example0](../../../../images/data_visualization/echarts/example0.png)
 
-* GEO MAP
+### GEO MAP
+
 ![example1](../../../../images/data_visualization/echarts/example1.png)
 
-* Candle Stick
+### Candle Stick
 
 ![example2](../../../../images/data_visualization/echarts/example2.png)
 
-* Boxplot
+### Boxplot
 
 ![example3](../../../../images/data_visualization/echarts/example3.png)
 
-* Heatmap
+### Heatmap
 
 ![example4](../../../../images/data_visualization/echarts/example4.png)
 
-* Graph
+### Graph
 
 ![example5](../../../../images/data_visualization/echarts/example5.png)
 
-* Lines
+### Lines
+
 ![example6](../../../../images/data_visualization/echarts/example6.png)
 
-* Tree
+### Tree
 
 ![example7](../../../../images/data_visualization/echarts/example7.png)
 
-* Treemap
+### Treemap
 
 ![example8](../../../../images/data_visualization/echarts/example8.png)
 
-* Sunburst
+### Sunburst
 
 ![example9](../../../../images/data_visualization/echarts/example9.png)
 
-* Parallel
+### Parallel
 
 ![example10](../../../../images/data_visualization/echarts/example10.png)
 
-* Sankey
+### Sankey
 
 ![example11](../../../../images/data_visualization/echarts/example11.png)
 
-* Funnel
+### Funnel
 
 ![example12](../../../../images/data_visualization/echarts/example12.png)
 
-* Gauge
+### Gauge
 
 ![example13](../../../../images/data_visualization/echarts/example13.png)
 
-* PictorialBar
+### PictorialBar
 
 ![example14](../../../../images/data_visualization/echarts/example14.png)
 
-* Calendar
+### Calendar
 
 ![example15](../../../../images/data_visualization/echarts/example15.png)
 
-* Dataset
+### Dataset
 
 ![example16](../../../../images/data_visualization/echarts/example16.png)
 
-* 3D Bar
+### 3D Bar
 
 ![example17](../../../../images/data_visualization/echarts/example17.png)
 
-* 3D Scatter
+### 3D Scatter
 
 ![example18](../../../../images/data_visualization/echarts/example18.png)
 
-* 3D Surface
+### 3D Surface
 
 ![example19](../../../../images/data_visualization/echarts/example19.png)
 
-* 3D Map
+### 3D Map
 
 ![example20](../../../../images/data_visualization/echarts/example20.png)
 
-* Flow GL
+### Flow GL
 
 ![example21](../../../../images/data_visualization/echarts/example21.png)
 
@@ -184,7 +202,6 @@ Here are some examples that you can see the richess of the chart types it offere
 * Creates a div element as a container.
 * Initializes an ECharts instance and configures a basic bar chart.
 * Renders the chart inside the container.
-
 
 >Hint: For doing any future works, we could,
 * modify the above html to fit our need.
