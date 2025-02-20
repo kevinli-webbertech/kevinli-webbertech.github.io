@@ -17,6 +17,7 @@
   overflow: hidden;
 }
 
+
 .left {
   height: 100%; /* Set the height of the sidebar to match the viewport */
   position: fixed; /* Fix the sidebar position */
@@ -29,6 +30,11 @@
   padding: 20px; /* Add padding to the sidebar content */
   background-color: #fff;
 }
+
+.sidebar_content {
+  margin-bottom: 50px; /* Space from the bottom */
+}
+
 
 .right {
   float:right;
