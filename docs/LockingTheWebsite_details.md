@@ -87,8 +87,6 @@ To shrink your JavaScript files, we’ll write a script in your package.json fil
 1. Open the package.json file in your project folder.
 2. Add the following under the "scripts" section:
 
-
-
 For UglifyJS:
 
 json
