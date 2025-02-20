@@ -1,6 +1,6 @@
 # Visualization with ECharts
 
-In this tutorial, we would like to introduce you some javascript code to call ECharts to draw a couple of most commonly used chart tyeps.
+In this tutorial, I would like to introduce you some javascript code to call ECharts to draw a couple of most commonly used chart tyeps.
 
 After today's class, you will learn and be more confident about both Javascript and web visualization.
 
