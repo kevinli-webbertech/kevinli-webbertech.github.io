@@ -109,23 +109,47 @@ The `nm` command displays the symbol table of an object file, executable, or lib
   ```bash
   nm math_operations.o
   ```
-- List symbols in a shared library:
+
+* For a static library:
+
+`nm libmylib.a`
+
+
+* List symbols in a shared library:
   ```bash
   nm -D libmath.so
   ```
-- Filter only defined functions:
+
+another example,
+
+`nm -D /usr/lib/libc.so.6`
+
+* Filter only defined functions:
+ 
   ```bash
   nm -g --defined-only program
   ```
 
-#### **Symbol Types**
+### Symbol Types (TYPE column)
+The key to understanding nm output is the symbol type, which is a single character:
 
-- `T` → Text (code) section (global function)
-- `U` → Undefined symbol (external function)
-- `D` → Data section (global variable)
-- `B` → BSS section (uninitialized global variable)
+- T (Text section): Function (global) defined in the file.
+- t (Text section, local): Local function (static).
+- U (Undefined): The symbol is referenced but not defined (e.g., an external function like printf).
+- D/d (Data section): Global/local initialized data (global/static variables).
+- B/b (BSS section): Uninitialized global/static variables.
+- R/r (Read-only data section): Read-only data (constants).
+- A (Absolute): A symbol with a fixed memory address.
+- C (Common): Uninitialized global variable (allocated at runtime).
+- V/v (Weak symbol): Can be overridden by another definition.
 
----
+### Useful nm Options
+
+-g: Show only global symbols.
+-C: Demangle C++ symbols.
+-A: Show file name before each symbol (useful for multiple files).
+-l: Show source file and line number (if available).
+--defined-only: Show only symbols defined in the file.
 
 ## **`ldd` (List Shared Library Dependencies)**
 
