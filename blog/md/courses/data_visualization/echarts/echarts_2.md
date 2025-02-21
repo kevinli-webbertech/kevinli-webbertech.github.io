@@ -76,6 +76,8 @@ Remember this is the foundation of the implementation of a lot of commercial web
 </html>
 ```
 
+![base_line_chart](../../../../images/data_visualization/echarts/base_line_chart.png)
+
 ### Smoothed Line Chart
 
 ```html
@@ -125,6 +127,8 @@ Remember this is the foundation of the implementation of a lot of commercial web
 </body>
 </html>
 ```
+
+![Smoothed_Line_Chart](../../../../images/data_visualization/echarts/Smoothed_Line_Chart.png)
 
 ### Stacked Line Chart
 
@@ -221,6 +225,8 @@ Remember this is the foundation of the implementation of a lot of commercial web
 </body>
 </html>
 ```
+
+![Stacked_Line_Chart](../../../../images/data_visualization/echarts/Stacked_Line_Chart.png)
 
 ### Line Gradient
 
@@ -335,6 +341,8 @@ Remember this is the foundation of the implementation of a lot of commercial web
 </html>
 ```
 
+![line-gradient](../../../../images/data_visualization/echarts/line-gradient.png)
+
 ### Function Plot
 
 ```html
@@ -355,9 +363,7 @@ Remember this is the foundation of the implementation of a lot of commercial web
 <body>
   <h2>ECharts Example</h2>
   <div id="main"></div>
-
   <script>
-
     
     // Initialize the chart
     var chart = echarts.init(document.getElementById('main'));
@@ -440,7 +446,138 @@ Remember this is the foundation of the implementation of a lot of commercial web
 </html>
 ```
 
+![function-plot](../../../../images/data_visualization/echarts/function-plot.png)
+
 ### Line Race
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECharts Example with Vanilla JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.min.js"></script>
+  <script src="https://echarts.apache.org/en/js/vendors/jquery@3.7.1/dist/jquery.min.js"></script>
+  <!--
+  https://echarts.apache.org/en/js/vendors/seedrandom@3.0.5/seedrandom.min.js
+  https://echarts.apache.org/en/js/vendors/acorn@8.7.1/dist/acorn.min.js
+-->
+  <style>
+    #main {
+      width: 600px;
+      height: 400px;
+    }
+  </style>
+</head>
+<body>
+  <h2>ECharts Example</h2>
+  <div id="main"></div>
+
+  <script>
+    
+    var chartDom = document.getElementById('main');
+    var myChart = echarts.init(chartDom);
+    var option;
+
+    $.get(
+        './life-expectancy-table.json', 
+      function (_rawData) {
+        run(_rawData);
+      }
+    );
+
+    function run(_rawData) {
+      // var countries = ['Australia', 'Canada', 'China', 'Cuba', 'Finland', 'France', 'Germany', 'Iceland', 'India', 'Japan', 'North Korea', 'South Korea', 'New Zealand', 'Norway', 'Poland', 'Russia', 'Turkey', 'United Kingdom', 'United States'];
+      const countries = [
+        'Finland',
+        'France',
+        'Germany',
+        'Iceland',
+        'Norway',
+        'Poland',
+        'Russia',
+        'United Kingdom'
+      ];
+    const datasetWithFilters = [];
+    const seriesList = [];
+    echarts.util.each(countries, function (country) {
+      var datasetId = 'dataset_' + country;
+      datasetWithFilters.push({
+        id: datasetId,
+        fromDatasetId: 'dataset_raw',
+        transform: {
+          type: 'filter',
+          config: {
+            and: [
+              { dimension: 'Year', gte: 1950 },
+              { dimension: 'Country', '=': country }
+            ]
+          }
+        }
+      });
+      seriesList.push({
+        type: 'line',
+        datasetId: datasetId,
+        showSymbol: false,
+        name: country,
+        endLabel: {
+          show: true,
+          formatter: function (params) {
+            return params.value[3] + ': ' + params.value[0];
+          }
+        },
+        labelLayout: {
+          moveOverlap: 'shiftY'
+        },
+        emphasis: {
+          focus: 'series'
+        },
+        encode: {
+          x: 'Year',
+          y: 'Income',
+          label: ['Country', 'Income'],
+          itemName: 'Year',
+          tooltip: ['Income']
+        }
+      });
+    });
+  option = {
+      animationDuration: 10000,
+      dataset: [
+        {
+          id: 'dataset_raw',
+          source: _rawData
+        },
+        ...datasetWithFilters
+      ],
+      title: {
+        text: 'Income of Germany and France since 1950'
+      },
+      tooltip: {
+        order: 'valueDesc',
+        trigger: 'axis'
+      },
+      xAxis: {
+        type: 'category',
+        nameLocation: 'middle'
+      },
+      yAxis: {
+        name: 'Income'
+      },
+      grid: {
+        right: 140
+      },
+      series: seriesList
+    };
+    myChart.setOption(option);
+  }
+  </script>
+</body>
+</html>
+```
+
+![line-race](../../../../images/data_visualization/echarts/line-race.png)
 
 ### Step Line
 
