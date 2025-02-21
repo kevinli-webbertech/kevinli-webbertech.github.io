@@ -1,10 +1,10 @@
-# Visualization with ECharts
+# Visualization with ECharts - Line and Bar Charts
 
 In this tutorial, I would like to introduce you some javascript code to call ECharts to draw a couple of most commonly used chart tyeps.
 
-After today's class, you will learn and be more confident about both Javascript and web visualization.
-
 Remember this is the foundation of the implementation of a lot of commercial web systems.
+
+After today's class, you will learn and be more confident about both Javascript and web visualization. In this tutorial I list you some good examples that I compiled and I was able to provide you the complete html code to copy and paste and to run them. The purpose is for you to learn the usage by referencing these examples and modify it for your own use.
 
 ## Takeaway
 
@@ -28,6 +28,8 @@ Remember this is the foundation of the implementation of a lot of commercial web
 ## Line Chart
 
 ### Basic line chart
+
+Please copy and save the code to `basic_line.html`.
 
 ``html
 <!DOCTYPE html>
@@ -76,9 +78,14 @@ Remember this is the foundation of the implementation of a lot of commercial web
 </html>
 ```
 
+Open the containing folder, and double click on the html file you just saved.
+And you will see the chart rendered like below,
+
 ![base_line_chart](../../../../images/data_visualization/echarts/base_line_chart.png)
 
 ### Smoothed Line Chart
+
+Please copy and save the code to `smooth_line_chart.html`.
 
 ```html
 <!DOCTYPE html>
@@ -130,7 +137,12 @@ Remember this is the foundation of the implementation of a lot of commercial web
 
 ![Smoothed_Line_Chart](../../../../images/data_visualization/echarts/Smoothed_Line_Chart.png)
 
+Open the containing folder, and double click on the html file you just saved.
+And you will see the chart rendered like below,
+
 ### Stacked Line Chart
+
+Please copy and save the code to `stacked_line_chart.html`.
 
 ```html
 <!DOCTYPE html>
@@ -226,9 +238,14 @@ Remember this is the foundation of the implementation of a lot of commercial web
 </html>
 ```
 
+Open the containing folder, and double click on the html file you just saved.
+And you will see the chart rendered like below,
+
 ![Stacked_Line_Chart](../../../../images/data_visualization/echarts/Stacked_Line_Chart.png)
 
 ### Line Gradient
+
+Please copy and save the code to `line_gradient.html`.
 
 ```html
 <!DOCTYPE html>
@@ -341,9 +358,14 @@ Remember this is the foundation of the implementation of a lot of commercial web
 </html>
 ```
 
+Open the containing folder, and double click on the html file you just saved.
+And you will see the chart rendered like below,
+
 ![line-gradient](../../../../images/data_visualization/echarts/line-gradient.png)
 
 ### Function Plot
+
+Please copy and save the code to `function_plot.html`.
 
 ```html
 <!DOCTYPE html>
@@ -446,9 +468,14 @@ Remember this is the foundation of the implementation of a lot of commercial web
 </html>
 ```
 
+Open the containing folder, and double click on the html file you just saved.
+And you will see the chart rendered like below,
+
 ![function-plot](../../../../images/data_visualization/echarts/function-plot.png)
 
 ### Line Race
+
+Please copy and save the code to `line_race.html`.
 
 ```html
 <!DOCTYPE html>
@@ -577,11 +604,102 @@ Remember this is the foundation of the implementation of a lot of commercial web
 </html>
 ```
 
+Open the containing folder, and double click on the html file you just saved.
+And you will see the chart rendered like below,
+
 ![line-race](../../../../images/data_visualization/echarts/line-race.png)
 
 ### Step Line
 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECharts Example with Vanilla JS</title>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.min.js"></script>
+  <style>
+    #main {
+      width: 600px;
+      height: 400px;
+    }
+  </style>
+</head>
+<body>
+  <h2>ECharts Example</h2>
+  <div id="main"></div>
+
+  <script>
+    // Initialize the chart
+    var chart = echarts.init(document.getElementById('main'));
+
+    // Chart options
+    var option = {
+      title: {
+        text: 'Step Line'
+      },
+      tooltip: {
+        trigger: 'axis'
+      },
+      legend: {
+        data: ['Step Start', 'Step Middle', 'Step End']
+      },
+      grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+      },
+      toolbox: {
+        feature: {
+          saveAsImage: {}
+        }
+      },
+      xAxis: {
+        type: 'category',
+        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+      },
+      yAxis: {
+        type: 'value'
+      },
+      series: [
+        {
+          name: 'Step Start',
+          type: 'line',
+          step: 'start',
+          data: [120, 132, 101, 134, 90, 230, 210]
+        },
+        {
+          name: 'Step Middle',
+          type: 'line',
+          step: 'middle',
+          data: [220, 282, 201, 234, 290, 430, 410]
+        },
+        {
+          name: 'Step End',
+          type: 'line',
+          step: 'end',
+          data: [450, 432, 401, 454, 590, 530, 510]
+        }
+      ]
+    };
+
+    // Set the options
+    chart.setOption(option);
+  </script>
+</body>
+</html>
+```
+
+Open the containing folder, and double click on the html file you just saved.
+And you will see the chart rendered like below,
+
+![step_line](../../../../images/data_visualization/echarts/step_line.png)
+
 ### line-in-cartesian-coordinate-system
+
+Please copy and save the code to `line-in-cartesian-coordinate-system.html`.
 
 ```html
 <!DOCTYPE html>
@@ -629,11 +747,16 @@ Remember this is the foundation of the implementation of a lot of commercial web
 </html>
 ```
 
+Open the containing folder, and double click on the html file you just saved.
+And you will see the chart rendered like below,
+
 ![line-in-cartesian-coordinate-system](../../../../images/data_visualization/echarts/line-in-cartesian-coordinate-system.png)
 
 ## Bar Chart
 
 ### Basic Bar
+
+Please copy and save the code to `basic_bar.html`.
 
 ```html
 <!DOCTYPE html>
@@ -681,9 +804,14 @@ Remember this is the foundation of the implementation of a lot of commercial web
 </html>
 ```
 
+Open the containing folder, and double click on the html file you just saved.
+And you will see the chart rendered like below,
+
 ![barchart_1](../../../../images/data_visualization/echarts/barchart_1.png)
 
 ### bar-polar-label-radial
+
+Please copy and save the code to `bar-polar-label-radial.html`.
 
 ```html
 <!DOCTYPE html>
@@ -761,9 +889,14 @@ Remember this is the foundation of the implementation of a lot of commercial web
 </html>
 ```
 
+Open the containing folder, and double click on the html file you just saved.
+And you will see the chart rendered like below,
+
 ![bar-polar-label-radial](../../../../images/data_visualization/echarts/bar-polar-label-radial.png)
 
 ### bar-y-category
+
+Please copy and save the code to `bar-y-category.html`.
 
 ```html
 <!DOCTYPE html>
@@ -848,9 +981,14 @@ Remember this is the foundation of the implementation of a lot of commercial web
 </html>
 ```
 
+Open the containing folder, and double click on the html file you just saved.
+And you will see the chart rendered like below,
+
 ![alt text](../../../../images/data_visualization/echarts/bar-y-category.png)
 
 ### bar-polar-label-tangential
+
+Please copy and save the code to `bar-polar-label-tangential.html`.
 
 ```html
 <!DOCTYPE html>
@@ -887,35 +1025,34 @@ Remember this is the foundation of the implementation of a lot of commercial web
       var option;
 
       option = {
-  title: [
-    {
-      text: 'Tangential Polar Bar Label Position (middle)'
-    }
-  ],
-  polar: {
-    radius: [30, '80%']
-  },
-  angleAxis: {
-    max: 4,
-    startAngle: 75
-  },
-  radiusAxis: {
-    type: 'category',
-    data: ['a', 'b', 'c', 'd']
-  },
-  tooltip: {},
-  series: {
-    type: 'bar',
-    data: [2, 1.2, 2.4, 3.6],
-    coordinateSystem: 'polar',
-    label: {
-      show: true,
-      position: 'middle',
-      formatter: '{b}: {c}'
-    }
-  }
-};
-
+        title: [
+          {
+            text: 'Tangential Polar Bar Label Position (middle)'
+          }
+        ],
+        polar: {
+          radius: [30, '80%']
+        },
+        angleAxis: {
+          max: 4,
+          startAngle: 75
+        },
+        radiusAxis: {
+          type: 'category',
+          data: ['a', 'b', 'c', 'd']
+        },
+        tooltip: {},
+        series: {
+          type: 'bar',
+          data: [2, 1.2, 2.4, 3.6],
+          coordinateSystem: 'polar',
+          label: {
+            show: true,
+            position: 'middle',
+            formatter: '{b}: {c}'
+          }
+        }
+      };
 
       if (option && typeof option === 'object') {
         myChart.setOption(option);
@@ -927,9 +1064,14 @@ Remember this is the foundation of the implementation of a lot of commercial web
 </html>
 ```
 
+Open the containing folder, and double click on the html file you just saved.
+And you will see the chart rendered like below,
+
 ![bar-polar-label-tangential](../../../../images/data_visualization/echarts/bar-polar-label-tangential.png)
 
 ### polar-endAngle
+
+Please copy and save the code to `polar-endAngle.html`.
 
 ```html
 <!DOCTYPE html>
@@ -1010,11 +1152,13 @@ Remember this is the foundation of the implementation of a lot of commercial web
 </script>
 </body>
 </html>
-
 ```
+
+Open the containing folder, and double click on the html file you just saved.
+And you will see the chart rendered like below,
 
 ![polar-endAngle](../../../../images/data_visualization/echarts/polar-endAngle.png)
 
 ## Ref
 
-https://echarts.apache.org/examples/en/index.html#chart-type-bar
+- https://echarts.apache.org/examples/en/index.html#chart-type-bar

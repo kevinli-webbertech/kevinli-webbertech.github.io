@@ -108,9 +108,11 @@ Here’s how you can do it:
    Replace `myusername`, `mypassword`, and `mydatabase` with the appropriate credentials and database name.
 
 #### 4. **Access RDS from Local Machine**
+
    After running `kubectl port-forward`, you are able to access the RDS database as if it's running locally. The connection is forwarded through the pod, so traffic to the pod’s local port gets routed to your RDS instance.
 
 ### Optional: Troubleshooting
+
 If you encounter any issues:
 - Ensure that your Kubernetes pod has network access to the RDS instance (check the VPC and security groups).
 - Double-check the credentials you are using to connect to RDS (username, password, database name).
