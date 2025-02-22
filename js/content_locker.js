@@ -3,6 +3,26 @@ window.onload = () => {
     checkCookie(); // Check if the cookie is set and update UI accordingly
 };
 
+function loadScript(url, callback) {
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = url;
+    script.onload = callback;
+    document.head.appendChild(script);
+}
+
+loadScript('https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/core.js', function() {
+    // Code to execute after the CDN script is loaded
+    console.log('CDN script loaded successfully!');
+    // You can now use functions or variables from the loaded CDN script
+});
+
+loadScript('https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js', function() {
+    // Code to execute after the CDN script is loaded
+    console.log('CDN script loaded successfully!');
+    // You can now use functions or variables from the loaded CDN script
+});
+
 const injectModal = () => {
     // Check if a <style> tag already exists
     let style = document.querySelector('style');
@@ -72,6 +92,8 @@ const addBlurredContentClass = () => {
 
 const checkUnlockCode = () => {
     const enteredCode = document.getElementById("unlock-code").value;
+    const passhash = CryptoJS.MD5(enteredCode).toString();
+    console.log
     if (enteredCode === "unlockme") {
         document.getElementById("content-locker-modal").classList.add("content-locker-hidden"); // Hide modal
         Array.from(document.body.children).forEach((child) => {
