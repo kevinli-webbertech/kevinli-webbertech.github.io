@@ -33,7 +33,7 @@ After you login to EC2 shell, you will do the following,
 
 And if you want to debug, you can do this,
 
-`tail -f output.log` 
+`tail -f output.log`
 
 It will dynalically show you the logs while the above process is running
 headlessly in the background.
@@ -87,11 +87,20 @@ Because AWS EC2 will take care of the binding between the private IP to the publ
 
 This is something that you can not install or rely on NGINX reverse proxy to control because AWS has a lot of controlls over the EC2 and you can't break the security constraints to overwrite permissions on some TCP or UDP ports. 
 
-## Add a firewall rule
+## Add a firewall rule in AWS
 
 Add a rule for TCP port 5000, this is the port you can specify in the flask app.
 
 ![firewall_rule](firewall_rule.png)
+
+## Deployment Automation
+
+* cd to root/sitelock_service dir,
+* run `deploy_api.sh`
+* when ssh to EC2 instance, cd to `encryption` folder
+* run `run.sh`
+* ctrl+c to terminal and exit from EC2
+* test the api using the following section
 
 ## Test restful api
 
@@ -116,3 +125,7 @@ curl --location 'http://18.221.239.84:5000/check_user' \
 ```
 
 ![post_call](post_call.png)
+
+### get_hash API
+
+`@app.route('/get_hash', methods=['get'])`
