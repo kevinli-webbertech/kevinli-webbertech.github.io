@@ -4,9 +4,15 @@
 
 * Lines
 
+* Graph
+
 * Funnel
 
+* Tree
+
 * Gauge
+
+* GEO/Map
 
 * 3D Globe
 
