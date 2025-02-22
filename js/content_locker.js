@@ -11,6 +11,21 @@ function loadScript(url, callback) {
     document.head.appendChild(script);
 }
 
+async function getData() {
+    const url = "http://18.221.239.84:5000/get_hash";
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+      }
+  
+      const json = await response.json();
+      console.log(json);
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
 loadScript('https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/core.js', function() {
     // Code to execute after the CDN script is loaded
     console.log('CDN script loaded successfully!');
@@ -93,8 +108,10 @@ const addBlurredContentClass = () => {
 const checkUnlockCode = () => {
     const enteredCode = document.getElementById("unlock-code").value;
     const passhash = CryptoJS.MD5(enteredCode).toString();
-    console.log
-    if (enteredCode === "unlockme") {
+    const verified_code = getData()
+    console.log(passhash)
+    console.log(verified_code)
+    if (passhash === "unlockme") {
         document.getElementById("content-locker-modal").classList.add("content-locker-hidden"); // Hide modal
         Array.from(document.body.children).forEach((child) => {
             child.classList.remove('content-locker-blurred'); // Remove blur from all elements
