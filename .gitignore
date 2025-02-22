@@ -1,4 +1,7 @@
 .idea/*
+.DS_Store
+.project
+.*.swp
 blog/.idea/*
 blog/images/.DS_Store
 node_modules
