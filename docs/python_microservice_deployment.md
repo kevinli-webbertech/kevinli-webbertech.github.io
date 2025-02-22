@@ -104,18 +104,18 @@ Add a rule for TCP port 5000, this is the port you can specify in the flask app.
 
 ## Test restful api
 
-### get call to the endpoint of url/test
+### Test HTTP Get call to the endpoint of url/test
 
-```
+```shell
 curl --location 'http://18.221.239.84:5000/test' \
 --header 'Content-Type: application/json'
 ```
 
 ![get_call](get_call.png)
 
-### post call to the endpoint url/check_user
+### Test HTTP Post Call to the endpoint url/check_user
 
-```
+```shell
 curl --location 'http://18.221.239.84:5000/check_user' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -129,3 +129,8 @@ curl --location 'http://18.221.239.84:5000/check_user' \
 ### get_hash API
 
 `@app.route('/get_hash', methods=['get'])`
+
+```shell
+curl --location 'http://18.221.239.84:5000/get_hash' \
+--header 'Content-Type: application/json'
+```
