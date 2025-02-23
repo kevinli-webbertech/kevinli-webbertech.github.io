@@ -99,7 +99,7 @@ const checkUnlockCode = () => {
     const verified_code = getData()
     console.log("passhash is: " + passhash)
     console.log("verified code is:" + verified_code)
-    if (passhash === "unlockme") {
+    if (passhash === verified_code) {
         document.getElementById("content-locker-modal").classList.add("content-locker-hidden"); // Hide modal
         Array.from(document.body.children).forEach((child) => {
             child.classList.remove('content-locker-blurred'); // Remove blur from all elements
