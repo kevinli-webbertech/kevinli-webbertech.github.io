@@ -58,3 +58,11 @@ https://kevinli-webbertech.github.io/blog/html/courses/dev_ops/k8s/k8s_security.
 https://kevinli-webbertech.github.io/blog/html/ref/python/pandas/Pandas_IOtools.html
 https://kevinli-webbertech.github.io/blog/html/ref/mobile/flutter.html
 ```
+
+### Other linkchecker of Python
+
+`pip3 install linkchecker`
+
+#### Ref
+
+`https://linkchecker.github.io/linkchecker/`
