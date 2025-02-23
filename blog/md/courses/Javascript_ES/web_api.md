@@ -11,6 +11,7 @@ A Web API is a developer's dream.
 All browsers have a set of built-in Web APIs to support complex operations, and to help accessing data.
 
 For example, the Geolocation API can return the coordinates of where the browser is located.
+
 ```
 <!DOCTYPE html>
 <html>
@@ -102,7 +103,8 @@ setCustomValidity()	: Sets the validationMessage property of an input element.
 
 If an input field contains invalid data, display a message:
 
-```<!DOCTYPE html>
+```
+<!DOCTYPE html>
 <html>
 <body>
 
@@ -186,6 +188,7 @@ The validity property of an input element contains a number of properties relate
 Examples
 
 If the number in an input field is greater than 100 (the input's max attribute), display a message:
+
 ```
 <!DOCTYPE html>
 <html>
@@ -249,6 +252,7 @@ function myFunction() {
 </html>
 
 If the number in an input field is less than 100 (the input's min attribute), display a message:
+
 ```
 <!DOCTYPE html>
 <html>
@@ -279,8 +283,8 @@ function myFunction() {
 
 </body>
 </html>
-
 ```
+
 <!DOCTYPE html>
 <html>
 <body>
@@ -322,6 +326,7 @@ The window.history object contains the URLs (Web Sites) visited by the user.
 The back() method loads the previous URL in the windows.history list.
 
 It is the same as clicking the "back arrow" in your browser.
+
 ```
 <button onclick="myFunction()">Go Back</button>
 
@@ -346,6 +351,7 @@ function myFunction() {
 The go() method loads a specific URL from the history list:
 
 Example
+
 ```
 <button onclick="myFunction()">Go Back 2 Pages</button>
 
@@ -354,8 +360,8 @@ function myFunction() {
   window.history.go(-2);
 }
 </script>
-
 ```
+
 <button onclick="myFunction()">Go Back 2 Pages</button>
 
 <script>
