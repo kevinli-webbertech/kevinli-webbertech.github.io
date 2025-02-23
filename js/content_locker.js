@@ -3,16 +3,10 @@ window.onload = () => {
     checkCookie(); // Check if the cookie is set and update UI accordingly
 };
 
-function loadScript(url, callback) {
-    const script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = url;
-    script.onload = callback;
-    document.head.appendChild(script);
-}
 
+ // this is not working, https isn't working
  function getData() {
-    const url = "http://18.221.239.84:5000/get_hash";
+    const url = "https://18.221.239.84:5000/get_hash";
     fetch(url)
     .then(response => {
         if (response.ok) {
