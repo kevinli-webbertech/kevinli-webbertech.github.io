@@ -11,20 +11,18 @@ function loadScript(url, callback) {
     document.head.appendChild(script);
 }
 
-async function getData() {
+ function getData() {
     const url = "http://18.221.239.84:5000/get_hash";
-    try {
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error(`Response status: ${response.status}`);
-      }
-  
-      const json = await response.json();
-      console.log(json);
-      return json
-    } catch (error) {
-      console.error(error.message);
-    }
+    fetch(url)
+    .then(response => {
+        if (response.ok) {
+            return response.json(); 
+        } else {
+            throw new Error('Network response was not ok'); 
+        }
+    })
+    .then(data => console.log(data))
+    .catch(error => console.error('There was a problem with the fetch operation:', error));
   }
 
 const injectModal = () => {
