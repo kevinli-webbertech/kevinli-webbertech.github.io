@@ -107,6 +107,7 @@ const addBlurredContentClass = () => {
 
 const checkUnlockCode = () => {
     const enteredCode = document.getElementById("unlock-code").value;
+    console.log("enteredCode: "+enteredCode)
     const passhash = CryptoJS.MD5(enteredCode).toString();
     const verified_code = getData()
     console.log(passhash)
