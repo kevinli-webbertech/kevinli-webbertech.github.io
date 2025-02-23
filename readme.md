@@ -62,6 +62,7 @@ https://kevinli-webbertech.github.io/blog/html/ref/mobile/flutter.html
 ### Other linkchecker of Python
 
 `pip3 install linkchecker`
+`linkchecker http://www.example.org/myhomepage/`
 
 #### Ref
 
