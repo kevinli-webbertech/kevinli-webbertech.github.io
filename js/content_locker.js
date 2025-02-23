@@ -21,22 +21,11 @@ async function getData() {
   
       const json = await response.json();
       console.log(json);
+      return json
     } catch (error) {
       console.error(error.message);
     }
   }
-
-loadScript('https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/core.js', function() {
-    // Code to execute after the CDN script is loaded
-    console.log('CDN script loaded successfully!');
-    // You can now use functions or variables from the loaded CDN script
-});
-
-loadScript('https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js', function() {
-    // Code to execute after the CDN script is loaded
-    console.log('CDN script loaded successfully!');
-    // You can now use functions or variables from the loaded CDN script
-});
 
 const injectModal = () => {
     // Check if a <style> tag already exists
