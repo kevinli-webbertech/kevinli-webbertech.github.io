@@ -96,9 +96,10 @@ const checkUnlockCode = () => {
     const enteredCode = document.getElementById("unlock-code").value;
     console.log("enteredCode: "+enteredCode)
     const passhash = CryptoJS.MD5(enteredCode).toString();
-    const verified_code = getData()
+    //const verified_code = getData(), not working, needs to set up https on the EC2 instance
     console.log("passhash is: " + passhash)
     console.log("verified code is:" + verified_code)
+    const verified_code = "499bf44012dc5d16df28a4b2578410e2"
     if (passhash === verified_code) {
         document.getElementById("content-locker-modal").classList.add("content-locker-hidden"); // Hide modal
         Array.from(document.body.children).forEach((child) => {
