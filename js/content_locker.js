@@ -110,8 +110,8 @@ const checkUnlockCode = () => {
     console.log("enteredCode: "+enteredCode)
     const passhash = CryptoJS.MD5(enteredCode).toString();
     const verified_code = getData()
-    console.log(passhash)
-    console.log(verified_code)
+    console.log("passhash is: " + verified_code)
+    console.log("verified code is:" + verified_code)
     if (passhash === "unlockme") {
         document.getElementById("content-locker-modal").classList.add("content-locker-hidden"); // Hide modal
         Array.from(document.body.children).forEach((child) => {
