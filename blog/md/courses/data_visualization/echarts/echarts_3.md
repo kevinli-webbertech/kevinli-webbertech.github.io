@@ -103,13 +103,6 @@ https://echarts.apache.org/examples/en/editor.html?c=scatter-polynomial-regressi
 
 https://echarts.apache.org/examples/en/editor.html?c=dataset-encode1
 
-### dataset-link
-
-```html
-
-```
-
-https://echarts.apache.org/examples/en/editor.html?c=dataset-link
 
 ## Candlestick
 
