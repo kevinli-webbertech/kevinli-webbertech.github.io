@@ -1415,8 +1415,8 @@ function generateOHLC(count) {
 }
 ```
 
-![candlestick-large](candlestick-large.png)
-https://echarts.apache.org/examples/en/editor.html?c=candlestick-large
+![candlestick-large](../../../../images/data_visualization/echarts/candlestick-large.png)
+
 
 ## Heatmap
 
@@ -1607,7 +1607,7 @@ function getNoiseHelper() {
 }
 ```
 
-![heatmap-large-piecewise](heatmap-large-piecewise.png)
+![heatmap-large-piecewise](../../../../images/data_visualization/echarts/heatmap-large-piecewise.png)
 
 ## Radar
 
@@ -1651,7 +1651,7 @@ option = {
 };
 ```
 
-![radar](radar.png)
+![radar](../../../../images/data_visualization/echarts/radar.png)
 
 ### radar-multiple
 
@@ -1759,7 +1759,7 @@ option = {
 };
 ```
 
-![imaradar-multiplege](imaradar-multiplege.png)
+![imaradar-multiplege](../../../../images/data_visualization/echarts/imaradar-multiplege.png)
 
 ### radar-aqi
 
@@ -1967,7 +1967,7 @@ option = {
 };
 ```
 
-![radar-aqi](radar-aqi.png)
+![radar-aqi](../../../../images/data_visualization/echarts/radar-aqi.png)
 
 ## Ref
 
