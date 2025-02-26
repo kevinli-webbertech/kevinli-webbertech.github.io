@@ -61,12 +61,12 @@ The least significant bit (LSB) of these values determines tiny changes that are
 1. Choose Your Image
     • Use an image, for example of Maspeth, Queens (let’s call it maspeth.png). Make sure it’s under 500x500 pixels for simplicity.
 
-![small_image](small_image.png)
+![small_image](../../../../images/computer_forensic/stenography/small_image.png)
 
 2. Prepare Your Secret Message
     • You already have a secret message in message.txt. This can be any text you want to hide in the image.
 
-![message](message.png)
+![message](../../../../images/computer_forensic/stenography/message.png)
 
 3. Hide the Message with OpenStego
 
@@ -91,7 +91,7 @@ The least significant bit (LSB) of these values determines tiny changes that are
 
         ◦ Click "Hide Data". This will create practice.png, an image with your secret message hidden inside.
 
-![hide_message](hide_message.png)
+![hide_message](../../../../images/computer_forensic/stenography/hide_message.png)
 
 4. Extract the Hidden Message
 
@@ -111,7 +111,7 @@ The least significant bit (LSB) of these values determines tiny changes that are
 
         ◦ Click "Extract Data", and OpenStego will give you a file with the hidden message, like extracted_message.txt.
 
-![extract_message](extract_message.png)
+![extract_message](../../../../images/computer_forensic/stenography/extract_message.png)
 
 ## ref
 
