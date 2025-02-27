@@ -25,6 +25,7 @@ gcc -o my_program file1.o file2.o -lmylib
 This automatically invokes `ld` with the correct system libraries.
 
 ## **Common `ld` Options**
+
 - `-o <file>`: Specifies output file name.
 - `-r`: Generates a relocatable object file instead of an executable.
 - `-L<dir>`: Adds a directory to the library search path.
@@ -47,3 +48,41 @@ ld -o my_program file1.o file2.o -lc
 
 (`-lc` links with the C standard library.)
 
+## LD usage in assembly
+
+Please use the following steps on my computer to create a file called `hello.s`.
+
+```assembly
+xiaofengli@xiaofenglx:~/git/assembly$ cat hello.s 
+global _start
+
+section .text
+
+_start:
+  mov rax, 1        ; write(
+  mov rdi, 1        ;   STDOUT_FILENO,
+  mov rsi, msg      ;   "Hello, world!\n",
+  mov rdx, msglen   ;   sizeof("Hello, world!\n")
+  syscall           ; );
+
+  mov rax, 60       ; exit(
+  mov rdi, 0        ;   EXIT_SUCCESS
+  syscall           ; );
+
+section .rodata
+  msg: db "Hello, world!", 10
+  msglen: equ $ - msg
+```
+
+Please try the following in your computer and use the `ld` command to link the objects and libs files to finalize the binary for use.
+
+```shell
+xiaofengli@xiaofenglx:~/git/assembly$ nasm -f elf64 -o hello.o hello.s
+xiaofengli@xiaofenglx:~/git/assembly$ ls
+hello.o  hello.s
+xiaofengli@xiaofenglx:~/git/assembly$ ld -o hello hello.o
+xiaofengli@xiaofenglx:~/git/assembly$ ls
+hello  hello.o	hello.s
+xiaofengli@xiaofenglx:~/git/assembly$ ./hello 
+Hello, world!
+```
