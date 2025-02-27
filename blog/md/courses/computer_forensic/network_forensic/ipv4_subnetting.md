@@ -1,11 +1,91 @@
-# Subnetting
+# IPv4 Subnetting
 
-Subnetting calculations allow you to divide a larger network into smaller, more manageable sub-networks (subnets). This is essential for optimizing network performance, security, and IP address allocation. Let's break down the process step-by-step with examples.
+**Subnetting** in IPv4 is the process of dividing a larger network into smaller, more manageable sub-networks or subnets. It helps improve network efficiency, security, and organization. Subnetting enables better utilization of IP addresses by dividing the available address space into multiple subnets.
 
-### Key Concepts
+## Key Concepts in Subnetting:
+
+1. **IP Address Structure:**
+   An IPv4 address consists of 32 bits, usually written in dotted decimal notation (e.g., `192.168.1.0`).
+   - This address is divided into two parts: the **network** and the **host** portion.
+   - A subnet mask is used to indicate which part of the IP address represents the network and which part represents the host.
+
+2. **Subnet Mask:**
+   The subnet mask is a 32-bit number that defines the boundary between the network and host portion of an IP address. The subnet mask has `1` bits for the network portion and `0` bits for the host portion. For example:
+   - A subnet mask of `255.255.255.0` (`11111111.11111111.11111111.00000000`) tells us that the first 24 bits are the network portion and the remaining 8 bits are for the host portion.
+
+3. **CIDR Notation:**
+   CIDR (Classless Inter-Domain Routing) notation is used to represent the subnet mask in a compact form, for example, `192.168.1.0/24`. The `/24` indicates that the first 24 bits are for the network.
+
+### Steps for Subnetting an IPv4 Network:
+
+1. **Determine the Number of Subnets Needed:**
+   - Calculate how many subnets you need. The formula for determining the number of subnets is:  
+     \[
+     \text{Number of subnets} = 2^n
+     \]
+     Where `n` is the number of bits borrowed from the host portion of the address to create subnets.
+
+2. **Find the New Subnet Mask:**
+   - If you're borrowing bits, you'll extend the network portion of the address by `n` bits. For example, if you're using a `/24` network (`255.255.255.0`) and borrow 2 bits, you’ll get a `/26` network (`255.255.255.192`).
+   
+3. **Calculate the Number of Hosts per Subnet:**
+   - The formula for the number of hosts per subnet is:  
+     \[
+     \text{Number of hosts} = 2^h - 2
+     \]
+     Where `h` is the number of bits left for the host portion, and the `-2` accounts for the network address and broadcast address.
+
+4. **Identify the Subnets:**
+   - Once you have the new subnet mask, you can determine the subnets by incrementing the subnet portion of the address. For example, if you have a network `192.168.1.0/24` and want to create 4 subnets, the new subnet mask will be `/26`. This will give you the subnets:
+     - `192.168.1.0/26`
+     - `192.168.1.64/26`
+     - `192.168.1.128/26`
+     - `192.168.1.192/26`
+
+### **Example of Subnetting:**
+
+Let’s subnet the network `192.168.1.0/24` into 4 subnets.
+
+1. **Calculate the Number of Bits to Borrow:**
+   We need to create 4 subnets, so:
+   \[
+   2^n \geq 4 \quad \Rightarrow \quad n = 2
+   \]
+   So, we need to borrow 2 bits from the host portion.
+
+2. **New Subnet Mask:**
+   - Original mask: `/24` or `255.255.255.0`
+   - Borrowing 2 bits gives us a new mask of `/26` (which is `255.255.255.192`).
+
+3. **Number of Hosts per Subnet:**
+   - Number of host bits = 6 (because `32 - 26 = 6`).
+   - Number of hosts = \(2^6 - 2 = 62\) hosts per subnet.
+
+4. **Identify the Subnets:**
+   - Subnet 1: `192.168.1.0/26` (Range: `192.168.1.0` to `192.168.1.63`)
+   - Subnet 2: `192.168.1.64/26` (Range: `192.168.1.64` to `192.168.1.127`)
+   - Subnet 3: `192.168.1.128/26` (Range: `192.168.1.128` to `192.168.1.191`)
+   - Subnet 4: `192.168.1.192/26` (Range: `192.168.1.192` to `192.168.1.255`)
+
+### **Subnetting Table:**
+
+| Subnet Address | Subnet Mask     | Usable IP Range        | Broadcast Address |
+|----------------|-----------------|------------------------|-------------------|
+| 192.168.1.0    | 255.255.255.192 | 192.168.1.1 - 192.168.1.62 | 192.168.1.63     |
+| 192.168.1.64   | 255.255.255.192 | 192.168.1.65 - 192.168.1.126 | 192.168.1.127    |
+| 192.168.1.128  | 255.255.255.192 | 192.168.1.129 - 192.168.1.190 | 192.168.1.191    |
+| 192.168.1.192  | 255.255.255.192 | 192.168.1.193 - 192.168.1.254 | 192.168.1.255    |
+
+### Summary of Key Points:
+- **Subnet Mask** helps identify the network and host portions of an address.
+- **CIDR Notation** (`/24`, `/26`) is a compact way of representing subnet masks.
+- **Borrowing bits** from the host portion allows you to create more subnets, but reduces the number of hosts per subnet.
+- The number of available subnets is \(2^n\) (where `n` is the number of borrowed bits), and the number of hosts per subnet is \(2^h - 2\) (where `h` is the remaining host bits).
+
+## Subnetting Precedure
 
 1. **Subnet Mask**: A subnet mask defines the boundary between the network portion and the host portion of an IP address. The mask uses `1`s for the network part and `0`s for the host part.
-   
+
    For example, in IPv4:
    - `255.255.255.0` is a common subnet mask, written as `/24` in CIDR notation (Classless Inter-Domain Routing).
 
