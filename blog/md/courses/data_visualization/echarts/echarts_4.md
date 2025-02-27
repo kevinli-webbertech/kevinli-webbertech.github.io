@@ -807,7 +807,7 @@ option = {
 };
 ```
 
-![funnel-mutiple](funnel-mutiple.png)
+![funnel-mutiple](../../../../images/data_visualization/echarts/funnel-mutiple.png)
 
 ## Gauge
 
@@ -1653,7 +1653,7 @@ $.get(ROOT_PATH + '/data/asset/geo/Beef_cuts_France.svg', function (svg) {
 });
 ```
 
-![geo-beef-cuts](geo-beef-cuts.png)
+![geo-beef-cuts](../../../../images/data_visualization/echarts/geo-beef-cuts.png)
 
 ### geo-svg-scatter-simple
 
@@ -1701,7 +1701,7 @@ $.get(ROOT_PATH + '/data/asset/geo/Map_of_Iceland.svg', function (svg) {
 });
 ```
 
-![geo-svg-scatter-simple](geo-svg-scatter-simple.png)
+![geo-svg-scatter-simple](../../../../images/data_visualization/echarts/geo-svg-scatter-simple.png)
 
 ## 3D Globe
 
@@ -1865,7 +1865,7 @@ $.when(
 });
 ```
 
-![3D-globe](Animating_Contour_on_Globe.gif)
+![3D-globe](../../../../images/data_visualization/echarts/Animating_Contour_on_Globe.gif)
 
 ### ECharts-GL Hello World
 
@@ -1898,15 +1898,1641 @@ option = {
 };
 ```
 
-![GL-globe](GL-globe.gif)
+![GL-globe](../../../../images/data_visualization/echarts/GL-globe.gif)
 
 ## 3D Bar
 
+### 3D Bar with Dataset
+
+```html
+$.get(
+  ROOT_PATH + '/data/asset/data/life-expectancy-table.json',
+  function (data) {
+    option = {
+      grid3D: {},
+      tooltip: {},
+      xAxis3D: {
+        type: 'category'
+      },
+      yAxis3D: {
+        type: 'category'
+      },
+      zAxis3D: {},
+      visualMap: {
+        max: 1e8,
+        dimension: 'Population'
+      },
+      dataset: {
+        dimensions: [
+          'Income',
+          'Life Expectancy',
+          'Population',
+          'Country',
+          { name: 'Year', type: 'ordinal' }
+        ],
+        source: data
+      },
+      series: [
+        {
+          type: 'bar3D',
+          // symbolSize: symbolSize,
+          shading: 'lambert',
+          encode: {
+            x: 'Year',
+            y: 'Country',
+            z: 'Life Expectancy',
+            tooltip: [0, 1, 2, 3, 4]
+          }
+        }
+      ]
+    };
+    myChart.setOption(option);
+  }
+);
+```
+
+![3D_Bar_with_Dataset](../../../../images/data_visualization/echarts/3D_Bar_with_Dataset.png)
+
+### Bar3D - Punch Card
+
+```html
+
+// prettier-ignore
+var hours = ['12a', '1a', '2a', '3a', '4a', '5a', '6a',
+    '7a', '8a', '9a', '10a', '11a',
+    '12p', '1p', '2p', '3p', '4p', '5p',
+    '6p', '7p', '8p', '9p', '10p', '11p'];
+// prettier-ignore
+var days = ['Saturday', 'Friday', 'Thursday',
+    'Wednesday', 'Tuesday', 'Monday', 'Sunday'];
+// prettier-ignore
+var data = [[0, 0, 5], [0, 1, 1], [0, 2, 0], [0, 3, 0], [0, 4, 0], [0, 5, 0], [0, 6, 0], [0, 7, 0], [0, 8, 0], [0, 9, 0], [0, 10, 0], [0, 11, 2], [0, 12, 4], [0, 13, 1], [0, 14, 1], [0, 15, 3], [0, 16, 4], [0, 17, 6], [0, 18, 4], [0, 19, 4], [0, 20, 3], [0, 21, 3], [0, 22, 2], [0, 23, 5], [1, 0, 7], [1, 1, 0], [1, 2, 0], [1, 3, 0], [1, 4, 0], [1, 5, 0], [1, 6, 0], [1, 7, 0], [1, 8, 0], [1, 9, 0], [1, 10, 5], [1, 11, 2], [1, 12, 2], [1, 13, 6], [1, 14, 9], [1, 15, 11], [1, 16, 6], [1, 17, 7], [1, 18, 8], [1, 19, 12], [1, 20, 5], [1, 21, 5], [1, 22, 7], [1, 23, 2], [2, 0, 1], [2, 1, 1], [2, 2, 0], [2, 3, 0], [2, 4, 0], [2, 5, 0], [2, 6, 0], [2, 7, 0], [2, 8, 0], [2, 9, 0], [2, 10, 3], [2, 11, 2], [2, 12, 1], [2, 13, 9], [2, 14, 8], [2, 15, 10], [2, 16, 6], [2, 17, 5], [2, 18, 5], [2, 19, 5], [2, 20, 7], [2, 21, 4], [2, 22, 2], [2, 23, 4], [3, 0, 7], [3, 1, 3], [3, 2, 0], [3, 3, 0], [3, 4, 0], [3, 5, 0], [3, 6, 0], [3, 7, 0], [3, 8, 1], [3, 9, 0], [3, 10, 5], [3, 11, 4], [3, 12, 7], [3, 13, 14], [3, 14, 13], [3, 15, 12], [3, 16, 9], [3, 17, 5], [3, 18, 5], [3, 19, 10], [3, 20, 6], [3, 21, 4], [3, 22, 4], [3, 23, 1], [4, 0, 1], [4, 1, 3], [4, 2, 0], [4, 3, 0], [4, 4, 0], [4, 5, 1], [4, 6, 0], [4, 7, 0], [4, 8, 0], [4, 9, 2], [4, 10, 4], [4, 11, 4], [4, 12, 2], [4, 13, 4], [4, 14, 4], [4, 15, 14], [4, 16, 12], [4, 17, 1], [4, 18, 8], [4, 19, 5], [4, 20, 3], [4, 21, 7], [4, 22, 3], [4, 23, 0], [5, 0, 2], [5, 1, 1], [5, 2, 0], [5, 3, 3], [5, 4, 0], [5, 5, 0], [5, 6, 0], [5, 7, 0], [5, 8, 2], [5, 9, 0], [5, 10, 4], [5, 11, 1], [5, 12, 5], [5, 13, 10], [5, 14, 5], [5, 15, 7], [5, 16, 11], [5, 17, 6], [5, 18, 0], [5, 19, 5], [5, 20, 3], [5, 21, 4], [5, 22, 2], [5, 23, 0], [6, 0, 1], [6, 1, 0], [6, 2, 0], [6, 3, 0], [6, 4, 0], [6, 5, 0], [6, 6, 0], [6, 7, 0], [6, 8, 0], [6, 9, 0], [6, 10, 1], [6, 11, 0], [6, 12, 2], [6, 13, 1], [6, 14, 3], [6, 15, 4], [6, 16, 0], [6, 17, 0], [6, 18, 0], [6, 19, 0], [6, 20, 1], [6, 21, 2], [6, 22, 2], [6, 23, 6]];
+option = {
+  tooltip: {},
+  visualMap: {
+    max: 20,
+    inRange: {
+      color: [
+        '#313695',
+        '#4575b4',
+        '#74add1',
+        '#abd9e9',
+        '#e0f3f8',
+        '#ffffbf',
+        '#fee090',
+        '#fdae61',
+        '#f46d43',
+        '#d73027',
+        '#a50026'
+      ]
+    }
+  },
+  xAxis3D: {
+    type: 'category',
+    data: hours
+  },
+  yAxis3D: {
+    type: 'category',
+    data: days
+  },
+  zAxis3D: {
+    type: 'value'
+  },
+  grid3D: {
+    boxWidth: 200,
+    boxDepth: 80,
+    viewControl: {
+      // projection: 'orthographic'
+    },
+    light: {
+      main: {
+        intensity: 1.2,
+        shadow: true
+      },
+      ambient: {
+        intensity: 0.3
+      }
+    }
+  },
+  series: [
+    {
+      type: 'bar3D',
+      data: data.map(function (item) {
+        return {
+          value: [item[1], item[0], item[2]]
+        };
+      }),
+      shading: 'lambert',
+      label: {
+        fontSize: 16,
+        borderWidth: 1
+      },
+      emphasis: {
+        label: {
+          fontSize: 20,
+          color: '#900'
+        },
+        itemStyle: {
+          color: '#900'
+        }
+      }
+    }
+  ]
+};
+
+```
+
+![Punch_Card](../../../../images/data_visualization/echarts/Punch_Card.png)
+
+### Metal Bar3D
+
+```html
+$.getScript(
+  'https://fastly.jsdelivr.net/npm/simplex-noise@2.4.0/simplex-noise.js'
+).done(function () {
+  var noise = new SimplexNoise(Math.random);
+  function generateData(theta, min, max) {
+    var data = [];
+    for (var i = 0; i <= 20; i++) {
+      for (var j = 0; j <= 20; j++) {
+        var value = noise.noise2D(i / 20, j / 20);
+        valMax = Math.max(valMax, value);
+        valMin = Math.min(valMin, value);
+        data.push([i, j, value * 2 + 4]);
+      }
+    }
+    return data;
+  }
+  var valMin = Infinity;
+  var valMax = -Infinity;
+  var data = generateData(2, -5, 5);
+  myChart.setOption(
+    (option = {
+      tooltip: {},
+      xAxis3D: {
+        type: 'value'
+      },
+      yAxis3D: {
+        type: 'value'
+      },
+      zAxis3D: {
+        type: 'value',
+        max: 10,
+        min: 0
+      },
+      grid3D: {
+        environment: '#000',
+        axisPointer: {
+          show: false
+        },
+        postEffect: {
+          enable: true,
+          SSAO: {
+            enable: true,
+            radius: 5
+          }
+        },
+        light: {
+          main: {
+            intensity: 3
+          },
+          ambientCubemap: {
+            texture: ROOT_PATH + '/data-gl/asset/pisa.hdr',
+            exposure: 1,
+            diffuseIntensity: 0.5,
+            specularIntensity: 2
+          }
+        }
+      },
+      series: [
+        {
+          type: 'bar3D',
+          data: data,
+          barSize: 4,
+          bevelSize: 0.4,
+          bevelSmoothness: 4,
+          shading: 'realistic',
+          realisticMaterial: {
+            roughness: 0.3,
+            metalness: 1
+          },
+          label: {
+            textStyle: {
+              fontSize: 16,
+              borderWidth: 1
+            }
+          },
+          itemStyle: {
+            color: '#ccc'
+          },
+          emphasis: {
+            label: {
+              show: false
+            }
+          }
+        }
+      ]
+    })
+  );
+});
+```
+
+![metal_bar](../../../../images/data_visualization/echarts/metal_bar.png)
+
+### Stacked Bar3D
+
+```html
+$.getScript(
+  'https://fastly.jsdelivr.net/npm/simplex-noise@2.4.0/simplex-noise.js'
+).done(function () {
+  function generateData() {
+    var data = [];
+    var noise = new SimplexNoise(Math.random);
+    for (var i = 0; i <= 10; i++) {
+      for (var j = 0; j <= 10; j++) {
+        var value = noise.noise2D(i / 5, j / 5);
+        data.push([i, j, value * 2 + 4]);
+      }
+    }
+    return data;
+  }
+  var series = [];
+  for (var i = 0; i < 10; i++) {
+    series.push({
+      type: 'bar3D',
+      data: generateData(),
+      stack: 'stack',
+      shading: 'lambert',
+      emphasis: {
+        label: {
+          show: false
+        }
+      }
+    });
+  }
+  myChart.setOption({
+    xAxis3D: {
+      type: 'value'
+    },
+    yAxis3D: {
+      type: 'value'
+    },
+    zAxis3D: {
+      type: 'value'
+    },
+    grid3D: {
+      viewControl: {
+        // autoRotate: true
+      },
+      light: {
+        main: {
+          shadow: true,
+          quality: 'ultra',
+          intensity: 1.5
+        }
+      }
+    },
+    series: series
+  });
+});
+```
+
+![Stacked_Bar3D](../../../../images/data_visualization/echarts/Stacked_Bar3D.png)
+
+### Global Population - Bar3D on Globe
+
+```html
+$.getJSON(ROOT_PATH + '/data-gl/asset/data/population.json', function (data) {
+  data = data
+    .filter(function (dataItem) {
+      return dataItem[2] > 0;
+    })
+    .map(function (dataItem) {
+      return [dataItem[0], dataItem[1], Math.sqrt(dataItem[2])];
+    });
+  option = {
+    backgroundColor: '#000',
+    globe: {
+      baseTexture: ROOT_PATH + '/data-gl/asset/world.topo.bathy.200401.jpg',
+      heightTexture: ROOT_PATH + '/data-gl/asset/world.topo.bathy.200401.jpg',
+      shading: 'lambert',
+      environment: ROOT_PATH + '/data-gl/asset/starfield.jpg',
+      light: {
+        main: {
+          intensity: 2
+        }
+      },
+      viewControl: {
+        autoRotate: false
+      }
+    },
+    visualMap: {
+      max: 40,
+      calculable: true,
+      realtime: false,
+      inRange: {
+        colorLightness: [0.2, 0.9]
+      },
+      textStyle: {
+        color: '#fff'
+      },
+      controller: {
+        inRange: {
+          color: 'orange'
+        }
+      },
+      outOfRange: {
+        colorAlpha: 0
+      }
+    },
+    series: [
+      {
+        type: 'bar3D',
+        coordinateSystem: 'globe',
+        data: data,
+        barSize: 0.6,
+        minHeight: 0.2,
+        silent: true,
+        itemStyle: {
+          color: 'orange'
+        }
+      }
+    ]
+  };
+  myChart.setOption(option);
+});
+```
+
+![global-population-bar3d-on-globe](../../../../images/data_visualization/echarts/global-population-bar3d-on-globe.png)
+
+### Bar3D - Simplex Noise
+
+```html
+$.getScript(
+  'https://fastly.jsdelivr.net/npm/simplex-noise@2.4.0/simplex-noise.js'
+).done(function () {
+  var noise = new SimplexNoise(Math.random);
+  function generateData(theta, min, max) {
+    var data = [];
+    for (var i = 0; i <= 50; i++) {
+      for (var j = 0; j <= 50; j++) {
+        var value = noise.noise2D(i / 20, j / 20);
+        valMax = Math.max(valMax, value);
+        valMin = Math.min(valMin, value);
+        data.push([i, j, value * 2 + 4]);
+      }
+    }
+    return data;
+  }
+  var valMin = Infinity;
+  var valMax = -Infinity;
+  var data = generateData(2, -5, 5);
+  console.log(valMin, valMax);
+  myChart.setOption(
+    (option = {
+      visualMap: {
+        show: false,
+        min: 2,
+        max: 6,
+        inRange: {
+          color: [
+            '#313695',
+            '#4575b4',
+            '#74add1',
+            '#abd9e9',
+            '#e0f3f8',
+            '#ffffbf',
+            '#fee090',
+            '#fdae61',
+            '#f46d43',
+            '#d73027',
+            '#a50026'
+          ]
+        }
+      },
+      xAxis3D: {
+        type: 'value'
+      },
+      yAxis3D: {
+        type: 'value'
+      },
+      zAxis3D: {
+        type: 'value',
+        max: 10,
+        min: 0
+      },
+      grid3D: {
+        axisLine: {
+          lineStyle: { color: '#fff' }
+        },
+        axisPointer: {
+          lineStyle: { color: '#fff' }
+        },
+        viewControl: {
+          // autoRotate: true
+        },
+        light: {
+          main: {
+            shadow: true,
+            quality: 'ultra',
+            intensity: 1.5
+          }
+        }
+      },
+      series: [
+        {
+          type: 'bar3D',
+          data: data,
+          shading: 'lambert',
+          label: {
+            formatter: function (param) {
+              return param.value[2].toFixed(1);
+            }
+          }
+        }
+      ]
+    })
+  );
+});
+```
+
+![Simplex_Noise](../../../../images/data_visualization/echarts/Simplex_Noise.png)
+
 ## 3D Scatter
+
+### Scatter3D
+
+```html
+$.get(
+  ROOT_PATH + '/data/asset/data/life-expectancy-table.json',
+  function (data) {
+    var sizeValue = '57%';
+    var symbolSize = 2.5;
+    option = {
+      tooltip: {},
+      grid3D: {
+        width: '50%'
+      },
+      xAxis3D: {},
+      yAxis3D: {},
+      zAxis3D: {},
+      grid: [
+        { left: '50%', width: '20%', bottom: sizeValue },
+        { left: '75%', width: '20%', bottom: sizeValue },
+        { left: '50%', width: '20%', top: sizeValue },
+        { left: '75%', width: '20%', top: sizeValue }
+      ],
+      xAxis: [
+        {
+          type: 'value',
+          gridIndex: 0,
+          name: 'Income',
+          axisLabel: { rotate: 50, interval: 0 }
+        },
+        {
+          type: 'category',
+          gridIndex: 1,
+          name: 'Country',
+          boundaryGap: false,
+          axisLabel: { rotate: 50, interval: 0 }
+        },
+        {
+          type: 'value',
+          gridIndex: 2,
+          name: 'Income',
+          axisLabel: { rotate: 50, interval: 0 }
+        },
+        {
+          type: 'value',
+          gridIndex: 3,
+          name: 'Life Expectancy',
+          axisLabel: { rotate: 50, interval: 0 }
+        }
+      ],
+      yAxis: [
+        { type: 'value', gridIndex: 0, name: 'Life Expectancy' },
+        { type: 'value', gridIndex: 1, name: 'Income' },
+        { type: 'value', gridIndex: 2, name: 'Population' },
+        { type: 'value', gridIndex: 3, name: 'Population' }
+      ],
+      dataset: {
+        dimensions: [
+          'Income',
+          'Life Expectancy',
+          'Population',
+          'Country',
+          { name: 'Year', type: 'ordinal' }
+        ],
+        source: data
+      },
+      series: [
+        {
+          type: 'scatter3D',
+          symbolSize: 3,
+          encode: {
+            x: 'Population',
+            y: 'Life Expectancy',
+            z: 'Income',
+            tooltip: [0, 1, 2, 3, 4]
+          }
+        },
+        {
+          type: 'scatter',
+          symbolSize: symbolSize,
+          xAxisIndex: 0,
+          yAxisIndex: 0,
+          encode: {
+            x: 'Income',
+            y: 'Life Expectancy',
+            tooltip: [0, 1, 2, 3, 4]
+          }
+        },
+        {
+          type: 'scatter',
+          symbolSize: symbolSize,
+          xAxisIndex: 1,
+          yAxisIndex: 1,
+          encode: {
+            x: 'Country',
+            y: 'Income',
+            tooltip: [0, 1, 2, 3, 4]
+          }
+        },
+        {
+          type: 'scatter',
+          symbolSize: symbolSize,
+          xAxisIndex: 2,
+          yAxisIndex: 2,
+          encode: {
+            x: 'Income',
+            y: 'Population',
+            tooltip: [0, 1, 2, 3, 4]
+          }
+        },
+        {
+          type: 'scatter',
+          symbolSize: symbolSize,
+          xAxisIndex: 3,
+          yAxisIndex: 3,
+          encode: {
+            x: 'Life Expectancy',
+            y: 'Population',
+            tooltip: [0, 1, 2, 3, 4]
+          }
+        }
+      ]
+    };
+    myChart.setOption(option);
+  }
+);
+```
+
+![chart-type-scatter3D](../../../../images/data_visualization/echarts/chart-type-scatter3D.png)
+
+### 3D Scatter with Scatter Matrix
+
+```html
+var indices = {
+  name: 0,
+  group: 1,
+  id: 16
+};
+var schema = [
+  { name: 'name', index: 0 },
+  { name: 'group', index: 1 },
+  { name: 'protein', index: 2 },
+  { name: 'calcium', index: 3 },
+  { name: 'sodium', index: 4 },
+  { name: 'fiber', index: 5 },
+  { name: 'vitaminc', index: 6 },
+  { name: 'potassium', index: 7 },
+  { name: 'carbohydrate', index: 8 },
+  { name: 'sugars', index: 9 },
+  { name: 'fat', index: 10 },
+  { name: 'water', index: 11 },
+  { name: 'calories', index: 12 },
+  { name: 'saturated', index: 13 },
+  { name: 'monounsat', index: 14 },
+  { name: 'polyunsat', index: 15 },
+  { name: 'id', index: 16 }
+];
+var data;
+var fieldIndices = schema.reduce(function (obj, item) {
+  obj[item.name] = item.index;
+  return obj;
+}, {});
+var groupCategories = [];
+var groupColors = [];
+var data;
+var fieldNames = schema.map(function (item) {
+  return item.name;
+});
+fieldNames = fieldNames.slice(2, fieldNames.length - 2);
+function getMaxOnExtent(data) {
+  var colorMax = -Infinity;
+  var symbolSizeMax = -Infinity;
+  for (var i = 0; i < data.length; i++) {
+    var item = data[i];
+    var colorVal = item[fieldIndices[config.color]];
+    var symbolSizeVal = item[fieldIndices[config.symbolSize]];
+    colorMax = Math.max(colorVal, colorMax);
+    symbolSizeMax = Math.max(symbolSizeVal, symbolSizeMax);
+  }
+  return {
+    color: colorMax,
+    symbolSize: symbolSizeMax
+  };
+}
+var config = (app.config = {
+  xAxis3D: 'protein',
+  yAxis3D: 'fiber',
+  zAxis3D: 'sodium',
+  color: 'fiber',
+  symbolSize: 'vitaminc',
+  onChange: function () {
+    var max = getMaxOnExtent(data);
+    if (data) {
+      myChart.setOption({
+        visualMap: [
+          {
+            max: max.color / 2
+          },
+          {
+            max: max.symbolSize / 2
+          }
+        ],
+        xAxis3D: {
+          name: config.xAxis3D
+        },
+        yAxis3D: {
+          name: config.yAxis3D
+        },
+        zAxis3D: {
+          name: config.zAxis3D
+        },
+        series: {
+          dimensions: [
+            config.xAxis3D,
+            config.yAxis3D,
+            config.yAxis3D,
+            config.color,
+            config.symbolSiz
+          ],
+          data: data.map(function (item, idx) {
+            return [
+              item[fieldIndices[config.xAxis3D]],
+              item[fieldIndices[config.yAxis3D]],
+              item[fieldIndices[config.zAxis3D]],
+              item[fieldIndices[config.color]],
+              item[fieldIndices[config.symbolSize]],
+              idx
+            ];
+          })
+        }
+      });
+    }
+  }
+});
+app.configParameters = {};
+['xAxis3D', 'yAxis3D', 'zAxis3D', 'color', 'symbolSize'].forEach(function (
+  fieldName
+) {
+  app.configParameters[fieldName] = {
+    options: fieldNames
+  };
+});
+$.getJSON(ROOT_PATH + '/data/asset/data/nutrients.json', function (_data) {
+  data = _data;
+  var max = getMaxOnExtent(data);
+  myChart.setOption({
+    tooltip: {},
+    visualMap: [
+      {
+        top: 10,
+        calculable: true,
+        dimension: 3,
+        max: max.color / 2,
+        inRange: {
+          color: [
+            '#1710c0',
+            '#0b9df0',
+            '#00fea8',
+            '#00ff0d',
+            '#f5f811',
+            '#f09a09',
+            '#fe0300'
+          ]
+        },
+        textStyle: {
+          color: '#fff'
+        }
+      },
+      {
+        bottom: 10,
+        calculable: true,
+        dimension: 4,
+        max: max.symbolSize / 2,
+        inRange: {
+          symbolSize: [10, 40]
+        },
+        textStyle: {
+          color: '#fff'
+        }
+      }
+    ],
+    xAxis3D: {
+      name: config.xAxis3D,
+      type: 'value'
+    },
+    yAxis3D: {
+      name: config.yAxis3D,
+      type: 'value'
+    },
+    zAxis3D: {
+      name: config.zAxis3D,
+      type: 'value'
+    },
+    grid3D: {
+      axisLine: {
+        lineStyle: {
+          color: '#fff'
+        }
+      },
+      axisPointer: {
+        lineStyle: {
+          color: '#ffbd67'
+        }
+      },
+      viewControl: {
+        // autoRotate: true
+        // projection: 'orthographic'
+      }
+    },
+    series: [
+      {
+        type: 'scatter3D',
+        dimensions: [
+          config.xAxis3D,
+          config.yAxis3D,
+          config.yAxis3D,
+          config.color,
+          config.symbolSiz
+        ],
+        data: data.map(function (item, idx) {
+          return [
+            item[fieldIndices[config.xAxis3D]],
+            item[fieldIndices[config.yAxis3D]],
+            item[fieldIndices[config.zAxis3D]],
+            item[fieldIndices[config.color]],
+            item[fieldIndices[config.symbolSize]],
+            idx
+          ];
+        }),
+        symbolSize: 12,
+        // symbol: 'triangle',
+        itemStyle: {
+          borderWidth: 1,
+          borderColor: 'rgba(255,255,255,0.8)'
+        },
+        emphasis: {
+          itemStyle: {
+            color: '#fff'
+          }
+        }
+      }
+    ]
+  });
+});
+```
+
+![scatter3d-scatter](../../../../images/data_visualization/echarts/scatter3d-scatter.png)
 
 ## 3D Surface
 
+### Image Surface Sushuang
+
+```html
+$.get(
+  ROOT_PATH + '/data/asset/data/life-expectancy-table.json',
+  function (data) {
+    var sizeValue = '57%';
+    var symbolSize = 2.5;
+    option = {
+      tooltip: {},
+      grid3D: {
+        width: '50%'
+      },
+      xAxis3D: {},
+      yAxis3D: {},
+      zAxis3D: {},
+      grid: [
+        { left: '50%', width: '20%', bottom: sizeValue },
+        { left: '75%', width: '20%', bottom: sizeValue },
+        { left: '50%', width: '20%', top: sizeValue },
+        { left: '75%', width: '20%', top: sizeValue }
+      ],
+      xAxis: [
+        {
+          type: 'value',
+          gridIndex: 0,
+          name: 'Income',
+          axisLabel: { rotate: 50, interval: 0 }
+        },
+        {
+          type: 'category',
+          gridIndex: 1,
+          name: 'Country',
+          boundaryGap: false,
+          axisLabel: { rotate: 50, interval: 0 }
+        },
+        {
+          type: 'value',
+          gridIndex: 2,
+          name: 'Income',
+          axisLabel: { rotate: 50, interval: 0 }
+        },
+        {
+          type: 'value',
+          gridIndex: 3,
+          name: 'Life Expectancy',
+          axisLabel: { rotate: 50, interval: 0 }
+        }
+      ],
+      yAxis: [
+        { type: 'value', gridIndex: 0, name: 'Life Expectancy' },
+        { type: 'value', gridIndex: 1, name: 'Income' },
+        { type: 'value', gridIndex: 2, name: 'Population' },
+        { type: 'value', gridIndex: 3, name: 'Population' }
+      ],
+      dataset: {
+        dimensions: [
+          'Income',
+          'Life Expectancy',
+          'Population',
+          'Country',
+          { name: 'Year', type: 'ordinal' }
+        ],
+        source: data
+      },
+      series: [
+        {
+          type: 'scatter3D',
+          symbolSize: 3,
+          encode: {
+            x: 'Population',
+            y: 'Life Expectancy',
+            z: 'Income',
+            tooltip: [0, 1, 2, 3, 4]
+          }
+        },
+        {
+          type: 'scatter',
+          symbolSize: symbolSize,
+          xAxisIndex: 0,
+          yAxisIndex: 0,
+          encode: {
+            x: 'Income',
+            y: 'Life Expectancy',
+            tooltip: [0, 1, 2, 3, 4]
+          }
+        },
+        {
+          type: 'scatter',
+          symbolSize: symbolSize,
+          xAxisIndex: 1,
+          yAxisIndex: 1,
+          encode: {
+            x: 'Country',
+            y: 'Income',
+            tooltip: [0, 1, 2, 3, 4]
+          }
+        },
+        {
+          type: 'scatter',
+          symbolSize: symbolSize,
+          xAxisIndex: 2,
+          yAxisIndex: 2,
+          encode: {
+            x: 'Income',
+            y: 'Population',
+            tooltip: [0, 1, 2, 3, 4]
+          }
+        },
+        {
+          type: 'scatter',
+          symbolSize: symbolSize,
+          xAxisIndex: 3,
+          yAxisIndex: 3,
+          encode: {
+            x: 'Life Expectancy',
+            y: 'Population',
+            tooltip: [0, 1, 2, 3, 4]
+          }
+        }
+      ]
+    };
+    myChart.setOption(option);
+  }
+);
+```
+
+![image-surface-sushuang](../../../../images/data_visualization/echarts/image-surface-sushuang.png)
+
+### Simple Surface
+
+```html
+option = {
+  tooltip: {},
+  backgroundColor: '#fff',
+  visualMap: {
+    show: false,
+    dimension: 2,
+    min: -1,
+    max: 1,
+    inRange: {
+      color: [
+        '#313695',
+        '#4575b4',
+        '#74add1',
+        '#abd9e9',
+        '#e0f3f8',
+        '#ffffbf',
+        '#fee090',
+        '#fdae61',
+        '#f46d43',
+        '#d73027',
+        '#a50026'
+      ]
+    }
+  },
+  xAxis3D: {
+    type: 'value'
+  },
+  yAxis3D: {
+    type: 'value'
+  },
+  zAxis3D: {
+    type: 'value'
+  },
+  grid3D: {
+    viewControl: {
+      // projection: 'orthographic'
+    }
+  },
+  series: [
+    {
+      type: 'surface',
+      wireframe: {
+        // show: false
+      },
+      equation: {
+        x: {
+          step: 0.05
+        },
+        y: {
+          step: 0.05
+        },
+        z: function (x, y) {
+          if (Math.abs(x) < 0.1 && Math.abs(y) < 0.1) {
+            return '-';
+          }
+          return Math.sin(x * Math.PI) * Math.sin(y * Math.PI);
+        }
+      }
+    }
+  ]
+};
+```
+
+![Simple_Surface](../../../../images/data_visualization/echarts/Simple_Surface.png)
+
+### Leather Material
+
+```html
+var TILING = [4, 2];
+var heightImg = new Image();
+heightImg.onload = update;
+heightImg.crossOrigin = 'anonymous';
+heightImg.src = ROOT_PATH + '/data-gl/asset/leather/leather_height.jpg';
+function update() {
+  var canvas = document.createElement('canvas');
+  var ctx = canvas.getContext('2d');
+  var width = (canvas.width = heightImg.width);
+  var height = (canvas.height = heightImg.height);
+  ctx.drawImage(heightImg, 0, 0, width, height);
+  var imgData = ctx.getImageData(0, 0, width, height).data;
+  function getScale(u, v) {
+    u = ((u / Math.PI) * 0.5 + 0.5) * TILING[0];
+    v = (v / Math.PI) * TILING[1];
+    u = Math.floor((u - Math.floor(u)) * (width - 1));
+    v = Math.floor((1 - v + Math.floor(v)) * (height - 1));
+    var idx = v * width + u;
+    return 1 + imgData[idx * 4] / 255 / 20;
+  }
+  myChart.setOption({
+    xAxis3D: {
+      type: 'value',
+      min: -1.5,
+      max: 1.5
+    },
+    yAxis3D: {
+      type: 'value',
+      min: -1.5,
+      max: 1.5
+    },
+    zAxis3D: {
+      type: 'value',
+      min: -1.5,
+      max: 1.5
+    },
+    grid3D: {
+      show: false,
+      environment: 'none',
+      axisPointer: {
+        show: false
+      },
+      postEffect: {
+        enable: true,
+        screenSpaceAmbientOcclusion: {
+          enable: true,
+          radius: 10,
+          intensity: 2,
+          quality: 'high'
+        },
+        screenSpaceReflection: {
+          enable: false
+        },
+        depthOfField: {
+          enable: false,
+          focalRange: 10,
+          fstop: 4
+        }
+      },
+      temporalSuperSampling: {
+        enable: true
+      },
+      light: {
+        main: {
+          intensity: 2,
+          shadow: true
+        },
+        ambient: {
+          intensity: 0
+        },
+        ambientCubemap: {
+          texture: ROOT_PATH + '/data-gl/asset/pisa.hdr',
+          exposure: 1,
+          diffuseIntensity: 1,
+          specularIntensity: 2
+        }
+      },
+      viewControl: {
+        distance: 80
+        // projection: 'orthographic'
+      }
+    },
+    series: [
+      {
+        type: 'surface',
+        parametric: true,
+        shading: 'realistic',
+        silent: true,
+        wireframe: {
+          show: false
+        },
+        realisticMaterial: {
+          // detailTexture: 'asset/leather/leather_albedo.jpg',
+          roughness: ROOT_PATH + '/data-gl/asset/leather/leather_roughness.jpg',
+          normalTexture:
+            ROOT_PATH + '/data-gl/asset/leather/leather_normal.jpg',
+          textureTiling: TILING
+        },
+        itemStyle: {
+          color: '#300'
+        },
+        parametricEquation: {
+          u: {
+            min: -Math.PI,
+            max: Math.PI,
+            step: Math.PI / 100
+          },
+          v: {
+            min: 0.4,
+            max: Math.PI - 0.4,
+            step: Math.PI / 100
+          },
+          x: function (u, v) {
+            return Math.sin(v) * Math.sin(u) * getScale(u, v);
+          },
+          y: function (u, v) {
+            return Math.sin(v) * Math.cos(u) * getScale(u, v);
+          },
+          z: function (u, v) {
+            return Math.cos(v) * getScale(u, v);
+          }
+        }
+      }
+    ]
+  });
+}
+```
+
+![Leather_Material](../../../../images/data_visualization/echarts/Leather_Material.png)
+
+### Surface Wave
+
+```html
+option = {
+  tooltip: {},
+  backgroundColor: '#fff',
+  visualMap: {
+    show: false,
+    dimension: 2,
+    min: -1,
+    max: 1,
+    inRange: {
+      color: [
+        '#313695',
+        '#4575b4',
+        '#74add1',
+        '#abd9e9',
+        '#e0f3f8',
+        '#ffffbf',
+        '#fee090',
+        '#fdae61',
+        '#f46d43',
+        '#d73027',
+        '#a50026'
+      ]
+    }
+  },
+  xAxis3D: {
+    type: 'value'
+  },
+  yAxis3D: {
+    type: 'value'
+  },
+  zAxis3D: {
+    type: 'value',
+    max: 1,
+    splitNumber: 2
+  },
+  grid3D: {
+    viewControl: {
+      // projection: 'orthographic'
+    },
+    boxHeight: 40
+  },
+  series: [
+    {
+      type: 'surface',
+      wireframe: {
+        show: false
+      },
+      shading: 'color',
+      equation: {
+        x: {
+          step: 0.05,
+          min: -3,
+          max: 3
+        },
+        y: {
+          step: 0.05,
+          min: -3,
+          max: 3
+        },
+        z: function (x, y) {
+          return (Math.sin(x * x + y * y) * x) / 3.14;
+        }
+      }
+    }
+  ]
+};
+```
+
+![Surface_Wave](../../../../images/data_visualization/echarts/Surface_Wave.png)
+
+### Mollusc Shell
+
+```html
+option = {
+  tooltip: {},
+  visualMap: {
+    show: false,
+    dimension: 2,
+    min: -5,
+    max: 0,
+    inRange: {
+      color: [
+        '#313695',
+        '#4575b4',
+        '#74add1',
+        '#abd9e9',
+        '#e0f3f8',
+        '#ffffbf',
+        '#fee090',
+        '#fdae61',
+        '#f46d43',
+        '#d73027',
+        '#a50026'
+      ]
+    }
+  },
+  xAxis3D: {},
+  yAxis3D: {},
+  zAxis3D: {},
+  grid3D: {
+    show: true,
+    postEffect: {
+      enable: true
+    },
+    temporalSuperSampling: {
+      enable: true
+    },
+    light: {
+      main: {
+        intensity: 3,
+        shadow: true
+      },
+      ambient: {
+        intensity: 0
+      },
+      ambientCubemap: {
+        texture: ROOT_PATH + '/data-gl/asset/canyon.hdr',
+        exposure: 2,
+        diffuseIntensity: 1,
+        specularIntensity: 1
+      }
+    }
+  },
+  series: [
+    {
+      type: 'surface',
+      parametric: true,
+      wireframe: {
+        show: false
+      },
+      shading: 'realistic',
+      realisticMaterial: {
+        roughness: 0.4,
+        metalness: 0
+      },
+      parametricEquation: {
+        u: {
+          min: -Math.PI,
+          max: Math.PI,
+          step: Math.PI / 40
+        },
+        v: {
+          min: -15,
+          max: 6,
+          step: 0.21
+        },
+        x: function (u, v) {
+          return Math.pow(1.16, v) * Math.cos(v) * (1 + Math.cos(u));
+        },
+        y: function (u, v) {
+          return -Math.pow(1.16, v) * Math.sin(v) * (1 + Math.cos(u));
+        },
+        z: function (u, v) {
+          return -2 * Math.pow(1.16, v) * (1 + Math.sin(u));
+        }
+      }
+    }
+  ]
+};
+```
+
+![Mollusc_Shell](../../../../images/data_visualization/echarts/Mollusc_Shell.png)
+
+### Breather
+
+```html
+var sin = Math.sin;
+var cos = Math.cos;
+var pow = Math.pow;
+var sqrt = Math.sqrt;
+var cosh = Math.cosh;
+var sinh = Math.sinh;
+var PI = Math.PI;
+var aa = 0.4;
+var r = 1 - aa * aa;
+var w = sqrt(r);
+option = {
+  toolbox: {
+    left: 20,
+    iconStyle: {
+      normal: {
+        borderColor: '#000'
+      }
+    },
+    feature: {
+      myExportObj: {
+        title: 'Export OBJ',
+        icon: 'M4.7,22.9L29.3,45.5L54.7,23.4M4.6,43.6L4.6,58L53.8,58L53.8,43.6M29.2,45.1L29.2,0',
+        onclick: function () {
+          var res = echarts.exportGL2PLY(myChart, {
+            mainType: 'grid3D',
+            index: 0
+          });
+          download(res, 'surface.ply', 'text/plain');
+        }
+      }
+    }
+  },
+  tooltip: {},
+  visualMap: {
+    show: false,
+    dimension: 2,
+    min: -3,
+    max: 3,
+    inRange: {
+      color: [
+        '#313695',
+        '#4575b4',
+        '#74add1',
+        '#abd9e9',
+        '#e0f3f8',
+        '#ffffbf',
+        '#fee090',
+        '#fdae61',
+        '#f46d43',
+        '#d73027',
+        '#a50026'
+      ]
+    }
+  },
+  xAxis3D: {},
+  yAxis3D: {},
+  zAxis3D: {},
+  grid3D: {
+    show: true,
+    postEffect: {
+      enable: true,
+      SSAO: {
+        enable: true,
+        radius: 4
+      }
+    },
+    viewControl: {
+      distance: 130,
+      beta: 50
+    },
+    light: {
+      main: {
+        intensity: 2,
+        shadow: true
+      },
+      ambient: {
+        intensity: 0
+      },
+      ambientCubemap: {
+        texture: ROOT_PATH + '/data-gl/asset/canyon.hdr',
+        exposure: 2,
+        diffuseIntensity: 0.2,
+        specularIntensity: 1
+      }
+    }
+  },
+  series: [
+    {
+      type: 'surface',
+      parametric: true,
+      wireframe: {
+        show: false
+      },
+      shading: 'realistic',
+      realisticMaterial: {
+        roughness: 0.3,
+        metalness: 0
+      },
+      parametricEquation: {
+        u: {
+          min: -13.2,
+          max: 13.2,
+          step: 0.2
+        },
+        v: {
+          min: -37.4,
+          max: 37.4,
+          step: 0.2
+        },
+        x: function (u, v) {
+          var denom = aa * (pow(w * cosh(aa * u), 2) + aa * pow(sin(w * v), 2));
+          return -u + (2 * r * cosh(aa * u) * sinh(aa * u)) / denom;
+        },
+        y: function (u, v) {
+          var denom = aa * (pow(w * cosh(aa * u), 2) + aa * pow(sin(w * v), 2));
+          return (
+            (2 *
+              w *
+              cosh(aa * u) *
+              (-(w * cos(v) * cos(w * v)) - sin(v) * sin(w * v))) /
+            denom
+          );
+        },
+        z: function (u, v) {
+          var denom = aa * (pow(w * cosh(aa * u), 2) + aa * pow(sin(w * v), 2));
+          return (
+            (2 *
+              w *
+              cosh(aa * u) *
+              (-(w * sin(v) * cos(w * v)) + cos(v) * sin(w * v))) /
+            denom
+          );
+        }
+      }
+    }
+  ]
+};
+```
+
+![Breather](../../../../images/data_visualization/echarts/Breather.png)
+
 ## 3D Lines
+
+### lines3d-airline-on-globe
+
+```html
+$.getJSON(ROOT_PATH + '/data-gl/asset/data/flights.json', function (data) {
+  function getAirportCoord(idx) {
+    return [data.airports[idx][3], data.airports[idx][4]];
+  }
+  var routes = data.routes.map(function (airline) {
+    return [getAirportCoord(airline[1]), getAirportCoord(airline[2])];
+  });
+  myChart.setOption({
+    backgroundColor: '#000',
+    globe: {
+      baseTexture: ROOT_PATH + '/data-gl/asset/world.topo.bathy.200401.jpg',
+      heightTexture:
+        ROOT_PATH + '/data-gl/asset/bathymetry_bw_composite_4k.jpg',
+      shading: 'lambert',
+      light: {
+        ambient: {
+          intensity: 0.4
+        },
+        main: {
+          intensity: 0.4
+        }
+      },
+      viewControl: {
+        autoRotate: false
+      }
+    },
+    series: {
+      type: 'lines3D',
+      coordinateSystem: 'globe',
+      blendMode: 'lighter',
+      lineStyle: {
+        width: 1,
+        color: 'rgb(50, 50, 150)',
+        opacity: 0.1
+      },
+      data: routes
+    }
+  });
+});
+```
+
+![lines3d-airline-on-globe](../../../../images/data_visualization/echarts/lines3d-airline-on-globe.png)
+
+### lines3d-flight
+
+```html
+$.getJSON(ROOT_PATH + '/data-gl/asset/data/flights.json', function (data) {
+  var airports = data.airports.map(function (item) {
+    return {
+      coord: [item[3], item[4]]
+    };
+  });
+  function getAirportCoord(idx) {
+    return [data.airports[idx][3], data.airports[idx][4]];
+  }
+  // Route: [airlineIndex, sourceAirportIndex, destinationAirportIndex]
+  var routesGroupByAirline = {};
+  data.routes.forEach(function (route) {
+    var airline = data.airlines[route[0]];
+    var airlineName = airline[0];
+    if (!routesGroupByAirline[airlineName]) {
+      routesGroupByAirline[airlineName] = [];
+    }
+    routesGroupByAirline[airlineName].push(route);
+  });
+  var pointsData = [];
+  data.routes.forEach(function (airline) {
+    pointsData.push(getAirportCoord(airline[1]));
+    pointsData.push(getAirportCoord(airline[2]));
+  });
+  var series = data.airlines
+    .map(function (airline) {
+      var airlineName = airline[0];
+      var routes = routesGroupByAirline[airlineName];
+      if (!routes) {
+        return null;
+      }
+      return {
+        type: 'lines3D',
+        name: airlineName,
+        effect: {
+          show: true,
+          trailWidth: 2,
+          trailLength: 0.15,
+          trailOpacity: 1,
+          trailColor: 'rgb(30, 30, 60)'
+        },
+        lineStyle: {
+          width: 1,
+          color: 'rgb(50, 50, 150)',
+          // color: 'rgb(118, 233, 241)',
+          opacity: 0.1
+        },
+        blendMode: 'lighter',
+        data: routes.map(function (item) {
+          return [airports[item[1]].coord, airports[item[2]].coord];
+        })
+      };
+    })
+    .filter(function (series) {
+      return !!series;
+    });
+  series.push({
+    type: 'scatter3D',
+    coordinateSystem: 'globe',
+    blendMode: 'lighter',
+    symbolSize: 2,
+    itemStyle: {
+      color: 'rgb(50, 50, 150)',
+      opacity: 0.2
+    },
+    data: pointsData
+  });
+  myChart.setOption({
+    legend: {
+      selectedMode: 'single',
+      left: 'left',
+      data: Object.keys(routesGroupByAirline),
+      orient: 'vertical',
+      textStyle: {
+        color: '#fff'
+      }
+    },
+    globe: {
+      environment: ROOT_PATH + '/data-gl/asset/starfield.jpg',
+      heightTexture:
+        ROOT_PATH + '/data-gl/asset/bathymetry_bw_composite_4k.jpg',
+      displacementScale: 0.1,
+      displacementQuality: 'high',
+      baseColor: '#000',
+      shading: 'realistic',
+      realisticMaterial: {
+        roughness: 0.2,
+        metalness: 0
+      },
+      postEffect: {
+        enable: true,
+        depthOfField: {
+          enable: false,
+          focalDistance: 150
+        }
+      },
+      temporalSuperSampling: {
+        enable: true
+      },
+      light: {
+        ambient: {
+          intensity: 0
+        },
+        main: {
+          intensity: 0.1,
+          shadow: false
+        },
+        ambientCubemap: {
+          texture: ROOT_PATH + '/data-gl/asset/lake.hdr',
+          exposure: 1,
+          diffuseIntensity: 0.5,
+          specularIntensity: 2
+        }
+      },
+      viewControl: {
+        autoRotate: false
+      },
+      silent: true
+    },
+    series: series
+  });
+  window.addEventListener('keydown', function () {
+    series.forEach(function (series, idx) {
+      myChart.dispatchAction({
+        type: 'lines3DToggleEffect',
+        seriesIndex: idx
+      });
+    });
+  });
+});
+```
+
+![lines3d-flight](../../../../images/data_visualization/echarts/lines3d-flight.png)
 
 ## Flow GL
 
