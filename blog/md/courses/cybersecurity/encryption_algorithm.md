@@ -156,4 +156,6 @@ With the advent of quantum computing, current encryption methods like RSA and EC
 
 Encryption is essential for maintaining confidentiality, integrity, and authenticity in modern cybersecurity. **Symmetric encryption** like **AES** is efficient for encrypting large amounts of data, while **asymmetric encryption** like **RSA** and **ECDH** helps secure key exchanges and establish secure communications. **Hashing** ensures data integrity and is vital in areas like password storage. With the ongoing advancement in quantum computing, post-quantum cryptography is an emerging area of interest for future encryption standards.
 
-If you'd like more details on any of the encryption methods or their applications, feel free to ask!
+### Ref
+
+`ChatGPT`
