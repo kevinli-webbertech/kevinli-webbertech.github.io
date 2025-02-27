@@ -16,6 +16,8 @@ The least significant bit (LSB) of these values determines tiny changes that are
         ◦ Use any small, simple image (less than 500x500 pixels is ideal).
         ◦ Open it in a basic image editor like Microsoft Paint (Windows) or Preview (Mac).
         
+        ![stenography-1](../../../../images/computer_forensic/stenography/stenography-1.png)
+        
     2. Prepare Your Secret Message
         ◦ Convert your message to binary using an online ASCII to binary converter or a calculator.
         ◦ Example:
@@ -28,16 +30,24 @@ The least significant bit (LSB) of these values determines tiny changes that are
         ◦ Zoom in and select individual pixels for editing.
         ◦ Check the RGB values of a few pixels.
 
+        ![stenography-2](../../../../images/computer_forensic/stenography/stenography-2.png)
+
     2. Modify the Least Significant Bit (LSB)
         ◦ Convert the pixel values to binary.
-        ◦ Example: A pixel with values (173, 201, 124) in binary:
-            ▪ 173 → 10101101
-            ▪ 201 → 11001001
-            ▪ 124 → 01111100
+        ◦ Example: A pixel with values (62, 80, 90) in binary:
+            ▪ 62 → 00111110
+            ▪ 80 → 01010000
+            ▪ 90 → 01011010
+
+        ![stenography-3.png](../../../../images/computer_forensic/stenography/stenography-3.png)
+
         ◦ Modify the last bit of each color channel to match the binary message.
         ◦ Example (hiding "NYC" in two pixels):
-            ▪ Before: (173, 201, 124) → 10101101 11001001 01111100
-            ▪ After: (172, 200, 125) → 10101100 11001000 01111101
+            ▪ Before: (62, 80, 90) → 00111110 01010000 01011010
+            ▪ After: (62, 81, 90) → 00111110 01010001 01011010
+            ▪ Since "NYC" requires 8 pixels, the process continues across multiple pixels until the full message is embedded.
+
+        ![stenography-4](../../../../images/computer_forensic/stenography/stenography-4.png)
 
     3. Save the Image
         ◦ Export the modified image as a new PNG file.
