@@ -6,7 +6,7 @@
 
 For instance, let us assume that you have a python flask API http server running and say your domain is http://abc.com/students/all, normally it will return things like json, such as,
 
-```
+```json
 {
   {“id”: 1, “first_name”: “Damian”, “last_name”: “Rusek”},
   {“id”: 2, “first_name”: “John”, “last_name”: “Kapp”}
@@ -41,7 +41,7 @@ In this project we need to learn what is CA, what is certificate and how the pri
 
 **JSON**: Json output like the following,
 
-```
+```json
 {
   {“id”: 1, “first_name”: “Damian”, “last_name”: “Rusek”},
   {“id”: 2, “first_name”: “John”, “last_name”: “Kapp”}
