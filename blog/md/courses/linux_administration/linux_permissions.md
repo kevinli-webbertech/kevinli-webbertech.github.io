@@ -63,6 +63,28 @@ The superuser command, su, prompts you for the root password before logging you 
 
 su command without any arguments will ask for root password. By giving root password you will get root privilege. To execute any command you should know the exact path of command otherwise you get command not found error. Because you will not get root’s command path. To get root’s environments and command paths and home directory use – hyphen sign with su commands
 
+For instance, if I am running as "xiaofengli", and I would like switch to another account, I can do this,
+
+```shell
+xiaofengli@xiaofenglx:~/git/assembly$ whoami 
+xiaofengli 
+xiaofengli@xiaofenglx:~/git/assembly$ su webbertech 
+Password: 
+$ whoami 
+webbertech 
+```
+
+Run commands without switching to a different user, but use the other user to run a command, you can do the `-c` option like the following,
+
+```shell
+xiaofengli@xiaofenglx:~/git/assembly$ su webbertech -c ./hello 
+Password: 
+Hello, world! 
+xiaofengli@xiaofenglx:~/git/assembly$ su webbertech -c ./loop 
+Password: 
+123456789:xiaofengli@xiaofenglx:~/git/assembly$ 
+```
+
 **Limiting Access to su**
 
 First, you will need to add the users who you want to allow access to the su command. Make them a part of the wheel group. By default, this line in /etc/group looks like:
@@ -86,6 +108,18 @@ The sudo command allows users listed in /etc/sudoers to run administrative comma
 To use sudo commands you don't need to give root password. A user with appropriate right from /etc/sudoers can execute root privilege command form his own passwords.
 
 Red Hat Enterprise Linux provides some features that make working as root somewhat safer. For example, logins using the ftp and telnet commands to remote computers are disabled by default.
+
+In my computer, I can sudo to root to perform some operational job, you can expect the following output,
+
+```shell
+xiaofengli@xiaofenglx:~/git/assembly$ whoami 
+xiaofengli 
+xiaofengli@xiaofenglx:~/git/assembly$ sudo su 
+[sudo] password for xiaofengli: 
+root@xiaofenglx:/home/xiaofengli/git/assembly# whoami 
+root 
+```
+
 
 **Limiting Access to sudo**
 
