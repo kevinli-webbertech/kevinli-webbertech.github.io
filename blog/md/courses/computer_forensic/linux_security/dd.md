@@ -1,6 +1,7 @@
 # dd command
 
-Introduction
+## Introduction
+
 The dd command is an extremely powerful Linux utility. It is commonly referred to as the "disk destroyer", “data definition”, “disk dump”, or "disk duplicator" due to its immense power and ability to directly interact with block devices. In this beginner's guide, we will explore the dd command, its syntax, and various use cases, highlighting its role in file copying, disk partition backup, and restoration, and creating bootable USB drives.
 
 ## dd Command Syntax
