@@ -8,7 +8,7 @@ This is the first part of Mathplotlib. Most of the contents from this section ar
 
 The book we recommend you to read is the following book,
 
-![alt text](../../../images/data_visualization/mathplotlib/image-11.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-11.png)
 
 You should get a copy of this book or find a pdf version to ease the study of data visualization.
 
@@ -117,7 +117,7 @@ plt.plot(x, np.sin(x), '-')
 plt.plot(x, np.cos(x), '--');
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image.png)
 
 ### Saving Figures to File
 
@@ -139,7 +139,7 @@ In[7]: from IPython.display import Image
 Image('my_figure.png')
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-1.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-1.png)
 
 In savefig(), the file format is inferred from the extension of the given filename.
 
@@ -185,7 +185,7 @@ plt.subplot(2, 1, 2)
 plt.plot(x, np.cos(x));
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-2.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-2.png)
 
 It’s important to note that this interface is stateful: it keeps track of the “current” figure and axes, which are where all plt commands are applied. You can get a reference to these using the `plt.gcf()` (get current figure) and `plt.gca()` (get current axes)routines.
 
@@ -204,7 +204,7 @@ ax[0].plot(x, np.sin(x))
 ax[1].plot(x, np.cos(x));
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-3.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-3.png)
 
 For more simple plots, the choice of which style to use is largely a matter of preference, but the object-oriented approach can become a necessity as plots become more complicated. Throughout this chapter, we will switch between the MATLAB-style and object-oriented interfaces, depending on what is most convenient. In most cases, the difference is as small as switching `plt.plot()` to `ax.plot()`, but there are a few gotchas that we will highlight as they come up in the following sections.
 
@@ -226,7 +226,7 @@ In[2]: fig = plt.figure()
 ax = plt.axes()
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-4.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-4.png)
 
 In Matplotlib, the figure (an instance of the class plt.Figure) can be thought of as a single container that contains all the objects representing axes, graphics, text, and labels. The axes (an instance of the class plt.Axes) is what we see above: a bounding box with ticks and labels, which will eventually contain the plot elements that make up our visualization. Throughout this book, we’ll commonly use the variable name fig to refer to a figure instance, and ax to refer to an axes instance or group of axes instances.
 
@@ -241,13 +241,13 @@ x = np.linspace(0, 10, 1000)
 ax.plot(x, np.sin(x));
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-5.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-5.png)
 
 Alternatively, we can use the pylab interface and let the figure and axes be created for us in the background (see “Two Interfaces for the Price of One” for a discussion of these two interfaces):
 
 `In[4]: plt.plot(x, np.sin(x));`
 
-![alt text](../../../images/data_visualization/mathplotlib/image-6.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-6.png)
 
 If we want to create a single figure with multiple lines, we can simply call the plot function multiple times:
 
@@ -256,7 +256,7 @@ In[5]: plt.plot(x, np.sin(x))
 plt.plot(x, np.cos(x));
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-7.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-7.png)
 
 That’s all there is to plotting simple functions in Matplotlib! We’ll now dive into some more details about how to control the appearance of the axes and lines.
 
@@ -278,7 +278,7 @@ plt.plot(x, np.sin(x - 4), color=(1.0,0.2,0.3)) # RGB tuple, values 0 and 1
 plt.plot(x, np.sin(x - 5), color='chartreuse'); # all HTML color names supported
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-8.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-8.png)
 
 If no color is specified, Matplotlib will automatically cycle through a set of default colors for multiple lines. Similarly, you can adjust the line style using the linestyle keyword.
 
@@ -293,7 +293,7 @@ plt.plot(x, x + 5, linestyle='--') # dashed
 plt.plot(x, x + 6, linestyle='-.') # dashdot
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-9.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-9.png)
 
 If you would like to be extremely terse, these linestyle and color codes can be combined into a single nonkeyword argument to the `plt.plot()` function:
 
@@ -304,7 +304,7 @@ plt.plot(x, x + 2, '-.k') # dashdot black
 plt.plot(x, x + 3, ':r'); # dotted red
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-10.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-10.png)
 
 These single-character color codes reflect the standard abbreviations in the RGB (Red/Green/Blue) and CMYK (Cyan/Magenta/Yellow/blacK) color systems, commonly used for digital color graphics.
 
@@ -320,7 +320,7 @@ plt.xlim(-1, 11)
 plt.ylim(-1.5, 1.5);
 ```
 
-![axis_limits](../../../images/data_visualization/mathplotlib/axis_limits.png)
+![axis_limits](../../../../images/data_visualization/mathplotlib/axis_limits.png)
 
 If for some reason you’d like either axis to be displayed in reverse, you can simply reverse the order of the arguments.
 
@@ -330,7 +330,7 @@ plt.xlim(10, 0)
 plt.ylim(1.2, -1.2);
 ```
 
-![reversing_the_y-axis](../../../images/data_visualization/mathplotlib/reversing_the_y-axis.png)
+![reversing_the_y-axis](../../../../images/data_visualization/mathplotlib/reversing_the_y-axis.png)
 
 A useful related method is `plt.axis()` (note here the potential confusion between axes with an e, and axis with an i). The plt.axis() method allows you to set the x and y limits with a single call, by passing a list that specifies `[xmin, xmax, ymin, ymax]`,
 
@@ -339,7 +339,7 @@ In[11]: plt.plot(x, np.sin(x))
 plt.axis([-1, 11, -1.5, 1.5]);
 ```
 
-![axis_limits](../../../images/data_visualization/mathplotlib/axis_limits_1.png)
+![axis_limits](../../../../images/data_visualization/mathplotlib/axis_limits_1.png)
 
 The plt.axis() method goes even beyond this, allowing you to do things like automatically tighten the bounds around the current plot:
 
@@ -348,7 +348,7 @@ In[12]: plt.plot(x, np.sin(x))
 plt.axis('tight');
 ```
 
-![grid_tight](../../../images/data_visualization/mathplotlib/grid_tight.png)
+![grid_tight](.../../../../images/data_visualization/mathplotlib/grid_tight.png)
 
 It allows even higher-level specifications, such as ensuring an equal aspect ratio so that on your screen, one unit in x is equal to one unit in y:
 
@@ -357,7 +357,7 @@ In[13]: plt.plot(x, np.sin(x))
 plt.axis('equal');
 ```
 
-![grid_equal](../../../images/data_visualization/mathplotlib/grid_equal.png)
+![grid_equal](../../../../images/data_visualization/mathplotlib/grid_equal.png)
 
 For more information on axis limits and the other capabilities of the `plt.axis()` method, refer to the plt.axis() docstring.
 
@@ -374,7 +374,7 @@ plt.xlabel("x")
 plt.ylabel("sin(x)");
 ```
 
-![axis_labels](../../../images/data_visualization/mathplotlib/axis_labels.png)
+![axis_labels](../../../../images/data_visualization/mathplotlib/axis_labels.png)
 
 You can adjust the position, size, and style of these labels using optional arguments to the function. For more information, see the Matplotlib documentation and the doc‐strings of each of these functions.
 
@@ -390,7 +390,7 @@ plt.axis('equal')
 plt.legend();
 ```
 
-![plot_ledend](../../../images/data_visualization/mathplotlib/plot_ledend.png)
+![plot_ledend](../../../../images/data_visualization/mathplotlib/plot_ledend.png)
 
 As you can see, the plt.legend() function keeps track of the line style and color, and matches these with the correct label. More information on specifying and formatting plot legends can be found in the plt.legend() docstring;
 
@@ -418,4 +418,4 @@ xlabel='x', ylabel='sin(x)',
 title='A Simple Plot');
 ```
 
-![multiple_properties](../../../images/data_visualization/mathplotlib/multiple_properties.png)
+![multiple_properties](../../../../images/data_visualization/mathplotlib/multiple_properties.png)

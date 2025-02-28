@@ -13,7 +13,7 @@ In[3]: fig = plt.figure()
 ax = plt.axes(projection='3d')
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-59.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-59.png)
 
 With this 3D axes enabled, we can now plot a variety of three-dimensional plot types. Three-dimensional plotting is one of the functionalities that benefits immensely from viewing figures interactively rather than statically in the notebook; recall that to use interactive figures, you can use %matplotlib notebook rather than %matplotlib inline when running this code.
 
@@ -35,7 +35,7 @@ ydata = np.cos(zdata) + 0.1 * np.random.randn(100)
 ax.scatter3D(xdata, ydata, zdata, c=zdata, cmap='Greens');
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-60.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-60.png)
 
 Notice that by default, the scatter points have their transparency adjusted to give a sense of depth on the page. While the three-dimensional effect is sometimes difficult to see within a static image, an interactive view can lead to some nice intuition about the layout of the points.
 
@@ -58,7 +58,7 @@ ax.set_ylabel('y')
 ax.set_zlabel('z');
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-61.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-61.png)
 
 Sometimes the default viewing angle is not optimal, in which case we can use the view_init method to set the elevation and azimuthal angles. In this example, we’ll use an elevation of 60 degrees (that is, 60 degrees above the x-y plane) and an azimuth of 35 degrees (that is, rotated 35 degrees counter-clockwise about the z-axis):
 
@@ -67,7 +67,7 @@ In[7]: ax.view_init(60, 35)
 fig
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-62.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-62.png)
 
 Again, note that we can accomplish this type of rotation interactively by clicking and dragging when using one of Matplotlib’s interactive backends.
 
@@ -82,7 +82,7 @@ ax.plot_wireframe(X, Y, Z, color='black')
 ax.set_title('wireframe');
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-63.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-63.png)
 
 A surface plot is like a wireframe plot, but each face of the wireframe is a filled polygon. Adding a colormap to the filled polygons can aid perception of the topology of the surface being visualized:
 
@@ -93,7 +93,7 @@ cmap='viridis', edgecolor='none')
 ax.set_title('surface');
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-64.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-64.png)
 
 Note that though the grid of values for a surface plot needs to be two-dimensional, it need not be rectilinear. Here is an example of creating a partial polar grid, which when used with the surface3D plot can give us a slice into the function we’re visualizing:
 
@@ -109,7 +109,7 @@ ax.plot_surface(X, Y, Z, rstride=1, cstride=1,
 cmap='viridis', edgecolor='none');
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-65.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-65.png)
 
 ## Surface Triangulations
 
@@ -127,7 +127,7 @@ In[12]: ax = plt.axes(projection='3d')
 ax.scatter(x, y, z, c=z, cmap='viridis', linewidth=0.5);
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-66.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-66.png)
 
 This leaves a lot to be desired. The function that will help us in this case is ax.plot_trisurf, which creates a surface by first finding a set of triangles formed between adjacent points (remember that x, y, and z here are one-dimensional arrays):
 
@@ -136,7 +136,7 @@ In[13]: ax = plt.axes(projection='3d')
 ax.plot_trisurf(x, y, z, cmap='viridis', edgecolor='none');
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-67.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-67.png)
 
 The result is certainly not as clean as when it is plotted with a grid, but the flexibility of such a triangulation allows for some really interesting three-dimensional plots. For example, it is actually possible to plot a three-dimensional Möbius strip using this, as we’ll see next.
 
@@ -182,7 +182,7 @@ ax.plot_trisurf(x, y, z, triangles=tri.triangles, cmap='viridis', linewidths=0.2
 ax.set_xlim(-1, 1); ax.set_ylim(-1, 1); ax.set_zlim(-1, 1);
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-68.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-68.png)
 
 Combining all of these techniques, it is possible to create and display a wide variety of three-dimensional objects and patterns in Matplotlib.
 
@@ -215,7 +215,7 @@ m = Basemap(projection='ortho', resolution=None, lat_0=50, lon_0=-100)
 m.bluemarble(scale=0.5);
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-69.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-69.png)
 
 The meaning of the arguments to Basemap will be discussed momentarily. The useful thing is that the globe shown here is not a mere image; it is a fully functioning Matplotlib axes that understands spherical coordinates and allows us to easily over-plot data on the map! For example, we can use a different map projection, zoom in to North America, and plot the location of Seattle. We’ll use an etopo image (which shows topographical features both on land and under the ocean) as the map background:
 
@@ -229,7 +229,7 @@ plt.plot(x, y, 'ok', markersize=5)
 plt.text(x, y, ' Seattle', fontsize=12);
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-70.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-70.png)
 
 This gives you a brief glimpse into the sort of geographic visualizations that are possible with just a few lines of Python. We’ll now discuss the features of Basemap in more depth, and provide several examples of visualizing map data. Using these brief examples as building blocks, you should be able to create nearly any map visualization that you desire.
 
@@ -273,7 +273,7 @@ m = Basemap(projection='cyl', resolution=None, llcrnrlat=-90, urcrnrlat=90, llcr
 draw_map(m)
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-71.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-71.png)
 
 The additional arguments to Basemap for this view specify the latitude (lat) and longitude (lon) of the lower-left corner (llcrnr) and upper-right corner (urcrnr) for the desired map, in units of degrees.
 
@@ -287,7 +287,7 @@ m = Basemap(projection='moll', resolution=None, lat_0=0, lon_0=0)
 draw_map(m)
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-72.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-72.png)
 
 The extra arguments to Basemap here refer to the central latitude (lat_0) and longitude (lon_0) for the desired map.
 
@@ -303,7 +303,7 @@ m = Basemap(projection='ortho', resolution=None, lat_0=50, lon_0=0)
 draw_map(m);
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-73.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-73.png)
 
 ### Conic projections
 
@@ -315,7 +315,7 @@ m = Basemap(projection='lcc', resolution=None, lon_0=0, lat_0=50, lat_1=45, lat_
 draw_map(m)
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-74.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-74.png)
 
 ### Other projections
 
@@ -411,7 +411,7 @@ for i, res in enumerate(['l', 'h']):
     ax[i].set_title("resolution='{0}'".format(res));
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-75.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-75.png)
 
 Notice that the low-resolution coastlines are not suitable for this level of zoom, while high-resolution works just fine. The low level would work just fine for a global view, however, and would be much faster than loading the high-resolution border data for the entire globe! It might require some experimentation to find the correct resolution parameter for a given view; the best route is to start with a fast, low-resolution plot and increase the resolution as needed.
 

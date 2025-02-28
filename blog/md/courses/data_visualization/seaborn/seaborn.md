@@ -75,66 +75,85 @@ Seaborn provides a simpler and more intuitive interface compared to Matplotlib f
 ![scatterplot1.png](../../../../images/data_visualization/seaborn/scatterplot/scatterplot1.png)
 
 **Example 2**
+
 ![scatterplot2.png](../../../../images/data_visualization/seaborn/scatterplot/scatterplot2.png)
 
 **Example 3**
+
 ![scatterplot3.png](../../../../images/data_visualization/seaborn/scatterplot/scatterplot3.png)
 
 **Example 4**
+
 ![scatterplot4.png](../../../../images/data_visualization/seaborn/scatterplot/scatterplot4.png)
 
 **Example 5**
+
 ![scatterplot5.png](../../../../images/data_visualization/seaborn/scatterplot/scatterplot5.png)
 
 **Example 6**
+
 ![scatterplot6.png](../../../../images/data_visualization/seaborn/scatterplot/scatterplot6.png)
 
 ### **Histogram**
 
 **Example 1**
+
 ![histogram1.png](../../../../images/data_visualization/seaborn/histogram/histogram1.png)
 
 **Example 2**
+
 ![histogram2.png](../../../../images/data_visualization/seaborn/histogram/histogram2.png)
 
 **Example 3**
+
 ![histogram3.png](../../../../images/data_visualization/seaborn/histogram/histogram3.png)
 
 **Example 4**
+
 ![histogram4.png](../../../../images/data_visualization/seaborn/histogram/histogram4.png)
 
 **Example 5**
+
 ![histogram5.png](../../../../images/data_visualization/seaborn/histogram/histogram5.png)
 
 **Example 6**
+
 ![histogram6.png](../../../../images/data_visualization/seaborn/histogram/histogram6.png)
 
 **Example 7**
+
 ![histogram7.png](../../../../images/data_visualization/seaborn/histogram/histogram7.png)
 
 ### **Categorical Visualization**
 
 **Example 1**
+
 ![categorical1.png](../../../../images/data_visualization/seaborn/categorical/categorical1.png)
 
 **Example 2**
+
 ![catplot.png](../../../../images/data_visualization/seaborn/categorical/catplot.png)
 
 **Example 3**
+
 ![violinplot.png](../../../../images/data_visualization/seaborn/categorical/violinplot.png)
 
 **Example 4**
+
 ![boxplot.png](../../../../images/data_visualization/seaborn/categorical/boxplot.png)
 
 ### **Regression**
 
 **Example 1**
+
 ![regression1.png](../../../../images/data_visualization/seaborn/regression/regression1.png)
 
 **Example 2**
+
 ![regression2.png](../../../../images/data_visualization/seaborn/regression/regression2.png)
 
 **Example 3**
+
 ![regression3.png](../../../../images/data_visualization/seaborn/regression/regression3.png)
 
 ## **Tips for Using Seaborn**

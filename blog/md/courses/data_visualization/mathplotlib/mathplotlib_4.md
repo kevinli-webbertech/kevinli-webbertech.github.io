@@ -41,7 +41,7 @@ births_by_date.plot(ax=ax);
 
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-32.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-32.png)
 
 When we’re communicating data like this, it is often useful to annotate certain features of the plot to draw the reader’s attention. This can be done manually with the plt.text/ax.text command, which will place text at a particular x/y value.
 
@@ -66,7 +66,7 @@ ax.xaxis.set_major_formatter(plt.NullFormatter())
 ax.xaxis.set_minor_formatter(mpl.dates.DateFormatter('%h'));\
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-33.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-33.png)
 
 The ax.text method takes an x position, a y position, a string, and then optional keywords specifying the color, size, style, alignment, and other properties of the text.
 
@@ -106,7 +106,7 @@ ax.text(0.5, 0.1, ". Axes: (0.5, 0.1)", transform=ax.transAxes)
 ax.text(0.2, 0.2, ". Figure: (0.2, 0.2)", transform=fig.transFigure);
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-34.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-34.png)
 
 Note that by default, the text is aligned above and to the left of the specified coordinates; here the “.” at the beginning of each string will approximately mark the given coordinate location.
 
@@ -120,7 +120,7 @@ ax.set_ylim(-6, 6)
 fig
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-35.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-35.png)
 
 You can see this behavior more clearly by changing the axes limits interactively; if you are executing this code in a notebook, you can make that happen by changing %matplotlib inline to %matplotlib notebook and using each plot’s menu to interact with the plot.
 
@@ -143,7 +143,7 @@ arrowprops=dict(arrowstyle="->",
 connectionstyle="angle3,angleA=0,angleB=-90"));
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-36.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-36.png)
 
 The arrow style is controlled through the arrowprops dictionary, which has numerous options available. These options are fairly well documented in Matplotlib’s online documentation, so rather than repeating them here I’ll quickly show some of the possibilities. Let’s demonstrate several of the possible options using the birthrate plot from before:
 
@@ -193,7 +193,7 @@ l.dates.DateFormatter('%h'));
 ax.set_ylim(3600, 5400);
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-37.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-37.png)
 
 You’ll notice that the specifications of the arrows and text boxes are very detailed: this gives you the power to create nearly any arrow style you wish. Unfortunately, it also means that these sorts of features often must be manually tweaked, a process that can be very time-consuming when one is producing publication-quality graphics! Finally, I’ll note that the preceding mix of styles is by no means best practice for presenting data, but rather included as a demonstration of some of the available options.
 
@@ -218,7 +218,7 @@ sns.set_style("whitegrid")
 In[2]: ax = plt.axes(xscale='log', yscale='log')
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-38.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-38.png)
 
 We see here that each major tick shows a large tick mark and a label, while each minor tick shows a smaller tick mark with no label.
 
@@ -251,7 +251,7 @@ ax.yaxis.set_major_locator(plt.NullLocator())
 ax.xaxis.set_major_formatter(plt.NullFormatter())
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-39.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-39.png)
 
 Notice that we’ve removed the labels (but kept the ticks/gridlines) from the x axis, and removed the ticks (and thus the labels as well) from the y axis. Having no ticks at all can be useful in many situations—for example, when you want to show a grid of images. 
 
@@ -271,7 +271,7 @@ for i in range(5):
 #plt.show()
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-40.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-40.png)
 
 Notice that each image has its own axes, and we’ve set the locators to null because the tick values (pixel number in this case) do not convey relevant information for this particular visualization.
 
@@ -285,7 +285,7 @@ for a in ax.flat:
     a.grid(True, color='lightgray', linestyle='--', linewidth=0.5)
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-41.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-41.png)
 
 Particularly for the x ticks, the numbers nearly overlap, making them quite difficult to decipher. We can fix this with the plt.MaxNLocator(), which allows us to specify the maximum number of ticks that will be displayed. Given this maximum number, Matplotlib will use internal logic to choose the particular tick locations:
 
@@ -297,7 +297,7 @@ for axi in ax.flat:
 fig
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-42.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-42.png)
 
 This makes things much cleaner. If you want even more control over the locations of regularly spaced ticks, you might also use plt.MultipleLocator, which we’ll discuss in the following section.
 
@@ -318,7 +318,7 @@ ax.axis('equal')
 ax.set_xlim(0, 3 * np.pi);
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-43.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-43.png)
 
 There are a couple changes we might like to make. First, it’s more natural for this data to space the ticks and grid lines in multiples of π. We can do this by setting a Multi pleLocator, which locates ticks at a multiple of the number you provide. For good measure, we’ll add both major and minor ticks in multiples of π/4:
 
@@ -328,7 +328,7 @@ ax.xaxis.set_minor_locator(plt.MultipleLocator(np.pi / 4))
 fig
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-44.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-44.png)
 
 But now these tick labels look a little bit silly: we can see that they are multiples of π, but the decimal representation does not immediately convey this. To fix this, we can change the tick formatter. There’s no built-in formatter for what we want to do, so we’ll instead use plt.FuncFormatter, which accepts a user-defined function giving fine-grained control over the tick outputs:
 
@@ -351,7 +351,7 @@ ax.xaxis.set_major_formatter(plt.FuncFormatter(format_func))
 fig
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-45.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-45.png)
 
 This is much better! Notice that we’ve made use of Matplotlib’s LaTeX support, specified by enclosing the string within dollar signs. This is very convenient for display of mathematical symbols and formulae; in this case, "$\pi$" is rendered as the Greek character π.
 
@@ -361,9 +361,9 @@ The plt.FuncFormatter() offers extremely fine-grained control over the appearanc
 
 We’ve mentioned a couple of the available formatters and locators. We’ll conclude this section by briefly listing all the built-in locator and formatter options. For more information on any of these, refer to the docstrings or to the Matplotlib online documentation. Each of the following is available in the plt namespace:
 
-![alt text](../../../images/data_visualization/mathplotlib/image-46.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-46.png)
 
-![alt text](../../../images/data_visualization/mathplotlib/image-47.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-47.png)
 
 ### Customizing Matplotlib: Configurations and Stylesheets
 
@@ -385,7 +385,7 @@ In[2]: x = np.random.randn(1000)
 plt.hist(x);
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-48.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-48.png)
 
 We can adjust this by hand to make it a much more visually pleasing plot, shown below:
 
@@ -419,7 +419,7 @@ ax.hist(x, edgecolor='#E6E6E6', color='#EE6666');
 #plt.show()
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-49.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-49.png)
 
 This looks better, and you may recognize the look as inspired by the look of the R language’s ggplot visualization package. But this took a whole lot of effort! We definitely do not want to have to do all that tweaking each time we create a plot. Fortunately, there is a way to adjust these defaults once in a way that will work for all plots.
 
@@ -450,7 +450,7 @@ With these settings defined, we can now create a plot and see our settings in ac
 
 ```python
 In[6]: plt.hist(x);
-![alt text](../../../images/data_visualization/mathplotlib/image-50.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-50.png)
 ```
 
 Let’s see what simple line plots look like with these rc parameters:
@@ -460,7 +460,7 @@ In[7]: for i in range(4):
 plt.plot(np.random.rand(10))
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-51.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-51.png)
 
 I find this much more aesthetically pleasing than the default styling. If you disagree with my aesthetic sense, the good news is that you can adjust the rc parameters to suit your own tastes! These settings can be saved in a .matplotlibrc file, which you can read about in the Matplotlib documentation. That said, I prefer to customize Matplotlib using its stylesheets instead.
 
@@ -515,7 +515,7 @@ Now let’s see how it looks (below):
 In[11]: hist_and_lines()
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-52.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-52.png)
 
 ### FiveThirtyEight style
 
@@ -528,7 +528,7 @@ In[12]: with plt.style.context('fivethirtyeight'):
 hist_and_lines()
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-53.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-53.png)
 
 ### ggplot
 
@@ -540,7 +540,7 @@ In[13]: with plt.style.context('ggplot'):
 hist_and_lines()
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-54.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-54.png)
 
 ### Bayesian Methods for Hackers style
 
@@ -553,7 +553,7 @@ In[14]: with plt.style.context('bmh'):
 hist_and_lines()
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-55.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-55.png)
 
 ### Dark background
 
@@ -564,7 +564,7 @@ In[15]: with plt.style.context('dark_background'):
 hist_and_lines()
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-56.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-56.png)
 
 ### Grayscale
 
@@ -575,7 +575,7 @@ In[16]: with plt.style.context('grayscale'):
 hist_and_lines()
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-57.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-57.png)
 
 ### Seaborn style
 
@@ -586,6 +586,6 @@ In[17]: import seaborn
 hist_and_lines()
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-58.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-58.png)
 
 With all of these built-in options for various plot styles, Matplotlib becomes much more useful for both interactive visualization and creation of figures for publication.

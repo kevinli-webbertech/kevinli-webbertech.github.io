@@ -13,7 +13,7 @@ data = np.random.randn(1000)
 In[2]: plt.hist(data);
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image.png)
 
 The hist() function has many options to tune both the calculation and the display;
 here’s an example of a more customized histogram (see the image below):
@@ -22,7 +22,7 @@ here’s an example of a more customized histogram (see the image below):
 In[3]: plt.hist(data, bins=30, normed=True, alpha=0.5, histtype='stepfilled', color='steelblue', edgecolor='none');
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-1.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-1.png)
 
 The plt.hist docstring has more information on other customization options available. I find this combination of histtype='stepfilled' along with some transparency alpha to be very useful when comparing histograms of several distributions
 (see the image below):
@@ -37,7 +37,7 @@ plt.hist(x2, **kwargs)
 plt.hist(x3, **kwargs)
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-2.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-2.png)
 
 If you would like to simply compute the histogram (that is, count the number of points in a given bin) and not display it, the np.histogram() function is available:
 
@@ -69,7 +69,7 @@ cb = plt.colorbar()
 cb.set_label('counts in bin')
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-3.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-3.png)
 
 Just as with plt.hist, plt.hist2d has a number of extra options to fine-tune the plot and the binning, which are nicely outlined in the function docstring. Further, just as plt.hist has a counterpart in np.histogram, plt.hist2d has a counterpart in
 np.histogram2d, which can be used as follows:
@@ -91,7 +91,7 @@ In[9]: plt.hexbin(x, y, gridsize=30, cmap='Blues')
 cb = plt.colorbar(label='count in bin')
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-4.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-4.png)
 
 plt.hexbin has a number of interesting options, including the ability to specify weights for each point, and to change the output in each bin to any NumPy aggregate (mean of weights, standard deviation of weights, etc.).
 
@@ -120,7 +120,7 @@ cb = plt.colorbar()
 cb.set_label("density")
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-5.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-5.png)
 
 KDE has a smoothing length that effectively slides the knob between detail and smoothness (one example of the ubiquitous bias–variance trade-off). The literature on choosing an appropriate smoothing length is vast: gaussian_kde uses a rule of thumb to attempt to find a nearly optimal smoothing length for the input data.
 
@@ -146,7 +146,7 @@ ax.axis('equal')
 leg = ax.legend();
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-6.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-6.png)
 
 But there are many ways we might want to customize such a legend. For example, we can specify the location and turn off the frame (see the image below):
 
@@ -155,7 +155,7 @@ n[4]: ax.legend(loc='upper left', frameon=False)
 fig
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-7.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-7.png)
 
 We can use the ncol command to specify the number of columns in the legend (see the image below):
 
@@ -164,7 +164,7 @@ In[5]: ax.legend(frameon=False, loc='lower center', ncol=2)
 fig
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-8.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-8.png)
 
 We can use a rounded box (fancybox) or add a shadow, change the transparency (alpha value) of the frame, or change the padding around the text (see the image below):
 
@@ -173,7 +173,7 @@ In[6]: ax.legend(fancybox=True, framealpha=1, shadow=True, borderpad=1)
 fig
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-9.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-9.png)
 
 For more information on available legend options, see the plt.legend docstring.
 
@@ -189,7 +189,7 @@ lines = plt.plot(x, y)
 plt.legend(lines[:2], ['first', 'second']);
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-10.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-10.png)
 
 I generally find in practice that it is clearer to use the first method, applying labels to the plot elements you’d like to show on the legend (see the image below):
 
@@ -200,7 +200,7 @@ plt.plot(x, y[:, 2:])
 plt.legend(framealpha=1, frameon=True);
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-11.png)
+![alt text](.../../../../images/data_visualization/mathplotlib/image-11.png)
 
 Notice that by default, the legend ignores all elements without a label attribute set.
 
@@ -233,7 +233,7 @@ labelspacing=1, title='City Area')
 plt.title('California Cities: Area and Population');
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-12.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-12.png)
 
 The legend will always reference some object that is on the plot, so if we’d like to display a particular shape we need to plot it. In this case, the objects we want (gray circles) are not on the plot, so we fake them by plotting empty lists. Notice too that the legend only lists plot elements that have a label specified.
 
@@ -264,7 +264,7 @@ loc='lower right', frameon=False)
 ax.add_artist(leg);
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-13.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-13.png)
 
 This is a peek into the low-level artist objects that compose any Matplotlib plot. If you examine the source code of ax.legend() (recall that you can do this within the IPython notebook using ax.legend??) you’ll see that the function simply consists of
 some logic to create a suitable Legend artist, which is then saved in the legend_attribute and added to the figure when the plot is drawn.
@@ -286,7 +286,7 @@ plt.imshow(I)
 plt.colorbar();
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-14.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-14.png)
 
 We’ll now discuss a few ideas for customizing these colorbars and using them effectively in various situations.
 
@@ -298,7 +298,7 @@ We can specify the colormap using the cmap argument to the plotting function tha
 In[4]: plt.imshow(I, cmap='gray');
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-15.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-15.png)
 
 All the available colormaps are in the plt.cm namespace; using IPython’s tab completion feature will give you a full list of built-in possibilities: plt.cm.<TAB>
 
@@ -354,26 +354,26 @@ def view_colormap(cmap):
 In[6]: view_colormap('jet')
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-16.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-16.png)
 
 Notice the bright stripes in the grayscale image. Even in full color, this uneven brightness means that the eye will be drawn to certain portions of the color range, which will potentially emphasize unimportant parts of the dataset. It’s better to use a color map such as viridis (the default as of Matplotlib 2.0), which is specifically constructed to have an even brightness variation across the range. Thus, it not only plays well with our color perception, but also will translate well to grayscale printing:
 
 `In[7]: view_colormap('viridis')`
 
-![alt text](../../../images/data_visualization/mathplotlib/image-17.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-17.png)
 
 If you favor rainbow schemes, another good option for continuous data is the cubehelix colormap (like the image below):
 
 `In[8]: view_colormap('cubehelix')`
 
-![alt text](../../../images/data_visualization/mathplotlib/image-18.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-18.png)
 
 For other situations, such as showing positive and negative deviations from some mean, dual-color colorbars such as RdBu (short for Red-Blue) can be useful. However,as you can see in before, it’s important to note that the positive-negative infor‐
 mation will be lost upon translation to grayscale!
 
 `In[9]: view_colormap('RdBu')`
 
-![alt text](../../../images/data_visualization/mathplotlib/image-19.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-19.png)
 
 We’ll see examples of using some of these color maps as we continue.
 There are a large number of colormaps available in Matplotlib; to see a list of them, you can use IPython to explore the plt.cm submodule. For a more principled approach to colors in Python, you can refer to the tools and documentation within the Seaborn library.
@@ -397,7 +397,7 @@ plt.colorbar(extend='both')
 plt.clim(-1, 1);
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-20.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-20.png)
 
 Notice that in the left panel, the default color limits respond to the noisy pixels, and the range of the noise completely washes out the pattern we are interested in. In the right panel, we manually set the color limits, and add extensions to indicate values that are above or below those limits. The result is a much more useful visualization of our data.
 
@@ -411,7 +411,7 @@ plt.colorbar()
 plt.clim(-1, 1);
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-21.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-21.png)
 
 The discrete version of a colormap can be used just like any other colormap.
 
@@ -429,7 +429,7 @@ axi.imshow(digits.images[i], cmap='binary')
 axi.set(xticks=[], yticks=[])
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-22.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-22.png)
 
 Because each digit is defined by the hue of its 64 pixels, we can consider each digit to be a point lying in 64-dimensional space: each dimension represents the brightness of one pixel. But visualizing relationships in such high-dimensional spaces can be extremely difficult. One way to approach this is to use a dimensionality reduction technique such as manifold learning to reduce the dimensionality of the data while maintaining the relationships of interest. 
 
@@ -450,7 +450,7 @@ plt.colorbar(ticks=range(6), label='digit value')
 plt.clim(-0.5, 5.5)
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-23.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-23.png)
 
 The projection also gives us some interesting insights on the relationships within the dataset: for example, the ranges of 5 and 3 nearly overlap in this projection, indicating that some handwritten fives and threes are difficult to distinguish, and therefore more likely to be confused by an automated classification algorithm. Other values, like 0 and 1, are more distantly separated, and therefore much less likely to be confused. This observation agrees with our intuition, because 5 and 3 look much more similar than do 0 and 1.
 
@@ -477,7 +477,7 @@ In[2]: ax1 = plt.axes() # standard axes
 ax2 = plt.axes([0.65, 0.65, 0.2, 0.2])
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-24.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-24.png)
 
 The equivalent of this command within the object-oriented interface is fig.add_axes(). Let’s use this to create two vertically stacked axes (see the image below):
 
@@ -492,7 +492,7 @@ ax1.plot(np.sin(x))
 ax2.plot(np.cos(x));
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-25.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-25.png)
 
 We now have two axes (the top with no tick labels) that are just touching: the bottom of the upper panel (at position 0.5) matches the top of the lower panel (at position 0.1 + 0.4).
 
@@ -508,7 +508,7 @@ plt.text(0.5, 0.5, str((2, 3, i)),
 fontsize=18, ha='center')
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-26.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-26.png)
 
 The command plt.subplots_adjust can be used to adjust the spacing between these plots. The following code (the result of which is shown in above image) uses the equivalent object-oriented command, fig.add_subplot():
 
@@ -521,7 +521,7 @@ ax.text(0.5, 0.5, str((2, 3, i)),
 fontsize=18, ha='center')
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-27.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-27.png)
 
 We’ve used the hspace and wspace arguments of plt.subplots_adjust, which specify the spacing along the height and width of the figure, in units of the subplot size (in this case, the space is 40% of the subplot width and height).
 
@@ -533,7 +533,7 @@ Here we’ll create a 2×3 grid of subplots, where all axes in the same row shar
 
 `In[6]: fig, ax = plt.subplots(2, 3, sharex='col', sharey='row')`
 
-![alt text](../../../images/data_visualization/mathplotlib/image-28.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-28.png)
 
 Note that by specifying sharex and sharey, we’ve automatically removed inner labels on the grid to make the plot cleaner. The resulting grid of axes instances is returned within a NumPy array, allowing for convenient specification of the desired axes using standard array indexing notation (see the image below):
 
@@ -547,7 +547,7 @@ fontsize=18, ha='center')
 fig
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-29.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-29.png)
 
 In comparison to plt.subplot(), plt.subplots() is more consistent with Python’s conventional 0-based indexing.
 
@@ -565,7 +565,7 @@ plt.subplot(grid[1, :2])
 plt.subplot(grid[1, 2]);
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-30.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-30.png)
 
 This type of flexible grid alignment has a wide range of uses. I most often use it when creating multi-axes histogram plots like the one shown here (see the image below):
 
@@ -591,4 +591,4 @@ orientation='horizontal', color='gray')
 y_hist.invert_xaxis()
 ```
 
-![alt text](../../../images/data_visualization/mathplotlib/image-31.png)
+![alt text](../../../../images/data_visualization/mathplotlib/image-31.png)
