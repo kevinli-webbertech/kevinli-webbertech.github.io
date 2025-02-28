@@ -81,6 +81,8 @@ xiaofengli@xiaofenglx:~/git/assembly$ sudo dd if=/dev/sda1 of=sda1_backup.img
 1048576+0 records in
 1048576+0 records out
 536870912 bytes (537 MB, 512 MiB) copied, 5.25431 s, 102 MB/s
+xiaofengli@xiaofenglx:~/git/assembly$ ls
+hello  hello.o	hello.s  input.txt  loop  loop.o  loop.s  output.txt  sda1_backup.img
 ```
 
 Once you have a backup of a disk partition, you can use the dd command to restore it when needed. To restore a disk partition, you would reverse the input and output files in the command. Here's an example: (DONOT DO THIS, BECAUSE it can damage your file system partitions.)
