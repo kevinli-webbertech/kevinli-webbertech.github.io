@@ -61,7 +61,29 @@ For example, to back up the first partition of the disk located at /dev/sda, you
 
 This command reads the content of /dev/sda1, the first partition of the disk, and saves it to a file named partition_backup.img.
 
-Once you have a backup of a disk partition, you can use the dd command to restore it when needed. To restore a disk partition, you would reverse the input and output files in the command. Here's an example:
+To do this lab properly, first let us find a small drive, I used `df -m` to show the disk size
+in megabytes, and then I figured out that `/dev/sda1` is indeed just around 500M, which is a perfect size for backup example, so you can follow this method to find a small partition on your harddrive and do a backup and the file would be in your current directory.
+
+```shell
+xiaofengli@xiaofenglx:~/git/assembly$ df -m
+Filesystem     1M-blocks    Used Available Use% Mounted on
+tmpfs               3195       4      3191   1% /run
+/dev/sda2         467851  319108    124906  72% /
+tmpfs              15972     154     15818   1% /dev/shm
+tmpfs                  5       1         5   1% /run/lock
+efivarfs               1       1         1  84% /sys/firmware/efi/efivars
+/dev/sdb1       11444094 1801543   9642552  16% /mnt/ntfs
+/dev/sda1            511       7       505   2% /boot/efi
+tmpfs               3195       1      3195   1% /run/user/1000
+xiaofengli@xiaofenglx:~/git/assembly$ dd if=/dev/sda1 of=sda1_backup.img
+dd: failed to open '/dev/sda1': Permission denied
+xiaofengli@xiaofenglx:~/git/assembly$ sudo dd if=/dev/sda1 of=sda1_backup.img
+1048576+0 records in
+1048576+0 records out
+536870912 bytes (537 MB, 512 MiB) copied, 5.25431 s, 102 MB/s
+```
+
+Once you have a backup of a disk partition, you can use the dd command to restore it when needed. To restore a disk partition, you would reverse the input and output files in the command. Here's an example: (DONOT DO THIS, BECAUSE it can damage your file system partitions.)
 
 `$ dd if=partition_backup.img of=/dev/sda1`
 
