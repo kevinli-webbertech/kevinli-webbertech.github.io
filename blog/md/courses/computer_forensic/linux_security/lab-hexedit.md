@@ -11,9 +11,8 @@ After this lab, we need to understand,
 
 - https://www.ultraedit.com/blog/what-is-a-hex-editor-and-how-to-use-it/
 
-## Install `gcc`
-
-## Install `hexedit`
+* Install `gcc`
+* Install `hexedit`
 
 ## Use `hexedit` to inspect a runnable binary
 
