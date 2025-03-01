@@ -2,35 +2,35 @@
 
 There are many tools of the trade in computer forensics. Some of these tools are software-based, others are hardware-based. Many computer forensics software tools exist in the form of a software suite.
 
-![alt text](../../../images/computer_forensic/image-15.png)
+![alt text](../../../../images/computer_forensic/image-15.png)
 
 They usually have a comprehensive set of features that cover an investigation from the beginning to its completion. Some of these features include the ability to acquire and process data, conduct searches, and generate reports. EnCase Forensic by OpenText is one such software suite. Here is their website in case you'd like to check it out. 
 
-![alt text](../../../images/computer_forensic/image-16.png)
+![alt text](../../../../images/computer_forensic/image-16.png)
 
 Depending on the nature of your case, you may need specialized software tools other than a computer forensic software suite because sometimes they don't provide the particular feature you're looking for. For example, if you had to retrieve a hidden text in an image file, a general purpose computer forensics tool wouldn't help you. For that, you need specialized software called a steganography tool similar to the one you're seeing here. 
 
-![alt text](../../../images/computer_forensic/image-17.png)
+![alt text](../../../../images/computer_forensic/image-17.png)
 
 There are also special hardware needs. Forensic software is demanding in terms of processing power, memory size, and storage space. The more of these resources you have, the better. 
 
-![alt text](../../../images/computer_forensic/image-18.png)
+![alt text](../../../../images/computer_forensic/image-18.png)
 
 Forensic workstations also feature extra base and ports to help with future expansions. 
 
-![alt text](../../../images/computer_forensic/image-19.png)
+![alt text](../../../../images/computer_forensic/image-19.png)
 
 In addition to the computer forensics workstation, you may also need special equipment such as a write-blocker, which prevents an operating system from writing over on evidence drive.
 
-![alt text](../../../images/computer_forensic/image-20.png)
+![alt text](../../../../images/computer_forensic/image-20.png)
 
 Software write-blockers are also available, but hardware write-blockers are often preferred because of their simple and surefire nature. Although it's not very special, a large capacity storage device is another tool you need in your computer forensics arsenal.These days, evidence drives tend to be big size devices, and they are getting bigger as we speak.
 
-![alt text](../../../images/computer_forensic/image-21.png)
+![alt text](../../../../images/computer_forensic/image-21.png)
 
 Regardless of our backgrounds, we know very well that having an effective tool at hand can make a day and night difference. The same applies to computer forensics. To be effective as a computer forensics investigator, you have to have as many relevant tools as possible, and throughout this course, we'll explore many of the tools I've mentioned.
 
-![alt text](../../../images/computer_forensic/image-22.png)
+![alt text](../../../../images/computer_forensic/image-22.png)
 
 ## **Understanding hexadecimal numbers**
 

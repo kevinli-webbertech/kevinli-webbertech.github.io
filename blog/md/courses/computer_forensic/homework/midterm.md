@@ -1,25 +1,34 @@
-# Midterm
+# Midterm Project - Forensic Analysis with `The Sleuth Kit `
 
-* Use AWS to create a ubuntu 24 EC2 instance. (10 pts)
+* The Sleuth Kit (TSK) is an open-source forensic toolkit that includes a collection of command-line tools for analyzing disk images and file systems.
 
-* Install apache 2 web server (10 pts)
+## Summary of Findings
+✅ Identified that `secret.pdf` was deleted.
+✅ Successfully recovered the deleted file.
+✅ Extracted timestamps showing when it was modified and deleted.
+✅ Created a forensic timeline for investigation.
 
-* Install NGINX server and configure it to be a HTTP server. (10 pts)
+Please following the following steps to perform the analysis, and provide your screenshots and steps,
 
-  When you do this step, make sure you stop the apache2 in the above step.
+## Task 1: Download a sample forensic disk image from Digital Corpora.  (20 pts)
 
-* Try out binding the public IP to an Elastic IP. (10 pts)
+Download the `.tar.gz` tarball, and unzip it.
 
-  Screenshots of the elastic IP is needed.
+## Task 2: Run the mmls command to check the disk image structure. (10 pts)
 
-* Develop a simple html page and deploy to your EC2 instance. (10 pts)
+## Task 3: List Files in NTFS or whatever file system format. (10 pts)
+Let us delete one file. And please pay attention to its inode.
 
-* Download the PEM file and find out how to find it. (10 pts)
+## Task 4: Recover Deleted File (20 pts)
+Please prove that the file has come back.
 
-  Make sure your page is publicly accessible.
+## Task 5: Extract Metadata. (20 pts)
 
-* Use PEM file to scp some files to your EC2 instance. (10 pts)
+Extract metadata from the disk image and try to explain when the file was created and when it was deleted.
 
-* Delete your EC2 Instance (10 pts)
+## Task 6: Generate a Timeline (20 pts)
 
-* Write a word document to explain each step and show screenshots.(20 pts)
+   * Extract file system metadata and generate a txt file. (10 pts)
+   * Generate a timeline CSV file from the above txt file. (10 pts)
+
+In your final report, you should attach word document of showing your work of all these steps, and the CSV file for the timeline.

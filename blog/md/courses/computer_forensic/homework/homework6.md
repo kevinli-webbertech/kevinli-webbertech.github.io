@@ -1,21 +1,21 @@
-# Homework 6 Software Installation
+# Homework 7 CodeQL Scanning
 
-## Installation of grype scanner (20 pts)
+* Installation of the CodeQL (20 pts)
 
-- https://github.com/anchore/grype
+https://docs.github.com/en/code-security/codeql-cli/getting-started-with-the-codeql-cli/setting-up-the-codeql-cli
 
-## Installation of trivy scanner (20 pts)
+* Preparing your code for CodeQL analysis (20 pts)
 
-- https://github.com/aquasecurity/trivy
+https://docs.github.com/en/code-security/codeql-cli/getting-started-with-the-codeql-cli/setting-up-the-codeql-cli
 
-## git repo scanning using grype scanner (20 pts)
+* Checkout a report and do the CodeQL Scanning. (60 pts)
 
-## git repo scanning using trivy scanner (20 pts)
+https://docs.github.com/en/code-security/codeql-cli/getting-started-with-the-codeql-cli/analyzing-your-code-with-codeql-queries
 
-## github code scanning (20 pts)
+```commandline
+codeql database analyze /codeql-dbs/example-repo \
+    javascript-code-scanning.qls --sarif-category=javascript-typescript \
+    --format=sarif-latest --output=/temp/example-repo-js.sarif
+```
 
-Please survey the usage of github system and create a repo of yourself. You can fork from other opensource repo, such as tensorflow [hot repo for deep learning tools.]
-
-Please check how does the github scans the code and report the vulnerabilities.
-
-Write a survey of your study journey in text provided, and images attached.
+In your homework you should upload a word file and a `sarif` file.

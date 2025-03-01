@@ -11,7 +11,6 @@ Sleuth Kit provides powerful tools for digital forensics, including:
 - **File Recovery** (`icat`, `ils`)
 - **Timeline Creation** (`mactime`)
 
-
 ## Installation**
 
 ### **Linux (Ubuntu/Debian)**
@@ -180,3 +179,7 @@ mactime -b filelist.txt -d > timeline.csv
 
 ---
 
+
+## Ref
+
+- ChatGPT
