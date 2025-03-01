@@ -17,23 +17,23 @@
 
 ## Course Schedule
 
-| Week    | Title                                          |
-|---------|------------------------------------------------|
-| Week 1  | Introduction to Data Visualization                           |
-| Week 2  | Mathlibplot Visualization                  |
-| Week 3  | Mathlibplot - Cont      |
-| Week 4  | Introduction to Seaborn             |
-| Week 5  | Seaborn - Cont|
-| Week 6  | Introduction to Tableau          |
-| Week 7  | Midterm Project                        |
-| Week 8  | Tableau - Part 1|  
-| Week 9  | Tableau - Part 2|  
-| Week 10 | Introduction to Google Analytics |
-| Week 11 | Google Analytics Integration with a website|
-| Week 12 | Final Project Assignment|
-| Week 13 | Introduction of PowerBI|
-| Week 14 | PowerBI - Part 2|
-| Week 15 | Data Science Job and Outlook|
+| Week    | Title                             |
+|---------|-----------------------------------|
+| Week 1  | Introduction to Data Visualization|
+| Week 2  | Mathlibplot Visualization I       |
+| Week 3  | Mathlibplot Visualization II      |
+| Week 4  | Mathlibplot Visualization III     |
+| Week 5  | Mathlibplot Visualization IV  |
+| Week 6  | Mathlibplot Visualization V |
+| Week 7  | Introduction to Seaborn          |
+| Week 8  | Midterm Project             |
+| Week 9  | Web Visualization with ECharts - Part I|  
+| Week 10 | Web Visualization with ECharts - Part I|  
+| Week 11 | Web Visualization with ECharts - Part I |
+| Week 12 | Web Visualization with ECharts - Part I|
+| Week 13 | Final Project Assignment|
+| Week 14 | Introduction of PowerBI and Tableau|
+| Week 15 | PowerBI and Tableau - Data Science Job and Outlook|
 
 ## Homework Submission
 
