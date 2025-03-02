@@ -2,11 +2,15 @@
 
 * The Sleuth Kit (TSK) is an open-source forensic toolkit that includes a collection of command-line tools for analyzing disk images and file systems.
 
-## Summary of Findings
-✅ Identified that `secret.pdf` was deleted.
-✅ Successfully recovered the deleted file.
-✅ Extracted timestamps showing when it was modified and deleted.
-✅ Created a forensic timeline for investigation.
+
+## ** Scenario**
+
+A company suspects that an employee deleted sensitive files from a **USB drive** before quitting. Your job as a forensic investigator is to:
+
+1. Identify the partitions on the disk image.
+2. List existing and deleted files.
+3. Recover a deleted file.
+4. Analyze file timestamps to create a timeline.
 
 Please following the following steps to perform the analysis, and provide your screenshots and steps,
 

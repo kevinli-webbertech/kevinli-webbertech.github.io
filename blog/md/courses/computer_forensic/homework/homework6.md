@@ -1,4 +1,4 @@
-# Homework 7 CodeQL Scanning
+# Homework 6 CodeQL Scanning
 
 * Installation of the CodeQL (20 pts)
 

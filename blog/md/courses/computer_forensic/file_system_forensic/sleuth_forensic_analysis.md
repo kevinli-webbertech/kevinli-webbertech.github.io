@@ -1,4 +1,4 @@
-# Forensic analysis using Sleuth
+# Forensic analysis using Sleuth (solution and lab)
 
 This hands-on exercise will guide you through a real-world forensic analysis scenario using The Sleuth Kit (TSK).
 
