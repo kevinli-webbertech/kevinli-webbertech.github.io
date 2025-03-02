@@ -35,7 +35,7 @@ check_link() {
 }
 
 check_empty_page() {
-  local content=$(curl -s "$URL")
+  local content=$(curl -s "$link")
   markdown_content=$(grep "markdown-body" <<< $content)
   echo $markdown_content
 }
@@ -69,4 +69,4 @@ extract_links() {
 }
 
 #extract_links
-check_empty_page
+check_empty_page "https://kevinli-webbertech.github.io/blog/html/courses/computer_forensic/homework/final.html"
