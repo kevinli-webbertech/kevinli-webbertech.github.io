@@ -12,11 +12,18 @@ In this lab, we will do the following two things,
 
 ## Step 2 using `hexedit` to view the binary file
 
+**Example1**
+
 ```shell
 xiaofengli@xiaofenglx:/$ sudo dd if=~/Desktop/data-analysis2.jpg of=/dev/sdc1 bs=512 count=1000
 75+1 records in
 75+1 records out
 38669 bytes (39 kB, 38 KiB) copied, 0.000292738 s, 132 MB/s
+```
+
+**Example 2**
+
+```shell
 xiaofengli@xiaofenglx:/$ sudo dd if=/proc/kcore of=/tmp/memory.bin bs=1M count=2
 2+0 records in
 2+0 records out
