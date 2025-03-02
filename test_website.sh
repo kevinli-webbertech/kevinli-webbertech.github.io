@@ -30,14 +30,24 @@ check_link() {
     broken_link+=("$link")
     #echo ${broken_link[@]}
   else
+    flag=$(is_empty_page $link)
+    echo $flag
+    if [[ $flag == "true" ]]; then
+      broken_link+=("$link")
+    fi
     echo "$link, status_code: $status_code"
   fi
 }
 
-check_empty_page() {
-  local content=$(curl -s "$link")
-  markdown_content=$(grep "markdown-body" <<< $content)
-  echo $markdown_content
+is_empty_page() {
+  page_size=$(curl -sI $1 | grep -i "Content-Length"|cut -d ":" -f 2| tr -d '[:space:]')
+  echo "page size: $page_size"
+  if [ "$page_size" -eq 917 ]; then
+    return "true"
+  else
+    return "false"
+  fi
+  
 }
 
 # Core function
@@ -68,5 +78,11 @@ extract_links() {
   done
 }
 
-#extract_links
-check_empty_page "https://kevinli-webbertech.github.io/blog/html/courses/computer_forensic/homework/final.html"
+
+# The followings are used for debugging
+
+#is_empty_page "https://kevinli-webbertech.github.io/blog/html/courses/computer_forensic/homework/final.html"
+#echo "debugging"
+#is_empty_page "https://kevinli-webbertech.github.io/blog/html/courses/computer_forensic/homework/midterm.html"
+
+extract_links
