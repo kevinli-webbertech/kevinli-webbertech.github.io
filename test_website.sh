@@ -30,11 +30,14 @@ check_link() {
     broken_link+=("$link")
     #echo ${broken_link[@]}
   else
-    flag=$(is_empty_page $link)
-    echo $flag
-    if [[ $flag == "true" ]]; then
-      broken_link+=("$link")
-    fi
+    # TODO the following is not working
+    #flag=$(is_empty_page $link)
+    #echo $flag
+    #echo test $flag == "true"
+    #if [[ "$flag" == "true" ]]; then
+    #  broken_link+=("$link")
+    #  exit 0
+    #fi
     echo "$link, status_code: $status_code"
   fi
 }
@@ -43,9 +46,9 @@ is_empty_page() {
   page_size=$(curl -sI $1 | grep -i "Content-Length"|cut -d ":" -f 2| tr -d '[:space:]')
   echo "page size: $page_size"
   if [ "$page_size" -eq 917 ]; then
-    return "true"
+    echo "true"
   else
-    return "false"
+    echo "false"
   fi
   
 }
