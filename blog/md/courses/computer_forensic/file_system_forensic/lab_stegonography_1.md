@@ -67,6 +67,12 @@ The least significant bit (LSB) of these values determines tiny changes that are
         ◦ Convert them back to characters using an ASCII table.
 
 
+## Youtube Video
+
+<iframe width="420" height="315"
+src="https://www.youtube.com/watch?v=jTxrCDd9sc4">
+</iframe>
+
 ## ref
 
 - https://www.garykessler.net/library/fsc_stego.html
