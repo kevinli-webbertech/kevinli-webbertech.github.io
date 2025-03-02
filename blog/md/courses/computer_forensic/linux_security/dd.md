@@ -18,7 +18,7 @@ It's worth noting that dd deviates from the standard convention of using the -- 
 
 The dd command accepts several options to customize its behavior and achieve specific tasks. Here are some of the most commonly used options:
 
-![dd](../../../../images/computer_forensic/dd.png)
+![dd](../../../../images/computer_forensic/introduction/dd.png)
 
 ## How to copy files in Linux
 

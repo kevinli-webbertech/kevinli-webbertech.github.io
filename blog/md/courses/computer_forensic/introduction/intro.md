@@ -24,19 +24,19 @@ In 2023, computer crimes resulted in 12.5 billion USD in losses, which will grow
 
 Computer forensics is used to handle these crimes. It has many strengths, but some areas still have loopholes. For example, handling cloud evidence is currently the biggest challenge.
 
-![computer_crime](../../../../images/computer_forensic/computer_crime.png)
+![computer_crime](../../../../images/computer_forensic/introduction/computer_crime.png)
 
 ## How computer forensics work
 
 Any data that is unreliable or compromised cannot be used in court or other justice systems. To avoid that, computer forensics is an excellent threat detection and recovery tool that helps ensure the data is ready to be used.
 
-![computer_forensic_steps](../../../../images/computer_forensic/computer_forensic_steps.png)
+![computer_forensic_steps](../../../../images/computer_forensic/introduction/computer_forensic_steps.png)
 >Image: from https://www.splunk.com/en_us/blog/learn/computer-forensics.html
 
 
 **Step 1. Pre-process**
 
-![integrity](../../../../images/computer_forensic/integrity.png)
+![integrity](../../../../images/computer_forensic/introduction/integrity.png)
 
 Before data collection and investigation, computer forensics examiners must complete the following pre-process steps:
 
@@ -52,7 +52,7 @@ Before data collection and investigation, computer forensics examiners must comp
 
 **Step 2. Acquisition**
 
-![acquisition](../../../../images/computer_forensic/acquisition.png)
+![acquisition](../../../../images/computer_forensic/introduction/acquisition.png)
 
 In the second phase, they must acquire data from a suspect's digital devices. These devices may contain files or documents that can help resolve legal matters.
 
@@ -66,7 +66,7 @@ The team uses appropriate tools and methods to prevent data loss and modificatio
 
 **Step 4. Analysis**
 
-![analyze](../../../../images/computer_forensic/analyze.png)
+![analyze](../../../../images/computer_forensic/introduction/analyze.png)
 
 Aside from finding the source and type of information stored on the device, this phase also includes identifying the real culprit. It can be straightforward if only one person can access the device, but that's not always true.
 
@@ -78,11 +78,11 @@ So, if there are multiple users, forensics teams analyze the following:
 
 These questions help them build a solid case and catch the responsible person.
 
-![practical_need](../../../../images/computer_forensic/practical_need.png)
+![practical_need](../../../../images/computer_forensic/introduction/practical_need.png)
 
 **Step 5. Presentation**
 
-![presentation](../../../../images/computer_forensic/presentation.png)
+![presentation](../../../../images/computer_forensic/introduction/presentation.png)
 
 In the final phase, the forensic examiner prepares a final report and presents the findings to the authorities. The report includes:
 

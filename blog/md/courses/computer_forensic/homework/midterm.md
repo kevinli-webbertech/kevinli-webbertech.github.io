@@ -2,8 +2,7 @@
 
 * The Sleuth Kit (TSK) is an open-source forensic toolkit that includes a collection of command-line tools for analyzing disk images and file systems.
 
-
-## ** Scenario**
+## **Scenario**
 
 A company suspects that an employee deleted sensitive files from a **USB drive** before quitting. Your job as a forensic investigator is to:
 

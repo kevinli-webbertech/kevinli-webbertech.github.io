@@ -5,6 +5,7 @@ This hands-on exercise will guide you through a real-world forensic analysis sce
 ---
 
 ## ** Scenario**
+
 A company suspects that an employee deleted sensitive files from a **USB drive** before quitting. Your job as a forensic investigator is to:
 1. Identify the partitions on the disk image.
 2. List existing and deleted files.
