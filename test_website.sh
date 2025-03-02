@@ -34,6 +34,13 @@ check_link() {
   fi
 }
 
+check_empty_page() {
+  local content=$(curl -s "$URL")
+  markdown_content=$(grep "markdown-body" <<< $content)
+  echo $markdown_content
+}
+
+# Core function
 extract_links() {
   local content=$(curl -s "$URL")
   
@@ -61,4 +68,5 @@ extract_links() {
   done
 }
 
-extract_links
+#extract_links
+check_empty_page
