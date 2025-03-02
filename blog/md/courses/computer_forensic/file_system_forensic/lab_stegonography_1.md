@@ -69,9 +69,7 @@ The least significant bit (LSB) of these values determines tiny changes that are
 
 ## Youtube Video
 
-<iframe width="420" height="315"
-src="https://www.youtube.com/watch?v=jTxrCDd9sc4">
-</iframe>
+<iframe width="420" height="315" src="https://www.youtube.com/embed/jTxrCDd9sc4"></iframe>
 
 ## ref
 
