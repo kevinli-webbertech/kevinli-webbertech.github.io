@@ -1,37 +1,23 @@
-# Midterm Project - Forensic Analysis with `The Sleuth Kit `
+# midterm - CodeQL Scanning
 
-* The Sleuth Kit (TSK) is an open-source forensic toolkit that includes a collection of command-line tools for analyzing disk images and file systems.
+* Installation of the CodeQL (20 pts)
 
-## **Scenario**
+https://docs.github.com/en/code-security/codeql-cli/getting-started-with-the-codeql-cli/setting-up-the-codeql-cli
 
-A company suspects that an employee deleted sensitive files from a **USB drive** before quitting. Your job as a forensic investigator is to:
+* Preparing your code for CodeQL analysis (20 pts)
 
-1. Identify the partitions on the disk image.
-2. List existing and deleted files.
-3. Recover a deleted file.
-4. Analyze file timestamps to create a timeline.
+https://docs.github.com/en/code-security/codeql-cli/getting-started-with-the-codeql-cli/setting-up-the-codeql-cli
 
-Please following the following steps to perform the analysis, and provide your screenshots and steps,
+* Checkout a report and do the CodeQL Scanning. (60 pts)
 
-## Task 1: Download a sample forensic disk image from Digital Corpora.  (20 pts)
+https://docs.github.com/en/code-security/codeql-cli/getting-started-with-the-codeql-cli/analyzing-your-code-with-codeql-queries
 
-Download the `.tar.gz` tarball, and unzip it.
+```commandline
+codeql database analyze /codeql-dbs/example-repo \
+    javascript-code-scanning.qls --sarif-category=javascript-typescript \
+    --format=sarif-latest --output=/temp/example-repo-js.sarif
+```
 
-## Task 2: Run the mmls command to check the disk image structure. (10 pts)
+In your homework you should upload a word file and a `sarif` file.
 
-## Task 3: List Files in NTFS or whatever file system format. (10 pts)
-Let us delete one file. And please pay attention to its inode.
-
-## Task 4: Recover Deleted File (20 pts)
-Please prove that the file has come back.
-
-## Task 5: Extract Metadata. (20 pts)
-
-Extract metadata from the disk image and try to explain when the file was created and when it was deleted.
-
-## Task 6: Generate a Timeline (20 pts)
-
-   * Extract file system metadata and generate a txt file. (10 pts)
-   * Generate a timeline CSV file from the above txt file. (10 pts)
-
-In your final report, you should attach word document of showing your work of all these steps, and the CSV file for the timeline.
+For more information, I have a CodeQL scanning tutorial on my website.
