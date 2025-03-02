@@ -62,13 +62,13 @@ Command: `grype ubuntu:latest -o json > grype_output.json`
   
 * then go on to save the output with the command of `grype dir:. -o json > grype_tensorflow.json`
 
-![img_3.png](img_3.png)
+![img_3.png](../../../../images/computer_forensic/scanner/trivy_grype_nikko/grype_scan_repo.png)
 
 * Lastly, let us view the JSON output: 
 
 `cat grype_tensorflow.json | jq .`
 
-![img_4.png](img_4.png)
+![img_4.png](../../../../images/computer_forensic/scanner/trivy_grype_nikko/grype_scan_repo1.png)
 
 ## Ref
 

@@ -53,24 +53,26 @@ Command:  `trivy image -f json -o trivy_output.json ubuntu:latest`
 
 ![trivy_save_file1](../../../../images/computer_forensic/scanner/trivy_grype_nikko/trivy_save_file1.png)
 
+View the output saved in the above file,
+
 ![trivy_save_file2](../../../../images/computer_forensic/scanner/trivy_grype_nikko/trivy_save_file2.png)
 
 ### Scanning the Repo with Trivy
 
-![img.png](img.png)
+![img.png](../../../../images/computer_forensic/scanner/trivy_grype_nikko/trivy_scan_repo.png)
 
     • Lists vulnerabilities in dependencies and system packages
     • Shows severity levels (High, critical, etc.)
 
 **Saving the output in JSON format**
 
-![img_1.png](img_1.png)
+![trivy_scan_repo1.png](../../../../images/computer_forensic/scanner/trivy_grype_nikko/trivy_scan_repo1.png)
 
 The JSON output includes a list of found vulnerabilities, categorized by severity (low, medium, high, critical). It also provides details like the affected package, CVE ID, and possible fixes.
 
 **Viewing the JSON output**
 
-![img_2.png](img_2.png)
+![trivy_scan_repo2.png](../../../../images/computer_forensic/scanner/trivy_grype_nikko/trivy_scan_repo2.png)
 
 ## Ref
 

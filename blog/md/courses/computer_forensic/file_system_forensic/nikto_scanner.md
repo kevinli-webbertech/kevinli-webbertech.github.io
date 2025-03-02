@@ -32,14 +32,14 @@ Command: `nikto -h http://example.com`
         ◦ Detects server software versions (Apache, Nginx, etc.)
         ◦ Shows known security vulnerabilities and exposed files.
 
-![img_5.png](img_5.png)
+![img_5.png](../../../../images/computer_forensic/scanner/trivy_grype_nikko/nikto_scan_server.png)
 
 ### Save Scan Output to a File
 
 Command: `nikto -h http://example.com -o nikto_output.txt`
     • What this does: Saves the scan report to nikto_output.txt
 
-![img_6.png](img_6.png)
+![img_6.png](../../../../images/computer_forensic/scanner/trivy_grype_nikko/nikto_scan_server1.png)
 
 
 Unlike scanning a local filesystem, scanning a GitHub repo lets us check for vulnerabilities in both the code and dependencies before deployment. This is useful for securing open-source projects.
