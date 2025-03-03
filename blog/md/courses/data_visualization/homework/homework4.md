@@ -1,6 +1,7 @@
 # HW 4 matlibplot 3D visualization
 
 Task 1: Make sure you can reproduce and run the following example in PyCharm. (50 pts)
+
 Jupyter notebook or copilot is not accepted. All you got to do is to make sure you understand the virtual
 environment of Python and where you modules have been installed too.
 
