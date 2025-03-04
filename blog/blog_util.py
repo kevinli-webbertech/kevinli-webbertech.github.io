@@ -41,13 +41,14 @@ def create_html_files(mdFiles):
     for mdFile in mdFiles:
         html_file = os.path.join(get_html_path(), str(mdFile).replace(".md",".html"))
         # keep this logging
+        print("creating the html file:")
         print(html_file)
         shutil.copyfile("html/template.html", html_file)
 
         with open(html_file, "r") as f:
-            # TODO, need to get this right
             dir_depth = html_file.count("/")
             relative_md_file_path = '../' * dir_depth+get_md_path()+mdFile
+            print("replacing template md file in the html source using the following path.")
             print(relative_md_file_path)
             new_text = f.read().replace("../md/file.md", relative_md_file_path)
         with open(html_file, 'w') as f:
