@@ -122,6 +122,20 @@ The startx command is a shell script that acts as a front end to xinit(1). It's 
 
 By default, the startx command sends errors to the .xerrors file in the user's home directory.
 
+## Remote Desktop to the Xserver
+
+`sudo apt install rdesktop`
+
+`rdesktop -u host -p password ip/dns`
+
+Then we see the connection like the following,
+
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
+
+Note: I have observed some slowess. Not sure this would be thing.
+
 ## Enable *.desktop file in ubuntu
 
 ```shell
