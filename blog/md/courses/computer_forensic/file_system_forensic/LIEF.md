@@ -134,3 +134,4 @@ print("📄 Report saved as forensic_report.txt!")
 
 - ChatGPT
 - https://github.com/lief-project/LIEF
+- https://lief.re/doc/latest/tutorials/01_play_with_formats.html
