@@ -1,10 +1,5 @@
-# Homework 9
+# Homework 9 Network - VPN Setup
 
-Dependabot Scanning
-
-Please refer to the following page for a scanning.
-
-https://github.com/dependabot/cli
-https://formulae.brew.sh/formula/dependabot
-
-* Task 1: Installation. (20 pts)
+A lab report. (100 pts)
+Please set up VPN using our lab_vpn_setup.html instruction under `network forensic` category.
+Please write a report with your own screenshots on each of the steps, especially how to test it and prove it is working.
