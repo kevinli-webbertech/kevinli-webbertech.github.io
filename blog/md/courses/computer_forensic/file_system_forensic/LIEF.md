@@ -133,3 +133,4 @@ print("📄 Report saved as forensic_report.txt!")
 ## Ref
 
 - ChatGPT
+- https://github.com/lief-project/LIEF
