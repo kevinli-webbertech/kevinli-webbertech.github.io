@@ -11,9 +11,9 @@ Sleuth Kit provides powerful tools for digital forensics, including:
 - **File Recovery** (`icat`, `ils`)
 - **Timeline Creation** (`mactime`)
 
-## Installation**
+## Installation
 
-### **Linux (Ubuntu/Debian)**
+### **Linux (Ubuntu/Debian)
 
 ```bash
 sudo apt update
