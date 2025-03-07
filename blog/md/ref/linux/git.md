@@ -2,7 +2,7 @@
 
 ## Cheatsheet
 
-**SETUP**
+### **SETUP**
 
 Configuring user information used across all local repositories
 
@@ -19,7 +19,7 @@ set an email address that will be associated with each history marker
 set automatic command line coloring for Git for easy reviewing
 
 
-**SETUP & INIT**
+### **SETUP & INIT**
 
 Configuring user information, initializing and cloning repositories
 
@@ -41,8 +41,6 @@ Example:
 `git clone --depth 5 [url]`
 
 This command will clone the repository with the latest 5 commits.
-
-
 
 `git clone --shallow-since=<date> [url]`
 
@@ -74,7 +72,7 @@ Example:
 
 This command will clone only the feature-branch with the latest 3 commits.
 
-**STAGE & SNAPSHOT**
+### **STAGE & SNAPSHOT**
 
 Working with snapshots and the Git staging area
 
@@ -103,7 +101,7 @@ diff of what is staged but not yet commited
 commit your staged content as a new commit snapshot
 
 
-**BRANCH & MERGE**
+### **BRANCH & MERGE**
 
 Isolating work in branches, changing context, and integrating changes
 
@@ -127,7 +125,7 @@ merge the specified branch’s history into the current one
 
 show all commits in the current branch’s history
 
-**TEMPORARY COMMITS**
+### **TEMPORARY COMMITS**
 
 Temporarily store modified, tracked files in order to change branches
 
@@ -171,7 +169,7 @@ Transmit local branch commits to the remote repository branch
 
 fetch and merge any commits from the tracking rem
 
-**TRACKING PATH CHANGES**
+### **TRACKING PATH CHANGES**
 
 Versioning file removes and path changes
 
@@ -187,8 +185,7 @@ change an existing file path and stage the move
 
 show all commit logs with indication of any paths that moved
 
-
-**INSPECT & COMPARE**
+### **INSPECT & COMPARE**
 
 Examining logs, diffs and object information
 
@@ -212,7 +209,7 @@ show the diff of what is in branchA that is not in branchB
 
 show any object in Git in human-readable format
 
-**IGNORING PATTERNS**
+### **IGNORING PATTERNS**
 
 Preventing unintentional staging or commiting of files
 
@@ -230,7 +227,7 @@ Save a file with desired paterns as .gitignore with either direct string
 
 system wide ignore patern for all local repositories
 
-**REWRITE HISTORY** 
+### **REWRITE HISTORY** 
 
 **Rewriting branches, updating commits and clearing history**
 
@@ -345,7 +342,7 @@ You start a rebase and encounter a conflict:
 
 `git rebase main`
 
-**Resolve conflicts in the files**
+### **Resolve conflicts in the files**
 
 `git add <resolved-files>`
 
@@ -371,7 +368,7 @@ Move the HEAD pointer to [commit], discarding all changes in the working directo
 
 Change the commit message of the most recent commit.
 
-**Optimizing and managing commit history**
+### **Optimizing and managing commit history**
 
 `git merge --ff-only [branch]`
 
@@ -390,7 +387,7 @@ Merge the changes from the specified branch, but do not create a merge commit. I
 Perform a shallow clone with a history truncated to the latest commit.
 
 
-**Authentication and configuration with tokens**
+### **Authentication and configuration with tokens**
 
 `git config --global credential.helper store`
 

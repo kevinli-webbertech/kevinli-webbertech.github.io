@@ -1,50 +1,58 @@
 import os, glob, sys
 import shutil
 
+__project_dir__ = None
+
+def get_current_dir():
+    return os.path.dirname(os.path.realpath(__file__))
+
 def get_md_path():
     return sys.argv[1]
 
 def get_html_path():
-    mdPath = get_md_path()
-    return mdPath.replace("md", "html")
+    md_path = get_md_path()
+    return md_path.replace("md", "html")
 
 def check_html_directory():
-    htmlPath =get_html_path()
-    if not os.path.exists(htmlPath):
-        print(str(htmlPath) + " directory not exists, do you want to create it? Y/N")
+    html_path =get_html_path()
+    if not os.path.exists(html_path):
+        print(str(html_path) + " directory not exists, do you want to create it? Y/N")
         answer= str(input())
         if answer.lower() == 'y':
-            os.mkdir(str(htmlPath))
+            os.mkdir(str(html_path))
             print("dir created successfully!")
         else:
-          raise Exception(str(htmlPath) + " directory not exists, please create it before")
+          raise Exception(str(html_path) + " directory not exists, please create it before")
     else:
-        htmlFiles=os.listdir(htmlPath)
+        html_files=os.listdir(html_path)
         # if dir exists and html exist, delete them and regenerate
-        if (len(htmlFiles)>0):
-             for file in htmlFiles:
+        if (len(html_files)>0):
+             for file in html_files:
                 if file.endswith(".html"):
-                    os.remove(os.path.join(htmlPath, file))
+                    os.remove(os.path.join(html_path, file))
        
 
-def get_all_markdown_files(inputDir):
-    mdFiles=list()
-    for file in os.listdir(inputDir):
+def get_all_markdown_files(input_dir):
+    md_files=list()
+    for file in os.listdir(input_dir):
         if file.endswith(".md"):
             #mdFiles.append(os.path.join(inputDir, file))
-            mdFiles.append(file)
+            md_files.append(file)
             #print(os.path.join(inputDir, file))
-    print(mdFiles)
-    return mdFiles
+    print(md_files)
+    return md_files
 
-def create_html_files(mdFiles):
-    for mdFile in mdFiles:
+def create_html_files(md_files):
+    html_files = []
+    for mdFile in md_files:
         html_file = os.path.join(get_html_path(), str(mdFile).replace(".md",".html"))
         # keep this logging
         print("creating the html file:")
+        html_files.append(html_file)
         print(html_file)
         shutil.copyfile("html/template.html", html_file)
 
+        # replace string .md file in the html file
         with open(html_file, "r") as f:
             dir_depth = html_file.count("/")
             relative_md_file_path = '../' * dir_depth+get_md_path()+mdFile
@@ -53,10 +61,33 @@ def create_html_files(mdFiles):
             new_text = f.read().replace("../md/file.md", relative_md_file_path)
         with open(html_file, 'w') as f:
             f.write(new_text)
-        # replace string .md file in the htmlfile
+    return html_files
 
-def get_current_dir():
-    return os.path.dirname(os.path.realpath(__file__))
+def generate_blog_links(urls):
+   title_li_start = "<li><span class=\"caret\">"  +sys.argv[1] + "</span>"
+   nested_ul_start = "  <ul class=\"nested\">"
+   inner_li_entry = ""
+   count = 0
+   for url in urls:
+     link_name = url.split("/")[-1].replace("_"," ").replace(".html"," ")
+     print(link_name)
+     inner_li_entry += "    <li><a href=\"blog/" + url + "\">{}</a></li>".format(link_name)
+     if count!=len(urls)-1:
+         inner_li_entry += "\n"
+     count +=1
+
+   nested_ul_end = "  </ul>"
+   title_li_end = "</li>"
+   html_section = title_li_start + "\n" + nested_ul_start + "\n" + inner_li_entry + "\n" + nested_ul_end + "\n" + title_li_end
+   print(html_section)
+   return html_section
+
+
+
+
+
+
+# This feature has not being used
 
 def mv_image_files():
     os.chdir(get_md_path())

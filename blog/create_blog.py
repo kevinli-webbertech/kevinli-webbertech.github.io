@@ -18,8 +18,11 @@ def check_arg():
 def main():
     check_arg()
     check_html_directory()
-    create_html_files(get_all_markdown_files(get_md_path()))
-    mv_image_files()
+    html_files = create_html_files(get_all_markdown_files(get_md_path()))
+    print(html_files)
+    print(get_current_dir())
+    generate_blog_links(html_files)
+
 
 if __name__ == "__main__":
     main()
