@@ -7,6 +7,7 @@ https://stackoverflow.com/questions/48272265/left-column-fixed-until-right-colum
 ## Run build.sh
 
 * Run `build.sh` to generate the uglified js and all the html files are ok.
+  It calls the script from the package.json.
 * Only blog.html will need to be unlocked.
 
 ## Run test_website.sh
