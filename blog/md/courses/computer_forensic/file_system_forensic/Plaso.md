@@ -138,3 +138,4 @@ psort.py -o dynamic timeline.plaso | grep "Logon"
 ## Ref
 
 - ChatGPT
+- https://plaso.readthedocs.io/en/latest/
