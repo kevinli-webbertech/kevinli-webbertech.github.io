@@ -15,7 +15,7 @@ https://stackoverflow.com/questions/48272265/left-column-fixed-until-right-colum
 This is another way of testing blank or 404 pages. Maybe the blank pages function needs to be revisited by right now it is faster than the Google chrome plugin.
 
 ```shell
-(base) xiaofengli@xiaofenglx:~/git/kevinli-webbertech.github.io$ ./test_website.sh 
+(base) xiaofengli@xiaofenglx:~/git/kevinli-webbertech.github.io$ ./test_broken_links.sh 
 debugging here...
 https://kevinli-webbertech.github.io/css/index.css, status_code: 200
 https://kevinli-webbertech.github.io/css/tree.css, status_code: 200
