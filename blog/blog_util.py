@@ -69,7 +69,7 @@ def generate_blog_links(urls):
    inner_li_entry = ""
    count = 0
    for url in urls:
-     link_name = url.split("/")[-1].replace("_"," ").replace(".html"," ")
+     link_name = url.split("/")[-1].replace("_"," ").replace(".html"," ").strip()
      print(link_name)
      inner_li_entry += "    <li><a href=\"blog/" + url + "\">{}</a></li>".format(link_name)
      if count!=len(urls)-1:
