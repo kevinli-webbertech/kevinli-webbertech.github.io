@@ -1,43 +1,36 @@
-**Token blacklisting** is a security mechanism used to revoke compromised or invalidated tokens. When a token is blacklisted, it can no longer be used to access protected resources. This is particularly important for refresh tokens, as they have a longer lifespan and could be exploited if compromised.
+Implementing **refresh tokens** is a common practice for maintaining long-lived user sessions while keeping your application secure. Refresh tokens allow users to stay authenticated without requiring them to log in repeatedly. Here's how it works:
 
-In this guide, we'll implement token blacklisting in a React app with a backend API. We'll assume you have a backend that supports:
-- **Blacklisting Tokens**: Stores invalidated tokens in a database or cache.
-- **Checking Blacklisted Tokens**: Verifies if a token is blacklisted before allowing access.
+1. **Access Token**: A short-lived token used to access protected resources.
+2. **Refresh Token**: A long-lived token used to obtain a new access token when the current one expires.
+
+When the access token expires, the client sends the refresh token to the server to get a new access token. This ensures that the user remains authenticated without compromising security.
 
 ---
 
-### **1. Backend Setup**
-Your backend should have the following endpoints:
-1. **POST /logout**: Blacklists the current refresh token.
-2. **Middleware to Check Blacklisted Tokens**: Verifies if a token is blacklisted before processing requests.
+### **1. Setting Up the Backend**
+For this example, we'll assume you have a backend API that supports:
+- **Login**: Returns an access token and a refresh token.
+- **Refresh Token Endpoint**: Accepts a refresh token and returns a new access token.
 
-#### **Example Backend Implementation (Pseudocode)**
-```javascript
-// Pseudocode for a Node.js/Express backend
-
-const blacklistedTokens = new Set(); // Use a database or cache in production
-
-// Middleware to check blacklisted tokens
-function checkBlacklistedToken(req, res, next) {
-  const token = req.headers.authorization?.split(' ')[1]; // Extract token from header
-  if (blacklistedTokens.has(token)) {
-    return res.status(401).json({ message: 'Token is blacklisted' });
+#### **Example Backend Endpoints**
+- **POST /login**: Authenticates the user and returns:
+  ```json
+  {
+    "accessToken": "short-lived-token",
+    "refreshToken": "long-lived-token"
   }
-  next();
-}
-
-// Endpoint to blacklist a token
-app.post('/logout', (req, res) => {
-  const token = req.body.refreshToken; // Assume the refresh token is sent in the request body
-  blacklistedTokens.add(token); // Add the token to the blacklist
-  res.json({ message: 'Logged out successfully' });
-});
-```
+  ```
+- **POST /refresh-token**: Accepts a refresh token and returns a new access token:
+  ```json
+  {
+    "accessToken": "new-short-lived-token"
+  }
+  ```
 
 ---
 
 ### **2. Update the `AuthContext`**
-We'll modify the `AuthContext` to handle token blacklisting during logout.
+We'll modify the `AuthContext` to handle access tokens, refresh tokens, and token refreshing.
 
 #### **AuthContext.js**
 ```jsx
@@ -134,22 +127,15 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const logout = async () => {
-    try {
-      // Blacklist the refresh token
-      await axios.post('/logout', { refreshToken });
+  const logout = () => {
+    // Clear state and cookies
+    setAccessToken(null);
+    setRefreshToken(null);
+    setUser(null);
 
-      // Clear state and cookies
-      setAccessToken(null);
-      setRefreshToken(null);
-      setUser(null);
-
-      Cookies.remove('accessToken');
-      Cookies.remove('refreshToken');
-      Cookies.remove('user');
-    } catch (error) {
-      console.error('Logout failed:', error);
-    }
+    Cookies.remove('accessToken');
+    Cookies.remove('refreshToken');
+    Cookies.remove('user');
   };
 
   return (
@@ -163,27 +149,60 @@ export const AuthProvider = ({ children }) => {
 ---
 
 ### **3. Using the `AuthContext`**
-Now, you can use the `AuthContext` in your components to handle authentication and logout.
+Now, you can use the `AuthContext` in your components to handle authentication.
 
-#### **Logout Button**
-Add a logout button to your app:
-
+#### **Login.js**
 ```jsx
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../AuthContext';
 
-function LogoutButton() {
-  const { logout } = useAuth();
+function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
-  return <button onClick={logout}>Logout</button>;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await login(email, password);
+      navigate('/');
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  return (
+    <div>
+      <h1>Login</h1>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>Email:</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div>
+          <label>Password:</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  );
 }
 
-export default LogoutButton;
+export default Login;
 ```
 
 #### **ProtectedRoute.js**
-Ensure that protected routes check for blacklisted tokens.
-
 ```jsx
 import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
@@ -217,24 +236,24 @@ export default ProtectedRoute;
    npm start
    ```
 2. Log in as an admin (`admin@example.com`, `admin123`) or a user (`user@example.com`, `user123`).
-3. Click the logout button to blacklist the refresh token.
-4. Verify that:
-   - The refresh token is blacklisted on the backend.
-   - The user is logged out and cannot access protected routes.
+3. Verify that:
+   - The access token is refreshed automatically when it expires.
+   - The user remains logged in even after refreshing the page.
 
 ---
 
 ### **5. Security Best Practices**
-- **Use a Database or Cache**: Store blacklisted tokens in a database or cache (e.g., Redis) for scalability.
-- **Expire Blacklisted Tokens**: Automatically remove blacklisted tokens after their expiration time.
-- **Secure Communication**: Use HTTPS to encrypt all communication between the client and server.
+- **Use HTTPS**: Ensure all communication between the client and server is encrypted.
+- **Secure Cookies**: Use the `HttpOnly`, `Secure`, and `SameSite` flags for cookies.
+- **Short-Lived Access Tokens**: Set a short expiration time for access tokens (e.g., 15 minutes).
+- **Long-Lived Refresh Tokens**: Store refresh tokens securely and set a longer expiration time (e.g., 7 days).
 - **Token Rotation**: Invalidate the old refresh token when issuing a new one.
 
 ---
 
 ### **6. Next Steps**
-- Implement **role-based access control** to restrict access to specific routes or features.
+- Implement **token blacklisting** to revoke compromised tokens.
+- Add **role-based access control** to restrict access to specific routes or features.
 - Use **React Query** or **SWR** for data fetching with automatic token refreshing.
-- Add **logging and monitoring** to track token usage and detect suspicious activity.
 
 Happy coding! 🚀

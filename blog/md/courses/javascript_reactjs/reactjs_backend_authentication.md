@@ -1,3 +1,5 @@
+## Backend Authentication
+
 To integrate a **real backend authentication system** into your application, you can use services like **Firebase Authentication, Auth0, or your own API**. Below is an overview of each approach:
 
 ---
