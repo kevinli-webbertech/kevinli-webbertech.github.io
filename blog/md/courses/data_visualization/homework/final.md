@@ -12,7 +12,7 @@ https://kevinli-webbertech.github.io/blog/html/courses/data_visualization/echart
 
 **Data file**: https://echarts.apache.org/examples/data/asset/data/flare.json
 
-![tree_basic.png](tree_basic.png)
+![tree_basic.png](tree_basic.png)![img.png](tree-polyline.png)
 
 ## Tree Radical Chart (30 pts)
 
