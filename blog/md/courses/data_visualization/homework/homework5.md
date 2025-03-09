@@ -23,7 +23,6 @@ https://hedgefollow.com/Largest-Hedge-Fund-Sells.php
 * Task 3 Visualize using the horizontal barchart for the stock been bought.
   For instance, `Apple` 's top buys are the following, (25 pts)
  
-![best_buy](best_buy.png)
 
 ```
 Vanguard Group Inc - $11.88B
@@ -39,4 +38,4 @@ https://hedgefollow.com/Largest-Hedge-Fund-Buys.php
 * Task 4 Visualize using the horizontal barchart for the stock been sold.
 The requirements are the same as task 3. (25 pts)
 
-![best_sold](best_sold.png)
+See examples in task 3 and images above.
