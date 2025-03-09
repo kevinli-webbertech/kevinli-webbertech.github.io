@@ -26,4 +26,9 @@ And eventually the effect on your browser should look like the following,
 You need to provide screenshots that this visualization is working on `your own` computer browser.
 Without working, you will be scored at your best effort.
 
+If you still do not know and need extra help, you could inspect my html code in the folloiwng url,
+
+https://kevinli-webbertech.github.io/blog/md/courses/data_visualization/echarts/code/3D_barchart_with_dataset.html
+
+As long as you can reproduce it on your own localhost. You will get score.
 
