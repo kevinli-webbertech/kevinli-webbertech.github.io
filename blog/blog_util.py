@@ -83,12 +83,6 @@ def generate_blog_links(urls):
    return html_section
 
 
-
-
-
-
-# This feature has not being used
-
 def mv_image_files():
     os.chdir(get_md_path())
     types = ('*.png', '*.jpg') # the tuple of file types

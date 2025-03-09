@@ -22,6 +22,7 @@ def main():
     print(html_files)
     print(get_current_dir())
     generate_blog_links(html_files)
+    mv_image_files()
 
 
 if __name__ == "__main__":
