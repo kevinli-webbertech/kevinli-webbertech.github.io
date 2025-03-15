@@ -17,7 +17,6 @@
   overflow: hidden;
 }
 
-
 .left {
   height: 100%; /* Set the height of the sidebar to match the viewport */
   position: fixed; /* Fix the sidebar position */
@@ -34,7 +33,6 @@
 .sidebar_content {
   margin-bottom: 50px; /* Space from the bottom */
 }
-
 
 .right {
   float:right;
@@ -114,7 +112,7 @@
 }
 
 .one_column {
-	margin-left: 50px;
+  margin-left: 50px;
   margin-top: 50px;
   margin-bottom: 50px;
 }

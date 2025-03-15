@@ -1,3 +1,5 @@
+# Git Workflow
+
 A GitHub workflow is a configurable automated process that you can set up in your GitHub repository to build, test, package, release, or deploy your project. Workflows are defined using YAML files and are part of GitHub Actions, a CI/CD (Continuous Integration/Continuous Deployment) service provided by GitHub.
 
 Here’s a basic overview of how GitHub workflows work:
