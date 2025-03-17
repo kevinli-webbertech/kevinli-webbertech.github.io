@@ -2,7 +2,7 @@
 
 Use chatGPT to research what is `MACD` indicator of the stock market. Write me an assay about,
 
-1/ What it is MACD, how it works and include the math formulas. (30 pts)
+1/ What is MACD? How it works and include the math formulas. (30 pts)
 
 2/ Implement a MACD function in Python and use matplotlib to plot to show you can actually implement it. (30 pts)
 
