@@ -41,12 +41,13 @@
   overflow: scroll;  
   overflow-x: hidden;
   overflow-y: auto;
+  margin-left: 150px;
 }
 
 .content {
   background-color: #fff;
   margin-right: 100px;
-  margin-left: 100px;
+  margin-left: 150px;
   margin-top: 80px;
 }
 
@@ -75,7 +76,7 @@
 #nav_menu  ul{
   position: fixed;
   list-style-type: none;
-  margin-left: 100px;
+  margin-left: 150px;
   padding: 0;
   overflow: hidden;
   background-color: e9f2f9;
