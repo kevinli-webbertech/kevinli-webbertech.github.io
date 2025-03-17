@@ -11,4 +11,8 @@ Use chatGPT to research what is `MACD` indicator of the stock market. Write me a
 4/ You will need to provide a word or pdf document with all your writing and your images in it.
 If you did not write any words but just throw some images you would get 80 pts out of 100 maximum.
 
->Hint: 1/ Please use Deepseek or ChatGPT for anything you do not know such as `MACD`,`backtesting` and more.  2/ Ask AI tools to write you code as well. 3/ You can ask chatGPT or Deepseek to write raw Python code or you can let them use opensource external python libraries to reduce the lines of code. What are important is the visualization part.
+>Hint: 1/ Please use Deepseek or ChatGPT for anything you do not know such as `MACD`, `backtesting` and more.  
+
+2/ Ask AI tools to write you code as well.
+
+3/ You can ask chatGPT or Deepseek to write raw Python code or you can let them use opensource external python libraries to reduce the lines of code. What are important is the visualization part.
