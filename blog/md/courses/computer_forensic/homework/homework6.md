@@ -1,4 +1,4 @@
-# Homework 9 Network - VPN Setup
+# Homework 6 Network - VPN Setup
 
 ## A Lab Report (100 pts)
 
