@@ -6,18 +6,19 @@ A Kubernetes cluster can be deployed on either physical or virtual machines. To 
 
 ## kubectl
 
-`curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"`
+- `curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"`
 
+- `echo "$(cat kubectl.sha256) kubectl" | sha256sum --check`
+- `sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl`
 
-echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
-sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
-Note:
-If you do not have root access on the target system, you can still install kubectl to the ~/.local/bin directory:
+  Note:
+  If you do not have root access on the target system, you can still install kubectl to the ~/.local/bin directory:
 
-chmod +x kubectl
-mkdir -p ~/.local/bin
-mv ./kubectl ~/.local/bin/kubectl
-# and then append (or prepend) ~/.local/bin to $PATH
+- `chmod +x kubectl`
+- `mkdir -p ~/.local/bin`
+- `mv ./kubectl ~/.local/bin/kubectl`
+
+#### and then append (or prepend) ~/.local/bin to $PATH
 
 ## Minikube
 
@@ -29,11 +30,11 @@ All you need is Docker (or similarly compatible) container or a Virtual Machine 
 
 What you’ll need
 
-* 2 CPUs or more
-* 2GB of free memory
-* 20GB of free disk space
-* Internet connection
-* Container or virtual machine manager, such as: Docker, QEMU, Hyperkit, Hyper-V, KVM, Parallels, Podman, VirtualBox, or VMware Fusion/Workstation
+- 2 CPUs or more
+- 2GB of free memory
+- 20GB of free disk space
+- Internet connection
+- Container or virtual machine manager, such as: Docker, QEMU, Hyperkit, Hyper-V, KVM, Parallels, Podman, VirtualBox, or VMware Fusion/Workstation
 
 ## Goal of Study in this article
 
@@ -48,83 +49,80 @@ sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-a
 
 ## Start the server
 
-`minikube start`
+- `minikube start`
 
 ## Status
 
-`minikube status`
+- `minikube status`
 
 ## Dashboard
 
-`minikube dashboard`
+- `minikube dashboard`
 
 ## Deployment
 
-* Kubernetes coordinates a highly available cluster of computers that are connected to work as a single unit. 
-* Kubernetes automates the distribution and scheduling of application containers across a cluster in a more efficient way.
+- Kubernetes coordinates a highly available cluster of computers that are connected to work as a single unit.
+- Kubernetes automates the distribution and scheduling of application containers across a cluster in a more efficient way.
 
 A Kubernetes cluster consists of two types of resources:
 
 ![cluster_diagram](https://kevinli-webbertech.github.io/blog/images/k8s/cluster_diagram.png)
 
-* The Control Plane coordinates the cluster
-* Nodes are the workers that run applications
+- The Control Plane coordinates the cluster
+- Nodes are the workers that run applications
 
 ## Pod, Node, Deployment and Service
 
-* A pod a one or more containers.
-* A node is a vm or a physical machine.
-* A node can run multiple pods but normally just one
-* A Kubernetes Deployment checks on the health of your Pod and restarts the Pod's Container if it terminates.
-* Service, by default, the Pod is only accessible by its internal IP address within the Kubernetes cluster. To make the hello-node Container accessible from outside the Kubernetes virtual network, you have to expose the Pod as a Kubernetes Service.
+- A pod can contain one or more containers.
+- A node is a vm or a physical machine.
+- A node can run multiple pods but normally just one
+- A Kubernetes Deployment checks on the health of your Pod and restarts the Pod's Container if it terminates.
+- Service, by default, the Pod is only accessible by its internal IP address within the Kubernetes cluster. To make the hello-node Container accessible from outside the Kubernetes virtual network, you have to expose the Pod as a Kubernetes Service.
 
 **A helloword image deployment**
 
-* Create a Deployment
+- Create a Deployment
 
-`kubectl create deployment hello-node --image=registry.k8s.io/e2e-test-images/agnhost:2.39 -- /agnhost netexec --http-port=8080`
+  - `kubectl create deployment hello-node --image=registry.k8s.io/e2e-test-images/agnhost:2.39 -- /agnhost netexec --http-port=8080`
 
-* View the Deployment
+- View the Deployment
 
-kubectl get deployments
+  - `kubectl get deployments`
 
-* View the Pod
+- View the Pod
 
-kubectl get pods
+  - `kubectl get pods`
 
-* View cluster events
+- View cluster events
 
-kubectl get events
+  - `kubectl get events`
 
-* View the kubectl configuration
+- View the kubectl configuration
 
-kubectl config view
+  - `kubectl config view`
 
-* View application logs for a container in a pod (replace pod name with the one you got from kubectl get pods).
+- View application logs for a container in a pod (replace pod name with the one you got from kubectl get pods).
 
-`kubectl logs hello-node-5f76cf6ccf-br9b5`
+  - `kubectl logs hello-node-5f76cf6ccf-br9b5`
 
-* Create a service
+- Create a service
 
-Expose the Pod to the public internet using the kubectl expose command:
-
-`kubectl expose deployment hello-node --type=LoadBalancer --port=8080`
+  - Expose the Pod to the public internet using the kubectl expose command:
+  - `kubectl expose deployment hello-node --type=LoadBalancer --port=8080`
 
 The --type=LoadBalancer flag indicates that you want to expose your Service outside of the cluster.
 
-* View a service
+- View a service
 
-`kubectl get services`
+  - `kubectl get services`
 
-* Start service
+- Start service
 
-Run the following command:
-
-`minikube service hello-node`
+  - `minikube service hello-node`
 
 ## Manage Add-ons
 
-* show addons
+- show addons
 
 `minikube addons list`
 
@@ -150,53 +148,53 @@ storage-provisioner: enabled
 storage-provisioner-gluster: disabled
 ```
 
-* Enable an addon, for example, metrics-server:
+- Enable an addon, for example, metrics-server:
 
-`minikube addons enable metrics-server`
+  - `minikube addons enable metrics-server`
 
-* View the Pod and Service you created by installing that addon:
+- View the Pod and Service you created by installing that addon:
 
-`kubectl get pod,svc -n kube-system`
+  - `kubectl get pod,svc -n kube-system`
 
-* Check the output from metrics-server:
+- Check the output from metrics-server:
 
-`kubectl top pods`
+  - `kubectl top pods`
 
-* Disable metrics-server:
+- Disable metrics-server:
 
-`minikube addons disable metrics-server`
+  - `minikube addons disable metrics-server`
 
 ## Clean up
 
-`kubectl delete service hello-node`
+- `kubectl delete service hello-node`
 
-`kubectl delete deployment hello-node`
+- `kubectl delete deployment hello-node`
 
-`minikube stop`
+- `minikube stop`
 
 Optionally, delete the Minikube VM:
 
-`minikube delete`
+- `minikube delete`
 
 ## Troubleshooting and deep cleaning
 
-`minikube delete --all --purge`
+- `minikube delete --all --purge`
 
-`docker system prune`
+- `docker system prune`
 
 ## Revisit
 
-https://kubernetes.io/docs/tutorials/kubernetes-basics/explore/explore-intro/
-https://kubernetes.io/docs/tutorials/kubernetes-basics/expose/expose-intro/
-https://kubernetes.io/docs/tutorials/kubernetes-basics/update/
+- https://kubernetes.io/docs/tutorials/kubernetes-basics/explore/explore-intro/
+- https://kubernetes.io/docs/tutorials/kubernetes-basics/expose/expose-intro/
+- https://kubernetes.io/docs/tutorials/kubernetes-basics/update/
 
 ## Scale your app
 
-https://kubernetes.io/docs/tutorials/kubernetes-basics/scale/scale-intro/
+- https://kubernetes.io/docs/tutorials/kubernetes-basics/scale/scale-intro/
 
 ## Update your app
 
-https://kubernetes.io/docs/tutorials/kubernetes-basics/update/update-intro/
+- https://kubernetes.io/docs/tutorials/kubernetes-basics/update/update-intro/
 
 ## Ref
 
