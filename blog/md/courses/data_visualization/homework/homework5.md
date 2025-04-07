@@ -1,6 +1,13 @@
 # D3 Visualization
 
-## Visualize the best buy and best sell
+## Visualize the best buy and best sell using D3 JS Library
+
+Requirement:
+
+* Upload your word doc with screenshots
+* Upload your html file and/or with your js file.
+
+>Hint: Please do not use python to visualize.
 
 * Task 1 Visualize a best buy (25 pts)
 
