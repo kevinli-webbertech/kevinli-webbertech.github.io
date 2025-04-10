@@ -1,6 +1,8 @@
 # **How Public Key and Private Key Work (Asymmetric Cryptography)**
 
-**Public key cryptography**, also known as **asymmetric cryptography**, uses a pair of keys: one **public** and one **private**. The **public key** can be shared openly, while the **private key** is kept secret. These two keys work together to provide encryption, decryption, and authentication in secure communications.
+**Public key cryptography**, also known as **asymmetric cryptography**, uses a pair of keys: one **public** and one **private**. 
+The **public key** can be shared openly, while the **private key** is kept secret. 
+These two keys work together to provide encryption, decryption, and authentication in secure communications.
 
 In **public-key cryptography**, the keys are mathematically related, meaning that data encrypted with one key can only be decrypted with the corresponding key. This relationship forms the basis for several important security processes such as **data confidentiality**, **data integrity**, **authentication**, and **digital signatures**.
 
