@@ -31,4 +31,3 @@ If you still do not know and need extra help, you could inspect my html code in 
 https://kevinli-webbertech.github.io/blog/md/courses/data_visualization/echarts/code/3D_barchart_with_dataset.html
 
 As long as you can reproduce it on your own localhost. You will get score.
-

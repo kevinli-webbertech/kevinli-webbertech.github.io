@@ -29,4 +29,3 @@ It would render like the following,
 ![tree-polyline.png](tree-polyline.png)
 
 ## Nice final report in Word or PDF (10 pts)
-
