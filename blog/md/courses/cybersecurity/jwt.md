@@ -48,5 +48,3 @@ header.payload.signature
 - **Authentication**: After a user logs in, a JWT can be used to authenticate subsequent requests. It is sent in the Authorization header (usually in the format `Bearer <token>`).
 - **Authorization**: Allows verifying whether a user has the necessary permissions to access a resource.
 - **Information Exchange**: A JWT can securely transmit information between parties since it is digitally signed, ensuring that the data has not been tampered with.
-
-Would you like more details or an example of how to generate a JWT in a specific programming language?
