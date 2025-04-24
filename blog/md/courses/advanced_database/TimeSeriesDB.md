@@ -17,8 +17,16 @@ Best practice is to run TimescaleDB in a Timescale Service, but if you want to s
 
 ## Install TimescaleDB
 
+### Container types
 
-### Docker 
+The two container types store PostgreSQL data dir in different places, make sure you select the correct one to mount:
+
+|Container|PGDATA location |
+|---|---|
+|timescaledb-ha|/home/postgres/pgdata/data|
+|timescaledb|/var/lib/postgresql/data|
+
+### Docker running image
 
 - Run the TimescaleDB Docker image
 
@@ -79,15 +87,6 @@ the data volume persists on disk until you explicitly delete it.
 
 You can use the `docker volume ls` command to list existing docker volumes. If you want to store the data from your Docker container in a host directory, 
 or you want to run the Docker image on top of an existing data directory, you can specify the directory to mount a data volume using the -v flag.
-
-### Container types
-
-The two container types store PostgreSQL data dir in different places, make sure you select the correct one to mount:
-
-|Container|PGDATA location |
-|---|---|
-|timescaledb-ha|/home/postgres/pgdata/data|
-|timescaledb|/var/lib/postgresql/data|
 
 ### Logs in docker container
 
