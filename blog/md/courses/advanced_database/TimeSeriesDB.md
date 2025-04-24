@@ -14,7 +14,6 @@ Best practice is to run TimescaleDB in a Timescale Service, but if you want to s
 
 ### Cloud version - Commercial
 
-
 ## Install TimescaleDB
 
 ### Container types

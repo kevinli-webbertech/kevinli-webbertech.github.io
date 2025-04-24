@@ -1,4 +1,4 @@
-# `bcrypt` algorithm
+# bcrypt Algorithm
 
 The `bcrypt` algorithm is a popular and secure **password hashing function** designed for storing passwords safely. Here's a breakdown of what it is and how it works:
 

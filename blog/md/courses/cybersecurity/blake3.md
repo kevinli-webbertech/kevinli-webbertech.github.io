@@ -1,4 +1,4 @@
-Ah, you're diving into **BLAKE3** now — love it! It's not a password hasher like `bcrypt`, `scrypt`, or `argon2`, but it's *blazing fast* and modern. Here's the lowdown:
+# BLAKE3 Algorithm
 
 ---
 
