@@ -99,4 +99,26 @@ https://docs.timescale.com/self-hosted/latest/install/installation-docker/
 
 ## Install from source in linux
 
+- Ubuntu
+
 https://docs.timescale.com/self-hosted/latest/install/installation-linux/#add-the-timescaledb-extension-to-your-database
+
+- Fedora
+
+https://docs.timescale.com/self-hosted/latest/install/installation-linux/#add-the-timescaledb-extension-to-your-database
+
+## Amazon AWS EC2
+
+It is desirable to run a docker image on the EC2 instance, and we need to have a docker on it too.
+
+### Install Docker (if not already installed)
+
+`sudo yum install -y docker`
+
+### Start a sample Docker image (e.g., a simple web server)
+
+`docker run -d -p 80:8080 <image_name>:<tag>`
+
+### Ref
+
+https://aws.plainenglish.io/deploy-docker-image-to-aws-ec2-in-5-minutes-4cd7518feacc
