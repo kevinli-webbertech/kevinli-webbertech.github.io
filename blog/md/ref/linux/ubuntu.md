@@ -38,6 +38,10 @@ Get `Activity Monitor` and kill `Gnome-shell`, it is like windows explorer and i
 
 **Solution**: It was fixed by changing from XWayland to X11.
 
+## Visualize the service
+
+`systemd-analyze plot > ~/SystemdAnalyzePlot.svg`
+
 ## Variables to check your Desktop Manager
 
 "$XDG_CURRENT_DESKTOP" "$GDMSESSION"

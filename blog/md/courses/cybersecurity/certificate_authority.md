@@ -125,5 +125,3 @@ When a browser or application verifies the authenticity of an SSL/TLS certificat
 A **Certificate Authority (CA)** plays a critical role in the SSL/TLS ecosystem by verifying identities, issuing digital certificates, and ensuring secure communications. It ensures the authenticity of both public keys and entities by signing and validating certificates, and it plays a central role in enabling trust over the internet. 
 
 CAs are essential for encrypting sensitive data, such as during online transactions or communications, and for **website authentication** (e.g., ensuring users are connected to the legitimate site). Whether for **websites**, **email encryption**, or **code signing**, CAs are a cornerstone of modern internet security.
-
-If you have more questions on how CAs work or need help with specific scenarios (like setting up SSL certificates), feel free to ask!
