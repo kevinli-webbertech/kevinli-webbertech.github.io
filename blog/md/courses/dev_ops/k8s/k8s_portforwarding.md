@@ -1,4 +1,4 @@
-# 
+# K8s Portforwarding
 
 ## Connect to RDS using SSH Tunnel
 
@@ -23,6 +23,7 @@ To access an RDS (Relational Database Service) instance running on AWS from your
      - **Source**: Your IP address (e.g., `203.0.113.0/32` if your IP is `203.0.113.0`).
 
 #### 3. **Set up a Database Client:**
+
    - Install a database client (like **MySQL Workbench**, **pgAdmin**, or a command-line client like **MySQL CLI** or **psql**).
    - Use the following connection details to access the database:
      - **Host**: The RDS endpoint (e.g., `mydbinstance.cxj3s7v2ddvf.us-west-2.rds.amazonaws.com`).
@@ -35,11 +36,13 @@ To access an RDS (Relational Database Service) instance running on AWS from your
    - Open your database client and attempt to connect to the RDS instance using the connection details. If configured correctly, you should be able to access and query the database remotely.
 
 #### Example Command (for MySQL CLI):
+
 ```bash
 mysql -h mydbinstance.cxj3s7v2ddvf.us-west-2.rds.amazonaws.com -P 3306 -u myusername -p
 ```
 
 #### 5. **Optional - Use SSH Tunneling (If Security Group Is Restrictive):**
+
    If you cannot open the RDS port to your IP for security reasons, you can use an **SSH tunnel** through an EC2 instance in the same VPC as the RDS instance.
 
    - **Set up an EC2 instance** with a security group that allows SSH access.
@@ -57,6 +60,7 @@ To connect to an RDS database through Kubernetes using `kubectl port-forwarding`
 Here’s how you can do it:
 
 ### Prerequisites:
+
 - **Kubernetes cluster**: You need to have access to the Kubernetes cluster with `kubectl` installed and configured.
 - **RDS instance**: The RDS instance should be running and accessible from the Kubernetes cluster (make sure the RDS security group allows access from the cluster's VPC).
 - **Pod with necessary database client**: You should have a pod running in your cluster that has the database client installed (e.g., MySQL client, psql for PostgreSQL, etc.).
@@ -114,6 +118,7 @@ Here’s how you can do it:
 ### Optional: Troubleshooting
 
 If you encounter any issues:
+
 - Ensure that your Kubernetes pod has network access to the RDS instance (check the VPC and security groups).
 - Double-check the credentials you are using to connect to RDS (username, password, database name).
 - If there are issues with the port-forwarding, check if any firewall rules or Kubernetes network policies are blocking traffic.

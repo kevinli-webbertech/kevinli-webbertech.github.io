@@ -29,16 +29,15 @@ The two container types store PostgreSQL data dir in different places, make sure
 
 - Run the TimescaleDB Docker image
 
-```
+```shell
 docker pull timescale/timescaledb-ha:pg17
 ```
 
 - Run the container
 
-```
+```shell
 docker run -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg17
 ```
-
 
 On UNIX based systems, Docker modifies Linux IP tables to bind the container. If your system uses Linux Uncomplicated Firewall (UFW), Docker may override your UFW port binding settings. To prevent this, add DOCKER_OPTS="--iptables=false" to /etc/default/docker.
 
@@ -68,28 +67,27 @@ timescaledb_toolkit | 1.19.0  | public     | Library of analytical hyperfunction
 
 If you want to access the container from the host but avoid exposing it to the outside world, you can bind to 127.0.0.1 instead of the public interface, using this command:
 
-```
+```shell
 docker run -d --name timescaledb -p 127.0.0.1:5432:5432 -e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg17
 ```
 
 If you don't want to install psql and other PostgreSQL client tools locally, or if you are using a Microsoft Windows host system, you can connect using the version of psql that is bundled within the container with this command:
 
-```
+```shell
 docker exec -it timescaledb psql -U postgres
 ```
 
 ## Other docker usage
 
-Existing containers can be stopped using `docker stop` and started again with `docker start` while retaining their volumes and data. 
-When you create a new container using the docker run command, by default you also create a new data volume. When you remove a Docker container with `docker rm` 
-the data volume persists on disk until you explicitly delete it. 
+Existing containers can be stopped using `docker stop` and started again with `docker start` while retaining their volumes and data.
 
-You can use the `docker volume ls` command to list existing docker volumes. If you want to store the data from your Docker container in a host directory, 
-or you want to run the Docker image on top of an existing data directory, you can specify the directory to mount a data volume using the -v flag.
+When you create a new container using the docker run command, by default you also create a new data volume. When you remove a Docker container with `docker rm` the data volume persists on disk until you explicitly delete it.
+
+You can use the `docker volume ls` command to list existing docker volumes. If you want to store the data from your Docker container in a host directory, or you want to run the Docker image on top of an existing data directory, you can specify the directory to mount a data volume using the -v flag.
 
 ### Logs in docker container
 
-If you have TimescaleDB installed in a Docker container, you can view your logs using Docker, instead of looking in /var/lib/logs or /var/logs. 
+If you have TimescaleDB installed in a Docker container, you can view your logs using Docker, instead of looking in /var/lib/logs or /var/logs.
 
 ### Ref
 

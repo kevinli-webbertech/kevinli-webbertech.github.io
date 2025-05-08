@@ -23,7 +23,7 @@ metadata:
 data:
   POSTGRES_DB: ps_db
   POSTGRES_USER: ps_user
-  POSTGRES_PASSWORD: SecurePassword
+  POSTGRES_PASSWORD: password
 ```
 
 * apiVersion: v1 specifies the Kubernetes API version used for this ConfigMap.
@@ -334,6 +334,10 @@ psql (14.10 (Debian 14.10-1.pgdg120+1))
 Type "help" for help.
 ps_db=#
 ```
+
+See the following image,
+
+![k8s](k8s.png)
 
 Next, verify the PostgreSQL connection using the following command.
 
