@@ -1,32 +1,19 @@
-# postgresql k8s deployment
+# Time Series Database
 
-Introduction
+## Introduction
+
 Deploying a PostgreSQL database on a Kubernetes cluster has become a popular approach for managing scalable, resilient, and dynamic database environments. Kubernetes has container orchestration capabilities that offer a robust framework for deploying and managing applications, including databases like PostgreSQL, in a distributed environment. This integration provides significant scalability, resilience, and efficient resource utilization advantages. By leveraging Kubernetes features such as scalability, automated deployment, and self-healing capabilities, users can ensure the seamless operation of their PostgreSQL databases in a containerized environment.
-
-This guide will explore the step-by-step process of deploying PostgreSQL on a Kubernetes cluster. Whether you are a developer, DevOps engineer, or system administrator looking to deploy PostgreSQL in a Kubernetes environment effectively, this guide aims to provide comprehensive insights and practical steps to successfully set up and manage PostgreSQL databases within a Kubernetes cluster.
-
-Prerequisites
-Before you begin this tutorial, you will need the following:
-
-A development server or local machine from which you will deploy the PostgreSQL.
-
-The kubectl command-line tool is installed on your development machine. To install this, follow this guide from the official Kubernetes documentation.
-
-A Kubernetes cluster. You can provision a DigitalOcean Kubernetes cluster by following our Kubernetes Quickstart guide .
-
-- https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-on-linux
-- https://www.digitalocean.com/products/kubernetes
-- https://docs.digitalocean.com/products/kubernetes/getting-started/quickstart/
 
 ## Create a ConfigMap to Store Database Details
 
-In Kubernetes, a ConfigMap is an API object that stores configuration data in key-value pairs, which pods or containers can use in a cluster. ConfigMaps helps decouple configuration details from the application code, making it easier to manage and update configuration settings without changing the application’s code.
+```shell
+touch vim postgres-configmap.yaml
+vim postgres-configmap.yaml
+```
 
-Let’s create a ConfigMap configuration file to store PostgreSQL connection details such as hostname, database name, username, and other settings.
+Add the following configuration. Define the default database name, user, and password.
 
-`vim postgres-configmap.yaml`
-
-```yaml
+```shell
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -39,21 +26,11 @@ data:
   POSTGRES_PASSWORD: SecurePassword
 ```
 
-Let’s break down the above configuration:
-
 * apiVersion: v1 specifies the Kubernetes API version used for this ConfigMap.
 
 * kind: ConfigMap defines the Kubernetes resource type.
 
-Under metadata, the name field specifies the name of the ConfigMap, set as “postgres-secret.” Additionally, labels are applied to the ConfigMap to help identify and organize resources.
-
-The data section contains the configuration data as key-value pairs.
-
-* POSTGRES_DB: Specify the default database name for PostgreSQL.
-
-* POSTGRES_USER: Specify the default username for PostgreSQL.
-
-* POSTGRES_PASSWORD: Specify the default password for the PostgreSQL user.
+* **metadata**: the **name** field specifies the name of the ConfigMap, set as “postgres-secret.” Additionally, labels are applied to the ConfigMap to help identify and organize resources. The data section contains the configuration data as key-value pairs.
 
 Save and close the file, then apply the ConfigMap configuration to the Kubernetes.
 
@@ -63,7 +40,7 @@ You can verify the ConfigMap deployment using the following command.
 
 `kubectl get configmap`
 
-Output,
+Output.
 
 ```shell
 NAME               DATA   AGE
@@ -71,17 +48,20 @@ kube-root-ca.crt   1      116s
 postgres-secret    3      12s
 ```
 
-# Create a PersistentVolume (PV) and a PersistentVolumeClaim (PVC)
+## Create PV and PVC
 
 PersistentVolume (PV) and PersistentVolumeClaim (PVC) are Kubernetes resources that provide and claim persistent storage in a cluster. A PersistentVolume provides storage resources in the cluster, while a PersistentVolumeClaim allows pods to request specific storage resources.
 
-First, create a YAML file for PersistentVolume.
+```shell
+touch psql-pv.yaml
+touch 
 
-`vim psql-pv.yaml`
+```
+
 
 Add the following configuration.
 
-```yml
+```shell
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -98,16 +78,15 @@ spec:
   hostPath:
     path: /data/postgresql
 ```
-
 Here is the explanation of each component:
 
-* storageClassName: manual specifies the StorageClass for this PersistentVolume. The StorageClass named “manual” indicates that provisioning of the storage is done manually.
+    storageClassName: manual specifies the StorageClass for this PersistentVolume. The StorageClass named “manual” indicates that provisioning of the storage is done manually.
 
-* **Capacity** specifies the desired capacity of the PersistentVolume.
+    Capacity specifies the desired capacity of the PersistentVolume.
 
-* **accessModes** defines the access modes that the PersistentVolume supports. In this case, it is set to ReadWriteMany, allowing multiple Pods to read and write to the volume simultaneously.
+    accessModes defines the access modes that the PersistentVolume supports. In this case, it is set to ReadWriteMany, allowing multiple Pods to read and write to the volume simultaneously.
 
-* **hostPath** is the volume type created directly on the node’s filesystem. It is a directory on the host machine’s filesystem (path: “/data/postgresql”) that will be used as the storage location for the PersistentVolume. This path refers to a location on the host where the data for the PersistentVolume will be stored.
+    hostPath is the volume type created directly on the node’s filesystem. It is a directory on the host machine’s filesystem (path: “/data/postgresql”) that will be used as the storage location for the PersistentVolume. This path refers to a location on the host where the data for the PersistentVolume will be stored.
 
 Save the file, then apply the above configuration to the Kubernetes.
 
@@ -115,11 +94,15 @@ Save the file, then apply the above configuration to the Kubernetes.
 
 Next, create a YAML for PersistentVolumeClaim.
 
+`touch psql-claim.yaml`
+
+and,
+
 `vim psql-claim.yaml`
 
 Add the following configurations.
 
-```yml
+```shell
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -137,15 +120,15 @@ spec:
 
 Let’s break down the components:
 
-**kind:** PersistentVolumeClaim indicates that this YAML defines a PersistentVolumeClaim resource.
+    kind: PersistentVolumeClaim indicates that this YAML defines a PersistentVolumeClaim resource.
 
-**storageClassName:** manual specifies the desired StorageClass for this PersistentVolumeClaim.
+    storageClassName: manual specifies the desired StorageClass for this PersistentVolumeClaim.
 
-**accessModes** specifies the access mode required by the PersistentVolumeClaim.
+    accessModes specifies the access mode required by the PersistentVolumeClaim.
 
-**Resources** define the requested resources for the PersistentVolumeClaim:
+    Resources define the requested resources for the PersistentVolumeClaim:
 
-The **requests** section specifies the amount of storage requested.
+    The requests section specifies the amount of storage requested.
 
 Save the file, then apply the configuration to the Kubernetes.
 
@@ -157,7 +140,7 @@ Now, use the following command to list all the PersistentVolumes created in your
 
 This command will display details about each PersistentVolume, including its name, capacity, access modes, status, reclaim policy, and storage class.
 
-```yml
+```shell
 NAME              CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                           STORAGECLASS   REASON   AGE
 
 postgres-volume   10Gi       RWX            Retain           Bound    default/postgres-volume-claim   manual                  34s
@@ -169,17 +152,25 @@ To list all the PersistentVolumeClaims in the cluster, use the following command
 
 This command will show information about the PersistentVolumeClaims, including their names, statuses, requested storage, bound volumes, and their corresponding PersistentVolume if they are bound.
 
-```yml
+```shell
 NAME                    STATUS   VOLUME            CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 
 postgres-volume-claim   Bound    postgres-volume   10Gi       RWX            manual         22s
 ```
 
-## Create a PostgreSQL Deployment
+## Create a Deployment
 
-`vim ps-deployment.yaml`
+Creating a PostgreSQL deployment in Kubernetes involves defining a Deployment manifest to orchestrate the PostgreSQL pods.
 
-```yml
+Create a YAML file ps-deployment.yaml to define the PostgreSQL Deployment.
+
+`touch ps-deployment.yaml` and,
+
+`vi ps-deployment.yaml`
+
+Add the following content.
+
+```shell
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -214,37 +205,35 @@ spec:
 
 Here is a brief explanation of each parameter:
 
-**replicas: 3** specifies the desired number of replicas.
+    **replicas**: 3 specifies the desired number of replicas.
 
-**selector** specifies how the Deployment identifies which Pods it manages.
+    **selector**: specifies how the Deployment identifies which Pods it manages.
 
-**template** defines the Pod template used for creating new Pods controlled by this Deployment. Under metadata, the labels field assigns labels to the Pods created from this template, with app: postgres.
+    **template**: defines the Pod template used for creating new Pods controlled by this Deployment. Under metadata, the labels field assigns labels to the Pods created from this template, with app: postgres.
 
-**containers** specify the containers within the Pod.
+    **containers**: specify the containers within the Pod.
 
-**name**: postgres is the name assigned to the container.
+    **name:** postgres is the name assigned to the container.
 
-**image: postgres:14** specifies the Docker image for the PostgreSQL database.
+    **image:** postgres:14 specifies the Docker image for the PostgreSQL database.
 
-**imagePullPolicy: “IfNotPresent”** specifies the policy for pulling the container image.
+    **imagePullPolicy:** “IfNotPresent” specifies the policy for pulling the container image.
 
-**ports** specify the ports that the container exposes.
+    **ports:** specify the ports that the container exposes.
 
-**envFrom** allows the container to load environment variables from a ConfigMap.
+    **envFrom:** allows the container to load environment variables from a ConfigMap.
 
-**volumeMounts** allows mounting volumes into the container.
+    **volumeMounts:** allows mounting volumes into the container.
 
-**volumes** define the volumes that can be mounted into the Pod.
+    **volumes:** define the volumes that can be mounted into the Pod.
 
-**name: postgresdata** specifies the name of the volume.
+    **name:** postgresdata specifies the name of the volume.
 
-**persistentVolumeClaim** refers to a PersistentVolumeClaim named “postgres-volume-claim”. This claim is likely used to provide persistent storage to the PostgreSQL container so that data is retained across Pod restarts or rescheduling.
+    **persistentVolumeClaim:** refers to a PersistentVolumeClaim named “postgres-volume-claim”. This claim is likely used to provide persistent storage to the PostgreSQL container so that data is retained across Pod restarts or rescheduling.
 
 Save and close the file, then apply the deployment.
 
 `kubectl apply -f ps-deployment.yaml`
-
-This command creates the PostgreSQL Deployment based on the specifications provided in the YAML file.
 
 To check the status of the created deployment:
 
@@ -276,7 +265,7 @@ In Kubernetes, a Service is used to define a logical set of Pods that enable oth
 
 Let’s create a service manifest file to expose PostgreSQL internally within the Kubernetes cluster:
 
-`vim ps-service.yaml`
+`touch ps-service.yaml`
 
 Add the following configuration.
 
@@ -321,18 +310,22 @@ First, list the available Pods in your namespace to find the PostgreSQL Pod:
 
 You will see the running pods in the following output.
 
-```
+```shell
 NAME                        READY   STATUS    RESTARTS      AGE
 postgres-665b7554dc-cddgq   1/1     Running   0             28s
 postgres-665b7554dc-kh4tr   1/1     Running   0             28s
 postgres-665b7554dc-mgprp   1/1     Running   1 (11s ago)   28s
 ```
-
 Locate the name of the PostgreSQL Pod from the output.
 
 Once you have identified the PostgreSQL Pod, use the kubectl exec command to connect the PostgreSQL pod.
 
 `kubectl exec -it postgres-665b7554dc-cddgq -- psql -h localhost -U ps_user --password -p 5432 ps_db`
+
+  **postgres-665b7554dc-cddgq:** This is the pod’s name where the PostgreSQL container is running.
+  **ps_user:** Specifies the username that will be used to connect to the PostgreSQL database.
+  **–password:** Prompts for the password interactively.
+  **ps_db:** Specifies the database name to connect to once authenticated with the provided user.
 
 You will be asked to provide a password for Postgres users. After the successful authentication, you will get into the Postgres shell.
 
@@ -359,11 +352,9 @@ You can exit from the PostgreSQL shell using the following command.
 
 Scaling a PostgreSQL deployment in Kubernetes involves adjusting the number of replicas in the Deployment or StatefulSet that manages the PostgreSQL Pods.
 
-First, check the current state of your PostgreSQL deployment:
-
 `kubectl get pods -l app=postgres`
 
-Output,
+Output.
 
 ```shell
 postgres-665b7554dc-cddgq   1/1     Running   0              2m12s
@@ -392,19 +383,27 @@ postgres-665b7554dc-mgprp   1/1     Running   1 (3m39s ago)   3m56s
 
 ## Backup and Restore PostgreSQL Database
 
+You can back up a PostgreSQL database running in a Kubernetes Pod using the kubectl exec command in conjunction with the pg_dump tool directly within the Pod.
+
 First, List all Pods to find the name of your PostgreSQL Pod:
 
-`kubectl get pods`
+```shell
+kubectl get pods
+```
 
 Next, use the kubectl exec command to run the pg_dump command inside the PostgreSQL Pod:
 
-`kubectl exec -it postgres-665b7554dc-cddgq -- pg_dump -U ps_user -d ps_db > db_backup.sql`
+```shell
+kubectl exec -it postgres-665b7554dc-cddgq -- pg_dump -U ps_user -d ps_db > db_backup.sql
+```
 
 This command dumps the database and redirects the output to a file named db_backup.sql in the local directory.
 
+### Restore
+
 To restore the database back to the Kubernetes pod, you will need the SQL dump file and the use of the psql command to execute the restore process.
 
-First, use the `kubectl cp` command to copy the SQL dump file from your local machine into the PostgreSQL Pod:
+First, use the kubectl cp command to copy the SQL dump file from your local machine into the PostgreSQL Pod:
 
 `kubectl cp db_backup.sql postgres-665b7554dc-cddgq:/tmp/db_backup.sql`
 
@@ -415,3 +414,33 @@ Next, connect to the PostgreSQL pod using the following command.
 Next, run the psql command to restore the backup from the dump file.
 
 `psql -U ps_user -d ps_db -f /tmp/db_backup.sql`
+
+### Ref
+
+- https://aws.plainenglish.io/deploy-docker-image-to-aws-ec2-in-5-minutes-4cd7518feacc
+
+- https://refine.dev/blog/postgres-on-kubernetes/
+
+- https://medium.com/@martin.hodges/adding-a-postgres-high-availability-database-to-your-kubernetes-cluster-634ea5d6e4a1
+
+- https://dev.to/mihailtd/simplify-postgresql-deployments-with-kubernetes-gitops-with-crunchy-data-operator-4hca
+
+- https://portworx.com/postgres-kubernetes/
+
+- https://kubedb.com/articles/how-to-deploy-postgres-via-kubernetes-postgresql-operator/
+
+- https://postgres-operator.readthedocs.io/en/latest/quickstart/
+
+- https://www.sumologic.com/blog/kubernetes-deploy-postgres/
+
+- https://askubuntu.com/questions/1519408/installing-packages-within-running-postgresql-container-in-kubernetes-cluster
+
+- https://www.digitalocean.com/community/tutorials/how-to-deploy-postgres-to-kubernetes-cluster
+
+- https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-on-linux
+
+- https://www.digitalocean.com/products/kubernetes
+- https://docs.digitalocean.com/products/kubernetes/getting-started/quickstart/
+
+
+- https://phoenixnap.com/kb/postgresql-kubernetes
