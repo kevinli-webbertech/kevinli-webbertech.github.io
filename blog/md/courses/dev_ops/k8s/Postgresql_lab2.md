@@ -343,6 +343,10 @@ Check timescaledb extensions,
 
 ![k8s_1](k8s_1.png)
 
+Create the db with a creation of schema,
+
+![k8s_2](k8s_2.png)
+
 Next, verify the PostgreSQL connection using the following command.
 
 `ps_db=# \conninfo`
