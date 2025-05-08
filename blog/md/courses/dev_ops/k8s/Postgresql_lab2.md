@@ -339,6 +339,10 @@ See the following image,
 
 ![k8s](k8s.png)
 
+Check timescaledb extensions,
+
+![k8s_1](k8s_1.png)
+
 Next, verify the PostgreSQL connection using the following command.
 
 `ps_db=# \conninfo`
