@@ -7,7 +7,7 @@ Deploying a PostgreSQL database on a Kubernetes cluster has become a popular app
 ## Create a ConfigMap to Store Database Details
 
 ```shell
-touch postgres-configmap.yaml
+touch vim postgres-configmap.yaml
 vim postgres-configmap.yaml
 ```
 
@@ -54,6 +54,7 @@ PersistentVolume (PV) and PersistentVolumeClaim (PVC) are Kubernetes resources t
 
 ```shell
 touch psql-pv.yaml
+vi psql-pv.yaml
 ```
 
 Add the following configuration.
@@ -78,13 +79,13 @@ spec:
 
 Here is the explanation of each component:
 
-  * **storageClassName:** manual specifies the StorageClass for this PersistentVolume. The StorageClass named “manual” indicates that provisioning of the storage is done manually.
+  **storageClassName:** manual specifies the StorageClass for this PersistentVolume. The StorageClass named “manual” indicates that provisioning of the storage is done manually.
 
-  * **Capacity** specifies the desired capacity of the PersistentVolume.
+  **Capacity** specifies the desired capacity of the PersistentVolume.
 
-  * **accessModes** defines the access modes that the PersistentVolume supports. In this case, it is set to ReadWriteMany, allowing multiple Pods to read and write to the volume simultaneously.
+  **accessModes:** defines the access modes that the PersistentVolume supports. In this case, it is set to ReadWriteMany, allowing multiple Pods to read and write to the volume simultaneously.
 
-  * **hostPath** is the volume type created directly on the node’s filesystem. It is a directory on the host machine’s filesystem (path: “/data/postgresql”) that will be used as the storage location for the PersistentVolume. This path refers to a location on the host where the data for the PersistentVolume will be stored.
+  **hostPath:** is the volume type created directly on the node’s filesystem. It is a directory on the host machine’s filesystem (path: “/data/postgresql”) that will be used as the storage location for the PersistentVolume. This path refers to a location on the host where the data for the PersistentVolume will be stored.
 
 Save the file, then apply the above configuration to the Kubernetes.
 
@@ -118,15 +119,15 @@ spec:
 
 Let’s break down the components:
 
-  * **kind:** PersistentVolumeClaim indicates that this YAML defines a PersistentVolumeClaim resource.
+  kind: PersistentVolumeClaim indicates that this YAML defines a PersistentVolumeClaim resource.
 
-  * **storageClassName:** manual specifies the desired StorageClass for this PersistentVolumeClaim.
+  storageClassName: manual specifies the desired StorageClass for this PersistentVolumeClaim.
 
-  * **accessModes** specifies the access mode required by the PersistentVolumeClaim.
+  accessModes specifies the access mode required by the PersistentVolumeClaim.
 
-  * **Resources** define the requested resources for the PersistentVolumeClaim:
+  Resources define the requested resources for the PersistentVolumeClaim:
 
-  * The **requests** section specifies the amount of storage requested.
+  The requests section specifies the amount of storage requested.
 
 Save the file, then apply the configuration to the Kubernetes.
 
@@ -184,8 +185,8 @@ spec:
         app: postgres
     spec:
       containers:
-        - name: timescaledb
-          image: 'timescale/timescaledb-ha:pg17'
+        - name: postgres
+          image: 'postgres:14'
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 5432
@@ -203,31 +204,31 @@ spec:
 
 Here is a brief explanation of each parameter:
 
-  * **replicas**: 3 specifies the desired number of replicas.
+  **replicas**: 3 specifies the desired number of replicas.
 
-  * **selector**: specifies how the Deployment identifies which Pods it manages.
+  **selector**: specifies how the Deployment identifies which Pods it manages.
 
-  * **template**: defines the Pod template used for creating new Pods controlled by this Deployment. Under metadata, the labels field assigns labels to the Pods created from this template, with app: postgres.
+  **template**: defines the Pod template used for creating new Pods controlled by this Deployment. Under metadata, the labels field assigns labels to the Pods created from this template, with app: postgres.
 
-  * **containers**: specify the containers within the Pod.
+  **containers**: specify the containers within the Pod.
 
-  * **name:** postgres is the name assigned to the container.
+  **name:** postgres is the name assigned to the container.
 
-  * **image:** postgres:14 specifies the Docker image for the PostgreSQL database.
+  **image:** postgres:14 specifies the Docker image for the PostgreSQL database.
 
-  * **imagePullPolicy:** “IfNotPresent” specifies the policy for pulling the container image.
+  **imagePullPolicy:** “IfNotPresent” specifies the policy for pulling the container image.
 
-  * **ports:** specify the ports that the container exposes.
+  **ports:** specify the ports that the container exposes.
 
-  * **envFrom:** allows the container to load environment variables from a ConfigMap.
+  **envFrom:** allows the container to load environment variables from a ConfigMap.
 
-  * **volumeMounts:** allows mounting volumes into the container.
+  **volumeMounts:** allows mounting volumes into the container.
 
-  * **volumes:** define the volumes that can be mounted into the Pod.
+  **volumes:** define the volumes that can be mounted into the Pod.
 
-  * **name:** postgresdata specifies the name of the volume.
+  **name:** postgresdata specifies the name of the volume.
 
-  * **persistentVolumeClaim:** refers to a PersistentVolumeClaim named “postgres-volume-claim”. This claim is likely used to provide persistent storage to the PostgreSQL container so that data is retained across Pod restarts or rescheduling.
+  **persistentVolumeClaim:** refers to a PersistentVolumeClaim named “postgres-volume-claim”. This claim is likely used to provide persistent storage to the PostgreSQL container so that data is retained across Pod restarts or rescheduling.
 
 Save and close the file, then apply the deployment.
 
