@@ -359,6 +359,48 @@ You can exit from the PostgreSQL shell using the following command.
 
 `exit`
 
+## Connect to the PostgreSQL via Dbeaver
+
+* Dbeaver is a GUI based-software. It is usually very convinient to see operations on a GUI-based softwware. We have to install it to perform this lab.
+
+Here is a link to install a Dbeaver depending on your operating system,
+
+- https://dbeaver.io/download/
+
+>Hint: Please remember that we only need the community version which is the free version.
+
+* We will need a port forwarding.
+
+### Port-forwarding
+
+![port_forwarding](../../../../images/dev_ops/port_forwarding.png)
+
+`xiaofengli@xiaofenglx:~/git/pulse-database$ kubectl port-forward svc/postgres 5432:5432`
+
+### Connection from DBeaver
+
+![dbeaver](../../../../images/dev_ops/dbeaver.png)
+
+Fill out the following,
+
+![dbeaver](../../../../images/dev_ops/dbeaver2.png)
+
+```shell
+Host: localhost
+Port: 5432
+Database: ps_db
+Username: ps_user
+Password: password
+```
+
+### Import Data
+
+* Create DDL. (Find a db schema online using Postgresql syntax)
+* Create some data using chatGPT and import the csv.
+
+![dbeaver](../../../../images/dev_ops/import_data.png)
+
+
 ## Scale PostgreSQL Deployment
 
 Scaling a PostgreSQL deployment in Kubernetes involves adjusting the number of replicas in the Deployment or StatefulSet that manages the PostgreSQL Pods.
