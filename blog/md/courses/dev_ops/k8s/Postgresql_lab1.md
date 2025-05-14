@@ -1,10 +1,12 @@
 # Time Series Database
 
+This is a lab to introduce you a new type of database, which is time-series database and it is built on top of relational database "Postgresql".
+
 ## TimescaleDB
 
-![img.png](img.png)
+![img.png](timescaledb_1.png)
 
-![img_1.png](img_1.png)
+![img_1.png](timescaledb_2.png)
 
 ### What is TimescaleDB
 
@@ -12,28 +14,54 @@ TimescaleDB is an extension for PostgreSQL that enables time-series workloads, i
 
 Best practice is to run TimescaleDB in a Timescale Service, but if you want to self-host you can run TimescaleDB yourself.
 
-### Cloud version - Commercial
+There are two versions of timescaledb,
+
+* Cloud version - Commercial
+
+* Community version - Open source version
+
+In this tutorial, we would focus on the opensource/community version.
 
 ## Install TimescaleDB
 
+There are two ways of using/installing the community version timescaled database,
+
+* Install native version on your operating system. Please refer to the following url for guidance to install it.
+
+- https://docs.timescale.com/self-hosted/latest/install/
+
+* Use docker. Docker is a headless VM, and the pre-installed docker image would give us more flexibility and convinient to quickly put together the db without much configuration.
+
+The tutorial in this document is based on the linux machine.
+
+You can also use Mac or Windows machine and before the lab, we would like to.
+
 ### Container types
 
-The two container types store PostgreSQL data dir in different places, make sure you select the correct one to mount:
+There are two container types store PostgreSQL data dir in different places, make sure you select the correct one to mount:
 
 |Container|PGDATA location |
 |---|---|
 |timescaledb-ha|/home/postgres/pgdata/data|
 |timescaledb|/var/lib/postgresql/data|
 
+In this tutorial, we would use the `timescaledb-ha`.
+
 ### Docker running image
 
-- Run the TimescaleDB Docker image
+Before we start, we would like to make sure that `docker` or `docker desktop` is installed on your computer. For the detailed guidance on the installation, please refer to the following url,
+
+https://docs.docker.com/engine/install/
+
+
+
+* Download the TimescaleDB Docker image
 
 ```shell
 docker pull timescale/timescaledb-ha:pg17
 ```
 
-- Run the container
+* Run the container
 
 ```shell
 docker run -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg17
@@ -41,13 +69,13 @@ docker run -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password time
 
 On UNIX based systems, Docker modifies Linux IP tables to bind the container. If your system uses Linux Uncomplicated Firewall (UFW), Docker may override your UFW port binding settings. To prevent this, add DOCKER_OPTS="--iptables=false" to /etc/default/docker.
 
-- Connect to a database on your PostgreSQL instance
+* Connect to a database on your PostgreSQL instance
 
 ```commandline
 psql -d "postgres://postgres:password@localhost/postgres"
 ```
 
-- Check that TimescaleDB is installed
+* Check that TimescaleDB is installed
 
 ```commandline
 \dx

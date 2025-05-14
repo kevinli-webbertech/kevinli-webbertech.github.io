@@ -73,11 +73,12 @@ A Kubernetes cluster consists of two types of resources:
 
 ## Pod, Node, Deployment and Service
 
-- A pod can contain one or more containers.
-- A node is a vm or a physical machine.
-- A node can run multiple pods but normally just one
-- A Kubernetes Deployment checks on the health of your Pod and restarts the Pod's Container if it terminates.
-- Service, by default, the Pod is only accessible by its internal IP address within the Kubernetes cluster. To make the hello-node Container accessible from outside the Kubernetes virtual network, you have to expose the Pod as a Kubernetes Service.
+- pod: can contain one or more containers.
+- node: is a vm or a physical machine. A node can run multiple pods but normally just one.
+- deployment: checks on the health of your Pod and restarts the Pod's Container if it terminates.
+- Service: Logical group of pods.
+
+  By default, the Pod is only accessible by its internal IP address within the Kubernetes cluster. To make the hello-node Container accessible from outside the Kubernetes virtual network, you have to expose the Pod as a Kubernetes Service.
 
 **A helloword image deployment**
 

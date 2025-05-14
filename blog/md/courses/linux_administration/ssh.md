@@ -42,7 +42,6 @@ function set_ssh_private_key() {
 
 `source ~/.bash_profile`
 
-
 ### Ref
 
 `git config core.sshCommand "ssh -i /path/to/your/private_key"`
