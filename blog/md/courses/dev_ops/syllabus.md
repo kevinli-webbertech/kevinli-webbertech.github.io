@@ -40,6 +40,51 @@ Per week or biweekly. Depending on the homework size.
 
 No textbook required. Slides and hangout are provided by the professor.
 
+## Homework Submission
+
+All homeworks are based on 100 pts scale.
+
+**DOs**
+
+* Must submit a word or pdf document.
+* Must provide code or screenshot in the above document.
+* Must provide your name and personal ID information.
+* Must provide the original question and your answer and explanation.
+
+**DONOTs**
+
+* If you miss original question, you will automatically lose 5 pts.
+* If you just provide screenshots and no explanations of your answer, you will lose 5 pts and you will max at 95 pts.
+* Screenshots must be taken from your computer screen. Using your phone to take a photo is not acceptible.
+* No late submission is allowed or you will default to 60 pts and no solicitation.
+* Do not zip your material into WinRAR, Zip or tarball.
+
+## Grading
+
+Assessments of this course including,
+
+|Assessment|Percentage|
+|----------|----------|
+|Attendance|5%|
+|Homeworks | 35%      |
+|Midterm Coding| 30%|
+|Final Coding| 30%|
+
+## Grading Scale
+
+|Rank  |  Points|
+|------|--------|
+|A (4.0)|94-100 |
+|A- (3.7)| 90-93 |
+|B+ (3.3) |87-89 |
+|B (3.0) |84-86 |
+|B- (2.7)| 80-83 |
+|C+ (2.3) | 77-79 |
+|C (2.0) |74-76 |
+|C- (1.7)| 70-73|
+|D (1.0) |60-69 |
+|F (0.0) |Below 60|
+
 ## References
 
 * Professor's github.
