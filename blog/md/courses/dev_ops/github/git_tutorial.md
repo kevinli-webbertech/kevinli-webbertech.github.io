@@ -202,3 +202,7 @@ We can go to the website, and find out where we push. In my case, I pushed to `m
 This is a request that you do on the webpage of github or bitbucket. What it does is to say you want to merge your branch to the destination branch, which could be any branches. In our case, it could be `main` branch.
 
 ![pull_request.png](../../../../images/dev_ops/github/pull_request.png)
+
+## Notify the code reviewer
+
+In your pull request, which we often call PR, you will need to add your code reviewer and they will get an email and they will come to comment on your ticket and approve it.
