@@ -20,12 +20,11 @@ Git commands can be handy and there are also a lot of git GUI such as in `Visual
 
 As a beginner, I think learning some git commands are extremely helpful for you to understand how it works and you can troubleshoot some difficult issues when it comes up.
 
-### Step 1 Git Checkout from Code Repo
+## Step 1: Git Checkout from Code Repo
 
 In this step, we would like to check out someone's code from their github. In this case, we like to checkout from here,
 
 `git clone https://github.com/kevinli-webbertech/kevinli-webbertech.github.io.git` 
-
 
 First, let us open the following link,
 
@@ -66,7 +65,7 @@ The above process checks out the code from the above repository, and we can see 
 
 ![git_checkout-4](../../../../images/dev_ops/github/git_checkout-4.png)
 
-## Make your own development branch
+## Step 2: Make your own development branch
 
 ```commandline
 xiaofengli@xiaofenglx:/tmp/test$ ls
@@ -153,7 +152,7 @@ Now, we say that your branch is actually on the github server in kevin's repo. H
 
 ![git_remote_branch.png](../../../../images/dev_ops/github/git_remote_branch.png)
 
-## Edit contents in your development branch
+## Step 3: Edit contents in your development branch
 
 You might want to modify a file, or add a new file. Once you are done you want to push your work back to the remote branch. How do we do that?
 
@@ -177,7 +176,7 @@ However, we still see two red pngs, and we can add a path, which is parent direc
 
 ![git_add_path.png](../../../../images/dev_ops/github/git_add_path.png)
 
-## Push all your tracked changes
+## Step 4: Push all your tracked changes
 
 Now that, we see everything we want in green, and that is a good sign, and now we want to push them to the remote git server.
 
@@ -197,12 +196,12 @@ We can go to the website, and find out where we push. In my case, I pushed to `m
 
 ![verify_git_push.png](../../../../images/dev_ops/github/verify_git_push.png)
 
-## Send a Pull Request
+## Step 5: Send a Pull Request
 
 This is a request that you do on the webpage of github or bitbucket. What it does is to say you want to merge your branch to the destination branch, which could be any branches. In our case, it could be `main` branch.
 
 ![pull_request.png](../../../../images/dev_ops/github/pull_request.png)
 
-## Notify the code reviewer
+## Step 6: Notify the code reviewer
 
 In your pull request, which we often call PR, you will need to add your code reviewer and they will get an email and they will come to comment on your ticket and approve it.
