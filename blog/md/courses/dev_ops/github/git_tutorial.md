@@ -169,6 +169,41 @@ Explanation:
 * The green files have been added to the batch of push.
 * The red ones are called untracked.
 
+let us add a new file of untracked(red), so that it will become a tracked (green), the following image shows you that, we add one more file,
+and `git status` shows us that it becomes green.
+
+![git_add.png](../../../../images/dev_ops/github/git_add.png)
+
+However, we still see two red pngs, and we can add a path, which is parent directories that contains those png images like the following,
+
+![git_add_path.png](../../../../images/dev_ops/github/git_add_path.png)
+
+### Push all your tracked changes
+
+Now that, we see everything we want in green, and that is a good sign, and now we want to push them to the remote git server.
+
+* Let us do it! We will commit first.
+
+`git commit -m "adding new files"`
+
+![git_commit.png](../../../../images/dev_ops/github/git_commit.png)
+
+* Next is to push to the remote server
+
+![git_push.png](../../../../images/dev_ops/github/git_push.png)
+
+* Next we want to verify that we successfully push our contents(into our branch) to the remote server.
+
+We can go to the website, and find out where we push. In my case, I pushed to `main` branch directly,
+
+![verify_git_push.png](../../../../images/dev_ops/github/verify_git_push.png)
+
+### Send a Pull Request
+
+This is a request that you do on the webpage of github or bitbucket. What it does is to say you want to merge your branch 
+to the destination, which could be any branches. In our case, it could be `main` branch.
+
+![pull_request.png](../../../../images/dev_ops/github/pull_request.png)
 
 
 
