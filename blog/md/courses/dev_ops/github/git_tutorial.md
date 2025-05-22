@@ -22,8 +22,7 @@ As a beginner, I think learning some git commands are extremely helpful for you 
 
 ### Step 1 Git Checkout from Code Repo
 
-In this step, we would like to check out someone's code from their github. In this case, we like to checkout 
-from here, 
+In this step, we would like to check out someone's code from their github. In this case, we like to checkout from here,
 
 `git clone https://github.com/kevinli-webbertech/kevinli-webbertech.github.io.git` 
 
@@ -46,7 +45,7 @@ This is the url you get,
 
 Open your linux shell terminal or if you are in windows, you will use the git bash which is also a linux shell terminal.
 
-Please create directory in your home, for instance, 
+Please create directory in your home, for instance,
 
 `~/webbertech`,
 
@@ -108,7 +107,7 @@ xiaofengli@xiaofenglx:/tmp/test/kevinli-webbertech.github.io$ git branch -r
   origin/rohini/Java
 ```
 
-In this case, we need to create our own branch for development new contents, we can run the following command to create a new branch off the `main` branch.
+In this case, we need to create our own branch for development of the new contents, and we can run the following command to create a new branch off the `main` branch.
 
 ```commandline
 xiaofengli@xiaofenglx:/tmp/test/kevinli-webbertech.github.io$ git checkout -b kevin_li_dev
@@ -118,7 +117,7 @@ xiaofengli@xiaofenglx:/tmp/test/kevinli-webbertech.github.io$ git branch
   main
 ```
 
-Explanation: 
+Explanation:
 
 * the `git checkout -b branch_name` is to create a branch.
 * it would switch to the new branch automatically from wherever you were, for instance, we were on `main` branch before, and we always want to do that.
@@ -178,7 +177,7 @@ However, we still see two red pngs, and we can add a path, which is parent direc
 
 ![git_add_path.png](../../../../images/dev_ops/github/git_add_path.png)
 
-### Push all your tracked changes
+## Push all your tracked changes
 
 Now that, we see everything we want in green, and that is a good sign, and now we want to push them to the remote git server.
 
@@ -198,13 +197,8 @@ We can go to the website, and find out where we push. In my case, I pushed to `m
 
 ![verify_git_push.png](../../../../images/dev_ops/github/verify_git_push.png)
 
-### Send a Pull Request
+## Send a Pull Request
 
-This is a request that you do on the webpage of github or bitbucket. What it does is to say you want to merge your branch 
-to the destination, which could be any branches. In our case, it could be `main` branch.
+This is a request that you do on the webpage of github or bitbucket. What it does is to say you want to merge your branch to the destination branch, which could be any branches. In our case, it could be `main` branch.
 
 ![pull_request.png](../../../../images/dev_ops/github/pull_request.png)
-
-
-
-
