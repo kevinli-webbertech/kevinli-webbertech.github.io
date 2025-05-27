@@ -1,8 +1,8 @@
 # Nexus Introduction
 
-## Installation
+If I am writing something here. *************==============
 
-This is a step to manually install nexus on your computer or the server. The prebuilt version is literally a zip file.
+## Installation
 
 ## Step 1: Update System and Install Docker
 
