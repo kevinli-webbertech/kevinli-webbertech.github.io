@@ -14,6 +14,9 @@ Then in the submenu, we select `checkout`.
 
 ![checkout_branch.png](../../../../images/dev_ops/github/checkout_branch.png)
 
-make sure you login first with github, so that you can commit code,
+## Git login (Optional)
 
-![img_1.png](../../../../images/dev_ops/github/git_login.png)
+You could login first with github, so that you can commit code,
+
+![git_login.png](../../../../images/dev_ops/github/git_login.png)
+
