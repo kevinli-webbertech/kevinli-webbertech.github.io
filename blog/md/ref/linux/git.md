@@ -486,4 +486,3 @@ git push origin --tags
 ## Ref
 
 * <https://education.github.com/git-cheat-sheet-education.pdf>
-
