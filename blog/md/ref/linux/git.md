@@ -487,5 +487,3 @@ git push origin --tags
 
 * <https://education.github.com/git-cheat-sheet-education.pdf>
 
-This edit was made by Oluchi in a development branch.
-
