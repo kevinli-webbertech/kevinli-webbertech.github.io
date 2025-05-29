@@ -33,7 +33,7 @@ Nexus can also store Docker images, making it a private alternative to Docker Hu
 
 5. Security & Compliance – Nexus can scan for vulnerabilities in dependencies and enforce policies (e.g., blocking unsafe versions).
 
-## Types of Repositories in Nexus
+## Types of Repositories inside of Nexus
 
 - Nexus supports multiple repository formats, including:
 
