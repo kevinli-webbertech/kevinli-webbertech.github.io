@@ -24,6 +24,7 @@ spec:
         ports:
         - containerPort: 80
 ```
+![Yaml](../../../../../images/dev_ops/NGINX_Deployment_Proof/.Yaml.PNG)
 
 ### Explanation:
 - **replicas: 2** → Creates two pods for high availability.
@@ -38,11 +39,19 @@ spec:
 kubectl apply -f deployment.yaml
 ```
 
+![Application](../../../../../images/dev_ops/NGINX_Deployment_Proof/second.PNG)
+
+
 ### Verify Deployment:
 ```sh
 kubectl get deployments
 kubectl get pods
 kubectl describe deployment my-deployment
 ```
+
+![deployments](../../../../../images/dev_ops/NGINX_Deployment_Proof/deployments.PNG)
+![pods](../../../../../images/dev_ops/NGINX_Deployment_Proof/pods.PNG)
+![mydeployment](../../../../../images/dev_ops/NGINX_Deployment_Proof/mydeployment.PNG)
+
 
 Let me know if you need modifications, such as environment variables, volume mounts, or resource limits.
