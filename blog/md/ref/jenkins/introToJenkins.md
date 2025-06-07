@@ -28,85 +28,53 @@ The console output confirmed success. This was my first working Jenkins job!
 
 On Day 2, I used a Maven-based Java project from GitHub to go from freestyle jobs to scripted pipelines.
 
-In Jenkins, I made a `Build-Maven-App` Pipeline project and connected it to my GitHub repository.
+In Jenkins, a `Spring Boot Hello World` project was used as the base for creating a Pipeline job.
 
-GitHub Repo: <https://github.com/iiamolu/simple-java-maven-app>
+GitHub Repo: <https://github.com/spring-guides/gs-spring-boot>
+
 
 ![Console output](https://miro.medium.com/v2/resize:fit:1100/format:webp/0*gYw7oxetIpz8N9rf)
 
 Created a Jenkinsfile and added it to my repo. It contained three main stages: Build, Test, and Deliver.
 
-`pipeline {`
-
-`agent any`
-
-`options {`
-
-`skipStagesAfterUnstable()`
-
-`}`
-
-`tools {`
-
-`maven ‘Maven 3.9.6’`
-
-`}`
-
-`stages {`
-
-`stage(‘Build’) {`
-
-`steps {`
-
-`sh ‘mvn clean compile’`
-
-`}`
-
-`}`
-
-`stage(‘Test’) {`
-
-`steps {`
-
-`sh ‘mvn test’`
-
-`}`
-
-`post {`
-
-`always {`
-
-`junit ‘target/surefire-reports/*.xml’`
-
-`}`
-
-`}`
-
-`}`
-
-`stage(‘Package’) {`
-
-`steps {`
-
-`sh ‘mvn package’`
-
-`}`
-
-`}`
-
-`stage(‘Deliver’) {`
-
-`steps {`
-
-`sh ‘./jenkins/scripts/deliver.sh’`
-
-`}`
-
-`}`
-
-`}`
-
-`}`
+```
+pipeline {
+agent any
+options {
+skipStagesAfterUnstable()
+}
+tools {
+maven ‘Maven 3.9.6’
+}
+stages {
+stage(‘Build’) {
+steps {
+sh ‘mvn clean compile’
+}
+}
+stage(‘Test’) {
+steps {
+sh ‘mvn test’
+}
+post {
+always {
+junit ‘target/surefire-reports/*.xml’
+}
+}
+}
+stage(‘Package’) {
+steps {
+sh ‘mvn package’
+}
+}
+stage(‘Deliver’) {
+steps {
+sh ‘./jenkins/scripts/deliver.sh’
+}
+}
+}
+}
+```
 
 ![My three failed attempts...](https://miro.medium.com/v2/resize:fit:786/format:webp/1*h2sBSI_hZms6VdAukapTfg.png)
 
@@ -172,5 +140,3 @@ Sample Project: <https://github.com/jenkins-docs/simple-java-maven-app>
 GitHub Repo: <https://github.com/iiamolu/simple-java-maven-app>
 
 ---
-
-*Written by Oluchi Njoku, Summer 2025 Intern*
