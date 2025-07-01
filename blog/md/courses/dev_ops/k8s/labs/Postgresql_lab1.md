@@ -4,9 +4,9 @@ This is a lab to introduce you a new type of database, which is time-series data
 
 ## TimescaleDB
 
-![img.png](timescaledb_1.png)
+![timescaledb_1](../../../../../images/dev_ops/timescaledb_1.png)
 
-![img_1.png](timescaledb_2.png)
+![timescaledb_2](../../../../../images/dev_ops/timescaledb_2.png)
 
 ### What is TimescaleDB
 
@@ -30,7 +30,7 @@ There are two ways of using/installing the community version timescaled database
 
 - https://docs.timescale.com/self-hosted/latest/install/
 
-* Use docker. Docker is a headless VM, and the pre-installed docker image would give us more flexibility and convinient to quickly put together the db without much configuration.
+* Use docker. Docker is a headless VM, and the pre-installed docker image would give us more flexibility and convenient to quickly put together the db without much configuration.
 
 The tutorial in this document is based on the linux machine.
 

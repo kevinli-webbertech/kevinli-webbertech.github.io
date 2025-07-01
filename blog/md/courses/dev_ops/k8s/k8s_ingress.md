@@ -27,7 +27,7 @@ from the same cluster.
 
 ## Install Prerequisites
 
-Ensure you have kubectl, a Kubernetes cluster (Minikube for local testing, and curl for testing.
+Ensure you have kubectl, a Kubernetes cluster (Minikube for local testing, and curl for testing).
 
 **Install kubectl (if not installed)**
 
