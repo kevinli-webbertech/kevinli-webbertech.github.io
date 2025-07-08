@@ -1,3 +1,5 @@
+# Introduction to Kubernetes (K8s)
+
 ### **What is Kubernetes?**  
 **Kubernetes (K8s)** is an open-source **container orchestration platform** designed to automate the deployment, scaling, and management of containerized applications. It was originally developed by **Google** and is now maintained by the **Cloud Native Computing Foundation (CNCF)**.  
 
@@ -59,7 +61,7 @@
 - **Kubernetes** is for **orchestrating containers across multiple hosts** (clusters).  
 
 
-## K8S Archiecture
+## K8s Architecture
 
 ### **1. Kubernetes Architecture (Master & Worker Nodes)**  
 - **Control Plane (Master):**  

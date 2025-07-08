@@ -1,7 +1,5 @@
 # Nexus Introduction
 
-If I am writing something here. *************==============
-
 ## Installation
 
 ## Step 1: Update System and Install Docker
@@ -23,11 +21,11 @@ If I am writing something here. *************==============
 
 ### Commands Explained:
 
-- (sudo apt install -y docker.io) installs Docker from the default Ubuntu repositories. -y automatically says "yes" to prompts.
+- (sudo apt install -y docker.io) Installs Docker from the default Ubuntu repositories. The -y flag automatically confirms prompts with "yes".
 
-- (sudo systemctl enable docker) configures Docker to start automatically at boot.
+- (sudo systemctl enable docker) Configures Docker to start automatically at boot.
 
-- (sudo systemctl start docker) starts the Docker service right now so you can use it immediately.
+- (sudo systemctl start docker) Starts the Docker service immediately so you can use it right away.
 
 ## Step 2: Add Your User to Docker Group (avoid sudo every time)
 
@@ -41,9 +39,9 @@ newgrp docker
 
 ### Commands Explained:
 
-- (sudo usermod -aG docker $USER) adds your user to the docker group so you can run Docker commands without sudo.
+- (sudo usermod -aG docker $USER) Adds your user to the docker group so you can run Docker commands without sudo.
 
-- (newgrp docker) applies the group change in your current terminal session immediately. Otherwise, you'd have to log out and back in.
+- (newgrp docker) Applies the group change in your current terminal session immediately. Otherwise, you'd have to log out and back in.
 
 ## Step 3: Run Nexus Container
 
