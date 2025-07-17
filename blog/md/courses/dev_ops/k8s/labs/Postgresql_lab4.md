@@ -337,15 +337,15 @@ ps_db=#
 
 See the following image,
 
-![k8s](../../../../../images/dev_ops/k8s.png)
+![k8s](../../../../../images/dev_ops/k8s/k8s.png)
 
 Check timescaledb extensions,
 
-![k8s_1](../../../../../images/dev_ops/k8s_1.png)
+![k8s_1](../../../../../images/dev_ops/k8s/k8s_1.png)
 
 Create the db with a creation of schema,
 
-![k8s_2](../../../../../images/dev_ops/k8s_2.png)
+![k8s_2](../../../../../images/dev_ops/k8s/k8s_2.png)
 
 Next, verify the PostgreSQL connection using the following command.
 
@@ -373,17 +373,17 @@ Here is a link to install a Dbeaver depending on your operating system,
 
 ### Port-forwarding
 
-![port_forwarding](../../../../../images/dev_ops/port_forwarding.png)
+![port_forwarding](../../../../../images/dev_ops/k8s/port_forwarding.png)
 
 `xiaofengli@xiaofenglx:~/git/pulse-database$ kubectl port-forward svc/postgres 5432:5432`
 
 ### Connection from DBeaver
 
-![dbeaver](../../../../../images/dev_ops/dbeaver.png)
+![dbeaver](../../../../../images/dev_ops/k8s/dbeaver.png)
 
 Fill out the following,
 
-![dbeaver2](../../../../../images/dev_ops/dbeaver2.png)
+![dbeaver2](../../../../../images/dev_ops/k8s/dbeaver2.png)
 
 ```shell
 Host: localhost
@@ -398,7 +398,7 @@ Password: password
 * Create DDL. (Find a db schema online using Postgresql syntax)
 * Create some data using chatGPT and import the csv.
 
-![import_data](../../../../../images/dev_ops/import_data.png)
+![import_data](../../../../../images/dev_ops/k8s/import_data.png)
 
 
 ## Scale PostgreSQL Deployment

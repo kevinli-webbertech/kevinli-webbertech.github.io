@@ -4,9 +4,9 @@ This is a lab to introduce you a new type of database, which is time-series data
 
 ## TimescaleDB
 
-![timescaledb_1](../../../../../images/dev_ops/timescaledb_1.png)
+![timescaledb_1](../../../../../images/dev_ops/k8s/timescaledb_1.png)
 
-![timescaledb_2](../../../../../images/dev_ops/timescaledb_2.png)
+![timescaledb_2](../../../../../images/dev_ops/k8s/timescaledb_2.png)
 
 ### What is TimescaleDB
 
