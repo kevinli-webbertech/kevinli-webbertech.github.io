@@ -79,8 +79,8 @@ sudo apt install nginx -y
 
 Start it:
 
-sudo systemctl start nginx
-sudo systemctl enable nginx
+`sudo systemctl start nginx`
+`sudo systemctl enable nginx`
 
 ![Starting NGINX](/blog/images/dev_ops/NGINX/Powering_On_NGINX.PNG)
 
@@ -94,11 +94,13 @@ sudo nano /etc/nginx/conf.d/load-balancer.conf
 
 Here's a basic example:
 
+```shell
 upstream backend_servers {
     server 192.168.1.101:3000;
     server 192.168.1.102:3000;
     server 192.168.1.103:3000;
 }
+
 
 server {
     listen 80;
