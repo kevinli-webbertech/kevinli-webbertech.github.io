@@ -36,10 +36,38 @@
 
 4. In **Incoming Webhooks**, toggle ON to activate.
 
-![Slack app name](../../../../images/dev_ops/aws/Slack-activate-webhook.png)
+![Slack activate Webhook](../../../../images/dev_ops/aws/Slack-activate-webhook.png)
 
 5. Scroll down and click **Add New Webhook** then choose a channel, and allow
 
-![Slack app name](../../../../images/dev_ops/aws/Slack-add-webhook.png)
+![Slack add a new webhook](../../../../images/dev_ops/aws/Slack-add-webhook.png)
 
-6. Store the generated Webhook URL for later
+1. Store the generated Webhook URL for later
+
+## 1 - Create AWS Lambda Function
+
+1. In AWS Console, go to Lambda -> Create Function
+
+![Lambda Create Function](../../../../images/dev_ops/aws/Lambda-create-function.png)
+
+2. Select:
+   - Author from scratch
+   - Give it a Name: `slack-notifier`
+   - Runtime: Python 3.13
+   - Architecture: x86_64
+  
+![Lambda Function Settings](../../../../images/dev_ops/aws/Lambda-function-settings.png)
+
+3. Click on **Create function**
+
+4. Add environment variables
+
+   - Choose the Configuration tab, then choose Environment variables.
+   - Under Environment variables, choose Edit.
+   - Add environment variables and dsave them: 
+     - `SLACK_WEBHOOK_URL` = your Slack webhook URL `SHARED_TOKEN` = a simple secret (secret string inveted by you) to validate GitHub requests 
+   
+![Lambda Environment variables](../../../../images/dev_ops/aws/Lambda-environment-variables.png)
+
+
+
