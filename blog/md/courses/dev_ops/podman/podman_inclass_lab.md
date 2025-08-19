@@ -14,8 +14,6 @@ Try to grab the image and download them from the docker registry.
 
 ![podman_installation2.png](../../../../images/dev_ops/podman/podman_installation2.png)
 
-![podman_installation3.png](../../../../images/dev_ops/podman/podman_installation3.png)
-
 Then create two different directories to host your web app data. 
 
 `mkdir syscom sysorg`
