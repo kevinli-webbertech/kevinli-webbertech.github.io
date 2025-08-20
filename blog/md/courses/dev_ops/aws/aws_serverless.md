@@ -69,5 +69,49 @@
    
 ![Lambda Environment variables](../../../../images/dev_ops/aws/Lambda-environment-variables.png)
 
+5. Paste this code:
+   
+   ```python
+    import os, json, urllib.request
+    SLACK_WEBHOOK_URL = os.environ['SLACK_WEBHOOK_URL']
+    EXPECTED_TOKEN = os.environ.get('SHARED_TOKEN', "")
 
+    def send_to_slack(message):
+    payload={"message": message}
+    req = urllib.request.Request(
+        SLACK_WEBHOOK_URL,
+        data=json.dumps(payload).encode("utf-8"),
+        headers={"Content-Type": "application/json"}
+        method="POST",
+    )
+    with urllib.request.urlopen(req) as res:
+        return res.read().decode("utf-8")
 
+    def lambda_handler(event, context):
+    body = event.get("body", "")
+    try:
+        data = json.loads(body or "{}")
+    except:
+        data = {}
+    
+    token = data.get("token", "")
+    if EXPECTED_TOKEN and token != EXPECTED_TOKEN:
+        return {
+            "statusCode": 401,
+            "body": "Invalid token",
+        }
+
+    repo = data.get("repo", "unknown")
+    branch = data.get("branch", "unknown")
+    status =  data.get("status", "unknown")
+    commit = data.get("commit", "unknown")
+
+    text = f"Deploy Alert | Repo: `{repo}` | Branch: `{branch}` | Status: `{status}` | Commit: `{commit}`"
+    send_to_slack(text)
+
+    return {
+        "statusCode": 200,
+        "body": "OK",
+    }
+   ```
+## 2 - 
