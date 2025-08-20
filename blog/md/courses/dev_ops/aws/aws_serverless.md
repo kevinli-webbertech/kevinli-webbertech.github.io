@@ -104,7 +104,7 @@
     repo = data.get("repo", "unknown")
     branch = data.get("branch", "unknown")
     status =  data.get("status", "unknown")
-    commit = data.get("commit", "unknown")
+    commit = data.get("commit", "unknown")[:8]
 
     text = f"Deploy Alert | Repo: `{repo}` | Branch: `{branch}` | Status: `{status}` | Commit: `{commit}`"
     send_to_slack(text)
@@ -114,4 +114,4 @@
         "body": "OK",
     }
    ```
-## 2 - 
+## 2 - Create API Gateway HTPP API
