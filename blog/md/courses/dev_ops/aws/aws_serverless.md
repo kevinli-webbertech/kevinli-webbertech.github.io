@@ -141,3 +141,19 @@ def lambda_handler(event, context):
 
 ![API Gateway Invoke URL](../../../../images/dev_ops/aws/API-Gateway-Url.png)
 
+## 3 - Test API Gateway
+
+Run in your Terminal
+
+```bash
+curl -X POST "https://<YOUR_INVOKE_URL/ROUTE_NAME>" \
+  -H "Content-Type: application/json" \
+  -d '{"token":"<SAME_SHARED_TOKEN>","repo":"local-test","branch":"main","status":"success","commit":"abcdef12"}'
+
+```
+
+You should see the message in Slack's channel:
+
+![API Gateway Test](../../../../images/dev_ops/aws/API-Gateway-test.png)
+
+
