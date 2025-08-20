@@ -156,4 +156,9 @@ You should see the message in Slack's channel:
 
 ![API Gateway Test](../../../../images/dev_ops/aws/API-Gateway-test.png)
 
+## 4 - Add GitHub Secrets
 
+In your GitHub repo -> Settings -> Secrets and variables -> Actions -> New repository secret:
+
+- `ALERT_ENDPOINT` = API Gateway Invoke URL
+- `SLACK_SHARED_TOKEN` = same as Lambda `SHARED_TOKEN`
