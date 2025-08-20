@@ -123,4 +123,21 @@ def lambda_handler(event, context):
     }
 ```
 
-## 2 - Create API Gateway HTPP API
+## 2 - Create API Gateway HTTP API
+
+1. Go to API Gateway -> Create API -> HTTP API and Give it a name `slack-deploy-notifier`
+
+![API Gateway create API](../../../../images/dev_ops/aws/API-Gateway-Create.png)
+
+2. Add integration: Lambda -> select `slack-notifer`
+
+![API Gateway integration](../../../../images/dev_ops/aws/API-Gateway-Integration.png)
+
+3. Configure routes -> Select method **POST**
+
+4. Skip define stages -> Click **Create**
+
+5. Go to Deploy/Stages and note the **Invoke URL**
+
+![API Gateway Invoke URL](../../../../images/dev_ops/aws/API-Gateway-Url.png)
+
