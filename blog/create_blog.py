@@ -1,5 +1,3 @@
-#!/c/Users/Administrator/AppData/Local/Microsoft/WindowsApps/python3
-
 import sys
 from blog_util import *
 

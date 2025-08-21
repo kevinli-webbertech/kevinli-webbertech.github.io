@@ -241,6 +241,8 @@ check exit code,
 
 Note: stay with double bracket
 
+### String test
+
 `[[ -z STRING ]]` Empty string
 
 `[[ -n STRING ]]` Not empty string
@@ -248,6 +250,8 @@ Note: stay with double bracket
 `[[ STRING == STRING ]]` Equal
 
 `[[ STRING != STRING ]]` Not Equal
+
+### Integer test
 
 `[[ NUM -eq NUM ]]` Equal
 
