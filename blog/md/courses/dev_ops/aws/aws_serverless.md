@@ -162,3 +162,58 @@ In your GitHub repo -> Settings -> Secrets and variables -> Actions -> New repos
 
 - `ALERT_ENDPOINT` = API Gateway Invoke URL + route_name `slack-notifier`
 - `SLACK_SHARED_TOKEN` = same as Lambda `SHARED_TOKEN`
+
+## 5 - Create GitHub Actions Workflow
+
+In your GitHub repo -> Actions -> Search workflows -> Simple workflow -> Configure:
+
+```
+# This is a basic workflow to help you get started with Actions
+
+name: Notify on push
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Notify Slack via Lambda
+        env: 
+          ALERT_ENDPOINT: ${{ secrets.ALERT_ENDPOINT }}
+          SHARED_TOKEN: ${{ secrets.SLACK_SHARED_TOKEN }}
+        run:  |
+          STATUS="success"
+          curl -sS -X POST "$ALERT_ENDPOINT" \
+            -H "Content-Type: application/json" \
+            -d "{
+              \"token\": \"${SHARED_TOKEN}\",
+              \"repo\": \"${{ github.repository }}\",
+              \"branch\": \"${{ github.ref_name }}\",
+              \"status\": \"${STATUS}\",
+              \"commit\": \"${{ github.sha }}\",
+              \"extra\": {
+                \"actor\": \"${{ github.actor }}\",
+                \"run_id\": \"${{ github.run_id }}\"
+              }
+            }"
+```
+
+
+## To test make a commit in your GitHub repo
+
+Results:
+
+![Notifier results](../../../../images/dev_ops/aws/Notifier-results.png)
+
+![Notifier slack results](../../../../images/dev_ops/aws/Notifier-slack-results.png)
+
