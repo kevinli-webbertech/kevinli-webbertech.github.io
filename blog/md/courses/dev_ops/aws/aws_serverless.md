@@ -217,3 +217,12 @@ Results:
 
 ![Notifier slack results](../../../../images/dev_ops/aws/Notifier-slack-results.png)
 
+### Resources
+
+- https://docs.python.org/3/library/urllib.request.html#module-urllib.request
+
+- https://docs.github.com/en/actions/how-tos/write-workflows
+
+- https://aws.amazon.com/
+
+- https://api.slack.com/messaging/webhooks
