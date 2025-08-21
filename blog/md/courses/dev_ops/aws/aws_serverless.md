@@ -160,5 +160,5 @@ You should see the message in Slack's channel:
 
 In your GitHub repo -> Settings -> Secrets and variables -> Actions -> New repository secret:
 
-- `ALERT_ENDPOINT` = API Gateway Invoke URL
+- `ALERT_ENDPOINT` = API Gateway Invoke URL + route_name `slack-notifier`
 - `SLACK_SHARED_TOKEN` = same as Lambda `SHARED_TOKEN`
