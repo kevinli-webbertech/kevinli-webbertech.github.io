@@ -3,6 +3,7 @@
 Please include the original questions in your homework report. Please check out of syllabus for details or you will lose points.
 
 1. Register an account in Docker.io (15 pts)
+2. 
 You need to provide your account info, not your password in your homework report.
 
 2. Build a docker image and push to docker.io. (15 pts)
