@@ -1,26 +1,35 @@
-# HW3 Jenkin + Github
+# HW3 Docker
 
 Please include the original questions in your homework report. Please check out of syllabus for details or you will lose points.
 
-1. Please follow the link below, and try to run the dockerized Jenkin. (25 pts)
+1. Register an account in Docker.io (15 pts)
+You need to provide your account info, not your password in your homework report.
 
-https://www.jenkins.io/doc/book/installing/docker/
+2. Build a docker image and push to docker.io. (15 pts)
 
-Please prove that your Jenkin instance is running successfully inside of a container and it is ready to be used.
+Follow the link of the following link, and read "Webapps with Docker".
 
-2. Jenkin Integration with Github. (25 pts)
+https://docker-curriculum.com/#webapps-with-docker
 
-* Prepare a nodejs project and commit to your github.
+Try to provide a `dockerfile` of your own. Submit this as part of your homework. This should be besides your pdf homework report.
 
-https://medium.com/@mudasirhaji/complete-step-by-step-jenkins-cicd-with-github-integration-aae3961b6e33
+3. Run your docker image in local. (15 pts)
 
-* Please prove that you can build a jenkin job from a github and build the final artifact.
+4. Show your docker image is running. Please show both your docker image and your running container. (10 pts, each is 5 pts).
 
-3. Please privide ssh solutions to add public key to your github account. (25 pts)
+5. Show you can `exec` it is like ssh into your docker image. (10 pts)
 
-Using ssh public-private key can help you work with github without a password and it will grant you access. Please provide details solutions how to do that.
+6. Show you can delete your running container. (10 pts)
 
-4. Please explain the relationship between public and private keys.
+7. Show you can delete your image. (10 pts)
 
-   * How they were related and being used in the SSL/TLS? (hint: algorithm) (10 pts)
-   * When you have two github accounts and two repos but you want to commit codes to two different repos under two different github accounts in the same linux machine. How would you manage two pairs of private key and public keys. (hint: ~/.ssh/config and other solutions) (15 pts)
+8. Try to reproduce pulling down the mysql docker image, and try to login to the image,
+
+https://hub.docker.com/r/mysql/mysql-server/
+
+```shell
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
+```
+
+and prove that you can show some tables after you connect to the mysql instance running in the container. (15 pts)
+
