@@ -1,5 +1,15 @@
 # Rust Programming Cheatsheet
 
+## IDE
+
+- https://github.com/eclipse-corrosion/corrosion
+- Rust Analyzer supplies Corrosion with the majority of the edition abilities.
+- https://github.com/rust-analyzer/rust-analyzer
+
+## Rust Toolchain
+
+- https://rustup.rs/
+
 ## Basic Rust for Blockchain Development
 
 Rust is known for its emphasis on speed, memory safety, and concurrency.
@@ -12,8 +22,14 @@ Rust is known for its emphasis on speed, memory safety, and concurrency.
 
 * rustc, cargo, and rustup
 * rustc --version
-
+* rust-gdb
+  
 Check your $PATH for ~/.cargo/bin. There are a bunch of tools binaries in the dir.
+
+```
+bash-3.2$ which rust-gdb
+/Users/xiaofengli/.cargo/bin/rust-gdb
+```
 
 ## Comments
 
@@ -112,7 +128,7 @@ fn main() {
 }
 ```
 
-![img.png](img.png)
+![hello.png](hello.png)
 
 ## Primitives
 

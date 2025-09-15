@@ -27,6 +27,7 @@ fn main() {
 
     // You can pad numbers with extra zeroes,
     println!("{number:0>5}", number=1); // 00001
+
     // and left-adjust by flipping the sign. This will output "10000".
     println!("{number:0<5}", number=1); // 10000
 
