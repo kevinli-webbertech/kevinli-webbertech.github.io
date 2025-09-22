@@ -1,4 +1,4 @@
-# Kubernetes Basic
+# Kubernetes Basics
 
 ## Kubernetes
 
@@ -38,7 +38,7 @@ What you’ll need
 
 ## Goal of Study in this article
 
-![study_modules](https://kevinli-webbertech.github.io/blog/images/k8s/study_modules.png)
+![study_modules](../../../../images/dev_ops/k8s/study_modules.png)
 
 ## Installation
 
@@ -66,7 +66,7 @@ sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-a
 
 A Kubernetes cluster consists of two types of resources:
 
-![cluster_diagram](https://kevinli-webbertech.github.io/blog/images/k8s/cluster_diagram.png)
+![cluster_diagram](../../../../images/dev_ops/k8s/cluster_diagram.png)
 
 - The Control Plane coordinates the cluster
 - Nodes are the workers that run applications

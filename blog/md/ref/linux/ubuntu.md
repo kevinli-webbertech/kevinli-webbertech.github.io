@@ -134,9 +134,9 @@ By default, the startx command sends errors to the .xerrors file in the user's h
 
 Then we see the connection like the following,
 
-![alt text](image.png)
-![alt text](image-1.png)
-![alt text](image-2.png)
+![alt text](../../../images/linux/rdesktop1.png)
+![alt text](../../../images/linux/rdesktop2.png)
+![alt text](../../../images/linux/rdesktop3.png)
 
 Note: I have observed some slowess. Not sure this would be thing.
 

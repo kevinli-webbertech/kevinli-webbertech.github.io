@@ -52,7 +52,7 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
 
-    - name: Log in to Nexus Docker Registry
+    - name: Log in to nexus Docker Registry
       env:
         DOCKER_SERVER: ${{ secrets.DOCKER_SERVER }}
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}

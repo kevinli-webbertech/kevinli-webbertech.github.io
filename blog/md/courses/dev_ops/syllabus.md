@@ -11,26 +11,25 @@ The class will include linux system, docker, docker registry, jenkin, Kuberntes 
 
 ## Course Schedule
 
-| Week    | Title                                          |
-|---------|------------------------------------------------|
-| Week 1  | Introduction to DevOps                         |
-| Week 2  | Introduction to Linux System - Shell commands  |
-| Week 3  | Linux Shell Scripting                          |
-| Week 4  | Docker Container -  Hands-on Lab               |
-| Week 5  | Writing Dockerfile and docker registry         |
-| Week 6  | Docker Optimization                            |
-| Week 7  | Midterm Project                                |
-| Week 7  | Introduction with Jenkin                       |
-| Week 8  | Writing Jenkinfile - Hands-on Lab              |
-| Week 9  | Integrate Jenkin with Github                   |
-| Week 10 | Introduction to Nexus                          |
-| Week 11 | Integration Jenkin with Nexus                  |
-| Week 12 | Introduction to Kubernetes                     |
-| Week 13 | Springboot app deployment with Kubernetes - Lab1  |
-| Week 13 | Python app deployment with Kubernetes - Lab2          |
-| Week 14 | Release final project                          |
-| Week 14 | ML app deployment with Kuberntes - Lab3        |
-| Week 15 | Introduction to loadbalaner- NGINX             |
+| Week    | Title                      | Contents                                      |
+|---------|----------------------------|-----------------------------------------------|
+| Week 1  | Introduction to DevOps     | CICD, software installation and configuration |
+| Week 2  | Introduction to Linux System - Shell commands |                                               |
+| Week 3  | Linux Shell Scripting      |                                               |
+| Week 4  | Docker Container -  Hands-on Lab |                                               |
+| Week 5  | Writing Dockerfile and docker registry |                                               |
+| Week 6  | Introduction to Podman     |                                               |
+| Week 7  | Midterm Project            |                                               |
+| Week 7  | Introduction with Jenkin   |                                               |
+| Week 8  | Writing Jenkinfile - Hands-on Lab |                                               |
+| Week 9  | Integrate Jenkin with Github |                                               |
+| Week 10 | Introduction to Nexus      |                                               |
+| Week 11 | Integration Jenkin with Nexus |                                               |
+| Week 12 | Introduction to Kubernetes | Basic, configmap, lab1, lab2                  |
+| Week 13 | Kubernetes Continued       | Ingress, network, portforwarding and security |
+| Week 14 | Release final project      |                                               |
+| Week 14 | Introduction to loadbalaner- NGINX |                                               |
+| Week 15 |  |                                               |
 
 ## Homework
 
@@ -51,13 +50,15 @@ All homeworks are based on 100 pts scale.
 * Must provide your name and personal ID information.
 * Must provide the original question and your answer and explanation.
 
-**DONOTs**
+**DO-NOTs**
 
-* If you miss original question, you will automatically lose 5 pts.
-* If you just provide screenshots and no explanations of your answer, you will lose 5 pts and you will max at 95 pts.
-* Screenshots must be taken from your computer screen. Using your phone to take a photo is not acceptible.
-* No late submission is allowed or you will default to 60 pts and no solicitation.
-* Do not zip your material into WinRAR, Zip or tarball.
+* You will have to provide your answer, screenshots under the original questions(copy the original question in your homework report), you will automatically lose 5 pts.
+* If you just provide screenshots and no explanations of your answer, you will lose half of the scores of that question.
+* Screenshots must be taken from your computer screen not from your phone. Using your phone to take a photo is not acceptable.
+* No late submission is allowed and no solicitation.
+* Do not zip your material into WinRAR, Zip or tarball. When you upload you must upload all your files in flat view.
+If you need to provide source code, please explain in detail how to run your code,and provide your source code in their original format, such as shell, yaml or other file extensions.
+In your word/pdf document, you must provide screenshots that you can run your scripts, and what results are expected.
 
 ## Grading
 
