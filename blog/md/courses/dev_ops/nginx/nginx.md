@@ -1,4 +1,6 @@
-# What is NGINX in DevOps?
+# Introduction to NGINX
+
+## What is NGINX in DevOps?
 
 Nginx is mostly commonly known as a high-performance web server, but in DevOps, it's **frequently used as a reserver proxy and a load balancer.**
 When we say "load balancer," we mean it takes traffic from clients (like user's browsers or mobile aps)
@@ -56,10 +58,12 @@ That means 10% of users hit the new version. If all goes well, you increase the 
 
 NGINX can detect if one of your servers is down and reroute traffic to the backup:
 
+```
 upstream my_app {
     server 192.168.1.100;
     server 192.168.1.101 backup;
 }
+```
 
 4. **Edge Routing in Global Applications**
 
@@ -70,8 +74,10 @@ This reduces latency and improves user experience.
 
 ### Step 1: Install NGINX
 
+```
 sudo apt update
 sudo apt install nginx -y
+```
 
 ![System Update](/blog/images/dev_ops/NGINX/System_Update.PNG)
 
@@ -112,6 +118,7 @@ server {
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     }
 }
+```
 
 
 ![Editing the Config File](/blog/images/dev_ops/NGINX/Config_FIle.PNG)
@@ -122,13 +129,13 @@ Save and close the file.
 
 Check the config is valid
 
-sudo nginx -t
+`sudo nginx -t`
 
 ![Check the config](/blog/images/dev_ops/NGINX/Check_Valid_Config.PNG)
 
 Reload:
 
-sudo systemctl reload nginx
+`sudo systemctl reload nginx`
 
 ![Reload to save the changes](/blog/images/dev_ops/NGINX/Reload.PNG)
 
@@ -137,7 +144,8 @@ sudo systemctl reload nginx
 Whenever you modify NGINX configuration files --like adding/removing backend servers,
 updating routing rules, or changing ports--you need to **reload** NGINX so it reads and applies the new config
 
-Without a reload:
+**Without a reload:**
+ 
 - NGINX will **keep running with the old config**
 - Your changes won't take effect
 
