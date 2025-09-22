@@ -1,4 +1,4 @@
-# Midterm Jenkin + Github
+# Midterm Jenkin + Github + Nexus
 
 Please include the original questions in your homework report. Please check out of syllabus for details or you will lose points.
 

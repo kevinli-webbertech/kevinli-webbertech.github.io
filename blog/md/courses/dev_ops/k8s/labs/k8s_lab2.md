@@ -32,7 +32,7 @@ The ReplicaSet has five Pods each of which runs the Hello World application.
 
 **Run minikube server**
 
-![minikube_start](https://kevinli-webbertech.github.io/blog/images/k8s/minikube_start.png)
+![minikube_start](../../../../../images/dev_ops/k8s/minikube_start.png)
 
 **Run the following to create deployment**
 
@@ -42,7 +42,7 @@ or,
 
 `kubectl apply -f load-balancer-example.yaml`
 
-![create_deployment](https://kevinli-webbertech.github.io/blog/images/k8s/create_deployment.png)
+![create_deployment](../../../../../images/dev_ops/k8s/create_deployment.png)
 
 **Display information about the Deployment**
 
@@ -52,11 +52,11 @@ or,
 
 Output,
 
-![deployments](https://kevinli-webbertech.github.io/blog/images/k8s/deployments.png)
+![deployments](../../../../../images/dev_ops/k8s/deployments.png)
 
 A more detailed description of the `describe` sub command.
 
-![deployment_description](https://kevinli-webbertech.github.io/blog/images/k8s/deployment_description.png)
+![deployment_description](../../../../../images/dev_ops/k8s/deployment_description.png)
 
 **Display information about your ReplicaSet objects**
 
@@ -66,7 +66,7 @@ A more detailed description of the `describe` sub command.
 
 Output of the above commands,
 
-![ReplicaSet](https://kevinli-webbertech.github.io/blog/images/k8s/ReplicaSet.png)
+![ReplicaSet](../../../../../images/dev_ops/k8s/ReplicaSet.png)
 
 **Create a Service object that exposes the deployment**
 
@@ -76,13 +76,13 @@ Output of the above commands,
 
 `kubectl get services my-service`
 
-![k8s_service](https://kevinli-webbertech.github.io/blog/images/k8s/k8s_service.png)
+![k8s_service](../../../../../images/dev_ops/k8s/k8s_service.png)
 
 **Display pods information**
 
 `kubectl get pods --output=wide`
 
-![k8s_pod](https://kevinli-webbertech.github.io/blog/images/k8s/k8s_pods.png)
+![k8s_pod](../../../../../images/dev_ops/k8s/k8s_pods.png)
 
 **Test Web Application**
 
@@ -98,7 +98,7 @@ Version: 2.0.0
 Hostname: 0bd46b45f32f
 ```
 
-![launch_app](https://kevinli-webbertech.github.io/blog/images/k8s/launch_app.png)
+![launch_app](../../../../../images/dev_ops/k8s/launch_app.png)
 
 ```shell
 xiaofengli@xiaofenglx:~/code/k8s$ curl http://192.168.49.2:32365/
@@ -140,11 +140,11 @@ xiaofengli@xiaofenglx:~/code/k8s$  minikube service my-service
 
 Launch from cmd,
 
-![launch_dashboard](https://kevinli-webbertech.github.io/blog/images/k8s/dashboard_1.png)
+![launch_dashboard](../../../../../images/dev_ops/k8s/dashboard_1.png)
 
 On the left side panel, those show 'N', meaning they are not available to view,
 
-![web_dashboard](https://kevinli-webbertech.github.io/blog/images/k8s/dashboard_2.png)
+![web_dashboard](../../../../../images/dev_ops/k8s/dashboard_2.png)
 
 **Clean up**
 

@@ -256,7 +256,7 @@ The `plot_model` function creates a visual representation of a Keras model in do
 ```python
 from keras.utils import plot_model
 
-plot_model(model, to_file='image.png')
+plot_model(model, to_file='rdesktop1.png')
 ```
 This plot_model will generate an image to understand the performance of model.
 

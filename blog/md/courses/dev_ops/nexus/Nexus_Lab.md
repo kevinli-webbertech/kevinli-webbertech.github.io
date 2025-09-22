@@ -53,13 +53,13 @@ Nexus can also store Docker images, making it a private alternative to Docker Hu
 
 ## Step 1: Update System and Install Docker
 
-![System update diagram](/blog/images/dev_ops/Nexus/System_Update.PNG)
+![System update diagram](/blog/images/dev_ops/nexus/System_Update.PNG)
 
 
-![Downloading docker](/blog/images/dev_ops/Nexus/Docker_Installation.PNG)
+![Downloading docker](/blog/images/dev_ops/nexus/Docker_Installation.PNG)
 
 
-![Enabling and running Docker](/blog/images/dev_ops/Nexus/Docker_Run.PNG)
+![Enabling and running Docker](/blog/images/dev_ops/nexus/Docker_Run.PNG)
 
 
 ### Commands Used:
@@ -78,7 +78,7 @@ Nexus can also store Docker images, making it a private alternative to Docker Hu
 
 ## Step 2: Add Your User to Docker Group (avoid sudo every time)
 
-![Adding user to the Docker Group to avoid sudo](/blog/images/dev_ops/Nexus/AddUser_Docker.PNG)
+![Adding user to the Docker Group to avoid sudo](/blog/images/dev_ops/nexus/AddUser_Docker.PNG)
 
 
 ### Commands Used:
@@ -93,7 +93,7 @@ Nexus can also store Docker images, making it a private alternative to Docker Hu
 
 ## Step 3: Run Nexus Container
 
-![Running Nexus](/blog/images/dev_ops/Nexus/Running_Nexus.PNG)
+![Running Nexus](/blog/images/dev_ops/nexus/Running_Nexus.PNG)
 
 
 ### Commands Used:
@@ -122,12 +122,12 @@ Nexus can also store Docker images, making it a private alternative to Docker Hu
 Open a browser and go to :
 http://localhost:8081
 
-![Accessing the Nexus Website](/blog/images/dev_ops/Nexus/Nexus_LocalHost.PNG)
+![Accessing the Nexus Website](/blog/images/dev_ops/nexus/Nexus_LocalHost.PNG)
 
 
 ## Step 5: Get the Admin Password
 
-![Getting the admin password to log in](/blog/images/dev_ops/Nexus/Admin_pass.PNG)
+![Getting the admin password to log in](/blog/images/dev_ops/nexus/Admin_pass.PNG)
 
 
 ### Commands Used:
@@ -145,7 +145,7 @@ http://localhost:8081
 
 ## Step 6: Log In to Nexus UI
 
-![Logging in](/blog/images/dev_ops/Nexus/Logging_In.PNG)
+![Logging in](/blog/images/dev_ops/nexus/Logging_In.PNG)
 
 
 ### Remember:
@@ -155,7 +155,7 @@ http://localhost:8081
 
 You'll be prompted to change the password after you log in.
 
-![What's inside of Nexus repository after log in](/blog/images/dev_ops/Nexus/Nexus_after_login.PNG)
+![What's inside of Nexus repository after log in](/blog/images/dev_ops/nexus/Nexus_after_login.PNG)
 
 
-![What's inside of Nexus repository after log in # 2](/blog/images/dev_ops/Nexus/Nexus_after_login2.PNG)
+![What's inside of Nexus repository after log in # 2](/blog/images/dev_ops/nexus/Nexus_after_login2.PNG)

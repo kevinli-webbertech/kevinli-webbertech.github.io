@@ -1,4 +1,4 @@
-# Docker Cheatsheet
+# Docker Tutorial
 
 ## Building image
 
@@ -6,7 +6,7 @@
 
 `docker build --no-cache --tag alpine-xvfb:beta1 .`
 
-## Building with [Multiple]parameter[s]
+### Building with [Multiple]parameter[s]
 
 `docker build -t jdk21:lastest --build-arg DTR_URL=$DTR_URL .`
 
@@ -38,7 +38,7 @@ xiaofengli@xiaofenglx:~/code/docker_image/ml$ docker run -it python3:ml
 Python 3.11.7
 ```
 
-## Running with container deletion unpon exit
+## Running with container deletion upon exit
 
 `docker run --rm -it alpine-xvfb:beta1`
 

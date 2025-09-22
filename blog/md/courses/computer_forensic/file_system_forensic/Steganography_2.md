@@ -72,12 +72,12 @@ gpg --encrypt --recipient "YourEmail@example.com" secret.txt
 
 ### **🔹 Hide the PGP Encrypted File in an Image**
 ```bash
-steghide embed -cf image.png -ef secret.txt.gpg -p HiddenPass
+steghide embed -cf rdesktop1.png -ef secret.txt.gpg -p HiddenPass
 ```
 
 ### **🔍 Extract & Decrypt**
 ```bash
-steghide extract -sf image.png -p HiddenPass
+steghide extract -sf rdesktop1.png -p HiddenPass
 gpg --decrypt secret.txt.gpg
 ```
 
