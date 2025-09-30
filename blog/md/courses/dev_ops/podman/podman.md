@@ -44,6 +44,24 @@ Podman (short for **Pod Manager**) is an open-source, daemonless container engin
 
 ### **Basic Podman Commands**
 ```sh
+
+# make sure you init a vm
+
+  rm -rf ~/.local/share/containers/podman
+  rm -rf ~/.config/containers/
+  podman machine init
+
+or you do the following,
+
+# To cleanup
+  podman machine rm
+  podman machine init
+
+# To start and stop
+
+  podman machine stop
+  podman machine start
+  
 # Pull an image
 podman pull nginx
 
