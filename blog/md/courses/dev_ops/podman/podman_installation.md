@@ -50,7 +50,7 @@ You can verify the installation and check the Podman version using: [1]
 ```
 podman --version
 podman info
-podman pull nginx
+podman pull nginx # this will download an image for you. If you see the download is going ok, then you are fine.
 ```
 
 ## Troubleshooting
