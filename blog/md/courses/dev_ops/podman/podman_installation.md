@@ -4,8 +4,8 @@
 
 * Ubuntu (20.10+) or Kaili.
 ```
-    sudo apt update
-    sudo apt install -y podman
+sudo apt update
+sudo apt install -y podman
 ```
 
 * Arch Linux & Manjaro Linux. 
