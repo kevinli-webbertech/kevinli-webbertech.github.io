@@ -5,8 +5,19 @@
 Nexus Repository Manager (often just called Nexus) is a powerful tool that helps developers and organizations store, manage, and distribute software artifacts.
 Think of it as a "library" for your software components—whether they are Java JAR files, Python packages, Docker images, npm modules, or any other type of build dependency.
 
+A version of Nexus Repository is still available for free as Sonatype Nexus Repository Community Edition, which is the successor to the previous Nexus OSS offering. It is designed for individual developers and small teams to manage components effectively. For larger deployments or more advanced features like high availability and SAML/SSO, you will need to upgrade to the paid Sonatype Nexus Repository Pro edition.  
+
+
+### **What is Sonatype Nexus Repository Community Edition?**
+
+* It is the free, community-focused version of Sonatype Nexus Repository. 
+* It offers a robust platform for small development teams to manage their components. 
+* It includes modern capabilities, support for new formats like Hugging Face, Cargo (Rust), and Composer (PHP), and integration with PostgreSQL and Kubernetes. 
+
 ## Key Concepts You Should Know
+
 1. What is a Repository?
+
 A repository (or repo) is like a folder where Nexus stores different types of software:
 
 - Proxy Repositories – Cache files from public sources (e.g., Maven Central).
@@ -15,10 +26,28 @@ A repository (or repo) is like a folder where Nexus stores different types of so
 
 - Group Repositories – Combine multiple repos into one for easier access.
 
+**Example** 
+
+* https://mvnrepository.com/
+
+![maven.png](maven.png)
+
+For example, if I search `springboot` library, it is here,
+
+![maven1.png](maven1.png)
+
+Once you click in the first item, and it looks like this,
+
+![img.png](img.png)
+
+![img_1.png](img_1.png)
+
 2. What Are Artifacts?
+
 An artifact is any file stored in Nexus—like a .jar (Java), .whl (Python), .tgz (npm), or .deb (Linux packages).
 
 3. What is Docker’s Role Here?
+
 Nexus can also store Docker images, making it a private alternative to Docker Hub.
 
 ## Why do you need Nexus?
@@ -105,6 +134,7 @@ Nexus can also store Docker images, making it a private alternative to Docker Hu
 (This runs Nexus in a container and stores data in a persistent Docker volume nexus-data)
 
 ### Commands Explained:
+
 - docker run: Tells Docker to start a new container.
 
 - -d: Detached mode — runs in the background.
