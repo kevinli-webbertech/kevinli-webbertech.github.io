@@ -55,14 +55,12 @@ podman pull nginx # this will download an image for you. If you see the download
 
 ## Troubleshooting
 
-* Kali Linux (VM Image)
+### Kali Linux (VM Image)
 
 The `unqualified-search-registries` setting in Podman defines a list of container registries that Podman will search when an image is referenced by a "short name" (i.e., without a fully qualified domain name and registry path). This setting is configured in the registries.conf file, which can be found at either 
 `$HOME/.config/containers/registries.conf` (for user-specific configuration) or 
 
 `/etc/containers/registries.conf` (for system-wide configuration).
-
-### How it works with "Kali" images:
 
 If you try to pull a Kali image using a short name, such as podman pull kali, Podman will consult the unqualified-search-registries list in your registries.conf file. It will then search these registries in the order they are specified to find an image named "kali".
 
@@ -89,7 +87,7 @@ podman machine start
 
 Sometimes you will encounter issues starting a Podman machine, especially related to `gvproxy`, you might need to manually install or update `gvproxy `as detailed in some online resources.
 
-Solution: Manually installing `gvproxy`.
+*Solution:* Manually installing `gvproxy`.
 
 You can install the latest version like this:
 
@@ -104,7 +102,7 @@ Then you should be able to init and start podman:
 
 `sudo podman machine init --root=true`
 
-# or on newer versions:
+or on newer versions:
 
 `sudo podman machine init --rootful=true`
 
