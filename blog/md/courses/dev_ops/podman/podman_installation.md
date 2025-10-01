@@ -38,6 +38,7 @@ podman machine start
 
 Podman on Windows utilizes the Windows Subsystem for Linux (WSL2). 
 
+* Use your VM. (If you already had it.)
 * Enable WSL2: Ensure WSL2 is enabled on your Windows system. 
 * Install Podman Desktop: Download and run the installer from the official Podman Desktop website. This will set up Podman within a WSL2 environment. 
 * Alternatively, you can install Podman using package managers like Chocolately, Scoop, or Winget if preferred. 
