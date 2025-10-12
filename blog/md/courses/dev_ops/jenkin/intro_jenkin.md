@@ -14,7 +14,7 @@ We would like to stick to `LTS` (long-term support),
 
 ![download_jenkin.png](../../../../images/dev_ops/jenkin/download_jenkin.png)
 
-On different platform they are all different, for instance, I provide the installation in Ubuntu like below.
+On different platforms the installations are all different, for instance, I provide the installation in Ubuntu like below.
 
 ```
 sudo apt update
@@ -56,11 +56,23 @@ https://www.jenkins.io/doc/book/installing/linux/#debianubuntu
 
 ![war_jenkin_process1.png](war_jenkin_process1.png)
 
+### Start Jenkins
+
+You can enable the Jenkins service to start at boot with the command:
+
+`sudo systemctl enable jenkins`
+You can start the Jenkins service with the command:
+
+`sudo systemctl start jenkins`
+You can check the status of the Jenkins service using the command:
+
+`sudo systemctl status jenkins`
+If everything has been set up correctly, you should see an output like this:
+
+Loaded: loaded (/lib/systemd/system/jenkins.service; enabled; vendor preset: enabled)
+Active: active (running) since Tue 2018-11-13 16:19:01 +03; 4min 57s ago
+
 ### Docker Solution
-
-* To use the latest LTS: 
-
-`docker pull jenkins/jenkins:lts-jdk17`
 
 * The command to run Jenkins was.
 
@@ -68,7 +80,7 @@ For example,
 
 `docker run -d -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home --name jenkins jenkins/jenkins:lts`
 
-but let us simplify it right now with the following,
+but let us simplify it,
 
 `docker run -p 8080:8080 -p 50000:50000 jenkins/jenkins:lts`
 
