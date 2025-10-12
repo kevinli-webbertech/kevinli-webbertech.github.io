@@ -54,6 +54,8 @@ https://www.jenkins.io/doc/book/installing/linux/#debianubuntu
 
 ![war_jenkin_process.png](../../../../images/dev_ops/jenkin/war_jenkin_process.png)
 
+and when we start it in the browser it shows something like the following,
+
 ![war_jenkin_process1.png](../../../../images/dev_ops/jenkin/war_jenkin_process1.png)
 
 ### Start Jenkins
