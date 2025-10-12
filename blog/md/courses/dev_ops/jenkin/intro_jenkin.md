@@ -52,9 +52,9 @@ https://www.jenkins.io/doc/book/installing/linux/#debianubuntu
 >Note: Due to the volatile content, we would like to stick to the most up2date information in the official document, 
 > thus I do not provide anything on my own.
 
-![img.png](img.png)
+![war_jenkin_process.png](war_jenkin_process.png)
 
-![img_1.png](img_1.png)
+![war_jenkin_process1.png](war_jenkin_process1.png)
 
 ### Docker Solution
 
@@ -71,6 +71,8 @@ For example,
 but let us simplify it right now with the following,
 
 `docker run -p 8080:8080 -p 50000:50000 jenkins/jenkins:lts`
+
+![docker_run_jenkin.png](docker_run_jenkin.png)
 
 After pulling the image and starting the Jenkins server, I accessed Jenkins through the browser using the localhost URL.
 
