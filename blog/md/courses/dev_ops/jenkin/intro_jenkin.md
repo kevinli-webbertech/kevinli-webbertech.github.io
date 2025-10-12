@@ -41,7 +41,7 @@ sudo apt update
 sudo apt install jenkins
 ```
 
-![jenkin_ubuntu.png](jenkin_ubuntu.png)
+![jenkin_ubuntu.png](../../../../images/dev_ops/jenkin/jenkin_ubuntu.png)
 
 ## How to start Jenkin
 
@@ -52,9 +52,9 @@ https://www.jenkins.io/doc/book/installing/linux/#debianubuntu
 >Note: Due to the volatile content, we would like to stick to the most up2date information in the official document, 
 > thus I do not provide anything on my own.
 
-![war_jenkin_process.png](war_jenkin_process.png)
+![war_jenkin_process.png](../../../../images/dev_ops/jenkin/war_jenkin_process.png)
 
-![war_jenkin_process1.png](war_jenkin_process1.png)
+![war_jenkin_process1.png](../../../../images/dev_ops/jenkin/war_jenkin_process1.png)
 
 ### Start Jenkins
 
@@ -84,7 +84,7 @@ but let us simplify it,
 
 `docker run -p 8080:8080 -p 50000:50000 jenkins/jenkins:lts`
 
-![docker_run_jenkin.png](docker_run_jenkin.png)
+![docker_run_jenkin.png](../../../../images/dev_ops/jenkin/docker_run_jenkin.png)
 
 After pulling the image and starting the Jenkins server, I accessed Jenkins through the browser using the localhost URL.
 
