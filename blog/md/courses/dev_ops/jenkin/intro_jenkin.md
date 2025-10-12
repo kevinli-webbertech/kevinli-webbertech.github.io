@@ -52,6 +52,10 @@ https://www.jenkins.io/doc/book/installing/linux/#debianubuntu
 >Note: Due to the volatile content, we would like to stick to the most up2date information in the official document, 
 > thus I do not provide anything on my own.
 
+![img.png](img.png)
+
+![img_1.png](img_1.png)
+
 ### Docker Solution
 
 * To use the latest LTS: 
