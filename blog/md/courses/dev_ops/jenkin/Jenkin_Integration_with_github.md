@@ -2,13 +2,36 @@
 
 In this tutorial, we use a Maven-based Java project from GitHub to go from freestyle jobs to scripted pipelines.
 
-In Jenkins, a `Spring Boot Hello World` project was used as the base for creating a Pipeline job.
+# Step 1 Create a Jenkin Job Pipeline
 
-GitHub Repo: <https://github.com/spring-guides/gs-spring-boot>
+First screen,
 
-![Console output](https://miro.medium.com/v2/resize:fit:1100/format:webp/0*gYw7oxetIpz8N9rf)
+![jenkin_pipeline.png](jenkin_pipeline.png)
 
-Created a Jenkinsfile and added it to my repo. It contained three main stages: Build, Test, and Deliver.
+Next,
+![jenkin_pipeline1.png](jenkin_pipeline1.png)
+
+Next,
+![jenkin_pipeline2.png](jenkin_pipeline2.png)
+
+Next,
+![jenkin_pipeline3.png](jenkin_pipeline3.png)
+
+Next,
+![jenkin_pipeline4.png](jenkin_pipeline4.png)
+
+Next,
+![jenkin_pipeline5.png](jenkin_pipeline5.png)
+
+
+>Note: In Jenkins, a `Spring Boot Hello World` project was used as the base for creating a Pipeline job.
+>GitHub Repo: <https://github.com/spring-guides/gs-spring-boot>
+
+# Step 2 Create a Jenkinsfile
+
+* Create a github project (register a github account)
+* Fork the above springboot project
+* Create a Jenkinsfile below in your project layout.
 
 ```
 pipeline {
