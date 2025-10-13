@@ -76,15 +76,13 @@ Active: active (running) since Tue 2018-11-13 16:19:01 +03; 4min 57s ago
 
 ### Docker Solution
 
+Documentation: https://github.com/jenkinsci/docker/blob/master/README.md
+
 * The command to run Jenkins was.
 
-For example, 
+`docker run -p 8080:8080 -p 50000:50000 --restart=on-failure -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts-jdk21`
 
-`docker run -d -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home --name jenkins jenkins/jenkins:lts`
-
-but let us simplify it,
-
-`docker run -p 8080:8080 -p 50000:50000 jenkins/jenkins:lts`
+![docker_jenkin1.png](../../../../images/dev_ops/jenkin/docker_jenkin1.png)
 
 ![docker_run_jenkin.png](../../../../images/dev_ops/jenkin/docker_run_jenkin.png)
 
