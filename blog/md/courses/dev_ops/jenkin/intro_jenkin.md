@@ -108,6 +108,14 @@ Next screen,
 
 ![docker_jenkin4.png](../../../../images/dev_ops/jenkin/docker_jenkin4.png)
 
+Click "continue as admin" and do not create the first admin, 
+
+![docker_jenkin5.png](../../../../images/dev_ops/jenkin/docker_jenkin5.png)
+
+Click "Save and Finish", and next screen,
+
+![docker_jenkin6.png](../../../../images/dev_ops/jenkin/docker_jenkin6.png)
+
 Let us click on the left right,
 
 ![docker_run_jenkin.png](../../../../images/dev_ops/jenkin/docker_run_jenkin.png)
