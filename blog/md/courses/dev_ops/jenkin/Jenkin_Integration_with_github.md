@@ -13,45 +13,49 @@ Created a Jenkinsfile and added it to my repo. It contained three main stages: B
 ```
 pipeline {
 agent any
+
 options {
-skipStagesAfterUnstable()
+    skipStagesAfterUnstable()
 }
+
 tools {
-maven ‘Maven 3.9.6’
+    maven ‘Maven 3.9.6’
 }
+
 stages {
-stage(‘Build’) {
-steps {
-sh ‘mvn clean compile’
-}
-}
-stage(‘Test’) {
-steps {
-sh ‘mvn test’
-}
-post {
-always {
-junit ‘target/surefire-reports/*.xml’
-}
-}
-}
-stage(‘Package’) {
-steps {
-sh ‘mvn package’
-}
-}
-stage(‘Deliver’) {
-steps {
-sh ‘./jenkins/scripts/deliver.sh’
-}
-}
+    stage(‘Build’) {
+        steps {
+            sh ‘mvn clean compile’
+        }
+    }
+
+    stage(‘Test’) {
+        steps {
+            sh ‘mvn test’
+        }
+        post {
+            always {
+                junit ‘target/surefire-reports/*.xml’
+            }
+        }
+    }
+    stage(‘Package’) {
+        steps {
+            sh ‘mvn package’
+        }
+    }
+    stage(‘Deliver’) {
+        steps {
+            sh ‘./jenkins/scripts/deliver.sh’
+        }
+    }
 }
 }
 ```
 
 ![My three failed attempts...](https://miro.medium.com/v2/resize:fit:786/format:webp/1*h2sBSI_hZms6VdAukapTfg.png)
 
-After some troubleshooting (including fixing naming and Maven version issues), I successfully built the project and produced a .jar file.
+It will successfully build the project and produced a .jar file.
 
 ![Build #4 status](https://miro.medium.com/v2/resize:fit:1100/format:webp/1*enVxCjmZfr0agSH0YqS5-g.png)
 
@@ -67,14 +71,14 @@ Here is the test stage I added to my Jenkinsfile:
 
 ```commandline
 stage(‘Test’) {
-steps {
-sh ‘mvn test’
-}
-post {
-always {
-junit ‘target/surefire-reports/TEST-*.xml’
-}
-}
+    steps {
+        sh ‘mvn test’
+    }
+    post {
+        always {
+            junit ‘target/surefire-reports/TEST-*.xml’
+        }
+    }
 }
 ```
 
