@@ -130,14 +130,26 @@ After pulling the image and starting the Jenkins server, I accessed Jenkins thro
 
 After finishing the initial setup, I created my first Jenkins job, which was a freestyle project that simply echoed a message.
 
-“Hello from Jenkins!”
+Then follow the steps below and see how it works,
 
-![Console output](https://miro.medium.com/v2/resize:fit:1100/format:webp/0*3DTBdONl-XruyZ_V)
+### Step 1
+![docker_jenkin8.png](docker_jenkin8.png)
 
-The console output confirmed success. This was my first working Jenkins job!
+### Step 2
+![docker_jenkin9.png](docker_jenkin9.png)
+
+### Step 3
+![docker_jenkin10.png](docker_jenkin10.png)
+
+### Step 4
+![docker_jenkin11.png](docker_jenkin11.png)
+
+### Step 5
+![docker_jenkin12.png](docker_jenkin12.png)
+
+Congratulations, your installation is working properly!
 
 ## Resources
-
 
 Jenkins: <https://www.jenkins.io/doc>
 
