@@ -116,6 +116,10 @@ Click "Save and Finish", and next screen,
 
 ![docker_jenkin6.png](../../../../images/dev_ops/jenkin/docker_jenkin6.png)
 
+Then click "Start using Jenkins",
+
+![docker_jenkin7.png](../../../../images/dev_ops/jenkin/docker_jenkin7.png)
+
 Let us click on the left right,
 
 ![docker_run_jenkin.png](../../../../images/dev_ops/jenkin/docker_run_jenkin.png)
