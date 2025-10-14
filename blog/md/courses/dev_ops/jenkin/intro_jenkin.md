@@ -80,22 +80,14 @@ Documentation: https://github.com/jenkinsci/docker/blob/master/README.md
 
 * The command to run Jenkins was.
 
-`docker run -p 8080:8080 -p 50000:50000 --restart=on-failure -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts-jdk21`
+`docker run -p 8080:8080 -p 50000:50000 jenkins/jenkins:lts`
 
 ![docker_jenkin1.png](../../../../images/dev_ops/jenkin/docker_jenkin1.png)
 
 For instance, I did the following to get the password,
 
 ```cmd
-kevin@kevin-li:~/Downloads$ mkdir jenkins_home
-kevin@kevin-li:~/Downloads$ docker run -d -v jenkins_home:/var/jenkins_home -p 8080:8080 -p 50000:50000 --restart=on-failure jenkins/jenkins:lts-jdk21
-Unable to find image 'jenkins/jenkins:lts-jdk21' locally
-lts-jdk21: Pulling from jenkins/jenkins
-Digest: sha256:ace160331258aeff24581038e63ec5b5e8e969cebc9582a5ac7f0ed9fd20043b
-Status: Downloaded newer image for jenkins/jenkins:lts-jdk21
-b21275965ba32f5e214944bc0c01755a96fc85c4f2c08846779baf95922df69c
-kevin@kevin-li:~/Downloads$ docker exec b21275965ba32f5e214944bc0c01755a96fc85c4f2c08846779baf95922df69c cat /var/jenkins_home/secrets/initialAdminPassword
-1aa7340329c94949bf173d9105180d4d
+docker exec 2bb12f0da95749caad0682538148a540 cat /var/jenkins_home/secrets/initialAdminPassword
 ```
 
 ![docker_jenkin2.png](../../../../images/dev_ops/jenkin/docker_jenkin2.png)

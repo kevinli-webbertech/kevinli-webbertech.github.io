@@ -131,17 +131,17 @@ Put your github url there,
 
 ![pipeline_job1.png](../../../../images/dev_ops/jenkin/pipeline_job1.png)
 
-![img_1.png](img_1.png)
+![pipeline_job2.png](../../../../images/dev_ops/jenkin/pipeline_job2.png)
 
-![img_2.png](img_2.png)
+![pipeline_job3.png](../../../../images/dev_ops/jenkin/pipeline_job3.png)
 
-![img_3.png](img_3.png)
+![pipeline_job4.png](../../../../images/dev_ops/jenkin/pipeline_job4.png)
 
-![img_4.png](img_4.png)
+![pipeline_job5.png](../../../../images/dev_ops/jenkin/pipeline_job5.png)
 
-![img_5.png](img_5.png)
+![pipeline_job6.png](../../../../images/dev_ops/jenkin/pipeline_job6.png)
 
-![img_6.png](img_6.png)
+![pipeline_job7.png](../../../../images/dev_ops/jenkin/pipeline_job7.png)
 
 ## Testing, Debugging & Final Pipeline
 
