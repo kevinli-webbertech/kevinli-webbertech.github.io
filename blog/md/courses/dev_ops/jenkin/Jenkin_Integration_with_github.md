@@ -1,4 +1,4 @@
-## Maven Pipeline Configuration & GitHub Integration
+# Maven Pipeline Configuration & GitHub Integration
 
 In this tutorial, we use a Maven-based Java project from GitHub to go from freestyle jobs to scripted pipelines.
 
@@ -31,7 +31,7 @@ Next,
 >Note: In Jenkins, a `Spring Boot Hello World` project was used as the base for creating a Pipeline job.
 >GitHub Repo: <https://github.com/spring-guides/gs-spring-boot>
 
-# Step 2 Create a Jenkinsfile
+## Step 2 Create a Jenkinsfile
 
 * Create a Github Project (register a github account)
 
@@ -107,6 +107,7 @@ stages {
     }
     stage(‘Deliver’) {
         steps {
+            sh 'ls -F'
             sh ‘./jenkins/scripts/deliver.sh’
         }
     }
@@ -121,6 +122,26 @@ stages {
 It will successfully build the project and produced a .jar file.
 
 ![Build #4 status](https://miro.medium.com/v2/resize:fit:1100/format:webp/1*enVxCjmZfr0agSH0YqS5-g.png)
+
+## Create a pipeline job
+
+![pipeline_job.png](../../../../images/dev_ops/jenkin/pipeline_job.png)
+
+Put your github url there,
+
+![pipeline_job1.png](../../../../images/dev_ops/jenkin/pipeline_job1.png)
+
+![img_1.png](img_1.png)
+
+![img_2.png](img_2.png)
+
+![img_3.png](img_3.png)
+
+![img_4.png](img_4.png)
+
+![img_5.png](img_5.png)
+
+![img_6.png](img_6.png)
 
 ## Testing, Debugging & Final Pipeline
 
