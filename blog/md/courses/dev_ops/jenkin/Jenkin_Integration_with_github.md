@@ -6,31 +6,47 @@ In this tutorial, we use a Maven-based Java project from GitHub to go from frees
 
 First screen,
 
-![jenkin_pipeline.png](jenkin_pipeline.png)
+![jenkin_pipeline.png](../../../../images/dev_ops/jenkin/jenkin_pipeline.png)
 
 Next,
-![jenkin_pipeline1.png](jenkin_pipeline1.png)
+
+![jenkin_pipeline1.png](../../../../images/dev_ops/jenkin/jenkin_pipeline1.png)
 
 Next,
-![jenkin_pipeline2.png](jenkin_pipeline2.png)
+
+![jenkin_pipeline2.png](../../../../images/dev_ops/jenkin/jenkin_pipeline2.png)
 
 Next,
-![jenkin_pipeline3.png](jenkin_pipeline3.png)
+
+![jenkin_pipeline3.png](../../../../images/dev_ops/jenkin/jenkin_pipeline3.png)
 
 Next,
-![jenkin_pipeline4.png](jenkin_pipeline4.png)
+
+![jenkin_pipeline4.png](../../../../images/dev_ops/jenkin/jenkin_pipeline4.png)
 
 Next,
-![jenkin_pipeline5.png](jenkin_pipeline5.png)
 
+![jenkin_pipeline5.png](../../../../images/dev_ops/jenkin/jenkin_pipeline5.png)
 
 >Note: In Jenkins, a `Spring Boot Hello World` project was used as the base for creating a Pipeline job.
 >GitHub Repo: <https://github.com/spring-guides/gs-spring-boot>
 
 # Step 2 Create a Jenkinsfile
 
-* Create a github project (register a github account)
-* Fork the above springboot project
+* Create a Github Project (register a github account)
+
+1/ Click on the green `new` button,
+
+![create_git_repo.png](../../../../images/dev_ops/jenkin/create_git_repo.png)
+
+2/ Create a new repo,
+
+![create_git_repo1.png](create_git_repo1.png)
+
+* Fork the above springboot project from https://github.com/spring-guides/gs-spring-boot
+
+1/ First you need to checkout your own repo,
+
 * Create a Jenkinsfile below in your project layout.
 
 ```

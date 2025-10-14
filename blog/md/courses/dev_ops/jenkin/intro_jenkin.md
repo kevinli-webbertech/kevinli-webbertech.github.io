@@ -133,19 +133,19 @@ After finishing the initial setup, I created my first Jenkins job, which was a f
 Then follow the steps below and see how it works,
 
 ### Step 1
-![docker_jenkin8.png](docker_jenkin8.png)
+![docker_jenkin8.png](../../../../images/dev_ops/jenkin/docker_jenkin8.png)
 
 ### Step 2
-![docker_jenkin9.png](docker_jenkin9.png)
+![docker_jenkin9.png](../../../../images/dev_ops/jenkin/docker_jenkin9.png)
 
 ### Step 3
-![docker_jenkin10.png](docker_jenkin10.png)
+![docker_jenkin10.png](../../../../images/dev_ops/jenkin/docker_jenkin10.png)
 
 ### Step 4
-![docker_jenkin11.png](docker_jenkin11.png)
+![docker_jenkin11.png](../../../../images/dev_ops/jenkin/docker_jenkin11.png)
 
 ### Step 5
-![docker_jenkin12.png](docker_jenkin12.png)
+![docker_jenkin12.png](../../../../images/dev_ops/jenkin/docker_jenkin12.png)
 
 Congratulations, your installation is working properly!
 
