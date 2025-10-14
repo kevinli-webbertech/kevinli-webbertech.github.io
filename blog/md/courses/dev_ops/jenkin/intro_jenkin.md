@@ -63,16 +63,21 @@ and when we start it in the browser it shows something like the following,
 You can enable the Jenkins service to start at boot with the command:
 
 `sudo systemctl enable jenkins`
+
 You can start the Jenkins service with the command:
 
 `sudo systemctl start jenkins`
+
 You can check the status of the Jenkins service using the command:
 
 `sudo systemctl status jenkins`
+
 If everything has been set up correctly, you should see an output like this:
 
+```
 Loaded: loaded (/lib/systemd/system/jenkins.service; enabled; vendor preset: enabled)
 Active: active (running) since Tue 2018-11-13 16:19:01 +03; 4min 57s ago
+```
 
 ### Docker Solution
 
