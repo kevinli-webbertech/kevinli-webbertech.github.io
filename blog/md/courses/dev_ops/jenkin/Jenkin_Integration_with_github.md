@@ -43,7 +43,11 @@ Next,
 
 ![create_git_repo1.png](../../../../images/dev_ops/jenkin/create_git_repo1.png)
 
+Next screen provides the instructions to init and checkout your new repo to your local,
+
 ![create_git_repo2.png](../../../../images/dev_ops/jenkin/create_git_repo2.png)
+
+Open a terminal and checkout the repo to your local with the instruction on the left hand side,
 
 ![create_git_repo3.png](../../../../images/dev_ops/jenkin/create_git_repo3.png)
 
