@@ -41,11 +41,33 @@ Next,
 
 2/ Create a new repo,
 
-![create_git_repo1.png](create_git_repo1.png)
+![create_git_repo1.png](../../../../images/dev_ops/jenkin/create_git_repo1.png)
 
-* Fork the above springboot project from https://github.com/spring-guides/gs-spring-boot
+![create_git_repo2.png](../../../../images/dev_ops/jenkin/create_git_repo2.png)
 
-1/ First you need to checkout your own repo,
+![create_git_repo3.png](../../../../images/dev_ops/jenkin/create_git_repo3.png)
+
+```commandline
+kevin@kevin-li:~/git$ git clone https://github.com/spring-guides/gs-spring-boot.git
+Cloning into 'gs-spring-boot'...
+remote: Enumerating objects: 1745, done.
+remote: Counting objects: 100% (41/41), done.
+remote: Compressing objects: 100% (24/24), done.
+remote: Total 1745 (delta 29), reused 17 (delta 17), pack-reused 1704 (from 2)
+Receiving objects: 100% (1745/1745), 1.07 MiB | 4.54 MiB/s, done.
+Resolving deltas: 100% (1104/1104), done.
+```
+
+* Fork the above Springboot project from https://github.com/spring-guides/gs-spring-boot
+
+`kevin@kevin-li:~/git/gs-spring-boot/complete$ cp -rf * ~/git/my-gs-spring-boot/`
+
+And make sure you have everything,
+
+```commandline
+kevin@kevin-li:~/git/my-gs-spring-boot$ ls
+build.gradle  gradle  gradlew  gradlew.bat  mvnw  mvnw.cmd  pom.xml  settings.gradle  src
+```
 
 * Create a Jenkinsfile below in your project layout.
 
@@ -91,6 +113,8 @@ stages {
 }
 }
 ```
+
+![Jenkinsfile.png](../../../../images/dev_ops/jenkin/Jenkinsfile.png)
 
 ![My three failed attempts...](https://miro.medium.com/v2/resize:fit:786/format:webp/1*h2sBSI_hZms6VdAukapTfg.png)
 
