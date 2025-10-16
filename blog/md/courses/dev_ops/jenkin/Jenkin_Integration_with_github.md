@@ -129,17 +129,31 @@ It will successfully build the project and produced a .jar file.
 
 Put your github url there,
 
+Image 1,
+
 ![pipeline_job1.png](../../../../images/dev_ops/jenkin/pipeline_job1.png)
+
+Image 2,
 
 ![pipeline_job2.png](../../../../images/dev_ops/jenkin/pipeline_job2.png)
 
+Image 3,
+
 ![pipeline_job3.png](../../../../images/dev_ops/jenkin/pipeline_job3.png)
+
+Image 4,
 
 ![pipeline_job4.png](../../../../images/dev_ops/jenkin/pipeline_job4.png)
 
+Image 5,
+
 ![pipeline_job5.png](../../../../images/dev_ops/jenkin/pipeline_job5.png)
 
+Image 6,
+
 ![pipeline_job6.png](../../../../images/dev_ops/jenkin/pipeline_job6.png)
+
+Image 7,
 
 ![pipeline_job7.png](../../../../images/dev_ops/jenkin/pipeline_job7.png)
 
