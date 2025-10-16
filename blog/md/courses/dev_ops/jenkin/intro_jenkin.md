@@ -63,16 +63,21 @@ and when we start it in the browser it shows something like the following,
 You can enable the Jenkins service to start at boot with the command:
 
 `sudo systemctl enable jenkins`
+
 You can start the Jenkins service with the command:
 
 `sudo systemctl start jenkins`
+
 You can check the status of the Jenkins service using the command:
 
 `sudo systemctl status jenkins`
+
 If everything has been set up correctly, you should see an output like this:
 
+```
 Loaded: loaded (/lib/systemd/system/jenkins.service; enabled; vendor preset: enabled)
 Active: active (running) since Tue 2018-11-13 16:19:01 +03; 4min 57s ago
+```
 
 ### Docker Solution
 
@@ -111,14 +116,6 @@ Click "Save and Finish", and next screen,
 Then click "Start using Jenkins",
 
 ![docker_jenkin7.png](../../../../images/dev_ops/jenkin/docker_jenkin7.png)
-
-Let us click on the left right,
-
-![docker_run_jenkin.png](../../../../images/dev_ops/jenkin/docker_run_jenkin.png)
-
-After pulling the image and starting the Jenkins server, I accessed Jenkins through the browser using the localhost URL.
-
-![Getting started: Instance configuration](https://miro.medium.com/v2/resize:fit:1100/format:webp/0*fEjtkre6udi1mYIa)
 
 After finishing the initial setup, I created my first Jenkins job, which was a freestyle project that simply echoed a message.
 
