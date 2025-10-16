@@ -157,6 +157,14 @@ Image 7,
 
 ![pipeline_job7.png](../../../../images/dev_ops/jenkin/pipeline_job7.png)
 
+## Default Admin Password
+
+![admin_login.png](../../../../images/dev_ops/jenkin/admin_login.png)
+
+Retrieve the default admin password, if you lost or forgot the default hash string of password, you could retrieve it like the following,
+
+![admin_login_pwd.png](../../../../images/dev_ops/jenkin/admin_login_pwd.png)
+
 ## Testing, Debugging & Final Pipeline
 
 Concentrated on incorporating automated testing into the pipeline on day three. There was already a JUnit-written test class in my Maven project. I modified the Jenkinsfile to execute `mvn test` and use the JUnit plugin to report the outcomes.
