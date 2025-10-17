@@ -77,55 +77,80 @@ build.gradle  gradle  gradlew  gradlew.bat  mvnw  mvnw.cmd  pom.xml  settings.gr
 
 ```
 pipeline {
-agent any
+    agent any
 
-options {
-    skipStagesAfterUnstable()
-}
-
-tools {
-    maven ‘Maven 3.9.6’
-}
-
-stages {
-    stage(‘Build’) {
-        steps {
-            sh ‘mvn clean compile’
-        }
+    options {
+        skipStagesAfterUnstable()
     }
 
-    stage(‘Test’) {
-        steps {
-            sh ‘mvn test’
+    tools {
+        maven '3.9.11'
+    }
+
+    stages {
+        stage('Checkout Source Code') {
+            steps {
+                git branch: 'main', url: 'https://github.com/kevinli-webbertech/gs-spring-boot.git'
+            }
         }
-        post {
-            always {
-                junit ‘target/surefire-reports/*.xml’
+
+        stage('Test') {
+            steps {
+                sh 'git --version'
+                sh 'mvn --version'
+                sh 'mvn clean test' // Example for a Maven project
+            }
+        }
+
+        stage('Build and Package') {
+            steps {
+                sh 'mvn clean package -DskipTests'
+            }
+        }
+
+        stage('Archive Artifacts') {
+            steps {
+                archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
             }
         }
     }
-    stage(‘Package’) {
-        steps {
-            sh ‘mvn package’
+
+    post {
+        always {
+            echo 'Pipeline finished.'
+        }
+        success {
+            echo 'Build successful!'
+        }
+        failure {
+            echo 'Build failed!'
         }
     }
-    stage(‘Deliver’) {
-        steps {
-            sh 'ls -F'
-            sh ‘./jenkins/scripts/deliver.sh’
-        }
-    }
-}
+
 }
 ```
 
+Now use the following command to see what files needs to be committed to the git repo,
+
+`git status`
+
 ![Jenkinsfile.png](../../../../images/dev_ops/jenkin/Jenkinsfile.png)
 
-![My three failed attempts...](https://miro.medium.com/v2/resize:fit:786/format:webp/1*h2sBSI_hZms6VdAukapTfg.png)
+Then, we run the following commands to make sure we add all the files, 
 
-It will successfully build the project and produced a .jar file.
+`git add *`
 
-![Build #4 status](https://miro.medium.com/v2/resize:fit:1100/format:webp/1*enVxCjmZfr0agSH0YqS5-g.png)
+Next, run `git status` again, you will see these files turned green.
+
+And then do the following to commit these files,
+
+`git commit  -m "initial commit"`
+
+Then, push them to your remote repo by running the following commands,
+
+`git push`
+
+> For the first time, you would need to enter username and password, please use the login credential you use to login to the github.io. 
 
 ## Create a pipeline job
 
@@ -160,6 +185,47 @@ Image 6,
 Image 7,
 
 ![pipeline_job7.png](../../../../images/dev_ops/jenkin/pipeline_job7.png)
+
+### Configure the github repo in the Jenkin plugin
+
+Click the `Manage` button on the right top corner,
+
+![Jenkins_management.png](Jenkins_management.png)
+
+Then you are going to see the following screen,
+
+![Jenkins_management1.png](Jenkins_management1.png)
+
+Click on `Tools`, and then scroll down to the bottom, 
+
+![Jenkins_tools.png](Jenkins_tools.png)
+
+Next to click on `Maven Installations`, and you will the UI looks like the following,
+
+![Jenkins_maven_plugin.png](Jenkins_maven_plugin.png)
+
+In this pre-built image, we already have this maven version `3.9.11` installed. But here is a caveat,
+you need to make sure that 3.9.11 is filled into the `Name`, so you see above image, there are two 3.9.11.
+
+And also make sure that, this version is coded in your `Jenkinsfile` in your springboot project root layout.
+For example, it should look like this,
+
+![Jenkinsfile_maven_version.png](Jenkinsfile_maven_version.png)
+
+
+### Double-check the maven plugin and versions in your `Jenkinsfile`
+
+### Execute a Jenkin job
+
+It will successfully build the project and produced a .jar file.
+
+The following `green` shows the successful jobs, and the `red` shows the failed jobs.
+
+![jenkin_jobs.png](jenkin_jobs.png)
+
+For instance, the Job `#11` was the one I just run, click into it,
+
+![jenkin_build_jar.png](jenkin_build_jar.png)
 
 ## Default Admin Password
 
