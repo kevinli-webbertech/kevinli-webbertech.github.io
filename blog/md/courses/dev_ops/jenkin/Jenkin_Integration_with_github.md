@@ -43,6 +43,8 @@ Next,
 
 ![create_git_repo1.png](../../../../images/dev_ops/jenkin/create_git_repo1.png)
 
+3/ Checkout our new repo to local computer
+
 Next screen provides the instructions to init and checkout your new repo to your local,
 
 ![create_git_repo2.png](../../../../images/dev_ops/jenkin/create_git_repo2.png)
@@ -50,6 +52,8 @@ Next screen provides the instructions to init and checkout your new repo to your
 Open a terminal and checkout the repo to your local with the instruction on the left hand side,
 
 ![create_git_repo3.png](../../../../images/dev_ops/jenkin/create_git_repo3.png)
+
+4/ Clone the `Hello World` Springboot project from https://github.com/spring-guides/gs-spring-boot
 
 ```commandline
 kevin@kevin-li:~/git$ git clone https://github.com/spring-guides/gs-spring-boot.git
@@ -62,9 +66,15 @@ Receiving objects: 100% (1745/1745), 1.07 MiB | 4.54 MiB/s, done.
 Resolving deltas: 100% (1104/1104), done.
 ```
 
-* Fork the above Springboot project from https://github.com/spring-guides/gs-spring-boot
+5/ Copy the `Hello World` project to our own repo
 
+Next, I use the following commands to copy them to my own repo, the new one I created on my own github repo. 
+ 
 `kevin@kevin-li:~/git/gs-spring-boot/complete$ cp -rf * ~/git/my-gs-spring-boot/`
+
+Also make sure you copy the `.mvn` directory,
+
+`kevin@kevin-li:~/git/gs-spring-boot/complete$ cp -rf .mvn ~/git/my-gs-spring-boot/`
 
 And make sure you have everything,
 
@@ -72,6 +82,14 @@ And make sure you have everything,
 kevin@kevin-li:~/git/my-gs-spring-boot$ ls
 build.gradle  gradle  gradlew  gradlew.bat  mvnw  mvnw.cmd  pom.xml  settings.gradle  src
 ```
+
+Then we could test this project is ok by running the following command,
+
+`./mvnw clean package -DskipTests`
+
+>Note: `clean` is to remove the `target` dir, and `package` is to rebuild and generate the /target and created the jar files in it.
+> `-DskipTest` is to avoid running test files, sometimes test could fail if we change the code and did not fix the related tests.
+> Also running tests would take more itme.
 
 * Create a Jenkinsfile below in your project layout.
 
@@ -129,6 +147,12 @@ pipeline {
 
 }
 ```
+
+>Note: Here the most important thing in the Jenkinsfile above is the, of course, #1, the syntax, you can not have any syntax error.
+> The #2 important thing is the maven version, and we will talk about that, and how to check that version in our installed Jenkin software in localhost8080.
+> It is discussed in the latter part of this tutorial.
+
+6/ Commit all the code to your remote git repo
 
 Now use the following command to see what files needs to be committed to the git repo,
 
