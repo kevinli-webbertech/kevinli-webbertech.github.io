@@ -190,42 +190,67 @@ Image 7,
 
 Click the `Manage` button on the right top corner,
 
-![Jenkins_management.png](Jenkins_management.png)
+![Jenkins_management.png](../../../../images/dev_ops/jenkin/Jenkins_management.png)
 
 Then you are going to see the following screen,
 
-![Jenkins_management1.png](Jenkins_management1.png)
+![Jenkins_management1.png](../../../../images/dev_ops/jenkin/Jenkins_management1.png)
 
 Click on `Tools`, and then scroll down to the bottom, 
 
-![Jenkins_tools.png](Jenkins_tools.png)
+![Jenkins_tools.png](../../../../images/dev_ops/jenkin/Jenkins_tools.png)
 
 Next to click on `Maven Installations`, and you will the UI looks like the following,
 
-![Jenkins_maven_plugin.png](Jenkins_maven_plugin.png)
+![Jenkins_maven_plugin.png](../../../../images/dev_ops/jenkin/Jenkins_maven_plugin.png)
 
 In this pre-built image, we already have this maven version `3.9.11` installed. But here is a caveat,
 you need to make sure that 3.9.11 is filled into the `Name`, so you see above image, there are two 3.9.11.
 
+### Double-check the maven plugin and versions in your `Jenkinsfile`
+
 And also make sure that, this version is coded in your `Jenkinsfile` in your springboot project root layout.
 For example, it should look like this,
 
-![Jenkinsfile_maven_version.png](Jenkinsfile_maven_version.png)
+![Jenkinsfile_maven_version.png](../../../../images/dev_ops/jenkin/Jenkinsfile_maven_version.png)
 
+### Jenkins_pipeline_configuration - Configure the github repo
 
-### Double-check the maven plugin and versions in your `Jenkinsfile`
+After we created the `pipeline_job`, we will go to the `configure`, it is found on the left panel in the following image,
+
+![Jenkins_configure.png](../../../../images/dev_ops/jenkin/Jenkins_configure.png)
+
+On your left side, make sure you click on `Pipeline` button,
+
+![Jenkins_pipeline_configuration.png](../../../../images/dev_ops/jenkin/Jenkins_pipeline_configuration.png)
+
+In the `Definition` dropdown menu, we select `Pipeline script from SCM`,
+
+And in the `SCM` dropdown menu, we select `Git` (see in the image above),
+
+Then copy&paste your new repo where we put the `hello world` example of springboot project, and PLEASE MAKE SURE
+your `Jenkinsfile` is in there,
+
+Once you are done, click `Save`.
 
 ### Execute a Jenkin job
 
-It will successfully build the project and produced a .jar file.
+Click on `Pipeline_job` in the breadcrum,
+
+![pipeline_job.png](../../../../images/dev_ops/jenkin/pipeline_job.png)
+
+Then click on `Build Now` on the left panel,  and it will successfully build the project and produced a .jar file.
 
 The following `green` shows the successful jobs, and the `red` shows the failed jobs.
 
-![jenkin_jobs.png](jenkin_jobs.png)
+![jenkin_jobs.png](../../../../images/dev_ops/jenkin/jenkin_jobs.png)
 
-For instance, the Job `#11` was the one I just run, click into it,
+For instance, the Job `#11` was the one I just run, click into it, and check the `Console output`.
+Normally the failed job would have some errors in it.
 
-![jenkin_build_jar.png](jenkin_build_jar.png)
+![jenkin_build_jar.png](../../../../images/dev_ops/jenkin/jenkin_build_jar.png)
+
+If your run job is `red` and failed, please click into it, and view the 
 
 ## Default Admin Password
 
