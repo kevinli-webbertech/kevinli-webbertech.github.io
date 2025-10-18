@@ -72,7 +72,7 @@ xiaofengli@xiaofenglx:/tmp/test$ ls
 kevinli-webbertech.github.io
 ```
 
-Then we cd into it and list what is in there, and we can see a lot of files. 
+Then we `cd` into it and list what is in there, and we can see a lot of files. 
 
 ```commandline
 xiaofengli@xiaofenglx:/tmp/test$ cd kevinli-webbertech.github.io/

@@ -1,4 +1,6 @@
-Alright! I'll guide you through setting up a **CI/CD pipeline with GitHub Actions** to deploy applications to a **Kubernetes** cluster using **Nexus** as your Docker image registry.
+# Github Integration with EKS and Nexus 
+
+This is a guide to set up a **CI/CD pipeline with GitHub Actions** to deploy applications to a **Kubernetes** cluster using **Nexus** as your Docker image registry.
 
 ### **1. Prerequisites**
 
