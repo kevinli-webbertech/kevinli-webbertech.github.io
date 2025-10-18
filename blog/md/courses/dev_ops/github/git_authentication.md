@@ -17,9 +17,25 @@ Set your GitHub username.
 
 ## Generate Developer Token
 
+Click your avatar, and click on "Settings",
 
+![img.png](../../../../images/dev_ops/github/git_repo4.png)
 
+Click the "Developer Settings",
 
+![img_1.png](../../../../images/dev_ops/github/git_repo5.png)
+
+Click "Personal access tokens",
+
+![img_2.png](../../../../images/dev_ops/github/git_repo6.png)
+
+And,
+
+![img_3.png](../../../../images/dev_ops/github/git_repo7.png)
+
+Create a classic token,
+
+![img_4.png](../../../../images/dev_ops/github/git_repo8.png)
 
 ## Use Developer Token - (Recommended way)
 
@@ -38,13 +54,13 @@ Or if this is your own repo, then you can also use the developer token and save 
 
 Set your credentials to be stored.
 
-`git remote set-url origin https://<token>@github.com/username/repo.git`
+`git remote set-url origin https://<token>@github.com/your_username/your_repo.git`
 
 Use the token as the password when prompted.
 
 * Use SSH
 
-1/ Generate a public key and save it to the github ssh to allow the server to know your machine information. 
+Generate a public key and save it to the github ssh to allow the server to know your machine information. 
 
 `ssh-keygen -t rsa -b 4096 -C "your_email@example.com"`
 
@@ -68,12 +84,12 @@ Once you commit and push the changes, your github will build,
 
 1/ Click into one of your repo
 
-![git_repo1.png](git_repo1.png)
+![git_repo1.png](../../../../images/dev_ops/github/git_repo1.png)
 
 2/ Click on the Actions
 
-![git_repo2.png](git_repo2.png)
+![git_repo2.png](../../../../images/dev_ops/github/git_repo2.png)
 
 The green ones are the successfully built jobs.
 
-![git_repo3.png](git_repo3.png)
+![git_repo3.png](../../../../images/dev_ops/github/git_repo3.png)
