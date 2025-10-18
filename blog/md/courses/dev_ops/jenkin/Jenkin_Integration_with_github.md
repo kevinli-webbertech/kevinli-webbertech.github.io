@@ -4,34 +4,27 @@ In this tutorial, we use a Maven-based Java project from GitHub to go from frees
 
 # Step 1 Create a Jenkin Job Pipeline
 
-First screen,
+First screen, let us give a name called "pipeline_job", and click the "Pipeline" as an item type,
 
 ![jenkin_pipeline.png](../../../../images/dev_ops/jenkin/jenkin_pipeline.png)
 
-Next,
+Once it is created, click to enter into this job type. Please pay attention to the breadcrumb,
 
 ![jenkin_pipeline1.png](../../../../images/dev_ops/jenkin/jenkin_pipeline1.png)
 
-Next,
-
-![jenkin_pipeline2.png](../../../../images/dev_ops/jenkin/jenkin_pipeline2.png)
-
-Next,
-
-![jenkin_pipeline3.png](../../../../images/dev_ops/jenkin/jenkin_pipeline3.png)
-
-Next,
+Next, click on the "Build Now", and build a job,
 
 ![jenkin_pipeline4.png](../../../../images/dev_ops/jenkin/jenkin_pipeline4.png)
 
-Next,
+Next, click into the green job "#1", and click on "Console Output", this is the log.
+Normally, if you job failed, it will tell you the reason, there is no need to do `docker log container_id` to view what happened.
 
 ![jenkin_pipeline5.png](../../../../images/dev_ops/jenkin/jenkin_pipeline5.png)
 
 >Note: In Jenkins, a `Spring Boot Hello World` project was used as the base for creating a Pipeline job.
 >GitHub Repo: <https://github.com/spring-guides/gs-spring-boot>
 
-## Step 2 Create a Jenkinsfile
+## Step 2 Create a Git Repo
 
 * Create a Github Project (register a github account)
 
@@ -91,6 +84,48 @@ Then we could test this project is ok by running the following command,
 > `-DskipTest` is to avoid running test files, sometimes test could fail if we change the code and did not fix the related tests.
 > Also running tests would take more itme.
 
+## Create a Jenkinsfile
+
+Make sure your file layout looks like this,
+
+```commandline
+kevin@kevin-li:~/git/my-gs-spring-boot$ tree
+.
+├── build.gradle
+├── Dockerfile
+├── gradle
+│   └── wrapper
+│       ├── gradle-wrapper.jar
+│       └── gradle-wrapper.properties
+├── gradlew
+├── gradlew.bat
+├── Jenkinsfile
+├── mvnw
+├── mvnw.cmd
+├── pom.xml
+├── settings.gradle
+└── src
+    ├── main
+    │   └── java
+    │       └── com
+    │           └── example
+    │               └── springboot
+    │                   ├── Application.java
+    │                   └── HelloController.java
+    └── test
+        └── java
+            └── com
+                └── example
+                    └── springboot
+                        ├── HelloControllerITest.java
+                        └── HelloControllerTest.java
+
+14 directories, 15 files
+```
+
+>Note: You see Jenkinsfile there already, you need to create a file like this for jenkin software to execute on this script. 
+> Please follow the step below to create the Jenkinsfile. 
+
 * Create a Jenkinsfile below in your project layout.
 
 ```
@@ -144,7 +179,6 @@ pipeline {
             echo 'Build failed!'
         }
     }
-
 }
 ```
 
@@ -152,9 +186,24 @@ pipeline {
 > The #2 important thing is the maven version, and we will talk about that, and how to check that version in our installed Jenkin software in localhost8080.
 > It is discussed in the latter part of this tutorial.
 
-6/ Commit all the code to your remote git repo
+
+>Warning: The caveat here is that some people copy from my pdf or website to their code editor, and during this course, 
+> the single quote becomes backtick and it will be considered as a syntax issue and it would not be run. You will see error when you click on the "Console and Output" of the failed jobs.
+
+# Push your code to your Github Repo
+
+Now that, we have everything we need, 
+
+* An example Springboot project
+* An Jenkinsfile
+
+>We will need to learn git in detail in next module. But for now, let us try these commands to get familiarized.
+> Remember the key to learn new things, to start from scratch and do not try to learn everything.
+
+In this step, we will commit all the code to your remote git repo,
 
 Now use the following command to see what files needs to be committed to the git repo,
+The `red` color means the files are new, and not tracked by git, as least git does not know to commit them.
 
 `git status`
 
@@ -164,23 +213,34 @@ Then, we run the following commands to make sure we add all the files,
 
 `git add *`
 
+> "*" is a wildcards to say I want everything. If there is any hidden directory such as `.mvn` still in red, you might want to add those too.
+> explicitly like `git add .mvn`
+
 Next, run `git status` again, you will see these files turned green.
+
+> This means all the green files would be interested by me and I would like to add them to the git reo and push them later.
 
 And then do the following to commit these files,
 
 `git commit  -m "initial commit"`
+
+> Now, the `git commit ....` is really the command to let git to log to its record, and this commit will bundle all the files like in a batch job, and create a hash for it. 
 
 Then, push them to your remote repo by running the following commands,
 
 `git push`
 
 > For the first time, you would need to enter username and password, please use the login credential you use to login to the github.io. 
+> For more instruction on this, please refer to my link in the announcement and I will talk about it in the next session. 
 
-## Create a pipeline job
+## Integrate a pipeline job with Github Repo
+
+Now you have your repo in your Github server. Imagine this Github server is your company's server,
+You now want to build a job, build the Java Jar artifact from the Springboot project.
 
 ![pipeline_job.png](../../../../images/dev_ops/jenkin/pipeline_job.png)
 
-Put your github url there,
+Put your Github url there,
 
 Image 1,
 
