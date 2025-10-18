@@ -28,15 +28,15 @@ Normally, if you job failed, it will tell you the reason, there is no need to do
 
 * Create a Github Project (register a github account)
 
-1/ Click on the green `new` button,
+1/ **Click on the green `new` button**
 
 ![create_git_repo.png](../../../../images/dev_ops/jenkin/create_git_repo.png)
 
-2/ Create a new repo,
+2/ **Create a new repo**
 
 ![create_git_repo1.png](../../../../images/dev_ops/jenkin/create_git_repo1.png)
 
-3/ Checkout our new repo to local computer
+3/ **Checkout our new repo to local computer**
 
 Next screen provides the instructions to init and checkout your new repo to your local,
 
@@ -59,7 +59,7 @@ Receiving objects: 100% (1745/1745), 1.07 MiB | 4.54 MiB/s, done.
 Resolving deltas: 100% (1104/1104), done.
 ```
 
-5/ Copy the `Hello World` project to our own repo
+5/ **Copy the `Hello World` project to our own repo**
 
 Next, I use the following commands to copy them to my own repo, the new one I created on my own github repo. 
  
@@ -76,6 +76,8 @@ kevin@kevin-li:~/git/my-gs-spring-boot$ ls
 build.gradle  gradle  gradlew  gradlew.bat  mvnw  mvnw.cmd  pom.xml  settings.gradle  src
 ```
 
+6/ *Test the Java code is ok*
+
 Then we could test this project is ok by running the following command,
 
 `./mvnw clean package -DskipTests`
@@ -83,6 +85,8 @@ Then we could test this project is ok by running the following command,
 >Note: `clean` is to remove the `target` dir, and `package` is to rebuild and generate the /target and created the jar files in it.
 > `-DskipTest` is to avoid running test files, sometimes test could fail if we change the code and did not fix the related tests.
 > Also running tests would take more itme.
+
+> If you see error, please make sure you copy the `.mvn` dir in the above step.
 
 ## Create a Jenkinsfile
 
@@ -125,6 +129,8 @@ kevin@kevin-li:~/git/my-gs-spring-boot$ tree
 
 >Note: You see Jenkinsfile there already, you need to create a file like this for jenkin software to execute on this script. 
 > Please follow the step below to create the Jenkinsfile. 
+
+>Warning: Make sure you do not copy everything into this project layout, only everything inside the `complete` dir. *Everything* includes the `.mvn` directory. Please check the steps above for the `cp` commands part.
 
 * Create a Jenkinsfile below in your project layout.
 
@@ -185,7 +191,6 @@ pipeline {
 >Note: Here the most important thing in the Jenkinsfile above is the, of course, #1, the syntax, you can not have any syntax error.
 > The #2 important thing is the maven version, and we will talk about that, and how to check that version in our installed Jenkin software in localhost8080.
 > It is discussed in the latter part of this tutorial.
-
 
 >Warning: The caveat here is that some people copy from my pdf or website to their code editor, and during this course, 
 > the single quote becomes backtick and it will be considered as a syntax issue and it would not be run. You will see error when you click on the "Console and Output" of the failed jobs.
