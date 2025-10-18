@@ -1,6 +1,13 @@
-# Git
+# Git Introduction
 
 ## Intro to Git
+
+**Goal**
+
+* Installation of Git client
+* Checkout an opensource public repo
+* Create a branch
+* Add file and commit files
 
 ## Github or bitbucket
 
