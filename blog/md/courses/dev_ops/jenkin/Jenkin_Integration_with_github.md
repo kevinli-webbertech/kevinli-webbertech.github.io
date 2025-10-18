@@ -339,9 +339,11 @@ Normally the failed job would have some errors in it.
 
 ![jenkin_build_jar.png](../../../../images/dev_ops/jenkin/jenkin_build_jar.png)
 
-If your run job is `red` and failed, please click into it, and view the 
+If your run job is `red` and failed, please click into it, and view the 'Console and Output' of the failed Job.
 
-## Default Admin Password
+### Appendix 
+
+### Default Admin Password
 
 ![admin_login.png](../../../../images/dev_ops/jenkin/admin_login.png)
 
@@ -349,43 +351,54 @@ Retrieve the default admin password, if you lost or forgot the default hash stri
 
 ![admin_login_pwd.png](../../../../images/dev_ops/jenkin/admin_login_pwd.png)
 
-## Testing, Debugging & Final Pipeline
+## Troubleshooting
 
-Concentrated on incorporating automated testing into the pipeline on day three. There was already a JUnit-written test class in my Maven project. I modified the Jenkinsfile to execute `mvn test` and use the JUnit plugin to report the outcomes.
+**Q: Password is not right.**
 
-![Jenkinsfile](https://miro.medium.com/v2/resize:fit:1100/format:webp/1*WA-EZCYSJfyeN0YDNFNcpg.png)
+A: Make sure you did not install Jenkin using other ways, which is not this docker image solution.
+If you download the war file or install from installer the solution is different and you have to find the related resource for that password.
 
-![Jenkinsfile2](https://miro.medium.com/v2/resize:fit:1100/format:webp/1*q7PnUlyYrLEPGRtGvXR91g.png)
+For instance, some people would install from War, some installed from Windows installer and someone were using `homebrew` version, and they were
+configured or preconfigured differently. For instance, the default git, and maven installed inside of that Jenkin tools. You are liable for
+installing them separately which increase the complexity of this lab and scope. We would like to use the docker image for many reasons,
 
-Here is the test stage I added to my Jenkinsfile:
+* In reality, most companies use docker image and it is hassle-free.
+* No installation of JDK/JRE, GIT and Jenkin, no extra effort in doing some tedious work.
+* No compatibility issue. In opensource product, maintenance and cost of fixing compatibility issue is a non-neglectable issue.
+ This is probably the pros and cons. You paid for you get. Large corps would buy commercial support and enterprise versions for this reason.
+ However, numerous tiny companies are still using opensource.
+
+**Q: How to get password for Jenkin login of the default admin password?**
+
+A: Many solutions, 
+
+1/ Solution 1: if you mount the jenkins_home using `-v` option, please check or search around in the jenkin docker image page from docker.io or its own github repo readme file.
+Then the password file would be mounted in your host operating system. The details are skipped here.
+
+2/ Solution 2: you `cat` out the password file seen above in my document. If you saved it before and it does not work, then I would highly recommend you 
+cat it out one more time, just in case it got changed every time.
+
+3/ Solution 3: Delete the container and image, and rerun to fetch the image again, upon installation, it will spit out that password on the splash screen.
+
+**Q: How to see my container and preserved my work?**
+
+A: Normally you do not have to reinstall the Jenkin container/image, moreover, if you have configured a job pipeline, and maven configuration, you want to save it.
+And you want to poke around the features later in a day. This can still save you some minutes. What you can do with docker image is that, you can stop it before you close the lid of your computer.
+And you can restart the docker image, your settings should be preserved provided you saved them in Jenkins UI.
+
+The following commands will help you find the docker image. 
 
 ```commandline
-stage(‘Test’) {
-    steps {
-        sh ‘mvn test’
-    }
-    post {
-        always {
-            junit ‘target/surefire-reports/TEST-*.xml’
-        }
-    }
-}
+kevin@kevin-li:~/git/my-gs-spring-boot$ docker container ls
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+kevin@kevin-li:~/git/my-gs-spring-boot$ docker container ls -al
+CONTAINER ID   IMAGE                 COMMAND                  CREATED      STATUS                      PORTS     NAMES
+e78a71ef7079   jenkins/jenkins:lts   "/usr/bin/tini -- /u…"   3 days ago   Exited (143) 39 hours ago             nice_murdock
 ```
 
-After building the pipeline, the test results were collected and displayed under my Jenkins job.
 
-![Test results](https://miro.medium.com/v2/resize:fit:1100/format:webp/0*qUZ4fNd2kH_puksI)
 
-Explored test result locations, checked the contents of `target/surefire-reports`, and validated my XML and TXT outputs.
 
-Confirmed the JUnit plugin was properly installed:
 
-![Installed plugins](https://miro.medium.com/v2/resize:fit:1100/format:webp/0*jMIwJDM5GkxZlhQ1)
 
-Both test cases passed, and Jenkins displayed a green success badge.
 
-Also double-checked the status and artifacts for each pipeline build.
-
-![Build #11 status](https://miro.medium.com/v2/resize:fit:1100/format:webp/0*nqzS9s1xpn7KuQGu)
-
-We are now aware of the connections between builds, tests, artifacts, and outputs. Jenkins has a lot of capability, but learning pipelines and test reporting takes effort. It’s important to consider console output rather than visual tabs for everything. Have patience; most issues are the result of small naming or syntax mistakes.
