@@ -21,21 +21,20 @@ You can find some introduction here,
 
 ## Labs
 
-### Generate SSH private&public key
+### Generate SSH private&public key + Add the public key to the github server
 
-`ssh-keygen -t rsa -b 4096 -C "maciek.najbar+jenkins@gmail.com" # use your email for Jenkins GitHub account`
+See https://kevinli-webbertech.github.io/blog/md/courses/dev_ops/github/labs/Setup_SSH_KEY_GITHUB_lab2.pdf
 
-(Leave file name empty)
-
-(Don't set password, just leave empty) # Jenkins is a service, and it won't be able to enter passphrase when connecting to ssh
-
-### Create a Jenkin Repo
+### Create a Jenkin Job
 
 ![jenkin_repo.png](../../../../images/dev_ops/github/jenkin_repo.png)
 
 Next step is job configuration. Let’s set only General part. So, we need to set Jenkins to Discard old builds(experiment with your own values) and to Execute concurrent builds if necessary.
 
 ![jenkin_configuration.png](../../../../images/dev_ops/github/jenkin_configuration.png)
+
+
+### Continue job configuration
 
 >Note: remember the following,
 
@@ -44,37 +43,10 @@ Next step is job configuration. Let’s set only General part. So, we need to se
 61bace988c00479faead1029783c3780
 ```
 
-### Create GitHub repository
-
-Login to your daily GitHub account and create new private repository.
-
-![private_github_repo.png](../../../../images/dev_ops/github/private_github_repo.png)
-
-### Add ssh keys to Github
-
-![add_ssh_key.png](../../../../images/dev_ops/github/add_ssh_key.png)
-
-When generating SSH key for Jenkins user, two files were created (id_rsa and id_rsa.pub). One of them is public and the other is private. Public key goes to GitHub.
-
-```commandline
-whoami # make sure it says 'jenkins'
-cd /Users/Shared/Jenkins/.ssh/
-more id_rsa.pub
-(copy the entire output and paste to GitHub)
-```
-
-Let’s leave the private key for now. But let’s establish connection for Jenkins to GitHub server. We need to add GitHub to known hosts. Let’s do it by simply connecting to GitHub server.
-
-```
-whoami # make sure it says 'jenkins'
-ssh -T git@github.com
-(And yes, you're sure you want to continue)
-(Result should be a welcome message)
-```
-
-### Continue job configuration
+With the password you can login as "admin" to Jenkin dashboard.
 
 Let’s connect Jenkins job to our repository. In job configuration go to Source Code Management section and choose Git.
+
 
 ![git_credential.png](../../../../images/dev_ops/github/git_credential.png)
 
