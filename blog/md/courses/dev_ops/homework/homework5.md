@@ -25,3 +25,5 @@ Here is a breakdown of the grading,
 * Show that the final artifact jar is generated. (25 pts)
 
 * A nicely written report. (15 pts)
+
+You can find out more configuration regarding the Jenkin setup for private repo on my external course website as well.
