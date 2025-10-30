@@ -31,11 +31,11 @@ You can find some introduction here,
 
 ### Create a Jenkin Repo
 
-![jenkin_repo.png](../../../../../images/dev_ops/github/jenkin_repo.png)
+![jenkin_repo.png](../../../../images/dev_ops/github/jenkin_repo.png)
 
 Next step is job configuration. Let’s set only General part. So, we need to set Jenkins to Discard old builds(experiment with your own values) and to Execute concurrent builds if necessary.
 
-![jenkin_configuration.png](../../../../../images/dev_ops/github/jenkin_configuration.png)
+![jenkin_configuration.png](../../../../images/dev_ops/github/jenkin_configuration.png)
 
 >Note: remember the following,
 
@@ -48,11 +48,11 @@ Next step is job configuration. Let’s set only General part. So, we need to se
 
 Login to your daily GitHub account and create new private repository.
 
-![private_github_repo.png](../../../../../images/dev_ops/github/private_github_repo.png)
+![private_github_repo.png](../../../../images/dev_ops/github/private_github_repo.png)
 
 ### Add ssh keys to Github
 
-![add_ssh_key.png](../../../../../images/dev_ops/github/add_ssh_key.png)
+![add_ssh_key.png](../../../../images/dev_ops/github/add_ssh_key.png)
 
 When generating SSH key for Jenkins user, two files were created (id_rsa and id_rsa.pub). One of them is public and the other is private. Public key goes to GitHub.
 
@@ -76,7 +76,7 @@ ssh -T git@github.com
 
 Let’s connect Jenkins job to our repository. In job configuration go to Source Code Management section and choose Git.
 
-![git_credential.png](../../../../../images/dev_ops/github/git_credential.png)
+![git_credential.png](../../../../images/dev_ops/github/git_credential.png)
 
 In the picture you can see I have some credentials already, it’s because I created them in the previous picture. Click Add and you’ll see the same screen. Pick Kind: SSH Username with private key and type username and again, let’s go to terminal.
 
@@ -91,7 +91,7 @@ Go to Build Triggers and checkoff Poll SCM. Schedule it for every 15mins.
 
 `H/15 * * * *`
 
-![build_trigger.png](../../../../../images/dev_ops/github/build_trigger.png)
+![build_trigger.png](../../../../images/dev_ops/github/build_trigger.png)
 
 When you save here and run the build, it will pass. It will connect via SSH to your repository (and that’s basically all it will do).
 
