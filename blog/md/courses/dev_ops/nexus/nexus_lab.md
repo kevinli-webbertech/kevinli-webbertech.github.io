@@ -17,6 +17,24 @@ A repository (or repo) is like a folder where Nexus stores different types of so
 
 - Group Repositories – Combine multiple repos into one for easier access.
 
+**Example** 
+
+* https://mvnrepository.com/
+
+![maven.png](../../../../images/dev_ops/nexus/maven.png)
+
+For example, if I search `springboot` library, it is here,
+
+![maven1.png](../../../../images/dev_ops/nexus/maven1.png)
+
+Once you click in the first item, and it looks like this,
+
+![maven2.png](../../../../images/dev_ops/nexus/maven2.png)
+
+another image,
+
+![maven3.png](../../../../images/dev_ops/nexus/maven3.png)
+
 2. What Are Artifacts?
 
 An artifact is any file stored in Nexus—like a .jar (Java), .whl (Python), .tgz (npm), or .deb (Linux packages).
@@ -53,9 +71,9 @@ Nexus can also store Docker images, making it a private alternative to Docker Hu
 
 - And many more
 
-# Installation Guide
+## Installation Guide
 
-## Step 1: Update System and Install Docker
+### Step 1: Update System and Install Docker
 
 ![System update diagram](/blog/images/dev_ops/nexus/System_Update.PNG)
 
@@ -130,12 +148,11 @@ http://localhost:8081
 
 ## Step 5: Get the Admin Password
 
+Use the following command,
+
+`docker exec -it nexus cat /nexus-data/admin.password`
+
 ![Getting the admin password to log in](/blog/images/dev_ops/nexus/Admin_pass.PNG)
-
-
-### Commands Used
-
-- docker exec -it nexus cat /nexus-data/admin.password
 
 ### Commands Explained
 

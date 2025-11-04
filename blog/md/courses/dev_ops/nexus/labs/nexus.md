@@ -13,86 +13,22 @@ A version of Nexus Repository is still available for free as Sonatype Nexus Repo
 * It offers a robust platform for small development teams to manage their components. 
 * It includes modern capabilities, support for new formats like Hugging Face, Cargo (Rust), and Composer (PHP), and integration with PostgreSQL and Kubernetes. 
 
-## Key Concepts You Should Know
+## Installation Guide
 
-1. What is a Repository?
-
-A repository (or repo) is like a folder where Nexus stores different types of software:
-
-- Proxy Repositories – Cache files from public sources (e.g., Maven Central).
-
-- Hosted Repositories – Store your private/internal libraries.
-
-- Group Repositories – Combine multiple repos into one for easier access.
-
-**Example** 
-
-* https://mvnrepository.com/
-
-![maven.png](../../../../images/dev_ops/nexus/maven.png)
-
-For example, if I search `springboot` library, it is here,
-
-![maven1.png](../../../../images/dev_ops/nexus/maven1.png)
-
-Once you click in the first item, and it looks like this,
-
-![maven2.png](../../../../images/dev_ops/nexus/maven2.png)
-
-![maven3.png](../../../../images/dev_ops/nexus/maven3.png)
-
-2. What Are Artifacts?
-
-An artifact is any file stored in Nexus—like a .jar (Java), .whl (Python), .tgz (npm), or .deb (Linux packages).
-
-3. What is Docker’s Role Here?
-
-Nexus can also store Docker images, making it a private alternative to Docker Hub.
-
-## Why do you need Nexus?
-
-1. Dependency Management – Instead of downloading libraries directly from the internet every time (which can be slow and unreliable), Nexus stores them locally for faster, more reliable builds.
-
-2. Proxy & Caching – Nexus can act as a middleman between your team and public repositories (like Maven Central, npm, PyPI). It caches downloaded files so future requests are faster.
-
-3. Private Repositories – You can host your own internal libraries securely, ensuring only authorized users can access them.
-
-4. Build Consistency – By controlling which versions of dependencies are available, Nexus helps prevent unexpected breaks in your software.
-
-5. Security & Compliance – Nexus can scan for vulnerabilities in dependencies and enforce policies (e.g., blocking unsafe versions).
-
-## Types of Repositories inside of Nexus
-
-- Nexus supports multiple repository formats, including:
-
-- Maven (Java) – For JARs, WARs, and other Java artifacts.
-
-- npm (JavaScript) – For Node.js packages.
-
-- Docker – For container images.
-
-- PyPI (Python) – For Python packages.
-
-- Raw – For generic file storage (e.g., installers, scripts).
-
-- And many more
-
-# Installation Guide
-
-## Step 1: Update System and Install Docker
+### Step 1: Update System and Install Docker
 
 ![System update diagram](/blog/images/dev_ops/nexus/System_Update.PNG)
 
 ![Docker_Run](/blog/images/dev_ops/nexus/Docker_Run.PNG)
 
-### Commands Used:
+### Commands Used
 
 - sudo apt update
 - sudo apt install -y docker.io
 - sudo systemctl enable docker
 - sudo systemctl start docker
 
-### Commands Explained:
+### Commands Explained
 
 - (sudo apt install -y docker.io) installs Docker from the default Ubuntu repositories. -y automatically says "yes" to prompts.
 
@@ -100,16 +36,17 @@ Nexus can also store Docker images, making it a private alternative to Docker Hu
 
 - (sudo systemctl start docker) starts the Docker service right now so you can use it immediately.
 
-## Step 2: Add Your User to Docker Group (avoid sudo every time)
+### Step 2: Add Your User to Docker Group (avoid sudo every time)
 
 ![AddUser_Docker](/blog/images/dev_ops/nexus/AddUser_Docker.PNG)
 
-### Commands Used:
+### Commands Used
 
 - sudo usermod -aG docker $USER
 - newgrp docker 
 
-### Commands Explained:
+### Commands Explained
+
 - (sudo usermod -aG docker $USER) adds your user to the docker group so you can run Docker commands without sudo.
 
 - (newgrp docker) applies the group change in your current terminal session immediately. Otherwise, you'd have to log out and back in.
@@ -118,15 +55,17 @@ Nexus can also store Docker images, making it a private alternative to Docker Hu
 
 ![Running Nexus](/blog/images/dev_ops/nexus/Running_Nexus.PNG)
 
-### Commands Used:
+### Commands Used
 
-- docker run -d -p 8081:8081 --name nexus \
+```
+docker run -d -p 8081:8081 --name nexus \
   -v nexus-data:/nexus-data \
   sonatype/nexus3
+```
 
 (This runs Nexus in a container and stores data in a persistent Docker volume nexus-data)
 
-### Commands Explained:
+### Commands Explained
 
 - docker run: Tells Docker to start a new container.
 
@@ -155,7 +94,7 @@ http://localhost:8081
 
 ### Commands Used:
 
-- docker exec -it nexus cat /nexus-data/admin.password
+`docker exec -it nexus cat /nexus-data/admin.password`
 
 ### Commands Explained:
 
