@@ -100,7 +100,6 @@ Run docker,
 
 ![Adding user to the Docker Group to avoid sudo](/blog/images/dev_ops/nexus/AddUser_Docker.PNG)
 
-
 ### Commands Used
 
 - sudo usermod -aG docker $USER
@@ -117,7 +116,7 @@ Run docker,
 ![Running Nexus](/blog/images/dev_ops/nexus/Running_Nexus.PNG)
 
 ```
-- docker run -d -p 8081:8081 --name nexus \
+docker run -d -p 8081:8081 --name nexus \
   -v nexus-data:/nexus-data \
   sonatype/nexus3
 ```
