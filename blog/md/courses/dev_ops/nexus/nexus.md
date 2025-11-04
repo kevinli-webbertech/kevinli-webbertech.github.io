@@ -7,7 +7,6 @@ Think of it as a "library" for your software components—whether they are Java 
 
 A version of Nexus Repository is still available for free as Sonatype Nexus Repository Community Edition, which is the successor to the previous Nexus OSS offering. It is designed for individual developers and small teams to manage components effectively. For larger deployments or more advanced features like high availability and SAML/SSO, you will need to upgrade to the paid Sonatype Nexus Repository Pro edition.  
 
-
 ### **What is Sonatype Nexus Repository Community Edition?**
 
 * It is the free, community-focused version of Sonatype Nexus Repository. 
@@ -30,17 +29,17 @@ A repository (or repo) is like a folder where Nexus stores different types of so
 
 * https://mvnrepository.com/
 
-![maven.png](maven.png)
+![maven.png](../../../../images/dev_ops/nexus/maven.png)
 
 For example, if I search `springboot` library, it is here,
 
-![maven1.png](maven1.png)
+![maven1.png](../../../../images/dev_ops/nexus/maven1.png)
 
 Once you click in the first item, and it looks like this,
 
-![img.png](img.png)
+![maven2.png](../../../../images/dev_ops/nexus/maven2.png)
 
-![img_1.png](img_1.png)
+![maven3.png](../../../../images/dev_ops/nexus/maven3.png)
 
 2. What Are Artifacts?
 
@@ -84,12 +83,7 @@ Nexus can also store Docker images, making it a private alternative to Docker Hu
 
 ![System update diagram](/blog/images/dev_ops/nexus/System_Update.PNG)
 
-
-![Downloading docker](/blog/images/dev_ops/nexus/Docker_Installation.PNG)
-
-
-![Enabling and running Docker](/blog/images/dev_ops/nexus/Docker_Run.PNG)
-
+![Docker_Run](/blog/images/dev_ops/nexus/Docker_Run.PNG)
 
 ### Commands Used:
 
@@ -99,6 +93,7 @@ Nexus can also store Docker images, making it a private alternative to Docker Hu
 - sudo systemctl start docker
 
 ### Commands Explained:
+
 - (sudo apt install -y docker.io) installs Docker from the default Ubuntu repositories. -y automatically says "yes" to prompts.
 
 - (sudo systemctl enable docker) configures Docker to start automatically at boot.
@@ -107,8 +102,7 @@ Nexus can also store Docker images, making it a private alternative to Docker Hu
 
 ## Step 2: Add Your User to Docker Group (avoid sudo every time)
 
-![Adding user to the Docker Group to avoid sudo](/blog/images/dev_ops/nexus/AddUser_Docker.PNG)
-
+![AddUser_Docker](/blog/images/dev_ops/nexus/AddUser_Docker.PNG)
 
 ### Commands Used:
 
@@ -123,7 +117,6 @@ Nexus can also store Docker images, making it a private alternative to Docker Hu
 ## Step 3: Run Nexus Container
 
 ![Running Nexus](/blog/images/dev_ops/nexus/Running_Nexus.PNG)
-
 
 ### Commands Used:
 
@@ -149,11 +142,11 @@ Nexus can also store Docker images, making it a private alternative to Docker Hu
 
 ## Step 4: Access Nexus Web UI
 
-Open a browser and go to :
+Open a browser and go to:
+
 http://localhost:8081
 
 ![Accessing the Nexus Website](/blog/images/dev_ops/nexus/Nexus_LocalHost.PNG)
-
 
 ## Step 5: Get the Admin Password
 
@@ -165,6 +158,7 @@ http://localhost:8081
 - docker exec -it nexus cat /nexus-data/admin.password
 
 ### Commands Explained:
+
 - docker exec: Runs a command inside a running container.
 
 - -it: Interactive + TTY, lets you interact as if in a terminal.
@@ -177,15 +171,15 @@ http://localhost:8081
 
 ![Logging in](/blog/images/dev_ops/nexus/Logging_In.PNG)
 
-
-### Remember:
+### Remember
 
 - Username: admin
 - Password: (paste the value you got from the step above)
 
 You'll be prompted to change the password after you log in.
 
-![What's inside of Nexus repository after log in](/blog/images/dev_ops/nexus/Nexus_after_login.PNG)
+![Nexus_after_login](/blog/images/dev_ops/nexus/Nexus_after_login.PNG)
 
+Next, you will see the login like the following,
 
-![What's inside of Nexus repository after log in # 2](/blog/images/dev_ops/nexus/Nexus_after_login2.PNG)
+![Nexus_after_login2](/blog/images/dev_ops/nexus/Nexus_after_login2.PNG)

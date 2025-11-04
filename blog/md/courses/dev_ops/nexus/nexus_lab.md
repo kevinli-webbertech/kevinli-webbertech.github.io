@@ -6,7 +6,9 @@ Nexus Repository Manager (often just called Nexus) is a powerful tool that helps
 Think of it as a "library" for your software components—whether they are Java JAR files, Python packages, Docker images, npm modules, or any other type of build dependency.
 
 ## Key Concepts You Should Know
+
 1. What is a Repository?
+
 A repository (or repo) is like a folder where Nexus stores different types of software:
 
 - Proxy Repositories – Cache files from public sources (e.g., Maven Central).
@@ -16,9 +18,11 @@ A repository (or repo) is like a folder where Nexus stores different types of so
 - Group Repositories – Combine multiple repos into one for easier access.
 
 2. What Are Artifacts?
+
 An artifact is any file stored in Nexus—like a .jar (Java), .whl (Python), .tgz (npm), or .deb (Linux packages).
 
 3. What is Docker’s Role Here?
+
 Nexus can also store Docker images, making it a private alternative to Docker Hub.
 
 ## Why do you need Nexus?
@@ -55,21 +59,19 @@ Nexus can also store Docker images, making it a private alternative to Docker Hu
 
 ![System update diagram](/blog/images/dev_ops/nexus/System_Update.PNG)
 
-
-![Downloading docker](/blog/images/dev_ops/nexus/Docker_Installation.PNG)
-
+Run docker,
 
 ![Enabling and running Docker](/blog/images/dev_ops/nexus/Docker_Run.PNG)
 
-
-### Commands Used:
+### Commands Used
 
 - sudo apt update
 - sudo apt install -y docker.io
 - sudo systemctl enable docker
 - sudo systemctl start docker
 
-### Commands Explained:
+### Commands Explained
+
 - (sudo apt install -y docker.io) installs Docker from the default Ubuntu repositories. -y automatically says "yes" to prompts.
 
 - (sudo systemctl enable docker) configures Docker to start automatically at boot.
@@ -81,12 +83,13 @@ Nexus can also store Docker images, making it a private alternative to Docker Hu
 ![Adding user to the Docker Group to avoid sudo](/blog/images/dev_ops/nexus/AddUser_Docker.PNG)
 
 
-### Commands Used:
+### Commands Used
 
 - sudo usermod -aG docker $USER
 - newgrp docker 
 
-### Commands Explained:
+### Commands Explained
+
 - (sudo usermod -aG docker $USER) adds your user to the docker group so you can run Docker commands without sudo.
 
 - (newgrp docker) applies the group change in your current terminal session immediately. Otherwise, you'd have to log out and back in.
@@ -95,16 +98,16 @@ Nexus can also store Docker images, making it a private alternative to Docker Hu
 
 ![Running Nexus](/blog/images/dev_ops/nexus/Running_Nexus.PNG)
 
-
-### Commands Used:
-
+```
 - docker run -d -p 8081:8081 --name nexus \
   -v nexus-data:/nexus-data \
   sonatype/nexus3
+```
 
 (This runs Nexus in a container and stores data in a persistent Docker volume nexus-data)
 
-### Commands Explained:
+### Commands Explained
+
 - docker run: Tells Docker to start a new container.
 
 - -d: Detached mode — runs in the background.
@@ -119,22 +122,23 @@ Nexus can also store Docker images, making it a private alternative to Docker Hu
 
 ## Step 4: Access Nexus Web UI
 
-Open a browser and go to :
+Open a browser and go to,
+
 http://localhost:8081
 
 ![Accessing the Nexus Website](/blog/images/dev_ops/nexus/Nexus_LocalHost.PNG)
-
 
 ## Step 5: Get the Admin Password
 
 ![Getting the admin password to log in](/blog/images/dev_ops/nexus/Admin_pass.PNG)
 
 
-### Commands Used:
+### Commands Used
 
 - docker exec -it nexus cat /nexus-data/admin.password
 
-### Commands Explained:
+### Commands Explained
+
 - docker exec: Runs a command inside a running container.
 
 - -it: Interactive + TTY, lets you interact as if in a terminal.
@@ -147,8 +151,7 @@ http://localhost:8081
 
 ![Logging in](/blog/images/dev_ops/nexus/Logging_In.PNG)
 
-
-### Remember:
+### Remember
 
 - Username: admin
 - Password: (paste the value you got from the step above)
@@ -156,6 +159,5 @@ http://localhost:8081
 You'll be prompted to change the password after you log in.
 
 ![What's inside of Nexus repository after log in](/blog/images/dev_ops/nexus/Nexus_after_login.PNG)
-
 
 ![What's inside of Nexus repository after log in # 2](/blog/images/dev_ops/nexus/Nexus_after_login2.PNG)

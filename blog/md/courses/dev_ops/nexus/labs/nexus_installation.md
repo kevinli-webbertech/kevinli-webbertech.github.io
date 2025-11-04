@@ -8,7 +8,7 @@
 
 - sudo apt update
 
-![installation_linux](../../../../images/dev_ops/nexus/installation_linux.PNG)
+![installation_linux](../../../../../images/dev_ops/nexus/installation_linux.PNG)
 
 - sudo apt install -y docker.io
 
@@ -17,7 +17,7 @@
 - sudo systemctl enable docker
 - sudo systemctl start docker
 
-![enable_docker](../../../../images/dev_ops/nexus/enable_docker.PNG)
+![enable_docker](../../../../../images/dev_ops/nexus/enable_docker.PNG)
 
 ### Commands Explained:
 
@@ -35,7 +35,7 @@
 newgrp docker 
 ```
 
-![docker_config](../../../../images/dev_ops/nexus/docker_config.PNG)
+![docker_config](../../../../../images/dev_ops/nexus/docker_config.PNG)
 
 ### Commands Explained:
 
@@ -45,7 +45,7 @@ newgrp docker
 
 ## Step 3: Run Nexus Container
 
-![start_container](../../../../images/dev_ops/nexus/start_container.PNG)
+![start_container](../../../../../images/dev_ops/nexus/start_container.PNG)
 
 ### Commands Used:
 
@@ -58,6 +58,7 @@ docker run -d -p 8081:8081 --name nexus \
 (This runs Nexus in a container and stores data in a persistent Docker volume nexus-data)
 
 ### Commands Explained:
+
 - docker run: Tells Docker to start a new container.
 
 - -d: Detached mode — runs in the background.
@@ -76,11 +77,11 @@ Open a browser and go to :
 
 `http://localhost:8081`
 
-![web_ui](../../../../images/dev_ops/nexus/web_ui.PNG)
+![web_ui](../../../../../images/dev_ops/nexus/web_ui.PNG)
 
 ## Step 5: Get the Admin Password
 
-![pwd](../../../../images/dev_ops/nexus/pwd.PNG)
+![pwd](../../../../../images/dev_ops/nexus/pwd.PNG)
 
 ### Commands Used:
 
@@ -98,7 +99,7 @@ Open a browser and go to :
 
 ## Step 6: Log In to Nexus UI
 
-![login](../../../../images/dev_ops/nexus/login.PNG)
+![login](../../../../../images/dev_ops/nexus/login.PNG)
 
 ### Remember:
 
@@ -107,6 +108,6 @@ Open a browser and go to :
 
 You'll be prompted to change the password after you log in.
 
-![web_ui2](../../../../images/dev_ops/nexus/web_ui2.PNG)
+![web_ui2](../../../../../images/dev_ops/nexus/web_ui2.PNG)
 
-![web_ui3](../../../../images/dev_ops/nexus/web_ui3.PNG)
+![web_ui3](../../../../../images/dev_ops/nexus/web_ui3.PNG)
