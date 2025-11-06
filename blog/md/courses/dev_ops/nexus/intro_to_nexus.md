@@ -165,7 +165,13 @@ Use the following command,
 
 ## Step 6: Log In to Nexus UI
 
-![Logging in](/blog/images/dev_ops/nexus/Logging_In.PNG)
+Click the top right corner of your avatar,
+
+![nexus_login1.png](../../../../images/dev_ops/Nexus/nexus_login1.png)
+
+Then the username of "admin" and its password to login,
+
+![Logging in](../../../../images/dev_ops/Nexus/Logging_In.PNG)
 
 ### Remember
 
@@ -175,5 +181,7 @@ Use the following command,
 You'll be prompted to change the password after you log in.
 
 ![What's inside of Nexus repository after log in](/blog/images/dev_ops/nexus/Nexus_after_login.PNG)
+
+Then click browse, and you will see the following,
 
 ![What's inside of Nexus repository after log in # 2](/blog/images/dev_ops/nexus/Nexus_after_login2.PNG)
