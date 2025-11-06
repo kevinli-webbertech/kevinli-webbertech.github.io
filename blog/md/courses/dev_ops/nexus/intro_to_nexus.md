@@ -185,3 +185,15 @@ You'll be prompted to change the password after you log in.
 Then click browse, and you will see the following,
 
 ![What's inside of Nexus repository after log in # 2](/blog/images/dev_ops/nexus/Nexus_after_login2.PNG)
+
+## Debugging
+
+If your container failed to start and you would like to see what errors cause it to fail, you can use the following commands,
+
+`bash-3.2$ docker logs -f 6af3de7472b622697ad5eed291d398f0db3dfaf0be0b018ce2bfd2c46c89008d`
+
+![Logging in](../../../../images/dev_ops/Nexus/nexus_debugging.PNG)
+
+*Explanation:*
+
+The hash above is the container id.
