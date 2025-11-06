@@ -167,11 +167,11 @@ Use the following command,
 
 Click the top right corner of your avatar,
 
-![nexus_login1.png](/blog/images/dev_ops/Nexus/nexus_login1.png)
+![nexus_login1.png](/blog/images/dev_ops/nexus/nexus_login1.png)
 
 Then the username of "admin" and its password to login,
 
-![Logging in](/blog/images/dev_ops/Nexus/Logging_In.PNG)
+![Logging in](/blog/images/dev_ops/nexus/Logging_In.PNG)
 
 ### Remember
 
@@ -192,7 +192,7 @@ If your container failed to start and you would like to see what errors cause it
 
 `bash-3.2$ docker logs -f 6af3de7472b622697ad5eed291d398f0db3dfaf0be0b018ce2bfd2c46c89008d`
 
-![Logging in](/blog/images/dev_ops/Nexus/nexus_debugging.PNG)
+![Logging in](/blog/images/dev_ops/nexus/nexus_debugging.PNG)
 
 *Explanation:*
 
