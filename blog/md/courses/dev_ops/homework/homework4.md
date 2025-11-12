@@ -1,4 +1,4 @@
-# HW4 Jenkin + Github
+# HW4 Jenkin + Github Public Repo
 
 Please include the original questions in your homework report. Please check out of syllabus for details or you will lose points.
 
@@ -10,7 +10,7 @@ Please prove that your Jenkin instance is running successfully inside of a conta
 
 2. Jenkin Integration with Github. (25 pts)
 
-* Prepare a nodejs project and commit to your github.
+* Prepare a nodejs project and commit to your github as a public-access repo,
 
 https://medium.com/@mudasirhaji/complete-step-by-step-jenkins-cicd-with-github-integration-aae3961b6e33
 

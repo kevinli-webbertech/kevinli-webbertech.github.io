@@ -1,0 +1,20 @@
+# HW6 Jenkin + Github Public Repo + Nexus Integration
+
+Requirements:
+
+* Please include original questions in your word/pdf report. Fail to do so you will lose 10 pts.
+* Please provide necessary screenshots, explanations/descriptions of what it does and the Jenkinfile full source in your report. 
+
+1. Nexus Dockerized Installation. (25 pts)
+
+> Note: You could use the dockerized nexus that we used in the previous lab.s  
+
+2. Nexus Configuration to push the Springboot jar artifact built from Jenkin (25 pts)
+
+* Use the Springboot helloword example project from the following lab,
+
+https://kevinli-webbertech.github.io/blog/html/courses/dev_ops/jenkin/Jenkin_Integration_with_github.html
+
+> Note: We could just use a github public repo and let Jenkin build the jar.
+
+3. Provide and modify your original Jenkinfile to push the jar to the local nexus server. (50 pts)
