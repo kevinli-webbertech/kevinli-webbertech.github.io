@@ -146,10 +146,3 @@
   - Immutable containers (no SSH inside pods).  
 
 ---
-
-### **What Would You Like to Explore Next?**  
-- Hands-on example (e.g., deploying a sample app)?  
-- Deep dive into a specific topic (e.g., networking, security)?  
-- Troubleshooting guide (e.g., `kubectl` debug commands)?  
-
-Let me know! 🚀

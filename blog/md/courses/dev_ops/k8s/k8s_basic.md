@@ -4,22 +4,6 @@
 
 A Kubernetes cluster can be deployed on either physical or virtual machines. To get started with Kubernetes development, you can use Minikube.
 
-## kubectl
-
-- `curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"`
-
-- `echo "$(cat kubectl.sha256) kubectl" | sha256sum --check`
-- `sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl`
-
-  Note:
-  If you do not have root access on the target system, you can still install kubectl to the ~/.local/bin directory:
-
-- `chmod +x kubectl`
-- `mkdir -p ~/.local/bin`
-- `mv ./kubectl ~/.local/bin/kubectl`
-
-#### and then append (or prepend) ~/.local/bin to $PATH
-
 ## Minikube
 
 In this tutorial we will use command line k8s tool `minikube`. Minikube is a lightweight Kubernetes implementation that creates a VM on your local machine and deploys a simple cluster containing only one node. Minikube is available for Linux, macOS, and Windows systems. The Minikube CLI provides basic bootstrapping operations for working with your cluster, including start, stop, status, and delete.
@@ -36,16 +20,27 @@ What you’ll need
 - Internet connection
 - Container or virtual machine manager, such as: Docker, QEMU, Hyperkit, Hyper-V, KVM, Parallels, Podman, VirtualBox, or VMware Fusion/Workstation
 
-## Goal of Study in this article
+## Minikube Installation
 
-![study_modules](../../../../images/dev_ops/k8s/study_modules.png)
+Minikube is the K8s server managing software and it manages the cluster.
 
-## Installation
+Here is the website for installing the `minikube`.
+
+https://minikube.sigs.k8s.io/docs/start/?arch=%2Flinux%2Fx86-64%2Fstable%2Fbinary+download
+
+For instance, for linux/unix machine, we can do something similar to the following,
 
 ```shell
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
 ```
+
+But we highly recommend you use the link above for the most up2date instruction.
+
+
+## Goal of Study in this article
+
+![study_modules](../../../../images/dev_ops/k8s/study_modules.png)
 
 ## Start the server
 
