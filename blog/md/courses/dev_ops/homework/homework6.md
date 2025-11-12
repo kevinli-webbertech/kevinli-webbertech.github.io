@@ -9,7 +9,7 @@ Requirements:
 
 > Note: You could use the dockerized nexus that we used in the previous lab.s  
 
-2. Nexus Configuration to push the Springboot jar artifact built from Jenkin (25 pts)
+2. Jenkin Configuration to push the Springboot jar artifact built from Jenkin (25 pts)
 
 * Use the Springboot helloword example project from the following lab,
 
