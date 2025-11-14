@@ -1,29 +1,79 @@
-# Lab 3 
+# Lab 1 Deploy an app and use 
 
-Goal: **Portforwarding**
+## Step 1: Create a Deployment
 
-## Create a sample deployment and expose it on port 8080:
+A **Deployment** in Kubernetes ensures that a specified number of pod replicas are running at all times.
 
-```
-kubectl create deployment hello-minikube --image=kicbase/echo-server:1.0
-kubectl expose deployment hello-minikube --type=NodePort --port=8080
-```
+Use the following command to deploy a simple Node.js web application using the `kubectl` CLI:
 
-It may take a moment, but your deployment will soon show up when you run:
 
-`kubectl get services hello-minikube`
+- `kubectl create deployment hello-node --image=k8s.gcr.io/echoserver:1.4`
 
-The easiest way to access this service is to let minikube launch a web browser for you:
+This creates a Deployment named hello-node using the Docker image echoserver:1.4.
 
-`minikube service hello-minikube`
+## Step 2: View the Deployment
 
->Note: At this point you would see a random port in the outside exposure.
+Check the status of your deployment:
 
-Alternatively, use kubectl to forward the port:
+- `kubectl get deployments`
 
-`kubectl port-forward service/hello-minikube 7080:8080`
+You should see output showing your deployment and the number of replicas.
 
->Note: Your application is now available at http://localhost:7080/.
-> Now the port is a fixed port since this ia service so we need a fixed port that we could open it in the firewall.
+## Step 3: View the Pod
 
-You should be able to see the request metadata in the application output. Try changing the path of the request and observe the changes. Similarly, you can do a POST request and observe the body show up in the output.
+Check the pods created by the Deployment:
+
+- `kubectl get pods`
+
+This command displays the pods that are running as part of your hello-node deployment.
+
+## Step 4: Expose the Deployment
+
+Expose the deployment as a Kubernetes Service so that it can be accessed externally:
+
+- `kubectl expose deployment hello-node --type=LoadBalancer --port=8080`
+
+This command creates a Service of type LoadBalancer and maps it to port 8080 of the deployment.
+
+If you are using **Minikube**, use the following command to open the service in your default browser:
+
+- `minikube service hello-node`
+
+This will return a URL where you can access the application locally.
+
+## Step 5: View the Application
+
+To verify that your application is running, you can access it in a browser or use a command-line tool.
+
+If you are using **Minikube**, run:
+
+- `minikube service hello-node`
+
+This will open the service URL in your browser and display the response from the echo server.
+
+Alternatively, you can use `curl` to send a request to the application:
+
+- `curl $(minikube service hello-node --url)`
+
+This will output the HTTP headers returned by the application, confirming that it is running correctly.
+
+## Step 6: Scale the Application
+
+You can scale your application by increasing the number of pod replicas in the deployment.
+
+Scaling is useful for improving availability and handling more user traffic. Running multiple replicas ensures that if one pod fails, others can continue to serve requests.
+
+To scale the deployment to 4 replicas, run:
+
+- `kubectl scale deployment hello-node --replicas=4`
+
+To confirm that the new pods are running, use:
+
+- `kubectl get pods`
+
+You should see four pods listed, all managed by the same deployment.
+
+
+## Ref
+
+- https://kubernetes.io/docs/tutorials/kubernetes-basics/deploy-app/deploy-intro/

@@ -1,5 +1,7 @@
 # Lab 2 Helloworld Example using Load Balancer
 
+Goal: **Loadbalancer with yaml configuration file**
+
 ## Create a load-balancer-example.yaml
 
 service/load-balancer-example.yaml
