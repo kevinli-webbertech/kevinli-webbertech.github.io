@@ -37,6 +37,15 @@ sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-a
 
 But we highly recommend you use the link above for the most up2date instruction.
 
+## kubectl Installation
+
+kubectl is actually the tool to do the deployment and manage the pods.
+
+Here are some links to install it for different platforms,
+
+* https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/ (linux)
+* https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/ (mac)
+* https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/ (windows)
 
 ## Goal of Study in this article
 
