@@ -2,7 +2,6 @@
 
 # K8s Local setup script
 
-
 function cleanup() {
   kubectl delete configmap postgres-secret
   kubectl delete deployment postgres
@@ -12,11 +11,11 @@ function cleanup() {
 }
 
 function create_config() {
-  kubectl apply -f ./postgresql_k8s_configuration/postgres-configmap.yaml
-  kubectl apply -f ./postgresql_k8s_configuration/psql-pv.yaml
-  kubectl apply -f ./postgresql_k8s_configuration/psql-claim.yaml
-  kubectl apply -f ./postgresql_k8s_configuration/ps-deployment.yaml
-  kubectl apply -f ./postgresql_k8s_configuration/ps-service.yaml
+  kubectl apply -f ./postgres-configmap.yaml
+  kubectl apply -f ./psql-pv.yaml
+  kubectl apply -f ./psql-claim.yaml
+  kubectl apply -f ./ps-deployment.yaml
+  kubectl apply -f ./ps-service.yaml
 }
 
 function monitor() {
