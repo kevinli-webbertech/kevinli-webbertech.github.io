@@ -2,7 +2,7 @@
 
 *Requirements:*
 
-* Provide a reports in word/pdf format with all the screenshots of each step.
+* Provide a report in word/pdf format with all the screenshots of each step.
   Please do not use my images but use your own one.
 
 * Follow the following links, 4 labs in total, each 25 pts.
