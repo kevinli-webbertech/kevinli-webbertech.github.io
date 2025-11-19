@@ -28,9 +28,6 @@ The followings are the books I will be using for my teaching contents.
 
 Note: You could find the free textbooks online or from online or textbook rentals
 
-
-
-
 ## Course Schedule
 
 | Week    | Course                           |
