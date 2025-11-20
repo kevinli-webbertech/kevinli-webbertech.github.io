@@ -7,7 +7,12 @@ def get_current_dir():
     return os.path.dirname(os.path.realpath(__file__))
 
 def get_md_path():
-    return sys.argv[1]
+    path = sys.argv[1]
+    if not sys.argv[1].endswith("/"):
+        path = sys.argv[1] + "/"
+    #print("debug in get_md_path:" + path)
+    return path
+
 
 def get_html_path():
     md_path = get_md_path()
@@ -65,7 +70,8 @@ def create_html_files(md_files):
         # replace string .md file in the html file
         with open(html_file, "r") as f:
             dir_depth = html_file.count("/")
-            relative_md_file_path = '../' * dir_depth+get_md_path()+mdFile
+
+            relative_md_file_path = '../' * dir_depth + get_md_path() + mdFile
             print("replacing template md file in the html source using the following path.")
             print(relative_md_file_path)
             new_text = f.read().replace("../md/file.md", relative_md_file_path)
