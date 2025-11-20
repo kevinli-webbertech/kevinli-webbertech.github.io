@@ -19,7 +19,9 @@ The easiest way to access this service is to let minikube launch a web browser f
 
 >Note: At this point you would see a random port in the outside exposure.
 
-Alternatively, use kubectl to forward the port:
+## Use kubectl to forward the port
+
+We forward to a fixed port so that we could control the port in the firewall and we could use this service with a predictable port.
 
 `kubectl port-forward service/hello-minikube 7080:8080`
 
