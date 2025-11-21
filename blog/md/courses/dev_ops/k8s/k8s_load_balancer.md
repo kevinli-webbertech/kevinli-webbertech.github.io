@@ -1,6 +1,6 @@
 # K8S Load Balancer
 
-* Goal
+## Goal
 
 * This is a built-in load balancer and we specify it in the `kubectl expose type`.
 * Understand ports, nodePort and targetPort. Sometimes there is a `containerPort`.
