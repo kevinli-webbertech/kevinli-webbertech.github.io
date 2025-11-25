@@ -43,11 +43,6 @@ https://kevinli-webbertech.github.io/blog/html/ref/machine_learning/keras/keras_
 https://kevinli-webbertech.github.io/blog/html/ref/machine_learning/keras/keras_Pre-TrainedModels.html, status_code: 200
 https://kevinli-webbertech.github.io/blog/html/courses_list.html, status_code: 200
 https://kevinli-webbertech.github.io/index.html, status_code: 200
-https://kevinli-webbertech.github.io/indicator.html, status_code: 200
-https://kevinli-webbertech.github.io/news.html, status_code: 200
-https://kevinli-webbertech.github.io/philosophy.html, status_code: 200
-https://kevinli-webbertech.github.io/blog.html, status_code: 200
-https://kevinli-webbertech.github.io/about_me.html, status_code: 200
 ==============Printing Broken Links======================
 https://kevinli-webbertech.github.io/blog/html/courses/data_visualization/mathplotlib/homework/homework2.html
 https://kevinli-webbertech.github.io/blog/html/courses/computer_architecture/quantum.html
