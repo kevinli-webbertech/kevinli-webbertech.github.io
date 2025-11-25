@@ -1,5 +1,9 @@
-# Linux Firewall Ref
+# Linux Firewall
 
+## Goal
+
+* low-level: iptables
+* high-level: ufw
 
 ## iptables
 
