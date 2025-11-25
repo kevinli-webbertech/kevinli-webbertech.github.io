@@ -6,9 +6,9 @@ A **Deployment** in Kubernetes ensures that a specified number of pod replicas a
 
 Use the following command to deploy a simple Node.js web application using the `kubectl` CLI:
 
-- `kubectl create deployment hello-node --image=k8s.gcr.io/echoserver:1.0`
+- `kubectl create deployment hello-node --image=kicbase/echo-server:1.0`
 
-This creates a Deployment named hello-node using the Docker image echoserver:1.4.
+This creates a Deployment named hello-node using the previous docker image.
 
 ## Step 2: View the Deployment
 
