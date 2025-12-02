@@ -1,7 +1,6 @@
 # Linux Tools Ref
 
-In my example, I mostly use ubuntu 22 LTS when I wrote this article.
-What have been covered in this articles are:
+In my example, I mostly use ubuntu LTS when I wrote this article. What have been covered in the article are:
 
 * Samba server
 * SSH server

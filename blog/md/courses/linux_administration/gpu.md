@@ -1,7 +1,7 @@
 # GPU Usage
 
-* This document shows Nvdia RTX 3600 in ubuntu 22.
-* The HDMI was connected to NVidia RTX,
+* This document shows Nvdia GeForce RTX 3060 in ubuntu 24
+* The HDMI was connected to NVidia RTX
 
 ## Commands
 
