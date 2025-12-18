@@ -2,7 +2,7 @@
 
 ## Overview
 
-* build binrary using gcc
+* build binary using gcc
 * link external library using gcc
 * create a static library in linux
 * create a dynamic library in linux

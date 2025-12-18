@@ -284,8 +284,7 @@ After you succesfully run the app, you will see something like this,
 
 After we run it, we can test the API is actually working. There are many ways it,
 
-* Use web browser,
-![http_browser_test.png](images/http_browser_test.png)
+* Use web browser, open localhost:8080
 
 * Use Postman
 [skipped]
@@ -302,7 +301,9 @@ The next command is a http get,
 
 ```shell
 xiaofengli@xiaofenglx:~/git/Webbertech_CMS/out/production/Webbertech_CMS$ curl http://localhost:8080/demo/all
-  [{"id":1,"name":"First","email":"someemail@someemailprovider.com"},{"id":2,"name":"Firstxx","email":"someemail@someemailprovider.com"},{"id":3,"name":"Firstxx","email":"someemail@someemailprovider.com"}]xiaofengli@xiaofenglx:~/git/Webbertech_CMS/out/production/Webbertech_CMS$
+  [{"id":1,"name":"First","email":"someemail@someemailprovider.com"},{"id":2,"name":"Firstxx","email":"someemail@someemailprovider.com"},{"id":3,"name":"Firstxx","email":"someemail@someemailprovider.com"}]
+  
+xiaofengli@xiaofenglx:~/git/Webbertech_CMS/out/production/Webbertech_CMS$
 ```
 
 ## ref

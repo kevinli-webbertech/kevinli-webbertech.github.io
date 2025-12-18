@@ -1,5 +1,11 @@
 # Springboot App Deployment with Docker
 
+## Takeaway
+
+* Introduce what `Springboot` framework is
+* How to run a `Springboot` project
+* How to dockerize a `Springboot` project
+
 ## What is Springboot
 
 ### What is Spring Boot? The Simple Answer
@@ -110,16 +116,20 @@ In essence, **Spring Boot is not a replacement for the Spring Framework**; it's 
 
 ### 1. Create a Simple Spring Boot Application
 
+There are two ways you can create a `Springboot` projects,
+
+* Solution1: Using the **Spring Initializr**
+
 First, let's create a basic Spring Boot app. You can use **Spring Initializr** (https://start.spring.io/) with these settings:
 
-- **Project**: Maven
-- **Language**: Java
-- **Spring Boot**: 3.2.x
-- **Group**: com.example
-- **Artifact**: docker-demo
-- **Packaging**: Jar
-- **Java**: 17
-- **Dependencies**: Spring Web
+    - **Project**: Maven
+    - **Language**: Java
+    - **Spring Boot**: 3.2.x
+    - **Group**: com.example
+    - **Artifact**: docker-demo
+    - **Packaging**: Jar
+    - **Java**: 17
+    - **Dependencies**: Spring Web
 
 **Project Structure:**
 ```
@@ -155,6 +165,43 @@ public class HelloController {
     }
 }
 ```
+
+**Solution 2:**
+
+Checkout a demo Springboot project from the following URL,
+
+1/ git clone https://github.com/spring-guides/gs-spring-boot.git
+
+2/ `cd` into the `complete` directory after you git clone it.
+
+3/ Test to run the web application by doing the following,
+
+`./mvnw spring-boot:run`
+
+For example,
+
+`cd gs-spring-boot/complete`
+
+For more information, please go to this link for reference,
+
+- https://spring.io/guides/gs/spring-boot
+
+4/ Once you are done, please go to your browser and check the http://localhost:8080
+or you can do,
+
+```cmd
+$ curl http://localhost:8080
+Greetings from Spring Boot!
+
+$ curl http://localhost:8080/actuator/health
+{"status":"UP"}
+```
+
+> For more `Springboot` study and tutorials, please refer to the following sites,
+> 
+> a. https://spring.io/guides/
+>
+> b. https://www.tutorialspoint.com/spring_boot/index.htm
 
 ### 2. Create the Dockerfile
 

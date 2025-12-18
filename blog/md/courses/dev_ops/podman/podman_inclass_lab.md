@@ -81,6 +81,42 @@ Then check the site with curl,
 
 ![check_website.png](../../../../images/dev_ops/podman/check_website.png)
 
+
+## How to `exec` into your pod
+
+First you go and grab the container id,
+
+```shell
+bash-3.2$ podman container ls
+CONTAINER ID  IMAGE                           COMMAND           CREATED        STATUS        PORTS                 NAMES
+d671f1ea5059  docker.io/library/httpd:latest  httpd-foreground  4 minutes ago  Up 4 minutes  0.0.0.0:8080->80/tcp  syscom
+```
+
+We run the following commands to ssh/enter into the container linux,
+
+```shell
+bash-3.2$ podman exec -it d671f1ea5059 /bin/bash
+root@d671f1ea5059:/usr/local/apache2# 
+```
+
+Now I am inside of the linux pod of the httpd,
+
+```shell
+root@d671f1ea5059:/usr/local/apache2# ls
+\bin  build  cgi-bin  conf  error  htdocs  icons  include  logs	modules
+root@d671f1ea5059:/usr/local/apache2#
+```
+
+## Deploy using NGINX
+
+## Troubleshooting
+
+cd into the container itself,
+
+![container_id.png](container_id.png)
+
+![exec_to_container.png](exec_to_container.png)
+
 ## Ref
 
 - https://www.redhat.com/en/blog/podman-nginx-multidomain-applications
