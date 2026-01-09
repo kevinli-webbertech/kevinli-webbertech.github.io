@@ -10,7 +10,10 @@
 
 <!-- Load the element definition -->
 <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
-<script src="https://kevinli-webbertech.github.io/js/content_locker.js"></script>
+<!---The followings are needed for authentication -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/core.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
+<script src="dist/js/bundle.min.js"></script>
 <script> 
     function saveAsPDF() { 
       window.print(); 
