@@ -117,7 +117,7 @@ html
 3. Change it to:
 
 html
-`<script src="dist/js/bundle.min.js"></script>`
+`<script src="https://kevinli-webbertech.github.io/dist/js/bundle.min.js"></script>`
 
 This tells the website to use the uglified version of the JavaScript file.
 
