@@ -201,14 +201,14 @@ fi
 
 **Arguments**
 
-`$#` Number of arguments
-`$*` All positional arguments (as a single word)
-`$@` All positional arguments (as separate strings)
-`$1` First argument
-`$`_ Last argument of the previous command
+- `$#` Number of arguments
+- `$*` All positional arguments (as a single word)
+- `$@` All positional arguments (as separate strings)
+- `$1` First argument
+- `$`_ Last argument of the previous command
 
 
-## Conditionls
+## Conditions
 
 **if** and **exit**
 
