@@ -286,21 +286,21 @@ Note: stay with double bracket
 
 ## File Testing
 
+`[[ -f FILE ]]` File
+
+`[[ -d FILE ]]` Directory
+
+`[[ -h FILE ]]` Symlink
+
 `[[ -e FILE ]]` Exists
 
 `[[ -r FILE ]]` Readable
 
-`[[ -h FILE ]]` Symlink
-
-`[[ -d FILE ]]` Directory
-
 `[[ -w FILE ]]` Writable
 
-`[[ -s FILE ]]` Size is > 0 bytes
-
-`[[ -f FILE ]]` File
-
 `[[ -x FILE ]]` Executable
+
+`[[ -s FILE ]]` Size is > 0 bytes
 
 `[[ FILE1 -nt FILE2 ]]` 1 is more recent than 2
 
