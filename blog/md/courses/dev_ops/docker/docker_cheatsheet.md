@@ -1,14 +1,12 @@
-# Docker Tutorial
+# Docker Cheatsheet
 
 ## Building image
 
-`docker build --tag alpine-xvfb:beta1 .`
+`docker build --tag python:3.12-slim .`
 
-`docker build --no-cache --tag alpine-xvfb:beta1 .`
+`docker build --no-cache --tag python:3.12-slim .`
 
 ### Building with [Multiple]parameter[s]
-
-`docker build -t jdk21:lastest --build-arg DTR_URL=$DTR_URL .`
 
 A complete example,
 
@@ -25,22 +23,26 @@ Build it with multiple params, you will need multiple `--build-arg`,
 
 ```bash
 docker build -t python3:ml 
-    --build-arg DCK_URL=$DCR_URL
+    --build-arg DCK_URL=$DCK_URL
     --build-arg IMG_DIR=$IMG_DIR
 .
 ```
 
+In reality, the url is your nexus url and the image dir is the repo you created.
+In docker.io, it is url is `docker.io` and image is `/library/`.
+For example, https://hub.docker.com/_/python
+
 Run and test it,
 
 ```bash
-xiaofengli@xiaofenglx:~/code/docker_image/ml$ docker run -it python3:ml
+xiaofengli@xiaofenglx:~/code/docker_image/ml$ docker run -it python:3.12-slim
 [pythonuser@2507a4a1f071 ~]$ python --version
 Python 3.11.7
 ```
 
 ## Running with container deletion upon exit
 
-`docker run --rm -it alpine-xvfb:beta1`
+`docker run --rm -it python:3.12-slim`
 
 ## Running with inline entrypoint
 
@@ -52,9 +54,9 @@ Python 3.11.7
 
 ## Run an image and mount local drive
 
-`docker run -v /tmp/test:/opt/test --rm -it alpine-xvfb:beta1`
+`docker run -v /tmp/test:/opt/test --rm -it python:3.12-slim`
 
-`docker run -v $PWD:/opt/test --rm -it alpine-xvfb:beta1`
+`docker run -v $PWD:/opt/test --rm -it python:3.12-slim`
 
 ## Delete a particular image
 
