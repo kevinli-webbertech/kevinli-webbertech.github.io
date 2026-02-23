@@ -345,6 +345,11 @@ docker ps -a
 # View container logs
 docker logs springboot-container
 
+# View dynamic logs in real-time
+docker logs -f springboot-container
+
+# Note: you can use container id to replace the container name in the above example
+
 # Execute command in running container
 docker exec -it springboot-container sh
 ```
