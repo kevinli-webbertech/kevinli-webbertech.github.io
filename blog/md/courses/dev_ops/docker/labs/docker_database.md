@@ -216,9 +216,45 @@ mysql>
 * After you set up data source(uid, password),
 We build the springboot project like the following,
 
+## Step 2 Run a Springboot App that is working with MySQL Server
+
+### Checkout the following code repo,
+
+`git clone https://github.com/spring-guides/gs-accessing-data-mysql.git`
+
+## cd into the `complete` dir,
+
+So a complete transcript would be like the following,
+
+```commandline
+kevinli@gpulx:/tmp/springboot_framwork_docker$ git clone https://github.com/spring-guides/gs-accessing-data-mysql.git
+Cloning into 'gs-accessing-data-mysql'...
+remote: Enumerating objects: 1265, done.
+remote: Counting objects: 100% (331/331), done.
+remote: Compressing objects: 100% (177/177), done.
+remote: Total 1265 (delta 202), reused 223 (delta 132), pack-reused 934 (from 1)
+Receiving objects: 100% (1265/1265), 1.14 MiB | 10.53 MiB/s, done.
+Resolving deltas: 100% (816/816), done.
+kevinli@gpulx:/tmp/springboot_framwork_docker$ ls
+gs-accessing-data-mysql  gs-spring-boot
+kevinli@gpulx:/tmp/springboot_framwork_docker$ cd gs-accessing-data-mysql/
+kevinli@gpulx:/tmp/springboot_framwork_docker/gs-accessing-data-mysql$ ls
+complete  CONTRIBUTING.adoc  initial  LICENSE.txt  LICENSE.writing.txt  README.adoc
+kevinli@gpulx:/tmp/springboot_framwork_docker/gs-accessing-data-mysql$ cd complete/
+kevinli@gpulx:/tmp/springboot_framwork_docker/gs-accessing-data-mysql/complete$ 
+```
+
+* Check we have `mvnw`
+
+```
+kevinli@gpulx:/tmp/springboot_framwork_docker/gs-accessing-data-mysql/complete$ ls
+build.gradle  compose.yaml  gradle  gradlew  gradlew.bat  mvnw  mvnw.cmd  pom.xml  settings.gradle  src
+```
+
+Now, run the maven to clean the project. This is a practice of `maven` commands, and it will generate the `target` dir and related .class and .jar files. 
+
 ```shell
-  (base) xiaofengli@xiaofenglx:~/git/Webbertech_CMS$ cd backend/
-  (base) xiaofengli@xiaofenglx:~/git/Webbertech_CMS/backend$ mvnw clean package
+  kevinli@gpulx:/tmp/springboot_framwork_docker/gs-accessing-data-mysql/complete$ mvnw clean package
   [INFO] Scanning for projects...
   [INFO]
   [INFO] -------------< com.example:accessing-data-mysql-complete >--------------
@@ -270,7 +306,7 @@ For more info, you should refer to the link below,
 
 https://kevinli-webbertech.github.io/blog/html/courses/springboot/springboot_2.html
 
-After you succesfully run the app, you will see something like this,
+After you successfully run the app, you will see something like this,
 
 ```shell
 ....
@@ -306,6 +342,15 @@ xiaofengli@xiaofenglx:~/git/Webbertech_CMS/out/production/Webbertech_CMS$ curl h
 xiaofengli@xiaofenglx:~/git/Webbertech_CMS/out/production/Webbertech_CMS$
 ```
 
+* The idea of this lab is not to use a dockerized springboot app, but instead, just run a normal springboot app in the hosting OS to connect to a dockerized MySQL database.
+* The next step we would like to achieve is to use a dockerized Springboot app to connect to a dockerized MySQL container.
+
 ## ref
 
-https://hub.docker.com/_/mysql
+- https://hub.docker.com/_/mysql (the image used in this lab is highly hinged on this prebuild docker image. Contents are subject to change in the future due to the dependencies.)
+- https://gradle.org/guides/
+- https://maven.apache.org/
+- https://www.tutorialspoint.com/gradle/index.htm
+- https://www.tutorialspoint.com/maven/index.htm
+- https://www.w3schools.com/MySQL/default.asp
+- https://www.w3schools.com/MySQL/default.asp
