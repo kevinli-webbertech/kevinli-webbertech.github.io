@@ -1,11 +1,15 @@
 # Docker Lab - Working with dockerized database
 
-In this lab, we will use docker to install a dockerized Mysql image and connects to the database using a shell CLI or Dbeaver (A database client).
+## Foreword
+
+In this lab, we will use docker to install a dockerized Mysql image and connects to the database using a shell CLI or DBeaver (A database client).
 If you take a database class before and learned a little bit MySQL database that is awesome, if you haven't that is also fine. We would not dive too deep into what the MySQL database is but
 we will focus on the process of practicing the docker commands related/involved in this lab and use this lab content as a basis to extend our knowledge.
 
 For those of you who had learned MySQL before, installing such as database is not very trivial either in Linux, Windows or Mac. In this docker lab, we will show you how easy and convinient it is.
 And we will not deal with complex things like the Linux VM we encountered in the earlier few weeks.
+
+In the second part of the lab, we will deploy and run a Springboot project that connects to the dockerized MySQL database to confirm that the database is working.
 
 ## What is MySQL
 
