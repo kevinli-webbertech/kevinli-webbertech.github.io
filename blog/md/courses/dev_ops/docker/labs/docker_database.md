@@ -3,6 +3,7 @@
 ## Foreword
 
 In this lab, we will use docker to install a dockerized Mysql image and connects to the database using a shell CLI or DBeaver (A database client).
+
 If you take a database class before and learned a little bit MySQL database that is awesome, if you haven't that is also fine. We would not dive too deep into what the MySQL database is but
 we will focus on the process of practicing the docker commands related/involved in this lab and use this lab content as a basis to extend our knowledge.
 
