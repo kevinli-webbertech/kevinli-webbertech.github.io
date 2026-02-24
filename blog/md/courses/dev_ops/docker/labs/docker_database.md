@@ -352,9 +352,10 @@ xiaofengli@xiaofenglx:~/git/Webbertech_CMS/out/production/Webbertech_CMS$
 ## ref
 
 - https://hub.docker.com/_/mysql (the image used in this lab is highly hinged on this prebuild docker image. Contents are subject to change in the future due to the dependencies.)
-- https://gradle.org/guides/
-- https://maven.apache.org/
-- https://www.tutorialspoint.com/gradle/index.htm
-- https://www.tutorialspoint.com/maven/index.htm
-- https://www.w3schools.com/MySQL/default.asp
-- https://www.w3schools.com/MySQL/default.asp
+- https://spring.io/guides/gs/accessing-data-mysql
+- https://gradle.org/guides/ (Gradle tutorial)
+- https://maven.apache.org/ (Maven official site)
+- https://www.tutorialspoint.com/gradle/index.htm (Gradle tutorial)
+- https://www.tutorialspoint.com/maven/index.htm (Maven tutorial)
+- https://www.w3schools.com/MySQL/default.asp (MySQL tutorial)
+- https://www.w3schools.com/MySQL/default.asp (MySQL tutorial)
