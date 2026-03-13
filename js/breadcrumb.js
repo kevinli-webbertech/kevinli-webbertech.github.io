@@ -17,8 +17,12 @@
     const parts = path.split("/").filter(Boolean);
     if (!parts.length) return;
 
-    let html = '<ol class="breadcrumb__list"><li class="breadcrumb__item"><a href="/">Home</a></li>';
+    nav.style.cssText = "display:flex; align-items:center; flex-wrap:wrap; gap:6px; font-size:0.9rem; padding:8px 0; margin-bottom:12px;";
+
+    const items = [];
     let acc = "";
+
+    items.push('<a href="/" style="text-decoration:none; color:#0366d6;">Home</a>');
 
     for (let i = 0; i < parts.length; i++) {
       acc += "/" + parts[i];
@@ -26,13 +30,15 @@
 
       const isLast = i === parts.length - 1;
       const text = labelize(parts[i]);
-      html += isLast
-        ? `<li class="breadcrumb__item" aria-current="page">${text}</li>`
-        : `<li class="breadcrumb__item"><a href="${acc}/">${text}</a></li>`;
+
+      if (isLast) {
+        items.push(`<span style="color:#555; font-weight:600;">${text}</span>`);
+      } else {
+        items.push(`<a href="${acc}/" style="text-decoration:none; color:#0366d6;">${text}</a>`);
+      }
     }
 
-    html += "</ol>";
-    nav.innerHTML = html;
+    nav.innerHTML = items.join(' <span style="color:#999;">&gt;</span> ');
   }
 
   document.addEventListener("DOMContentLoaded", buildBreadcrumb);
