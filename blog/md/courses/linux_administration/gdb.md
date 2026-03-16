@@ -1,15 +1,15 @@
 # GDB
 
+## **Using `gcc` for Debugging in Linux**
+
+When developing in C, debugging is crucial for identifying and fixing errors. The GNU Debugger (`gdb`) is commonly used alongside `gcc` to debug programs.
+
 ## Overview
 
 * Create a binary with debugging info using `gcc`
 * Debug binary using `gdb`
 * `nm` util's usage
 * `ldd` 's usage
-
-## **Using `gcc` for Debugging in Linux**
-
-When developing in C, debugging is crucial for identifying and fixing errors. The GNU Debugger (`gdb`) is commonly used alongside `gcc` to debug programs.
 
 ---
 

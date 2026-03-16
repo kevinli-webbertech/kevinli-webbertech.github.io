@@ -34,7 +34,7 @@ function set_ssh_private_key() {
 }
 ```
 
-* add the folloiwng line to rename the function name to something else,
+* add the following line to rename the function name to something else,
 
 `alias git_config=set_ssh_private_key`
 

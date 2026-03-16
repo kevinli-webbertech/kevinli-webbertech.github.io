@@ -1,4 +1,4 @@
-# Homework 2
+# Homework 2 Relational Database Theory
 
 1. What is Functional Dependency? How many types of Functional dependencies? Please give examples.
 

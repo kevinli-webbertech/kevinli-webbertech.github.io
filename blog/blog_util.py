@@ -7,22 +7,37 @@ def get_current_dir():
     return os.path.dirname(os.path.realpath(__file__))
 
 def get_md_path():
-    return sys.argv[1]
+    path = sys.argv[1]
+    if not sys.argv[1].endswith("/"):
+        path = sys.argv[1] + "/"
+    #print("debug in get_md_path:" + path)
+    return path
+
 
 def get_html_path():
     md_path = get_md_path()
     return md_path.replace("md", "html")
 
+# make sure we follow this protocol
+def get_image_path():
+    md_path = get_md_path()
+    return md_path.replace("md", "images")
+
 def check_html_directory():
-    html_path =get_html_path()
+    html_path = str(get_html_path())
     if not os.path.exists(html_path):
         print(str(html_path) + " directory not exists, do you want to create it? Y/N")
         answer= str(input())
         if answer.lower() == 'y':
-            os.mkdir(str(html_path))
+            try:
+                os.mkdir(html_path)
+            except Exception as e:
+                parent_dir = os.path.dirname(html_path)
+                if not os.path.exists(parent_dir):
+                    raise Exception(parent_dir+ " directory not exists, please create it before")
             print("dir created successfully!")
         else:
-          raise Exception(str(html_path) + " directory not exists, please create it before")
+          raise Exception(html_path + " directory not exists, please create it before")
     else:
         html_files=os.listdir(html_path)
         # if dir exists and html exist, delete them and regenerate
@@ -55,7 +70,8 @@ def create_html_files(md_files):
         # replace string .md file in the html file
         with open(html_file, "r") as f:
             dir_depth = html_file.count("/")
-            relative_md_file_path = '../' * dir_depth+get_md_path()+mdFile
+
+            relative_md_file_path = '../' * dir_depth + get_md_path() + mdFile
             print("replacing template md file in the html source using the following path.")
             print(relative_md_file_path)
             new_text = f.read().replace("../md/file.md", relative_md_file_path)
@@ -83,6 +99,10 @@ def generate_blog_links(urls):
    return html_section
 
 
+# Normally we would move images to images/folder and we follow the same directory structures.
+# Just in case that files in the /html folders would be deleted.
+# This moving code is ok but just in case,
+
 def mv_image_files():
     os.chdir(get_md_path())
     types = ('*.png', '*.jpg') # the tuple of file types
@@ -92,7 +112,7 @@ def mv_image_files():
     print(files_grabbed)
 
     for imgFile in files_grabbed:
-        target_image_file = os.path.join(get_current_dir(),get_html_path(), imgFile)
+        target_image_file = os.path.join(get_current_dir(),get_image_path(), imgFile)
         src_img_file = os.path.join(get_current_dir(),get_md_path(), imgFile)
         # keep this logging
         print("======================")

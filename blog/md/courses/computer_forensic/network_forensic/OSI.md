@@ -288,15 +288,15 @@ In the **OSI model**, data is formatted and encapsulated at each layer as it tra
 
 ### **Summary of Data Formats at Each Layer**:
 
-| **OSI Layer**              | **Data Format**           | **Description**                                                  |
-|----------------------------|---------------------------|------------------------------------------------------------------|
-| **Layer 1: Physical**       | **Bits (0s and 1s)**       | Raw binary data transmitted over a medium.                      |
-| **Layer 2: Data Link**      | **Frames**                | Encapsulated bits into frames, includes MAC addresses and error checking. |
-| **Layer 3: Network**        | **Packets**               | Encapsulated frames with IP addresses for routing.              |
-| **Layer 4: Transport**      | **Segments/Datagrams**    | Encapsulated packets with port numbers for application communication. |
-| **Layer 5: Session**        | **Data**                  | Organizes communication sessions but doesn’t alter the data format. |
-| **Layer 6: Presentation**   | **Data (with formatting)**| Data translation, compression, and encryption.                   |
-| **Layer 7: Application**    | **Messages**              | Application data for communication between end-user systems.    |
+| **OSI Layer**             | **Data Format**            | *Format*                                                            | **Description**                                                           |
+|---------------------------|----------------------------|---------------------------------------------------------------------|---------------------------------------------------------------------------|
+| **Layer 1: Physical**     | **Bits (0s and 1s)**       | None                                                                | Raw binary data transmitted over a medium.                                |
+| **Layer 2: Data Link**    | **Frames**                 | \Destination MAC\Source MAC\Type\Payload\CRC\                       | Encapsulated bits into frames, includes MAC addresses and error checking. |
+| **Layer 3: Network**      | **Packets**                | \Source IP\Destination IP\TTL\Protocol\Payload\                     | Encapsulated frames with IP addresses for routing.                        |
+| **Layer 4: Transport**    | **Segments/Datagrams**     | \Source Port\Destination Port\Sequence #\Ack #\Data\Flags\Checksum\ | Encapsulated packets with port numbers for application communication.     |
+| **Layer 5: Session**      | **Data**                   | Organizes communication sessions but doesn’t alter the data format. |
+| **Layer 6: Presentation** | **Data (with formatting)** | Data translation, compression, and encryption.                      |
+| **Layer 7: Application**  | **Messages**               | Application data for communication between end-user systems.        |
 
 ### **Conclusion**:
 
