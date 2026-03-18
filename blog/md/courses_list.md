@@ -19,6 +19,13 @@
 >
 >3/ [Technical] Project Manager who wants to step into the AI field.
 
+## Data Structures
+
+### Introduction to Leetcode
+
+https://youtu.be/CoEXq3Py4W4
+
+
 ## Springboot courses - Software Development Track
 
 ### Class 1 **Introduction**
@@ -124,13 +131,15 @@ https://youtu.be/SMg3Sq60rVg
 
 ## DevOps Courses
 
-### **Linux Distros**
+### Linux Basics
 
-### **Linux Commands**
+#### **Linux Distros**
 
-### **Linux Profiles**
+#### **Linux Commands**
 
-### **Linux System, GCC, Libraries and more**
+#### **Linux Profiles**
+
+#### **Linux System, GCC, Libraries and more**
 
 ### **Docker**
 
