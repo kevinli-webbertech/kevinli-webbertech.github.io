@@ -2,9 +2,7 @@
 
 ## Springboot courses
 
-### Class 1
-
-**Introduction**
+### Class 1 **Introduction**
 
 Springboot introduction, history, Servlet, JSP, JSTL and Spring framework history.
 
@@ -28,9 +26,7 @@ This video will talk about adding DevTools, Actuator and Maven dashboard. Also o
 
 https://youtu.be/0fXm_JdAVfY
 
-
-### Class 2
-**Mysql Installation & Configuration**
+### Class 2 **Mysql Installation & Configuration**
 
 Install Mysql server in local computer for springboot to connect. During this course, we need to create a proper username and password and give this user enough permissions for the springboot service to connect to the database server using this username/password.
 
@@ -58,13 +54,13 @@ https://youtu.be/brgtuznYBIA
 
 ### Class 3 Containerize and deploy your Springboot Project to Kubernetes
 
-**Build docker image with Springboot Project**
+**Build Docker Image with Springboot Project**
 
 Springboot provides a way to quickly build a docker image without writing a docker file. This video will show you how to do that quickly with just one command.
 
 https://youtu.be/YUYaMvw1Tuo
 
-**Deploy springboot Docker image into Kubernetes**
+**Deploy Springboot Docker image into Kubernetes**
 
 A complete video about how to deploy your docker image in docker hub into K8s.
 
@@ -107,9 +103,48 @@ https://youtu.be/x5b_fXANe2M
 
 https://youtu.be/SMg3Sq60rVg
 
-## SQL Courses
+## DevOps Courses
 
+### **Linux Distros**
 
+### **Linux Commands**
 
+### **Linux Profiles**
 
+### **Linux System, GCC, Libraries and more**
+
+### **Docker**
+
+**Docker Intro**
+
+https://youtu.be/ilFiaUmI4eA
+
+* Docker Desktop Installation
+* Docker Desktop Terminal
+
+### **Jenkin**
+
+**Jenkin Intro**
+
+https://youtu.be/3lGB6_xsbkE
+
+* Jenkin Introduction 
+* Jenkin Installation with War file
+
+**Jenkin Docker Installation**
+
+https://youtu.be/6FG_l76cjns
+
+* Run Jenkin with Docker Container 
+* Jenkin Freestyle Project
+
+**Jenkin Pipeline Github Integration**
+
+https://youtu.be/IJ_eWhA39Ls
+
+* Jenkin Pipeline Project
+* Intro to Jenkinfile
+* Jenkin Pipe to integrate with Github's public project
+
+**Git**
 
