@@ -14,8 +14,10 @@
 > Targeted Audiences: 
 > 
 > 1/ Entry-level CS/IT students or hobbyist
+> 
 > 2/ UIUX designers who would like to acquire more fresh knowledge of IDE integration with AI and its capability.
-> 3/ [Technical] Project Manager who wants to step into the AI field.
+>
+>3/ [Technical] Project Manager who wants to step into the AI field.
 
 ## Springboot courses - Software Development Track
 
