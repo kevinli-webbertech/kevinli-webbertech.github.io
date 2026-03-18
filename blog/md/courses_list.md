@@ -1,6 +1,23 @@
 # My Courses on Youtube
 
-## Springboot courses
+## Introduction to IT
+
+### Introduction to AI tool to help you code software application
+
+- https://youtu.be/e-cDbv52KMw
+
+>>Note: In this video, you will learn how to download, install Visual Studio Code and set up Github Copilot.
+> and also it will demo you how to use this chat tool to quickly develop a web-based software without much expert-level knowledge.
+> On the other hand, it would also show why we still need to learn some computer science programming basics to be able to prompt the AI
+> to generate the right software.
+> 
+> Targeted Audiences: 
+> 
+> 1/ Entry-level CS/IT students or hobbyist
+> 2/ UIUX designers who would like to acquire more fresh knowledge of IDE integration with AI and its capability.
+> 3/ [Technical] Project Manager who wants to step into the AI field.
+
+## Springboot courses - Software Development Track
 
 ### Class 1 **Introduction**
 
