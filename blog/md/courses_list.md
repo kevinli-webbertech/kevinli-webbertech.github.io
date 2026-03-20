@@ -143,16 +143,48 @@ https://youtu.be/SMg3Sq60rVg
 
 ### **Docker**
 
-**Docker Intro**
+**Introduction to Docker**
+
+https://youtu.be/W8OsT-SbatU
+
+>Basic concept of docker image, container, engine and run a couple of simple docker containers.
+
+We use an NGINX web server docker image to show you how to run a docker image.
+
+**Docker Desktop**
 
 https://youtu.be/ilFiaUmI4eA
 
 * Docker Desktop Installation
 * Docker Desktop Terminal
 
+**Debug Python Deployment with Docker**
+
+https://youtu.be/sQTVyFY0mcc
+
+>When we deploy a software app in container, and if the ports have been occupied, we would like to understand if it is being used by another container or it is by another native app in the OS. So we would like to troubleshoot and solve the problem.
+
+**How to Write A Dockerfile**
+
+https://youtu.be/TeSx--011WQ
+
+>Explain how to write docker file to build a docker image.
+
+**Debug Python Deployment with Docker**
+
+https://youtu.be/sQTVyFY0mcc
+
+>When we deploy a software app in container, and if the ports have been occupied, we would like to understand if it is being used by another container or it is by another native app in the OS. So we would like to troubleshoot and solve the problem.
+
+**Docker Mysql Database**
+
+https://youtu.be/zTLDYTwvC14
+
+>MySQL server is an important topic and it is often used in the company. Dockerized MySQL server is also very popular and often the data dir was mounted as a volume on a NFS. Let us take a quick a look how easy it is.
+
 ### **Jenkin**
 
-**Jenkin Intro**
+**Intro to Jenkin CICD Pipeline**
 
 https://youtu.be/3lGB6_xsbkE
 
@@ -174,5 +206,19 @@ https://youtu.be/IJ_eWhA39Ls
 * Intro to Jenkinfile
 * Jenkin Pipe to integrate with Github's public project
 
-**Git**
+## **Nexus**
+
+**Intro to Nexus Repository Manager**
+
+https://youtu.be/LZfwn81gNgk
+
+>An introduction to what Nexus repo is and how to install it.
+
+**Run Dockerized Nexus**
+
+https://youtu.be/eFl1FKTUYuA
+
+>This video will show you how to upload an artifact to Nexus storage.
+
+## **Git**
 
