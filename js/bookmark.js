@@ -1,7 +1,22 @@
 (function () {
-  var bookmarkPromptKey = 'bookmarkPromptShown';
-  if (localStorage.getItem(bookmarkPromptKey)) {
-    return;
+  var bookmarkPromptKey = 'bookmarkPromptShownAt';
+  var promptCooldownMs = 7 * 24 * 60 * 60 * 1000;
+
+  function getStorage() {
+    try {
+      return window.localStorage;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  var storage = getStorage();
+  if (storage) {
+    var lastShownAtRaw = storage.getItem(bookmarkPromptKey);
+    var lastShownAt = Number(lastShownAtRaw);
+    if (Number.isFinite(lastShownAt) && Date.now() - lastShownAt < promptCooldownMs) {
+      return;
+    }
   }
 
   var isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
@@ -12,5 +27,7 @@
     alert('To bookmark this website to your browser bar, press ' + shortcut + ' now.');
   }
 
-  localStorage.setItem(bookmarkPromptKey, 'true');
+  if (storage) {
+    storage.setItem(bookmarkPromptKey, String(Date.now()));
+  }
 })();
