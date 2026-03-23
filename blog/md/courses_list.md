@@ -180,6 +180,12 @@ https://youtu.be/sQTVyFY0mcc
 
 https://youtu.be/zTLDYTwvC14
 
+**Docker Registry/Docker Hub**
+
+https://youtu.be/k8LgA0iiNJc (Part I)
+https://youtu.be/cfihDv9FeIA (Part II)
+https://youtu.be/HSbDxOzgs2o (Part III)
+
 >MySQL server is an important topic and it is often used in the company. Dockerized MySQL server is also very popular and often the data dir was mounted as a volume on a NFS. Let us take a quick a look how easy it is.
 
 ### **Jenkin**
