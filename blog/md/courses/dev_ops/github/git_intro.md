@@ -9,9 +9,46 @@
 * Create a branch
 * Add file and commit files
 
-## Github or bitbucket
+## Git client and Git repo
 
-Both are code repositories and both use git commands.
+*GitHub*, *Bitbucket*, and *GitLab* are major Git repository hosting services that emerged between 2007 and 2011, each with a distinct focus and history. 
+
+### GitHub
+
+**Founded:** GitHub, Inc. was founded in 2007 by Chris Wanstrath, P. J. Hyett, Tom Preston-Werner, and Scott Chacon, with the GitHub.com service launching in February 2008.
+
+**Focus:** It quickly became the largest and most popular platform, widely used for open-source projects due to its strong community focus and intuitive interface.
+
+**Key Milestones:**
+
+By July 2010, it hosted one million repositories.
+In 2018, Microsoft acquired GitHub for $7.5 billion.
+It offers a large ecosystem of third-party integrations and tools like GitHub Actions for CI/CD. 
+
+### Bitbucket
+
+**Founded:** Bitbucket was launched in 2008 by Jesper Nøhr as an independent startup, initially focusing on hosting Mercurial projects.
+
+**Focus:** It is primarily known for its strong integration with other Atlassian products (like Jira and Confluence), making it a strong choice for enterprise teams already using the Atlassian ecosystem.
+
+**Key Milestones:**
+
+Atlassian acquired Bitbucket on September 29, 2010.
+Support for Git hosting was added in 2011.
+In 2020, Atlassian dropped support for Mercurial to focus solely on Git.
+A major selling point has been the offer of unlimited free private repositories for small teams. 
+
+### GitLab
+
+**Founded:** GitLab was created in 2011 as an open-source project by Ukrainian developer Dmytro Zaporozhets. Sytse Sijbrandij co-founded the company, GitLab Inc., in 2014.
+
+**Focus:** It positions itself as an "all-in-one" DevSecOps platform, integrating the entire software development lifecycle (planning, coding, testing, deployment, and monitoring) into a single application.
+
+**Key Milestones:**
+
+It adopted an open-core business model, with core functionalities remaining free and open-source, and advanced features part of paid tiers.
+It is known for its fully remote company structure and high degree of transparency, documented in a public GitLab Handbook.
+In October 2021, GitLab became a publicly traded company on the Nasdaq under the ticker symbol GTLB. 
 
 ## Installation
 
