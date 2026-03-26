@@ -9,7 +9,22 @@
 * Create a branch
 * Add file and commit files
 
-## Git client and Git repo
+## Git History
+
+Git was invented by *Linus Torvalds*, the creator of the Linux kernel. He started developing it on April 3, 2005, and 
+achieved self-hosting (using Git to manage its own source code) by the next day. 
+
+**Key aspects of Git's invention:**
+
+* Rapid Development: Torvalds developed the initial framework in a little over a week, focusing on speed, simple design, and the ability to handle large projects efficiently.
+
+* Design Goals: Torvalds designed Git as a content-addressable filesystem with strong support for non-linear, distributed development (rapid branching and merging), and robust data integrity features using SHA-1 hashes.
+
+* Maintainership: In July 2005, Torvalds handed over the maintainership of the project to Junio Hamano, who has been the lead maintainer ever since.
+
+* Naming: Torvalds quipped about the name "git" (which is British English slang for an unpleasant person), saying, "I'm an egotistical bastard, and I name all my projects after myself. First 'Linux', now 'git'". 
+
+## Git client and Git repo (History of Server Repo)
 
 *GitHub*, *Bitbucket*, and *GitLab* are major Git repository hosting services that emerged between 2007 and 2011, each with a distinct focus and history. 
 
@@ -49,6 +64,8 @@ A major selling point has been the offer of unlimited free private repositories 
 It adopted an open-core business model, with core functionalities remaining free and open-source, and advanced features part of paid tiers.
 It is known for its fully remote company structure and high degree of transparency, documented in a public GitLab Handbook.
 In October 2021, GitLab became a publicly traded company on the Nasdaq under the ticker symbol GTLB. 
+
+> Disclaimer: Contents were collected using google gemini.
 
 ## Git Client Installation
 
