@@ -50,7 +50,7 @@ It adopted an open-core business model, with core functionalities remaining free
 It is known for its fully remote company structure and high degree of transparency, documented in a public GitLab Handbook.
 In October 2021, GitLab became a publicly traded company on the Nasdaq under the ticker symbol GTLB. 
 
-## Installation
+## Git Client Installation
 
 Please go to the following website to make sure you find an installer for your operating system.
 
