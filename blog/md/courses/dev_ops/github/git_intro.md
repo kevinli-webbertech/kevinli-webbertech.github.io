@@ -78,7 +78,7 @@ Once the installation is done, please make sure that you have `git bash` in wind
 
 ## Git Usage Example
 
-Git commands can be handy and there are also a lot of git GUI such as in `Visual tudio Code`, `Eclipse` or `IntelliJ` which could make it even easier.
+Git commands can be handy and there are also a lot of git GUI such as in `Visual studio Code`, `Eclipse` or `IntelliJ` which could make it even easier.
 
 As a beginner, I think learning some git commands are extremely helpful for you to understand how it works and you can troubleshoot some difficult issues when it comes up.
 
