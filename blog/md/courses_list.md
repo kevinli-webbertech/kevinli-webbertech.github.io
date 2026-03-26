@@ -2,9 +2,21 @@
 
 ## Introduction to IT
 
-### Introduction to AI tool to help you code software application
+* Introduction to AI tool to help you code software application
 
 - https://youtu.be/e-cDbv52KMw
+
+* Use AI tool to write Python code
+
+- https://youtu.be/9miSLGGaea8
+
+* Use AI tool to write Javascript code
+
+- https://youtu.be/DXW6wwu62WA
+
+* Use AI tool to write Java code
+
+- https://youtu.be/mzUct46-NRU
 
 >>Note: In this video, you will learn how to download, install Visual Studio Code and set up Github Copilot.
 > and also it will demo you how to use this chat tool to quickly develop a web-based software without much expert-level knowledge.
@@ -180,7 +192,17 @@ https://youtu.be/sQTVyFY0mcc
 
 https://youtu.be/zTLDYTwvC14
 
+**Docker Registry/Docker Hub**
+
+https://youtu.be/k8LgA0iiNJc (Part I)
+https://youtu.be/cfihDv9FeIA (Part II)
+https://youtu.be/HSbDxOzgs2o (Part III)
+
 >MySQL server is an important topic and it is often used in the company. Dockerized MySQL server is also very popular and often the data dir was mounted as a volume on a NFS. Let us take a quick a look how easy it is.
+
+
+### *Podman - *
+
 
 ### **Jenkin**
 
