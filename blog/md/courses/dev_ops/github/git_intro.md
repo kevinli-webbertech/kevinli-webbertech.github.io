@@ -4,6 +4,7 @@
 
 **Goal**
 
+* History of Git and Git Repos
 * Installation of Git client
 * Checkout an opensource public repo
 * Create a branch
