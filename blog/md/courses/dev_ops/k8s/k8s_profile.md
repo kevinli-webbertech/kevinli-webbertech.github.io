@@ -83,12 +83,15 @@ spec:
 * Pods / Deployments
 
 `kubectl get pods`
+
 `kubectl get deploy`
+
 `kubectl describe pod <podname>`
 
 * Logs
 
 `kubectl logs <podname>`
+
 `kubectl logs -f <podname>`
 
 * Port-forward
@@ -98,6 +101,7 @@ spec:
 * Apply / Delete
 
 `kubectl apply -f file.yaml`
+
 `kubectl delete -f file.yaml`
 
 * Quick shell into a pod
