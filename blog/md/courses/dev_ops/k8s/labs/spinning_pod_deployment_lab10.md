@@ -51,4 +51,12 @@ kubectl apply -f deployment.yaml
 kubectl get pods
 ```
 
+### exec into the container
+
+```
+bash-3.2$ kubectl exec -it keep-alive-deployment-7f4b97c7d4-9qxqg -- /bin/sh
+/ # ls
+bin    dev    etc    home   lib    lib64  proc   root   sys    tmp    usr    var
+```
+
 If you need to keep a pod running for a different workload (e.g., a database or an API service), let me know, and I can tailor the configuration accordingly.
