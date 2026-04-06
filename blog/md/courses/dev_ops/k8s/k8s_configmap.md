@@ -61,7 +61,7 @@ spec:
       volumes:
         - name: config-volume
           configMap:
-    ```
+```
 
 2.  **Apply Deployment:**
 
