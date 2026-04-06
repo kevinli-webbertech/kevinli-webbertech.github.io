@@ -33,6 +33,21 @@ spec:
             memory: "512Mi" # but max 512 MB RAM
 ```
 
+
+Let us save the above file to `nginx-demo.yaml`. To run this file, let us type,
+
+`kubectl -f nginx-demo.yaml`
+
+Next, let us check with the following commands,
+
+```buildoutcfg
+kubectl get deployment
+
+kubectl describe deployment nginx-demo
+
+kubectl get pods
+```
+
 ### Quick breakdown (human-friendly version):
 
 * requests = “I need at least this much to run.”
