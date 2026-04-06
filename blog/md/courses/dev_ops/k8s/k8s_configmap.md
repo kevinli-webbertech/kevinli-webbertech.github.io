@@ -28,41 +28,39 @@ This tutorial demonstrates updating Pod configurations using ConfigMaps in Kuber
     ```
 
     Example of a deployment yaml with the ConfigMap sport as a volume
-
-    ```shell
-    apiVersion: apps/v1
-    kind: Deployment
+    
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: configmap-volume
+  labels:
+    app.kubernetes.io/name: configmap-volume
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+  template:
     metadata:
-    name: configmap-volume
-    labels:
-      app.kubernetes.io/name: configmap-volume
-    spec:
-    replicas: 3
-    selector:
-      matchLabels:
+      labels:
         app.kubernetes.io/name: configmap-volume
-    template:
-      metadata:
-        labels:
-          app.kubernetes.io/name: configmap-volume
-      spec:
-        containers:
-          - name: alpine
-            image: alpine:3
-            command:
-              - /bin/sh
-              - -c
-              - while true; do echo "$(date) My preferred sport is $(cat /etc/config/sport)";
-                sleep 10; done;
-            ports:
-              - containerPort: 80
-            volumeMounts:
-              - name: config-volume
-                mountPath: /etc/config
-        volumes:
-          - name: config-volume
-            configMap:
-              name: sport
+    spec:
+      containers:
+        - name: alpine
+          image: alpine:3
+          command:
+            - /bin/sh
+            - -c
+            - while true; do echo "$(date) My preferred sport is $(cat /etc/config/sport)";
+              sleep 10; done;
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: config-volume
+              mountPath: /etc/config
+      volumes:
+        - name: config-volume
+          configMap:
     ```
 
 2.  **Apply Deployment:**
@@ -119,6 +117,18 @@ This tutorial demonstrates updating Pod configurations using ConfigMaps in Kuber
     ```shell
     kubectl logs deployments/configmap-volume --follow
     ```
+
+7. Get configmap object
+
+```shell
+bash-3.2$ kubectl get configmap
+NAME               DATA   AGE
+kube-root-ca.crt   1      4d22h
+sport              1      11m
+```
+
+
+
 
 ## Update environment variables of a Pod via a ConfigMap
 
