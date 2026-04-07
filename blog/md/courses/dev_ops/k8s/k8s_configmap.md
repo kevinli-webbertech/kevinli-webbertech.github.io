@@ -61,6 +61,7 @@ spec:
       volumes:
         - name: config-volume
           configMap:
+             name: sport
 ```
 
 2.  **Apply Deployment:**
