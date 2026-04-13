@@ -23,7 +23,11 @@ Ensure you have kubectl, a Kubernetes cluster (Minikube for local testing, and c
 
 ## Part 1: Enable Ingress Controller
 
-For minikube (simplest option)
+**For minikube (simplest option)**
+
+* Let us run the cluster first
+
+`minikube start --driver=docker`
 
 ![Starting Minikube](/blog/images/dev_ops/k8s_ingress/minikube_start.PNG)
 
@@ -31,6 +35,10 @@ For minikube (simplest option)
 
 - Real clusters (EKS,GKE) cost money. Minikube emulates a cluster on your laptop.
 - --driver=docker uses Docker containers as "virtual nodes" (lightweight)
+
+Type the following and run,
+
+`minikube addons enable ingress`
 
 ![Enabling the Ingress Controller](/blog/images/dev_ops/k8s_ingress/enable_ingress_controller.PNG)
 
@@ -40,6 +48,10 @@ For minikube (simplest option)
 - This deploys an **Nginx Ingress Controller** Pod in your cluster, which acts as the "traffic cop" for routing.
 
 **Verify**
+
+Type the following and run,
+
+`kubectl get pods -n ingress-nginx`
 
 ![Verifying the process of enabling the ingress controller](/blog/images/dev_ops/k8s_ingress/verify_controller.PNG)
 
