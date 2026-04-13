@@ -45,7 +45,7 @@ This is how companies route paths/subdomains to different teams' services.
 
 Paste:
 
-```
+```buildoutcfg
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -83,7 +83,48 @@ Lastly verify if everything went through.
 
 ![Verification](/blog/images/dev_ops/k8s_ingress/verify_ingress.PNG)
 
+Checking services and IPs,
 
+```buildoutcfg
+bash-3.2$ kubectl get services
+NAME         TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
+kubernetes   ClusterIP   10.96.0.1      <none>        443/TCP    6h36m
+webapp1      ClusterIP   10.110.1.103   <none>        8080/TCP   54s
+webapp2      ClusterIP   10.99.91.237   <none>        8080/TCP   47s
+```
+
+And ingress,
+
+```buildoutcfg
+bash-3.2$ kubectl get ingress
+NAME              CLASS   HOSTS         ADDRESS        PORTS   AGE
+example-ingress   nginx   myapp.local   192.168.49.2   80      63m
+```
+
+For every K8s object, you can use `describe`
+
+```buildoutcfg
+bash-3.2$ kubectl describe ingress
+Name:             example-ingress
+Labels:           <none>
+Namespace:        default
+Address:          192.168.49.2
+Ingress Class:    nginx
+Default backend:  <default>
+Rules:
+  Host         Path  Backends
+  ----         ----  --------
+  myapp.local  
+               /blog   webapp1:8080 (10.244.0.13:8080)
+               /shop   webapp2:8080 ()
+Annotations:   nginx.ingress.kubernetes.io/proxy-connect-timeout: 30
+               nginx.ingress.kubernetes.io/proxy-read-timeout: 3600
+               nginx.ingress.kubernetes.io/proxy-send-timeout: 3600
+Events:
+  Type    Reason  Age                From                      Message
+  ----    ------  ----               ----                      -------
+  Normal  Sync    47m (x4 over 64m)  nginx-ingress-controller  Scheduled for sync
+```
 ## Step 4: Test Routing
 
 **Why?**
