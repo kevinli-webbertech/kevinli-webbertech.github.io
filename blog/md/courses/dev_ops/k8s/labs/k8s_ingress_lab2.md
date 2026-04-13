@@ -7,6 +7,7 @@ We'll simulate a **multi-service app** (e.g., a website with a blog and a store)
 First we need to deploy the two apps we'll be using.
 
 `kubectl create deployment webapp1 --image=gcr.io/google-sample/hello-app:1.0`
+
 `kubectl create deployment webapp2 --image=gcr.io/google-sample/hello-app:2.0`
 
 ![Deploying the apps](/blog/images/dev_ops/k8s_ingress/deploy_apps.PNG)
@@ -19,6 +20,7 @@ First we need to deploy the two apps we'll be using.
 We then have to expose them internally.
 
 `kubectl expose deployment webapp1 --port=8080 --target-port=8080`
+
 `kubectl expose deployment webapp2 --port=8080 --target-port=8080`
 
 ![Exposing the apps](/blog/images/dev_ops/k8s_ingress/expose_apps.PNG)
@@ -28,8 +30,6 @@ We then have to expose them internally.
 - Without Ingress, these are only accessible inside the cluster.
 
 ## Configure Ingress
-
-
 
 **Why?**
 
