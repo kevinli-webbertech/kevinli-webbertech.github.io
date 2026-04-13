@@ -6,10 +6,20 @@ We'll simulate a **multi-service app** (e.g., a website with a blog and a store)
 
 First we need to deploy the two apps we'll be using.
 
+`kubectl create deployment webapp1 --image=gcr.io/google-sample/hello-app:1.0`
+`kubectl create deployment webapp2 --image=gcr.io/google-sample/hello-app:2.0`
+
 ![Deploying the apps](/blog/images/dev_ops/k8s_ingress/deploy_apps.PNG)
 
 
+* Make sure the ingress service is on
+
+`minikube addons list`
+
 We then have to expose them internally.
+
+`kubectl expose deployment webapp1 --port=8080 --target-port=8080`
+`kubectl expose deployment webapp2 --port=8080 --target-port=8080`
 
 ![Exposing the apps](/blog/images/dev_ops/k8s_ingress/expose_apps.PNG)
 
@@ -18,6 +28,8 @@ We then have to expose them internally.
 - Without Ingress, these are only accessible inside the cluster.
 
 ## Configure Ingress
+
+
 
 **Why?**
 
@@ -28,6 +40,8 @@ We'll define rules like:
 This is how companies route paths/subdomains to different teams' services.
 
 ![Entering the configuration](/blog/images/dev_ops/k8s_ingress/nano_ingress.PNG)
+
+`touch ingress.yaml`
 
 Paste:
 
@@ -57,10 +71,15 @@ spec:
               number: 8080
 ```
 
+
+
 ![Inside of ingress](/blog/images/dev_ops/k8s_ingress/ingress_inside.PNG)
 
 
 Make sure to then apply the settings.
+
+
+`kubectl apply -f ingress.yaml`
 
 ![Applying the changes of ingress](/blog/images/dev_ops/k8s_ingress/nano_ingress_apply.PNG)
 
@@ -79,6 +98,8 @@ Get the Ingress IP (Minikube)
 ![Ingress IP](/blog/images/dev_ops/k8s_ingress/ingress_ip.PNG)
 
 Add to /etc/hosts (simulate DNS)
+
+`echo "$(minikube ip) myapp.local" |sudo tee -a /etc/hosts`
 
 ![Simulate DNS](/blog/images/dev_ops/k8s_ingress/simulate_DNS.PNG)
 
