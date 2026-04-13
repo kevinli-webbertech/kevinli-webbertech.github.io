@@ -71,13 +71,9 @@ spec:
               number: 8080
 ```
 
-
-
 ![Inside of ingress](/blog/images/dev_ops/k8s_ingress/ingress_inside.PNG)
 
-
 Make sure to then apply the settings.
-
 
 `kubectl apply -f ingress.yaml`
 
@@ -86,6 +82,7 @@ Make sure to then apply the settings.
 Lastly verify if everything went through.
 
 ![Verification](/blog/images/dev_ops/k8s_ingress/verify_ingress.PNG)
+
 
 ## Step 4: Test Routing
 
