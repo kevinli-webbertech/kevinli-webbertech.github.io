@@ -6,9 +6,9 @@ We'll simulate a **multi-service app** (e.g., a website with a blog and a store)
 
 First we need to deploy the two apps we'll be using.
 
-`kubectl create deployment webapp1 --image=us-docker.pkg.dev/google-samples/containers/gke/hello-app:1.0`
+`kubectl create deployment webapp1 --image=xlics05/blog-shop`
 
-`kubectl create deployment webapp2 --image=us-docker.pkg.dev/google-samples/containers/gke/hello-app:1.0`
+`kubectl create deployment webapp2 --image=xlics05/blog-shop`
 
 ![Deploying the apps](/blog/images/dev_ops/k8s_ingress/deploy_apps.PNG)
 
