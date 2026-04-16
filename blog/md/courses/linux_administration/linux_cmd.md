@@ -277,8 +277,9 @@ Permissions may be of the form [u/g/o/a][+/-/=][r/w/x] (see examples below)
 or a three-digit octal number.
 ```
 
-`chown user2 file` Change the owner of a file to user2.
-`chgrp group2 file` Change the group of a file to group2.
+- `chown user2 file` Change the owner of a file to user2.
+
+- `chgrp group2 file` Change the group of a file to group2.
 
 
 **Numeric Representation**
@@ -468,6 +469,7 @@ This will sort the numbers numerically in ascending order. If you want to sort t
 ### sed examples
 
 `sed 's/old/new/' file.txt`         Substitute (replace) text
+
 `sed '/pattern/i\new line of text' file.txt`       Insert text before a line
 
 ### tr examples
@@ -624,7 +626,7 @@ These commands provide details about the hardware supporting your Linux machine.
 
 ### Perform a read speed test on disk sda examples
 
-`hdparm -tT /dev/sd`a
+`hdparm -tT /dev/sda`
 
 ### Test for unreadable blocks on disk sda examples
 
@@ -711,15 +713,14 @@ FD – stands for a File descriptor and may see some of the values as:
 
 Also in FD column numbers like 1u is actual file descriptor and followed by u,r,w of its mode as:
 
-`r` for read access.
-`w` for write access.
-`u` for read and write access.
-`TYPE` – of files and it’s identification.
-
-`DIR` – Directory
-`REG` – Regular file
-`CHR` – Character special file.
-`FIFO` – First In First Out
+- `r` for read access.
+- `w` for write access.
+- `u` for read and write access.
+- `TYPE` – of files and it’s identification.
+- `DIR` – Directory
+- `REG` – Regular file
+- `CHR` – Character special file.
+- `FIFO` – First In First Out
 
 ```
 xiaofengli@xiaofenglx:~/code/codebank$ lsof| grep -i 8080
@@ -727,41 +728,41 @@ apache2   8072 8080 apache2           www-data  cwd   unknown                   
 apache2   8072 8080 apache2           www-data  rtd   unknown                                         /proc/8072/task/8080/root (readlink: Permission denied)
 apache2   8072 8080 apache2           www-data  txt   unknown                                         /proc/8072/task/8080/exe (readlink: Permission denied)
 apache2   8072 8080 apache2           www-data NOFD                                                   /proc/8072/task/8080/fd (opendir: Permission denied)
-
 ```
 
-List User Specific Opened Files
+*List User Specific Opened Files*
 
 `lsof -u xiaofengli`
 
-Find Processes Running on Specific Port
+*Find Processes Running on Specific Port*
+
 `lsof -i TCP:22`
 
-List Only IPv4 & IPv6 Open Files
+*List Only IPv4 & IPv6 Open Files*
 
 `lsof -i 4`
 
 `lsof -i 6`
 
-List Open Files of TCP Port Ranges 1-1024
+*List Open Files of TCP Port Ranges 1-1024*
 
 `lsof -i TCP:1-1024`
 
-Exclude User with ‘^’ Character
+*Exclude User with ‘^’ Character*
 
 `lsof -i -u^root`
 
-Find Out who’s Looking What Files and Commands?
+*Find Out who’s Looking What Files and Commands?*
 
 `lsof -i -u xiaofenglx`
 
-List all Network Connections
+*List all Network Connections*
 
 The following command with option ‘-i’ shows the list of all network connections ‘LISTENING & ESTABLISHED’.
 
 `lsof -i`
 
-Search by PID
+*Search by PID*
 
 `lsof -p 1`
 
