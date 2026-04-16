@@ -15,6 +15,8 @@ First we need to deploy the two apps we'll be using.
 
 * Make sure the ingress service is on
 
+`minikube addons enable ingress`
+
 `minikube addons list`
 
 We then have to expose them internally.
