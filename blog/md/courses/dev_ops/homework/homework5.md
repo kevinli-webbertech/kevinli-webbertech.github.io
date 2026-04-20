@@ -1,4 +1,4 @@
-# HW5 Jenkin + Github Private Repo
+# HW5 Jenkins + Github Private Repo
 
 In the second lab of github of the following url,
 
@@ -6,13 +6,13 @@ In the second lab of github of the following url,
 
 We discussed how to add a ssh public key into the github remote server and how to validate that public key is successful.
 
-Prior to that, when we do the Jenkin lab of the following tutorial,
+Prior to that, when we do the Jenkins lab of the following tutorial,
 
-- https://kevinli-webbertech.github.io/blog/html/courses/dev_ops/jenkin/Jenkin_Integration_with_github.html
+- https://kevinli-webbertech.github.io/blog/html/courses/dev_ops/jenkins/Jenkins_Integration_with_github.html
 
-We build a Jenkinfile with pipeline job to successfully build a Java artifact jar file from the Jenkin job. (part of your HW4).
+We build a Jenkinsfile with pipeline job to successfully build a Java artifact jar file from the Jenkins job. (part of your HW4).
 
-In this homework, we would like to build a Jenkin job from a private github repo, and get the artifact.
+In this homework, we would like to build a Jenkins job from a private github repo, and get the artifact.
 
 Here is a breakdown of the grading,
 
@@ -20,10 +20,10 @@ Here is a breakdown of the grading,
 
 * Validate the public key hash. (10 pts)
 
-* Setting up a Jenkin pipeline with Github private repo and provide full Jenkinfile. (25 pts)
+* Setting up a Jenkins pipeline with Github private repo and provide full Jenkinsfile. (25 pts)
 
 * Show that the final artifact jar is generated. (25 pts)
 
 * A nicely written report. (15 pts)
 
-You can find out more configuration regarding the Jenkin setup for private repo on my external course website as well.
+You can find out more configuration regarding the Jenkins setup for private repo on my external course website as well.

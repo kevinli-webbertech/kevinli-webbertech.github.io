@@ -12,7 +12,7 @@ https://www.jenkins.io/download/
 
 We would like to stick to `LTS` (long-term support),
 
-![download_jenkin.png](../../../../images/dev_ops/jenkin/download_jenkin.png)
+![download_jenkin.png](../../../../images/dev_ops/jenkins/download_jenkin.png)
 
 On different platforms the installations are all different, for instance, I provide the installation in Ubuntu like below.
 
@@ -41,9 +41,9 @@ sudo apt update
 sudo apt install jenkins
 ```
 
-![jenkin_ubuntu.png](../../../../images/dev_ops/jenkin/jenkin_ubuntu.png)
+![jenkin_ubuntu.png](../../../../images/dev_ops/jenkins/jenkin_ubuntu.png)
 
-## How to start Jenkin
+## How to start Jenkins
 
 Please follow instruction in the following tutorial page,
 
@@ -52,11 +52,11 @@ https://www.jenkins.io/doc/book/installing/linux/#debianubuntu
 >Note: Due to the volatile content, we would like to stick to the most up2date information in the official document, 
 > thus I do not provide anything on my own.
 
-![war_jenkin_process.png](../../../../images/dev_ops/jenkin/war_jenkin_process.png)
+![war_jenkin_process.png](../../../../images/dev_ops/jenkins/war_jenkin_process.png)
 
 and when we start it in the browser it shows something like the following,
 
-![war_jenkin_process1.png](../../../../images/dev_ops/jenkin/war_jenkin_process1.png)
+![war_jenkin_process1.png](../../../../images/dev_ops/jenkins/war_jenkin_process1.png)
 
 ### Start Jenkins
 
@@ -87,7 +87,7 @@ Documentation: https://github.com/jenkinsci/docker/blob/master/README.md
 
 `docker run -p 8080:8080 -p 50000:50000 jenkins/jenkins:lts`
 
-![docker_jenkin1.png](../../../../images/dev_ops/jenkin/docker_jenkin1.png)
+![docker_jenkin1.png](../../../../images/dev_ops/jenkins/docker_jenkin1.png)
 
 For instance, I did the following to get the password,
 
@@ -95,27 +95,27 @@ For instance, I did the following to get the password,
 docker exec 2bb12f0da95749caad0682538148a540 cat /var/jenkins_home/secrets/initialAdminPassword
 ```
 
-![docker_jenkin2.png](../../../../images/dev_ops/jenkin/docker_jenkin2.png)
+![docker_jenkin2.png](../../../../images/dev_ops/jenkins/docker_jenkin2.png)
 
 After setting the password that appeared in the logs see above commands, you will see the next screen,
 
-![docker_jenkin3.png](../../../../images/dev_ops/jenkin/docker_jenkin3.png)
+![docker_jenkin3.png](../../../../images/dev_ops/jenkins/docker_jenkin3.png)
 
 Next screen,
 
-![docker_jenkin4.png](../../../../images/dev_ops/jenkin/docker_jenkin4.png)
+![docker_jenkin4.png](../../../../images/dev_ops/jenkins/docker_jenkin4.png)
 
 Click "continue as admin" and do not create the first admin, 
 
-![docker_jenkin5.png](../../../../images/dev_ops/jenkin/docker_jenkin5.png)
+![docker_jenkin5.png](../../../../images/dev_ops/jenkins/docker_jenkin5.png)
 
 Click "Save and Finish", and next screen,
 
-![docker_jenkin6.png](../../../../images/dev_ops/jenkin/docker_jenkin6.png)
+![docker_jenkin6.png](../../../../images/dev_ops/jenkins/docker_jenkin6.png)
 
 Then click "Start using Jenkins",
 
-![docker_jenkin7.png](../../../../images/dev_ops/jenkin/docker_jenkin7.png)
+![docker_jenkin7.png](../../../../images/dev_ops/jenkins/docker_jenkin7.png)
 
 After finishing the initial setup, I created my first Jenkins job, which was a freestyle project that simply echoed a message.
 
@@ -123,23 +123,23 @@ Then follow the steps below and see how it works,
 
 ### Step 1
 
-![docker_jenkin8.png](../../../../images/dev_ops/jenkin/docker_jenkin8.png)
+![docker_jenkin8.png](../../../../images/dev_ops/jenkins/docker_jenkin8.png)
 
 ### Step 2
 
-![docker_jenkin9.png](../../../../images/dev_ops/jenkin/docker_jenkin9.png)
+![docker_jenkin9.png](../../../../images/dev_ops/jenkins/docker_jenkin9.png)
 
 ### Step 3
 
-![docker_jenkin10.png](../../../../images/dev_ops/jenkin/docker_jenkin10.png)
+![docker_jenkin10.png](../../../../images/dev_ops/jenkins/docker_jenkin10.png)
 
 ### Step 4
 
-![docker_jenkin11.png](../../../../images/dev_ops/jenkin/docker_jenkin11.png)
+![docker_jenkin11.png](../../../../images/dev_ops/jenkins/docker_jenkin11.png)
 
 ### Step 5
 
-![docker_jenkin12.png](../../../../images/dev_ops/jenkin/docker_jenkin12.png)
+![docker_jenkin12.png](../../../../images/dev_ops/jenkins/docker_jenkin12.png)
 
 Congratulations, your installation is working properly!
 

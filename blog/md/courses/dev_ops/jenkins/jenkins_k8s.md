@@ -1,8 +1,8 @@
-# Jenkin Integration in Kubernetes
+# Jenkins Integration in Kubernetes
 
-This document compiles the integration of Jenkin into K8s. After the installation we can briefly see what Jenkin is and hopefully we can automate the build process with Github later.
+This document compiles the integration of Jenkins into K8s. After the installation we can briefly see what Jenkins is and hopefully we can automate the build process with Github later.
 
-## K8s Integration with Jenkin
+## K8s Integration with Jenkins
 
 A Kubernetes cluster adds a new automation layer to Jenkins. Kubernetes makes sure that resources are used effectively and that your servers and underlying infrastructure are not overloaded. Kubernetes' ability to orchestrate container deployment ensures that Jenkins always has the right amount of resources available.
 

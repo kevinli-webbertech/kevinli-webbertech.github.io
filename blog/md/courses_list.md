@@ -204,29 +204,29 @@ https://youtu.be/HSbDxOzgs2o (Part III)
 ### *Podman - *
 
 
-### **Jenkin**
+### **Jenkins**
 
-**Intro to Jenkin CICD Pipeline**
+**Intro to Jenkins CICD Pipeline**
 
 https://youtu.be/3lGB6_xsbkE
 
-* Jenkin Introduction 
-* Jenkin Installation with War file
+* Jenkins Introduction 
+* Jenkins Installation with War file
 
-**Jenkin Docker Installation**
+**Jenkins Docker Installation**
 
 https://youtu.be/6FG_l76cjns
 
-* Run Jenkin with Docker Container 
-* Jenkin Freestyle Project
+* Run Jenkins with Docker Container 
+* Jenkins Freestyle Project
 
-**Jenkin Pipeline Github Integration**
+**Jenkins Pipeline Github Integration**
 
 https://youtu.be/IJ_eWhA39Ls
 
-* Jenkin Pipeline Project
+* Jenkins Pipeline Project
 * Intro to Jenkinfile
-* Jenkin Pipe to integrate with Github's public project
+* Jenkins Pipe to integrate with Github's public project
 
 ## **Nexus**
 

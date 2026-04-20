@@ -2,24 +2,24 @@
 
 In this tutorial, we use a Maven-based Java project from GitHub to go from freestyle jobs to scripted pipelines.
 
-# Step 1 Create a Jenkin Job Pipeline
+# Step 1 Create a Jenkins Job Pipeline
 
 First screen, let us give a name called "pipeline_job", and click the "Pipeline" as an item type,
 
-![jenkin_pipeline.png](../../../../images/dev_ops/jenkin/jenkin_pipeline.png)
+![jenkin_pipeline.png](../../../../images/dev_ops/jenkins/jenkin_pipeline.png)
 
 Once it is created, click to enter into this job type. Please pay attention to the breadcrumb,
 
-![jenkin_pipeline1.png](../../../../images/dev_ops/jenkin/jenkin_pipeline1.png)
+![jenkin_pipeline1.png](../../../../images/dev_ops/jenkins/jenkin_pipeline1.png)
 
 Next, click on the "Build Now", and build a job,
 
-![jenkin_pipeline4.png](../../../../images/dev_ops/jenkin/jenkin_pipeline4.png)
+![jenkin_pipeline4.png](../../../../images/dev_ops/jenkins/jenkin_pipeline4.png)
 
 Next, click into the green job "#1", and click on "Console Output", this is the log.
 Normally, if you job failed, it will tell you the reason, there is no need to do `docker log container_id` to view what happened.
 
-![jenkin_pipeline5.png](../../../../images/dev_ops/jenkin/jenkin_pipeline5.png)
+![jenkin_pipeline5.png](../../../../images/dev_ops/jenkins/jenkin_pipeline5.png)
 
 >Note: In Jenkins, a `Spring Boot Hello World` project was used as the base for creating a Pipeline job.
 >GitHub Repo: <https://github.com/spring-guides/gs-spring-boot>
@@ -30,21 +30,21 @@ Normally, if you job failed, it will tell you the reason, there is no need to do
 
 1/ **Click on the green `new` button**
 
-![create_git_repo.png](../../../../images/dev_ops/jenkin/create_git_repo.png)
+![create_git_repo.png](../../../../images/dev_ops/jenkins/create_git_repo.png)
 
 2/ **Create a new repo**
 
-![create_git_repo1.png](../../../../images/dev_ops/jenkin/create_git_repo1.png)
+![create_git_repo1.png](../../../../images/dev_ops/jenkins/create_git_repo1.png)
 
 3/ **Checkout our new repo to local computer**
 
 Next screen provides the instructions to init and checkout your new repo to your local,
 
-![create_git_repo2.png](../../../../images/dev_ops/jenkin/create_git_repo2.png)
+![create_git_repo2.png](../../../../images/dev_ops/jenkins/create_git_repo2.png)
 
 Open a terminal and checkout the repo to your local with the instruction on the left hand side,
 
-![create_git_repo3.png](../../../../images/dev_ops/jenkin/create_git_repo3.png)
+![create_git_repo3.png](../../../../images/dev_ops/jenkins/create_git_repo3.png)
 
 4/ Clone the `Hello World` Springboot project from https://github.com/spring-guides/gs-spring-boot
 
@@ -127,7 +127,7 @@ kevin@kevin-li:~/git/my-gs-spring-boot$ tree
 14 directories, 15 files
 ```
 
->Note: You see Jenkinsfile there already, you need to create a file like this for jenkin software to execute on this script. 
+>Note: You see Jenkinsfile there already, you need to create a file like this for Jenkins software to execute on this script. 
 > Please follow the step below to create the Jenkinsfile. 
 
 >Warning: Make sure you do not copy everything into this project layout, only everything inside the `complete` dir. *Everything* includes the `.mvn` directory. Please check the steps above for the `cp` commands part.
@@ -189,7 +189,7 @@ pipeline {
 ```
 
 >Note: Here the most important thing in the Jenkinsfile above is the, of course, #1, the syntax, you can not have any syntax error.
-> The #2 important thing is the maven version, and we will talk about that, and how to check that version in our installed Jenkin software in localhost8080.
+> The #2 important thing is the maven version, and we will talk about that, and how to check that version in our installed Jenkins software in localhost8080.
 > It is discussed in the latter part of this tutorial.
 
 >Warning: The caveat here is that some people copy from my pdf or website to their code editor, and during this course, 
@@ -212,7 +212,7 @@ The `red` color means the files are new, and not tracked by git, as least git do
 
 `git status`
 
-![Jenkinsfile.png](../../../../images/dev_ops/jenkin/Jenkinsfile.png)
+![Jenkinsfile.png](../../../../images/dev_ops/jenkins/Jenkinsfile.png)
 
 Then, we run the following commands to make sure we add all the files, 
 
@@ -243,55 +243,55 @@ Then, push them to your remote repo by running the following commands,
 Now you have your repo in your Github server. Imagine this Github server is your company's server,
 You now want to build a job, build the Java Jar artifact from the Springboot project.
 
-![pipeline_job.png](../../../../images/dev_ops/jenkin/pipeline_job.png)
+![pipeline_job.png](../../../../images/dev_ops/jenkins/pipeline_job.png)
 
 Put your Github url there,
 
 Image 1,
 
-![pipeline_job1.png](../../../../images/dev_ops/jenkin/pipeline_job1.png)
+![pipeline_job1.png](../../../../images/dev_ops/jenkins/pipeline_job1.png)
 
 Image 2,
 
-![pipeline_job2.png](../../../../images/dev_ops/jenkin/pipeline_job2.png)
+![pipeline_job2.png](../../../../images/dev_ops/jenkins/pipeline_job2.png)
 
 Image 3,
 
-![pipeline_job3.png](../../../../images/dev_ops/jenkin/pipeline_job3.png)
+![pipeline_job3.png](../../../../images/dev_ops/jenkins/pipeline_job3.png)
 
 Image 4,
 
-![pipeline_job4.png](../../../../images/dev_ops/jenkin/pipeline_job4.png)
+![pipeline_job4.png](../../../../images/dev_ops/jenkins/pipeline_job4.png)
 
 Image 5,
 
-![pipeline_job5.png](../../../../images/dev_ops/jenkin/pipeline_job5.png)
+![pipeline_job5.png](../../../../images/dev_ops/jenkins/pipeline_job5.png)
 
 Image 6,
 
-![pipeline_job6.png](../../../../images/dev_ops/jenkin/pipeline_job6.png)
+![pipeline_job6.png](../../../../images/dev_ops/jenkins/pipeline_job6.png)
 
 Image 7,
 
-![pipeline_job7.png](../../../../images/dev_ops/jenkin/pipeline_job7.png)
+![pipeline_job7.png](../../../../images/dev_ops/jenkins/pipeline_job7.png)
 
-### Configure the github repo in the Jenkin plugin
+### Configure the github repo in the Jenkins plugin
 
 Click the `Manage` button on the right top corner,
 
-![Jenkins_management.png](../../../../images/dev_ops/jenkin/Jenkins_management.png)
+![Jenkins_management.png](../../../../images/dev_ops/jenkins/Jenkins_management.png)
 
 Then you are going to see the following screen,
 
-![Jenkins_management1.png](../../../../images/dev_ops/jenkin/Jenkins_management1.png)
+![Jenkins_management1.png](../../../../images/dev_ops/jenkins/Jenkins_management1.png)
 
 Click on `Tools`, and then scroll down to the bottom, 
 
-![Jenkins_tools.png](../../../../images/dev_ops/jenkin/Jenkins_tools.png)
+![Jenkins_tools.png](../../../../images/dev_ops/jenkins/Jenkins_tools.png)
 
 Next to click on `Maven Installations`, and you will the UI looks like the following,
 
-![Jenkins_maven_plugin.png](../../../../images/dev_ops/jenkin/Jenkins_maven_plugin.png)
+![Jenkins_maven_plugin.png](../../../../images/dev_ops/jenkins/Jenkins_maven_plugin.png)
 
 In this pre-built image, we already have this maven version `3.9.11` installed. But here is a caveat,
 you need to make sure that 3.9.11 is filled into the `Name`, so you see above image, there are two 3.9.11.
@@ -301,17 +301,17 @@ you need to make sure that 3.9.11 is filled into the `Name`, so you see above im
 And also make sure that, this version is coded in your `Jenkinsfile` in your springboot project root layout.
 For example, it should look like this,
 
-![Jenkinsfile_maven_version.png](../../../../images/dev_ops/jenkin/Jenkinsfile_maven_version.png)
+![Jenkinsfile_maven_version.png](../../../../images/dev_ops/jenkins/Jenkinsfile_maven_version.png)
 
 ### Jenkins_pipeline_configuration - Configure the github repo
 
 After we created the `pipeline_job`, we will go to the `configure`, it is found on the left panel in the following image,
 
-![Jenkins_configure.png](../../../../images/dev_ops/jenkin/Jenkins_configure.png)
+![Jenkins_configure.png](../../../../images/dev_ops/jenkins/Jenkins_configure.png)
 
 On your left side, make sure you click on `Pipeline` button,
 
-![Jenkins_pipeline_configuration.png](../../../../images/dev_ops/jenkin/Jenkins_pipeline_configuration.png)
+![Jenkins_pipeline_configuration.png](../../../../images/dev_ops/jenkins/Jenkins_pipeline_configuration.png)
 
 In the `Definition` dropdown menu, we select `Pipeline script from SCM`,
 
@@ -322,22 +322,22 @@ your `Jenkinsfile` is in there,
 
 Once you are done, click `Save`.
 
-### Execute a Jenkin job
+### Execute a Jenkins job
 
 Click on `Pipeline_job` in the breadcrum,
 
-![pipeline_job.png](../../../../images/dev_ops/jenkin/pipeline_job.png)
+![pipeline_job.png](../../../../images/dev_ops/jenkins/pipeline_job.png)
 
 Then click on `Build Now` on the left panel,  and it will successfully build the project and produced a .jar file.
 
 The following `green` shows the successful jobs, and the `red` shows the failed jobs.
 
-![jenkin_jobs.png](../../../../images/dev_ops/jenkin/jenkin_jobs.png)
+![jenkin_jobs.png](../../../../images/dev_ops/jenkins/jenkin_jobs.png)
 
 For instance, the Job `#11` was the one I just run, click into it, and check the `Console output`.
 Normally the failed job would have some errors in it.
 
-![jenkin_build_jar.png](../../../../images/dev_ops/jenkin/jenkin_build_jar.png)
+![jenkin_build_jar.png](../../../../images/dev_ops/jenkins/jenkin_build_jar.png)
 
 If your run job is `red` and failed, please click into it, and view the 'Console and Output' of the failed Job.
 
@@ -345,34 +345,34 @@ If your run job is `red` and failed, please click into it, and view the 'Console
 
 ### Default Admin Password
 
-![admin_login.png](../../../../images/dev_ops/jenkin/admin_login.png)
+![admin_login.png](../../../../images/dev_ops/jenkins/admin_login.png)
 
 Retrieve the default admin password, if you lost or forgot the default hash string of password, you could retrieve it like the following,
 
-![admin_login_pwd.png](../../../../images/dev_ops/jenkin/admin_login_pwd.png)
+![admin_login_pwd.png](../../../../images/dev_ops/jenkins/admin_login_pwd.png)
 
 ## Troubleshooting
 
 **Q: Password is not right.**
 
-A: Make sure you did not install Jenkin using other ways, which is not this docker image solution.
+A: Make sure you did not install Jenkins using other ways, which is not this docker image solution.
 If you download the war file or install from installer the solution is different and you have to find the related resource for that password.
 
 For instance, some people would install from War, some installed from Windows installer and someone were using `homebrew` version, and they were
-configured or preconfigured differently. For instance, the default git, and maven installed inside of that Jenkin tools. You are liable for
+configured or preconfigured differently. For instance, the default git, and maven installed inside of those Jenkins tools. You are liable for
 installing them separately which increase the complexity of this lab and scope. We would like to use the docker image for many reasons,
 
 * In reality, most companies use docker image and it is hassle-free.
-* No installation of JDK/JRE, GIT and Jenkin, no extra effort in doing some tedious work.
+* No installation of JDK/JRE, GIT and Jenkins, no extra effort in doing some tedious work.
 * No compatibility issue. In opensource product, maintenance and cost of fixing compatibility issue is a non-neglectable issue.
  This is probably the pros and cons. You paid for you get. Large corps would buy commercial support and enterprise versions for this reason.
  However, numerous tiny companies are still using opensource.
 
-**Q: How to get password for Jenkin login of the default admin password?**
+**Q: How to get password for Jenkins login of the default admin password?**
 
 A: Many solutions, 
 
-1/ Solution 1: if you mount the jenkins_home using `-v` option, please check or search around in the jenkin docker image page from docker.io or its own github repo readme file.
+1/ Solution 1: if you mount the jenkins_home using `-v` option, please check or search around in the Jenkins docker image page from docker.io or its own github repo readme file.
 Then the password file would be mounted in your host operating system. The details are skipped here.
 
 2/ Solution 2: you `cat` out the password file seen above in my document. If you saved it before and it does not work, then I would highly recommend you 
@@ -382,7 +382,7 @@ cat it out one more time, just in case it got changed every time.
 
 **Q: How to see my container and preserved my work?**
 
-A: Normally you do not have to reinstall the Jenkin container/image, moreover, if you have configured a job pipeline, and maven configuration, you want to save it.
+A: Normally you do not have to reinstall the Jenkins container/image, moreover, if you have configured a job pipeline, and maven configuration, you want to save it.
 And you want to poke around the features later in a day. This can still save you some minutes. What you can do with docker image is that, you can stop it before you close the lid of your computer.
 And you can restart the docker image, your settings should be preserved provided you saved them in Jenkins UI.
 

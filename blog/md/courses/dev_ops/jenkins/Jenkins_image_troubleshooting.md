@@ -1,4 +1,4 @@
-# Jenkin Image Troubleshooting
+# Jenkins Image Troubleshooting
 
 ## Fix your Jenkinsfile
 

@@ -6,7 +6,7 @@
 
 * This docker image would be used in EKS or K8s env.
 
-* We will provide details for the Jenkin job config as well.
+* We will provide details for the Jenkins job config as well.
 
 ![alt text](./tensorflow_dependencies.png.png)
 

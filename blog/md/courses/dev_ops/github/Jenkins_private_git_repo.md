@@ -2,8 +2,8 @@
 
 ## Goal
 
-This lab deals with both Jenkin configuration and private Github repository.
-The goal of this lab is to learn how to configure jenkin environmental variable and create
+This lab deals with both Jenkins configuration and private Github repository.
+The goal of this lab is to learn how to configure Jenkins environmental variable and create
 ssh private/public key and authenticate with Github to checkout its private repo.
 
 ### Knowledge
@@ -15,7 +15,7 @@ You can find some introduction here,
 - https://kevinli-webbertech.github.io/blog/html/courses/cybersecurity/public_private_key.html
 - https://kevinli-webbertech.github.io/blog/html/courses/cybersecurity/mathematics.html
 
-* Jenkin Environmental variables
+* Jenkins Environmental variables
 
 * Github Configurations
 
@@ -25,7 +25,7 @@ You can find some introduction here,
 
 See https://kevinli-webbertech.github.io/blog/md/courses/dev_ops/github/labs/Setup_SSH_KEY_GITHUB_lab2.pdf
 
-### Create a Jenkin Job
+### Create a Jenkins Job
 
 ![jenkin_repo.png](../../../../images/dev_ops/github/jenkin_repo.png)
 
@@ -43,7 +43,7 @@ Next step is job configuration. Let’s set only General part. So, we need to se
 61bace988c00479faead1029783c3780
 ```
 
-With the password you can login as "admin" to Jenkin dashboard.
+With the password you can login as "admin" to Jenkins dashboard.
 
 Let’s connect Jenkins job to our repository. In job configuration go to Source Code Management section and choose Git.
 
