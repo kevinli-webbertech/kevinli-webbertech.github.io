@@ -181,7 +181,16 @@ demo-app  ingress.yaml  -keyout  tls.key  webapp
 
 * Store cert in kubernetes 
 
-![Storing the cert in Kubernetes](/blog/images/dev_ops/k8s_ingress/store_cert_K8s.PNG)
+`
+kubectl create secret tls myapp-tls --key ./tls.key --cert ./tls.crt
+`
+
+Output would be,
+
+```
+kevinli@kevinli:~/git/k8s$ kubectl create secret tls myapp-tls --key ./tls.key --cert ./tls.crt
+secret/myapp-tls created
+```
 
 * Update the ingress.yaml to use TLS
 
