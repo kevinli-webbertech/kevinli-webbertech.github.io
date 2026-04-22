@@ -157,28 +157,50 @@ Add to /etc/hosts (simulate DNS)
 
 Production apps **must** use HTTPS. Ingress centralizes TLS termination (no certs in Pods).
 
-Generate a self-signed cert (real apps use Let's Encrypt)
+* Generate a self-signed cert (real apps use Let's Encrypt)
 
-![Generating a self-signed cert](/blog/images/dev_ops/k8s_ingress/cert_generate.PNG)
+Copy the following commands and you will see the cert and key generated.
 
-Store cert in kubernetes 
+```
+openssl req -x509 -nodes -days 365 -newkey rsa:2048  -keyout tls.key -out tls.crt -subj “/CN=myapp.local”
+```
+
+Output is like the following,
+
+```
+kevinli@kevinli:~/git/k8s$ openssl req -x509 -nodes -days 365 -newkey rsa:2048  -keyout tls.key -out tls.crt -subj “/CN=myapp.local”
+........+......+...+.........+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*.....+..............+......+.+...........+....+......+...+.....+......+.+.....+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*..............+..........+........+.+............+.....+...+....+..+...+.+.....+......+.+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+......+...+...........+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*......+..+.+......+......+..+...+....+......+...............+.....+.......+..+.........+.........+...+.............+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*....+...+......+....+..+.......+..+....+.....+....+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----
+req: subject name is expected to be in the format /type0=value0/type1=value1/type2=... where characters may be escaped by \. This name is not in that format: '“/CN=myapp.local”'
+kevinli@kevinli:~/git/k8s$ ls
+demo-app  ingress.yaml  -keyout  tls.key  webapp
+
+```
+
+
+* Store cert in kubernetes 
 
 ![Storing the cert in Kubernetes](/blog/images/dev_ops/k8s_ingress/store_cert_K8s.PNG)
 
-Update the ingress.yaml to use TLS
+* Update the ingress.yaml to use TLS
 
 ![Update of ingress.yaml](/blog/images/dev_ops/k8s_ingress/nano_ingress_update.PNG)
 
+```
 Add:
 spec:
   tls:
   - hosts:
     - myapp.local
     secretName: myapp-tls
+```
 
 ![Updated version of ingress.yaml](/blog/images/dev_ops/k8s_ingress/ingress_inside_update.PNG)
 
-Don't forget to apply the changes.
+* Apply the changes
+
+`kubectl apply -f ingress.yaml`
 
 ![Application of changes](/blog/images/dev_ops/k8s_ingress/nano_ingress_apply_update.PNG)
 
