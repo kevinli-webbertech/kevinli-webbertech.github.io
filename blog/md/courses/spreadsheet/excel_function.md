@@ -22,7 +22,7 @@ Syntax:
 * LOWER(text) Changes text to all lowercase.
 * PROPER(text) Changes text to title case.
 
-![alt text](https://kevinli-webbertech.github.io/blog/images/ref/excel/text_function.png)
+![alt text](/blog/images/spreadsheet/text_function.png)
 
 #### TRIM Function
 
@@ -31,4 +31,4 @@ TRIM function returns a text value with the leading and trailing soaces removed.
 Syntax: TRIM(text)
 where text is the text value to remove the leading and trailing spaces from.
 
-![alt text](https://kevinli-webbertech.github.io/blog/images/ref/excel/trim_function.png)
+![alt text](/blog/images/spreadsheet/trim_function.png)
