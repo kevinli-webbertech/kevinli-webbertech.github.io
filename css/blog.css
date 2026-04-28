@@ -103,6 +103,19 @@ body {
 	background: #fff;
 }
 
+#nav_menu li a {
+	font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+	font-size: 0.95rem;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: #243447;
+}
+
+#nav_menu li a:hover {
+	color: var(--accent);
+}
+
 .column.right .content {
 	background: var(--panel-bg);
 	border: 1px solid var(--divider);
