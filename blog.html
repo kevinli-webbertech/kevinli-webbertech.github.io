@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/tree.css" />
+	<link rel="stylesheet" href="css/blog.css" />
 
 	<!---The followings are needed for authentication -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/core.js"></script>
@@ -18,7 +19,7 @@
 <body>
  <div class="row">
   <div class="column left" id= "left_sidebar">
-    <h2>Kevin's Blog</h2>
+	 <h2>Kevin's Courses</h2>
     <div class="sidebar_content" id="sidebar_content">
 		<ul id="myUL">
 			<li><span class="caret">HowTo</span>
@@ -883,6 +884,10 @@
 			</li>	
 		</ul>
 	</div>
+	<div class="sidebar_notice">
+		<h3>Notices</h3>
+		<iframe src="notices.html" title="Notices" width="100%" height="260" frameborder="0"></iframe>
+	</div>
   </div>
 
   <div class="column right">
@@ -892,7 +897,7 @@
 		  		<li><a href="indicator.html" onclick="">indicator</a></li>
 				<li><a href="news.html">news</a></li>
 		    	<li><a href="philosophy.html">philosophy</a></li>
-		    	<li><a href="blog.html">blog</a></li>
+		    	<li><a href="blog.html">courses</a></li>
 		    	<li><a href="about_me.html">about me</a></li>
 		    </ul>
 	   </nav>
@@ -902,9 +907,10 @@
 			         https://www.tradingview.com/markets/world-economy/countries/united-states/?category=txs
 	  -->
 	  <div class="content">
-		<section class="one_column">
-			<iframe src="notices.html" title="Notices" width="100%" height="800" frameborder="0"></iframe>
-			
+		<section class="class-cards-section">
+			<h2>Featured Classes</h2>
+			<p class="class-cards-subtitle">Auto-generated from the Courses menu.</p>
+			<div class="class-cards-grid" id="class-cards-grid"></div>
 		</section>
 
 	  </div> <!--end of content div-->
@@ -931,6 +937,80 @@
 		this.classList.toggle("caret-down");
 	  });
 	}
+
+	function buildClassCardsFromCourses() {
+	  var cardsGrid = document.getElementById("class-cards-grid");
+	  if (!cardsGrid) {
+		return;
+	  }
+
+	  var allCarets = Array.from(document.querySelectorAll("#sidebar_content .caret"));
+	  var coursesCaret = allCarets.find(function(node) {
+		return node.textContent.trim() === "Courses";
+	  });
+
+	  if (!coursesCaret) {
+		cardsGrid.innerHTML = "<p>Courses menu not found.</p>";
+		return;
+	  }
+
+	  var coursesNested = null;
+	  Array.from(coursesCaret.parentElement.children).forEach(function(child) {
+		if (!coursesNested && child.classList && child.classList.contains("nested")) {
+		  coursesNested = child;
+		}
+	  });
+	  if (!coursesNested) {
+		cardsGrid.innerHTML = "<p>No course categories found.</p>";
+		return;
+	  }
+
+	  var categoryItems = Array.from(coursesNested.children)
+		.filter(function(node) { return node.tagName && node.tagName.toLowerCase() === "li"; });
+
+	  var cardsHtml = [];
+
+	  categoryItems.forEach(function(categoryLi) {
+		var titleNode = null;
+		Array.from(categoryLi.children).forEach(function(child) {
+		  if (!titleNode && child.classList && child.classList.contains("caret")) {
+			titleNode = child;
+		  }
+		});
+
+		var title = titleNode ? titleNode.textContent.trim() : "";
+		if (!title) {
+		  var directAnchor = categoryLi.querySelector(":scope > a[href], a[href]");
+		  title = directAnchor ? directAnchor.textContent.trim() : "";
+		}
+
+		if (!title) {
+		  return;
+		}
+
+		var firstLink = categoryLi.querySelector("a[href]");
+		if (!firstLink) {
+		  return;
+		}
+
+		var href = firstLink.getAttribute("href");
+		var linkCount = categoryLi.querySelectorAll("a[href]").length;
+		var summary = linkCount + " topics available";
+
+		cardsHtml.push(
+		  '<a class="class-card" href="' + href + '">' +
+			'<h3>' + title + '</h3>' +
+			'<p>' + summary + '</p>' +
+		  '</a>'
+		);
+	  });
+
+	  cardsGrid.innerHTML = cardsHtml.length > 0
+		? cardsHtml.join("")
+		: "<p>No course cards could be generated.</p>";
+	}
+
+	buildClassCardsFromCourses();
 </script>
 
 </body>
