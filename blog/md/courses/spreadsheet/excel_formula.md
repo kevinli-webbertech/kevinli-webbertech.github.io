@@ -48,7 +48,7 @@ The current date appears in the cell and will not be updated.
 
 You do not have to use the DATE function, or any other function, to calculate the number of days between two dates. Use the subtraction (-) operator to do this.
 
-![alt text](https://kevinli-webbertech.github.io/blog/images/ref/excel/homework2-1.png)
+![Date difference calculation in Excel (Umulhidayah, CC BY-SA 4.0, via Wikimedia Commons)](/blog/images/spreadsheet/date_diff_excel.jpg)
 
 Remember to change the Format for the “Days in between” cell to the number format. Select `Format > Cells` and choose the `Number` Category.
 
@@ -65,19 +65,18 @@ Syntax:
 `CONCATENATE(text1, text2)` are 1 to 30 text items to be joined into a single text item. The text items can
 be text strings, numbers, or single-cell references.
 
-![alt text](https://kevinli-webbertech.github.io/blog/images/ref/excel/homework2-2.png)
-
-![alt text](https://kevinli-webbertech.github.io/blog/images/ref/excel/homework2-3.png)
+![UPPER function example in Excel (Umulhidayah, CC BY-SA 4.0, via Wikimedia Commons)](/blog/images/spreadsheet/upper_function_excel.png)
 
 - PROPER and TRIM Functions combined
 
 Functions can be combined to complete multiple tasks at once.
 
-![alt text](https://kevinli-webbertech.github.io/blog/images/ref/excel/homework2-4.png)
+![PROPER function example in Excel (Umulhidayah, CC BY-SA 4.0, via Wikimedia Commons)](/blog/images/spreadsheet/proper_function_excel.png)
 
 - Concatenate example
 
-![alt text](https://kevinli-webbertech.github.io/blog/images/ref/excel/homework2-5.png)
+![CONCATENATE function in Excel (Umulhidayah, CC BY-SA 4.0, via Wikimedia Commons)](/blog/images/spreadsheet/concatenate_excel.jpg)
+
 
 The “&” operator can be used instead of CONCATENATE to join text items.
 
