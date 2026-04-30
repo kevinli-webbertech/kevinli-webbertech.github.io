@@ -148,6 +148,27 @@ body {
 	gap: 14px;
 }
 
+.class-cards-controls {
+	margin-top: 14px;
+	text-align: center;
+}
+
+.class-cards-controls button {
+	padding: 10px 14px;
+	border: 1px solid var(--divider);
+	border-radius: 8px;
+	background: #fff;
+	color: var(--ink);
+	cursor: pointer;
+	font-size: 0.92rem;
+	transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.class-cards-controls button:hover {
+	border-color: #c7d8ea;
+	box-shadow: 0 2px 10px rgba(31, 111, 178, 0.08);
+}
+
 .class-card {
 	display: block;
 	padding: 16px;
@@ -194,5 +215,9 @@ body {
 
 	.class-cards-grid {
 		grid-template-columns: 1fr;
+	}
+
+	.class-cards-controls button {
+		width: 100%;
 	}
 }

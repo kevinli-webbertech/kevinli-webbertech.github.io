@@ -781,6 +781,15 @@
 							</ol>
 						</ul>
 					</li>
+
+					<li><span class="caret">ML Ops</span>
+						<ul class="nested">
+							<ol>
+								<li><a href="blog/html/courses/ml_ops/introduction.html">Introduction to MLOps</a></li>
+								<li><a href="blog/html/courses/ml_ops/ml_scan_tools_security.html">ML Scan Tools and Security Perspective</a></li>
+							</ol>
+						</ul>
+					</li>
 				</ul>
 			</li>
 		</ul>
@@ -938,8 +947,11 @@
 	  <div class="content">
 		<section class="class-cards-section">
 			<h2>Featured Classes</h2>
-			<p class="class-cards-subtitle">Auto-generated from the Courses menu.</p>
+			<p class="class-cards-subtitle">Auto-generated from the Courses menu. ML, DevOps, MLOps, and Linux courses are prioritized.</p>
 			<div class="class-cards-grid" id="class-cards-grid"></div>
+			<div class="class-cards-controls" id="class-cards-controls" hidden>
+				<button type="button" id="class-cards-load-more">Load more</button>
+			</div>
 		</section>
 
 	  </div> <!--end of content div-->
@@ -969,6 +981,8 @@
 
 	function buildClassCardsFromCourses() {
 	  var cardsGrid = document.getElementById("class-cards-grid");
+	  var cardsControls = document.getElementById("class-cards-controls");
+	  var loadMoreBtn = document.getElementById("class-cards-load-more");
 	  if (!cardsGrid) {
 		return;
 	  }
@@ -997,7 +1011,20 @@
 	  var categoryItems = Array.from(coursesNested.children)
 		.filter(function(node) { return node.tagName && node.tagName.toLowerCase() === "li"; });
 
-	  var cardsHtml = [];
+	  var INITIAL_VISIBLE = 6;
+	  var LOAD_STEP = 6;
+
+	  function getPriorityScore(title) {
+		var normalized = (title || "").toLowerCase().replace(/\s+/g, " ").trim();
+
+		if (normalized.indexOf("ml ops") !== -1 || normalized.indexOf("mlops") !== -1) return 0;
+		if (normalized.indexOf("machine learning") !== -1 || normalized.indexOf("ai / ml") !== -1 || normalized.indexOf("ai/ml") !== -1) return 1;
+		if (normalized.indexOf("dev ops") !== -1 || normalized.indexOf("devops") !== -1) return 2;
+		if (normalized.indexOf("linux") !== -1) return 3;
+		return 99;
+	  }
+
+	  var cardsData = [];
 
 	  categoryItems.forEach(function(categoryLi) {
 		var titleNode = null;
@@ -1033,24 +1060,82 @@
 		var linkCount = courseLinks.length;
 		var summary = linkCount + " topics available";
 
-		cardsHtml.push(
-		  '<a class="class-card" href="' + href + '" data-course-title="' + title.replace(/"/g, '&quot;') + '">' +
-			'<h3>' + title + '</h3>' +
-			'<p>' + summary + '</p>' +
-		  '</a>'
-		);
-	  });
-
-	  cardsGrid.innerHTML = cardsHtml.length > 0
-		? cardsHtml.join("")
-		: "<p>No course cards could be generated.</p>";
-
-	  // Wire up click handlers after HTML is injected
-	  cardsGrid.querySelectorAll(".class-card[data-course-title]").forEach(function(card) {
-		card.addEventListener("click", function() {
-		  expandCourseMenu(this.dataset.courseTitle);
+		cardsData.push({
+		  title: title,
+		  href: href,
+		  summary: summary,
+		  priorityScore: getPriorityScore(title)
 		});
 	  });
+
+	  cardsData.sort(function(a, b) {
+		if (a.priorityScore !== b.priorityScore) {
+		  return a.priorityScore - b.priorityScore;
+		}
+		return a.title.localeCompare(b.title);
+	  });
+
+	  var visibleCount = Math.min(INITIAL_VISIBLE, cardsData.length);
+
+	  function buildCardHtml(item) {
+		return (
+		  '<a class="class-card" href="' + item.href + '" data-course-title="' + item.title.replace(/"/g, '&quot;') + '">' +
+			'<h3>' + item.title + '</h3>' +
+			'<p>' + item.summary + '</p>' +
+		  '</a>'
+		);
+	  }
+
+	  function wireCardClicks() {
+		cardsGrid.querySelectorAll(".class-card[data-course-title]").forEach(function(card) {
+		  card.addEventListener("click", function() {
+			expandCourseMenu(this.dataset.courseTitle);
+		  });
+		});
+	  }
+
+	  function renderCards() {
+		if (cardsData.length === 0) {
+		  cardsGrid.innerHTML = "<p>No course cards could be generated.</p>";
+		  if (cardsControls) {
+			cardsControls.hidden = true;
+		  }
+		  return;
+		}
+
+		cardsGrid.innerHTML = cardsData.slice(0, visibleCount).map(buildCardHtml).join("");
+		wireCardClicks();
+
+		if (!cardsControls || !loadMoreBtn) {
+		  return;
+		}
+
+		if (cardsData.length <= INITIAL_VISIBLE) {
+		  cardsControls.hidden = true;
+		  return;
+		}
+
+		cardsControls.hidden = false;
+		if (visibleCount < cardsData.length) {
+		  var remaining = cardsData.length - visibleCount;
+		  loadMoreBtn.textContent = "Load more (" + remaining + " remaining)";
+		} else {
+		  loadMoreBtn.textContent = "Show less";
+		}
+	  }
+
+	  if (loadMoreBtn) {
+		loadMoreBtn.onclick = function() {
+		  if (visibleCount < cardsData.length) {
+			visibleCount = Math.min(cardsData.length, visibleCount + LOAD_STEP);
+		  } else {
+			visibleCount = Math.min(INITIAL_VISIBLE, cardsData.length);
+		  }
+		  renderCards();
+		};
+	  }
+
+	  renderCards();
 	}
 
 	function expandCourseMenu(courseTitle) {
