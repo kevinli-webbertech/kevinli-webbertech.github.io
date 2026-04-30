@@ -208,6 +208,7 @@
 					<li><span class="caret">Computer Architecture</span>
 						<ul class="nested">
 							<ol>
+								<li><a href="blog/html/courses/computer_architecture/syllabus.html">Syllabus</a></li>
 								<li><a href="blog/html/courses/computer_architecture/signed_unsigned_number.html">Signed And UnsignedNumber Lab</a></li>
 								<li><a href="blog/html/courses/computer_architecture/virtualization.html">virtualization</a></li>
 								<li><a href="blog/html/courses/computer_architecture/cpu_virtualization.html">CPU Virtualization</a></li>
@@ -309,6 +310,7 @@
 								<li><a href="blog/html/courses/computer_forensic/homework/homework6.html">homework6</a></li>
 								<li><span class="caret">Cybersecurity</span>
 									<ul class="nested">
+										<li><a href="blog/html/courses/cybersecurity/syllabus.html">Syllabus</a></li>
 										<li><a href="blog/html/courses/cybersecurity/public_private_key.html">public and private key</a></li>
 										<li><span class="caret">Cyber Algorithms</span>
 											<ul class="nested">
@@ -412,6 +414,7 @@
 
 					<li><span class="caret">Javascript</span>
 						<ul class="nested">
+								<li><a href="blog/html/courses/javascript_es/syllabus.html">Syllabus</a></li>
 								<li><a href="blog/html/courses/javascript_es/introduction.html">Javascript Intro</a></li>
 								<li><a href="blog/html/courses/javascript_es/features.html">Javascript Features</a></li>
                                 <li><a href="blog/md/courses/javascript_es/Lab1_Javascript_VS_Copilot.pdf">Javascript Lab1</a></li>
@@ -432,6 +435,7 @@
 
 					<li><span class="caret">ReactJS</span>
 				    	<ul class="nested">
+							<li><a href="blog/html/courses/javascript_reactjs/syllabus.html">Syllabus</a></li>
 							<li><a href="blog/html/courses/javascript_reactjs/reactjs_basics.html">reactjs basics </a></li>
 							<li><a href="blog/html/courses/javascript_reactjs/reactjs_router.html">reactjs router </a></li>
 							<li><a href="blog/html/courses/javascript_reactjs/reactjs_RBAC.html">reactjs RBAC </a></li>
@@ -452,6 +456,7 @@
 
 					<li><span class="caret">NextJS Framework</span>
 					  <ul class="nested">
+						<li><a href="blog/html/courses/javascript_nextjs/syllabus.html">Syllabus</a></li>
 						<li><a href="blog/html/courses/javascript_nextjs/nextjs_basics.html">nextjs basics</a></li>
 						<li><a href="blog/html/courses/javascript_nextjs/nextjs_drag_n_drop.html">nextjs drag n drop</a></li>
 					  </ul>
@@ -459,6 +464,7 @@
 
 					<li><span class="caret">Kotlin</span>
 					  <ul class="nested">
+							<li><a href="blog/html/courses/kotlin/syllabus.html">Syllabus</a></li>
 							<li><a href="blog/html/courses/kotlin/kotlin_basics.html">kotlin basics</a></li>
 							<li><a href="blog/html/courses/kotlin/variable.html">variable</a></li>
 							<li><a href="blog/html/courses/kotlin/kotlin_datatypes.html">datatypes</a></li>
@@ -479,6 +485,7 @@
 
 					<li><span class="caret">Linux Administration</span>
 						<ul class="nested">
+                                <li><a href="blog/html/courses/linux_administration/syllabus.html">Syllabus</a></li>
                                 <li><a href="blog/html/courses/linux_administration/linux_distro.html">Linux Distro</a></li>
                                 <li><a href="blog/html/courses/linux_administration/linux_window_manager.html">Linux Window Manager</a></li>
                                 <li><a href="blog/html/courses/linux_administration/linux_cmd.html">Linux cmd</a></li>
@@ -723,6 +730,7 @@
 					<li><span class="caret">Springboot</span>
 						<ul class="nested">
 							<ol>
+								<li><a href="blog/html/courses/springboot/syllabus.html">Syllabus</a></li>
 								<li><a href="blog/html/courses/springboot/springboot_1.html">Springboot Intro</a></li>
 								<li><a href="blog/html/courses/springboot/springboot_2.html">Springboot Data Access</a></li>
 								<li><a href="blog/html/courses/springboot/springboot_3.html">Springboot Kubernetes Deployment</a></li>
@@ -758,6 +766,7 @@
 					<li><span class="caret">Rust</span>
 						<ul class="nested">
 							<ol>
+								<li><a href="blog/html/courses/rust/syllabus.html">Syllabus</a></li>
 								<li><a href="blog/html/courses/rust/rust.html">Rust Programming</a></li>
 								<li><a href="blog/html/courses/rust/solana.html">Solana &amp; Blockchain</a></li>
 							</ol>
@@ -767,6 +776,7 @@
 					<li><span class="caret">AI / ML</span>
 						<ul class="nested">
 							<ol>
+								<li><a href="blog/html/courses/ai_ml/syllabus.html">Syllabus</a></li>
 								<li><a href="blog/html/courses/ai_ml/qwen_small_app_example.html">Qwen Small App Example</a></li>
 							</ol>
 						</ul>
@@ -1007,20 +1017,27 @@
 		  return;
 		}
 
-		var firstLink = categoryLi.querySelector("a[href]");
-		if (!firstLink) {
+		var courseLinks = Array.from(categoryLi.querySelectorAll("a[href]"));
+		if (courseLinks.length === 0) {
 		  return;
 		}
 
-		var href = firstLink.getAttribute("href");
-		var linkCount = categoryLi.querySelectorAll("a[href]").length;
+		var syllabusLink = courseLinks.find(function(link) {
+		  var text = (link.textContent || "").trim().toLowerCase();
+		  var url = (link.getAttribute("href") || "").toLowerCase();
+		  return text.indexOf("syllabus") !== -1 || url.indexOf("syllabus") !== -1;
+		});
+
+		var targetLink = syllabusLink || courseLinks[0];
+		var href = targetLink.getAttribute("href");
+		var linkCount = courseLinks.length;
 		var summary = linkCount + " topics available";
 
 		cardsHtml.push(
-		  '<div class="class-card" data-course-title="' + title.replace(/"/g, '&quot;') + '">' +
+		  '<a class="class-card" href="' + href + '" data-course-title="' + title.replace(/"/g, '&quot;') + '">' +
 			'<h3>' + title + '</h3>' +
 			'<p>' + summary + '</p>' +
-		  '</div>'
+		  '</a>'
 		);
 	  });
 
