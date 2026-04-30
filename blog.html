@@ -763,6 +763,14 @@
 							</ol>
 						</ul>
 					</li>
+
+					<li><span class="caret">AI / ML</span>
+						<ul class="nested">
+							<ol>
+								<li><a href="blog/html/courses/ai_ml/qwen_small_app_example.html">Qwen Small App Example</a></li>
+							</ol>
+						</ul>
+					</li>
 				</ul>
 			</li>
 		</ul>
@@ -1009,16 +1017,60 @@
 		var summary = linkCount + " topics available";
 
 		cardsHtml.push(
-		  '<a class="class-card" href="' + href + '">' +
+		  '<div class="class-card" data-course-title="' + title.replace(/"/g, '&quot;') + '">' +
 			'<h3>' + title + '</h3>' +
 			'<p>' + summary + '</p>' +
-		  '</a>'
+		  '</div>'
 		);
 	  });
 
 	  cardsGrid.innerHTML = cardsHtml.length > 0
 		? cardsHtml.join("")
 		: "<p>No course cards could be generated.</p>";
+
+	  // Wire up click handlers after HTML is injected
+	  cardsGrid.querySelectorAll(".class-card[data-course-title]").forEach(function(card) {
+		card.addEventListener("click", function() {
+		  expandCourseMenu(this.dataset.courseTitle);
+		});
+	  });
+	}
+
+	function expandCourseMenu(courseTitle) {
+	  // 1. Expand the top-level "Courses" caret
+	  var allCarets = Array.from(document.querySelectorAll("#sidebar_content .caret"));
+	  var coursesCaret = allCarets.find(function(n) {
+		return n.textContent.trim() === "Courses";
+	  });
+	  if (coursesCaret) {
+		var coursesNested = coursesCaret.parentElement.querySelector(".nested");
+		if (coursesNested && !coursesNested.classList.contains("active")) {
+		  coursesNested.classList.add("active");
+		  coursesCaret.classList.add("caret-down");
+		}
+	  }
+
+	  // 2. Find and expand the matching course caret
+	  var targetCaret = allCarets.find(function(n) {
+		return n.textContent.trim() === courseTitle;
+	  });
+	  if (!targetCaret) return;
+
+	  var targetNested = targetCaret.parentElement.querySelector(".nested");
+	  if (targetNested && !targetNested.classList.contains("active")) {
+		targetNested.classList.add("active");
+		targetCaret.classList.add("caret-down");
+	  }
+
+	  // 3. Scroll the caret into view smoothly
+	  targetCaret.scrollIntoView({ behavior: "smooth", block: "start" });
+
+	  // 4. Brief yellow flash highlight
+	  targetCaret.style.transition = "background-color 0.3s ease";
+	  targetCaret.style.backgroundColor = "#fffacd";
+	  setTimeout(function() {
+		targetCaret.style.backgroundColor = "";
+	  }, 1500);
 	}
 
 	buildClassCardsFromCourses();
