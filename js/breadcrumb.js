@@ -5,6 +5,10 @@
       .replace(/\b\w/g, (c) => c.toUpperCase());
   }
 
+  function getCrumbHref(acc) {
+    return acc === "/blog" ? "/blog.html" : null;
+  }
+
   function buildBreadcrumb() {
     const nav = document.querySelector("#breadcrumb") || document.querySelector("[data-breadcrumb]");
     if (!nav) return;
@@ -22,11 +26,11 @@
     const items = [];
     let acc = "";
 
-    items.push('<a href="/" style="text-decoration:none; color:#0366d6;">Home</a>');
+    items.push('<a href="/index.html" style="text-decoration:none; color:#0366d6;">Home</a>');
 
     for (let i = 0; i < parts.length; i++) {
       acc += "/" + parts[i];
-      if (parts[i] === "html" && parts[i - 1] === "blog") continue;
+      if (parts[i] === "html" && (i === 0 || parts[i - 1] === "blog")) continue;
 
       const isLast = i === parts.length - 1;
       const text = labelize(parts[i]);
@@ -34,7 +38,12 @@
       if (isLast) {
         items.push(`<span style="color:#555; font-weight:600;">${text}</span>`);
       } else {
-        items.push(`<a href="${acc}/" style="text-decoration:none; color:#0366d6;">${text}</a>`);
+        const crumbHref = getCrumbHref(acc);
+        if (crumbHref) {
+          items.push(`<a href="${crumbHref}" style="text-decoration:none; color:#0366d6;">${text}</a>`);
+        } else {
+          items.push(`<span style="color:#555;">${text}</span>`);
+        }
       }
     }
 
