@@ -953,12 +953,17 @@
 			         https://www.tradingview.com/markets/world-economy/countries/united-states/?category=txs
 	  -->
 	  <div class="content">
-		<section class="class-cards-section">
+		<section class="class-cards-section" id="class-cards-section">
 			<h2>Featured Classes</h2>
 			<div class="class-cards-grid" id="class-cards-grid"></div>
 			<div class="class-cards-controls" id="class-cards-controls" hidden>
 				<button type="button" id="class-cards-load-more">Load more</button>
 			</div>
+		</section>
+
+		<section id="course-viewer-section" style="display:none;">
+			<button type="button" id="course-viewer-back" style="margin:8px 0 10px;padding:6px 14px;cursor:pointer;font-size:14px;">&larr; Back to Courses</button>
+			<iframe id="course-frame" src="" title="Course Content" width="100%" style="height:calc(100vh - 120px);border:none;display:block;"></iframe>
 		</section>
 
 	  </div> <!--end of content div-->
@@ -1094,9 +1099,10 @@
 	  }
 
 	  function wireCardClicks() {
-		cardsGrid.querySelectorAll(".class-card[data-course-title]").forEach(function(card) {
-		  card.addEventListener("click", function() {
-			expandCourseMenu(this.dataset.courseTitle);
+		cardsGrid.querySelectorAll(".class-card[href]").forEach(function(card) {
+		  card.addEventListener("click", function(e) {
+			e.preventDefault();
+			openCourseInViewer(this.getAttribute("href"));
 		  });
 		});
 	  }
@@ -1183,6 +1189,36 @@
 	}
 
 	buildClassCardsFromCourses();
+
+	// Course viewer: open a course page in the right-column iframe
+	function openCourseInViewer(href) {
+		var cardsSection = document.getElementById("class-cards-section");
+		var viewerSection = document.getElementById("course-viewer-section");
+		var frame = document.getElementById("course-frame");
+		if (!viewerSection || !frame) return;
+		frame.src = href;
+		if (cardsSection) cardsSection.style.display = "none";
+		viewerSection.style.display = "block";
+	}
+
+	document.getElementById("course-viewer-back").addEventListener("click", function() {
+		var cardsSection = document.getElementById("class-cards-section");
+		var viewerSection = document.getElementById("course-viewer-section");
+		var frame = document.getElementById("course-frame");
+		viewerSection.style.display = "none";
+		frame.src = "";
+		if (cardsSection) cardsSection.style.display = "";
+	});
+
+	// Intercept all sidebar course links and load them in the viewer
+	document.getElementById("sidebar_content").addEventListener("click", function(e) {
+		var link = e.target.closest("a[href]");
+		if (!link) return;
+		var href = link.getAttribute("href");
+		if (!href || href.indexOf("blog/html/courses/") === -1) return;
+		e.preventDefault();
+		openCourseInViewer(href);
+	});
 </script>
 
 </body>
