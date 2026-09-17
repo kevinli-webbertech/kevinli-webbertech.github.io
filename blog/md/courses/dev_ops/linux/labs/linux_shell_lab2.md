@@ -35,7 +35,22 @@ kill -TERM $(ps aux | grep '[n]ginx: master' | awk '{print $2}')
 
 ### 2. Text Processing & Data Extraction with `awk`, `sed`, and `cut`
 
-**Goal:** From a CSV file `data.csv`, extract the second and fifth fields, change the delimiter from a comma to a pipe `|`, and save it to a new file.
+**Goal:** From a CSV file [`data.csv`](https://kevinli-webbertech.github.io/blog/md/courses/dev_ops/linux/labs/data.csv), extract the second and fifth fields, change the delimiter from a comma to a pipe `|`, and save it to a new file.
+
+**data.csv:**
+```
+id,name,department,city,email,salary
+101,Alice Johnson,Engineering,New York,alice.johnson@example.com,95000
+102,Bob Smith,Marketing,Chicago,bob.smith@example.com,72000
+103,Eve Davis,Engineering,San Francisco,eve.davis@example.com,105000
+104,Mallory Brown,Sales,Austin,mallory.brown@example.com,68000
+105,Charlie Wilson,Engineering,Seattle,charlie.wilson@example.com,98000
+106,Dana Lee,Human Resources,Chicago,dana.lee@example.com,64000
+107,Frank Miller,Marketing,New York,frank.miller@example.com,71000
+108,Grace Kim,Finance,Boston,grace.kim@example.com,89000
+109,Heidi Clark,Sales,Austin,heidi.clark@example.com,66000
+110,Ivan Rodriguez,Engineering,Denver,ivan.rodriguez@example.com,102000
+```
 
 ```bash
 awk -F',' '{print $2 "|" $5}' data.csv > new_data.txt
@@ -46,6 +61,7 @@ cut -d',' -f2,5 data.csv | sed 's/,/|/g' > new_data.txt
 *   `awk -F','`: Set the input field separator to a comma.
 *   `cut -d',' -f2,5`: `cut` uses the comma delimiter to select fields 2 and 5.
 *   `sed 's/,/|/g'`: `sed` substitutes every comma (` ,`) with a pipe (`|`). The `g` means "global," for all occurrences on the line.
+*   The output (`name|email`) is exactly the second (`name`) and fifth (`email`) fields from `data.csv`.
 
 **Goal:** Get the IP address from a system command like `ip a` (assuming `eth0`).
 

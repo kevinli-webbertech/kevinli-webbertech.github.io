@@ -11,14 +11,14 @@ This is often used in data center of companies or schools.
 
 First I use `sudo fdisk -l` to view all the partitions and hard drive on my linux system.
 
-![fdisk.png](fdisk.png)
+![fdisk.png](/blog/images/dev_ops/linux/labs/fdisk.png)
 
 ### Step 2 view the partition UUID 
 
 In order to mount my NTFS hard drive taken from an old windows server, I need to mount the disk/partition into my linux machine using /etc/fstab. However, we might need to take the partition or disk’s UUID, and we need another command,
 The other command I use is the `blkid`, and it allows me to see all the UUID of the system.
 
-![blkid.png](blkid.png)
+![blkid.png](/blog/images/dev_ops/linux/labs/blkid.png)
 
 Now I am getting the UUID of that partition of /dev/sdb1,
 
@@ -37,18 +37,18 @@ And we want to make sure that, we did create a folder before we reboot or let th
 You can learn VIM editor commands in latter of the class, but when you first time to modify the /etc/fstab, I would recommend you to backup this file before you modify it,
 You can use `sudo` and `cp` to make another copy.
 
-![fstab_bk.png](fstab_bk.png)
+![fstab_bk.png](/blog/images/dev_ops/linux/labs/fstab_bk.png)
 
 To permanently mount the partition into the linux machine, so next time, when we boot up the machine, the drive is always good for use.
 
 We will use the `mount` command to add a line of instruction into `/etc/fstab` and we need to use `sudo` which is a root permission to modify this file and save it.
 So here I use the `vim` editor to add this line,
 
-![fstab.png](fstab.png)
+![fstab.png](/blog/images/dev_ops/linux/labs/fstab.png)
 
 Once we open the /etc/fstab, we will add the last line there [you see the UUID], 
 
-![fstab_edit.png](fstab_edit.png)
+![fstab_edit.png](/blog/images/dev_ops/linux/labs/fstab_edit.png)
 
 ## One-off mounting with `mount` command
 
