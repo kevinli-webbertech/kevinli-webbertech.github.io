@@ -22,6 +22,18 @@ The key idea is that we can **redirect** these streams away from their default t
 
 Redirection is all about changing the source of input or the destination of output.
 
+| Operator      | Name                          | Effect                                                                 |
+| :------------ | :---------------------------- | :---------------------------------------------------------------------- |
+| `>`           | Output redirect (overwrite)   | Sends **stdout** to a file, **overwriting** it.                        |
+| `>>`          | Output redirect (append)      | Sends **stdout** to a file, **appending** to the end.                  |
+| `<`           | Input redirect                | Reads **stdin** from a file instead of the keyboard.                   |
+| `2>`          | Error redirect (overwrite)    | Sends **stderr** to a file, **overwriting** it.                        |
+| `2>>`         | Error redirect (append)       | Sends **stderr** to a file, **appending** to the end.                  |
+| `2>&1`        | Merge stderr into stdout      | Redirects **stderr** to wherever **stdout** is currently going.        |
+| `&>`          | Combined redirect (overwrite) | Sends **both stdout and stderr** to a file, **overwriting** it.        |
+| `>&`          | Combined redirect (alias)     | Same as `&>`; sends **both stdout and stderr** to a file.              |
+| `&>>`         | Combined redirect (append)    | Sends **both stdout and stderr** to a file, **appending** to the end.  |
+
 #### Output Redirection (`>` and `>>`)
 
 *   `command > file`
@@ -63,6 +75,50 @@ Since FD 2 is stderr, we use its number to redirect it specifically.
 *   **Redirect stderr to stdout, and then pipe stdout:**
     *   `command 2>&1 | less`
     *   **Explanation:** First, `2>&1` sends stderr to the same place as stdout (the terminal, for now). Then, the pipe `|` sends that combined output to `less`.
+
+#### Example: A Script That Writes to Both stdout and stderr
+
+Save the following as `output_test.sh`. It writes normal messages to **stdout**, an error message to **stderr**, and then runs a command (`ls` on a nonexistent path) that itself produces a real **stderr** error.
+
+```bash
+#!/bin/bash
+
+echo "This message goes to STDOUT"
+
+echo "This message goes to STDERR" >&2
+
+echo "Another STDOUT message"
+
+ls /path/that/does/not/exist
+
+echo "Script finished"
+```
+
+Save it as `output_test.sh`, then run:
+
+```
+chmod +x output_test.sh
+./output_test.sh
+```
+
+Now redirect stdout and stderr into separate files:
+
+```
+./output_test.sh > stdout.log 2> stderr.log
+```
+
+Then:
+
+```
+cat stdout.log
+cat stderr.log
+```
+
+You can also redirect both into one file:
+
+```
+./output_test.sh > combined.log 2>&1
+```
 
 ---
 
