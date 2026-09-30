@@ -1,4 +1,4 @@
-# Podman In-class Lab
+# Podman In-class Lab1
 
 ```commandline
 $ podman pull docker.io/library/httpd
@@ -10,9 +10,9 @@ $ podman image ls
 
 Try to grab the image and download them from the docker registry.
 
-![podman_installation1.png](../../../../images/dev_ops/podman/podman_installation1.png)
+![podman_installation1.png](../../../../../images/dev_ops/podman/podman_installation1.png)
 
-![podman_installation2.png](../../../../images/dev_ops/podman/podman_installation2.png)
+![podman_installation2.png](../../../../../images/dev_ops/podman/podman_installation2.png)
 
 Then create two different directories to host your web app data. 
 
@@ -48,7 +48,7 @@ EOF
 
 After that, in your linux, you should see something similar to the following,
 
-![podman_installation3.png](../../../../images/dev_ops/podman/webpages.png)
+![podman_installation3.png](../../../../../images/dev_ops/podman/webpages.png)
 
 This is all I need. Now I can run my HTTPD containers hosting these two different webpages in different domains:
 
@@ -69,17 +69,17 @@ ff1d8bae380a  docker.io/library/httpd:latest  httpd-foreground  9 seconds ago   
 
 In the screen, you should see something similar,
 
-![podman_run_image.png](../../../../images/dev_ops/podman/podman_run_image.png)
+![podman_run_image.png](../../../../../images/dev_ops/podman/podman_run_image.png)
 
 Next, you could either open `localhost:8080` to check the website is up, or you can use `curl` tool to check the website is running using commandline.
 
 Now, in ubuntu you can use `apt` package manager to install it,
 
-![install_curl.png](../../../../images/dev_ops/podman/install_curl.png)
+![install_curl.png](../../../../../images/dev_ops/podman/install_curl.png)
 
 Then check the site with curl,
 
-![check_website.png](../../../../images/dev_ops/podman/check_website.png)
+![check_website.png](../../../../../images/dev_ops/podman/check_website.png)
 
 
 ## How to `exec` into your pod

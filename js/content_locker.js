@@ -65,8 +65,8 @@ const injectModal = () => {
         <div id="content-locker-modal" class="content-locker-modal">
             <div class="content-locker-modal-content">
                 <h2>Enter the code to access the course content</h2>
-                <input type="text" id="unlock-code" placeholder="Enter unlock code">
-                <button onclick="checkUnlockCode()">Unlock</button>
+                <input type="text" id="unlock-code" placeholder="Enter unlock code" tabindex="1">
+                <button onclick="checkUnlockCode()" tabindex="2">Unlock</button>
             </div>
             </div>
         </div>
@@ -75,6 +75,13 @@ const injectModal = () => {
     // Append the modal structure just below the body tag
     document.body.insertAdjacentHTML('afterbegin', modalHTML);
     console.log("Modal injected into the DOM");
+
+    // Enter key in the input submits the code, same as clicking Unlock
+    document.getElementById("unlock-code").addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+            checkUnlockCode();
+        }
+    });
 };
 
 // Function to add blurred class to all elements except the modal itself
@@ -114,6 +121,7 @@ const checkCookie = () => {
         });
     } else {
         addBlurredContentClass(); // Blur content
+        document.getElementById("unlock-code").focus(); // Put Tab focus on the code input first
     }
 };
 
