@@ -1,5 +1,25 @@
 # Docker Cheatsheet
 
+## Tag, push and pull images
+
+Tag syntax,
+
+```bash
+docker tag <source_image>[:tag] <target_repo>/<image_name>[:tag]
+```
+
+Example, tagging a local image for your Docker Hub / private registry,
+
+```bash
+docker tag python:3.12-slim myrepo/python:3.12-slim
+docker push myrepo/python:3.12-slim
+docker pull myrepo/python:3.12-slim
+```
+
+Login to a registry first if it is private,
+
+`docker login <registry_url>`
+
 ## Building image
 
 `docker build --tag python:3.12-slim .`
@@ -79,26 +99,6 @@ docker run -v mydata:/var/lib/mysql --rm -it mysql:8
 
 `docker image rm $(docker image ls |grep xvfb| awk '{print $3}')`
 
-## Tag, push and pull images
-
-Tag syntax,
-
-```bash
-docker tag <source_image>[:tag] <target_repo>/<image_name>[:tag]
-```
-
-Example, tagging a local image for your Docker Hub / private registry,
-
-```bash
-docker tag python:3.12-slim myrepo/python:3.12-slim
-docker push myrepo/python:3.12-slim
-docker pull myrepo/python:3.12-slim
-```
-
-Login to a registry first if it is private,
-
-`docker login <registry_url>`
-
 ## Inspecting and managing containers
 
 List running containers,
@@ -132,12 +132,6 @@ docker cp <container_name>:/opt/test/file.txt ./file.txt
 docker cp ./file.txt <container_name>:/opt/test/file.txt
 ```
 
-## CMD[] vs Entrypoint[]
-
-* CMD spawn off new process
-
-* Entrypoint uses the same process
-
 ## Remove dangling images in Docker
 
 `sudo docker image prune`
@@ -167,3 +161,8 @@ Remove all images,
 Nuke everything at once (containers, images, networks, build cache),
 
 `docker system prune -a --volumes -f`
+
+## CMD[] vs Entrypoint[]
+
+* CMD spawn off new process
+* Entrypoint uses the same process
