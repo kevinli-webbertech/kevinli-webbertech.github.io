@@ -58,9 +58,79 @@ Python 3.11.7
 
 `docker run -v $PWD:/opt/test --rm -it python:3.12-slim`
 
+### Volume mounting syntax
+
+```bash
+docker run -v <host_path_or_volume_name>:<container_path>:<options> <image>
+```
+
+* `host_path_or_volume_name` - an absolute path on the host, `$PWD`-relative path, or a named volume (e.g. `mydata`)
+* `container_path` - the path inside the container where it should be mounted
+* `options` - optional, comma separated, e.g. `ro` for read-only
+
+Example using a named volume so data persists across container restarts,
+
+```bash
+docker volume create mydata
+docker run -v mydata:/var/lib/mysql --rm -it mysql:8
+```
+
 ## Delete a particular image
 
 `docker image rm $(docker image ls |grep xvfb| awk '{print $3}')`
+
+## Tag, push and pull images
+
+Tag syntax,
+
+```bash
+docker tag <source_image>[:tag] <target_repo>/<image_name>[:tag]
+```
+
+Example, tagging a local image for your Docker Hub / private registry,
+
+```bash
+docker tag python:3.12-slim myrepo/python:3.12-slim
+docker push myrepo/python:3.12-slim
+docker pull myrepo/python:3.12-slim
+```
+
+Login to a registry first if it is private,
+
+`docker login <registry_url>`
+
+## Inspecting and managing containers
+
+List running containers,
+
+`docker ps`
+
+List all containers (including stopped),
+
+`docker ps -a`
+
+View container logs,
+
+`docker logs -f <container_name>`
+
+Stop / start / restart a container,
+
+```bash
+docker stop <container_name>
+docker start <container_name>
+docker restart <container_name>
+```
+
+Inspect low-level details (IP, mounts, env vars) of a container or image,
+
+`docker inspect <container_name_or_id>`
+
+Copy files between host and container,
+
+```bash
+docker cp <container_name>:/opt/test/file.txt ./file.txt
+docker cp ./file.txt <container_name>:/opt/test/file.txt
+```
 
 ## CMD[] vs Entrypoint[]
 
@@ -79,3 +149,21 @@ or you can do,
 If it is not working, then try,
 
 `sudo sh -c 'docker rmi $(docker images -f "dangling=true" -q)'`
+
+## Kill/remove all containers and images
+
+Stop all running containers,
+
+`docker kill $(docker ps -q)`
+
+Stop and remove all containers (running and stopped),
+
+`docker rm -f $(docker ps -aq)`
+
+Remove all images,
+
+`docker rmi -f $(docker images -aq)`
+
+Nuke everything at once (containers, images, networks, build cache),
+
+`docker system prune -a --volumes -f`

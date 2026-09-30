@@ -8,3 +8,4 @@ node_modules
 .venv
 .vscode
 **/*.pyc
+localhost/
