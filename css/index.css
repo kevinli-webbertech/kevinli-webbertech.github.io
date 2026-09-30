@@ -111,6 +111,17 @@
   vertical-align: middle;
 }
 
+.trading-lock-icon {
+  cursor: pointer;
+  margin-left: 4px;
+}
+
+.trading-sidebar-locked {
+  filter: blur(4px);
+  pointer-events: none;
+  user-select: none;
+}
+
 .footer {
 	 margin-top: 10px;
 	 width: 800px; 
