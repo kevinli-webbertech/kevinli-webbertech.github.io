@@ -1,4 +1,4 @@
-# Docker Lab - Working with dockerized database
+# Docker Lab3 - Working with dockerized database
 
 ## Foreword
 

@@ -1,4 +1,4 @@
-# Python App Deployment with Docker
+# Docker Lab4 - Python App Deployment with Docker
 
 ## Dockerfile, syntax and more
 
