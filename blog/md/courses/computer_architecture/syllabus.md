@@ -1,44 +1,47 @@
-# Computer Architecture - Syllabus
+# Syllabus
 
-## Course Overview
+## Text book
 
-This course covers the fundamental concepts of computer organization and architecture, from low-level number representation to modern virtualization and cloud computing technologies.
+Computer Organization and Architecture 10th - William Stallings
 
-## Type
+## Course Schedules
 
-Online / Asynchronous
+| Week    | Course Content                                                     |
+|---------|--------------------------------------------------------------------|
+| Week 1  | Computer Evolutions and top-level view of computer interconnection |
+| Week 1  | Performance Issues and Mathematical Analysis                       |
+| Week 2  | Memory: Cache, Internal                                            |                                                          
+| Week 2  | Memory: External Memory                                            |
+| Week 3  | Input/Output                                                       |
+| Week 3  | Operating System and System Software                               |
+| Week 4  | Arithmetic: Number Systems                                         |
+| Week 4  | Arithmetic: Computer Arithmetic                                    |
+| Week 5  | CPU: (Instruction sets: Characteristics and Functions)             |
+| Week 5  | CPU: (Instruction sets: Addressing Modes and Formats)              |
+| Week 6  | Processor Structure and Function                                   |
+| Week 6  | Reduced Instruction Set Computers(RISC)                            |
+| Week 7  | Instruction-level Parallelism and Superscalar Processors           |
+| Week 7  | Parallel Processing                                                |
+| Week 8  | Multi-core Computers                                               |
+| Week 8  | General-Purpose Graphic Processing Units                           |
+| Week 9  | The Control Unit: Micro-Operations                                 |
+| Week 9  | The Control Unit: Control of the Processor                         |
+| Week 10 | The Control Unit: Hardwired Implementation                         |
+| Week 10 | The Control Unit: Microprogrammed Control                          |
+| Week 11 |                                                                    |
+| Week 11 |                                                                    |
+| Week 12 |                                                                    |
+| Week 12 |                                                                    |
+| Week 13 |                                                                    |
+| Week 13 |                                                                    |
+| Week 14 |                                                                    |
+| Week 14 |                                                                    |
+| Week 15 |                                                                    |
+| Week 15 |                                                                    |
 
-## Prerequisites
+## Homework
 
-- Basic understanding of binary and hexadecimal numbers
-- Introductory programming experience
+* BiWeekly Homework
+* MidTerm is open-book questions just like homework
+* Final is an online quiz.
 
-## Course Schedule
-
-| Week   | Topic                              | Description |
-|--------|------------------------------------|-------------|
-| Week 1 | Signed and Unsigned Numbers        | Binary representation, two's complement, overflow, and lab exercises |
-| Week 2 | Virtualization                     | Introduction to hardware and software virtualization concepts |
-| Week 3 | CPU Virtualization                 | Hypervisors, VMs, CPU scheduling in virtualized environments |
-| Week 4 | Computer Cloud                     | Cloud infrastructure, IaaS/PaaS/SaaS, public and private clouds |
-| Week 5 | Quantum Computing                  | Fundamentals of quantum bits, quantum gates, and near-term applications |
-
-## Grading
-
-| Component     | Weight |
-|---------------|--------|
-| Labs          | 40%    |
-| Midterm Exam  | 25%    |
-| Final Exam    | 25%    |
-| Participation | 10%    |
-
-## Homework Policy
-
-- Labs are submitted as written reports with screenshots.
-- Late submissions lose 10 points per day.
-
-## References
-
-- *Computer Organization and Design* by Patterson and Hennessy
-- *Modern Operating Systems* by Tanenbaum
-- [IBM Cloud Learning](https://www.ibm.com/cloud/learn)
