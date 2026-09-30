@@ -1,8 +1,8 @@
-# Linux Shell & System Administration - Syllabus
+# Trading Course - Syllabus
 
 ## Course Overview
 
-A hands-on, private/small-group course covering Linux shell usage, shell scripting, firewall configuration, and file-sharing services (Samba, NTFS mounting). Each class is a live, 1-hour instructor-led session with practical labs.
+A hands-on, private/small-group course covering the fundamentals of stock market trading: chart reading, technical indicators, risk management, and trading psychology. Each class is a live, 1-hour instructor-led session with practical examples.
 
 ## Format
 
@@ -22,22 +22,22 @@ A hands-on, private/small-group course covering Linux shell usage, shell scripti
 ## Prerequisites
 
 - Basic computer literacy
-- Access to a Linux machine or VM (Ubuntu recommended)
+- A brokerage account (paper/demo account is fine for practice)
 
 ## Course Schedule
 
 | Class    | Topic                                   | Description |
 |----------|------------------------------------------|-------------|
-| Class 1  | Linux Shell Fundamentals                  | Shell basics, environment setup, learning path from beginner to advanced |
-| Class 2  | Shell Scripting Lab 1                      | Writing your first bash scripts, variables, control flow |
-| Class 3  | Shell Scripting Lab 2                      | `grep`, `awk`, `sed`, `ps`, `cut`, and `join` |
-| Class 4  | Shell Scripting Lab 3                      | Pipes, redirection, and file descriptors |
-| Class 5  | Linux Firewall                             | Configuring and managing the Linux firewall |
-| Class 6  | Setting Up a Samba Server                  | Installing and configuring a Samba file-sharing server |
-| Class 7  | Setting Up a Samba Client                  | Mounting and accessing a shared Samba folder |
-| Class 8  | Mounting NTFS Disk                         | Mounting a Microsoft NTFS disk on a Linux server |
-| Class 9  | Hands-on Review                            | Review labs, troubleshooting, and Q&A |
-| Class 10 | Final Assessment                           | Final hands-on project and assessment |
+| Class 1  | Market Basics                              | How markets work, order types, brokers, exchanges |
+| Class 2  | Reading Charts                             | Candlesticks, bar charts, timeframes |
+| Class 3  | Trend Analysis                             | Support, resistance, trendlines, channels |
+| Class 4  | Technical Indicators I                     | Moving averages, RSI |
+| Class 5  | Technical Indicators II                    | MACD, Bollinger Bands, volume analysis |
+| Class 6  | Chart Patterns                             | Head and shoulders, triangles, flags |
+| Class 7  | Risk Management                            | Position sizing, stop-loss, risk/reward ratio |
+| Class 8  | Trading Psychology                         | Discipline, emotional control, common mistakes |
+| Class 9  | Backtesting & Strategy Building            | Building and testing a simple trading strategy |
+| Class 10 | Live Practice & Review                     | Paper trading walkthrough and final Q&A |
 
 ## Homework
 
@@ -45,5 +45,5 @@ Short practice exercises assigned after each class, reviewed at the start of the
 
 ## References
 
-- *The Linux Command Line* by William Shotts (free online)
-- [Linux man pages](https://man7.org/linux/man-pages/)
+- [Investopedia](https://www.investopedia.com/)
+- [TradingView](https://www.tradingview.com/)
