@@ -53,6 +53,23 @@ $ podman run --rm javapython:21-3.12 python3.12 --version
 
 Instead of installing everything from scratch, we can reuse official, ready-to-use images and copy their layers into a single final image using a multi-stage build.
 
+> **Note:** The two base images used below are built on different Linux distributions under the hood. Run the following to check each image's `/etc/os-release`:
+>
+> ```commandline
+> set -e
+> docker pull python:3.12-slim
+> printf '%s\n' '--- eclipse-temurin:21-jdk /etc/os-release ---'
+> docker run --rm eclipse-temurin:21-jdk cat /etc/os-release
+> printf '%s\n' '--- python:3.12-slim /etc/os-release ---'
+> docker run --rm python:3.12-slim cat /etc/os-release
+> ```
+>
+> This shows:
+> - `eclipse-temurin:21-jdk` → Ubuntu (e.g. `24.04`/`26.04` LTS depending on the tag's build date)
+> - `python:3.12-slim` → Debian (e.g. `bookworm`/`trixie` depending on the tag's build date)
+>
+> This is exactly why Part 2 copies only the `/opt/java/openjdk` and `/usr/local` layers out of those images onto a plain `ubuntu:24.04` base, instead of using either image directly as the final `FROM` - it avoids ending up with a mixed/inconsistent distro and keeps the final image's package manager (`apt`) consistent with its base OS.
+
 Create a file named `Dockerfile.combined`:
 
 ```dockerfile

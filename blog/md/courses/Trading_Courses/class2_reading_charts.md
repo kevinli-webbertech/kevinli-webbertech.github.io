@@ -31,6 +31,14 @@ Learn to read price charts, the primary tool for technical analysis.
 
 ![Daily candlestick chart with a volume chart below it](../../../images/data_visualization/echarts/candlestick-large.png)
 
+- **Hollow candlestick chart**: A candlestick variant where the body is hollow (unfilled/white) when the close is higher than the prior period's close, and filled (solid color) when the close is lower than the prior period's close, regardless of whether the candle itself is bullish or bearish. This adds an extra layer of information (price vs. the previous period) on top of the usual bullish/bearish coloring.
+
+![Hollow candlestick chart showing hollow vs. filled candle bodies](../../../images/data_visualization/trading_charts/hollow-candlestick.png)
+
+- **HLC chart**: A bar-style chart that plots only the high, low, and close for each period - a vertical line from low to high with a small tick to the right marking the close. Unlike an OHLC bar chart, it omits the open tick.
+
+![HLC chart with vertical high-low lines and close ticks](../../../images/data_visualization/trading_charts/hlc-chart.png)
+
 ## Key Takeaways
 
 - Candlestick charts pack four data points (O/H/L/C) into a single visual.
