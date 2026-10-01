@@ -107,14 +107,14 @@ $ podman run --rm javapython-combined:21-3.12 python3 --version
 
 ## Discussion
 
-- Part 1 builds everything using `apt` on top of a bare Ubuntu base, giving you full control over versions and package sources.
-- Part 2 avoids reinstalling anything: it just copies the already-built runtime layers out of two official, ready-to-use images (`eclipse-temurin` and `python`) into one final image, which is typically faster to build and smaller/more reliable than reinstalling from package managers.
-
 Without exec into each image, we can also inspect each image individually like below:
 
-![layer_image_os_distro1.png](layer_image_os_distro1.png)
+![layer_image_os_distro1.png](../../../../../images/dev_ops/podman/layer_image_os_distro1.png)
 
-![layer_image_os_distro2.png](layer_image_os_distro2.png)
+![layer_image_os_distro2.png](../../../../../images/dev_ops/podman/layer_image_os_distro2.png)
+
+- Part 1 builds everything using `apt` on top of a bare Ubuntu base, giving you full control over versions and package sources.
+- Part 2 avoids reinstalling anything: it just copies the already-built runtime layers out of two official, ready-to-use images (`eclipse-temurin` and `python`) into one final image, which is typically faster to build and smaller/more reliable than reinstalling from package managers.
 
 ## Ref
 
