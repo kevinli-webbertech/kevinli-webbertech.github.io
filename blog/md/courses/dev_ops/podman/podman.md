@@ -61,26 +61,13 @@ or you do the following,
 
   podman machine stop
   podman machine start
-  
-# Pull an image
-podman pull nginx
-
-# Run a container
-podman run -d --name mynginx nginx
-
-# List running containers
-podman ps
-
-# Stop a container
-podman stop mynginx
-
-# Remove a container
-podman rm mynginx
 
 # Manage pods
 podman pod create --name mypod
 podman pod start mypod
 ```
+
+> See [Podman Installation](https://kevinli-webbertech.github.io/blog/html/courses/dev_ops/podman/podman_installation.html) for a hands-on example of testing Podman with an `nginx` container.
 
 ### **Use Cases for Podman**
 - **Developers** looking for a Docker alternative with better security.

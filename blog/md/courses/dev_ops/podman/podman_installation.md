@@ -112,4 +112,23 @@ or on newer versions:
 ### Ref
 
 [1] https://www.youtube.com/watch?v=VdbjFgqPPE8
+## Testing Podman with Nginx
 
+Once Podman is installed, you can confirm everything works end-to-end by pulling and running a simple `nginx` container:
+
+```
+# Pull an image
+podman pull nginx
+
+# Run a container
+podman run -d --name mynginx nginx
+
+# List running containers
+podman ps
+
+# Stop a container
+podman stop mynginx
+
+# Remove a container
+podman rm mynginx
+```

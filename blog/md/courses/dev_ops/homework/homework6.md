@@ -1,29 +1,26 @@
-# HW6 Jenkins + Github Private Repo
+# HW6 Jenkins + Github Public Repo
 
-In the second lab of github of the following url,
+Please include the original questions in your homework report. Please check out of syllabus for details or you will lose points.
 
-- https://kevinli-webbertech.github.io/blog/md/courses/dev_ops/github/labs/Setup_SSH_KEY_GITHUB_lab2.pdf
+1. Please follow the link below, and try to run the dockerized Jenkins. (25 pts)
 
-We discussed how to add a ssh public key into the github remote server and how to validate that public key is successful.
+https://www.jenkins.io/doc/book/installing/docker/
 
-Prior to that, when we do the Jenkins lab of the following tutorial,
+Please prove that your Jenkins instance is running successfully inside of a container and it is ready to be used.
 
-- https://kevinli-webbertech.github.io/blog/html/courses/dev_ops/jenkins/Jenkins_Integration_with_github.html
+2. Jenkins Integration with Github. (25 pts)
 
-We build a Jenkinsfile with pipeline job to successfully build a Java artifact jar file from the Jenkins job. (part of your HW5).
+* Prepare a nodejs project and commit to your github as a public-access repo,
 
-In this homework, we would like to build a Jenkins job from a private github repo, and get the artifact.
+https://medium.com/@mudasirhaji/complete-step-by-step-jenkins-cicd-with-github-integration-aae3961b6e33
 
-Here is a breakdown of the grading,
+* Please prove that you can build a Jenkins job from a github and build the final artifact.
 
-* Adding public key to Github server (25 pts)
+3. Please provide ssh solutions to add public key to your github account. (25 pts)
 
-* Validate the public key hash. (10 pts)
+Using ssh public-private key can help you work with github without a password and it will grant you access. Please provide details solutions how to do that.
 
-* Setting up a Jenkins pipeline with Github private repo and provide full Jenkinsfile. (25 pts)
+4. Please explain the relationship between public and private keys.
 
-* Show that the final artifact jar is generated. (25 pts)
-
-* A nicely written report. (15 pts)
-
-You can find out more configuration regarding the Jenkins setup for private repo on my external course website as well.
+   * How they were related and being used in the SSL/TLS? (hint: algorithm) (10 pts)
+   * When you have two github accounts and two repos but you want to commit codes to two different repos under two different github accounts in the same linux machine. How would you manage two pairs of private key and public keys. (hint: ~/.ssh/config and other solutions) (15 pts)

@@ -1,26 +1,27 @@
-# HW5 Jenkins + Github Public Repo
+# HW5 Podman Lab Report
 
-Please include the original questions in your homework report. Please check out of syllabus for details or you will lose points.
+*Requirements:*
 
-1. Please follow the link below, and try to run the dockerized Jenkins. (25 pts)
+* Provide a report in word/pdf format with all the screenshots of each step.
+  Please do not use my images but use your own one.
+* Please include the original questions/steps in your report.
 
-https://www.jenkins.io/doc/book/installing/docker/
+Follow the in-class lab below and submit a lab report covering both parts:
 
-Please prove that your Jenkins instance is running successfully inside of a container and it is ready to be used.
+- https://kevinli-webbertech.github.io/blog/html/courses/dev_ops/podman/labs/podman_inclass_lab2.html
 
-2. Jenkins Integration with Github. (25 pts)
+Grading breakdown:
 
-* Prepare a nodejs project and commit to your github as a public-access repo,
+* Part 1: Build `Dockerfile.javapython` from a base Ubuntu image, installing OpenJDK 21 and Python 3.12. (40 pts, 10 pts each)
+  * Build the `javapython:21-3.12` image successfully. (10 pts)
+  * Show `java -version` running successfully in the container. (10 pts)
+  * Show `python3.12 --version` running successfully in the container. (10 pts)
+  * Use a oneliner to print out the environment variables set by `ENV` in the `Dockerfile` (`JAVA_HOME` and `PATH`), e.g. `podman run --rm javapython:21-3.12 sh -c 'echo "JAVA_HOME=$JAVA_HOME" && echo "PATH=$PATH"'`. (10 pts)
 
-https://medium.com/@mudasirhaji/complete-step-by-step-jenkins-cicd-with-github-integration-aae3961b6e33
+* Part 2: Build `Dockerfile.combined` using the multi-stage build that copies layers from `eclipse-temurin:21-jdk` and `python:3.12-slim`. (40 pts, 10 pts each)
+  * Build the `javapython-combined:21-3.12` image successfully. (10 pts)
+  * Show `java -version` running successfully in the combined image. (10 pts)
+  * Show `python3 --version` running successfully in the combined image. (10 pts)
+  * Use a oneliner to print out the environment variables set by `ENV` in the `Dockerfile` (`JAVA_HOME` and `PATH`), e.g. `podman run --rm javapython-combined:21-3.12 sh -c 'echo "JAVA_HOME=$JAVA_HOME" && echo "PATH=$PATH"'`. (10 pts)
 
-* Please prove that you can build a Jenkins job from a github and build the final artifact.
-
-3. Please provide ssh solutions to add public key to your github account. (25 pts)
-
-Using ssh public-private key can help you work with github without a password and it will grant you access. Please provide details solutions how to do that.
-
-4. Please explain the relationship between public and private keys.
-
-   * How they were related and being used in the SSL/TLS? (hint: algorithm) (10 pts)
-   * When you have two github accounts and two repos but you want to commit codes to two different repos under two different github accounts in the same linux machine. How would you manage two pairs of private key and public keys. (hint: ~/.ssh/config and other solutions) (15 pts)
+* Inspect the base images (`eclipse-temurin:21-jdk` and `python:3.12-slim`) and report which Linux distribution each one is built on (e.g. via `/etc/os-release`), and briefly explain why Part 2 copies only specific layers onto a plain Ubuntu base instead of using either image directly. (20 pts)
