@@ -81,6 +81,8 @@ Active: active (running) since Tue 2018-11-13 16:19:01 +03; 4min 57s ago
 
 ### Docker Solution
 
+#### Download and Run a Dockerized Jenkin
+
 Documentation: https://github.com/jenkinsci/docker/blob/master/README.md
 
 * The command to run Jenkins was.
@@ -88,6 +90,8 @@ Documentation: https://github.com/jenkinsci/docker/blob/master/README.md
 `docker run -p 8080:8080 -p 50000:50000 jenkins/jenkins:lts`
 
 ![docker_jenkin1.png](../../../../images/dev_ops/jenkins/docker_jenkin1.png)
+
+#### Get Jenkin Admin Password
 
 For instance, I did the following to get the password,
 

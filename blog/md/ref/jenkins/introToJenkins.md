@@ -16,6 +16,8 @@ After pulling the image and starting the Jenkins server, I accessed Jenkins thro
 
 ![Getting started: Instance configuration](https://miro.medium.com/v2/resize:fit:1100/format:webp/0*fEjtkre6udi1mYIa)
 
+### Create a Freestyle Project
+
 After finishing the initial setup, I created my first Jenkins job, which was a freestyle project that simply echoed a message.
 
 “Hello from Jenkins!”
