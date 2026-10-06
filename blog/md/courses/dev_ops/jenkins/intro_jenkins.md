@@ -121,6 +121,8 @@ Then click "Start using Jenkins",
 
 ![docker_jenkin7.png](../../../../images/dev_ops/jenkins/docker_jenkin7.png)
 
+#### Create a Freestyle Job
+
 After finishing the initial setup, I created my first Jenkins job, which was a freestyle project that simply echoed a message.
 
 Then follow the steps below and see how it works,

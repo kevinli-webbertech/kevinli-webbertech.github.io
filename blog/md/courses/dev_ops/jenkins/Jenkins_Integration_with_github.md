@@ -24,7 +24,7 @@ Normally, if you job failed, it will tell you the reason, there is no need to do
 >Note: In Jenkins, a `Spring Boot Hello World` project was used as the base for creating a Pipeline job.
 >GitHub Repo: <https://github.com/spring-guides/gs-spring-boot>
 
-## Step 2 Create a Git Repo
+# Step 2 Create a Git Repo
 
 * Create a Github Project (register a github account)
 
@@ -32,7 +32,7 @@ Normally, if you job failed, it will tell you the reason, there is no need to do
 
 ![create_git_repo.png](../../../../images/dev_ops/jenkins/create_git_repo.png)
 
-2/ **Create a new repo**
+2/ **Create a new repo (Public Repo)**
 
 ![create_git_repo1.png](../../../../images/dev_ops/jenkins/create_git_repo1.png)
 
