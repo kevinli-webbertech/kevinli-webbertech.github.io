@@ -1,4 +1,4 @@
-# Git Pull Request Tutorial
+# Git Pull Request
 
 ## Goal
 
