@@ -1,4 +1,4 @@
-# Git Private Repo Integration with Jenkins (Docker)
+# Lab2: Git Private Repo Integration with Jenkins (Docker)
 
 ## Goal
 
