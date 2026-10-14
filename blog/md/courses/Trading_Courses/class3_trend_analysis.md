@@ -4,6 +4,8 @@
 
 Identify the direction of the market using support, resistance, and trendlines.
 
+![Candlestick chart example](../../../images/data_visualization/trading_charts/hollow-candlestick.png)
+
 ## Topics
 
 - Uptrends, downtrends, and sideways (range-bound) markets
@@ -23,6 +25,8 @@ Identify the direction of the market using support, resistance, and trendlines.
 - **Trend channel**: Two parallel trendlines (one along the highs, one along the lows) that contain price action within a trend.
 - **Breakout**: A move where price closes beyond a support, resistance, or trendline level, often signaling the start of a new trend.
 - **False breakout**: A breakout that fails to continue in the breakout direction and quickly reverses back inside the prior range.
+
+![Price swinging between a downtrend and an uptrend](../../../images/data_visualization/echarts/candlestick-large.png)
 
 ## Key Takeaways
 

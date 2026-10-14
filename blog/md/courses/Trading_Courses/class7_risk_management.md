@@ -28,6 +28,75 @@ Protect trading capital, which matters more than any single winning trade.
 - A stop-loss should be set before entering the trade, not after.
 - Consistent risk management turns a mediocre win rate into a profitable system.
 
+## Position Sizing Formula
+
+```
+Dollar risk per trade = Account size x Risk %
+Risk per share        = Entry price - Stop-loss price
+Position size (shares) = Dollar risk per trade / Risk per share
+```
+
+## Worked Example 1: Dollar-based Stop-loss
+
+- Account size: $10,000
+- Risk per trade: 1% -> $100
+- Entry price: $50.00
+- Stop-loss price: $47.50 (a $2.50 per-share risk)
+
+```
+Dollar risk per trade = $10,000 x 1% = $100
+Risk per share        = $50.00 - $47.50 = $2.50
+Position size          = $100 / $2.50 = 40 shares
+```
+
+Buy 40 shares. If the stop-loss is hit, the loss is 40 x $2.50 = $100, exactly 1% of the account.
+
+## Worked Example 2: Percentage-based Stop-loss
+
+- Account size: $10,000
+- Risk per trade: 1% -> $100
+- Entry price: $50.00
+- Stop-loss: 5% below entry -> $50.00 x 0.95 = $47.50 (same $2.50 per-share risk as Example 1)
+
+This is the same setup as the Practice question below, just expressed as a percentage stop instead of a fixed dollar stop - both methods agree on 40 shares.
+
+## Worked Example 3: Larger Account, Wider Stop
+
+- Account size: $25,000
+- Risk per trade: 2% -> $500
+- Entry price: $120.00
+- Stop-loss price: $114.00 (a $6.00 per-share risk)
+
+```
+Dollar risk per trade = $25,000 x 2% = $500
+Risk per share        = $120.00 - $114.00 = $6.00
+Position size          = $500 / $6.00 = 83 shares (rounded down)
+```
+
+Buy 83 shares (rounding down keeps the actual dollar risk at or below the $500 limit).
+
+## Scenario Table
+
+| Account Size | Risk % | Dollar Risk | Entry Price | Stop-loss Price | Risk/Share | Position Size |
+|-------------|--------|-------------|--------------|------------------|------------|----------------|
+| $5,000      | 1%     | $50         | $20.00       | $19.00           | $1.00      | 50 shares      |
+| $10,000     | 1%     | $100        | $50.00       | $47.50           | $2.50      | 40 shares      |
+| $25,000     | 2%     | $500        | $120.00      | $114.00          | $6.00      | 83 shares      |
+| $50,000     | 1.5%   | $750        | $75.00       | $72.00           | $3.00      | 250 shares     |
+
 ## Practice
 
-Calculate the position size for a $10,000 account risking 1% per trade, with a stop-loss 5% below entry.
+1. Calculate the position size for a $10,000 account risking 1% per trade, with a stop-loss 5% below entry.
+2. Using the formula above, calculate the position size for a $15,000 account risking 1.5% per trade, entering at $80.00 with a stop-loss at $76.00.
+3. An account worth $8,000 wants to risk 2% on a trade entering at $30.00 with a stop-loss at $28.50. How many shares should be bought, and what is the exact dollar amount at risk?
+
+## Further Reading — Risk Management Deep Dive
+
+- [Risk Management Deep Dive Overview](risk_management/index.html)
+- [Position Sizing for Day Trading](risk_management/position_sizing.html) — extended formulas for stocks, futures, and options, ATR-based stops, and daily loss cutoffs
+- [Python Risk Calculator](risk_management/python_risk_calculator.html) — a CLI tool that implements these position-sizing formulas
+- [Risk/Reward Ratio: Day Trading vs. Swing Trading](risk_management/risk_reward_ratio.html)
+- [Day Trading Rules & Discipline](risk_management/day_trading_rules.html)
+- [Stop Order Strategies](risk_management/stop_order_strategies.html) — stop-loss, stop-limit, and trailing-stop orders
+- [Kelly Criterion — Formula & Examples](risk_management/kelly_criterion.html) — edge-based position sizing
+- [Risk-Adjusted Return Ratios](risk_management/risk_adjusted_return_ratios.html) — Sharpe, Sortino, Omega, Calmar, Martin

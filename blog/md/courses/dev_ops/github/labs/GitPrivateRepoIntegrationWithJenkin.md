@@ -2,9 +2,26 @@
 
 ## Goal
 
+This lab deals with both Jenkins configuration and private Github repository.
+The goal of this lab is to learn how to configure Jenkins environmental variable and create
+ssh private/public key and authenticate with Github to checkout its private repo.
+
 To check out code from a **private** GitHub repository using the official `jenkins/jenkins:lts` Docker image, you need to spin up the container and provide Jenkins with authenticating credentials. The image already comes with `git` pre-installed, so you do not need to modify the image itself. ([ref1](https://piotrminkowski.com/2018/06/12/local-continuous-delivery-environment-with-docker-and-jenkins/), [ref2](https://www.youtube.com/watch?v=vsEI0HIv8b4))
 
 You can accomplish this using either **HTTPS (Personal Access Token)** or **SSH (Deploy Keys)**. ([ref1](https://medium.com/@mai.vly/setup-jenkins-for-your-application-from-the-private-github-repo-with-docker-bac79335ff27), [ref2](https://www.youtube.com/watch?v=vsEI0HIv8b4))
+
+### Knowledge
+
+* Private/Public key
+
+You can find some introduction here,
+
+- https://kevinli-webbertech.github.io/blog/html/courses/cybersecurity/public_private_key.html
+- https://kevinli-webbertech.github.io/blog/html/courses/cybersecurity/mathematics.html
+
+* Jenkins Environmental variables
+
+* Github Configurations
 
 ## Labs
 
