@@ -78,6 +78,32 @@ pre {
   margin-left:50px;
 }
 
+/* Macro Overview charts: flex-wrap so charts sit side by side on wide screens and stack on mobile */
+.fred-charts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.fred-charts .grid-flow {
+  display: contents;
+}
+
+.fred-charts .grid-flow > div {
+  flex: 1 1 calc(50% - 16px);
+  min-width: 300px;
+  box-sizing: border-box;
+}
+
+.fred-charts iframe {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 670 / 525;
+  border: 0;
+  overflow: hidden;
+}
+
 #nav_menu  ul{
   position: fixed;
   list-style-type: none;
