@@ -4,6 +4,8 @@
 
 Recognize recurring chart patterns that signal continuation or reversal.
 
+![Real index chart showing a run-up to a peak followed by a sharp decline](../../../images/data_visualization/echarts/candlestick-sh.png)
+
 ## Topics
 
 - Head and shoulders (and inverse head and shoulders)
@@ -22,6 +24,8 @@ Recognize recurring chart patterns that signal continuation or reversal.
 - **Pennant**: A short continuation pattern similar to a small symmetrical triangle, forming after a sharp price move.
 - **Double top**: A bearish reversal pattern where price reaches a similar high twice with a moderate pullback in between.
 - **Double bottom**: A bullish reversal pattern where price reaches a similar low twice with a moderate bounce in between.
+
+![Candlestick price swings - practice spotting reversal and continuation shapes like these on a real chart](../../../images/data_visualization/echarts/candlestick-large.png)
 
 ## Key Takeaways
 
