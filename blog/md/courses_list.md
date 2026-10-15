@@ -2,6 +2,10 @@
 
 ## Introduction to IT
 
+* [UPC, QR, and SKU Codes: Tutorial and Explanation](../html/courses/IT_Foundations/upc_qr_sku.html)
+
+  Learn product identification, UPC check digits, safe QR code scanning, and SKU design through practical inventory exercises.
+
 * Introduction to AI tool to help you code software application
 
 - https://youtu.be/e-cDbv52KMw
@@ -243,4 +247,3 @@ https://youtu.be/eFl1FKTUYuA
 >This video will show you how to upload an artifact to Nexus storage.
 
 ## **Git**
-
