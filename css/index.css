@@ -1,12 +1,17 @@
 * {
   font-family: "Oswald",sans-serif;
+  box-sizing: border-box;
 }
 
-/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-  }
+/* Keep media (and embedded widgets) from overflowing small screens */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+pre {
+  overflow-x: auto;
+  max-width: 100%;
 }
 
 /* Create two unequal columns that floats next to each other */
@@ -143,5 +148,78 @@
 
 .text_indent ul li {
 	 text-indent: 50px;
+}
+
+/* ============================================================
+   Responsive layout — stack the columns and relax fixed
+   positioning/margins on tablets and phones
+   ============================================================ */
+@media screen and (max-width: 900px) {
+  .column,
+  .column.left,
+  .column.right {
+    float: none;
+    width: 100%;
+    min-height: 0;
+  }
+
+  .left {
+    position: static;
+    height: auto;
+    padding: 12px;
+  }
+
+  .right {
+    margin-left: 0;
+  }
+
+  #nav_menu ul {
+    position: static;
+    margin-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  #nav_menu li {
+    float: none;
+  }
+
+  #nav_menu li a {
+    padding: 10px 12px;
+  }
+
+  .content {
+    margin: 10px;
+  }
+
+  .grid-flow {
+    grid-template-columns: repeat(2, 1fr);
+    margin-left: 0;
+  }
+
+  .one_column {
+    margin: 20px 10px;
+  }
+
+  .footer {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .text_indent ul li {
+    text-indent: 0;
+  }
+
+  table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .grid-flow {
+    grid-template-columns: 1fr;
+  }
 }
  
