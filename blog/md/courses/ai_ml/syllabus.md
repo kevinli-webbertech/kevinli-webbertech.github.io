@@ -47,6 +47,7 @@ Online / Asynchronous
 
 ## References
 
+- [Machine Learning Learning Trail](https://kevinli-webbertech.github.io/blog/html/courses/ai_ml/learning_trail.html)
 - [OpenAI API Docs](https://platform.openai.com/docs)
 - [Streamlit Documentation](https://docs.streamlit.io)
 - [Qwen Model Documentation](https://huggingface.co/Qwen)
