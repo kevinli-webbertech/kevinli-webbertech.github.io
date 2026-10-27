@@ -1,4 +1,4 @@
-# Nexus Lab: Nexus Installation and Usage
+# Nexus Lab1: Nexus Installation and WebUI Usage
 
 Date: Nov 6 2025
 
