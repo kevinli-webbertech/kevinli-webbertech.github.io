@@ -209,6 +209,71 @@ bash-3.2$ git branch
 * my_branch
 ```
 
+### Switching branches
+
+So far we have used `git checkout` in three different ways. Here is a summary:
+
+| Command | What it does |
+|---------|--------------|
+| `git checkout -b new_branch` | **Create** `new_branch` from the current commit and switch to it (as in Step 3, `git checkout -b my_branch`). |
+| `git checkout main` | **Switch** to a branch that already exists locally. |
+| `git checkout my_branch` | If no local `my_branch` exists but `origin/my_branch` does, Git creates a local branch that tracks the remote one, then switches to it (as shown above). |
+
+Note that `-b` means "create". Without `-b`, `git checkout <name>` only switches. If you mistype
+a branch name without `-b`, Git will tell you the branch does not exist instead of creating it.
+
+Try it yourself:
+
+```bash
+bash-3.2$ git checkout -b new_branch      # create and switch
+Switched to a new branch 'new_branch'
+bash-3.2$ git checkout main               # switch back to main
+Switched to branch 'main'
+bash-3.2$ git checkout -                  # jump back to the previous branch
+Switched to branch 'new_branch'
+bash-3.2$ git branch                      # the * marks the current branch
+  main
+  my_branch
+* new_branch
+```
+
+Each branch has its own history, and the files in your working directory change to match the
+branch you switch to. For example, the `Readme.md` changes we committed on `my_branch` will not
+appear on `main` until the branch is merged.
+
+**Switching with uncommitted changes**
+
+Git tries to carry your uncommitted changes over to the branch you switch to. If those changes
+would conflict with the target branch, Git refuses to switch:
+
+```bash
+bash-3.2$ git checkout main
+error: Your local changes to the following files would be overwritten by checkout:
+        Readme.md
+Please commit your changes or stash them before you switch branches.
+Aborting
+```
+
+You have two options:
+
+* Commit your work first (`git add` and `git commit`), then switch.
+* Temporarily set it aside with `git stash`, switch branches, and later bring it back with
+  `git stash pop`.
+
+**`git switch` (newer alternative)**
+
+Since Git 2.23, there are two commands that split up what `git checkout` does. `git switch` is for
+changing branches, and `git restore` is for restoring files. They do the same branch work as above:
+
+| Old | New |
+|-----|-----|
+| `git checkout main` | `git switch main` |
+| `git checkout -b new_branch` | `git switch -c new_branch` |
+| `git checkout -` | `git switch -` |
+
+Both styles work. This lab uses `git checkout` because it is still very common in tutorials,
+scripts and older documentation. Run `git --version` to check whether your Git supports `git switch`.
+
 And for reference, the full `git branch` help output:
 
 ```bash
