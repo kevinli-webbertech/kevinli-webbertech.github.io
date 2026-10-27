@@ -20,6 +20,8 @@ docker run -d -p 8081:8081 --name nexus \
   sonatype/nexus3
 ```
 
+   The image `sonatype/nexus3` comes from Docker Hub: [https://hub.docker.com/r/sonatype/nexus3](https://hub.docker.com/r/sonatype/nexus3)
+
 3. Follow the container logs:
 
 ```bash
@@ -65,7 +67,11 @@ localhost:8081
 
 For the author, the password was `83952577-6b16-42ec-ac03-43f711834b48`.
 
-> Note: for you, the password will be different.
+> Note: for you, the password will be different. If the command says `No such file or directory`,
+> Nexus has probably not finished starting yet (wait for `Started Sonatype Nexus` in the logs), or the
+> password was already changed (Nexus removes the file after that), or you re-used an old `nexus-data`
+> volume. For a fresh start, run `docker rm -f nexus` and `docker volume rm nexus-data` (this deletes
+> all Nexus data) and repeat Step 1.
 
 Log in as `admin` with that password. A setup wizard then starts. Change the password for the first time.
 
