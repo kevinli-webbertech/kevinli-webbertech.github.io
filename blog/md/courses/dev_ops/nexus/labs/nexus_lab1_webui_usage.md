@@ -68,10 +68,7 @@ localhost:8081
 For the author, the password was `83952577-6b16-42ec-ac03-43f711834b48`.
 
 > Note: for you, the password will be different. If the command says `No such file or directory`,
-> Nexus has probably not finished starting yet (wait for `Started Sonatype Nexus` in the logs), or the
-> password was already changed (Nexus removes the file after that), or you re-used an old `nexus-data`
-> volume. For a fresh start, run `docker rm -f nexus` and `docker volume rm nexus-data` (this deletes
-> all Nexus data) and repeat Step 1.
+> see **Troubleshooting: admin.password Not Found** below.
 
 Log in as `admin` with that password. A setup wizard then starts. Change the password for the first time.
 
@@ -148,3 +145,74 @@ The asset **Summary** tab shows the path, content type, file size and uploader.
 The **Usage** tab shows the snippet to insert into your `pom.xml` to use this artifact as a Maven dependency.
 
 ![Asset usage snippet for Apache Maven](../../../../../images/dev_ops/nexus/nexus_webui_asset_usage.png)
+
+## Troubleshooting: admin.password Not Found
+
+If `docker exec -it nexus cat /nexus-data/admin.password` returns `No such file or directory`,
+work through these in order.
+
+### 1. Nexus may still be starting
+
+Nexus can take 1-2 minutes to initialize on first boot. Tail the logs and wait for the
+"Started Sonatype Nexus" line before retrying:
+
+```bash
+docker logs -f nexus
+```
+
+### 2. Check folder/volume permissions
+
+The Nexus process inside the container runs as UID `200`. If `/nexus-data` is not writable by
+that user, Nexus fails to create `admin.password` (and may fail to start at all). Check the
+mount's ownership:
+
+```bash
+docker exec -it nexus ls -la /nexus-data
+```
+
+* If you used the **named volume** from Step 1 (`-v nexus-data:/nexus-data`), Docker manages
+  the permissions for you, so this is rarely the cause.
+* If you used a **bind mount** to a host folder instead (e.g. `-v $(pwd)/nexus-data:/nexus-data`),
+  fix the ownership on the host so UID `200` can write to it:
+
+```bash
+sudo chown -R 200:200 ./nexus-data
+docker restart nexus
+```
+
+* On Linux, also make sure no overly restrictive permission bits are blocking access
+  (`chmod -R u+rwX ./nexus-data` after the `chown`, if needed).
+
+### 3. The password file is gone for a legitimate reason
+
+* **Already changed:** Nexus deletes `admin.password` the first time you log in and set a new
+  password through the setup wizard. If you already completed Step 2 once, there's no password
+  file to find anymore — use the password you set instead.
+* **Reused an old volume:** if `nexus-data` was created by a previous Nexus container (or a
+  previous run of this lab), it already has an admin account and no fresh `admin.password`.
+
+### 4. Delete the Docker volume and start fresh
+
+If the checks above don't resolve it, the simplest fix is to wipe the container and its volume
+and repeat Step 1 from scratch. This deletes all Nexus data (repositories, uploaded
+components, settings), so only do this in a lab/dev environment.
+
+```bash
+# Stop and remove the container
+docker rm -f nexus
+
+# List volumes if you're not sure of the exact name
+docker volume ls
+
+# Remove the named volume used in Step 1
+docker volume rm nexus-data
+
+# Recreate and start fresh (Step 1 again)
+docker run -d -p 8081:8081 --name nexus \
+  -v nexus-data:/nexus-data \
+  sonatype/nexus3
+```
+
+Then tail the logs again and retry `docker exec -it nexus cat /nexus-data/admin.password` once
+you see `Started Sonatype Nexus` in the output.
+

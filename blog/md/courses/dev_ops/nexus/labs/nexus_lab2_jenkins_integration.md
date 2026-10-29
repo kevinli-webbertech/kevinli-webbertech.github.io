@@ -30,16 +30,19 @@ Reference project: [https://github.com/kevinli-webbertech/gs-spring-boot](https:
 If you don't already have a Jenkins container running, start one the same way as in
 [Intro to Jenkins](../../jenkins/intro_jenkins.md):
 
-`docker run -p 8080:8080 -p 50000:50000 jenkins/jenkins:lts`
+`docker run -p 8080:8080 -p 50000:50000 --name jenkins jenkins/jenkins:lts`
 
 * Port `8080` serves the Jenkins web UI; port `50000` is used for inbound Jenkins agents.
 * Get the initial admin password from the container logs, or with:
 
 ```cmd
-docker exec <container_id> cat /var/jenkins_home/secrets/initialAdminPassword
+docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
 ```
 
 * Browse to `http://localhost:8080`, enter that password, and finish the setup wizard.
+
+> Note: `--name jenkins` is added so the container can be referenced by name later (Step 4, when
+> we put Jenkins and Nexus on the same Docker network).
 
 Documentation: [https://github.com/jenkinsci/docker/blob/master/README.md](https://github.com/jenkinsci/docker/blob/master/README.md)
 
@@ -65,11 +68,115 @@ docker exec jenkins-alt cat /var/jenkins_home/secrets/initialAdminPassword
 
 ### Step 3: Confirm Nexus Is Running
 
-Reuse the Nexus container from Lab1 (`docker run -d -p 8081:8081 ... sonatype/nexus3`). Confirm
-it is reachable at `http://localhost:8081` and that a `maven-snapshots` hosted repository exists
-(Nexus ships this repository by default under **Repository → Repositories**).
+Reuse the Nexus container from Lab1. If it isn't already running, start it the same way:
 
-### Step 4: Add `distributionManagement` to `pom.xml`
+```bash
+docker run -d -p 8081:8081 --name nexus \
+  -v nexus-data:/nexus-data \
+  sonatype/nexus3
+```
+
+Confirm it is reachable at `http://localhost:8081` and that a `maven-snapshots` hosted repository
+exists (Nexus ships this repository by default under **Repository → Repositories**).
+
+> Note: `--name nexus` matches the Jenkins container's `--name jenkins` from Step 1 — both names
+> are required as-is for Step 4, where we connect the two containers to a shared Docker network.
+
+### Step 4: Put Jenkins and Nexus on the Same Docker Network
+
+If Jenkins is running as a container (Step 1/2), `localhost` inside that container refers to the
+Jenkins container itself, **not** the Docker host — so `http://localhost:8081` works fine from
+your browser but fails from a pipeline step running inside Jenkins with an error like:
+
+```text
+Connect to localhost:8081 failed: Connection refused
+```
+
+The fix is to put both containers on a shared user-defined network so Jenkins can reach Nexus by
+container name instead.
+
+**4a. Check your running containers**
+
+```bash
+docker ps -a
+```
+
+```text
+NAMES       IMAGE                   PORTS
+jenkins     jenkins/jenkins:lts     0.0.0.0:8080->8080/tcp
+nexus       sonatype/nexus3         0.0.0.0:8081->8081/tcp
+```
+
+If your container names differ (Step 1 and Lab1 use `jenkins` and `nexus`), substitute the
+actual names in the commands below.
+
+**4b. Create a shared Docker network and attach both containers**
+
+```bash
+docker network create ci-network
+docker network connect ci-network jenkins
+docker network connect ci-network nexus
+```
+
+* If Docker reports that a container is already connected to `ci-network`, you can ignore that
+  message — it just means this step already ran.
+* These commands only attach an additional network to the existing containers; they do **not**
+  delete or recreate the containers or their volumes.
+* Docker's embedded DNS resolves container names to their IP on any network they share, so once
+  connected, Jenkins can reach Nexus at `http://nexus:8081` — no IP addresses needed, and this
+  keeps working even if the containers are restarted and get new IPs.
+
+Verify both containers joined the network:
+
+```bash
+docker network inspect ci-network
+```
+
+![docker network inspect ci-network: network metadata](../../../../../images/dev_ops/nexus/ci_network_inspect_1.png)
+
+Scroll down to the `"Containers"` section of the output — both `jenkins` and `nexus` should be
+listed there, each with their own IP on the `172.19.0.0/16` subnet:
+
+![docker network inspect ci-network: both jenkins and nexus listed under Containers](../../../../../images/dev_ops/nexus/ci_network_inspect_2.png)
+
+**4c. Test connectivity from Jenkins to Nexus**
+
+Make sure Nexus is running (`docker start nexus` if needed — it can take a couple of minutes to
+finish initializing), then hit Nexus's status endpoint from inside the Jenkins container:
+
+```bash
+docker exec jenkins curl -v http://nexus:8081/service/rest/v1/status
+```
+
+Any HTTP response — including a `401`/`403` — means the network path works; those codes only
+mean the request reached Nexus without valid credentials. If `curl` isn't available in the
+Jenkins image, use `wget` instead:
+
+```bash
+docker exec jenkins wget -S -O /dev/null http://nexus:8081/service/rest/v1/status
+```
+
+Hitting the root path works the same way, and is a good sanity check too — `curl -v` shows the
+hostname resolving to the Nexus container's IP, the TCP connection succeeding, and a final
+`HTTP/1.1 200 OK` with the Nexus login page HTML:
+
+```bash
+docker exec jenkins curl -v http://nexus:8081/
+```
+
+![docker exec jenkins curl -v http://nexus:8081/: "nexus:8081" resolves and connects, request sent](../../../../../images/dev_ops/nexus/jenkins_curl_nexus_1.png)
+
+![docker exec jenkins curl -v http://nexus:8081/: HTTP/1.1 200 OK response from Nexus](../../../../../images/dev_ops/nexus/jenkins_curl_nexus_2.png)
+
+> If you're running Nexus/Jenkins natively on the host instead of in containers, skip this step
+> and keep using `http://localhost:8081` throughout.
+
+> **Docker Compose users:** if these containers are managed by Compose instead of plain
+> `docker run`, add `ci-network` as a network for both services in the compose file itself.
+> Otherwise, a `docker compose up` that recreates the containers will drop the manual
+> `docker network connect` from this step, and you'll be back to `localhost` failures.
+
+### Step 5: Add `distributionManagement` to `pom.xml`
 
 ```xml
 <distributionManagement>
@@ -84,10 +191,13 @@ it is reachable at `http://localhost:8081` and that a `maven-snapshots` hosted r
 </distributionManagement>
 ```
 
-The `id` values (`nexus-releases`, `nexus-snapshots`) are arbitrary, but whatever you choose
-here must match the `<server>` ids in the `settings.xml` used at deploy time (Step 6).
+> If you set up the shared `ci-network` in Step 4, replace `localhost` with the Nexus container
+> name in both URLs, e.g. `http://nexus:8081/repository/maven-releases/`.
 
-### Step 5: Create a Jenkins Credential for the Nexus Deploy User
+The `id` values (`nexus-releases`, `nexus-snapshots`) are arbitrary, but whatever you choose
+here must match the `<server>` ids in the `settings.xml` used at deploy time (Step 7).
+
+### Step 6: Create a Jenkins Credential for the Nexus Deploy User
 
 **Manage Jenkins → Credentials → System → Global credentials → Add Credentials**
 
@@ -97,7 +207,7 @@ here must match the `<server>` ids in the `settings.xml` used at deploy time (St
 * **Password:** that user's Nexus password
 * **ID:** `nexus-credentials`
 
-### Step 6: Add a "Deploy to Nexus" Stage to the Jenkinsfile
+### Step 7: Add a "Deploy to Nexus" Stage to the Jenkinsfile
 
 ```groovy
 environment {
@@ -149,7 +259,7 @@ workspace and removed in `post { always { ... } }` so the credentials never pers
 The full, working Jenkinsfile for this lab is in the project repo:
 [https://github.com/kevinli-webbertech/gs-spring-boot/blob/main/Jenkinsfile](https://github.com/kevinli-webbertech/gs-spring-boot/blob/main/Jenkinsfile)
 
-### Step 7: Run the Pipeline and Verify in Nexus
+### Step 8: Run the Pipeline and Verify in Nexus
 
 Run the Jenkins job. On success, open Nexus → **Browse** → `maven-snapshots` and confirm the
 artifact was published under:
@@ -173,8 +283,30 @@ timestamp and build number.
   `distributionManagement` does not exactly match a `<server><id>` in the `settings.xml` passed
   with `-s`.
 * **Jenkins can't reach `localhost:8081`** — if Jenkins itself runs in a container, `localhost`
-  inside that container is the container, not the Docker host. Run Jenkins and Nexus on the same
-  Docker network, or use the host's reachable address instead of `localhost`.
+  inside that container is the container, not the Docker host. See **Step 4** to put Jenkins and
+  Nexus on a shared Docker network and address Nexus by container name (`http://nexus:8081`)
+  instead of `localhost`.
+* **Still can't reach Nexus after Step 4** — run these on the Docker host to narrow it down:
+
+  ```bash
+  docker ps -a                                  # confirm both containers are actually running
+  docker network inspect ci-network             # confirm both are listed under "Containers"
+  docker logs --tail 50 nexus                   # confirm Nexus finished starting, no errors
+  docker exec jenkins getent hosts nexus        # confirm Jenkins can resolve the name "nexus"
+  ```
+
+  You can also test Nexus from a disposable container on the same network, bypassing whatever
+  tools are (or aren't) installed in the Jenkins image:
+
+  ```bash
+  docker run --rm --network ci-network curlimages/curl:latest \
+    -v http://nexus:8081/service/rest/v1/status
+  ```
+
+  If this disposable-container test succeeds but the Jenkins build still fails, the pipeline is
+  probably running on a separate build agent/container (e.g. a Maven Docker agent) that was
+  never attached to `ci-network` — attach that agent too, and double-check it isn't still
+  configured to deploy to `localhost:8081`.
 
 ## Ref
 
