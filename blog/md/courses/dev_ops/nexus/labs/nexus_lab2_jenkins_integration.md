@@ -261,12 +261,19 @@ The full, working Jenkinsfile for this lab is in the project repo:
 
 ### Step 8: Run the Pipeline and Verify in Nexus
 
-Run the Jenkins job. On success, open Nexus → **Browse** → `maven-snapshots` and confirm the
-artifact was published under:
+Run the Jenkins job. A successful build ends with the pipeline's own `Build successful!` echo
+and Jenkins reporting `Finished: SUCCESS`:
+
+![Jenkins console output: Pipeline finished, Build successful!, Finished: SUCCESS](../../../../../images/dev_ops/nexus/pipeline_console_success.png)
+
+On success, open Nexus → **Browse** → `maven-snapshots` and confirm the artifact was published
+under:
 
 ```text
 com/example/spring-boot-complete/0.0.1-SNAPSHOT/
 ```
+
+![Nexus Browse view: the 0.0.1-SNAPSHOT build folder with its maven-metadata and the generated pom.xml dependency snippet](../../../../../images/dev_ops/nexus/pipeline_verify_nexus_browse.png)
 
 Each snapshot deploy adds a new timestamped build to that folder; Nexus keeps the version
 directory the same (`0.0.1-SNAPSHOT`) while the underlying jar/pom filenames get a unique
