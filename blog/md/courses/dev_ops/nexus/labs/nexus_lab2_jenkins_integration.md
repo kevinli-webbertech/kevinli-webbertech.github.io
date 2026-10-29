@@ -22,6 +22,12 @@ Reference project: [https://github.com/kevinli-webbertech/gs-spring-boot](https:
   Jenkins credential, so nothing secret is stored in the repo.
 * Because `com.example:spring-boot-complete` is currently `0.0.1-SNAPSHOT`, Maven routes the
   deploy to the **snapshot** repository, not the release one.
+* **One `mvn deploy` publishes to exactly one of the two repositories, never both.** Defining
+  both `repository` and `snapshotRepository` in `distributionManagement` doesn't mean a single
+  deploy fans out to each — Maven picks one target based solely on whether the version string
+  ends in `-SNAPSHOT`. To publish to `nexus-releases` instead, the version has to be changed to
+  a non-SNAPSHOT value first (e.g. `mvn versions:set -DnewVersion=0.0.1`), then deployed, then
+  typically bumped back to the next `-SNAPSHOT` for ongoing work.
 
 ## Labs
 
@@ -207,7 +213,33 @@ here must match the `<server>` ids in the `settings.xml` used at deploy time (St
 * **Password:** that user's Nexus password
 * **ID:** `nexus-credentials`
 
+![Update credential form: Scope Global, Username admin, Password concealed, ID nexus-credentials](../../../../../images/dev_ops/nexus/jenkins_credentials_update_form.png)
+
+This is how the username and password of the Nexus deployment account get into Jenkins as a
+Jenkins **environment variable** — not typed anywhere into the Jenkinsfile itself. `nexus-credentials`
+is just the **ID** of this stored secret; Step 7's `withCredentials(...)` block looks it up by
+that ID and exposes the real username/password as the environment variables `NEXUS_USER` and
+`NEXUS_PASSWORD` only for the duration of the Deploy stage.
+
+Once saved, the credential shows up under **Manage Jenkins → Credentials**:
+
+![Jenkins Credentials list showing nexus-credentials (admin/******), scoped System - Global](../../../../../images/dev_ops/nexus/jenkins_credentials_list.png)
+
 ### Step 7: Add a "Deploy to Nexus" Stage to the Jenkinsfile
+
+Before adding the stage below, make sure the Jenkins **Pipeline** job itself is configured to
+pull this project's `Jenkinsfile` from source control — **Configure → Pipeline**, with
+**Definition: Pipeline script from SCM**, the branch that contains the Nexus-deploy Jenkinsfile
+(e.g. `jenkin_nexus_integration`) as the **Branch Specifier**, and **Script Path: `Jenkinsfile`**:
+
+![Jenkins Pipeline configuration: Branch Specifier */jenkin_nexus_integration, Script Path Jenkinsfile](../../../../../images/dev_ops/nexus/jenkins_pipeline_scm_config.png)
+
+> **Note:** Make sure you point the Pipeline job at the
+> [`jenkin_nexus_integration`](https://github.com/kevinli-webbertech/gs-spring-boot/tree/jenkin_nexus_integration)
+> branch of `gs-spring-boot` — this branch has the two changes required for Nexus deploys that
+> `main` and `initial_jenkin` don't have: the `Jenkinsfile`'s "Deploy to Nexus" stage, and the
+> `distributionManagement` section in `pom.xml`. Diff this branch against `main` or
+> `initial_jenkin` to see exactly what changed in both files.
 
 ```groovy
 environment {
@@ -278,6 +310,100 @@ com/example/spring-boot-complete/0.0.1-SNAPSHOT/
 Each snapshot deploy adds a new timestamped build to that folder; Nexus keeps the version
 directory the same (`0.0.1-SNAPSHOT`) while the underlying jar/pom filenames get a unique
 timestamp and build number.
+
+### Step 9 (Optional): Deploy a Release Version to `nexus-releases`
+
+Everything so far deploys to `maven-snapshots` because `0.0.1-SNAPSHOT` ends in `-SNAPSHOT`.
+Keep **both** `repository` and `snapshotRepository` in `pom.xml`'s `distributionManagement` —
+don't remove either one. Maven always picks exactly one of them per deploy based on the version
+suffix, so having both configured just means the same `pom.xml`/Jenkinsfile keep working
+correctly whichever kind of version you deploy next, with no pom.xml edits required to switch.
+
+To actually land something in `nexus-releases`, the deployed version must **not** end in
+`-SNAPSHOT`. Two common ways to do that:
+
+#### Option A: Manual version bump (`mvn versions:set`)
+
+The simplest approach — drop the `-SNAPSHOT` suffix, deploy, then move back to the next
+snapshot for ongoing development:
+
+```bash
+# 1. Drop -SNAPSHOT so the version becomes a release version
+mvn versions:set -DnewVersion=0.0.1 -DgenerateBackupPoms=false
+
+# 2. Build and deploy — Maven now routes to nexus-releases
+mvn clean deploy -DskipTests -s nexus-settings.xml
+
+# 3. Move on to the next snapshot version for continued development
+mvn versions:set -DnewVersion=0.0.2-SNAPSHOT -DgenerateBackupPoms=false
+```
+
+* `versions:set` (from the `versions-maven-plugin`, bundled with the standard Maven
+  distribution) rewrites the `<version>` in `pom.xml` directly; `-DgenerateBackupPoms=false`
+  skips the `pom.xml.versionsBackup` file it creates by default.
+* In a Jenkins pipeline, you'd typically run step 1 and 2 (and maybe 3) as extra `sh` steps —
+  commonly gated behind a parameter, e.g. a `RELEASE` boolean build parameter, so the normal
+  build still just deploys snapshots unless a release is explicitly requested.
+* **Nexus will reject re-deploying the exact same release version a second time** — the
+  `maven-releases` repository's **Version Policy: Release** makes releases immutable by
+  default. Each release needs a new, unique version number (`0.0.1`, then `0.0.2`, ...). Don't
+  enable "Allow redeploy" on a release repository just to work around this; that defeats the
+  purpose of an immutable release repo.
+* This approach gives you full manual control over when a version bump happens and commits to
+  source control, but *you* are responsible for committing the version change and for not
+  forgetting to bump back to a snapshot afterward.
+
+#### Option B: Maven Release Plugin (`mvn release:prepare` / `release:perform`)
+
+A more automated, "standard" release process that also handles git tagging:
+
+```bash
+# Prepare: bump to the release version, commit, tag, then bump to the next snapshot and commit
+mvn release:prepare \
+  -DreleaseVersion=0.0.1 \
+  -DdevelopmentVersion=0.0.2-SNAPSHOT \
+  -s nexus-settings.xml
+
+# Perform: check out the tag just created and run mvn deploy against it
+mvn release:perform -s nexus-settings.xml
+```
+
+* `release:prepare` edits `pom.xml` to the release version, commits that change, creates a git
+  tag (e.g. `spring-boot-complete-0.0.1`) at that commit, then edits `pom.xml` again to the next
+  snapshot version and commits that too — all in your local/working git repo.
+* `release:perform` checks out the tag into a separate working directory and runs the build's
+  deploy goal from there, so the artifact that gets deployed is built from the exact tagged
+  commit, not your working tree.
+* This requires the `maven-release-plugin` (add it under `<build><plugins>` in `pom.xml` if not
+  already present) and a git remote the Jenkins job can push tags/commits to — more setup than
+  Option A, but it leaves a clean, tagged history for every release and removes the manual
+  "don't forget to bump back to -SNAPSHOT" step.
+* In Jenkins, this typically needs git credentials configured for push access, in addition to
+  the `nexus-credentials` used for `mvn deploy`.
+
+Either way, after a release deploy, open Nexus → **Browse** → `maven-releases` to confirm the
+artifact landed under `com/example/spring-boot-complete/0.0.1/` (no `-SNAPSHOT` in the path, and
+no extra timestamp/build-number suffix on the filenames, unlike snapshots).
+
+## Quick Takeaways
+
+1. **Create the Jenkins and Nexus containers with proper names** (`jenkins`, `nexus`) and
+   connect both to a shared Docker network, so they can reach each other by that name instead of
+   `localhost` or an IP address (Steps 1, 3, 4).
+2. **Create a Docker network and learn the commands to verify connectivity** between containers,
+   and how to inspect the network's configuration — `docker network create`, `docker network
+   connect`, `docker network inspect`, and `docker exec jenkins curl ...` to confirm Jenkins can
+   actually reach Nexus over that network (Step 4).
+3. **Test the login of the Nexus deployment account** — it needs enough permission to deploy
+   (here, the `admin` account, whose password we reset as part of the Nexus installation steps
+   in Lab1).
+4. **Create a Jenkins credential for that Nexus deployment account** — give it an ID, username,
+   and password, and save it as a Jenkins-managed secret. Jenkins acts as a credential manager
+   here: it injects the username/password as Jenkins **environment variables**
+   (`NEXUS_USER`/`NEXUS_PASSWORD`) for the duration of the deploy step, which the Jenkinsfile then
+   uses to let Jenkins talk to Nexus and push/upload the built artifact (Steps 6, 7).
+5. **There are mandatory changes needed in `pom.xml`** to tell Maven where the Nexus server is —
+   the `distributionManagement` section's release/snapshot repository URLs (Step 5).
 
 ## Troubleshooting
 
