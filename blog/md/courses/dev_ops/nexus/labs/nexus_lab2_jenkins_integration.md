@@ -25,13 +25,51 @@ Reference project: [https://github.com/kevinli-webbertech/gs-spring-boot](https:
 
 ## Labs
 
-### Step 1: Confirm Nexus Is Running
+### Step 1: Start the Jenkins Service (Docker)
+
+If you don't already have a Jenkins container running, start one the same way as in
+[Intro to Jenkins](../../jenkins/intro_jenkins.md):
+
+`docker run -p 8080:8080 -p 50000:50000 jenkins/jenkins:lts`
+
+* Port `8080` serves the Jenkins web UI; port `50000` is used for inbound Jenkins agents.
+* Get the initial admin password from the container logs, or with:
+
+```cmd
+docker exec <container_id> cat /var/jenkins_home/secrets/initialAdminPassword
+```
+
+* Browse to `http://localhost:8080`, enter that password, and finish the setup wizard.
+
+Documentation: [https://github.com/jenkinsci/docker/blob/master/README.md](https://github.com/jenkinsci/docker/blob/master/README.md)
+
+### Step 2: Start Jenkins on a Different Port (Optional)
+
+Port `8080` is a common default and may already be in use (by another app, or if you want to
+run a second Jenkins instance alongside an existing one). Map a different **host** port to the
+container's internal `8080` instead:
+
+`docker run -p 8082:8080 -p 50000:50000 jenkins/jenkins:lts`
+
+* Only the first number (the host port, left of the colon) changes — the container still
+  listens on `8080` internally, so the setup steps above are otherwise identical.
+* Use a distinct container name if both instances run at once, e.g.
+  `docker run -p 8082:8080 -p 50000:50000 --name jenkins-alt jenkins/jenkins:lts`.
+* Get the admin password the same way, substituting the new container name/id:
+
+```cmd
+docker exec jenkins-alt cat /var/jenkins_home/secrets/initialAdminPassword
+```
+
+* Browse to `http://localhost:8082` to reach this instance.
+
+### Step 3: Confirm Nexus Is Running
 
 Reuse the Nexus container from Lab1 (`docker run -d -p 8081:8081 ... sonatype/nexus3`). Confirm
 it is reachable at `http://localhost:8081` and that a `maven-snapshots` hosted repository exists
 (Nexus ships this repository by default under **Repository → Repositories**).
 
-### Step 2: Add `distributionManagement` to `pom.xml`
+### Step 4: Add `distributionManagement` to `pom.xml`
 
 ```xml
 <distributionManagement>
@@ -47,9 +85,9 @@ it is reachable at `http://localhost:8081` and that a `maven-snapshots` hosted r
 ```
 
 The `id` values (`nexus-releases`, `nexus-snapshots`) are arbitrary, but whatever you choose
-here must match the `<server>` ids in the `settings.xml` used at deploy time (Step 4).
+here must match the `<server>` ids in the `settings.xml` used at deploy time (Step 6).
 
-### Step 3: Create a Jenkins Credential for the Nexus Deploy User
+### Step 5: Create a Jenkins Credential for the Nexus Deploy User
 
 **Manage Jenkins → Credentials → System → Global credentials → Add Credentials**
 
@@ -59,7 +97,7 @@ here must match the `<server>` ids in the `settings.xml` used at deploy time (St
 * **Password:** that user's Nexus password
 * **ID:** `nexus-credentials`
 
-### Step 4: Add a "Deploy to Nexus" Stage to the Jenkinsfile
+### Step 6: Add a "Deploy to Nexus" Stage to the Jenkinsfile
 
 ```groovy
 environment {
@@ -111,7 +149,7 @@ workspace and removed in `post { always { ... } }` so the credentials never pers
 The full, working Jenkinsfile for this lab is in the project repo:
 [https://github.com/kevinli-webbertech/gs-spring-boot/blob/main/Jenkinsfile](https://github.com/kevinli-webbertech/gs-spring-boot/blob/main/Jenkinsfile)
 
-### Step 5: Run the Pipeline and Verify in Nexus
+### Step 7: Run the Pipeline and Verify in Nexus
 
 Run the Jenkins job. On success, open Nexus → **Browse** → `maven-snapshots` and confirm the
 artifact was published under:
