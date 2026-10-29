@@ -182,23 +182,59 @@ docker exec jenkins curl -v http://nexus:8081/
 > Otherwise, a `docker compose up` that recreates the containers will drop the manual
 > `docker network connect` from this step, and you'll be back to `localhost` failures.
 
+**Convenience script:** every `docker run`/`docker network` command from Steps 1, 3, and 4 above
+is combined into one idempotent script you can run instead of typing them one by one:
+[nexus_lab2_setup_network.sh](./nexus_lab2_setup_network.sh).
+
+```bash
+chmod +x nexus_lab2_setup_network.sh
+./nexus_lab2_setup_network.sh
+```
+
+It starts the `jenkins` and `nexus` containers (skipping any that already exist), creates
+`ci-network`, connects both containers to it, and prints the admin-password commands and the
+Nexus URL Jenkins should use (`http://nexus:8081`).
+
+[nexus_lab2_test_network.sh](./nexus_lab2_test_network.sh) (whole script with testing) runs
+after the setup script and checks that everything actually worked — both containers are
+running, both are connected to `ci-network`, Jenkins can resolve `nexus` by name, and Jenkins
+can reach Nexus over HTTP — printing `OK`/`FAIL` for each check and exiting with a non-zero
+status and an actionable error message on the first failure:
+
+```bash
+chmod +x nexus_lab2_test_network.sh
+./nexus_lab2_test_network.sh
+```
+
 ### Step 5: Add `distributionManagement` to `pom.xml`
 
+Copy the following section from the project's
+[`pom.xml` on the `jenkin_nexus_integration` branch](https://github.com/kevinli-webbertech/gs-spring-boot/blob/jenkin_nexus_integration/pom.xml)
+into your `pom.xml`, inside `<project>` and after `</build>`:
+
 ```xml
+<!-- Points `mvn deploy` at the local Nexus instance. The server id below must match
+     a <server> entry (with credentials) in the settings.xml used at deploy time;
+     see the Jenkinsfile's "Deploy to Nexus" stage and the Nexus Lab2 doc.
+     The host here is the Nexus container name ("nexus"), not "localhost", because
+     the Jenkins pipeline runs inside its own container; the Nexus Lab2 doc's Step 4
+     connects both containers to a shared "ci-network" so this name resolves. -->
 <distributionManagement>
     <repository>
         <id>nexus-releases</id>
-        <url>http://localhost:8081/repository/maven-releases/</url>
+        <name>Nexus Releases</name>
+        <url>http://nexus:8081/repository/maven-releases/</url>
     </repository>
     <snapshotRepository>
         <id>nexus-snapshots</id>
-        <url>http://localhost:8081/repository/maven-snapshots/</url>
+        <name>Nexus Snapshots</name>
+        <url>http://nexus:8081/repository/maven-snapshots/</url>
     </snapshotRepository>
 </distributionManagement>
 ```
 
-> If you set up the shared `ci-network` in Step 4, replace `localhost` with the Nexus container
-> name in both URLs, e.g. `http://nexus:8081/repository/maven-releases/`.
+> These URLs use the Nexus container name on the shared `ci-network` from Step 4. If both
+> Jenkins and Nexus run natively on the host, replace `nexus` with `localhost` in both URLs.
 
 The `id` values (`nexus-releases`, `nexus-snapshots`) are arbitrary, but whatever you choose
 here must match the `<server>` ids in the `settings.xml` used at deploy time (Step 7).
