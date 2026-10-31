@@ -246,4 +246,10 @@ https://youtu.be/eFl1FKTUYuA
 
 >This video will show you how to upload an artifact to Nexus storage.
 
+**Nexus Lab 2: Jenkins Integration**
+
+https://youtu.be/LhXtcpHsPrU
+
+>A Jenkins pipeline builds a jar with Maven and deploys it straight to Nexus — connecting the two containers on a shared Docker network and storing deploy credentials safely in Jenkins.
+
 ## **Git**
