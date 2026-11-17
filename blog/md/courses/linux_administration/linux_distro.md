@@ -1,4 +1,4 @@
-# Linux distribution
+# Linux Distribution
 
 1. What is a Linux Distribution?
 
@@ -37,6 +37,8 @@ Aimed at simplicity and user control, suitable for advanced users. Its package m
 Offers two versions: Leap (stable, suitable for servers) and Tumbleweed (rolling release, suitable for desktop users). Its package manager is Zypper.
 
 There are numerous Linux distributions, each tailored to different needs and preferences. Here are some of the most popular and widely used Linux distributions:
+
+## Linux Distribution and Summary
 
 | Distribution | Based On | Target Audience | Features | Package Manager |
 | --- | --- | --- | --- | --- |

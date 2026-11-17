@@ -2,9 +2,42 @@
 
 ## Who Created Linux?
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/0/01/LinuxCon_Europe_Linus_Torvalds_03_%28cropped%29.jpg" alt="Linus Torvalds speaking at LinuxCon Europe 2014 in Düsseldorf" width="320" style="max-width: 100%; height: auto;" loading="lazy">
+<style>
+  .linux-intro-portrait {
+    float: right;
+    width: 42%;
+    max-width: 320px;
+    margin: 0 0 1rem 1.5rem;
+  }
 
-*Linus Torvalds at LinuxCon Europe 2014. Photo by Krd; crop by Von Sprat, via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:LinuxCon_Europe_Linus_Torvalds_03_(cropped).jpg), licensed under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/). Shown without further edits.*
+  .linux-intro-portrait img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .linux-intro-portrait figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.875em;
+  }
+
+  .linux-intro-timeline {
+    clear: both;
+  }
+
+  @media (max-width: 600px) {
+    .linux-intro-portrait {
+      float: none;
+      width: 100%;
+      margin: 0 auto 1rem;
+    }
+  }
+</style>
+
+<figure class="linux-intro-portrait">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/LinuxCon_Europe_Linus_Torvalds_03_%28cropped%29.jpg" alt="Linus Torvalds speaking at LinuxCon Europe 2014 in Düsseldorf" width="320" loading="lazy">
+  <figcaption><em>Linus Torvalds at LinuxCon Europe 2014. Photo by Krd; crop by Von Sprat, via <a href="https://commons.wikimedia.org/wiki/File:LinuxCon_Europe_Linus_Torvalds_03_(cropped).jpg">Wikimedia Commons</a>, licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>. Shown without further edits.</em></figcaption>
+</figure>
 
 **Linus Torvalds** is a software engineer born on December 28, 1969, in Helsinki, Finland. He became interested in programming as a child and studied at the University of Helsinki. His work on Linux helped establish one of the best-known collaborative open-source projects. Read more in the [Lemelson-MIT biography](https://lemelson.mit.edu/resources/linus-torvalds).
 
@@ -12,7 +45,7 @@
 
 Torvalds created the kernel, rather than every component of a complete Linux operating system. A usable system also includes libraries, command-line tools, services, and applications contributed by many projects, including GNU. The [Linux kernel introduction](https://www.kernel.org/doc/html/latest/admin-guide/README.html) describes its origins and capabilities.
 
-## When Did Linux Begin?
+<h2 class="linux-intro-timeline" id="when-did-linux-begin">When Did Linux Begin?</h2>
 
 | Time | Event |
 | --- | --- |

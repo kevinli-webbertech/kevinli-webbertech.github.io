@@ -4,6 +4,20 @@
 
 A **display manager** (such as GDM, SDDM, or LightDM) handles the graphical login screen and starts desktop sessions. It is different from a **window manager** (such as i3, Openbox, or KWin), which manages application windows. A desktop environment, such as GNOME, KDE Plasma, or Xfce, provides a broader collection of desktop components and applications.
 
+## KDE Plasma and Xfce
+
+### KDE Plasma
+
+**KDE** is the free software community that develops **Plasma**, a desktop environment, along with KDE Frameworks and applications such as the Dolphin file manager. Matthias Ettrich started the KDE project in 1996 using the Qt toolkit, and the first stable desktop release followed in 1998. [KDE project history](https://timeline.kde.org/) · [Plasma desktop](https://kde.org/plasma-desktop/)
+
+Plasma provides the desktop, panels, application launcher, and system settings. **KWin** manages application windows and serves as the compositor in a Plasma Wayland session. **SDDM** is a commonly paired display manager that handles graphical login and can start the Plasma session.
+
+### Xfce
+
+**Xfce** is a lightweight desktop environment. It includes the Xfce panel, desktop settings, session manager, and **Thunar** file manager. **Xfwm4** is its X11 window manager. A distribution can use **LightDM** to handle graphical login and start an Xfce session. [Xfce desktop components](https://xfce.org/about/)
+
+Xfce 4.20 introduced experimental Wayland support for many desktop components. An Xfce 4.20 Wayland session uses a separate compositor such as Labwc or Wayfire. [Xfce 4.20 Wayland support](https://xfce.org/about/tour420)
+
 ## 1. Linux Display Manager Compatibility
 
 The X11 and Wayland columns describe the types of desktop sessions the manager can launch, rather than the protocol used by its own login screen.
@@ -68,6 +82,7 @@ Window managers and compositors have different compatibility rules from display 
 | **Sway** | No | Yes | A Wayland compositor with an i3-style workflow. |
 | **Openbox** | Yes | No | An X11 window manager. |
 | **KWin** (KDE) | Version and package dependent | Yes | X11 support is provided by the separate `kwin_x11` project in releases that still support it; current KWin development targets Wayland. |
+| **Xfwm4** (Xfce 4.20) | Yes | No | Xfce's X11 window manager. Xfce 4.20 uses a separate compositor for experimental Wayland sessions. |
 | **Mutter** (GNOME) | Older releases only | Yes | Older versions supported native X11 sessions. Current Mutter is a Wayland compositor and can run X11 applications through Xwayland. |
 | **Hyprland** | No | Yes | A Wayland compositor; X11 applications can use Xwayland. |
 

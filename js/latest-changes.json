@@ -1,5 +1,10 @@
 [
   {
+    "sha": "87ccce7c",
+    "date": "2026-11-17T13:59:38-05:00",
+    "message": "new updates"
+  },
+  {
     "sha": "62d80382",
     "date": "2026-11-17T13:48:48-05:00",
     "message": "new updates"
@@ -18,10 +23,5 @@
     "sha": "b9cb334c",
     "date": "2026-11-10T16:41:20-05:00",
     "message": "Add K8s docs pages, rename K8s labs, and update blog index"
-  },
-  {
-    "sha": "12bb60d0",
-    "date": "2026-11-10T16:40:59-05:00",
-    "message": "Add K8s manifest types summary page"
   }
 ]
