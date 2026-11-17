@@ -1,10 +1,10 @@
 # K8s Update and Roll Back Your App
 
-This page covers rolling updates, rollout history, and rollbacks for a Deployment. It assumes a running Minikube cluster as set up in [K8s Basic](k8s_basic.md), including the `hello-node` Deployment from that page and the optional `web` Deployment from [K8s YAML Manifests](k8s_yaml_manifests.md).
+This page covers rolling updates, rollout history, and rollbacks for a Deployment. It assumes a running Minikube cluster as set up in [K8s Basic](k8s_basic.html), including the `hello-node` Deployment from that page and the optional `web` Deployment from [K8s YAML Manifests](k8s_yaml_manifests.html).
 
 ## Update and roll back your app
 
-For the optional `web` Deployment created in [K8s YAML Manifests](k8s_yaml_manifests.md):
+For the optional `web` Deployment created in [K8s YAML Manifests](k8s_yaml_manifests.html):
 
 ```shell
 kubectl set image deployment/web nginx=nginx:alpine

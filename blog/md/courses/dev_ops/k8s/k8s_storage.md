@@ -1,6 +1,6 @@
 # K8s Storage Inspection
 
-Quick commands for inspecting the storage resources backing a cluster: PersistentVolumeClaims, PersistentVolumes, and StorageClasses. For application configuration data, see [K8s ConfigMap](k8s_configmap.md) instead.
+Quick commands for inspecting the storage resources backing a cluster: PersistentVolumeClaims, PersistentVolumes, and StorageClasses. For application configuration data, see [K8s ConfigMap](k8s_configmap.html) instead.
 
 ## Inspect storage resources
 

@@ -1,6 +1,6 @@
 # K8s YAML Manifests
 
-This page covers generating, reviewing, and applying Kubernetes resources from YAML manifests instead of purely imperative `kubectl create`/`kubectl expose` commands. It assumes a running Minikube cluster as set up in [K8s Basic](k8s_basic.md).
+This page covers generating, reviewing, and applying Kubernetes resources from YAML manifests instead of purely imperative `kubectl create`/`kubectl expose` commands. It assumes a running Minikube cluster as set up in [K8s Basic](k8s_basic.html).
 
 ## Work with YAML manifests
 
@@ -22,7 +22,7 @@ kubectl rollout status deployment/web --timeout=120s
 
 `nginx:stable` is convenient for a lab but is a moving tag. Pin a tested version or image digest for reproducible deployments.
 
-The `web` Deployment created here is reused by the scaling and rollout examples in [K8s Basic](k8s_basic.md).
+The `web` Deployment created here is reused by the scaling and rollout examples in [K8s Basic](k8s_basic.html).
 
 ## Ref
 

@@ -51,6 +51,7 @@ spec:
   replicas: 3
   selector:
     matchLabels:
+      app.kubernetes.io/name: configmap-volume
   template:
     metadata:
       labels:
@@ -72,7 +73,7 @@ spec:
       volumes:
         - name: config-volume
           configMap:
-             name: sport
+            name: sport
 ```
 
 2.  **Apply Deployment:**

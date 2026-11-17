@@ -75,6 +75,24 @@ spec:
       targetPort: 8080  # pod containerPort
 ```
 
+### Deploy and test the load balancer
+
+Save the entire YAML block above, including both the Deployment and the Service, as `hello-world-lb.yaml`. Run these commands from the directory where you saved it.
+
+```bash
+kubectl apply -f hello-world-lb.yaml
+kubectl rollout status deployment/hello-world
+kubectl get service hello-world-lb --watch
+```
+
+The cluster needs a load balancer implementation to assign an external address. On Minikube, run `minikube tunnel` in a separate terminal and leave it running while you test.
+
+When `EXTERNAL-IP` shows an IP address or hostname, press `Ctrl+C` to stop watching. Replace `EXTERNAL_ADDRESS` with that value and send a request to port 80.
+
+```bash
+curl http://EXTERNAL_ADDRESS:80/
+```
+
 ## nodePort
 
 If you want to also force a specific nodePort (sometimes needed for bare metal or specific cloud behavior), just tell me the port range and I’ll wire it in.
