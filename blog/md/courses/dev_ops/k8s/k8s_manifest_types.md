@@ -257,6 +257,52 @@ spec:
             command: ["sh", "-c", "date; echo hello from cron"]
 ```
 
+### CronJob schedule format
+
+`spec.schedule` uses the standard five-field cron syntax. Fields are separated by spaces:
+
+```text
+┌───────────── minute        (0 - 59)
+│ ┌─────────── hour          (0 - 23)
+│ │ ┌───────── day of month  (1 - 31)
+│ │ │ ┌─────── month         (1 - 12 or JAN-DEC)
+│ │ │ │ ┌───── day of week   (0 - 6 or SUN-SAT, 0 and 7 = Sunday)
+│ │ │ │ │
+* * * * *
+```
+
+| Symbol | Meaning | Example |
+|--------|---------|---------|
+| `*` | Any value | `* * * * *` runs every minute |
+| `,` | List of values | `0 8,20 * * *` runs at 08:00 and 20:00 |
+| `-` | Range of values | `0 9 * * 1-5` runs at 09:00, Monday to Friday |
+| `/` | Step values | `*/5 * * * *` runs every 5 minutes |
+
+Common examples:
+
+| Schedule | Meaning |
+|----------|---------|
+| `*/5 * * * *` | Every 5 minutes (the example above) |
+| `0 * * * *` | At the start of every hour |
+| `30 2 * * *` | Every day at 02:30 |
+| `0 0 * * 0` | Every Sunday at midnight |
+| `0 0 1 * *` | At midnight on the first day of every month |
+
+Kubernetes also accepts macros: `@hourly`, `@daily` (or `@midnight`), `@weekly`, `@monthly`, and `@yearly` (or `@annually`). `@reboot` is not supported.
+
+Notes:
+
+- By default the schedule is interpreted in the time zone of the kube-controller-manager (usually UTC). Set `spec.timeZone` (stable since Kubernetes 1.27) to use an IANA time zone, for example `timeZone: "America/New_York"`. Do not put `TZ=` or `CRON_TZ=` inside `schedule`.
+- If both day of month and day of week are restricted (not `*`), the Job runs when either one matches.
+- Related fields: `concurrencyPolicy` (`Allow`, `Forbid`, or `Replace`), `startingDeadlineSeconds`, `suspend`, `successfulJobsHistoryLimit`, and `failedJobsHistoryLimit`.
+
+```yaml
+spec:
+  schedule: "30 2 * * 1-5"
+  timeZone: "America/New_York"
+  concurrencyPolicy: Forbid
+```
+
 ## Service
 
 A Service gives a set of Pods a stable virtual IP and DNS name and load-balances across them. Pods are selected by label, so `spec.selector` must match the Pod labels.
