@@ -1,5 +1,10 @@
 [
   {
+    "sha": "62d80382",
+    "date": "2026-11-17T13:48:48-05:00",
+    "message": "new updates"
+  },
+  {
     "sha": "a5f47738",
     "date": "2026-11-10T17:37:21-05:00",
     "message": "Renumber K8s labs 10-12 to 9-11 and add Lab N to lab titles"
@@ -18,10 +23,5 @@
     "sha": "12bb60d0",
     "date": "2026-11-10T16:40:59-05:00",
     "message": "Add K8s manifest types summary page"
-  },
-  {
-    "sha": "ee108819",
-    "date": "2026-11-10T16:37:19-05:00",
-    "message": "Add minikube profile screenshots and profile list command to k8s_profile"
   }
 ]
