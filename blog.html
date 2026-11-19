@@ -1368,6 +1368,40 @@
 		viewerSection.style.display = "block";
 	}
 
+	// Keep assignments together under a Homework section in every course menu.
+	(function groupCourseHomework() {
+		var courseSlugs = {
+			"IT Foundations": "IT_Foundations", "AI / ML": "ai_ml", "Computer Architecture": "computer_architecture",
+			"Cybersecurity": "cybersecurity", "Python Data Structures": "data_structures_python", "Deep Learning": "deep_learning",
+			"Java": "java", "ReactJS": "javascript_reactjs", "NextJS Framework": "javascript_nextjs", "Kotlin": "kotlin",
+			"Linux Administration": "linux_administration", "Machine Learning": "machine_learning", "ML Ops": "ml_ops",
+			"Rust": "rust", "Spreadsheet": "spreadsheet", "Springboot": "springboot", "Web Development": "web_development"
+		};
+		var coursesCaret = Array.from(document.querySelectorAll(".caret")).find(function (node) { return node.textContent.trim() === "Courses"; });
+		if (!coursesCaret) return;
+		var coursesList = coursesCaret.parentElement.querySelector(":scope > .nested");
+		if (!coursesList) return;
+		Array.from(coursesList.children).filter(function (item) { return item.tagName === "LI"; }).forEach(function (course) {
+			var title = (course.querySelector(":scope > .caret") || {}).textContent;
+			if (!title) return;
+			var menu = course.querySelector(":scope > .nested");
+			if (!menu) return;
+			var homeworkLinks = Array.from(menu.querySelectorAll('a[href*="/homework/"]'));
+			var group = document.createElement("li");
+			group.innerHTML = '<span class="caret">Homework</span><ul class="nested"><ol></ol></ul>';
+			group.querySelector(".caret").addEventListener("click", function () {
+				this.parentElement.querySelector(":scope > .nested").classList.toggle("active");
+				this.classList.toggle("caret-down");
+			});
+			var groupList = group.querySelector("ol");
+			homeworkLinks.forEach(function (link) { groupList.appendChild(link.closest("li")); });
+			if (!homeworkLinks.length && courseSlugs[title.trim()]) {
+				groupList.innerHTML = '<li><a href="blog/html/courses/' + courseSlugs[title.trim()] + '/homework/index.html">Homework</a></li>';
+			}
+			if (groupList.children.length) menu.appendChild(group);
+		});
+	})();
+
 	document.getElementById("course-viewer-back").addEventListener("click", function() {
 		var cardsSection = document.getElementById("class-cards-section");
 		var viewerSection = document.getElementById("course-viewer-section");
