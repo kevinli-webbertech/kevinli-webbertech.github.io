@@ -750,7 +750,7 @@
 										<li><a href="blog/html/courses/dev_ops/k8s/k8s_helmchart.html">K8s Helm Chart</a></li>
 										<li><a href="blog/html/courses/dev_ops/k8s/k8s_security.html">K8s Security</a></li>
    							            <li><a href="blog/html/courses/dev_ops/k8s/k8s_cheatsheet.html">K8s Cheatsheet</a></li>
-										<li><a href="blog/html/courses/dev_ops/k8s/final_project_solution.html">Final Project Solution</a></li>
+										<li><a href="blog/html/courses/dev_ops/k8s/final_project_discussion.html">Final Project Discussion</a></li>
 									    <li><span class="caret">Labs</span>
 											<ul class="nested">
                                                 <ol>
@@ -1387,6 +1387,11 @@
 			if (!title) return;
 			var menu = course.querySelector(":scope > .nested");
 			if (!menu) return;
+			var existingHomeworkGroup = Array.from(menu.children).find(function (item) {
+				var caret = item.querySelector(":scope > .caret");
+				return caret && caret.textContent.trim() === "Homework";
+			});
+			if (existingHomeworkGroup) return;
 			var homeworkLinks = Array.from(menu.querySelectorAll('a[href*="/homework/"]'));
 			var group = document.createElement("li");
 			group.innerHTML = '<span class="caret">Homework</span><ul class="nested"><ol></ol></ul>';
