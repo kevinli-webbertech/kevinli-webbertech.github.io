@@ -1,5 +1,10 @@
 [
   {
+    "sha": "8b6a30e9",
+    "date": "2026-11-17T18:28:33-05:00",
+    "message": "new update"
+  },
+  {
     "sha": "10b1aaec",
     "date": "2026-11-17T15:48:43-05:00",
     "message": "new updates of linux administration"
@@ -18,10 +23,5 @@
     "sha": "a5f47738",
     "date": "2026-11-10T17:37:21-05:00",
     "message": "Renumber K8s labs 10-12 to 9-11 and add Lab N to lab titles"
-  },
-  {
-    "sha": "4dfe36ca",
-    "date": "2026-11-10T17:03:22-05:00",
-    "message": "Remove empty K8s Jenkins lab9 page and menu entry"
   }
 ]
