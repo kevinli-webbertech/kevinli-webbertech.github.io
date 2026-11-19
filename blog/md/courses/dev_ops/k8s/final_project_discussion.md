@@ -2,16 +2,6 @@
 
 This solution deploys Jenkins LTS, Nexus, and MySQL on Minikube, then uses Jenkins to build a Spring Boot JAR, publish artifacts to Nexus, and update a Kubernetes deployment.
 
-## Final project requirements
-
-The [Final assignment](https://kevinli-webbertech.github.io/blog/html/courses/dev_ops/homework/final.html) contains the detailed project requirements.
-
-### Final report evidence
-
-For each required task, include several screenshots captured from your own computer while completing the work. The screenshots should show the relevant commands, configuration, and successful results (for example, terminal output, Kubernetes status, Jenkins stages, Nexus artifacts, and the deployed application where applicable).
-
-Each task needs enough screenshots to demonstrate the work was completed by the student. Screenshots are required evidence; copied documentation or AI-generated text alone does not demonstrate that the implementation was performed.
-
 ## Deployment flow
 
 1. Check out source code from GitHub.

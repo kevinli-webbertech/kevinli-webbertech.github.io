@@ -4,11 +4,21 @@ Please include the original questions in your homework report. Please check the 
 
 K8s here we can use `minikube`.
 
+## Final project requirements
+
+This page contains the detailed requirements for the final project.
+
+### Final report evidence
+
+For every task, include several clearly labeled screenshots captured from your own computer while completing the work. The screenshots should show the relevant commands, configuration, and successful results (for example, terminal output, Kubernetes status, Jenkins stages, Nexus artifacts, and the deployed application where applicable).
+
+Each task needs enough screenshots to demonstrate that the work was completed by the student. Screenshots are required evidence; copied documentation or AI-generated text alone does not demonstrate that the implementation was performed.
+
 ## Tasks
 
 Write a springboot helloworld project and that could connect to a mysql database and commit to github. (hint: please go to checkout in spring.io)
 
-For **every task**, include at least one clearly labeled screenshot in the report that shows both the relevant configuration or command and successful proof of completion (for example, `kubectl get`, pod status, service output, pipeline output, or the running application). Screenshots must be legible and tied to the task number.
+For **every task**, include several clearly labeled screenshots in the report that show both the relevant configuration or command and successful proof of completion (for example, `kubectl get`, pod status, service output, pipeline output, or the running application). Screenshots must be legible and tied to the task number.
 
 * Write a k8s deployment for Jenkins server. Include screenshots of the deployment manifest and Jenkins running. (10 pts)
 * Write a k8s deployment for Nexus server. Include screenshots of the deployment manifest and Nexus running. (10 pts)
