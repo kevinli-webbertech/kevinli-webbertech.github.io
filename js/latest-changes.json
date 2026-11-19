@@ -1,5 +1,10 @@
 [
   {
+    "sha": "ca4ad8a4",
+    "date": "2026-11-19T13:56:29-05:00",
+    "message": "new update to fix broken link"
+  },
+  {
     "sha": "8b6a30e9",
     "date": "2026-11-17T18:28:33-05:00",
     "message": "new update"
@@ -18,10 +23,5 @@
     "sha": "62d80382",
     "date": "2026-11-17T13:48:48-05:00",
     "message": "new updates"
-  },
-  {
-    "sha": "a5f47738",
-    "date": "2026-11-10T17:37:21-05:00",
-    "message": "Renumber K8s labs 10-12 to 9-11 and add Lab N to lab titles"
   }
 ]
