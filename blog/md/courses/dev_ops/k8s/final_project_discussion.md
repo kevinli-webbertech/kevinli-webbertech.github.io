@@ -22,7 +22,7 @@ https://github.com/kevinli-webbertech/gs-spring-boot/blob/main/Jenkinsfile
 
 ## Kubernetes files
 
-All manifests and the deployment script are in [`../homework/scripts/`](../homework/scripts/), each also rendered as its own page below:
+All manifests and the deployment script are rendered as individual pages below:
 
 * [`jenkins-deployment.yaml`](https://kevinli-webbertech.github.io/blog/html/courses/dev_ops/homework/scripts/jenkins-deployment-yaml.html) and [`jenkins-service.yaml`](https://kevinli-webbertech.github.io/blog/html/courses/dev_ops/homework/scripts/jenkins-service-yaml.html)
 * [`nexus-deployment.yaml`](https://kevinli-webbertech.github.io/blog/html/courses/dev_ops/homework/scripts/nexus-deployment-yaml.html) and [`nexus-service.yaml`](https://kevinli-webbertech.github.io/blog/html/courses/dev_ops/homework/scripts/nexus-service-yaml.html)
@@ -30,7 +30,7 @@ All manifests and the deployment script are in [`../homework/scripts/`](../homew
 * [`network-policy.yaml`](https://kevinli-webbertech.github.io/blog/html/courses/dev_ops/homework/scripts/network-policy-yaml.html)
 * [`deploy.sh`](https://kevinli-webbertech.github.io/blog/html/courses/dev_ops/homework/scripts/deploy-sh.html)
 
-Run the deployment from that directory:
+The source files live together in [`blog/md/courses/dev_ops/homework/scripts/`](https://github.com/kevinli-webbertech/kevinli-webbertech.github.io/tree/main/blog/md/courses/dev_ops/homework/scripts) in the repository. Download them into one directory and run the deployment from there:
 
 ```bash
 chmod +x deploy.sh
