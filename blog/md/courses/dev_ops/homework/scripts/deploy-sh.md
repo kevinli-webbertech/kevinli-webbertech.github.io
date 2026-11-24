@@ -17,4 +17,4 @@ kubectl rollout status deployment/jenkins
 kubectl get configmap,secret,pvc,deployment,pods,svc
 ```
 
-[Back to Final Project Discussion](https://kevinli-webbertech.github.io/blog/html/courses/dev_ops/k8s/final_project_discussion.html)
+[Back to Final Project Discussion](https://kevinli-webbertech.github.io/blog/html/courses/dev_ops/homework/final_project_discussion.html)

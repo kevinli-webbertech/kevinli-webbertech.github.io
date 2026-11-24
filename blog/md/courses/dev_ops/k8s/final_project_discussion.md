@@ -73,16 +73,126 @@ If both calls return the expected output, the JAR is running correctly. This bra
    mysql -u springapp -p spring_boot_db -e "SELECT * FROM messages;"
    ```
 
-4. **Verify inside the cluster.** After deploying `webapp` with `SPRING_PROFILES_ACTIVE=kubernetes` pointing at `mysql-service`:
+### Deploy the JAR to Minikube manually
 
-   ```bash
-   kubectl exec deployment/webapp -- getent hosts mysql-service
-   kubectl port-forward deployment/webapp 8080:8080
-   curl -X POST http://localhost:8080/api/messages -H 'Content-Type: application/json' -d '{"content":"from k8s"}'
-   kubectl exec deployment/mysql -- mysql -u springapp -p"$MYSQL_PASSWORD" spring_boot_db -e "SELECT * FROM messages;"
-   ```
+From the `gs-spring-boot` repository root, stop the local Java process, then package the JAR and build a Java 17 runtime image directly in Minikube. This first rollout uses the app's default H2 database.
 
-   Seeing the posted row appear via `kubectl exec` into the MySQL Pod proves the full chain (webapp Pod → `mysql-service` → MySQL Pod) is working end to end, and is good evidence to screenshot for the final report.
+```bash
+minikube start
+kubectl config use-context minikube
+./mvnw clean package
+
+cat > Dockerfile.manual <<'EOF'
+FROM eclipse-temurin:17-jre
+WORKDIR /app
+COPY target/spring-boot-complete-0.0.1-SNAPSHOT.jar app.jar
+ENTRYPOINT ["java", "-jar", "app.jar"]
+EOF
+
+minikube image build -t spring-boot-manual:1 -f Dockerfile.manual .
+```
+
+Apply the Deployment in the same namespace where you will deploy MySQL in Step 2:
+
+```bash
+kubectl apply -f - <<'EOF'
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webapp
+  template:
+    metadata:
+      labels:
+        app: webapp
+    spec:
+      containers:
+        - name: webapp
+          image: spring-boot-manual:1
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+EOF
+
+kubectl rollout status deployment/webapp --timeout=180s
+kubectl port-forward deployment/webapp 8080:8080
+```
+
+In another terminal, run `curl -fsS http://localhost:8080/actuator/health` and check for `"status":"UP"`. Stop the port-forward with Ctrl+C before moving on.
+
+## Step 2: Deploy MySQL and verify the application in Kubernetes
+
+From the website repository root, change into the directory containing the five MySQL manifests listed under **Kubernetes files**. Edit the placeholder passwords in your local copy of `mysql-secret.yaml` before the first deployment. The ConfigMap supplies `myappdb` and `myappuser` by default. MySQL uses those settings and the Secret to initialize an empty volume. If `mysql-pvc` already contains a database, use the credentials and database configured in that instance.
+
+```bash
+cd blog/md/courses/dev_ops/homework/scripts
+kubectl apply -f mysql-configmap.yaml -f mysql-secret.yaml -f mysql-pvc.yaml
+kubectl apply -f mysql-service.yaml -f mysql-deployment.yaml
+kubectl rollout status deployment/mysql --timeout=180s
+kubectl get pvc mysql-pvc
+kubectl get service mysql-service
+```
+
+Check that the claim is `Bound` and that MySQL accepts a TCP connection with the application credentials. If the query fails while MySQL is initializing, check `kubectl logs deployment/mysql` and retry the query before continuing.
+
+```bash
+kubectl exec deployment/mysql -- sh -c   'MYSQL_PWD="$MYSQL_PASSWORD" mysql --protocol=TCP -h 127.0.0.1 -u "$MYSQL_USER" "$MYSQL_DATABASE" -e "SELECT 1;"'
+```
+
+Switch the Step 1 Deployment to the `kubernetes` Spring profile. The Pod reads the database name and username from the ConfigMap and the password from the Secret. Keep `MYSQL_DATABASE` above `SPRING_DATASOURCE_URL` so Kubernetes can expand it in the JDBC URL.
+
+```bash
+kubectl patch deployment webapp --type=strategic --patch "$(cat <<'EOF'
+spec:
+  template:
+    spec:
+      containers:
+        - name: webapp
+          env:
+            - name: MYSQL_DATABASE
+              valueFrom:
+                configMapKeyRef:
+                  name: mysql-config
+                  key: MYSQL_DATABASE
+            - name: SPRING_PROFILES_ACTIVE
+              value: kubernetes
+            - name: SPRING_DATASOURCE_URL
+              value: 'jdbc:mysql://mysql-service:3306/$(MYSQL_DATABASE)?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC'
+            - name: SPRING_DATASOURCE_USERNAME
+              valueFrom:
+                configMapKeyRef:
+                  name: mysql-config
+                  key: MYSQL_USER
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: MYSQL_PASSWORD
+EOF
+)"
+kubectl rollout status deployment/webapp --timeout=180s
+kubectl port-forward deployment/webapp 8080:8080
+```
+
+Leave the port-forward running. In a second terminal, create a message through the application, then query the MySQL Pod directly:
+
+```bash
+curl -fsS http://localhost:8080/actuator/health
+curl -fsS -X POST http://localhost:8080/api/messages   -H 'Content-Type: application/json' -d '{"content":"from k8s"}'
+
+kubectl exec deployment/mysql -- sh -c   'MYSQL_PWD="$MYSQL_PASSWORD" mysql --protocol=TCP -h 127.0.0.1 -u "$MYSQL_USER" "$MYSQL_DATABASE" -e "SELECT id, content FROM messages ORDER BY id DESC LIMIT 10;"'
+```
+
+Match the ID and content from the POST response to the MySQL row. This confirms that the webapp wrote through `mysql-service` to the MySQL Pod. Capture the matching outputs for the final report.
+
 
 ## Deployment flow
 

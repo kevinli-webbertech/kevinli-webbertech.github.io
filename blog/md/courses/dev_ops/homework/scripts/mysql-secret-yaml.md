@@ -12,4 +12,4 @@ stringData:
   MYSQL_PASSWORD: ChangeUserPassword123!
 ```
 
-[Back to Final Project Discussion](https://kevinli-webbertech.github.io/blog/html/courses/dev_ops/k8s/final_project_discussion.html)
+[Back to Final Project Discussion](https://kevinli-webbertech.github.io/blog/html/courses/dev_ops/homework/final_project_discussion.html)

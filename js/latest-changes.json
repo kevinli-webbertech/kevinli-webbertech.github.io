@@ -1,27 +1,27 @@
 [
   {
-    "sha": "0c465131",
-    "date": "2026-11-24T13:46:21-05:00",
-    "message": "Add AI skills and RAG guides to the AI/ML course"
+    "sha": "45890e2b",
+    "date": "2026-11-24T17:00:18-05:00",
+    "message": "Document how to verify the gs-spring-boot database connection in Step 1"
   },
   {
-    "sha": "e51f5dc6",
-    "date": "2026-11-19T17:49:31-05:00",
-    "message": "new update of the final project"
+    "sha": "581cd59b",
+    "date": "2026-11-24T16:52:21-05:00",
+    "message": "Add Step 1: intro to gs-spring-boot with local JAR run/test instructions"
   },
   {
-    "sha": "ba719f5f",
-    "date": "2026-11-19T17:40:31-05:00",
-    "message": "Update DevOps final project discussion"
+    "sha": "d27d22df",
+    "date": "2026-11-24T16:39:00-05:00",
+    "message": "Add rendered pages for each K8s final-project script and fix broken directory link"
   },
   {
-    "sha": "9db9ea30",
-    "date": "2026-11-19T17:31:44-05:00",
-    "message": "Fix blog notice dialog overlay"
+    "sha": "c5ab79a1",
+    "date": "2026-11-24T16:27:35-05:00",
+    "message": "new updates"
   },
   {
-    "sha": "de985271",
-    "date": "2026-11-19T16:50:17-05:00",
-    "message": "Add Kubernetes final project solution page"
+    "sha": "ed0a7e90",
+    "date": "2026-11-24T16:20:08-05:00",
+    "message": "Merge remote-tracking branch 'origin/main'"
   }
 ]
