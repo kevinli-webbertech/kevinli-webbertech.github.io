@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Retrieval-Augmented Generation (RAG) (Word edition)</title>
+    <link rel="stylesheet" href="../../../../css/index.css">
+    <style>
+        main img { max-width: 100%; height: auto; }
+        main pre { overflow-x: auto; }
+        .table-scroll { overflow-x: auto; }
+    </style>
+    <script src="../../../../js/breadcrumb.js" defer></script>
+</head>
+<body>
+    <nav id="breadcrumb" class="breadcrumb" aria-label="Breadcrumb"></nav>
+    <main class="column content">
+        <p><a href="syllabus.html">AI/ML syllabus</a> · <a href="../../../md/courses/ai_ml/rag_technical_guide_docx.md">Markdown edition</a> · Word source</p>
+<h1 id="retrieval-augmented-generation-rag">Retrieval-Augmented Generation (RAG)</h1>
+<p>RAG is an AI architecture that enhances a Large Language Model (LLM) by retrieving relevant information from external knowledge sources before generating a response. Instead of relying entirely on training knowledge, RAG can access private documents, databases, websites, source code and updated information.</p>
+<h2 id="1-traditional-llm-vs-rag">1. Traditional LLM vs. RAG</h2>
+<p><img src="../../../md/courses/ai_ml/assets/rag_technical_guide_docx/image1.png" alt="Diagram from Retrieval-Augmented Generation (RAG)" /></p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Traditional LLM</th>
+<th>RAG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Knowledge source</td>
+<td>Training data</td>
+<td>Training + external sources</td>
+</tr>
+<tr>
+<td>Updated information</td>
+<td>Limited</td>
+<td>Can retrieve current data</td>
+</tr>
+<tr>
+<td>Private documents</td>
+<td>Not inherently accessible</td>
+<td>Supported through retrieval</td>
+</tr>
+<tr>
+<td>Hallucination risk</td>
+<td>Higher without grounding</td>
+<td>Potentially reduced</td>
+</tr>
+<tr>
+<td>Retraining</td>
+<td>Sometimes</td>
+<td>Not needed for knowledge updates</td>
+</tr>
+<tr>
+<td>Source citations</td>
+<td>Limited</td>
+<td>Can provide citations</td>
+</tr>
+<tr>
+<td>Enterprise knowledge</td>
+<td>Limited by itself</td>
+<td>Well suited</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="2-rag-system-architecture">2. RAG system architecture</h2>
+<p><img src="../../../md/courses/ai_ml/assets/rag_technical_guide_docx/image2.png" alt="Diagram from Retrieval-Augmented Generation (RAG)" /></p>
+<p>Phase 1: Load PDF, Word, Markdown, HTML, source code or database records. Divide large documents into smaller chunks. Convert chunks into numerical vectors representing semantic meaning. Index vectors and associated text in a searchable database.</p>
+<p>Phase 2: Embed the question, search the vector database, retrieve and optionally rerank relevant segments, combine them with the question, send the augmented prompt to the LLM, and generate an answer based on the retrieved context.</p>
+<h2 id="3-the-three-components-of-rag">3. The three components of RAG</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Retrieval</td>
+<td>Search external knowledge sources for relevant information.</td>
+</tr>
+<tr>
+<td>Augmentation</td>
+<td>Combine retrieved information with the original prompt.</td>
+</tr>
+<tr>
+<td>Generation</td>
+<td>Generate a natural-language response using the augmented prompt.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="4-what-is-a-vector-database">4. What is a vector database?</h2>
+<p>A vector database stores numerical representations of data called embeddings and supports similarity searches. “How do I purchase stocks?”, “How can I buy shares?” and “How do I invest in the stock market?” may have nearby embeddings despite different wording.</p>
+<p><img src="../../../md/courses/ai_ml/assets/rag_technical_guide_docx/image3.png" alt="Diagram from Retrieval-Augmented Generation (RAG)" /></p>
+<p>Illustrative two-dimensional projection; actual embeddings often contain hundreds or thousands of dimensions.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Technology</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ChromaDB</td>
+<td>Open-source, local development</td>
+</tr>
+<tr>
+<td>FAISS</td>
+<td>Vector similarity search library</td>
+</tr>
+<tr>
+<td>Pinecone</td>
+<td>Managed cloud vector database</td>
+</tr>
+<tr>
+<td>Milvus</td>
+<td>Scalable open-source vector database</td>
+</tr>
+<tr>
+<td>Qdrant</td>
+<td>Vector database with filtering</td>
+</tr>
+<tr>
+<td>Weaviate</td>
+<td>Hybrid search</td>
+</tr>
+<tr>
+<td>PostgreSQL + pgvector</td>
+<td>Vector search in relational database</td>
+</tr>
+<tr>
+<td>Elasticsearch</td>
+<td>Keyword, vector and hybrid search</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="5-cosine-similarity">5. Cosine similarity</h2>
+<p>Cosine similarity = (A · B) / (||A|| ||B||). The closer the value is to 1, the more closely aligned the vectors are.</p>
+<p><img src="../../../md/courses/ai_ml/assets/rag_technical_guide_docx/image4.png" alt="Diagram from Retrieval-Augmented Generation (RAG)" /></p>
+<p><img src="../../../md/courses/ai_ml/assets/rag_technical_guide_docx/image5.png" alt="Diagram from Retrieval-Augmented Generation (RAG)" /></p>
+<p>Static replacement for the interactive slider: 0° = 1; 30° = 0.866; 90° = 0; 180° = −1.</p>
+<h2 id="6-practical-example-github-knowledge-assistant">6. Practical example: GitHub knowledge assistant</h2>
+<p>For the localhost repository, a RAG assistant could retrieve technical documentation, investment research, trading strategies and source code before answering questions.</p>
+<p><img src="../../../md/courses/ai_ml/assets/rag_technical_guide_docx/image6.png" alt="Diagram from Retrieval-Augmented Generation (RAG)" /></p>
+<p>Example questions: What Kubernetes deployment examples have I documented? What is my ATR-based swing trading strategy? Compare the ETF investment strategies in my book. Find my previous Python backtesting implementation. Summarize my AI and machine learning documentation.</p>
+<h2 id="7-python-implementation-example">7. Python implementation example</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Technology</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Language</td>
+<td>Python</td>
+</tr>
+<tr>
+<td>LLM</td>
+<td>OpenAI or Ollama</td>
+</tr>
+<tr>
+<td>Framework</td>
+<td>LangChain</td>
+</tr>
+<tr>
+<td>Embeddings</td>
+<td>Hugging Face Sentence Transformers</td>
+</tr>
+<tr>
+<td>Vector database</td>
+<td>ChromaDB</td>
+</tr>
+<tr>
+<td>Knowledge source</td>
+<td>Local Markdown files</td>
+</tr>
+<tr>
+<td>API / deployment</td>
+<td>FastAPI / Docker or Kubernetes (optional)</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="7-python-implementation--complete-code">7. Python implementation — complete code</h2>
+<p>Install dependencies:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install langchain <span class="dt">\</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    langchain-community <span class="dt">\</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    langchain-text-splitters <span class="dt">\</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    langchain-chroma <span class="dt">\</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    langchain-huggingface <span class="dt">\</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    langchain-ollama <span class="dt">\</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    sentence-transformers</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">ollama</span> pull llama3.2</span></code></pre></div>
+<p>Install and start Ollama before running the application.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_community.document_loaders <span class="im">import</span> DirectoryLoader, TextLoader</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_text_splitters <span class="im">import</span> RecursiveCharacterTextSplitter</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_huggingface <span class="im">import</span> HuggingFaceEmbeddings</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_chroma <span class="im">import</span> Chroma</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_ollama <span class="im">import</span> ChatOllama</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Load documents</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>loader <span class="op">=</span> DirectoryLoader(</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;./documents&quot;</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    glob<span class="op">=</span><span class="st">&quot;**/*.md&quot;</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    loader_cls<span class="op">=</span>TextLoader,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    loader_kwargs<span class="op">=</span>{<span class="st">&quot;encoding&quot;</span>: <span class="st">&quot;utf-8&quot;</span>}</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>documents <span class="op">=</span> loader.load()</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Split documents into chunks</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>splitter <span class="op">=</span> RecursiveCharacterTextSplitter(</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    chunk_size<span class="op">=</span><span class="dv">1000</span>,</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    chunk_overlap<span class="op">=</span><span class="dv">200</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>chunks <span class="op">=</span> splitter.split_documents(documents)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Create embeddings</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>embeddings <span class="op">=</span> HuggingFaceEmbeddings(</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    model_name<span class="op">=</span><span class="st">&quot;sentence-transformers/all-MiniLM-L6-v2&quot;</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Store embeddings in vector database</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>vector_db <span class="op">=</span> Chroma.from_documents(</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    documents<span class="op">=</span>chunks,</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    embedding<span class="op">=</span>embeddings,</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    persist_directory<span class="op">=</span><span class="st">&quot;./chroma_db&quot;</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<h2 id="7-python-implementation--continued">7. Python implementation — continued</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Initialize the LLM</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>llm <span class="op">=</span> ChatOllama(model<span class="op">=</span><span class="st">&quot;llama3.2&quot;</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. Retrieve relevant documents</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>question <span class="op">=</span> <span class="st">&quot;What is my swing trading strategy?&quot;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> vector_db.similarity_search(</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    question,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    k<span class="op">=</span><span class="dv">4</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>context <span class="op">=</span> <span class="st">&quot;</span><span class="ch">\n\n</span><span class="st">&quot;</span>.join(</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f&quot;Source: </span><span class="sc">{</span>doc<span class="sc">.</span>metadata<span class="sc">.</span>get(<span class="st">&#39;source&#39;</span>)<span class="sc">}</span><span class="ch">\n</span><span class="ss">&quot;</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f&quot;</span><span class="sc">{</span>doc<span class="sc">.</span>page_content<span class="sc">}</span><span class="ss">&quot;</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> doc <span class="kw">in</span> results</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 7. Augment the prompt</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>prompt <span class="op">=</span> <span class="ss">f&quot;&quot;&quot;</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="ss">Answer the question using the context below.</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="ss">If the context is insufficient, say so.</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="ss">Include relevant source filenames.</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="ss"> </span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="ss">Context:</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="sc">{</span>context<span class="sc">}</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="ss"> </span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="ss">Question:</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="sc">{</span>question<span class="sc">}</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="co"># 8. Generate the response</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> llm.invoke(prompt)</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response.content)</span></code></pre></div>
+<p>Illustrative implementation, not execution-tested. Assumes Markdown documents are stored in ./documents. Production systems should separate indexing from querying, prevent duplicate indexing, enforce document permissions and validate citations.</p>
+<h2 id="8-rag-vs-fine-tuning-vs-ai-skills-vs-ai-agents">8. RAG vs. fine-tuning vs. AI Skills vs. AI Agents</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Technology</th>
+<th>Purpose</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LLM</td>
+<td>Reasoning and generation</td>
+<td>Answer a question</td>
+</tr>
+<tr>
+<td>RAG</td>
+<td>Retrieve knowledge</td>
+<td>Search private documents</td>
+</tr>
+<tr>
+<td>Fine-tuning</td>
+<td>Adapt model behavior</td>
+<td>Specialized response style</td>
+</tr>
+<tr>
+<td>AI Skill</td>
+<td>Reusable procedures</td>
+<td>Investment report</td>
+</tr>
+<tr>
+<td>AI Tool</td>
+<td>Specific operation</td>
+<td>Python or SQL</td>
+</tr>
+<tr>
+<td>AI Agent</td>
+<td>Plan and execute</td>
+<td>Research and publish</td>
+</tr>
+<tr>
+<td>MCP</td>
+<td>Standardized access</td>
+<td>GitHub or database connection</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="9-how-rag-works-with-ai-agents-and-ai-skills">9. How RAG works with AI Agents and AI Skills</h2>
+<p><img src="../../../md/courses/ai_ml/assets/rag_technical_guide_docx/image7.png" alt="Diagram from Retrieval-Augmented Generation (RAG)" /></p>
+<p>LLM: the brain. RAG: the reference library. AI Skill: the instruction manual. AI Tool: the instrument. AI Agent: the worker coordinating everything. MCP: a standardized interface to external resources and capabilities.</p>
+<h2 id="10-different-types-of-rag">10. Different types of RAG</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Architecture</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Naive RAG</td>
+<td>Basic retrieval followed by generation</td>
+</tr>
+<tr>
+<td>Advanced RAG</td>
+<td>Query rewriting, reranking, improved retrieval</td>
+</tr>
+<tr>
+<td>Hybrid RAG</td>
+<td>Keyword and vector search</td>
+</tr>
+<tr>
+<td>GraphRAG</td>
+<td>Graph-based entity relationships</td>
+</tr>
+<tr>
+<td>Agentic RAG</td>
+<td>Agent decides what and when to retrieve</td>
+</tr>
+<tr>
+<td>Multimodal RAG</td>
+<td>Text, images, audio or video</td>
+</tr>
+<tr>
+<td>Corrective RAG</td>
+<td>Evaluates and corrects poor retrieval</td>
+</tr>
+<tr>
+<td>Self-RAG</td>
+<td>Retrieval and self-evaluation during generation</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="11-advantages-and-limitations">11. Advantages and limitations</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Advantages</th>
+<th>Limitations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No retraining for document updates</td>
+<td>Retrieval system maintenance</td>
+</tr>
+<tr>
+<td>Private enterprise knowledge</td>
+<td>Poor retrieval can produce poor answers</td>
+</tr>
+<tr>
+<td>Can reduce hallucinations</td>
+<td>Does not eliminate hallucinations</td>
+</tr>
+<tr>
+<td>Source attribution</td>
+<td>Citations require verification</td>
+</tr>
+<tr>
+<td>Local LLM support</td>
+<td>Computational overhead</td>
+</tr>
+<tr>
+<td>Expandable knowledge base</td>
+<td>Access control and data security</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="12-recommended-personal-ai-platform">12. Recommended personal AI platform</h2>
+<p><img src="../../../md/courses/ai_ml/assets/rag_technical_guide_docx/image8.png" alt="Diagram from Retrieval-Augmented Generation (RAG)" /></p>
+<p>Start with Python, ChromaDB and Ollama for a local proof of concept. Later introduce PostgreSQL with pgvector, hybrid search, AI Agents, MCP servers and Kubernetes. RAG extends what AI can access without changing trained model parameters; agents extend what AI can plan and do.</p>
+    </main>
+</body>
+</html>
