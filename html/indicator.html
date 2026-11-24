@@ -4,1200 +4,308 @@
 	<meta charset="UTF-8">
 	<title>Market Indicators | Kevin Li</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="../css/index.css?v=shared-typography-2">
-	<link rel="stylesheet" href="../css/indicator.css?v=1">
+	<link rel="stylesheet" href="../css/index.css?v=shared-typography-3">
+	<link rel="stylesheet" href="../css/indicator.css?v=index-selector-5">
+  <script src="../js/fred-charts.js?v=index-selector-1" defer></script>
 </head>
 
 <body class="indicator-page">
  <div class="row">
   <div class="column left" id= "left_sidebar">
     <h2>Market Indicators</h2>
-    <div id="indicator">
-		<ul>
-			<li><a href="#indices">Indices</a></li>
-			<li><a href="#job_data">Job data</a></li>
-			<li><a href="#personal_finance">Personal Finance</a></li>
-			<li><a href="#housing_sales">Housing Sales</a></li>
-			<li><a href="#car_sales">Car Sales</a></li>
-			<li><a href="#retails">Retail Sales</a></li>
-			<li><a href="#housing_supply">Housing Supply</a></li>
-			<li><a href="#PMI_Durable_Goods">PMI Durable Goods</a></li>
-			<li><a href="#WEI-GDP-Growth">WEI GDP Growth</a></li>
-			<li><a href="#Copper-Gold_vs_PPI">Copper-Gold vs PPI</a></li>
-			<li><a href="#Oil-Gold_vs_CPI">Oil-Gold vs CPI</a></li>
-			<li><a href="#IMPE">Inflation &amp; Monetary Policy</a></li>
-			<li><a href="#interest_rates">US Rates</a></li>
-			<li><a href="#credit_spread_vix">Credit-Spread-VIX-and-SP500</a></li>
-		</ul>
-	</div>
+    <nav id="indicator" aria-label="Indicator topics"><ul><li><a href="#indices">Major Indices and Indicators</a></li><li><a href="#job_data">Job Data</a></li><li><a href="#personal_finance">Personal Finance</a></li><li><a href="#housing_sales">Housing Sales</a></li><li><a href="#car_sales">Vehicle Sales</a></li><li><a href="#retails">Retail Sales</a></li><li><a href="#housing_supply">Housing Supply</a></li><li><a href="#durable_goods">Durable Goods Orders</a></li><li><a href="#economic_growth">Economic Growth</a></li><li><a href="#copper_ppi">Copper and Producer Prices</a></li><li><a href="#oil_cpi">Oil and Consumer Prices</a></li><li><a href="#inflation_expectations">Inflation Expectations</a></li><li><a href="#interest_rates">US Interest Rates</a></li><li><a href="#credit_risk">Credit Spreads and Volatility</a></li><li><a href="#live_markets">Stocks and Quotes</a></li></ul></nav>
     <p></p>
   </div>
 
   <div class="column right">
        <nav id="nav_menu">
-		    <ul> 
-		    	<li><a href="../index.html">home</a></li>
+            <ul>
+                <li><a href="../index.html">home</a></li>
                 <li><a href="indicator.html" aria-current="page">indicator</a></li>
-				<li><a href="news.html">news</a></li>
-		    	<li><a href="philosophy.html">philosophy</a></li>
-		    	<li><a href="trading_course.html">trading course<span class="hot-badge">HOT</span></a></li>
-		    	<li><a href="../blog.html">blog</a></li>
-		    	<li><a href="about_me.html">about me</a></li>
-		    </ul>
-	   </nav>
-  
+                <li><a href="news.html">news</a></li>
+
+                <li><a href="trading_course.html">trading course<span class="hot-badge">HOT</span></a></li>
+                <li><a href="../courses.htm">Courses</a></li>
+                <li><a href="philosophy.html">philosophy</a></li>
+                <li><a href="about_me.html">about me</a></li>
+            </ul>
+       </nav>
+
 	  <div class="content grid-container">
-            <header class="indicator-intro"><p>MARKET RESEARCH</p><h1>Market Indicators</h1><p>Explore market indices, economic activity, inflation, and interest rates. Select a topic in the sidebar to jump to its charts.</p></header>
-			<section class="grid-flow" id="market_overview">
-			<div id="indices">
-				<h2>Major indices and indicators</h2>
-					<!-- TradingView Widget BEGIN -->
-					<div class="tradingview-widget-container">
-						<div class="tradingview-widget-container__widget"></div>					
-						<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
-							{
-							  "colorTheme": "light",
-							  "dateRange": "12M",
-							  "showChart": true,
-							  "locale": "en",
-							  "largeChartUrl": "",
-							  "isTransparent": false,
-							  "showSymbolLogo": true,
-							  "showFloatingTooltip": false,
-							  "width": "100%",
-							  "height": "550",
-							  "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
-							  "plotLineColorFalling": "rgba(41, 98, 255, 1)",
-							  "gridLineColor": "rgba(240, 243, 250, 0)",
-							  "scaleFontColor": "rgba(106, 109, 120, 1)",
-							  "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
-							  "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
-							  "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
-							  "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
-							  "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
-							  "tabs": [
-							    {
-							      "title": "Indices",
-							      "symbols": [
-							        {
-							          "s": "FOREXCOM:SPXUSD",
-							          "d": "S&P 500 Index"
-							        },
-							        {
-							          "s": "FOREXCOM:DJI",
-							          "d": "Dow Jones Industrial Average Index"
-							        },
-							        {
-							          "s": "OANDA:NAS100USD",
-							          "d": "Nasdqa100"
-							        },
-							        {
-							          "s": "INDEX:MADZ",
-							          "d": "Russell 3000 52 week HI-LO"
-							        }
-							      ],
-							      "originalTitle": "Indices"
-							    },
-							    {
-							      "title": "Futures",
-							      "symbols": [
-							        {
-							          "s": "CME_MINI:ES1!",
-							          "d": "S&P 500"
-							        },
-							        {
-							          "s": "CME:6E1!",
-							          "d": "Euro"
-							        },
-							        {
-							          "s": "COMEX:GC1!",
-							          "d": "Gold"
-							        },
-							        {
-							          "s": "NYMEX:CL1!",
-							          "d": "WTI Crude Oil"
-							        },
-							        {
-							          "s": "NYMEX:NG1!",
-							          "d": "Gas"
-							        },
-							        {
-							          "s": "CBOT:ZC1!",
-							          "d": "Corn"
-							        }
-							      ],
-							      "originalTitle": "Futures"
-							    },
-							    {
-							      "title": "Bonds",
-							      "symbols": [
-							        {
-							          "s": "CBOT:ZB1!",
-							          "d": "T-Bond"
-							        },
-							        {
-							          "s": "CBOT:UB1!",
-							          "d": "Ultra T-Bond"
-							        },
-							        {
-							          "s": "EUREX:FGBL1!",
-							          "d": "Euro Bund"
-							        },
-							        {
-							          "s": "EUREX:FBTP1!",
-							          "d": "Euro BTP"
-							        },
-							        {
-							          "s": "EUREX:FGBM1!",
-							          "d": "Euro BOBL"
-							        }
-							      ],
-							      "originalTitle": "Bonds"
-							    },
-							    {
-							      "title": "Forex",
-							      "symbols": [
-							        {
-							          "s": "FX:EURUSD",
-							          "d": "EUR to USD"
-							        },
-							        {
-							          "s": "FX:GBPUSD",
-							          "d": "GBP to USD"
-							        },
-							        {
-							          "s": "FX:USDJPY",
-							          "d": "USD to JPY"
-							        },
-							        {
-							          "s": "FX:USDCHF",
-							          "d": "USD to CHF"
-							        },
-							        {
-							          "s": "FX:AUDUSD",
-							          "d": "AUD to USD"
-							        },
-							        {
-							          "s": "FX:USDCAD",
-							          "d": "USD to CAD"
-							        }
-							      ],
-							      "originalTitle": "Forex"
-							    }
-							  ]
-							}
-						</script>
-				    </div>
-				<!-- TradingView Widget END -->	
-		    </div>
-			<div id="market_data">
-				<p>Market Data</p>
-					<div class="tradingview-widget-container">
-						<div class="tradingview-widget-container__widget"></div>
-						<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
-							 {
-							  "width": "100%",
-							  "height": 550,
-							  "symbolsGroups": [
-							    {
-							      "name": "Indices",
-							      "originalName": "Indices",
-							      "symbols": [
-							        {
-							          "name": "FOREXCOM:SPXUSD",
-							          "displayName": "S&P 500 Index"
-							        },
-							        {
-							          "name": "FOREXCOM:NSXUSD",
-							          "displayName": "US 100 Cash CFD"
-							        },
-							        {
-							          "name": "FOREXCOM:DJI",
-							          "displayName": "Dow Jones Industrial Average Index"
-							        },
-							        {
-							          "name": "INDEX:NKY",
-							          "displayName": "Nikkei 225"
-							        },
-							        {
-							          "name": "INDEX:DEU40",
-							          "displayName": "DAX Index"
-							        },
-							        {
-							          "name": "FOREXCOM:UKXGBP",
-							          "displayName": "FTSE 100 Index"
-							        }
-							      ]
-							    },
-							    {
-							      "name": "Futures",
-							      "originalName": "Futures",
-							      "symbols": [
-							        {
-							          "name": "CME_MINI:ES1!",
-							          "displayName": "S&P 500"
-							        },
-							        {
-							          "name": "CME:6E1!",
-							          "displayName": "Euro"
-							        },
-							        {
-							          "name": "COMEX:GC1!",
-							          "displayName": "Gold"
-							        },
-							        {
-							          "name": "NYMEX:CL1!",
-							          "displayName": "WTI Crude Oil"
-							        },
-							        {
-							          "name": "NYMEX:NG1!",
-							          "displayName": "Gas"
-							        },
-							        {
-							          "name": "CBOT:ZC1!",
-							          "displayName": "Corn"
-							        }
-							      ]
-							    },
-							    {
-							      "name": "Bonds",
-							      "originalName": "Bonds",
-							      "symbols": [
-							        {
-							          "name": "CBOT:ZB1!",
-							          "displayName": "T-Bond"
-							        },
-							        {
-							          "name": "CBOT:UB1!",
-							          "displayName": "Ultra T-Bond"
-							        },
-							        {
-							          "name": "EUREX:FGBL1!",
-							          "displayName": "Euro Bund"
-							        },
-							        {
-							          "name": "EUREX:FBTP1!",
-							          "displayName": "Euro BTP"
-							        },
-							        {
-							          "name": "EUREX:FGBM1!",
-							          "displayName": "Euro BOBL"
-							        }
-							      ]
-							    },
-							    {
-							      "name": "Forex",
-							      "originalName": "Forex",
-							      "symbols": [
-							        {
-							          "name": "FX:EURUSD",
-							          "displayName": "EUR to USD"
-							        },
-							        {
-							          "name": "FX:GBPUSD",
-							          "displayName": "GBP to USD"
-							        },
-							        {
-							          "name": "FX:USDJPY",
-							          "displayName": "USD to JPY"
-							        },
-							        {
-							          "name": "FX:USDCHF",
-							          "displayName": "USD to CHF"
-							        },
-							        {
-							          "name": "FX:AUDUSD",
-							          "displayName": "AUD to USD"
-							        },
-							        {
-							          "name": "FX:USDCAD",
-							          "displayName": "USD to CAD"
-							        }
-							      ]
-							    },
-							    {
-							      "name": "Stocks",
-							      "symbols": [
-							        {
-							          "name": "NASDAQ:TSLA"
-							        },
-							        {
-							          "name": "NASDAQ:NVDA"
-							        },
-							        {
-							          "name": "NASDAQ:AAPL"
-							        },
-							        {
-							          "name": "NASDAQ:AMD"
-							        }
-							      ]
-							    }
-							  ],
-							  "showSymbolLogo": true,
-							  "isTransparent": false,
-							  "colorTheme": "light",
-							  "locale": "en",
-							  "backgroundColor": "#ffffff"
-							}
-						</script>
-					</div>
-			</div>			
-	    </section>
+            <header class="indicator-intro"><p>MARKET RESEARCH</p><h1>Market Indicators</h1><p>Explore economic charts from FRED, Federal Reserve Bank of St. Louis, alongside stock and market-quote widgets. Open each source link for chart controls, release dates, units, and original data providers.</p></header>
+			<section class="indicator-topic" id="indices"><h2>Major Indices and Indicators</h2><div class="indicator-cards"><article class="indicator-card fred-card">
+<div class="index-selector" role="group" aria-label="Choose market index">
+<button type="button" data-index-series="NASDAQ100" aria-pressed="false">Nasdaq 100</button>
+<button type="button" data-index-series="SP500" aria-pressed="true">S&amp;P 500</button>
+<button type="button" data-index-series="DJIA" aria-pressed="false">Dow Jones (DJI)</button>
+</div>
+<h3 id="selected-index-title">S&amp;P 500</h3><p class="chart-description">Daily index observations; not a real-time quote.</p>
+<iframe id="selected-index-chart" data-fred-chart src="https://fred.stlouisfed.org/graph/graph-landing.php?id=SP500&amp;width=670&amp;height=475" title="FRED: S&amp;P 500" width="670" height="525" loading="lazy"></iframe>
+<p class="chart-source"><a id="selected-index-source" href="https://fred.stlouisfed.org/series/SP500" target="_blank" rel="noopener noreferrer">Open SP500 on FRED &rarr;</a></p>
+</article></div></section>
+<section class="indicator-topic" id="job_data"><h2>Job Data</h2><div class="indicator-cards"><article class="indicator-card fred-card">
+<h3>Nonfarm Payrolls</h3><p class="chart-description">Employment level, seasonally adjusted.</p>
+<iframe data-fred-chart src="https://fred.stlouisfed.org/graph/graph-landing.php?id=PAYEMS&amp;width=670&amp;height=475" title="FRED: Nonfarm Payrolls" width="670" height="525" loading="lazy"></iframe>
+<p class="chart-source"><a href="https://fred.stlouisfed.org/series/PAYEMS" target="_blank" rel="noopener noreferrer">Open PAYEMS on FRED &rarr;</a></p>
+</article>
+<article class="indicator-card fred-card">
+<h3>Unemployment Rate</h3><p class="chart-description">Percentage of the labor force, seasonally adjusted.</p>
+<iframe data-fred-chart src="https://fred.stlouisfed.org/graph/graph-landing.php?id=UNRATE&amp;width=670&amp;height=475" title="FRED: Unemployment Rate" width="670" height="525" loading="lazy"></iframe>
+<p class="chart-source"><a href="https://fred.stlouisfed.org/series/UNRATE" target="_blank" rel="noopener noreferrer">Open UNRATE on FRED &rarr;</a></p>
+</article></div></section>
+<section class="indicator-topic" id="personal_finance"><h2>Personal Finance</h2><div class="indicator-cards"><article class="indicator-card fred-card">
+<h3>Personal Saving Rate</h3><p class="chart-description">Personal saving as a percentage of disposable personal income.</p>
+<iframe data-fred-chart src="https://fred.stlouisfed.org/graph/graph-landing.php?id=PSAVERT&amp;width=670&amp;height=475" title="FRED: Personal Saving Rate" width="670" height="525" loading="lazy"></iframe>
+<p class="chart-source"><a href="https://fred.stlouisfed.org/series/PSAVERT" target="_blank" rel="noopener noreferrer">Open PSAVERT on FRED &rarr;</a></p>
+</article></div></section>
+<section class="indicator-topic" id="housing_sales"><h2>Housing Sales</h2><div class="indicator-cards"><article class="indicator-card fred-card">
+<h3>New Home Sales</h3><p class="chart-description">New single-family houses sold; seasonally adjusted annual rate.</p>
+<iframe data-fred-chart src="https://fred.stlouisfed.org/graph/graph-landing.php?id=HSN1F&amp;width=670&amp;height=475" title="FRED: New Home Sales" width="670" height="525" loading="lazy"></iframe>
+<p class="chart-source"><a href="https://fred.stlouisfed.org/series/HSN1F" target="_blank" rel="noopener noreferrer">Open HSN1F on FRED &rarr;</a></p>
+</article></div></section>
+<section class="indicator-topic" id="car_sales"><h2>Vehicle Sales</h2><div class="indicator-cards"><article class="indicator-card fred-card">
+<h3>Total Vehicle Sales</h3><p class="chart-description">Seasonally adjusted annual rate.</p>
+<iframe data-fred-chart src="https://fred.stlouisfed.org/graph/graph-landing.php?id=TOTALSA&amp;width=670&amp;height=475" title="FRED: Total Vehicle Sales" width="670" height="525" loading="lazy"></iframe>
+<p class="chart-source"><a href="https://fred.stlouisfed.org/series/TOTALSA" target="_blank" rel="noopener noreferrer">Open TOTALSA on FRED &rarr;</a></p>
+</article></div></section>
+<section class="indicator-topic" id="retails"><h2>Retail Sales</h2><div class="indicator-cards"><article class="indicator-card fred-card">
+<h3>Retail and Food Services Sales</h3><p class="chart-description">Nominal sales, seasonally adjusted; not inflation-adjusted.</p>
+<iframe data-fred-chart src="https://fred.stlouisfed.org/graph/graph-landing.php?id=RSAFS&amp;width=670&amp;height=475" title="FRED: Retail and Food Services Sales" width="670" height="525" loading="lazy"></iframe>
+<p class="chart-source"><a href="https://fred.stlouisfed.org/series/RSAFS" target="_blank" rel="noopener noreferrer">Open RSAFS on FRED &rarr;</a></p>
+</article></div></section>
+<section class="indicator-topic" id="housing_supply"><h2>Housing Supply</h2><div class="indicator-cards"><article class="indicator-card fred-card">
+<h3>Months of New Home Supply</h3><p class="chart-description">Months of supply, seasonally adjusted.</p>
+<iframe data-fred-chart src="https://fred.stlouisfed.org/graph/graph-landing.php?id=MSACSR&amp;width=670&amp;height=475" title="FRED: Months of New Home Supply" width="670" height="525" loading="lazy"></iframe>
+<p class="chart-source"><a href="https://fred.stlouisfed.org/series/MSACSR" target="_blank" rel="noopener noreferrer">Open MSACSR on FRED &rarr;</a></p>
+</article>
+<article class="indicator-card fred-card">
+<h3>Housing Starts</h3><p class="chart-description">New privately owned housing units started.</p>
+<iframe data-fred-chart src="https://fred.stlouisfed.org/graph/graph-landing.php?id=HOUST&amp;width=670&amp;height=475" title="FRED: Housing Starts" width="670" height="525" loading="lazy"></iframe>
+<p class="chart-source"><a href="https://fred.stlouisfed.org/series/HOUST" target="_blank" rel="noopener noreferrer">Open HOUST on FRED &rarr;</a></p>
+</article></div></section>
+<section class="indicator-topic" id="durable_goods"><h2>Durable Goods Orders</h2><div class="indicator-cards"><article class="indicator-card fred-card">
+<h3>Durable Goods Orders</h3><p class="chart-description">Manufacturers&#8217; new orders; this is not a PMI survey.</p>
+<iframe data-fred-chart src="https://fred.stlouisfed.org/graph/graph-landing.php?id=DGORDER&amp;width=670&amp;height=475" title="FRED: Durable Goods Orders" width="670" height="525" loading="lazy"></iframe>
+<p class="chart-source"><a href="https://fred.stlouisfed.org/series/DGORDER" target="_blank" rel="noopener noreferrer">Open DGORDER on FRED &rarr;</a></p>
+</article></div></section>
+<section class="indicator-topic" id="economic_growth"><h2>Economic Growth</h2><div class="indicator-cards"><article class="indicator-card fred-card">
+<h3>Weekly Economic Index</h3><p class="chart-description">Weekly activity index; distinct from reported GDP growth.</p>
+<iframe data-fred-chart src="https://fred.stlouisfed.org/graph/graph-landing.php?id=WEI&amp;width=670&amp;height=475" title="FRED: Weekly Economic Index" width="670" height="525" loading="lazy"></iframe>
+<p class="chart-source"><a href="https://fred.stlouisfed.org/series/WEI" target="_blank" rel="noopener noreferrer">Open WEI on FRED &rarr;</a></p>
+</article>
+<article class="indicator-card fred-card">
+<h3>Real GDP</h3><p class="chart-description">Inflation-adjusted GDP level. Use FRED&#8217;s Edit Graph controls to view a growth-rate transformation.</p>
+<iframe data-fred-chart src="https://fred.stlouisfed.org/graph/graph-landing.php?id=GDPC1&amp;width=670&amp;height=475" title="FRED: Real GDP" width="670" height="525" loading="lazy"></iframe>
+<p class="chart-source"><a href="https://fred.stlouisfed.org/series/GDPC1" target="_blank" rel="noopener noreferrer">Open GDPC1 on FRED &rarr;</a></p>
+</article></div></section>
+<section class="indicator-topic" id="copper_ppi"><h2>Copper and Producer Prices</h2><div class="indicator-cards"><article class="indicator-card fred-card">
+<h3>Global Copper Price</h3><p class="chart-description">Monthly price in US dollars per metric ton; not a copper/gold ratio.</p>
+<iframe data-fred-chart src="https://fred.stlouisfed.org/graph/graph-landing.php?id=PCOPPUSDM&amp;width=670&amp;height=475" title="FRED: Global Copper Price" width="670" height="525" loading="lazy"></iframe>
+<p class="chart-source"><a href="https://fred.stlouisfed.org/series/PCOPPUSDM" target="_blank" rel="noopener noreferrer">Open PCOPPUSDM on FRED &rarr;</a></p>
+</article>
+<article class="indicator-card fred-card">
+<h3>All-Commodities PPI</h3><p class="chart-description">Producer-price index; this is not a ready-made copper/gold comparison.</p>
+<iframe data-fred-chart src="https://fred.stlouisfed.org/graph/graph-landing.php?id=PPIACO&amp;width=670&amp;height=475" title="FRED: All-Commodities PPI" width="670" height="525" loading="lazy"></iframe>
+<p class="chart-source"><a href="https://fred.stlouisfed.org/series/PPIACO" target="_blank" rel="noopener noreferrer">Open PPIACO on FRED &rarr;</a></p>
+</article></div></section>
+<section class="indicator-topic" id="oil_cpi"><h2>Oil and Consumer Prices</h2><div class="indicator-cards"><article class="indicator-card fred-card">
+<h3>WTI Crude Oil</h3><p class="chart-description">Daily WTI spot price; not an oil/gold ratio.</p>
+<iframe data-fred-chart src="https://fred.stlouisfed.org/graph/graph-landing.php?id=DCOILWTICO&amp;width=670&amp;height=475" title="FRED: WTI Crude Oil" width="670" height="525" loading="lazy"></iframe>
+<p class="chart-source"><a href="https://fred.stlouisfed.org/series/DCOILWTICO" target="_blank" rel="noopener noreferrer">Open DCOILWTICO on FRED &rarr;</a></p>
+</article>
+<article class="indicator-card fred-card">
+<h3>Consumer Price Index</h3><p class="chart-description">Seasonally adjusted price-index level, not year-over-year inflation.</p>
+<iframe data-fred-chart src="https://fred.stlouisfed.org/graph/graph-landing.php?id=CPIAUCSL&amp;width=670&amp;height=475" title="FRED: Consumer Price Index" width="670" height="525" loading="lazy"></iframe>
+<p class="chart-source"><a href="https://fred.stlouisfed.org/series/CPIAUCSL" target="_blank" rel="noopener noreferrer">Open CPIAUCSL on FRED &rarr;</a></p>
+</article></div></section>
+<section class="indicator-topic" id="inflation_expectations"><h2>Inflation Expectations</h2><div class="indicator-cards"><article class="indicator-card fred-card">
+<h3>10-Year Breakeven Inflation</h3><p class="chart-description">Market-based inflation compensation; not a forecast of the Fed&#8217;s policy rate.</p>
+<iframe data-fred-chart src="https://fred.stlouisfed.org/graph/graph-landing.php?id=T10YIE&amp;width=670&amp;height=475" title="FRED: 10-Year Breakeven Inflation" width="670" height="525" loading="lazy"></iframe>
+<p class="chart-source"><a href="https://fred.stlouisfed.org/series/T10YIE" target="_blank" rel="noopener noreferrer">Open T10YIE on FRED &rarr;</a></p>
+</article></div></section>
+<section class="indicator-topic" id="interest_rates"><h2>US Interest Rates</h2><div class="indicator-cards"><article class="indicator-card fred-card">
+<h3>Federal Funds Effective Rate</h3><p class="chart-description">Monthly effective rate, not the target-range upper limit.</p>
+<iframe data-fred-chart src="https://fred.stlouisfed.org/graph/graph-landing.php?id=FEDFUNDS&amp;width=670&amp;height=475" title="FRED: Federal Funds Effective Rate" width="670" height="525" loading="lazy"></iframe>
+<p class="chart-source"><a href="https://fred.stlouisfed.org/series/FEDFUNDS" target="_blank" rel="noopener noreferrer">Open FEDFUNDS on FRED &rarr;</a></p>
+</article>
+<article class="indicator-card fred-card">
+<h3>10-Year Treasury Yield</h3><p class="chart-description">Daily constant-maturity Treasury yield.</p>
+<iframe data-fred-chart src="https://fred.stlouisfed.org/graph/graph-landing.php?id=DGS10&amp;width=670&amp;height=475" title="FRED: 10-Year Treasury Yield" width="670" height="525" loading="lazy"></iframe>
+<p class="chart-source"><a href="https://fred.stlouisfed.org/series/DGS10" target="_blank" rel="noopener noreferrer">Open DGS10 on FRED &rarr;</a></p>
+</article></div></section>
+<section class="indicator-topic" id="credit_risk"><h2>Credit Spreads and Volatility</h2><div class="indicator-cards"><article class="indicator-card fred-card">
+<h3>US High-Yield Credit Spread</h3><p class="chart-description">ICE BofA US High Yield option-adjusted spread.</p>
+<iframe data-fred-chart src="https://fred.stlouisfed.org/graph/graph-landing.php?id=BAMLH0A0HYM2&amp;width=670&amp;height=475" title="FRED: US High-Yield Credit Spread" width="670" height="525" loading="lazy"></iframe>
+<p class="chart-source"><a href="https://fred.stlouisfed.org/series/BAMLH0A0HYM2" target="_blank" rel="noopener noreferrer">Open BAMLH0A0HYM2 on FRED &rarr;</a></p>
+</article>
+<article class="indicator-card fred-card">
+<h3>VIX</h3><p class="chart-description">Daily CBOE volatility index. Compare with the S&amp;P 500 chart above.</p>
+<iframe data-fred-chart src="https://fred.stlouisfed.org/graph/graph-landing.php?id=VIXCLS&amp;width=670&amp;height=475" title="FRED: VIX" width="670" height="525" loading="lazy"></iframe>
+<p class="chart-source"><a href="https://fred.stlouisfed.org/series/VIXCLS" target="_blank" rel="noopener noreferrer">Open VIXCLS on FRED &rarr;</a></p>
+</article></div></section>
+<section class="indicator-topic" id="live_markets"><h2>Stock Watchlist and Market Quotes</h2><div class="indicator-cards"><article class="indicator-card" id="stocks">
+<h3 class="stock-tracking-title">Stock Tracking</h3>
 
-		<section class="grid-flow" id="stock_symbols">
-			<div id="stocks">
-				<p>Stock Tracking</p>
 					<!-- TradingView Widget BEGIN -->
 					<div class="tradingview-widget-container">
 						<div class="tradingview-widget-container__widget"></div>
-						<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
-						{
-							"symbols": [
-							[
-								"Apple",
-								"AAPL|1D"
-							],
-							[
-								"Google",
-								"GOOGL|1D"
-							],
-							[
-								"Microsoft",
-								"MSFT|1D"
-							],
-							[
-								"NASDAQ:TSLA|1D"
-							],
-							[
-								"NASDAQ:NVDA|1D"
-							],
-							[
-								"NASDAQ:META|1D"
-							],
-							[
-								"NYSE:PLTR|1D"
-							]
-							],
-							
-							"chartOnly": false,
-							"width": "100%",
-							"height": 400,
-							"locale": "en",
-							"colorTheme": "light",
-							"autosize": false,
-							"showVolume": false,
-							"showMA": false,
-							"hideDateRanges": false,
-							"hideMarketStatus": false,
-							"hideSymbolLogo": false,
-							"scalePosition": "right",
-							"scaleMode": "Normal",
-							"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-							"fontSize": "10",
-							"noTimeScale": false,
-							"valuesTracking": "1",
-							"changeMode": "price-and-percent",
-							"chartType": "area",
-							"maLineColor": "#2962FF",
-							"maLineWidth": 1,
-							"maLength": 9,
-							"lineWidth": 2,
-							"lineType": 0,
-							"dateRanges": [
-							"1d|1",
-							"1m|30",
-							"3m|60",
-							"12m|1D",
-							"60m|1W",
-							"all|1M"
-							]
-						}
-						</script>
+						<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>{
+  "symbols": [
+    [
+      "Apple",
+      "AAPL|1D"
+    ],
+    [
+      "Google",
+      "GOOGL|1D"
+    ],
+    [
+      "Microsoft",
+      "MSFT|1D"
+    ],
+    [
+      "NASDAQ:TSLA|1D"
+    ],
+    [
+      "NASDAQ:NVDA|1D"
+    ],
+    [
+      "NASDAQ:META|1D"
+    ]
+  ],
+  "chartOnly": false,
+  "width": "100%",
+  "height": 400,
+  "locale": "en",
+  "colorTheme": "light",
+  "autosize": false,
+  "showVolume": false,
+  "showMA": false,
+  "hideDateRanges": false,
+  "hideMarketStatus": false,
+  "hideSymbolLogo": false,
+  "scalePosition": "right",
+  "scaleMode": "Normal",
+  "fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+  "fontSize": "10",
+  "noTimeScale": false,
+  "valuesTracking": "1",
+  "changeMode": "price-and-percent",
+  "chartType": "area",
+  "maLineColor": "#2962FF",
+  "maLineWidth": 1,
+  "maLength": 9,
+  "lineWidth": 2,
+  "lineType": 0,
+  "dateRanges": [
+    "1d|1",
+    "1m|30",
+    "3m|60",
+    "12m|1D",
+    "60m|1W",
+    "all|1M"
+  ]
+}</script>
 					</div>
-				<!-- TradingView Widget END -->
-			</div>
-		</section>
+</article>
+<article class="indicator-card indicator-card-wide" id="market_data">
+<h2>Market Quotes</h2>
+<p class="chart-description">Nasdaq 100 is included below as a CFD quote. For the actual daily-close index, use the Nasdaq 100 button in <a href="#indices">Major Indices and Indicators</a>. CFD prices can differ from the underlying index.</p>
 
-		<section class="grid-flow" id="consumption">
-			<div id="job_data">
-				<h2>Job Markets</h2>
-				<!-- TradingView Widget BEGIN -->
-			<div class="tradingview-widget-container">
-				<div class="tradingview-widget-container__widget"></div>
-				<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
-				{
-					"symbols": [
-						["ECONOMICS:USNFP|1D"],
-						["ECONOMICS:USIJC|1D"],
-						["ECONOMICS:USCJC|1D"],
-						[ "FRED:ICSA|1D"]
-					],
-					"chartOnly": false,
-					"width": "100%",
-					"height": 400,
-					"locale": "en",
-					"colorTheme": "light",
-					"autosize": false,
-					"showVolume": false,
-					"showMA": false,
-					"hideDateRanges": false,
-					"hideMarketStatus": false,
-					"hideSymbolLogo": false,
-					"scalePosition": "right",
-					"scaleMode": "Normal",
-					"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-					"fontSize": "10",
-					"noTimeScale": false,
-					"valuesTracking": "1",
-					"changeMode": "price-and-percent",
-					"chartType": "area",
-					"maLineColor": "#2962FF",
-					"maLineWidth": 1,
-					"maLength": 9,
-					"lineWidth": 2,
-					"lineType": 0,
-					"dateRanges": [
-					"1d|1",
-					"1m|30",
-					"3m|60",
-					"12m|1D",
-					"60m|1W",
-					"all|1M"
-					]
-			   }
-				</script>
-			</div>
-			</div>
-		</section>
-		
-		<section class="grid-flow">	
-			<div id="personal_finance">
-				<h2>Personal Finance</h2>
-				<!-- TradingView Widget BEGIN -->
-				<div class="tradingview-widget-container">
-					<div class="tradingview-widget-container__widget"></div>
-					<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
-					{
-						 "symbols": [
-							["ECONOMICS:USCS|1D"],
-							["FRED:PSAVERT|1D"],
-							["ECONOMICS:USPI|1D"],
-							["ECONOMICS:USDPI|1D"]
-						],
-						"chartOnly": false,
-						"width": "100%",
-						"height": 400,
-						"locale": "en",
-						"colorTheme": "light",
-						"autosize": false,
-						"showVolume": false,
-						"showMA": false,
-						"hideDateRanges": false,
-						"hideMarketStatus": false,
-						"hideSymbolLogo": false,
-						"scalePosition": "right",
-						"scaleMode": "Normal",
-						"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-						"fontSize": "10",
-						"noTimeScale": false,
-						"valuesTracking": "1",
-						"changeMode": "price-and-percent",
-						"chartType": "area",
-						"maLineColor": "#2962FF",
-						"maLineWidth": 1,
-						"maLength": 9,
-						"lineWidth": 2,
-						"lineType": 0,
-						"dateRanges": [
-						"1d|1",
-						"1m|30",
-						"3m|60",
-						"12m|1D",
-						"60m|1W",
-						"all|1M"
-						]
-					}
-					</script>
-				</div> <!--end of chart-->
-				
-				<div id="">
-		
-				</div>	
-			</div>
-			
-		</section>	
-		
-		<section class="grid-flow">	
-			<div id="housing_sales">
-				<h2>Housing Sales</h2>
-				<!-- TradingView Widget BEGIN -->
 					<div class="tradingview-widget-container">
 						<div class="tradingview-widget-container__widget"></div>
-						<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
-						{
-							 "symbols": [
-								["FRED:HSN1F|1D"],
-								["ECONOMICS:USEHS|1D"],
-								["FRED:MSPNHSUS|1D"],
-								["FRED:HOSMEDUSM052N|1D"],
-								["ECONOMICS:USBP|1D"],
-								["FRED:SPCS20RSA|1D"]
-							  ],
-							"chartOnly": false,
-							"width": "100%",
-							"height": 400,
-							"locale": "en",
-							"colorTheme": "light",
-							"autosize": false,
-							"showVolume": false,
-							"showMA": false,
-							"hideDateRanges": false,
-							"hideMarketStatus": false,
-							"hideSymbolLogo": false,
-							"scalePosition": "right",
-							"scaleMode": "Normal",
-							"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-							"fontSize": "10",
-							"noTimeScale": false,
-							"valuesTracking": "1",
-							"changeMode": "price-and-percent",
-							"chartType": "area",
-							"maLineColor": "#2962FF",
-							"maLineWidth": 1,
-							"maLength": 9,
-							"lineWidth": 2,
-							"lineType": 0,
-							"dateRanges": [
-							"1d|1",
-							"1m|30",
-							"3m|60",
-							"12m|1D",
-							"60m|1W",
-							"all|1M"
-							]
-						}
-						</script>
-					</div> <!--end of chart-->	
-				<div id="">
-					https://en.macromicro.me/collections/16106/20Charts_344136/81571/Housing-Market
-				    <ul>
-						<li>US new home sales</li>
-						<li>US existing home sales</li>
-						<li>US median sales price of new homes</li>
-						<li>US median sales price of existing homes</li>
-						<li>United States Building Permits</li>
-						<li>US S&P/CS 20-city composite home price index</li>
-				    </ul>
-				</div>
-			</div>
-		</section>
-		
-		<section class="grid-flow">	
-			<div id="car_sales">
-				<h2>Car Sales</h2>
-             	<!-- TradingView Widget BEGIN -->
-				 <div class="tradingview-widget-container">
-					<div class="tradingview-widget-container__widget"></div>
-					<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
-					{
-						 "symbols": [
-							["FRED:TOTALSA|1D"],
-						    ["FRED:CUSR0000SETA02|1D"]
-						  ],
-						"chartOnly": false,
-						"width": "100%",
-						"height": 400,
-						"locale": "en",
-						"colorTheme": "light",
-						"autosize": false,
-						"showVolume": false,
-						"showMA": false,
-						"hideDateRanges": false,
-						"hideMarketStatus": false,
-						"hideSymbolLogo": false,
-						"scalePosition": "right",
-						"scaleMode": "Normal",
-						"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-						"fontSize": "10",
-						"noTimeScale": false,
-						"valuesTracking": "1",
-						"changeMode": "price-and-percent",
-						"chartType": "area",
-						"maLineColor": "#2962FF",
-						"maLineWidth": 1,
-						"maLength": 9,
-						"lineWidth": 2,
-						"lineType": 0,
-						"dateRanges": [
-						"1d|1",
-						"1m|30",
-						"3m|60",
-						"12m|1D",
-						"60m|1W",
-						"all|1M"
-						]
-					}
-					</script>
-				</div> <!--end of chart-->
-				<div>
-				https://en.macromicro.me/collections/16106/20Charts_344136/82473/Vehicle-Sales
-				<ul>
-				   <li>total vehicle sales</li>
-				   <li>manheim used vehicle value index</li>
-				   <li><a href="//fred.stlouisfed.org/series/TOTALSA">fred data</a></li>
-				</ul>
-			</div>
-			</div>
-			
-		</section>
+						<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>{
+  "width": "100%",
+  "height": 550,
+  "symbolsGroups": [
+    {
+      "name": "Indices",
+      "originalName": "Indices",
+      "symbols": [
+        {
+          "name": "FOREXCOM:SPXUSD",
+          "displayName": "S&P 500 (CFD)"
+        },
+        {
+          "name": "FOREXCOM:NSXUSD",
+          "displayName": "Nasdaq 100 (CFD)"
+        },
+        {
+          "name": "FOREXCOM:DJI",
+          "displayName": "Dow Jones (CFD)"
+        },
+        {
+          "name": "INDEX:NKY",
+          "displayName": "Nikkei 225"
+        },
+        {
+          "name": "INDEX:DEU40",
+          "displayName": "DAX Index"
+        },
+        {
+          "name": "FOREXCOM:UKXGBP",
+          "displayName": "FTSE 100 Index"
+        }
+      ]
+    },
+    {
+      "name": "Forex",
+      "originalName": "Forex",
+      "symbols": [
+        {
+          "name": "FX:EURUSD",
+          "displayName": "EUR to USD"
+        },
+        {
+          "name": "FX:GBPUSD",
+          "displayName": "GBP to USD"
+        },
+        {
+          "name": "FX:USDJPY",
+          "displayName": "USD to JPY"
+        },
+        {
+          "name": "FX:USDCHF",
+          "displayName": "USD to CHF"
+        },
+        {
+          "name": "FX:AUDUSD",
+          "displayName": "AUD to USD"
+        },
+        {
+          "name": "FX:USDCAD",
+          "displayName": "USD to CAD"
+        }
+      ]
+    },
+    {
+      "name": "Stocks",
+      "symbols": [
+        {
+          "name": "NASDAQ:TSLA"
+        },
+        {
+          "name": "NASDAQ:NVDA"
+        },
+        {
+          "name": "NASDAQ:AAPL"
+        },
+        {
+          "name": "NASDAQ:AMD"
+        }
+      ]
+    }
+  ],
+  "showSymbolLogo": true,
+  "isTransparent": false,
+  "colorTheme": "light",
+  "locale": "en",
+  "backgroundColor": "#ffffff"
+}</script>
+					</div>
+</article></div></section>
+</div> <!--end of content div-->
 
-		<section class="grid-flow">	
-			<div id="retails">
-				<h2>Retails</h2>
-			     <!-- TradingView Widget BEGIN -->
-				 <div class="tradingview-widget-container">
-					<div class="tradingview-widget-container__widget"></div>
-					<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
-					{
-						 "symbols": [
-							["ECONOMICS:USRI|1D"],
-							["ECONOMICS:USRSYY|1D"],
-							["FRED:ECOMSA|1D"]
-						  ],
-						"chartOnly": false,
-						"width": "100%",
-						"height": 400,
-						"locale": "en",
-						"colorTheme": "light",
-						"autosize": false,
-						"showVolume": false,
-						"showMA": false,
-						"hideDateRanges": false,
-						"hideMarketStatus": false,
-						"hideSymbolLogo": false,
-						"scalePosition": "right",
-						"scaleMode": "Normal",
-						"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-						"fontSize": "10",
-						"noTimeScale": false,
-						"valuesTracking": "1",
-						"changeMode": "price-and-percent",
-						"chartType": "area",
-						"maLineColor": "#2962FF",
-						"maLineWidth": 1,
-						"maLength": 9,
-						"lineWidth": 2,
-						"lineType": 0,
-						"dateRanges": [
-						"1d|1",
-						"1m|30",
-						"3m|60",
-						"12m|1D",
-						"60m|1W",
-						"all|1M"
-						]
-					}
-					</script>
-				</div> <!--end of chart-->	
-				<div>
-					https://en.macromicro.me/collections/16106/20Charts_344136/80948/Retail-Sales
-					<ul>
-						<li><a href="https://tradingeconomics.com/united-states/redbook-index">redbook same-store retail sales index(YoY)</a> </li>
-						<li><a href="https://www.tradingview.com/symbols/ECONOMICS-USRSYY/"> United States Retail Sales YoY</a></li>
-						<li><a href="https://fred.stlouisfed.org/series/RSNSR">FRED Advance Retail Sales: Nonstore Retailers</a></li>
-						<li><a href="https://fred.stlouisfed.org/series/ECOMSA">FRED E-Commerce Retail Sales</a></li>
-					</ul>
-				</div>
-			</div>
-			</section>
-
-		<section class="grid-flow">
-			<div id="housing_supply">
-				<h2>Housing Supply</h2>
-				<!-- TradingView Widget BEGIN -->
-				<div class="tradingview-widget-container">
-					<div class="tradingview-widget-container__widget"></div>
-					<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
-						{
-						 "symbols": [
-							["ECONOMICS:USHST|1D"],
-							["FRED:ACTLISCOUUS|1D"],
-							["ECONOMICS:USBP|1D"],
-							["FRED:SPCS20RSA|1D"]
-						  ],
-						"chartOnly": false,
-						"width": "100%",
-						"height": 400,
-						"locale": "en",
-						"colorTheme": "light",
-						"autosize": false,
-						"showVolume": false,
-						"showMA": false,
-						"hideDateRanges": false,
-						"hideMarketStatus": false,
-						"hideSymbolLogo": false,
-						"scalePosition": "right",
-						"scaleMode": "Normal",
-						"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-						"fontSize": "10",
-						"noTimeScale": false,
-						"valuesTracking": "1",
-						"changeMode": "price-and-percent",
-						"chartType": "area",
-						"maLineColor": "#2962FF",
-						"maLineWidth": 1,
-						"maLength": 9,
-						"lineWidth": 2,
-						"lineType": 0,
-						"dateRanges": [
-						"1d|1",
-						"1m|30",
-						"3m|60",
-						"12m|1D",
-						"60m|1W",
-						"all|1M"
-						]
-					}
-					</script>
-				</div> <!--end of chart-->	
-				<div>
-					https://en.macromicro.me/collections/16106/20Charts_344136/82616/Housing-Supply    
-	                <ul>
-						<li><a href="https://www.tradingview.com/symbols/ECONOMICS-USHST/">US - Housing Starts (SAAR, YoY)</a></li>
-						<li><a href="https://www.tradingview.com/symbols/FRED-ACTLISCOUUS/">US - Existing Home Inventory YoY</a></li>
-						<li><a href="https://www.tradingview.com/symbols/ECONOMICS-USBP/">US - Building Permits (SAAR, YoY)</a></li>
-						<li><a href="https://www.tradingview.com/symbols/FRED-SPCS20RSA/">US - S&P/CS 20-City Composite Home Price Index</a></li>
-					</ul>
-				</div>
-			</div>
-        </section>
-
-		<section class="grid-flow">
-			<div id="PMI_Durable_Goods">
-				<h2>PMI-Durable-Goods</h2>
-			<!-- TradingView Widget BEGIN -->
-				<div class="tradingview-widget-container">
-					<div class="tradingview-widget-container__widget"></div>
-					<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
-					{
-						 "symbols": [
-							["ECONOMICS:USDGO|1D"],
-							["ECONOMICS:USBCOI|1D"],
-							["ECONOMICS:USNMPMI|1D"]
-						  ],
-						"chartOnly": false,
-						"width": "100%",
-						"height": 400,
-						"locale": "en",
-						"colorTheme": "light",
-						"autosize": false,
-						"showVolume": false,
-						"showMA": false,
-						"hideDateRanges": false,
-						"hideMarketStatus": false,
-						"hideSymbolLogo": false,
-						"scalePosition": "right",
-						"scaleMode": "Normal",
-						"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-						"fontSize": "10",
-						"noTimeScale": false,
-						"valuesTracking": "1",
-						"changeMode": "price-and-percent",
-						"chartType": "area",
-						"maLineColor": "#2962FF",
-						"maLineWidth": 1,
-						"maLength": 9,
-						"lineWidth": 2,
-						"lineType": 0,
-						"dateRanges": [
-						"1d|1",
-						"1m|30",
-						"3m|60",
-						"12m|1D",
-						"60m|1W",
-						"all|1M"
-						]
-					}
-					</script>
-				</div> <!--end of chart-->	
-						<div>
-					https://en.macromicro.me/collections/16106/20Charts_344136/81572/PMI-Durable-Goods
-					<ul>
-						<li><a href="https://www.tradingview.com/symbols/ECONOMICS-USDGO/">US - Durable Goods Orders (YoY)</a></li>
-						<li><a href="https://www.tradingview.com/support/solutions/43000650998-durable-goods-orders-excluding-defense-dgoed/">US - Durable Goods Orders - Non Defense Ex Air (YoY)</a></li>
-						<li><a href="https://www.tradingview.com/symbols/ECONOMICS-USBCOI/">US - ISM Purchasing Managers Index [PMI] - New Order</a></li>
-						<li><a href="https://www.tradingview.com/symbols/ECONOMICS-USNMPMI/">US - ISM Non-Manufacturing Index [NMI]</a></li>
-					</ul>
-				</div>
-			</div>
-		</section>
-
-	    <section class="grid-flow">
-			<div id="WEI-GDP-Growth">
-				<h2>WEI-GDP-Growth</h2>
-				<!-- TradingView Widget BEGIN -->
-				<div class="tradingview-widget-container">
-					<div class="tradingview-widget-container__widget"></div>
-					<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
-					{
-						 "symbols": [
-							["ECONOMICS:USWEI|1D"],
-							["ECONOMICS:USGDPYY|1D"]
-						  ],
-						"chartOnly": false,
-						"width": "100%",
-						"height": 400,
-						"locale": "en",
-						"colorTheme": "light",
-						"autosize": false,
-						"showVolume": false,
-						"showMA": false,
-						"hideDateRanges": false,
-						"hideMarketStatus": false,
-						"hideSymbolLogo": false,
-						"scalePosition": "right",
-						"scaleMode": "Normal",
-						"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-						"fontSize": "10",
-						"noTimeScale": false,
-						"valuesTracking": "1",
-						"changeMode": "price-and-percent",
-						"chartType": "area",
-						"maLineColor": "#2962FF",
-						"maLineWidth": 1,
-						"maLength": 9,
-						"lineWidth": 2,
-						"lineType": 0,
-						"dateRanges": [
-						"1d|1",
-						"1m|30",
-						"3m|60",
-						"12m|1D",
-						"60m|1W",
-						"all|1M"
-						]
-				    }
-					</script>
-			    </div>
-			   <div>
-				  https://en.macromicro.me/collections/16106/20Charts_344136/80946/WEI-GDP-Growth	
-				  <ul>
-					<li><a href="https://www.tradingview.com/symbols/ECONOMICS-USWEI/">NY Fed Weekly Economic Index</a></li>
-					<li><a href="https://www.tradingview.com/symbols/ECONOMICS-USGDPYY/">US - Real GDP Growth Rate (SA, YoY)</a></li>
-				  </ul>			
-				</div>
-			</div>	
-        </section>
-
-		<section class="grid-flow">
-			<div id="Copper-Gold_vs_PPI">
-				<h2>Copper-Gold-vs-PPI</h2>
-
-			    <!-- TradingView Widget BEGIN -->
-				<div class="tradingview-widget-container">
-					<div class="tradingview-widget-container__widget"></div>
-					<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
-					{
-						 "symbols": [
-							["ECONOMICS:USPPIYY|1D"],
-							["ECONOMICS:USBCOI|1D"]
-						  ],
-						"chartOnly": false,
-						"width": "100%",
-						"height": 400,
-						"locale": "en",
-						"colorTheme": "light",
-						"autosize": false,
-						"showVolume": false,
-						"showMA": false,
-						"hideDateRanges": false,
-						"hideMarketStatus": false,
-						"hideSymbolLogo": false,
-						"scalePosition": "right",
-						"scaleMode": "Normal",
-						"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-						"fontSize": "10",
-						"noTimeScale": false,
-						"valuesTracking": "1",
-						"changeMode": "price-and-percent",
-						"chartType": "area",
-						"maLineColor": "#2962FF",
-						"maLineWidth": 1,
-						"maLength": 9,
-						"lineWidth": 2,
-						"lineType": 0,
-						"dateRanges": [
-						"1d|1",
-						"1m|30",
-						"3m|60",
-						"12m|1D",
-						"60m|1W",
-						"all|1M"
-						]
-				    }
-					</script>
-			    </div>
-			    <div>https://en.macromicro.me/collections/16106/20Charts_344136/82607/Copper-Gold-vs-PPI <br/>
-			       <span>PPI: </span> <br/>
-			       <span>PMI: </span> <br/>
-			       <ul>
-			           <li><a href="">Copper/Gold Ratio</a></li>
-			           <li><a href="https://www.tradingview.com/symbols/ECONOMICS-USPPIYY/">US - PPI (SA, YoY)</a></li>
-			           <li><a href="https://www.tradingview.com/symbols/ECONOMICS-USBCOI/">US - Manufacturing - ISM Purchasing Managers Index</a></li>
-			       </ul>
-			    </div>	
-			</div>
-			
-			<div id="Oil-Gold_vs_CPI">
-				<h2>Oil-Gold-vs-CPI</h2>
-				 <!-- TradingView Widget BEGIN -->
-				<div class="tradingview-widget-container">
-					<div class="tradingview-widget-container__widget"></div>
-					<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
-					{
-						 "symbols": [
-						    ["TVC:USOIL|1D"],
-							["ECONOMICS:USCPI|1D"],
-							["ECONOMICS:USCCPI|1D"],
-							["ECONOMICS:USCPCEPIAC|1D"]
-						  ],
-						"chartOnly": false,
-						"width": "100%",
-						"height": 400,
-						"locale": "en",
-						"colorTheme": "light",
-						"autosize": false,
-						"showVolume": false,
-						"showMA": false,
-						"hideDateRanges": false,
-						"hideMarketStatus": false,
-						"hideSymbolLogo": false,
-						"scalePosition": "right",
-						"scaleMode": "Normal",
-						"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-						"fontSize": "10",
-						"noTimeScale": false,
-						"valuesTracking": "1",
-						"changeMode": "price-and-percent",
-						"chartType": "area",
-						"maLineColor": "#2962FF",
-						"maLineWidth": 1,
-						"maLength": 9,
-						"lineWidth": 2,
-						"lineType": 0,
-						"dateRanges": [
-						"1d|1",
-						"1m|30",
-						"3m|60",
-						"12m|1D",
-						"60m|1W",
-						"all|1M"
-						]
-				    }
-					</script>
-			    </div>
-				<div>
-				    https://en.macromicro.me/collections/16106/20Charts_344136/82524/Oil-Gold-vs-CPI <br/>
-				    <span>CPI: consumer product index</span>
-					<ul>
-						<li><a href="https://www.tradingview.com/chart/USOIL/hwAfEKDl-WTI-OIL-GOLD-ratio-an-important-indicator/">Oil/Gold Ratio[?]</a></li>
-					    <li><a href="https://www.tradingview.com/symbols/ECONOMICS-USCPI/">US - CPI (NSA, YoY)</a></li>
-					    <li><a href="https://www.tradingview.com/symbols/ECONOMICS-USCCPI/">US - Core CPI (NSA, YoY)</a></li>
-					    <li><a href="https://www.tradingview.com/symbols/ECONOMICS-USCPCEPIAC/">Cyclical Core PCE (YoY)</a></li>
-					    <li><a href="">Acyclical Core PCE (YoY)[?]</a></li>
-					</ul>	
-				</div>
-			</div>
-		</section>
-
-		<section class="grid-flow" id="IMPE">
-			<div id="moneytary_policy">
-				<h2>Inflation-Monetary-Policy-Expectation</h2>
-				 <!-- TradingView Widget BEGIN -->
-				<div class="tradingview-widget-container">
-					<div class="tradingview-widget-container__widget"></div>
-					<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
-					{
-						 "symbols": [
-							["FRED:FEDFUNDS|1D"],
-							["TVC:US10Y|1D"]
-						  ],
-						"chartOnly": false,
-						"width": "100%",
-						"height": 400,
-						"locale": "en",
-						"colorTheme": "light",
-						"autosize": false,
-						"showVolume": false,
-						"showMA": false,
-						"hideDateRanges": false,
-						"hideMarketStatus": false,
-						"hideSymbolLogo": false,
-						"scalePosition": "right",
-						"scaleMode": "Normal",
-						"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-						"fontSize": "10",
-						"noTimeScale": false,
-						"valuesTracking": "1",
-						"changeMode": "price-and-percent",
-						"chartType": "area",
-						"maLineColor": "#2962FF",
-						"maLineWidth": 1,
-						"maLength": 9,
-						"lineWidth": 2,
-						"lineType": 0,
-						"dateRanges": [
-						"1d|1",
-						"1m|30",
-						"3m|60",
-						"12m|1D",
-						"60m|1W",
-						"all|1M"
-						]
-				    }
-					</script>
-			    </div>
-				<div>
-					https://en.macromicro.me/collections/16106/20Charts_344136/80654/Inflation-Monetary-Policy-Expectation
-					<ul>
-						<li><a href="https://www.tradingview.com/symbols/FRED-FEDFUNDS/">Fed Rate: Fed funds target range-upper limit</a></li>
-						<li><a href="https://www.tradingview.com/symbols/TVC-US10Y/">US-10-Year Treasury Yield</a></li>
-						<li><a href="">Copper/Gold</a></li>
-						<li><a href="">Oil/Gold</a></li>
-					</ul>
-				</div>
-			</div>
-		</section>
-		
-		<section class="grid-flow" id="interest_rates">
-			<div id="us_rates">
-				<h2>US Rates</h2>
-				 <!-- TradingView Widget BEGIN -->
-				 <div class="tradingview-widget-container">
-					<div class="tradingview-widget-container__widget"></div>
-					<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
-					{
-						 "symbols": [
-							["FRED:FEDFUNDS|1D"],
-							["TVC:US10Y|1D"],
-							["ECONOMICS:USINTR|1D"],
-							["ECONOMICS:USIRYY|1D"],
-							["ECONOMICS:USUR|1D"],
-							["ECONOMICS:USBOT|1D"],
-							["ECONOMICS:USGDG|1D"],
-							["ECONOMICS:USGDPYY|1D"]
-						  ],
-						"chartOnly": false,
-						"width": "100%",
-						"height": 400,
-						"locale": "en",
-						"colorTheme": "light",
-						"autosize": false,
-						"showVolume": false,
-						"showMA": false,
-						"hideDateRanges": false,
-						"hideMarketStatus": false,
-						"hideSymbolLogo": false,
-						"scalePosition": "right",
-						"scaleMode": "Normal",
-						"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-						"fontSize": "10",
-						"noTimeScale": false,
-						"valuesTracking": "1",
-						"changeMode": "price-and-percent",
-						"chartType": "area",
-						"maLineColor": "#2962FF",
-						"maLineWidth": 1,
-						"maLength": 9,
-						"lineWidth": 2,
-						"lineType": 0,
-						"dateRanges": [
-						"1d|1",
-						"1m|30",
-						"3m|60",
-						"12m|1D",
-						"60m|1W",
-						"all|1M"
-						]
-				    }
-					</script>
-			    </div>
-				<div>https://en.macromicro.me/collections/16106/20Charts_344136/81567/US-Rates	
-					<ul>
-						<li><a href="https://www.tradingview.com/symbols/FRED-FEDFUNDS/">Effective Federal Funds Rate</a></li>
-						<li><a href="https://www.tradingview.com/symbols/TVC-US10Y/">US - 10-Year Bonds/Treasury Yield</a></li>
-						<li><a href="https://www.tradingview.com/symbols/ECONOMICS-USINTR/">United States Interest Rate</a></li>
-						<li><a href="https://www.tradingview.com/symbols/ECONOMICS-USIRYY/">United States Inflation Rate YoY</a></li>
-						<li><a href="https://www.tradingview.com/symbols/ECONOMICS-USUR/">United States Unemployment Rate</a></li>
-						<li><a href="https://www.tradingview.com/symbols/ECONOMICS-USBOT/">United States Balance Of Trade</a></li>
-						<li><a href="https://www.tradingview.com/symbols/ECONOMICS-USGDG/">United States Government Debt To GDP</a></li>
-						<li><a href="https://www.tradingview.com/symbols/ECONOMICS-USGDPYY/">United States Real GDP YoY</a></li>
-					</ul>
-				</div>	
-			</div>
-			
-			<div id="credit_spread_vix">
-				<h2>Credit Spread VIX and SP500</h2>
-					 <!-- TradingView Widget BEGIN -->
-				 <div class="tradingview-widget-container">
-					<div class="tradingview-widget-container__widget"></div>
-					<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
-					{
-						 "symbols": [
-							["TVC:VIX|1D"]
-						  ],
-						"chartOnly": false,
-						"width": "100%",
-						"height": 400,
-						"locale": "en",
-						"colorTheme": "light",
-						"autosize": false,
-						"showVolume": false,
-						"showMA": false,
-						"hideDateRanges": false,
-						"hideMarketStatus": false,
-						"hideSymbolLogo": false,
-						"scalePosition": "right",
-						"scaleMode": "Normal",
-						"fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-						"fontSize": "10",
-						"noTimeScale": false,
-						"valuesTracking": "1",
-						"changeMode": "price-and-percent",
-						"chartType": "area",
-						"maLineColor": "#2962FF",
-						"maLineWidth": 1,
-						"maLength": 9,
-						"lineWidth": 2,
-						"lineType": 0,
-						"dateRanges": [
-						"1d|1",
-						"1m|30",
-						"3m|60",
-						"12m|1D",
-						"60m|1W",
-						"all|1M"
-						]
-				    }
-					</script>
-			    </div>
-			    <div>		
-			     	https://en.macromicro.me/collections/16106/20Charts_344136/82929/Credit-Spread-VIX-and-SP500
-			      	<ul>
-						<li><a href="https://en.macromicro.me/charts/85525/US-Credit-Spread">CCC Credit Spread</a></li>
-						<li><a href="https://www.tradingview.com/symbols/TVC-VIX/">CBOE - Volatility Index [VIX]</a></li>
-						<li><a href="https://www.tradingview.com/symbols/SPX/">US - S&P 500</a></li>
-					</ul>   
-			    </div>
-			</div>
-		</section>
-		
-		<section class="grid-flow" id="additional_rates">
-		   <!--- <iframe src="https://www.tradingview.com/markets/world-economy/countries/united-states/?category=txs"> -->
-		</section>
-		
-	  </div> <!--end of content div-->
-	 
   </div> <!-- Right column -->
 </div> <!--end of row-->
 

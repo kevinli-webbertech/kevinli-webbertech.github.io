@@ -22,13 +22,13 @@ https://github.com/kevinli-webbertech/gs-spring-boot/blob/main/Jenkinsfile
 
 ## Kubernetes files
 
-All manifests and the deployment script are in [`../homework/scripts/`](../homework/scripts/):
+All manifests and the deployment script are in [`../homework/scripts/`](../homework/scripts/), each also rendered as its own page below:
 
-* `jenkins-deployment.yaml` and `jenkins-service.yaml`
-* `nexus-deployment.yaml` and `nexus-service.yaml`
-* `mysql-configmap.yaml`, `mysql-secret.yaml`, `mysql-pvc.yaml`, `mysql-deployment.yaml`, and `mysql-service.yaml`
-* `network-policy.yaml`
-* `deploy.sh`
+* [`jenkins-deployment.yaml`](https://kevinli-webbertech.github.io/blog/html/courses/dev_ops/homework/scripts/jenkins-deployment-yaml.html) and [`jenkins-service.yaml`](https://kevinli-webbertech.github.io/blog/html/courses/dev_ops/homework/scripts/jenkins-service-yaml.html)
+* [`nexus-deployment.yaml`](https://kevinli-webbertech.github.io/blog/html/courses/dev_ops/homework/scripts/nexus-deployment-yaml.html) and [`nexus-service.yaml`](https://kevinli-webbertech.github.io/blog/html/courses/dev_ops/homework/scripts/nexus-service-yaml.html)
+* [`mysql-configmap.yaml`](https://kevinli-webbertech.github.io/blog/html/courses/dev_ops/homework/scripts/mysql-configmap-yaml.html), [`mysql-secret.yaml`](https://kevinli-webbertech.github.io/blog/html/courses/dev_ops/homework/scripts/mysql-secret-yaml.html), [`mysql-pvc.yaml`](https://kevinli-webbertech.github.io/blog/html/courses/dev_ops/homework/scripts/mysql-pvc-yaml.html), [`mysql-deployment.yaml`](https://kevinli-webbertech.github.io/blog/html/courses/dev_ops/homework/scripts/mysql-deployment-yaml.html), and [`mysql-service.yaml`](https://kevinli-webbertech.github.io/blog/html/courses/dev_ops/homework/scripts/mysql-service-yaml.html)
+* [`network-policy.yaml`](https://kevinli-webbertech.github.io/blog/html/courses/dev_ops/homework/scripts/network-policy-yaml.html)
+* [`deploy.sh`](https://kevinli-webbertech.github.io/blog/html/courses/dev_ops/homework/scripts/deploy-sh.html)
 
 Run the deployment from that directory:
 

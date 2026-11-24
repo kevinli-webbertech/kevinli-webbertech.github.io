@@ -3,7 +3,7 @@
 # TODO need to fix this file
 
 #URL="$1"
-URL="https://kevinli-webbertech.github.io/blog.html"
+URL="https://kevinli-webbertech.github.io/courses.htm"
 BASE_URL="https://kevinli-webbertech.github.io/"
 
 broken_link=()

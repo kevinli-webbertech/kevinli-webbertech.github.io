@@ -4,7 +4,7 @@
 <head>
 	<title>market watcher</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="css/index.css?v=shared-typography-2">
+	<link rel="stylesheet" href="css/index.css?v=shared-typography-3">
   <link rel="stylesheet" href="css/latest-changes.css">
   <script src="js/latest-changes.js?v=once-per-session" defer></script>
 </head>
@@ -13,14 +13,14 @@
  <div class="row">
   <div class="column left" id= "left_sidebar">
     <h2>Kevin's Blog</h2>
-    
+
     <div id="sidebar">
 		<ul>
 			<li><a href="https://fred.stlouisfed.org/docs/api/fred/">FRED API</a></li>
 			<li><a href="#job_data">FRED Data</a></li>
 		</ul>
 	</div>
-	
+
 	<div id="news">
 		<!-- TradingView Widget BEGIN -->
 		<div class="tradingview-widget-container">
@@ -45,19 +45,20 @@
 
   <div class="column right">
        <nav id="nav_menu">
-		    <ul> 
-		    	<li><a href="index.html">home</a></li>
-		  		<li><a href="html/indicator.html">indicator</a></li>
-				<li><a href="html/news.html">news</a></li>
-		    	<li><a href="html/philosophy.html">philosophy</a></li>
-		    	<li><a href="html/trading_course.html">trading course<span class="hot-badge">HOT</span></a></li>
-		    	<li><a href="blog.html">blog</a></li>
-		    	<li><a href="html/about_me.html">about me</a></li>
-		    </ul>
-	   </nav>
- 
-  	
-	  <!-- https://www.tradingview.com/markets/world-economy/ 
+            <ul>
+                <li><a href="index.html">home</a></li>
+                <li><a href="html/indicator.html">indicator</a></li>
+                <li><a href="html/news.html">news</a></li>
+
+                <li><a href="html/trading_course.html">trading course<span class="hot-badge">HOT</span></a></li>
+                <li><a href="courses.htm">Courses</a></li>
+                <li><a href="html/philosophy.html">philosophy</a></li>
+                <li><a href="html/about_me.html">about me</a></li>
+            </ul>
+       </nav>
+
+
+	  <!-- https://www.tradingview.com/markets/world-economy/
 			         https://www.tradingview.com/markets/world-economy/countries/united-states/?category=txs
 	  -->
 	  <div class="content grid-container">
@@ -142,138 +143,136 @@
 			<!-- TradingView Widget BEGIN -->
 				<div class="tradingview-widget-container">
 					<div class="tradingview-widget-container__widget"></div>
-					<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
-					{
-					"width": 1000,
-					"height": 550,
-					"symbolsGroups": [
-					{
-						"name": "Indices",
-						"originalName": "Indices",
-						"symbols": [
-						{
-							"name": "FOREXCOM:DJI",
-							"displayName": "Dow Jones Industrial Average Index"
-						},
-						{
-							"name": "FRED:SP500",
-							"displayName": "SP500"
-						},
-						{
-							"name": "NASDAQ:NDX",
-							"displayName": "Nasdaq 100"
-						},
-						{
-							"name": "INDEX:NKY",
-							"displayName": "Nikkei 225"
-						},
-						{
-							"name": "INDEX:DEU40",
-							"displayName": "DAX Index"
-						},
-						{
-							"name": "FOREXCOM:UKXGBP",
-							"displayName": "FTSE 100 Index"
-						}
-						]
-					},
-					{
-						"name": "ETF",
-						"symbols": [
-						{
-							"name": "AMEX:IVV",
-							"displayName": "iShares Core S&P500 ETF|IVV"
-						},
-						{
-							"name": "AMEX:VOO",
-							"displayName": "Vanguard S&P500 ETF|VOO"
-						},
-						{
-							"name": "AMEX:SCHD",
-							"displayName": "Schwab US Dividend Equity ETF|SCHD"
-						},
-						{
-							"name": "AMEX:RSP",
-							"displayName": "Invesco S&P500 Equal weighted|RSP"
-						},
-						{
-							"name": "AMEX:IWY",
-							"displayName": "iShares Russell Top 200 Growth ETF|IWY"
-						},
-						{
-							"name": "AMEX:SPLV",
-							"displayName": "Invesco S&P 500 Low Volatility ETF|SPLV"
-						},
-						{
-							"name": "AMEX:USMV",
-							"displayName": "iShares MSCI USA Min Vol Factor ETF|USMV"
-						},
-						{
-							"name": "AMEX:MOAT",
-							"displayName": "VanEck Wide ETF|MOAT"
-						},
-						{
-                            "name": "AMEX:XLK",
-                            "displayName": "SPDR Technology ETF|XLK"
-                        },
-                        {
-                            "name": "AMEX:XLC",
-                            "displayName": "SPDR Communication ETF|XLC"
-                        },
-                       	{
-							"name": "AMEX:XLF",
-							"displayName": "SPDR Financial ETF|XLF"
-						},
-                        {
-                             "name": "AMEX:XLV",
-                             "displayName": "SPDR Healthcare ETF|XLV"
-                        },
-                        {
-                             "name": "AMEX:XLP",
-                             "displayName": "SPDR Consumer Staples ETF| XLP"
-                        },
-                        {
-                             "name": "AMEX:XLY",
-                             "displayName": "SPDR Consumer Discretionary ETF|XLY"
-                        },
-                        {
-                             "name": "AMEX:XLU",
-                             "displayName": "SPDR Utility ETF|XLU"
-                        },
-                        {
-                             "name": "AMEX:XLI",
-                             "displayName": "SPDR Industrial ETF|XLI"
-                        },
-                        {
-                             "name": "AMEX:XLB",
-                             "displayName": "Nyams Material ETF|XLM"
-                        },
-						{
-							"name": "AMEX:VNQ",
-							"displayName": "Vanguard Real Estate ETF|VNQ"
-						},
-						{
-							"name": "AMEX:IWM",
-							"displayName": "iShares Russell 2000 ETF|IWM"
-						},
-						{
-							"name": "AMEX:MINT",
-							"displayName": "PIMCO Enhanced Short Maturity Active ETF|MINT"
-						},
-						{
-							"name": "AMEX:GLD",
-							"displayName": "SPDR Gold Trust|GLD"
-						}
-						]
-					}
-					],
-					"showSymbolLogo": true,
-					"isTransparent": false,
-					"colorTheme": "light",
-					"locale": "en",
-					"backgroundColor": "#ffffff"
-				}
-					</script>
+					<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>{
+  "width": 1000,
+  "height": 550,
+  "symbolsGroups": [
+    {
+      "name": "Indices",
+      "originalName": "Indices",
+      "symbols": [
+        {
+          "name": "FOREXCOM:DJI",
+          "displayName": "Dow Jones (CFD)"
+        },
+        {
+          "name": "FRED:SP500",
+          "displayName": "SP500"
+        },
+        {
+          "name": "FOREXCOM:NSXUSD",
+          "displayName": "Nasdaq 100 (CFD)"
+        },
+        {
+          "name": "INDEX:NKY",
+          "displayName": "Nikkei 225"
+        },
+        {
+          "name": "INDEX:DEU40",
+          "displayName": "DAX Index"
+        },
+        {
+          "name": "FOREXCOM:UKXGBP",
+          "displayName": "FTSE 100 Index"
+        }
+      ]
+    },
+    {
+      "name": "ETF",
+      "symbols": [
+        {
+          "name": "AMEX:IVV",
+          "displayName": "iShares Core S&P500 ETF|IVV"
+        },
+        {
+          "name": "AMEX:VOO",
+          "displayName": "Vanguard S&P500 ETF|VOO"
+        },
+        {
+          "name": "AMEX:SCHD",
+          "displayName": "Schwab US Dividend Equity ETF|SCHD"
+        },
+        {
+          "name": "AMEX:RSP",
+          "displayName": "Invesco S&P500 Equal weighted|RSP"
+        },
+        {
+          "name": "AMEX:IWY",
+          "displayName": "iShares Russell Top 200 Growth ETF|IWY"
+        },
+        {
+          "name": "AMEX:SPLV",
+          "displayName": "Invesco S&P 500 Low Volatility ETF|SPLV"
+        },
+        {
+          "name": "AMEX:USMV",
+          "displayName": "iShares MSCI USA Min Vol Factor ETF|USMV"
+        },
+        {
+          "name": "AMEX:MOAT",
+          "displayName": "VanEck Wide ETF|MOAT"
+        },
+        {
+          "name": "AMEX:XLK",
+          "displayName": "SPDR Technology ETF|XLK"
+        },
+        {
+          "name": "AMEX:XLC",
+          "displayName": "SPDR Communication ETF|XLC"
+        },
+        {
+          "name": "AMEX:XLF",
+          "displayName": "SPDR Financial ETF|XLF"
+        },
+        {
+          "name": "AMEX:XLV",
+          "displayName": "SPDR Healthcare ETF|XLV"
+        },
+        {
+          "name": "AMEX:XLP",
+          "displayName": "SPDR Consumer Staples ETF| XLP"
+        },
+        {
+          "name": "AMEX:XLY",
+          "displayName": "SPDR Consumer Discretionary ETF|XLY"
+        },
+        {
+          "name": "AMEX:XLU",
+          "displayName": "SPDR Utility ETF|XLU"
+        },
+        {
+          "name": "AMEX:XLI",
+          "displayName": "SPDR Industrial ETF|XLI"
+        },
+        {
+          "name": "AMEX:XLB",
+          "displayName": "Nyams Material ETF|XLM"
+        },
+        {
+          "name": "AMEX:VNQ",
+          "displayName": "Vanguard Real Estate ETF|VNQ"
+        },
+        {
+          "name": "AMEX:IWM",
+          "displayName": "iShares Russell 2000 ETF|IWM"
+        },
+        {
+          "name": "AMEX:MINT",
+          "displayName": "PIMCO Enhanced Short Maturity Active ETF|MINT"
+        },
+        {
+          "name": "AMEX:GLD",
+          "displayName": "SPDR Gold Trust|GLD"
+        }
+      ]
+    }
+  ],
+  "showSymbolLogo": true,
+  "isTransparent": false,
+  "colorTheme": "light",
+  "locale": "en",
+  "backgroundColor": "#ffffff"
+}</script>
 				</div>
 				<!-- TradingView Widget END -->
 			</section>
@@ -311,7 +310,7 @@
 						<h3>Federal Funds Effective Rate</h3>
 						<iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=1JasA&width=670&height=475" scrolling="no" frameborder="0" allowTransparency="true" loading="lazy"></iframe>
 					</div>
-					
+
 					<div id="ten_year_interest_rate">
 						<h3>10-Year Real Interest Rate </h3>
 						<iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=1CFZN&width=670&height=475" scrolling="no" frameborder="0" allowTransparency="true" loading="lazy"></iframe>
@@ -323,7 +322,7 @@
 						<h3>Delinquency Rate- Single-Family Mortgages. All Comm Banks</h3>
 						<iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=1DSkd&width=670&height=475" scrolling="no" frameborder="0" allowTransparency="true" loading="lazy"></iframe>
 					</div>
-					
+
 					<div id="DRALACBN">
 						<h3>Delinquency Rate on All Loans, All Commercial Banks</h3>
 						<iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=1Fcm8&width=670&height=475" scrolling="no" frameborder="0" allowTransparency="true" loading="lazy"></iframe>
@@ -335,7 +334,7 @@
 						<h3>M1 Supply</h3>
 						<iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=1CFZ2&width=670&height=475" scrolling="no" frameborder="0" allowTransparency="true" loading="lazy"></iframe>
 					</div>
-					
+
 					<div id="M2">
 						<h3>M2 Supply</h3>
 						<iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=1CFYJ&width=670&height=475" scrolling="no" frameborder="0" allowTransparency="true" loading="lazy"></iframe>
@@ -345,7 +344,7 @@
 
 			<h2> US Stocks</h2>
 			<section class="" id="us_stocks_screen">
-			  
+
 				<!-- TradingView Widget BEGIN -->
 			    <div class="tradingview-widget-container one_column">
 			      <div class="tradingview-widget-container__widget"></div>
@@ -380,17 +379,17 @@
 			  <!-- TradingView Widget END -->
 		  </section>
 	  </div> <!--end of content div-->
-	 
+
   </div> <!-- Right column -->
 
 </div> <!--end of row-->
 <div class="row">
-	<footer class="footer" id=""> 
+	<footer class="footer" id="">
 		Copyright@Webbertech.com
 		<p>Disclaimer: All the charts and data are coming from internet. Copyright belongs to their original source.
-		   The information on this website is only used for my personal research not commercial.	
+		   The information on this website is only used for my personal research not commercial.
 		</p>
-		
+
 	</footer>
 </div>
 <script src="js/bookmark.js"></script>

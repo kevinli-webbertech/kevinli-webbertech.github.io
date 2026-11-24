@@ -19,16 +19,9 @@
 .indicator-intro > p:first-child { font-size: .75rem; letter-spacing: .12em; color: #536b85; }
 .indicator-intro h1 { font-family: Georgia, serif; font-size: clamp(1.9rem, 3vw, 2.7rem); line-height: 1.2; margin: 10px 0; }
 .indicator-intro p { color: #52657a; }
-.indicator-page .grid-flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 520px), 1fr)); gap: 22px; margin: 0 0 24px; align-items: start; }
-.indicator-page .grid-flow > div { min-width: 0; padding: clamp(14px, 2vw, 24px); background: #fff; border: 1px solid #dce3ec; border-radius: 12px; box-shadow: 0 2px 8px #24344706; overflow-wrap: anywhere; }
-.indicator-page .grid-flow:empty { display: none; }
 .indicator-page [id] { scroll-margin-top: 20px; }
-.indicator-page .grid-flow h2 { font-family: Georgia, serif; font-size: 1.3rem; line-height: 1.35; margin: 0 0 20px; }
-.indicator-page .grid-flow a { color: #1f6096; text-underline-offset: 3px; }
-.indicator-page .grid-flow li { margin: 8px 0; }
 .indicator-page .tradingview-widget-container { width: 100%; min-width: 0; }
 .indicator-page .tradingview-widget-container iframe { width: 100%; height: 400px; display: block; border: 0; border-radius: 6px; }
-.indicator-page #indices iframe, .indicator-page #market_data iframe { height: 550px; }
 .indicator-page a:focus-visible { outline: 3px solid #3979b1; outline-offset: 2px; }
 .indicator-page .footer { width: auto; max-width: 100%; padding: 20px; margin: 0; color: #536b85; }
 @media (max-width: 900px) {
@@ -40,3 +33,30 @@
   .indicator-page #nav_menu li a { padding: 9px 11px; }
 }
 @media (prefers-reduced-motion: no-preference) { html:has(.indicator-page) { scroll-behavior: smooth; } }
+
+/* Keep complete chart cards together, without separate empty reference pods. */
+.indicator-page .indicator-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: stretch; }
+.indicator-page .indicator-card { min-width: 0; padding: 22px; background: #fff; border: 1px solid #dce3ec; border-radius: 12px; box-shadow: 0 3px 12px #24344706; }
+.indicator-page .indicator-card-wide { grid-column: 1 / -1; }
+.indicator-page .indicator-card h2 { font-size: 1.25rem; margin: 0 0 18px; }
+.indicator-page #market_data iframe { height: 550px; }
+@media (max-width: 1200px) { .indicator-page .indicator-cards { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .indicator-page .indicator-card { padding: 14px; } }
+
+/* FRED economic topics: source links remain available if an embed is blocked. */
+.indicator-page .indicator-topic { margin-bottom: 36px; }
+.indicator-page .indicator-topic > h2 { font-size: 1.5rem; margin: 0 0 16px; }
+.indicator-page .indicator-card h3 { font-size: 1.15rem; margin: 0 0 10px; }
+.indicator-page .chart-description { margin: 0 0 16px; color: #52657a; font-size: .9rem; min-height: 2.8em; }
+.indicator-page .chart-source { margin: 12px 0 0; font-size: .9rem; }
+.indicator-page .chart-source a { color: #1f6096; text-underline-offset: 3px; }
+.indicator-page .indicator-cards:has(> .fred-card:only-child) { grid-template-columns: minmax(0, 1fr); }
+
+.indicator-page .fred-card iframe { display: block; width: 100%; height: 525px; border: 0; }
+
+.indicator-page .stock-tracking-title { font-weight: 700; }
+
+.index-selector { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.index-selector button { padding: 9px 14px; border: 1px solid #cbd8e5; border-radius: 6px; background: #fff; color: #243447; font: inherit; cursor: pointer; }
+.index-selector button[aria-pressed="true"] { background: #174c7b; color: #fff; border-color: #174c7b; }
+.index-selector button:focus-visible { outline: 3px solid #3979b1; outline-offset: 2px; }

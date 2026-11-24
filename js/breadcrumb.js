@@ -6,7 +6,7 @@
   }
 
   function getCrumbHref(acc) {
-    return acc === "/blog" ? "/blog.html" : null;
+    return acc === "/blog" ? "/courses.htm" : null;
   }
 
   function buildBreadcrumb() {
@@ -16,7 +16,7 @@
     const path = window.location.pathname
       .replace(/\/+/g, "/")
       .replace(/index\.html$/i, "")
-      .replace(/\.html$/i, "");
+      .replace(/\.html?$/i, "");
 
     const parts = path.split("/").filter(Boolean);
     if (!parts.length) return;
@@ -33,7 +33,7 @@
       if (parts[i] === "html" && (i === 0 || parts[i - 1] === "blog")) continue;
 
       const isLast = i === parts.length - 1;
-      const text = labelize(parts[i]);
+      const text = parts[i] === "blog" ? "Courses" : labelize(parts[i]);
 
       if (isLast) {
         items.push(`<span style="color:#555; font-weight:600;">${text}</span>`);

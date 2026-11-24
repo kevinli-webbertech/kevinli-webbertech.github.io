@@ -140,7 +140,7 @@ Then we `cd` into it and list what is in there, and we can see a lot of files.
 xiaofengli@xiaofenglx:/tmp/test$ cd kevinli-webbertech.github.io/
 xiaofengli@xiaofenglx:/tmp/test/kevinli-webbertech.github.io$ ls
 blog	   Git.html	     package-lock.json	style.css
-blog.html  google_analytics  push.sh		test_broken_links.sh
+courses.htm  google_analytics  push.sh		test_broken_links.sh
 build.sh   html		     readme.md		test_output.txt
 css	   index.html	     requirements.txt
 dist	   js		     sitelock_service

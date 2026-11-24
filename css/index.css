@@ -61,8 +61,14 @@ pre {
 }
 
 .footer {
+  font-weight: 600;
+  line-height: 1.5;
   margin: auto auto;
   text-align: center;
+}
+
+.footer p {
+  font-weight: 400;
 }
 
 /* Clear floats after the columns */
