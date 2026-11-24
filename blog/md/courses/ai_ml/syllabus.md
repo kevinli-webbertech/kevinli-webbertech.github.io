@@ -45,6 +45,13 @@ Online / Asynchronous
 - All code must be runnable and include a README.
 - Include screenshots of working output.
 
+## Supplemental Guides
+
+- AI Skills vs. AI Agents (Word source) · [HTML](https://kevinli-webbertech.github.io/blog/html/courses/ai_ml/ai_skills_and_agents_docx.html) · [Markdown](ai_skills_and_agents_docx.md)
+- AI Skills vs. AI Agents (PDF source) · [HTML](https://kevinli-webbertech.github.io/blog/html/courses/ai_ml/ai_skills_and_agents_pdf.html) · [Markdown](ai_skills_and_agents_pdf.md)
+- Retrieval-Augmented Generation (RAG) (Word source) · [HTML](https://kevinli-webbertech.github.io/blog/html/courses/ai_ml/rag_technical_guide_docx.html) · [Markdown](rag_technical_guide_docx.md)
+- Retrieval-Augmented Generation (RAG) (PDF source) · [HTML](https://kevinli-webbertech.github.io/blog/html/courses/ai_ml/rag_technical_guide_pdf.html) · [Markdown](rag_technical_guide_pdf.md)
+
 ## References
 
 - [Machine Learning Learning Trail](https://kevinli-webbertech.github.io/blog/html/courses/ai_ml/learning_trail.html)
