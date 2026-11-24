@@ -1,27 +1,27 @@
 [
   {
-    "sha": "e5c52202",
-    "date": "2026-11-06T14:06:03-05:00",
-    "message": "Use formal navigation fonts and refresh cached styles"
+    "sha": "0c465131",
+    "date": "2026-11-24T13:46:21-05:00",
+    "message": "Add AI skills and RAG guides to the AI/ML course"
   },
   {
-    "sha": "0bc061a8",
-    "date": "2026-11-06T13:54:57-05:00",
-    "message": "Fix sidebar Notices iframe height override"
+    "sha": "e51f5dc6",
+    "date": "2026-11-19T17:49:31-05:00",
+    "message": "new update of the final project"
   },
   {
-    "sha": "b992b989",
-    "date": "2026-11-06T13:19:24-05:00",
-    "message": "Retry GitHub Pages deployment"
+    "sha": "ba719f5f",
+    "date": "2026-11-19T17:40:31-05:00",
+    "message": "Update DevOps final project discussion"
   },
   {
-    "sha": "a4b9fa7a",
-    "date": "2026-11-06T12:41:37-05:00",
-    "message": "Consolidate trading syllabus into Trading Course page"
+    "sha": "9db9ea30",
+    "date": "2026-11-19T17:31:44-05:00",
+    "message": "Fix blog notice dialog overlay"
   },
   {
-    "sha": "f834e95d",
-    "date": "2026-11-06T12:38:08-05:00",
-    "message": "Show 14 featured classes and latest commit notices with confirmation popup"
+    "sha": "de985271",
+    "date": "2026-11-19T16:50:17-05:00",
+    "message": "Add Kubernetes final project solution page"
   }
 ]

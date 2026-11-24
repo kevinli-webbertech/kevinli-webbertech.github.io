@@ -1,205 +1,108 @@
-# Linux Desktop Environment
+# Linux Display Managers, Window Managers, and Desktop Sessions
 
-## Outline
+**Many Linux display managers support both X11 and Wayland, but not all of them.** Compatibility depends on the display manager, its configuration, and the desktop sessions installed by your distribution.
 
-* Window Display Manager
-    * GDM
-    * KDE
-    * Xfce
+A **display manager** (such as GDM, SDDM, or LightDM) handles the graphical login screen and starts desktop sessions. It is different from a **window manager** (such as i3, Openbox, or KWin), which manages application windows. A desktop environment, such as GNOME, KDE Plasma, or Xfce, provides a broader collection of desktop components and applications.
 
-* Display protocol
-    * Wayland
-    * X11/X Server
+## KDE Plasma and Xfce
 
-## GNOME
+### KDE Plasma
 
-GNOME is used both by Fedora and Ubuntu.
-Nautilus offers a simple and integrated way of managing files and browsing the file system.
+**KDE** is the free software community that develops **Plasma**, a desktop environment, along with KDE Frameworks and applications such as the Dolphin file manager. Matthias Ettrich started the KDE project in 1996 using the Qt toolkit, and the first stable desktop release followed in 1998. [KDE project history](https://timeline.kde.org/) · [Plasma desktop](https://kde.org/plasma-desktop/)
 
-- Activities overview
-- GNOME Software Center- GNOME Commander: a free open source graphic file manager for linux desktop.
-- GNOME Display Manager (GDM): A display manager (a graphical login manager) for the windowing systems X11 and Wayland
-- Mutter:A portmanteau of "Metacity" and "Clutter", Mutter can function as a standalone window manager for GNOME-like desktops
+Plasma provides the desktop, panels, application launcher, and system settings. **KWin** manages application windows and serves as the compositor in a Plasma Wayland session. **SDDM** is a commonly paired display manager that handles graphical login and can start the Plasma session.
 
-### Nautilus
+### Xfce
 
-Files, also known as Nautilus, is the default file manager of the GNOME desktop. It provides a simple and integrated way of managing your files and browsing your file system.
+**Xfce** is a lightweight desktop environment. It includes the Xfce panel, desktop settings, session manager, and **Thunar** file manager. **Xfwm4** is its X11 window manager. A distribution can use **LightDM** to handle graphical login and start an Xfce session. [Xfce desktop components](https://xfce.org/about/)
 
-Nautilus supports all the basic functions of a file manager and more. It can search and manage your files and folders, both locally and on a network, read and write data to and from removable media, run scripts, and launch apps. It has three views: Icon Grid, Icon List, and Tree List. Its functions can be extended with plugins and scripts.
+Xfce 4.20 introduced experimental Wayland support for many desktop components. An Xfce 4.20 Wayland session uses a separate compositor such as Labwc or Wayfire. [Xfce 4.20 Wayland support](https://xfce.org/about/tour420)
 
-More information can be found here,
+## 1. Linux Display Manager Compatibility
 
-https://apps.gnome.org/Nautilus/#:~:text=Files%2C%20also%20known%20as%20Nautilus,a%20file%20manager%20and%20more
+The X11 and Wayland columns describe the types of desktop sessions the manager can launch, rather than the protocol used by its own login screen.
 
-### GDM
+| Display Manager | X11 Sessions | Wayland Sessions | Notes |
+| --- | --- | --- | --- |
+| **GDM** (GNOME) | Version and distribution dependent | Yes | Strong integration with GNOME Wayland. Newer GNOME releases have reduced or removed native GNOME X11 session support; check the installed GDM and desktop packages. |
+| **SDDM** (commonly used with KDE Plasma) | Yes | Yes | Supports both session types. Its Wayland greeter is documented as experimental. |
+| **LightDM** | Yes | Limited / configuration dependent | Primarily uses X11 greeters; launching a Wayland session depends on the installed session and configuration. |
+| **LXDM** | Yes | No native support | Designed for X11 sessions. |
+| **XDM** | Yes | No native support | Traditional X11 display manager. |
+| **greetd** | Yes, with a suitable session command | Yes, with a suitable session command | A flexible login daemon rather than a display server; the selected greeter and session command determine the graphical environment. |
 
-GNOME Display Manager (GDM) is a display manager (a graphical login manager) for the windowing systems X11 and Wayland. GDM was written from scratch and does not contain any XDM or X Consortium code.
+**Key point:** A display manager can run its login screen using X11 while launching a Wayland desktop session. The login screen and the user's desktop do not necessarily use the same display protocol.
 
-The X Window System by default uses the XDM display manager. However, resolving XDM configuration issues typically involves editing a configuration file. GDM allows users to customize or troubleshoot settings without having to resort to a command line. 
+## 2. How X11 and Wayland Sessions Work
 
-GDM comprises the following components:
+![A display manager launches either an X11 session with Xorg and a window manager, or a Wayland session with Mutter, KWin, or Sway.](https://kevinli-webbertech.github.io/blog/images/linux_administration/display-manager-sessions.svg)
 
-- Chooser – a program used to select a remote host as the source for a remote display on the attached display (gdm-host-chooser)
-- Greeter – the graphical login window (provided by GNOME Shell)
-- Pluggable authentication module (PAM)
-- X Display Manager Control Protocol (XDMCP)
+For example, SDDM can present an X11 login screen and then start a KDE Plasma Wayland session. Alternatively, SDDM can use a Wayland compositor for its greeter. These are separate configuration choices; SDDM's documentation labels the Wayland greeter experimental. See the [SDDM configuration manual](https://github.com/sddm/sddm/blob/develop/data/man/sddm.conf.rst.in).
 
-#### PAM
+Under X11, a window manager manages windows through the X server. Under Wayland, the compositor acts as the display server and manages windows and composition.
 
-A pluggable authentication module (PAM) is a mechanism to integrate multiple low-level authentication schemes into a high-level application programming interface (API).
+**Xwayland** lets compatible X11 applications run within a Wayland desktop. This does not make the desktop an X11 session or turn an X11 window manager into a native Wayland compositor.
 
-PAM allows programs that rely on authentication to be written independently of the underlying authentication scheme.
+## 3. Check Your Linux System
 
-![pam architecture](https://kevinli-webbertech.github.io/blog/images/linux/pam.png)
+Run these commands in a terminal inside your graphical desktop session.
 
-History,
+Find your current session protocol:
 
-* 1995: It was first proposed by Sun Microsystems in an Open Software Foundation Request for Comments (RFC) 86.0 dated October 1995.
-
-* 1996: It was adopted as the authentication framework of the Common Desktop Environment. As a stand-alone open-source infrastructure, PAM first appeared in Red Hat Linux 3.0.4 in August 1996 in the Linux PAM project. 
-
-* X/Open Single Sign-on (XSSO) 
-Since no central standard of PAM behavior exists, there was a later attempt to standardize PAM as part of the X/Open UNIX standardization process, resulting in the X/Open Single Sign-on (XSSO) standard.
-
-* OpenPAM
-This standard was not ratified, but the standard draft has served as a reference point for later PAM implementations (for example, OpenPAM).
-
-#### X Display Manager Control Protocol (XDMCP)
-
-* In X window System, the X server runs.
-
-* The X window display manager offers a graphics login manager to start a login session to ask users for username and password.
-
-* The X window display manager acts to do the same functionality as the getty and login on character-mode terminals.
-
-* The X window display manager can connect remotely, then it acts like a telnet server.
-
-* The XDM (the X Window Display Manager) originated in X11R3.
-
-It only reads from Xservers file thus every time a user switched a terminal off and on, it will not know. In X11R4, with XDMCP, the X server must actively request a display manager connection from the host. An X server using XDMCP therefore no longer requires an entry in Xservers.
-
-1988: X11 Release 3 introduced display managers in October 1988 with the aim of supporting the standalone X terminals, just coming onto the market.
-
-1989: X11R4 introduced the X Display Manager Control Protocol (XDMCP) in December 1989 to fix problems in the X11R3 implementation.
-
-* The X Display Manager Control Protocol (XDMCP) uses UDP port 177.
-
-And it keeps a secret key and have a hand-shake package with the X server to authenticate itself. When the session is established, during the session, the server can send KeepAlive packets to the display manager at intervals.  If the display manager fails to respond with an Alive packet within a certain time, the X server presumes that the display manager has ceased running, and can terminate the connection.
-
-* XDMCP security concern.
-
-One problem with XDMCP is that, similarly to telnet, the authentication takes place unencrypted.
-
-### ref
-
-- https://www.gnome.org/
-- https://apps.gnome.org/Nautilus/#:~:text=Files%2C%20also%20known%20as%20Nautilus,a%20file%20manager%20and%20more.
-- https://extensions.gnome.org/
-- https://en.wikipedia.org/wiki/Pluggable_authentication_module
-
-## KDE
-
-KDE is an international free software community that develops free and open-source software. As a central development hub, it provides tools and resources that allow collaborative work on this kind of software. Well-known products include the Plasma Desktop, KDE Frameworks, and a range of cross-platform applications such as Amarok, digiKam, and Krita that are designed to run on Unix and Unix-like operating systems, Microsoft Windows, and Android.
-
-KDE was founded in 1996 by Matthias Ettrich, a student at the University of Tübingen.
-In the beginning Matthias Ettrich chose to use Trolltech's Qt framework for the KDE project. Other programmers quickly started developing KDE/Qt applications, and by early 1997, a few applications were being released. On 12 July 1998 the first version of the desktop environment, called KDE 1.0, was released. The original GPL licensed version of this toolkit only existed for platforms which used the X11 display server, but with the release of Qt 4, LGPL licensed versions are available for more platforms. This allowed KDE software based on Qt 4 or newer versions to theoretically be distributed to Microsoft Windows and OS X.
-
-The KDE Marketing Team announced a rebranding of the KDE project components on 24 November 2009. Motivated by the perceived shift in objectives, the rebranding focused on emphasizing both the community of software creators and the various tools supplied by the KDE, rather than just the desktop environment.
-
-What was previously known as KDE 4 was split into KDE Plasma Workspaces, KDE Applications, and KDE Platform (now KDE Frameworks) bundled as KDE Software Compilation 4. Since 2009, the name KDE no longer stands for K Desktop Environment, but for the community that produces the software.
-
-### ref
-
-- https://en.wikipedia.org/wiki/KDE
-- https://kde.org/
-- https://kdeconnect.kde.org/
-- https://neon.kde.org/
-- https://kde.org/plasma-desktop/
-
-## xfce
-
-### ref
-- https://www.vpsserver.com/gnome-vs-xfce-vs-kde/#:~:text=KDE%2C%20GNOME%2C%20and%20Xfce%20are,of%20the%20Unix%20operating%20system.
-
-- https://1gbits.com/blog/best-linux-desktop-environment/#:~:text=The%20most%20well%2Dknown%20Linux,be%20user%2Dfriendly%20and%20adaptable.
-
-- https://www.vpsserver.com/gnome-vs-xfce-vs-kde/#:~:text=Xfce%20is%20faster%20than%20KDE,quicker%20desktop%20environment%20than%20GNOME.
-
-- https://cloudzy.com/blog/linux-mint-cinnamon-vs-mate-vs-xfce/#:~:text=Unlike%20Linux%20Mint%20Cinnamon%20and,but%20has%20its%20own%20libraries.
-
-- https://alternativeto.net/software/gnome/
-
-## Common XDM
-
-* GDM, GNOME implemation
-* KDM, KDE implementation
-* SDDM, KDE Plasma 5 and LXQt. Successor to KDM.
-* LightDM, a lightweight, modular, cross-desktop, fully themeable desktop display manager by Canonical Ltd.
-* TWin, the TDE window manager
-* dtlogin (shipped with CDE)
-* xlogin display manager, a lightweight, secure and login like console display manager for X, written in C.
-
-Note: `Source coming from Wikipedia`
-
-#### ref
-- https://en.wikipedia.org/wiki/X_display_manager#XDMCP
-
-## X11/X Server
-
-The X Window System (X11, or simply X) is a windowing system for bitmap displays, common on Unix-like operating systems.
-
-X originated as part of Project Athena at Massachusetts Institute of Technology (MIT) in 1984. The *X protocol* has been at version 11 (hence "X11") since September 1987. The X.Org Foundation leads the X project, with the current reference implementation, X.Org Server, available as free and open-source software under the MIT License and similar permissive licenses.
-
-![x server](https://kevinli-webbertech.github.io/blog/images/linux/xserver.png)
-
-### ref
-
-- https://www.x.org/releases/X11R7.6/doc/man/man1/Xserver.1.xhtml
-
-
-## Wayland
-
-Wayland is a communication protocol that specifies the communication between a display server and its clients, as well as a C library implementation of that protocol. A display server using the Wayland protocol is called a Wayland compositor, because it additionally performs the task of a compositing window manager.
-
-Wayland is developed by a group of volunteers initially led by Kristian Høgsberg as a free and open-source community-driven project with the aim of replacing the X Window System with a secure and simpler windowing system for Linux and other Unix-like operating systems. The project's source code is published under the terms of the MIT License, a permissive free software licence.
-
-As part of its efforts, the Wayland project also develops a reference implementation of a Wayland compositor called Weston.
-
-### Check the XDM
-
-- Display Environment Variable: `echo $DISPLAY` and `echo $XDG_SESSION_TYPE`
-- Check process: `ps aux | grep [X]` or `ps aux | grep [w]ayland`
-- Using loginctl Command: `$ loginctl show-session $(loginctl | grep $(whoami) | awk '{print $1}') -p Type`
-
-```shell
-xiaofengli@xiaofenglx:~$ wmctrl -m
-Name: GNOME Shell
-Class: N/A
-PID: N/A
-Window manager's "showing the desktop" mode: OFF
-xiaofengli@xiaofenglx:~$ echo $XDG_SESSION_TYPE
-wayland
+```bash
+echo "$XDG_SESSION_TYPE"
 ```
 
-### Troubleshooting UI issues
+The output is usually `x11` or `wayland`. A text console may report `tty`, and the variable can be unset in other contexts.
 
-Try resetting gdm to the default values
+On a system using systemd, find your active display manager:
 
-Disable screen magnifier in GDM:
+```bash
+systemctl status display-manager
+```
 
-`sudo -u gdm gconftool-2 --recursive-unset /desktop`
+This reports the service's status when the distribution provides a `display-manager` service alias. A system started through a console login may have no display manager.
 
-Disable on-screen keyboard in GDM:
+See which session definitions are installed:
 
-`sudo -u gdm gconftool-2 /desktop/gnome/applications/at/screen_magnifier_enabled --type bool --set false`
+```bash
+ls /usr/share/xsessions/
+ls /usr/share/wayland-sessions/
+```
 
+These are common locations for X11 and Wayland session definitions. A directory may be absent if that session type is not installed. greetd can instead start a configured session command directly.
 
-## Switch from Wayland to X11
+## 4. Window Manager and Compositor Compatibility
 
-If you wish to do it permanently, edit /etc/gdm3/custom.conf and uncomment the line:
+Window managers and compositors have different compatibility rules from display managers.
 
-`#WaylandEnable=false`
+| Window Manager / Compositor | Native X11 Session | Native Wayland Session | Notes |
+| --- | --- | --- | --- |
+| **i3** | Yes | No | An X11 tiling window manager. |
+| **Sway** | No | Yes | A Wayland compositor with an i3-style workflow. |
+| **Openbox** | Yes | No | An X11 window manager. |
+| **KWin** (KDE) | Version and package dependent | Yes | X11 support is provided by the separate `kwin_x11` project in releases that still support it; current KWin development targets Wayland. |
+| **Xfwm4** (Xfce 4.20) | Yes | No | Xfce's X11 window manager. Xfce 4.20 uses a separate compositor for experimental Wayland sessions. |
+| **Mutter** (GNOME) | Older releases only | Yes | Older versions supported native X11 sessions. Current Mutter is a Wayland compositor and can run X11 applications through Xwayland. |
+| **Hyprland** | No | Yes | A Wayland compositor; X11 applications can use Xwayland. |
 
-#### ref
+Traditional X11 window managers generally cannot run as native Wayland compositors. A Wayland desktop requires a compositor that implements the Wayland protocol.
 
-https://askubuntu.com/questions/6217/disabling-assistive-technologies-during-login
+GNOME 49 disabled its dedicated X11 session by default. Do not assume that an X11 session is available on newer systems simply because an older compatibility table lists it. See the [GNOME 49 developer release notes](https://release.gnome.org/49/developers/) and the [current Mutter documentation](https://mutter.gnome.org/).
+
+For KDE, the [KWin project split announcement](https://mail.kde.org/pipermail/distributions/2025-March/001567.html) explains the separate X11 and Wayland implementations. Session availability depends on your Plasma release and distribution packages.
+
+## 5. Choosing a Display Manager
+
+For GNOME, use GDM for its desktop integration. For KDE Plasma, SDDM is a common choice. For standalone Wayland environments such as Sway or Hyprland, consider greetd with a suitable greeter and session command.
+
+When troubleshooting, first identify whether the problem affects the **login screen**, the **desktop session**, or an **individual application**. Then check the display manager, window manager or compositor, and session protocol separately.
+
+## References
+
+- [SDDM project](https://github.com/sddm/sddm)
+- [SDDM configuration manual](https://github.com/sddm/sddm/blob/develop/data/man/sddm.conf.rst.in)
+- [greetd project](https://github.com/kennylevinsen/greetd)
+- [GNOME 49 developer release notes](https://release.gnome.org/49/developers/)
+- [Mutter documentation](https://mutter.gnome.org/)
+- [KWin X11 and Wayland split announcement](https://mail.kde.org/pipermail/distributions/2025-March/001567.html)

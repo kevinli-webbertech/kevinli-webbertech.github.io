@@ -1,4 +1,4 @@
-# Lab 2 Deploy an app and use Load Balancer
+# Lab 2 Deploy an App and Use Load Balancer
 
 ## Step 1: Create a Deployment
 
