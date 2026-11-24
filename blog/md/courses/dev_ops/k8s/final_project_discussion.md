@@ -27,7 +27,62 @@ curl http://localhost:8080/actuator/health
 # Expected: {"status":"UP"}
 ```
 
-If both calls return the expected output, the JAR is running correctly and you can move on to containerizing and deploying it.
+If both calls return the expected output, the JAR is running correctly. This branch also adds a JDBC-backed `messages` API (`Message`, `MessageRepository`, `MessageController`) backed by H2 locally and MySQL in Kubernetes, so verify that the database code is actually working before moving on:
+
+1. **Run the automated test.** `MessageControllerTest` drives a full create/read/update/delete cycle through `MockMvc` against the real `JdbcTemplate`/`MessageRepository` (nothing is mocked), clearing the `messages` table before each run:
+
+   ```bash
+   ./mvnw test
+   ```
+
+2. **Exercise the API locally (H2).** With the JAR from above still running:
+
+   ```bash
+   curl -X POST http://localhost:8080/api/messages \
+     -H 'Content-Type: application/json' -d '{"content":"hello db"}'
+   # 201 {"id":1,"content":"hello db","createdAt":"..."}
+
+   curl http://localhost:8080/api/messages
+   # 200 [{"id":1,"content":"hello db",...}]
+
+   curl -X PUT http://localhost:8080/api/messages/1 \
+     -H 'Content-Type: application/json' -d '{"content":"updated"}'
+   # 200 {"id":1,"content":"updated",...}
+
+   curl -i -X DELETE http://localhost:8080/api/messages/1
+   # 204, then GET /api/messages/1 should 404
+   ```
+
+   A generated `id`/`createdAt` on POST, and the row reappearing on the following GET, confirms writes are really hitting the database rather than being held in memory by the controller.
+
+3. **Exercise the API locally against real MySQL.** This is the closest local check to the `kubernetes` profile:
+
+   ```bash
+   mysql -u root -p -e "CREATE DATABASE spring_boot_db; CREATE USER 'springapp'@'%' IDENTIFIED BY 'replace-me'; GRANT ALL ON spring_boot_db.* TO 'springapp'@'%';"
+
+   export SPRING_PROFILES_ACTIVE=kubernetes
+   export SPRING_DATASOURCE_URL='jdbc:mysql://127.0.0.1:3306/spring_boot_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC'
+   export SPRING_DATASOURCE_USERNAME=springapp
+   export SPRING_DATASOURCE_PASSWORD=replace-me
+   java -jar target/spring-boot-complete-0.0.1-SNAPSHOT.jar
+   ```
+
+   Repeat the `curl` calls from step 2, then confirm the row directly in MySQL, bypassing the app entirely:
+
+   ```bash
+   mysql -u springapp -p spring_boot_db -e "SELECT * FROM messages;"
+   ```
+
+4. **Verify inside the cluster.** After deploying `webapp` with `SPRING_PROFILES_ACTIVE=kubernetes` pointing at `mysql-service`:
+
+   ```bash
+   kubectl exec deployment/webapp -- getent hosts mysql-service
+   kubectl port-forward deployment/webapp 8080:8080
+   curl -X POST http://localhost:8080/api/messages -H 'Content-Type: application/json' -d '{"content":"from k8s"}'
+   kubectl exec deployment/mysql -- mysql -u springapp -p"$MYSQL_PASSWORD" spring_boot_db -e "SELECT * FROM messages;"
+   ```
+
+   Seeing the posted row appear via `kubectl exec` into the MySQL Pod proves the full chain (webapp Pod → `mysql-service` → MySQL Pod) is working end to end, and is good evidence to screenshot for the final report.
 
 ## Deployment flow
 
