@@ -2,6 +2,33 @@
 
 This solution deploys Jenkins LTS, Nexus, and MySQL on Minikube, then uses Jenkins to build a Spring Boot JAR, publish artifacts to Nexus, and update a Kubernetes deployment.
 
+## Step 1: Get familiar with the gs-spring-boot project
+
+[`gs-spring-boot`](https://github.com/kevinli-webbertech/gs-spring-boot/tree/jenkin_nexus_k8s_integration) is the reference project used throughout this discussion for the Jenkins → Nexus → Docker → Kubernetes pipeline. Your own Spring Boot webapp (with MySQL connectivity, per the final project tasks) should follow the same build and deploy pattern.
+
+The repository does not currently have a `README.md`; the only root-level text file (`readme.txt`) is a placeholder, so there is no project README to link here yet.
+
+Before wiring up Jenkins, build and run the JAR locally to confirm it works:
+
+```bash
+git clone --branch jenkin_nexus_k8s_integration https://github.com/kevinli-webbertech/gs-spring-boot.git
+cd gs-spring-boot
+./mvnw clean package -DskipTests
+java -jar target/*.jar
+```
+
+With the app running, test it with a couple of API calls in another terminal:
+
+```bash
+curl http://localhost:8080/
+# Expected: Greetings from Spring Boot!
+
+curl http://localhost:8080/actuator/health
+# Expected: {"status":"UP"}
+```
+
+If both calls return the expected output, the JAR is running correctly and you can move on to containerizing and deploying it.
+
 ## Deployment flow
 
 1. Check out source code from GitHub.
